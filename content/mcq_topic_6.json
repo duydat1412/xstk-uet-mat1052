@@ -1,0 +1,402 @@
+[
+  {
+    "id": "TN6_01",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Cơ bản",
+    "question": "Cho $f(x)$ là hàm mật độ xác suất (pdf) của biến ngẫu nhiên liên tục $X$. Khẳng định nào sau đây là ĐÚNG?",
+    "options": [
+      "\\(f(x) \\ge 0\\) với mọi $x$, tích phân toàn phần \\(\\int_{-\\infty}^{+\\infty} f(x) dx = 1\\), và giá trị $f(x)$ hoàn toàn có thể lớn hơn 1",
+      "Giá trị $f(x)$ chính là xác suất tại điểm $x$, do đó luôn thỏa mãn $0 \\le f(x) \\le 1$",
+      "Với biến ngẫu nhiên liên tục, $P(X = c) > 0$ nếu $f(c) > 0$",
+      "Tích phân toàn phần của hàm mật độ có thể bằng bất kỳ hằng số dương nào"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo định nghĩa toán học của hàm mật độ pdf:\n- $f(x) \\ge 0$ và $\\int_{-\\infty}^{+\\infty} f(x) dx = 1$.\n- $f(x)$ là MẬT ĐỘ xác suất (xác suất trên một đơn vị độ dài $P(x \\le X \\le x+dx) \\approx f(x)dx$), không phải là bản thân xác suất, nên giá trị $f(x)$ hoàn toàn CÓ THỂ lớn hơn 1 (ví dụ $X \\sim U(0; 0,5)$ có $f(x) = 1/(0,5 - 0) = 2 > 1$).\n\nPhân tích bẫy sai:\n- Phương án B: Bẫy sai kinh điển: nhầm lẫn mật độ $f(x)$ với xác suất $P(X=x)$.\n- Phương án C: Với mọi biến ngẫu nhiên liên tục, xác suất tại một điểm luôn bằng 0 ($P(X = c) = 0$).\n- Phương án D: Tích phân bắt buộc phải bằng đúng 1.",
+    "source": "Slide Week 07 tr. 42; Stat20 Mục 4.14"
+  },
+  {
+    "id": "TN6_02",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Cơ bản",
+    "question": "Cho $X$ là biến ngẫu nhiên liên tục tuân theo phân phối Chuẩn $X \\sim N(\\mu = 50, \\sigma^2 = 25)$. Xác suất để $X$ nhận chính xác giá trị bằng 50 ($P(X = 50)$) là bao nhiêu?",
+    "options": [
+      "Chính xác bằng 0",
+      "0,50",
+      "\\(\\frac{1}{5\\sqrt{2\\pi}} \\approx 0,0798\\)",
+      "0,68"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì đối với MỌI biến ngẫu nhiên liên tục, diện tích dưới đường cong tại một điểm duy nhất là một đoạn thẳng có độ rộng bằng 0:\n$P(X = c) = \\int_c^c f(x) dx = 0$.\nDo đó, xác suất tại điểm đúng bằng 50 chính xác bằng 0.\n\nPhân tích bẫy sai:\n- Phương án B: 0,50 là xác suất tích lũy $P(X \\le 50)$, không phải tại điểm.\n- Phương án C: $\\approx 0,0798$ là giá trị của HÀM MẬT ĐỘ $f(50) = \\frac{1}{\\sigma\\sqrt{2\\pi}}$, đây là chiều cao đỉnh chuông chứ không phải xác suất.\n- Phương án D: 0,68 là xác suất trong khoảng $\\pm 1\\sigma$.",
+    "source": "Slide Week 07 tr. 43; Stat20 Mục 4.14"
+  },
+  {
+    "id": "TN6_03",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Cơ bản",
+    "question": "Với biến ngẫu nhiên liên tục $X$, phát biểu nào sau đây về các dấu bất đẳng thức là ĐÚNG?",
+    "options": [
+      "\\(P(a \\le X \\le b) = P(a < X \\le b) = P(a \\le X < b) = P(a < X < b) = F(b) - F(a)\\)",
+      "\\(P(a \\le X \\le b) > P(a < X < b)\\) vì có thêm hai đầu mút",
+      "\\(P(a \\le X \\le b) = F(b) - F(a) + P(X = a) + P(X = b)\\)",
+      "Dấu bằng chỉ có thể bỏ qua khi biến ngẫu nhiên là rời rạc"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì do $P(X = a) = 0$ và $P(X = b) = 0$, việc lấy thêm hay bỏ đi hai điểm đầu mút không làm thay đổi tích phân (diện tích miền hình phẳng) của hàm mật độ.\n\nPhân tích bẫy sai:\n- Phương án B, C: Bẫy từ tư duy biến rời rạc, đối với biến rời rạc thì việc có dấu bằng làm tăng xác suất, nhưng biến liên tục thì không.\n- Phương án D: Ngược lại hoàn toàn, với biến rời rạc thì bắt buộc phải phân biệt chặt chẽ có dấu bằng hay không.",
+    "source": "Slide Week 07 tr. 43; Stat20 Mục 4.14"
+  },
+  {
+    "id": "TN6_04",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Trung bình",
+    "question": "Cho hàm số $f(x) = k \\cdot x$ khi $0 \\le x \\le 2$ và $f(x) = 0$ với các giá trị khác. Giá trị của hằng số $k$ bằng bao nhiêu để $f(x)$ là một hàm mật độ xác suất hợp lệ?",
+    "options": [
+      "0,5",
+      "1,0",
+      "0,25",
+      "2,0"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo điều kiện chuẩn hóa của hàm mật độ xác suất:\n$\\int_{-\\infty}^{+\\infty} f(x) dx = 1 \\iff \\int_0^2 k \\cdot x \\, dx = 1 \\iff k \\left[ \\frac{x^2}{2} \\right]_0^2 = 1 \\iff k \\cdot \\frac{4}{2} = 1 \\iff 2k = 1 \\iff k = 0,5$.\n\nPhân tích bẫy sai:\n- Phương án B: Nhầm tổng diện tích bằng 1 thì $k=1$.\n- Phương án C: Sai do tính $k \\cdot 4 = 1 \\implies k = 0,25$ (quên chia 2 khi lấy nguyên hàm).\n- Phương án D: Sai số học.",
+    "source": "Slide Week 07 tr. 44"
+  },
+  {
+    "id": "TN6_05",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Trung bình",
+    "question": "Với hàm mật độ $f(x) = 0,5x$ trên đoạn $[0; 2]$ ở câu trên, kỳ vọng toán $E(X)$ bằng bao nhiêu?",
+    "options": [
+      "4/3 (khoảng 1,333)",
+      "1,0",
+      "2/3 (khoảng 0,667)",
+      "2,0"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo định nghĩa kỳ vọng của biến ngẫu nhiên liên tục:\n$E(X) = \\int_{-\\infty}^{+\\infty} x \\cdot f(x) dx = \\int_0^2 x \\cdot (0,5x) dx = 0,5 \\int_0^2 x^2 dx = 0,5 \\left[ \\frac{x^3}{3} \\right]_0^2 = 0,5 \\cdot \\frac{8}{3} = \\frac{4}{3} \\approx 1,333$.\n(Do mật độ dồn về phía $x=2$ nhiều hơn nên trọng tâm kỳ vọng lệch về bên phải $4/3 > 1$).\n\nPhân tích bẫy sai:\n- Phương án B: 1,0 là trung điểm $(0+2)/2$, chỉ đúng nếu phân phối là phân phối Đều $U(0, 2)$.\n- Phương án C: Sai hệ số nguyên hàm.\n- Phương án D: 2,0 là cận trên.",
+    "source": "Slide Week 07 tr. 45"
+  },
+  {
+    "id": "TN6_06",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Cơ bản",
+    "question": "Biến ngẫu nhiên $X$ tuân theo phân phối Đều trên khoảng $(10; 30)$, ký hiệu $X \\sim U(10, 30)$. Kỳ vọng $E(X)$ và phương sai $\\operatorname{Var}(X)$ lần lượt là:",
+    "options": [
+      "\\(E(X) = 20\\) và \\(\\operatorname{Var}(X) = 100/3 \\approx 33,33\\)",
+      "\\(E(X) = 20\\) và \\(\\operatorname{Var}(X) = 400\\)",
+      "\\(E(X) = 20\\) và \\(\\operatorname{Var}(X) = 20\\)",
+      "\\(E(X) = 15\\) và \\(\\operatorname{Var}(X) = 33,33\\)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì đối với phân phối Đều liên tục $U(a, b)$:\n- Kỳ vọng: $E(X) = \\frac{a + b}{2} = \\frac{10 + 30}{2} = 20$.\n- Phương sai: $\\operatorname{Var}(X) = \\frac{(b - a)^2}{12} = \\frac{(30 - 10)^2}{12} = \\frac{20^2}{12} = \\frac{400}{12} = \\frac{100}{3} \\approx 33,33$.\n\nPhân tích bẫy sai:\n- Phương án B: $400 = (b-a)^2$ (quên chia cho 12).\n- Phương án C: Nhầm phương sai bằng kỳ vọng.\n- Phương án D: Sai kỳ vọng.",
+    "source": "Slide Week 07 tr. 50; Stat20 Mục 4.14"
+  },
+  {
+    "id": "TN6_07",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Cơ bản",
+    "question": "Cũng biến ngẫu nhiên $X \\sim U(10, 30)$ ở trên. Xác suất để $X$ nhận giá trị trong khoảng từ 15 đến 25 ($P(15 \\le X \\le 25)$) bằng bao nhiêu?",
+    "options": [
+      "0,50 (tức 50%)",
+      "0,25 (tức 25%)",
+      "0,33 (tức 33,3%)",
+      "0,10 (tức 10%)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì đối với phân phối Đều trên $[a, b]$, xác suất trên khoảng con $[c, d]$ đơn giản là tỷ số độ dài khoảng con trên độ dài toàn khoảng:\n$P(c \\le X \\le d) = \\frac{d - c}{b - a} = \\frac{25 - 15}{30 - 10} = \\frac{10}{20} = 0,50$ (50%).\n\nPhân tích bẫy sai:\n- Phương án B, C, D: Sai phép tính tỷ lệ độ dài.",
+    "source": "Slide Week 07 tr. 50; Stat20 Mục 4.14"
+  },
+  {
+    "id": "TN6_08",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Cơ bản",
+    "question": "Cho biến ngẫu nhiên $X \\sim N(\\mu = 100, \\sigma^2 = 225)$. Giá trị chuẩn hóa (Z-score) tương ứng với giá trị quan sát $x = 130$ bằng bao nhiêu?",
+    "options": [
+      "+2,0",
+      "+0,133",
+      "+30",
+      "+1,5"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Phương sai $\\sigma^2 = 225 \\implies$ độ lệch chuẩn $\\sigma = \\sqrt{225} = 15$.\n- Công thức chuẩn hóa Z-score:\n$Z = \\frac{X - \\mu}{\\sigma} = \\frac{130 - 100}{15} = \\frac{30}{15} = +2,0$.\nÝ nghĩa: Giá trị 130 nằm cao hơn giá trị trung bình đúng 2 độ lệch chuẩn.\n\nPhân tích bẫy sai:\n- Phương án B: Sai do chia cho phương sai $\\sigma^2 = 225$ thay vì $\\sigma = 15$ ($30 / 225 \\approx 0,133$).\n- Phương án C: 30 là độ lệch tuyệt đối $x - \\mu$, chưa chuẩn hóa chia cho $\\sigma$.\n- Phương án D: Sai số học.",
+    "source": "Slide Week 07 tr. 52; Stat20 Mục 4.15"
+  },
+  {
+    "id": "TN6_09",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Cơ bản",
+    "question": "Theo quy tắc thực nghiệm 68–95–99,7 của phân phối Chuẩn, tỷ lệ phần trăm dữ liệu nằm trong khoảng $(\\mu - \\sigma; \\mu + \\sigma)$ và trong khoảng $(\\mu - 2\\sigma; \\mu + 2\\sigma)$ xấp xỉ lần lượt là:",
+    "options": [
+      "Khoảng 68,3% và 95,5%",
+      "Khoảng 50% và 90%",
+      "Khoảng 75% và 88,9%",
+      "Khoảng 68,3% và 99,7%"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo quy tắc hình chuông chuẩn 68–95–99,7:\n- Khoảng $\\pm 1\\sigma$ chứa khoảng $68,27\\% \\approx 68,3\\%$.\n- Khoảng $\\pm 2\\sigma$ chứa khoảng $95,45\\% \\approx 95,5\\%$.\n- Khoảng $\\pm 3\\sigma$ chứa khoảng $99,73\\% \\approx 99,7\\%$.\n\nPhân tích bẫy sai:\n- Phương án B: Sai số liệu.\n- Phương án C: 75% và 88,9% là các cận tối thiểu của Bất đẳng thức Chebyshev ($1 - 1/k^2$), không phải của phân phối Chuẩn.\n- Phương án D: 99,7% là của khoảng $\\pm 3\\sigma$.",
+    "source": "Slide Week 07 tr. 54; Stat20 Mục 4.15"
+  },
+  {
+    "id": "TN6_10",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Cơ bản",
+    "question": "Cho biến ngẫu nhiên chuẩn tắc $Z \\sim N(0, 1)$, biết $\\Phi(1,96) = 0,9750$. Xác suất $P(Z > 1,96)$ bằng bao nhiêu?",
+    "options": [
+      "0,0250 (tức 2,5%)",
+      "0,9750 (tức 97,5%)",
+      "-0,9750",
+      "0,0500 (tức 5%)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo quy tắc biến cố đối:\n$P(Z > 1,96) = 1 - P(Z \\le 1,96) = 1 - \\Phi(1,96) = 1 - 0,9750 = 0,0250$ (2,5%).\n\nPhân tích bẫy sai:\n- Phương án B: 0,9750 là diện tích phía bên trái $P(Z \\le 1,96)$, câu hỏi hỏi phần đuôi bên phải ($Z > 1,96$).\n- Phương án C: Xác suất không bao giờ mang giá trị âm.\n- Phương án D: 0,0500 là tổng diện tích hai đuôi $P(|Z| > 1,96) = 2 \\times 0,0250 = 0,05$.",
+    "source": "Slide Week 07 tr. 55; Stat20 Mục 4.15"
+  },
+  {
+    "id": "TN6_11",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Cơ bản",
+    "question": "Biết giá trị hàm phân phối tích lũy chuẩn tắc tại 1,5 là $\\Phi(1,5) = 0,9332$. Giá trị của $\\Phi(-1,5) = P(Z \\le -1,5)$ bằng bao nhiêu?",
+    "options": [
+      "0,0668",
+      "-0,9332",
+      "0,9332",
+      "0,5000"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì đường cong mật độ chuẩn tắc đối xứng hoàn hảo qua trục tung ($z = 0$), do đó:\n$\\Phi(-z) = 1 - \\Phi(z)$.\nỞ đây: $\\Phi(-1,5) = 1 - \\Phi(1,5) = 1 - 0,9332 = 0,0668$.\n\nPhân tích bẫy sai:\n- Phương án B: Sai do đưa dấu âm ra ngoài $\\Phi(-z) = -\\Phi(z)$ (xác suất không âm!).\n- Phương án C: Sai do bỏ qua dấu âm của $z$.\n- Phương án D: 0,5000 là $\\Phi(0)$.",
+    "source": "Slide Week 07 tr. 55; Stat20 Mục 4.15"
+  },
+  {
+    "id": "TN6_12",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Trung bình",
+    "question": "Điểm thi môn Xác suất thống kê của một trường đại học tuân theo phân phối Chuẩn với trung bình $\\mu = 70$ điểm và độ lệch chuẩn $\\sigma = 10$ điểm. Nhà trường muốn trao học bổng cho 5% sinh viên có điểm cao nhất (Top 5%). Biết rằng giá trị $z$ thỏa mãn $\\Phi(z) = 0,95$ là $z \\approx 1,645$. Điểm chuẩn tối thiểu để nhận học bổng xấp xỉ bằng bao nhiêu?",
+    "options": [
+      "86,45 điểm",
+      "89,60 điểm",
+      "71,65 điểm",
+      "85,00 điểm"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Sinh viên thuộc Top 5% điểm cao nhất đồng nghĩa với việc điểm số vượt qua 95% số sinh viên còn lại ($P(X \\le x_0) = 0,95$).\n- Điểm chuẩn hóa tương ứng là $z_{0,95} \\approx 1,645$.\n- Quy đổi ngược về thang điểm thực tế:\n$x_0 = \\mu + z \\cdot \\sigma = 70 + 1,645 \\cdot 10 = 70 + 16,45 = 86,45$ điểm.\n\nPhân tích bẫy sai:\n- Phương án B: $89,60$ điểm ứng với $z = 1,96$ (Top 2,5%).\n- Phương án C: Nhầm $z = 0,165$ hoặc cộng $70 + 1,645 = 71,645$ (quên nhân $\\sigma = 10$).\n- Phương án D: Làm tròn ước lượng.",
+    "source": "Slide Week 07 tr. 56-57; Stat20 Mục 4.15"
+  },
+  {
+    "id": "TN6_13",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Cơ bản",
+    "question": "Thời gian hoạt động đến khi hỏng của một linh kiện điện tử tuân theo phân phối Mũ $Exp(\\lambda)$. Biết rằng linh kiện đã hoạt động bình thường suốt 100 giờ mà chưa hỏng. Xác suất để linh kiện này hoạt động thêm ít nhất 50 giờ nữa ($P(X > 150 \\mid X > 100)$) bằng bao nhiêu?",
+    "options": [
+      "Bằng đúng \\(P(X > 50) = e^{-50\\lambda}\\) (Tính chất không nhớ - Memoryless)",
+      "Bằng $P(X > 150) = e^{-150\\lambda}$",
+      "Bằng $P(X > 50) / P(X > 100)$",
+      "Nhỏ hơn nhiều so với $P(X > 50)$ vì linh kiện đã bị hao mòn sau 100 giờ"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì phân phối Mũ là phân phối LIÊN TỤC DUY NHẤT sở hữu 'Tính chất không nhớ' (Memoryless Property):\n$P(X > s + t \\mid X > s) = P(X > t)$.\nỞ đây $s = 100$ và $t = 50$, do đó $P(X > 150 \\mid X > 100) = P(X > 50) = e^{-50\\lambda}$. Quá khứ đã sống 100 giờ không làm thay đổi tuổi thọ còn lại (coi như linh kiện 'không bị lão hóa' do chỉ hỏng bởi các xung điện ngẫu nhiên bên ngoài).\n\nPhân tích bẫy sai:\n- Phương án B: Nhầm lẫn bỏ qua điều kiện $X > 100$.\n- Phương án C: Chưa rút gọn biểu thức có điều kiện.\n- Phương án D: Bẫy trực giác đời thường về sự hao mòn cơ học (đối với hao mòn, người ta dùng phân phối Weibull, không phải phân phối Mũ).",
+    "source": "Slide Week 07 tr. 63"
+  },
+  {
+    "id": "TN6_14",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Cơ bản",
+    "question": "Biến ngẫu nhiên $X$ có phân phối Mũ với tham số $\\lambda = 0,05$. Kỳ vọng $E(X)$ và độ lệch chuẩn $\\sigma(X)$ của $X$ lần lượt là:",
+    "options": [
+      "\\(E(X) = 20\\) và \\(\\sigma(X) = 20\\)",
+      "\\(E(X) = 0,05\\) và \\(\\sigma(X) = 0,05\\)",
+      "\\(E(X) = 20\\) và \\(\\sigma(X) = 400\\)",
+      "\\(E(X) = 20\\) và \\(\\sigma(X) = \\sqrt{20}\\)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì đối với phân phối Mũ $Exp(\\lambda)$:\n- Kỳ vọng: $E(X) = \\frac{1}{\\lambda} = \\frac{1}{0,05} = 20$.\n- Phương sai: $\\operatorname{Var}(X) = \\frac{1}{\\lambda^2} = \\frac{1}{0,0025} = 400$.\n- Độ lệch chuẩn: $\\sigma(X) = \\sqrt{\\operatorname{Var}(X)} = \\frac{1}{\\lambda} = 20$.\nĐặc trưng quan trọng: Phân phối Mũ luôn có Kỳ vọng và Độ lệch chuẩn BẰNG NHAU ($E(X) = \\sigma(X) = 1/\\lambda$).\n\nPhân tích bẫy sai:\n- Phương án B: Nhầm kỳ vọng chính là tham số $\\lambda$.\n- Phương án C: 400 là phương sai $\\operatorname{Var}(X)$, chưa khai căn để ra độ lệch chuẩn.\n- Phương án D: Sai số học.",
+    "source": "Slide Week 07 tr. 63"
+  },
+  {
+    "id": "TN6_15",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Trung bình",
+    "question": "Thời gian chờ xe buýt (phút) tuân theo phân phối Mũ với tham số $\\lambda = 0,2$ ($X \\sim Exp(0,2)$). Xác suất một hành khách phải chờ KHÔNG QUÁ 5 PHÚT ($P(X \\le 5)$) bằng bao nhiêu?",
+    "options": [
+      "\\(1 - e^{-1} \\approx 0,6321\\)",
+      "\\(e^{-1} \\approx 0,3679\\)",
+      "\\(1 - e^{-0,2} \\approx 0,1813\\)",
+      "0,5000"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì hàm phân phối tích lũy của $X \\sim Exp(\\lambda)$ là $F(x) = 1 - e^{-\\lambda x}$ với $x \\ge 0$.\nỞ đây $\\lambda = 0,2$ và $x = 5$, ta có:\n$P(X \\le 5) = 1 - e^{-0,2 \\cdot 5} = 1 - e^{-1} \\approx 1 - 0,367879 = 0,6321$ (tức 63,21%).\n\nPhân tích bẫy sai:\n- Phương án B: $e^{-1} \\approx 0,3679$ là xác suất phải chờ HƠN 5 PHÚT ($P(X > 5) = e^{-\\lambda x}$).\n- Phương án C: Sai do quên nhân $x=5$ vào số mũ.\n- Phương án D: Đoán mò.",
+    "source": "Slide Week 07 tr. 63"
+  },
+  {
+    "id": "TN6_16",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Trung bình",
+    "question": "Phân phối Khi-bình phương với $k$ bậc tự do (ký hiệu $\\chi^2(k)$) được định nghĩa là phân phối của tổng nào sau đây?",
+    "options": [
+      "Tổng bình phương của $k$ biến ngẫu nhiên chuẩn tắc độc lập: \\(V = Z_1^2 + Z_2^2 + \\dots + Z_k^2\\) với $Z_i \\sim N(0, 1)$",
+      "Tổng của $k$ biến ngẫu nhiên chuẩn tắc độc lập: $Z_1 + Z_2 + \\dots + Z_k$",
+      "Tổng bình phương của $k$ biến ngẫu nhiên phân phối Đều trên $[0, 1]$",
+      "Hiệu của hai biến ngẫu nhiên chuẩn tắc"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo định nghĩa toán học (Slide Week 07 tr. 64): Phân phối Khi-bình phương với $k$ bậc tự do là phân phối của tổng bình phương $k$ biến ngẫu nhiên chuẩn tắc độc lập $Z_i \\sim N(0, 1)$.\nDo là tổng của các bình phương nên biến $\\chi^2$ chỉ nhận giá trị không âm ($V \\ge 0$) và có phân phối lệch phải. Kỳ vọng $E(V) = k$ và phương sai $\\operatorname{Var}(V) = 2k$.\n\nPhân tích bẫy sai:\n- Phương án B: Tổng của $k$ biến chuẩn tắc $Z_1 + \\dots + Z_k$ có phân phối Chuẩn $N(0, k)$, không phải Khi-bình phương.\n- Phương án C, D: Sai định nghĩa.",
+    "source": "Slide Week 07 tr. 64"
+  },
+  {
+    "id": "TN6_17",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Cơ bản",
+    "question": "Cho biến ngẫu nhiên $V$ tuân theo phân phối Khi-bình phương với 10 bậc tự do ($V \\sim \\chi^2(10)$). Kỳ vọng $E(V)$ và phương sai $\\operatorname{Var}(V)$ lần lượt là:",
+    "options": [
+      "\\(E(V) = 10\\) và \\(\\operatorname{Var}(V) = 20\\)",
+      "\\(E(V) = 10\\) và \\(\\operatorname{Var}(V) = 10\\)",
+      "\\(E(V) = 10\\) và \\(\\operatorname{Var}(V) = 100\\)",
+      "\\(E(V) = 20\\) và \\(\\operatorname{Var}(V) = 40\\)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì với phân phối Khi-bình phương $k$ bậc tự do:\n- Kỳ vọng: $E(V) = k = 10$.\n- Phương sai: $\\operatorname{Var}(V) = 2k = 2 \\times 10 = 20$.\n\nPhân tích bẫy sai:\n- Phương án B: Nhầm sang tính chất Poisson (Var = E).\n- Phương án C: $10^2 = 100$.\n- Phương án D: Nhầm $E = 2k$.",
+    "source": "Slide Week 07 tr. 65"
+  },
+  {
+    "id": "TN6_18",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Trung bình",
+    "question": "Phát biểu nào sau đây so sánh ĐÚNG giữa Phân phối $t$-Student với $k$ bậc tự do và Phân phối Chuẩn tắc $N(0, 1)$?",
+    "options": [
+      "Cả hai đều có đồ thị đối xứng hình chuông qua tâm 0, nhưng phân phối $t$ có đỉnh thấp hơn và phần đuôi dày hơn (heavy tails); khi $k \\to \\infty$, phân phối $t(k)$ hội tụ về $N(0, 1)$",
+      "Phân phối $t$ chỉ nhận giá trị dương và bị lệch phải",
+      "Phân phối $t$ có phương sai luôn nhỏ hơn 1",
+      "Phân phối $t$ và phân phối Chuẩn hoàn toàn trùng khớp nhau với mọi bậc tự do $k$"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo tính chất của phân phối $t$-Student (Slide Week 07 tr. 66-67):\n- $t(k)$ đối xứng qua 0 giống $N(0, 1)$, nhưng do mẫu số chứa độ lệch chuẩn mẫu ngẫu nhiên (chứa thêm độ bất định) nên phân phối $t$ tản rộng hơn, đỉnh thấp hơn, hai đuôi dày hơn (xác suất xảy ra các giá trị cực đoan cao hơn).\n- Phương sai của $t(k)$ là $\\frac{k}{k-2} > 1$ (với $k > 2$).\n- Khi bậc tự do $k \\to \\infty$, độ lệch chuẩn mẫu hội tụ về $\\sigma$ và phân phối $t(k)$ hội tụ hoàn toàn về Chuẩn tắc $N(0, 1)$.\n\nPhân tích bẫy sai:\n- Phương án B: Nhầm sang phân phối Khi-bình phương $\\chi^2$.\n- Phương án C: Phương sai của $t$ luôn LỚN HƠN 1 ($k/(k-2) > 1$).\n- Phương án D: Chúng chỉ trùng nhau ở giới hạn $k = \\infty$.",
+    "source": "Slide Week 07 tr. 66-67"
+  },
+  {
+    "id": "TN6_19",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Trung bình",
+    "question": "Tuổi thọ của một loại bóng đèn led tuân theo phân phối Chuẩn với trung bình 1.200 giờ và độ lệch chuẩn 100 giờ. Nhà sản xuất đưa ra chính sách đổi mới miễn phí cho bóng đèn nào bị cháy trước 1.000 giờ. Biết $\\Phi(2,0) = 0,9772$. Tỷ lệ bóng đèn nhà sản xuất phải đổi mới xấp xỉ bằng bao nhiêu?",
+    "options": [
+      "2,28%",
+      "97,72%",
+      "5,00%",
+      "0,27%"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Chuẩn hóa Z-score tại mốc 1.000 giờ:\n$Z = \\frac{1.000 - 1.200}{100} = \\frac{-200}{100} = -2,0$.\n- Xác suất bóng đèn hỏng trước 1.000 giờ:\n$P(T < 1.000) = P(Z < -2,0) = \\Phi(-2,0) = 1 - \\Phi(2,0) = 1 - 0,9772 = 0,0228$ (tức 2,28%).\n\nPhân tích bẫy sai:\n- Phương án B: 97,72% là tỷ lệ bóng đèn KHÔNG bị hỏng và hoạt động tốt trên 1.000 giờ.\n- Phương án C: 5% là diện tích hai đuôi tại $z = \\pm 1,96$.\n- Phương án D: 0,27% là tỷ lệ tại $z = -3,0$.",
+    "source": "Slide Week 07 tr. 55-56; Stat20 Mục 4.15"
+  },
+  {
+    "id": "TN6_20",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Trung bình",
+    "question": "Cho biến ngẫu nhiên $X$ có hàm mật độ $f(x) = 2x$ với $0 \\le x \\le 1$ (và $f(x) = 0$ ở các miền khác). Kỳ vọng của bình phương $E(X^2)$ bằng bao nhiêu?",
+    "options": [
+      "0,50",
+      "0,67",
+      "0,25",
+      "1,00"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo quy tắc thống kê vô thức LOTUS cho biến ngẫu nhiên liên tục:\n$E(g(X)) = \\int_{-\\infty}^{+\\infty} g(x) f(x) dx$.\nÁp dụng cho $g(x) = x^2$:\n$E(X^2) = \\int_0^1 x^2 \\cdot (2x) dx = 2 \\int_0^1 x^3 dx = 2 \\left[ \\frac{x^4}{4} \\right]_0^1 = 2 \\cdot \\frac{1}{4} = 0,50$.\n\nPhân tích bẫy sai:\n- Phương án B: $2/3 \\approx 0,67$ là kỳ vọng $E(X) = \\int_0^1 x(2x)dx = 2/3$.\n- Phương án C: Sai số học khi tính nguyên hàm.\n- Phương án D: Sai tích phân.",
+    "source": "Slide Week 07 tr. 45"
+  },
+  {
+    "id": "TN6_21",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Nâng cao",
+    "question": "Với biến ngẫu nhiên $X$ có hàm mật độ $f(x) = 2x$ trên $[0; 1]$ ở trên, Trung vị (Median $m$) của $X$ bằng bao nhiêu?",
+    "options": [
+      "\\(1/\\sqrt{2} \\approx 0,7071\\)",
+      "0,5000",
+      "2/3 (khoảng 0,6667)",
+      "0,2500"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì Trung vị $m$ của biến liên tục là điểm chia đôi diện tích dưới hàm mật độ thành hai nửa bằng nhau (tức $F(m) = 0,50$):\n- Hàm cdf: $F(x) = \\int_0^x 2t dt = x^2$ với $x \\in [0, 1]$.\n- Giải phương trình: $F(m) = m^2 = 0,5 \\implies m = \\sqrt{0,5} = \\frac{1}{\\sqrt{2}} \\approx 0,7071$.\n(Do phân phối dồn nhiều diện tích về phía bên phải nên trung vị $0,7071$ lớn hơn $0,5$).\n\nPhân tích bẫy sai:\n- Phương án B: 0,5 là trung điểm hình học $[0, 1]$ (chỉ đúng khi hàm mật độ đều hoặc đối xứng).\n- Phương án C: $2/3 \\approx 0,6667$ là giá trị Trung bình (Mean $E(X)$), không phải Trung vị.\n- Phương án D: Sai số học.",
+    "source": "Slide Week 07 tr. 44; Stat20 Mục 4.14"
+  },
+  {
+    "id": "TN6_22",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Trung bình",
+    "question": "Mối quan hệ bản chất giữa Phân phối Poisson và Phân phối Mũ trong một quá trình biến cố Poisson tốc độ $\\lambda$ là gì?",
+    "options": [
+      "Phân phối Poisson mô hình hóa SỐ LƯỢNG biến cố xảy ra trong một khoảng thời gian cố định, còn Phân phối Mũ mô hình hóa KHOẢNG THỜI GIAN CHỜ giữa hai biến cố liên tiếp",
+      "Phân phối Poisson là biến liên tục còn phân phối Mũ là biến rời rạc",
+      "Cả hai phân phối đều có cùng kỳ vọng bằng $\\lambda$",
+      "Phân phối Mũ là giới hạn của phân phối Poisson khi $\\lambda \\to \\infty$"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì đây là cầu nối cốt lõi giữa hai phân phối quan trọng nhất của quá trình Poisson (Slide Week 07 tr. 63 và Stat20 Ch.4):\n- Đếm số sự kiện trong 1 đơn vị thời gian $\\implies N \\sim Po(\\lambda)$ (biến rời rạc).\n- Đo thời gian từ lúc này đến khi có sự kiện đầu tiên tiếp theo $\\implies T \\sim Exp(\\lambda)$ (biến liên tục).\nChứng minh: $P(T > t) = P(\\text{không có sự kiện nào trong khoảng } [0, t]) = e^{-\\lambda t} \\implies F(t) = 1 - e^{-\\lambda t}$, chính là cdf của phân phối Mũ.\n\nPhân tích bẫy sai:\n- Phương án B: Ngược lại (Poisson là rời rạc, Mũ là liên tục).\n- Phương án C: Kỳ vọng của Poisson là $\\lambda$, còn của Mũ là $1/\\lambda$.\n- Phương án D: Sai hoàn toàn.",
+    "source": "Slide Week 07 tr. 63"
+  },
+  {
+    "id": "TN6_23",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Cơ bản",
+    "question": "Khi tăng độ lệch chuẩn $\\sigma$ của biến ngẫu nhiên phân phối Chuẩn $X \\sim N(\\mu, \\sigma^2)$ trong khi giữ nguyên giá trị trung bình $\\mu$, đồ thị hình chuông của hàm mật độ sẽ thay đổi như thế nào?",
+    "options": [
+      "Đồ thị bị bè rộng sang hai bên và đỉnh chuông bị hạ thấp xuống (do tổng diện tích bên dưới luôn phải bằng 1)",
+      "Đồ thị co hẹp lại và đỉnh chuông nhô cao hơn",
+      "Đồ thị tịnh tiến sang phía bên phải",
+      "Hình dạng và chiều cao đỉnh đồ thị không thay đổi"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì chiều cao đỉnh chuông tại $x = \\mu$ bằng $\\frac{1}{\\sigma\\sqrt{2\\pi}}$. Khi $\\sigma$ tăng lên, mẫu số tăng nên chiều cao đỉnh giảm xuống; đồng thời để diện tích tích phân toàn phần luôn bảo toàn bằng đúng 1, hai sườn chuông bắt buộc phải trải rộng tản ra hai bên.\n\nPhân tích bẫy sai:\n- Phương án B: Đây là hiện tượng khi $\\sigma$ giảm đi (dữ liệu tập trung sát tâm hơn).\n- Phương án C: Đồ thị chỉ tịnh tiến sang phải khi $\\mu$ tăng lên.\n- Phương án D: Sai tính chất hình học của phân phối chuẩn.",
+    "source": "Slide Week 07 tr. 52; Stat20 Mục 4.15"
+  },
+  {
+    "id": "TN6_24",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Trung bình",
+    "question": "Cho $X \\sim N(\\mu, \\sigma^2)$. Biết $\\Phi(1,5) = 0,9332$. Xác suất để $X$ nhận giá trị nằm trong khoảng $(\\mu - 1,5\\sigma; \\mu + 1,5\\sigma)$ bằng bao nhiêu?",
+    "options": [
+      "0,8664 (tức 86,64%)",
+      "0,9332 (tức 93,32%)",
+      "0,4332 (tức 43,32%)",
+      "0,0668 (tức 6,68%)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì khi chuẩn hóa khoảng đối xứng:\n$P(\\mu - 1,5\\sigma < X < \\mu + 1,5\\sigma) = P(-1,5 < Z < 1,5) = \\Phi(1,5) - \\Phi(-1,5)$.\nDo $\\Phi(-1,5) = 1 - \\Phi(1,5)$ nên:\n$P = \\Phi(1,5) - (1 - \\Phi(1,5)) = 2\\Phi(1,5) - 1 = 2 \\cdot 0,9332 - 1 = 1,8664 - 1 = 0,8664$ (86,64%).\n\nPhân tích bẫy sai:\n- Phương án B: 0,9332 là diện tích từ $-\\infty$ đến $1,5$ (quên trừ phần đuôi bên trái $\\Phi(-1,5)$).\n- Phương án C: $0,4332 = \\Phi(1,5) - 0,5$ chỉ là diện tích nửa khoảng từ 0 đến 1,5 (quên nhân 2).\n- Phương án D: 0,0668 là diện tích đuôi bên trái $\\Phi(-1,5)$.",
+    "source": "Slide Week 07 tr. 55; Stat20 Mục 4.15"
+  },
+  {
+    "id": "TN6_25",
+    "topicId": 6,
+    "topicName": "Biến ngẫu nhiên liên tục & Các phân phối liên tục",
+    "level": "Cơ bản",
+    "question": "Cho biến ngẫu nhiên $X \\sim N(\\mu = 20, \\sigma^2 = 16)$. Nếu đặt $Y = 3X - 10$, thì $Y$ tuân theo phân phối nào?",
+    "options": [
+      "Phân phối Chuẩn \\(N(50, 144)\\)",
+      "Phân phối Chuẩn \\(N(50, 48)\\)",
+      "Phân phối Chuẩn \\(N(50, 16)\\)",
+      "Phân phối Đều \\(U(38, 62)\\)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì một tính chất tuyệt đẹp của phân phối Chuẩn: Mọi tổ hợp tuyến tính của biến phân phối Chuẩn vẫn là một biến phân phối Chuẩn:\n- Kỳ vọng mới: $E(Y) = 3 E(X) - 10 = 3 \\cdot 20 - 10 = 50$.\n- Phương sai mới: $\\operatorname{Var}(Y) = 3^2 \\cdot \\operatorname{Var}(X) = 9 \\cdot 16 = 144$ (độ lệch chuẩn $\\sigma_Y = 3 \\cdot 4 = 12$).\nDo đó $Y \\sim N(50, 144)$.\n\nPhân tích bẫy sai:\n- Phương án B: Quên bình phương hệ số 3 khi tính phương sai: $3 \\cdot 16 = 48$.\n- Phương án C: Giữ nguyên phương sai 16.\n- Phương án D: Biến đổi tuyến tính của biến Chuẩn không thể chuyển thành biến Đều.",
+    "source": "Slide Week 07 tr. 53; Stat20 Mục 4.15"
+  }
+]

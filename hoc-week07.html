@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Học XSTK từ đầu – 11 bài</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#eef3f2;--card:#fff;--ink:#14262b;--mute:#566a70;--line:#d3e0de;--acc:#0f766e;--soft:#d9f1ee;--ok:#1f8a5b;--oks:#dcf5e8;--bad:#c93a52;--bads:#fde3e8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a1c;--card:#172628;--ink:#e6f1f0;--mute:#9bb3b6;--line:#294447;--acc:#4fd1c5;--soft:#1b3a3c;--ok:#4cc88f;--oks:#173a2c;--bad:#ff7088;--bads:#43202a}}
+:root[data-theme="dark"]{--bg:#0f1a1c;--card:#172628;--ink:#e6f1f0;--mute:#9bb3b6;--line:#294447;--acc:#4fd1c5;--soft:#1b3a3c;--ok:#4cc88f;--oks:#173a2c;--bad:#ff7088;--bads:#43202a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:640px;margin:0 auto;padding:16px 16px 56px}
+h1{font-size:1.3rem;font-weight:800;margin:4px 0 10px}
+.nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:6px}
+.nav button{flex:none;width:38px;height:38px;border-radius:50%;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:700;cursor:pointer}
+.nav button[aria-current="true"]{background:var(--acc);border-color:var(--acc);color:var(--card)}
+.nav button.d{border-color:var(--ok);color:var(--ok)}
+.lt{color:var(--mute);font-size:.9rem;margin:0 0 8px}
+.bar{height:6px;background:var(--line);border-radius:9px;overflow:hidden;margin-bottom:12px}
+.bar i{display:block;height:100%;background:var(--acc);transition:width .25s}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+h2{font-size:1.15rem;margin:0 0 8px}
+.card p{margin:0 0 10px}
+code,.ex{background:var(--soft);border-radius:6px}
+code{padding:1px 6px;font-size:.93em}
+.ex{display:block;padding:10px 12px;margin:10px 0;font-size:.95rem;border-left:4px solid var(--acc);border-radius:4px 10px 10px 4px}
+.row{display:flex;gap:8px;margin-top:14px}
+.btn,.opt{font:inherit;cursor:pointer}
+.btn{flex:1;padding:12px;border:0;border-radius:12px;background:var(--acc);color:var(--card);font-weight:700}
+.btn.g{background:var(--soft);color:var(--acc)}
+.opt{display:block;width:100%;text-align:left;padding:12px 14px;margin-bottom:8px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink)}
+.opt.ok{border-color:var(--ok);background:var(--oks)}.opt.no{border-color:var(--bad);background:var(--bads)}
+.fb{padding:12px;border-radius:12px;font-size:.95rem}.fb.ok{background:var(--oks)}.fb.no{background:var(--bads)}
+.w{background:var(--soft);border-radius:12px;padding:12px;margin-top:10px;font-size:.95rem}
+.w input[type=range]{width:100%;accent-color:var(--acc)}
+.w .chips button{padding:6px 12px;margin:0 4px 4px 0;border-radius:99px;border:1px solid var(--acc);background:var(--card);color:var(--acc);font:inherit;cursor:pointer}
+.w .chips button[aria-pressed="true"]{background:var(--acc);color:var(--card)}
+.hist{display:flex;align-items:flex-end;gap:2px;height:110px;margin:10px 0 4px}
+.hist i{flex:1;background:var(--acc);border-radius:2px 2px 0 0;min-height:1px}
+table{border-collapse:collapse;margin:8px 0;font-size:.9rem}td,th{border:1px solid var(--line);padding:4px 10px;text-align:center}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<h1>Học XSTK từ đầu</h1>
+<div class="nav" id="nav"></div>
+<p class="lt" id="lt"></p>
+<div class="bar"><i id="pb" style="width:0"></i></div>
+<div class="card" id="c"></div>
+</main>
+<script>
+var L=[
+{t:"Dữ liệu và các loại biến",s:[
+["Dữ liệu là một cái bảng","<p>Hầu hết dữ liệu trong thống kê có dạng một bảng, gọi là <b>khung dữ liệu</b>. Quy ước cố định: <b>mỗi hàng là một đơn vị quan sát</b> (một người, một sản phẩm, một chuyến bay), <b>mỗi cột là một biến</b> (một đặc điểm được đo hay ghi lại).</p><table><tr><th>Tên</th><th>Khoa</th><th>Điểm</th><th>Số môn</th></tr><tr><td>An</td><td>CNTT</td><td>8,5</td><td>6</td></tr><tr><td>Bình</td><td>Điện tử</td><td>7,0</td><td>5</td></tr><tr><td>Chi</td><td>CNTT</td><td>9,0</td><td>7</td></tr></table><span class='ex'>Bảng có 3 đơn vị quan sát (3 hàng) và 4 biến (4 cột). Bước đầu của mọi bài toán: xác định <b>đơn vị quan sát là gì</b> và <b>có những biến nào</b>.</span>"],
+["Hai họ biến: phân loại và số","<p><b>Biến phân loại</b>: giá trị là một nhóm, một nhãn (Khoa: CNTT, Điện tử). <b>Biến số</b>: giá trị là con số đo hoặc đếm được, và làm phép tính với nó có ý nghĩa (Điểm, Số môn).</p><p>Cách thử nhanh: hỏi &quot;tính trung bình của biến này có ý nghĩa không?&quot;. Trung bình điểm thì có nghĩa; trung bình của &quot;Khoa&quot; thì vô nghĩa.</p><span class='ex'>Cạm bẫy: mã số sinh viên, số điện thoại, mã vùng là con số nhưng thực chất chỉ là <b>nhãn</b>. Cộng hay lấy trung bình chúng không cho thông tin gì, nên chúng là biến phân loại.</span>"],
+["Chia nhỏ thêm một cấp","<p>Biến phân loại chia thành: <b>định danh</b> (các nhóm không có thứ tự, ví dụ khoa, màu sắc) và <b>thứ hạng</b> (các nhóm có thứ tự, ví dụ xếp loại Kém &lt; Khá &lt; Giỏi).</p><p>Biến số chia thành: <b>rời rạc</b> (đếm được, chỉ nhận các giá trị tách rời như 0, 1, 2…: số môn, số lỗi) và <b>liên tục</b> (đo được, nhận giá trị bất kỳ trong một khoảng: chiều cao, thời gian chờ).</p><span class='ex'>Mẹo: nếu giữa hai giá trị luôn còn giá trị khác nằm giữa (1,70 m và 1,71 m còn 1,705 m) thì là liên tục; nếu không (giữa 3 môn và 4 môn không còn gì) thì là rời rạc.</span>"],
+["Vì sao phải phân loại","<p>Loại biến quyết định bạn được tóm tắt nó bằng cách nào. Biến phân loại thì <b>đếm và tính tỉ lệ</b>. Biến số thì tính <b>trung bình, trung vị, độ lệch chuẩn</b>. Dùng sai (ví dụ tính độ lệch chuẩn của mã số sinh viên) sẽ cho ra con số vô nghĩa.</p><p>Hai bài tiếp theo đi đúng trình tự này: bài sau dạy tóm tắt biến phân loại, rồi mới sang biến số.</p>"]],
+q:["Biến &quot;mã số sinh viên&quot; thuộc loại nào?",["Phân loại (định danh)","Số liên tục","Số rời rạc"],"Mã số là con số nhưng chỉ dùng để gọi tên; cộng hay lấy trung bình chúng vô nghĩa. Nó là nhãn nên thuộc biến phân loại, loại định danh."]},
+{t:"Tóm tắt dữ liệu phân loại",s:[
+["Bảng tần số và tỉ lệ","<p>Để tóm tắt một biến phân loại, ta <b>đếm</b> số đơn vị ở mỗi nhóm, gọi là <b>tần số</b>. Chia tần số cho tổng số đơn vị được <b>tỉ lệ</b> của nhóm, và các tỉ lệ cộng lại luôn bằng 1 (hay 100%).</p><table><tr><th>Khoa</th><th>Tần số</th><th>Tỉ lệ</th></tr><tr><td>CNTT</td><td>20</td><td>20/50 = 0,40</td></tr><tr><td>Điện tử</td><td>18</td><td>18/50 = 0,36</td></tr><tr><td>Cơ học</td><td>12</td><td>12/50 = 0,24</td></tr></table><span class='ex'>Dùng tỉ lệ thay vì tần số khi so sánh các nhóm có tổng khác nhau: 20 người trong 50 và 40 người trong 200 thì chỉ tỉ lệ mới cho biết bên nào &quot;nhiều hơn&quot;.</span>"],
+["Hai biến phân loại: bảng liên hợp","<p>Muốn xem hai biến phân loại có liên quan không, xếp chúng vào <b>bảng liên hợp</b>: một biến theo hàng, một biến theo cột, mỗi ô là số đơn vị thuộc cả hai nhóm.</p><table><tr><th></th><th>Có đi làm thêm</th><th>Không</th><th>Tổng hàng</th></tr><tr><th>Năm 1</th><td>6</td><td>24</td><td>30</td></tr><tr><th>Năm 2</th><td>10</td><td>10</td><td>20</td></tr><tr><th>Tổng cột</th><td>16</td><td>34</td><td>50</td></tr></table><span class='ex'>Đọc bảng: có 10 sinh viên vừa là năm 2 vừa đi làm thêm. Tổng hàng và tổng cột phải cùng cộng ra tổng chung 50.</span>"],
+["Chọn đúng mẫu số","<p>Trong bảng liên hợp có ba kiểu tỉ lệ, khác nhau ở <b>mẫu số</b>:</p><p>• Trên toàn bộ: chia cho 50. 10/50 = 20% là sinh viên vừa năm 2 vừa đi làm thêm.<br>• Theo hàng: chia cho tổng hàng. Trong năm 2, 10/20 = 50% đi làm thêm.<br>• Theo cột: chia cho tổng cột. Trong 16 người đi làm thêm, 10/16 = 62,5% là năm 2.</p><span class='ex'>Cách chọn mẫu số: tìm cụm &quot;<b>trong số</b> …&quot; hoặc &quot;<b>biết rằng</b> …&quot; trong câu hỏi. Nhóm đứng sau cụm đó chính là mẫu số.</span>"],
+["Hai biến có liên hệ không?","<p>So sánh các tỉ lệ theo hàng. Năm 1: 6/30 = 20% đi làm thêm. Năm 2: 10/20 = 50%. Hai tỉ lệ khác nhau nhiều, nên <b>có mối liên hệ</b> giữa năm học và việc đi làm thêm. Nếu hai tỉ lệ gần bằng nhau thì hai biến gần như không liên hệ.</p><span class='ex'>Hai lưu ý. (1) Có liên hệ không có nghĩa biến này gây ra biến kia. (2) Tỉ lệ theo hàng chính là <b>xác suất có điều kiện</b> ở bài Xác suất: P(đi làm thêm | năm 2) = 10/20 = 0,5.</span>"]],
+q:["Theo bảng liên hợp trên, trong số sinh viên năm 2, tỉ lệ đi làm thêm là bao nhiêu?",["50% (10/20)","20% (10/50)","62,5% (10/16)"],"Cụm &quot;trong số sinh viên năm 2&quot; cho biết mẫu số là tổng hàng năm 2 = 20; tử số là 10. 10/20 = 50%. Hai đáp án còn lại dùng nhầm mẫu số."]},
+{t:"Tóm tắt dữ liệu số",w:{1:"mm",2:""},s:[
+["Ba câu hỏi khi nhìn một cột số","<p>Với dữ liệu số, ta luôn hỏi: <b>tâm ở đâu</b>, <b>phân tán bao nhiêu</b>, <b>hình dạng thế nào</b>. Cả chương này chỉ xoay quanh ba câu đó.</p>"],
+["Tâm: trung bình và trung vị","<p><b>Trung bình</b> = tổng / n. <b>Trung vị</b> = giá trị ở giữa sau khi sắp xếp.</p><p>Điểm khác biệt: trung bình bị giá trị cực đoan kéo đi, trung vị thì không. Kéo thanh trượt để thấy.</p><div class='w' id='w'></div>"],
+["Phân tán: SD, IQR, khoảng biến thiên","<p><b>Độ lệch chuẩn (SD)</b> đo xem giá trị thường cách trung bình bao xa. <b>IQR</b> = Q3 − Q1 (độ rộng của 50% giữa). <b>Khoảng biến thiên</b> = max − min.</p><p>Ngoại lai làm SD và khoảng biến thiên phình to, còn IQR gần như không đổi. Vì vậy IQR đi cùng trung vị, SD đi cùng trung bình.</p>"],
+["Hình dạng","<p><b>Đối xứng</b>: trung bình ≈ trung vị. <b>Lệch phải</b> (đuôi dài bên phải, ví dụ thu nhập): trung bình &gt; trung vị. <b>Lệch trái</b>: ngược lại. Ngoài ra nhìn xem có một hay nhiều đỉnh.</p>"]],
+q:["Phân phối lệch phải. Mối quan hệ nào đúng?",["Trung bình &gt; trung vị","Trung bình &lt; trung vị","Trung bình = trung vị"],"Đuôi dài bên phải kéo trung bình lên cao hơn trung vị."]},
+{t:"Tương quan và hồi quy",s:[
+["Hệ số tương quan r","<p>r nằm trong [−1, 1]. <b>Dấu</b> cho chiều (dương: cùng tăng, âm: một tăng một giảm). <b>Độ lớn |r|</b> cho độ mạnh của quan hệ <i>tuyến tính</i>.</p><p>Hai lưu ý hay vào đề: r chỉ đo quan hệ đường thẳng, và r cao <b>không</b> có nghĩa x gây ra y.</p>"],
+["Đường hồi quy","<p>Đường thẳng dự đoán: <code>ŷ = a + b·x</code>. Hệ số góc <b>b</b>: x tăng 1 đơn vị thì y <i>dự đoán</i> tăng b. Hệ số <b>a</b>: giá trị dự đoán khi x = 0.</p><p>Đó là đường <b>bình phương tối thiểu</b>: đường làm tổng bình phương các phần dư nhỏ nhất.</p>"],
+["Phần dư","<p><code>phần dư = quan sát − dự đoán</code>. Dương nghĩa là điểm nằm trên đường, âm nghĩa là nằm dưới.</p><span class='ex'>Ví dụ: ŷ = 2 + 3x. Với x = 4 dự đoán là 14. Nếu quan sát thật là 15 thì phần dư = 15 − 14 = 1.</span>"],
+["Hồi quy bội","<p>Thêm nhiều biến giải thích: <code>ŷ = a + b₁x₁ + b₂x₂</code>. Mỗi hệ số được đọc là &quot;khi biến đó tăng 1 mà các biến khác giữ nguyên&quot;. Biến phân loại được đổi thành biến chỉ báo 0/1, so với một <b>mức tham chiếu</b> (nhóm mang giá trị 0).</p>"]],
+q:["ŷ = 2 + 3x. Tại x = 4 quan sát được y = 15. Phần dư bằng?",["1","−1","13"],"Dự đoán 2 + 12 = 14; phần dư = 15 − 14 = 1."]},
+{t:"Xác suất cơ bản",s:[
+["Xác suất là gì","<p>Xác suất là con số từ 0 đến 1 đo khả năng xảy ra của một <b>biến cố</b> (tập con của không gian mẫu). Ba quy tắc gốc: P ≥ 0; P(toàn bộ) = 1; hai biến cố xung khắc thì cộng xác suất.</p><span class='ex'>Hệ quả hay dùng: P(không xảy ra A) = 1 − P(A).</span>"],
+["Quy tắc cộng","<p><code>P(A∪B) = P(A) + P(B) − P(A∩B)</code>. Trừ phần giao vì nó bị đếm hai lần.</p><span class='ex'>Xúc xắc: A = chẵn {2,4,6}, B = ≥ 4 {4,5,6}, giao = {4,6}. P = 3/6 + 3/6 − 2/6 = 4/6.</span>"],
+["Xác suất có điều kiện","<p><code>P(A|B) = P(A∩B) / P(B)</code>: &quot;biết B đã xảy ra&quot;, thế giới thu hẹp vào B. Suy ra quy tắc nhân: <code>P(A∩B) = P(B)·P(A|B)</code>.</p><span class='ex'>Hộp 5 lá có 2 đỏ, rút 2 lá không hoàn lại. P(cả hai đỏ) = 2/5 × 1/4 = 0,1.</span>"],
+["Độc lập và đếm","<p>A, B <b>độc lập</b> khi biết B không đổi xác suất của A: <code>P(A∩B) = P(A)·P(B)</code>. Đừng nhầm với xung khắc: hai biến cố xung khắc có xác suất dương thì lại phụ thuộc nhau.</p><p>Đếm cách chọn k phần tử từ n (không xét thứ tự): <code>C(n,k) = n! / (k!(n−k)!)</code>. Ví dụ C(10,3) = 120.</p>"]],
+q:["A, B độc lập, P(A) = 0,5 và P(B) = 0,4. Tính P(A∩B).",["0,2","0,9","0,1"],"Độc lập thì nhân: 0,5 × 0,4 = 0,2. Còn 0,9 là tổng, không phải giao."]},
+{t:"Biến ngẫu nhiên rời rạc",s:[
+["Biến ngẫu nhiên và pmf","<p>Biến ngẫu nhiên X là một con số gán cho kết quả của phép thử (ví dụ số mặt ngửa). <b>pmf</b> liệt kê P(X = x) cho từng giá trị, tổng luôn bằng 1. <b>Hàm phân phối tích lũy</b> là <code>F(x) = P(X ≤ x)</code>.</p>"],
+["Bernoulli và nhị thức","<p><b>Bernoulli(p)</b>: một lần thử, thành công (1) với xác suất p, thất bại (0) còn lại.</p><p><b>Nhị thức(n, p)</b>: số lần thành công trong n lần thử độc lập, cùng p. <code>P(X=k) = C(n,k)·pᵏ·(1−p)ⁿ⁻ᵏ</code>.</p>"],
+["Siêu bội và Poisson","<p><b>Siêu bội</b>: lấy n phần tử <i>không hoàn lại</i> từ tổng thể hữu hạn, đếm số phần tử &quot;loại thành công&quot;. <b>Poisson(λ)</b>: đếm số sự kiện xảy ra trong một khoảng thời gian hay không gian, trung bình λ sự kiện.</p>"],
+["Cách chọn mô hình","<span class='ex'>Có hoàn lại, đếm thành công → nhị thức.<br>Không hoàn lại từ nhóm hữu hạn → siêu bội.<br>Đếm sự kiện trong một khoảng (cuộc gọi mỗi giờ) → Poisson.</span><p>Đề thi hay kiểm tra bước nhận diện này trước khi tính.</p>"]],
+q:["Tung xúc xắc 20 lần, đếm số lần ra mặt 6. Mô hình nào?",["Nhị thức","Siêu bội","Poisson"],"Các lần tung độc lập, xác suất mỗi lần như nhau (hoàn lại tự nhiên) → nhị thức(20, 1/6)."]},
+{t:"Kỳ vọng và phương sai",s:[
+["Kỳ vọng","<p><code>E(X) = Σ x·P(X=x)</code>: giá trị trung bình trong dài hạn.</p><span class='ex'>X nhận 0, 1, 2 với xác suất 0,2; 0,5; 0,3.<br>E(X) = 0·0,2 + 1·0,5 + 2·0,3 = 1,1.</span>"],
+["Phương sai và độ lệch chuẩn","<p><code>Var(X) = E(X²) − [E(X)]²</code> và <code>SD = √Var</code>.</p><span class='ex'>Cùng ví dụ: E(X²) = 0·0,2 + 1·0,5 + 4·0,3 = 1,7. Var = 1,7 − 1,1² = 0,49. SD = 0,7.</span>"],
+["Biến đổi tuyến tính","<p><code>E(aX+b) = a·E(X) + b</code> nhưng <code>Var(aX+b) = a²·Var(X)</code>.</p><p>Cộng hằng số làm dịch tâm nhưng không đổi độ phân tán; nhân với a làm phương sai nhân a².</p>"],
+["Bảng cần nhớ","<span class='ex'>Bernoulli(p): E = p, Var = p(1−p)<br>Nhị thức(n,p): E = np, Var = np(1−p)<br>Poisson(λ): E = Var = λ</span>"]],
+q:["Var(X) = 4. Tính Var(3X + 2).",["36","38","12"],"Var(aX+b) = a²·Var(X) = 9·4 = 36. Hằng số +2 không ảnh hưởng, và hệ số phải bình phương."]},
+{t:"Tổng và trung bình",s:[
+["Mô hình chiếc hộp","<p>Rút n lần <i>có hoàn lại</i> từ một hộp có trung bình μ và độ lệch chuẩn σ. Các lần rút độc lập và cùng phân phối (i.i.d.). Hầu hết các bài toán mẫu đều quy được về mô hình này.</p>"],
+["Hai công thức quan trọng nhất","<span class='ex'>Tổng S: E(S) = nμ, SD(S) = σ√n<br>Trung bình X̄: E(X̄) = μ, SD(X̄) = σ/√n</span><p>Ví dụ σ = 2, n = 100: SD của tổng = 2·10 = 20; SD của trung bình = 2/10 = 0,2.</p>"],
+["Ý nghĩa","<p>Tổng thì &quot;rộng&quot; ra khi n tăng; trung bình thì &quot;hẹp&quot; lại, nghĩa là càng nhiều dữ liệu, trung bình càng ổn định. Nhưng chỉ giảm theo √n: muốn SD của trung bình giảm một nửa phải gấp <b>4 lần</b> cỡ mẫu.</p>"]],
+q:["Muốn SD của trung bình giảm còn 1/3, cần tăng cỡ mẫu lên bao nhiêu lần?",["9 lần","3 lần","6 lần"],"σ/√n giảm còn 1/3 thì √n phải gấp 3, nên n gấp 9 lần."]},
+{t:"Chebyshev và luật số lớn",s:[
+["Bất đẳng thức Chebyshev","<p><code>P(|X − μ| ≥ kσ) ≤ 1/k²</code>. Đúng với <b>mọi</b> phân phối có phương sai hữu hạn, nên là cận thô nhưng rất an toàn.</p><span class='ex'>k = 2: xác suất lệch xa từ 2σ trở lên không quá 1/4 = 25%.<br>k = 3: không quá 1/9 ≈ 11,1%.</span>"],
+["Luật số lớn yếu","<p>Cỡ mẫu n càng lớn, trung bình mẫu càng gần μ: xác suất nó lệch khỏi μ quá một mức cho trước tiến về 0.</p><p>Lý do là SD của X̄ bằng σ/√n tiến về 0, cộng với Chebyshev. Đây là lý do tung đồng xu nhiều lần thì tỉ lệ ngửa tiến gần 1/2.</p>"]],
+q:["Theo Chebyshev, P(|X − μ| ≥ 2σ) tối đa bằng?",["1/4","1/2","1/8"],"Cận là 1/k² với k = 2, tức 1/4."]},
+{t:"Biến liên tục và phân phối chuẩn",s:[
+["Hàm mật độ","<p>Biến liên tục nhận mọi giá trị trong một khoảng. Xác suất là <b>diện tích</b> dưới hàm mật độ f(x); tổng diện tích bằng 1. Hệ quả: <code>P(X = x) = 0</code> cho mỗi điểm, chỉ khoảng mới có xác suất dương.</p>"],
+["Phân phối đều và phân phối mũ","<p><b>Đều(a, b)</b>: mật độ phẳng <code>1/(b−a)</code>, trung bình (a+b)/2.</p><span class='ex'>Đều(0,10): P(X &lt; 3) = 3 × 1/10 = 0,3.</span><p><b>Mũ(λ)</b>: mô hình thời gian chờ, trung bình 1/λ. Phân phối χ² và t Student bạn chỉ cần nhận ra tên, chúng được dùng ở phần suy luận sau.</p>"],
+["Phân phối chuẩn N(μ, σ²)","<p>Hình chuông đối xứng quanh μ. <b>Chuẩn hóa</b>: <code>Z = (X − μ)/σ</code> cho biết x cách trung bình bao nhiêu SD.</p><p><b>Quy tắc 68–95–99,7</b>: khoảng 68% nằm trong 1 SD, 95% trong 2 SD, 99,7% trong 3 SD.</p>"],
+["Ví dụ","<span class='ex'>X ~ N(50, 10²). x = 70 → Z = 2.<br>P(40 &lt; X &lt; 60) ≈ 68% (trong 1 SD).<br>P(X &gt; 70): 95% nằm trong 2 SD, hai đuôi chia đều 5%, nên P ≈ 2,5%.</span>"]],
+q:["X ~ N(100, 15²). Giá trị 130 ứng với Z bằng?",["2","30","0,5"],"Z = (130 − 100)/15 = 2."]},
+{t:"Định lý giới hạn trung tâm",w:{1:"clt"},s:[
+["Điều định lý nói","<p>Tổng (hoặc trung bình) của nhiều biến i.i.d. có phương sai hữu hạn sẽ xấp xỉ phân phối chuẩn khi n đủ lớn, <b>dù phân phối gốc có hình dạng gì</b>. Phân phối gốc không cần là chuẩn.</p>"],
+["Tự xem","<p>Mô phỏng này lấy trung bình của n giá trị từ một phân phối rất lệch phải (phân phối mũ). Bấm các n tăng dần và quan sát hình chuông hiện ra.</p><div class='w' id='w'></div>"],
+["Cách dùng khi làm bài","<p>Chuyển về chuẩn rồi tra quy tắc 68–95–99,7 hoặc bảng.</p><span class='ex'>Tung xúc xắc 100 lần. Mỗi lần μ = 3,5, σ ≈ 1,71. Tổng: μ = 350, SD = 1,71·10 ≈ 17,1.<br>P(tổng &gt; 380): Z = 30/17,1 ≈ 1,75, nên xác suất khoảng 4%.</span>"]],
+q:["Điều kiện nào KHÔNG cần cho định lý giới hạn trung tâm?",["Phân phối gốc là chuẩn","Các biến độc lập","Phương sai hữu hạn"],"CLT đúng cho nhiều dạng phân phối gốc; chính vì vậy nó mạnh. Điều kiện cần là i.i.d., phương sai hữu hạn, n đủ lớn."]}
+];
+var li=0,si=0,done={};
+function $(i){return document.getElementById(i)}
+function sh(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function nav(){var h="";L.forEach(function(l,i){h+='<button data-i="'+i+'" aria-label="Bài '+(i+1)+': '+l.t+'"'+(i===li?' aria-current="true"':'')+(done[i]?' class="d"':'')+'>'+(i+1)+'</button>'});$("nav").innerHTML=h;
+document.querySelectorAll("#nav button").forEach(function(b){b.onclick=function(){li=+b.dataset.i;si=0;draw()}})}
+function draw(){
+nav();var l=L[li],n=l.s.length+1;
+$("lt").textContent="Bài "+(li+1)+"/"+L.length+": "+l.t;$("pb").style.width=((si+1)/n*100)+"%";
+var c=$("c"),back='<button class="btn g" id="bk"'+(si?'':' disabled')+'>Quay lại</button>';
+if(si<l.s.length){
+c.innerHTML="<h2>"+l.s[si][0]+"</h2>"+l.s[si][1]+'<div class="row">'+back+'<button class="btn" id="nx">Tiếp</button></div>';
+$("nx").onclick=function(){si++;draw()};
+if($("w")){var k=l.w&&l.w[si];if(k==="mm")mm();if(k==="clt")clt()}
+}else{
+var q=l.q,o=sh(q[1].map(function(t,i){return{t:t,c:i===0}})),h="<h2>Kiểm tra nhanh</h2><p>"+q[0]+"</p>";
+o.forEach(function(x){h+='<button class="opt" data-c="'+x.c+'">'+x.t+'</button>'});
+c.innerHTML=h+'<div id="fb"></div><div class="row">'+back+'</div>';
+document.querySelectorAll(".opt").forEach(function(b){b.onclick=function(){
+var g=b.dataset.c==="true";document.querySelectorAll(".opt").forEach(function(x){x.disabled=true;if(x.dataset.c==="true")x.classList.add("ok")});
+if(!g)b.classList.add("no");if(g)done[li]=1;nav();
+var last=li===L.length-1;
+$("fb").innerHTML='<div class="fb '+(g?"ok":"no")+'"><b>'+(g?"Đúng rồi!":"Chưa đúng.")+"</b> "+q[2]+"</div>"+(last?"":'<div class="row"><button class="btn" id="nl">Sang bài tiếp</button></div>');
+if(!last){$("nl").onclick=function(){li++;si=0;draw();window.scrollTo(0,0)}}}})}
+$("bk").onclick=function(){if(si>0){si--;draw()}}}
+function mm(){
+var w=$("w");w.innerHTML='Dữ liệu: 2, 3, 4, 5 và một giá trị x<input type="range" id="r" min="5" max="200" value="5" aria-label="Giá trị x"><div id="o"></div>';
+function u(){var x=+$("r").value,m=(14+x)/5;$("o").innerHTML="x = <b>"+x+"</b><br>Trung bình = <b>"+m.toFixed(1)+"</b><br>Trung vị = <b>4</b> (không đổi)"}
+$("r").oninput=u;u()}
+function clt(){
+var w=$("w"),h='Chọn n (cỡ mỗi mẫu):<br><div class="chips">';
+[1,2,5,10,30].forEach(function(n,i){h+='<button data-n="'+n+'" aria-pressed="'+(i===0)+'">'+n+'</button>'});
+w.innerHTML=h+'</div><div class="hist" id="h"></div><div id="o"></div>';
+function run(n){var R=1500,B=30,b=[],s=0,i,k,m,t;for(i=0;i<B;i++)b.push(0);
+for(i=0;i<R;i++){m=0;for(k=0;k<n;k++)m-=Math.log(1-Math.random());m/=n;s+=m;t=Math.min(B-1,Math.floor(m/3*B));b[t]++}
+var mx=Math.max.apply(null,b),x="";b.forEach(function(v){x+='<i style="height:'+(v/mx*100)+'%"></i>'});
+$("h").innerHTML=x;$("o").innerHTML="Trung bình các mẫu ≈ "+(s/R).toFixed(2)+". SD lý thuyết = 1/√"+n+" ≈ "+(1/Math.sqrt(n)).toFixed(2)+". Trục từ 0 đến 3."}
+w.querySelectorAll("button").forEach(function(b){b.onclick=function(){w.querySelectorAll("button").forEach(function(x){x.setAttribute("aria-pressed",x===b)});run(+b.dataset.n)}});
+run(1)}
+draw();
+</script>
+</body>
+</html>

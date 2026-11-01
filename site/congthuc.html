@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sổ tay Công thức XSTK Toàn diện - UET MAT1052</title>
+
+<!-- Fonts & KaTeX -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+<style>
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --card-subtle: #f1f5f9;
+  --ink: #0f172a;
+  --mute: #64748b;
+  --line: #e2e8f0;
+  --acc: #3b82f6;
+  --acc-hover: #2563eb;
+  --acc-soft: #eff6ff;
+  --ok: #10b981;
+  --ok-soft: #ecfdf5;
+  --bad: #ef4444;
+  --bad-soft: #fef2f2;
+  --warn: #f59e0b;
+  --warn-soft: #fffbeb;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+[data-theme="dark"] {
+  --bg: #0b0f19;
+  --card: #151d30;
+  --card-subtle: #1c2640;
+  --ink: #f1f5f9;
+  --mute: #94a3b8;
+  --line: #263352;
+  --acc: #60a5fa;
+  --acc-hover: #3b82f6;
+  --acc-soft: #172554;
+  --ok: #34d399;
+  --ok-soft: #064e3b;
+  --bad: #f87171;
+  --bad-soft: #450a0a;
+  --warn: #fbbf24;
+  --warn-soft: #451a03;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  padding-bottom: 60px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+}
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px;
+}
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.badge-course {
+  background: var(--acc-soft);
+  color: var(--acc);
+  padding: 4px 10px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.title-main {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-link {
+  color: var(--mute);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+.nav-link:hover { color: var(--ink); background: var(--card-subtle); }
+.nav-link.active {
+  color: var(--acc);
+  background: var(--acc-soft);
+  font-weight: 700;
+}
+.btn-icon {
+  background: var(--card-subtle);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+.btn-icon:hover { border-color: var(--acc); }
+
+/* Main Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+/* Controls */
+.controls-box {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+.topic-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 8px;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+  scrollbar-width: thin;
+}
+.topic-btn {
+  white-space: nowrap;
+  padding: 8px 16px;
+  border-radius: 99px;
+  border: 1px solid var(--line);
+  background: var(--card-subtle);
+  color: var(--mute);
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.topic-btn:hover { color: var(--ink); border-color: var(--acc); }
+.topic-btn.active {
+  background: var(--acc);
+  border-color: var(--acc);
+  color: #fff;
+  font-weight: 700;
+}
+.search-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.search-input {
+  flex: 1;
+  max-width: 450px;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+.search-input:focus {
+  outline: 2px solid var(--acc);
+  border-color: transparent;
+}
+.quick-tools-btn {
+  background: var(--card-subtle);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+.quick-tools-btn:hover { border-color: var(--acc); color: var(--acc); }
+
+/* Formula Cards Grid */
+.formulas-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.formula-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.formula-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.tag-topic {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--acc);
+  background: var(--acc-soft);
+  padding: 3px 10px;
+  border-radius: 99px;
+}
+.btn-copy {
+  background: var(--card-subtle);
+  border: 1px solid var(--line);
+  color: var(--mute);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-copy:hover { color: var(--ink); border-color: var(--acc); }
+
+.formula-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.formula-display {
+  background: var(--card-subtle);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  overflow-x: auto;
+  text-align: center;
+  font-size: 1.12rem;
+}
+
+.info-block {
+  margin-bottom: 12px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.info-label {
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.info-text {
+  color: var(--mute);
+}
+
+.trap-card {
+  background: var(--warn-soft);
+  border: 1px solid var(--warn);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  color: var(--ink);
+  margin-top: 12px;
+}
+.trap-card b {
+  color: var(--warn);
+}
+
+.formula-source {
+  margin-top: 14px;
+  font-size: 0.78rem;
+  color: var(--mute);
+  font-style: italic;
+  border-top: 1px solid var(--line);
+  padding-top: 8px;
+}
+
+/* Modal for Normal Table */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  max-width: 750px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 28px;
+  box-shadow: var(--shadow-lg);
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.modal-title { font-size: 1.25rem; font-weight: 800; }
+.btn-close {
+  background: transparent;
+  border: 0;
+  font-size: 1.5rem;
+  color: var(--mute);
+  cursor: pointer;
+}
+.z-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  text-align: center;
+}
+.z-table th, .z-table td {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+}
+.z-table th {
+  background: var(--card-subtle);
+  font-weight: 700;
+  color: var(--ink);
+}
+.z-table tr:hover {
+  background: var(--acc-soft);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--card);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-lg);
+  color: var(--mute);
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <div class="logo-group">
+      <span class="badge-course">UET MAT1052</span>
+      <h1 class="title-main">Sổ tay Công thức XSTK Toàn diện</h1>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">🏠 Tổng quan</a>
+      <a href="hoc.html" class="nav-link">Lý thuyết</a>
+      <a href="tuluan.html" class="nav-link">Tự luận (56 bài)</a>
+      <a href="tracnghiem.html" class="nav-link">Trắc nghiệm (161 câu)</a>
+      <a href="dethi.html" class="nav-link">Đề thi mẫu</a>
+      <a href="congthuc.html" class="nav-link active">Công thức</a>
+    </nav>
+    <button id="themeToggle" class="btn-icon" title="Chuyển chế độ Sáng / Tối">
+      <span id="themeIcon">🌓</span>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- Controls Box -->
+  <div class="controls-box">
+    <div class="topic-scroll">
+      <button class="topic-btn active" data-topic="0" onclick="filterTopic(0)">Tất cả chủ đề (28 công thức)</button>
+      <button class="topic-btn" data-topic="1" onclick="filterTopic(1)">1. Thống kê & Hồi quy (7)</button>
+      <button class="topic-btn" data-topic="2" onclick="filterTopic(2)">2. Xác suất & Bayes (5)</button>
+      <button class="topic-btn" data-topic="3" onclick="filterTopic(3)">3. Biến rời rạc & Kỳ vọng (5)</button>
+      <button class="topic-btn" data-topic="4" onclick="filterTopic(4)">4. Mô hình rời rạc (5)</button>
+      <button class="topic-btn" data-topic="5" onclick="filterTopic(5)">5. Hộp, Chebyshev & WLLN (3)</button>
+      <button class="topic-btn" data-topic="6" onclick="filterTopic(6)">6. Biến liên tục & Chuẩn (6)</button>
+      <button class="topic-btn" data-topic="7" onclick="filterTopic(7)">7. CLT & Ứng dụng (4)</button>
+    </div>
+
+    <div class="search-row">
+      <input type="text" id="searchInput" class="search-input" placeholder="🔍 Tìm công thức (vd: Chebyshev, Poisson, OLS, Z-score, Bayes...)" oninput="handleSearch()">
+      <button class="quick-tools-btn" onclick="openZTableModal()">
+        <span>📊 Bảng tra Chuẩn Tắc Φ(z)</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Formulas Grid -->
+  <div class="formulas-grid" id="formulasGrid">
+    <!-- Formula cards injected by JS -->
+  </div>
+
+</main>
+
+<!-- Normal Distribution Table Modal -->
+<div id="zTableModal" class="modal-overlay" style="display: none;">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h2 class="modal-title">📊 Bảng giá trị tích lũy Chuẩn Tắc Φ(z)</h2>
+      <button class="btn-close" onclick="closeZTableModal()">&times;</button>
+    </div>
+    <p style="font-size: 0.88rem; color: var(--mute); margin-bottom: 16px;">
+      Bảng tính sẵn diện tích đuôi trái $\Phi(z) = P(Z \le z)$ cho các giá trị mốc quan trọng nhất trong thi cử. Với $z < 0$, dùng tính chất đối xứng $\Phi(-z) = 1 - \Phi(z)$.
+    </p>
+    <table class="z-table">
+      <thead>
+        <tr>
+          <th>Mốc z</th>
+          <th>Φ(z) = P(Z ≤ z)</th>
+          <th>Ý nghĩa thực tiễn & Mức độ tin cậy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><b>0,00</b></td><td>0,5000 (50,00%)</td><td>Trung tâm phân phối chuẩn đối xứng</td></tr>
+        <tr><td><b>0,50</b></td><td>0,6915 (69,15%)</td><td>Lệch nửa độ lệch chuẩn</td></tr>
+        <tr><td><b>1,00</b></td><td>0,8413 (84,13%)</td><td>Quy tắc 1σ (diện tích ±1σ là 68,27%)</td></tr>
+        <tr><td><b>1,28</b></td><td>0,9000 (90,00%)</td><td>Ngưỡng Top 10% điểm cao nhất</td></tr>
+        <tr><td><b>1,50</b></td><td>0,9332 (93,32%)</td><td>Lệch 1,5 độ lệch chuẩn (±1,5σ là 86,64%)</td></tr>
+        <tr><td><b>1,645</b></td><td>0,9500 (95,00%)</td><td>Ngưỡng 1 phía độ tin cậy 95% (Bài toán bóng đèn)</td></tr>
+        <tr><td><b>1,96</b></td><td>0,9750 (97,50%)</td><td>Ngưỡng 2 phía độ tin cậy 95% (±1,96σ là 95,00%)</td></tr>
+        <tr><td><b>2,00</b></td><td>0,9772 (97,72%)</td><td>Quy tắc 2σ (diện tích ±2σ là 95,45%)</td></tr>
+        <tr><td><b>2,33</b></td><td>0,9900 (99,00%)</td><td>Ngưỡng 1 phía độ tin cậy 99% (Quỹ bảo hiểm rủi ro)</td></tr>
+        <tr><td><b>2,58</b></td><td>0,9950 (99,50%)</td><td>Ngưỡng 2 phía độ tin cậy 99% (±2,58σ là 99,00%)</td></tr>
+        <tr><td><b>3,00</b></td><td>0,9973 (99,73%)</td><td>Quy tắc 3σ (diện tích ±3σ là 99,73%)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Inlined Formulas Data -->
+<script>
+window.FORMULAS_DATA = [{"id": "CT1_01", "topicId": 1, "topicName": "Thống kê mô tả & Hồi quy", "name": "Phương sai mẫu và Độ lệch chuẩn mẫu hiệu chỉnh", "latex": "s^2 = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2 = \\frac{1}{n-1} \\left( \\sum_{i=1}^n x_i^2 - n\\bar{x}^2 \\right), \\quad s = \\sqrt{s^2}", "whenToUse": "Khi tính độ phân tán của mẫu dữ liệu gồm $n$ quan sát.", "symbols": "$n$: cỡ mẫu; $\\bar{x}$: trung bình mẫu; $s^2$: phương sai mẫu; $s$: độ lệch chuẩn mẫu; $n-1$: bậc tự do (hiệu chỉnh Bessel).", "traps": "Bẫy chia cho $n$ thay vì $n-1$. Chỉ chia cho $n$ khi tính cho toàn bộ tổng thể $\\sigma^2$. Bẫy quên căn bậc hai khi đề bài hỏi độ lệch chuẩn $s$.", "source": "Stat20 Mục 2.4; Slide Week 07 tr. 8"}, {"id": "CT1_02", "topicId": 1, "topicName": "Thống kê mô tả & Hồi quy", "name": "Khoảng tứ phân vị và Tiêu chuẩn ngoại lai Tukey", "latex": "\\text{IQR} = Q_3 - Q_1, \\quad \\text{Rào dưới} = Q_1 - 1,5 \\cdot \\text{IQR}, \\quad \\text{Rào trên} = Q_3 + 1,5 \\cdot \\text{IQR}", "whenToUse": "Khi xác định các giá trị ngoại lai (outliers) hoặc đo độ biến động của phân phối bị lệch / có ngoại lai.", "symbols": "$Q_1$: tứ phân vị thứ nhất (25%); $Q_3$: tứ phân vị thứ ba (75%); $\\text{IQR}$: khoảng tứ phân vị (chứa 50% dữ liệu trung tâm).", "traps": "Ngoại lai là điểm nằm ngoài đoạn $[Q_1 - 1,5\\text{IQR}; Q_3 + 1,5\\text{IQR}]$, tức là $x < Q_1 - 1,5\\text{IQR}$ hoặc $x > Q_3 + 1,5\\text{IQR}$. Tránh nhầm $1,5\\text{IQR}$ với $1\\text{IQR}$ hay $3\\text{IQR}$.", "source": "Stat20 Mục 2.4; Slide Week 07 tr. 5"}, {"id": "CT1_03", "topicId": 1, "topicName": "Thống kê mô tả & Hồi quy", "name": "Biến đổi tuyến tính của Thống kê mô tả", "latex": "y_i = a x_i + b \\implies \\bar{y} = a\\bar{x} + b, \\quad s_y = |a| \\cdot s_x, \\quad s_y^2 = a^2 \\cdot s_x^2, \\quad \\text{IQR}_y = |a| \\cdot \\text{IQR}_x", "whenToUse": "Khi đổi đơn vị đo (ví dụ từ độ C sang độ F: $F = 1,8C + 32$) hoặc cộng/nhân dữ liệu với hằng số.", "symbols": "$a, b$: các hằng số thực; $|a|$: trị tuyệt đối của hệ số nhân.", "traps": "Độ lệch chuẩn và IQR không bao giờ âm! Phải có trị tuyệt đối $|a|$. Hằng số cộng $b$ chỉ làm tịnh tiến dữ liệu, không ảnh hưởng đến độ phân tán ($s$ và IQR).", "source": "Stat20 Mục 2.4; Slide Week 07 tr. 9"}, {"id": "CT1_04", "topicId": 1, "topicName": "Thống kê mô tả & Hồi quy", "name": "Hệ số tương quan tuyến tính Pearson r", "latex": "r = \\frac{1}{n-1} \\sum_{i=1}^n \\left( \\frac{x_i - \\bar{x}}{s_x} \\right) \\left( \\frac{y_i - \\bar{y}}{s_y} \\right) = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum (x_i - \\bar{x})^2 \\sum (y_i - \\bar{y})^2}}", "whenToUse": "Đo độ mạnh và chiều hướng của mối quan hệ TUYẾN TÍNH giữa hai biến định lượng.", "symbols": "$-1 \\le r \\le 1$; $r > 0$: tương quan đồng biến; $r < 0$: tương quan nghịch biến; $r$ không có đơn vị đo.", "traps": "$r = 0$ KHÔNG CÓ NGHĨA là không có mối liên hệ nào! Nó chỉ chứng tỏ không có tương quan TUYẾN TÍNH (giữa $X$ và $Y$ vẫn có thể có quan hệ phi tuyến mạnh dạng $Y = X^2$). Tương quan không đồng nghĩa nhân quả.", "source": "Stat20 Mục 2.10"}, {"id": "CT1_05", "topicId": 1, "topicName": "Thống kê mô tả & Hồi quy", "name": "Phương trình hồi quy OLS đơn biến", "latex": "\\hat{y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 x, \\quad \\hat{\\beta}_1 = r \\cdot \\frac{s_y}{s_x}, \\quad \\hat{\\beta}_0 = \\bar{y} - \\hat{\\beta}_1 \\bar{x}", "whenToUse": "Xây dựng đường thẳng dự báo biến phản hồi $Y$ theo biến giải thích $X$ theo phương pháp bình phương bé nhất.", "symbols": "$\\hat{\\beta}_1$: hệ số góc (độ dốc); $\\hat{\\beta}_0$: hệ số chặn (tung độ gốc); đường hồi quy luôn đi qua trọng tâm $(\\bar{x}, \\bar{y})$.", "traps": "Bẫy viết ngược tỷ số $\\frac{s_x}{s_y}$ thay vì $\\frac{s_y}{s_x}$. Bẫy nhầm lẫn giữa hệ số tương quan $r$ và hệ số góc $\\hat{\\beta}_1$ (chúng chỉ bằng nhau khi $s_y = s_x$).", "source": "Stat20 Mục 2.10"}, {"id": "CT1_06", "topicId": 1, "topicName": "Thống kê mô tả & Hồi quy", "name": "Phần dư và Hệ số xác định R²", "latex": "e_i = y_i - \\hat{y}_i, \\quad \\sum_{i=1}^n e_i = 0, \\quad R^2 = r^2 = \\frac{SSR}{SST} = 1 - \\frac{SSE}{SST}", "whenToUse": "Đánh giá chất lượng mô hình hồi quy OLS và mức độ khớp của dữ liệu.", "symbols": "$e_i$: phần dư (sai số quan sát); $R^2$: tỷ lệ phần trăm biến thiên của $Y$ được giải thích bởi $X$; $0 \\le R^2 \\le 1$.", "traps": "Bẫy trừ ngược $\\hat{y}_i - y_i$. Phần dư luôn là (Thực tế - Dự báo). Tổng phần dư $\\sum e_i = 0$ khi mô hình có hệ số chặn.", "source": "Stat20 Mục 2.10"}, {"id": "CT1_07", "topicId": 1, "topicName": "Thống kê mô tả & Hồi quy", "name": "Hồi quy bội và Nguyên lý Ceteris Paribus", "latex": "\\hat{y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_1 + \\hat{\\beta}_2 x_2 + \\dots + \\hat{\\beta}_k x_k", "whenToUse": "Dự báo $Y$ khi có nhiều biến giải thích độc lập cùng lúc.", "symbols": "$\\hat{\\beta}_j$: mức thay đổi dự báo của $Y$ khi $x_j$ tăng 1 đơn vị VỚI ĐIỀU KIỆN các biến giải thích còn lại được giữ nguyên không đổi.", "traps": "Khi diễn giải hệ số $\\hat{\\beta}_j$, bắt buộc phải nêu rõ điều kiện 'giữ nguyên các biến còn lại' (ceteris paribus).", "source": "Stat20 Mục 2.12"}, {"id": "CT2_01", "topicId": 2, "topicName": "Xác suất & Bayes", "name": "Quy tắc cộng xác suất tổng quát", "latex": "P(A \\cup B) = P(A) + P(B) - P(A \\cap B)", "whenToUse": "Tính xác suất có ít nhất một trong hai biến cố xảy ra ('biến cố $A$ hoặc biến cố $B$').", "symbols": "$P(A \\cup B)$: xác suất hợp; $P(A \\cap B)$: xác suất giao. Nếu $A, B$ xung khắc ($A \\cap B = \\emptyset$) thì $P(A \\cup B) = P(A) + P(B)$.", "traps": "Quên trừ phần giao $P(A \\cap B)$ khi hai biến cố không xung khắc, dẫn đến xác suất có thể bị cộng dồn vượt quá 1.", "source": "Slide Week 07; Stat20 Mục 3.1"}, {"id": "CT2_02", "topicId": 2, "topicName": "Xác suất & Bayes", "name": "Biến cố đối và Định lý De Morgan", "latex": "P(\\bar{A}) = 1 - P(A), \\quad \\overline{A \\cup B} = \\bar{A} \\cap \\bar{B}, \\quad \\overline{A \\cap B} = \\bar{A} \\cup \\bar{B}", "whenToUse": "Tính xác suất 'không xảy ra biến cố nào' hoặc 'ít nhất một biến cố xảy ra' ($P(\\text{ít nhất 1}) = 1 - P(\\text{không có nào})$).", "symbols": "$\\bar{A}$: biến cố đối lập của $A$.", "traps": "Bẫy tự ý viết $P(\\bar{A} \\cap \\bar{B}) = P(\\bar{A})P(\\bar{B})$ khi hai biến cố chưa được chứng minh là độc lập.", "source": "Slide Week 07; Stat20 Mục 3.1"}, {"id": "CT2_03", "topicId": 2, "topicName": "Xác suất & Bayes", "name": "Xác suất có điều kiện và Quy tắc nhân", "latex": "P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} \\quad (P(B) > 0) \\implies P(A \\cap B) = P(B) \\cdot P(A \\mid B) = P(A) \\cdot P(B \\mid A)", "whenToUse": "Tính xác suất của $A$ khi đã biết thông tin biến cố $B$ xảy ra.", "symbols": "$P(A \\mid B)$: xác suất của $A$ với điều kiện $B$.", "traps": "Bẫy nhầm lẫn giữa $P(A \\mid B)$ và $P(B \\mid A)$. Hai đại lượng này hoàn toàn khác nhau (ví dụ: xác suất bị sốt khi mắc cúm rất cao, nhưng xác suất bị cúm khi bị sốt thì không nhất thiết cao).", "source": "Slide Week 07; Stat20 Mục 3.2"}, {"id": "CT2_04", "topicId": 2, "topicName": "Xác suất & Bayes", "name": "Tính độc lập của hai biến cố", "latex": "A, B \\text{ độc lập} \\iff P(A \\cap B) = P(A) \\cdot P(B) \\iff P(A \\mid B) = P(A)", "whenToUse": "Kiểm tra hoặc sử dụng tính độc lập giữa các biến cố.", "symbols": "Biết $B$ xảy ra hoàn toàn không ảnh hưởng tới xác suất xảy ra của $A$.", "traps": "Bẫy nhầm giữa 'Độc lập' và 'Xung khắc'! Hai biến cố có xác suất dương mà xung khắc nhau ($A \\cap B = \\emptyset$) thì KHÔNG THỂ độc lập vì $P(A \\cap B) = 0 \\neq P(A)P(B)$.", "source": "Stat20 Mục 3.2"}, {"id": "CT2_05", "topicId": 2, "topicName": "Xác suất & Bayes", "name": "Công thức xác suất toàn phần và Định lý Bayes", "latex": "P(B) = \\sum_{i=1}^n P(A_i) P(B \\mid A_i), \\quad P(A_k \\mid B) = \\frac{P(A_k) P(B \\mid A_k)}{P(B)} = \\frac{P(A_k) P(B \\mid A_k)}{\\sum_{i=1}^n P(A_i) P(B \\mid A_i)}", "whenToUse": "Xác suất toàn phần dùng khi kết quả $B$ phụ thuộc vào nhiều kịch bản ban đầu $\\{A_i\\}$. Định lý Bayes dùng để 'truy tìm nguyên nhân ngược' khi đã biết biến cố $B$ xảy ra.", "symbols": "$\\{A_1, \\dots, A_n\\}$: hệ biến cố đầy đủ (phân hoạch của $\\Omega$); $P(A_k)$: xác suất tiên nghiệm; $P(A_k \\mid B)$: xác suất hậu nghiệm.", "traps": "Bẫy ngụy biện tỷ lệ cơ sở (Base Rate Fallacy) trong chẩn đoán y tế: quên nhân xác suất tiên nghiệm $P(A_k)$ khi tính xác suất thực sự mắc bệnh.", "source": "Slide Week 07; Stat20 Mục 3.4"}, {"id": "CT3_01", "topicId": 3, "topicName": "Biến rời rạc, Kỳ vọng & Phương sai", "name": "Kỳ vọng toán của biến ngẫu nhiên rời rạc", "latex": "E(X) = \\sum_{x} x \\cdot P(X = x), \\quad E(g(X)) = \\sum_{x} g(x) \\cdot P(X = x) \\quad (\\text{Luật LOTUS})", "whenToUse": "Tính giá trị trung bình kỳ vọng dài hạn của biến ngẫu nhiên rời rạc hoặc của một hàm theo biến đó.", "symbols": "$x$: giá trị mà $X$ có thể nhận; $P(X = x)$: xác suất tương ứng; $\\sum P(X=x) = 1$.", "traps": "Bẫy lấy trung bình cộng đơn giản không có trọng số xác suất. Bẫy ngộ nhận $E(g(X)) = g(E(X))$, đặc biệt $E(X^2) \\neq [E(X)]^2$ và $E(1/X) > 1/E(X)$ (Bất đẳng thức Jensen).", "source": "Slide Week 07 tr. 6; Stat20 Mục 4.3"}, {"id": "CT3_02", "topicId": 3, "topicName": "Biến rời rạc, Kỳ vọng & Phương sai", "name": "Phương sai và Độ lệch chuẩn của biến rời rạc", "latex": "\\operatorname{Var}(X) = E\\left[(X - E(X))^2\\right] = E(X^2) - [E(X)]^2, \\quad \\sigma(X) = \\sqrt{\\operatorname{Var}(X)}", "whenToUse": "Đo độ phân tán, mức độ rủi ro hoặc dao động của biến ngẫu nhiên quanh kỳ vọng trung tâm.", "symbols": "$\\operatorname{Var}(X) \\ge 0$; $\\sigma(X) \\ge 0$ cùng đơn vị đo với $X$.", "traps": "Phương sai không bao giờ mang giá trị âm! Nếu tính ra âm, chắc chắn đã nhầm lẫn dấu khi bình phương các giá trị âm hoặc tính nhầm $E(X^2)$.", "source": "Slide Week 07 tr. 8; Stat20 Mục 4.4"}, {"id": "CT3_03", "topicId": 3, "topicName": "Biến rời rạc, Kỳ vọng & Phương sai", "name": "Tính chất biến đổi tuyến tính của Kỳ vọng và Phương sai", "latex": "E(aX + b) = aE(X) + b, \\quad \\operatorname{Var}(aX + b) = a^2 \\operatorname{Var}(X), \\quad \\sigma(aX + b) = |a| \\sigma(X)", "whenToUse": "Biến đổi thang đo hoặc tính giá trị của tổ hợp tuyến tính.", "symbols": "$a, b$: các hằng số thực.", "traps": "Hằng số $b$ bị triệt tiêu hoàn toàn khi tính phương sai vì chỉ làm tịnh tiến phân phối. Hệ số $a$ khi đưa ra ngoài phương sai PHẢI ĐƯỢC BÌNH PHƯƠNG thành $a^2$!", "source": "Slide Week 07 tr. 7, 9; Stat20 Mục 4.3 - 4.4"}, {"id": "CT3_04", "topicId": 3, "topicName": "Biến rời rạc, Kỳ vọng & Phương sai", "name": "Kỳ vọng và Phương sai của Tổng và Hiệu hai biến", "latex": "E(X \\pm Y) = E(X) \\pm E(Y) \\quad (\\text{Luôn đúng!}), \\quad \\operatorname{Var}(X \\pm Y) = \\operatorname{Var}(X) + \\operatorname{Var}(Y) \\quad (\\text{Khi } X, Y \\text{ độc lập!})", "whenToUse": "Tính kỳ vọng và phương sai của tổng hoặc hiệu hai biến ngẫu nhiên.", "symbols": "Kỳ vọng tuyến tính KHÔNG CẦN điều kiện độc lập. Phương sai chỉ được cộng khi hai biến ĐỘC LẬP (hoặc không tương quan).", "traps": "Bẫy trừ phương sai: $\\operatorname{Var}(X - Y) = \\operatorname{Var}(X) + \\operatorname{Var}(Y)$ (DẤU CỘNG, không bao giờ là dấu trừ vì $(-1)^2 = 1$). Độ bất định luôn cộng dồn!", "source": "Slide Week 07 tr. 12, 14"}, {"id": "CT3_05", "topicId": 3, "topicName": "Biến rời rạc, Kỳ vọng & Phương sai", "name": "Hiệp phương sai và Tích hai biến độc lập", "latex": "\\operatorname{Cov}(X, Y) = E(XY) - E(X)E(Y), \\quad X, Y \\text{ độc lập} \\implies E(XY) = E(X)E(Y) \\implies \\operatorname{Cov}(X, Y) = 0", "whenToUse": "Đo độ liên kết đồng biến/nghịch biến giữa hai biến ngẫu nhiên.", "symbols": "$\\operatorname{Cov}(X, Y) = 0$ chỉ kết luận không tương quan tuyến tính, chưa đủ khẳng định $X, Y$ độc lập toàn phần.", "traps": "Nhầm chiều suy luận: Độc lập $\\implies \\operatorname{Cov}=0$, nhưng $\\operatorname{Cov}=0$ CHƯA CHẮC độc lập.", "source": "Slide Week 07 tr. 13"}, {"id": "CT4_01", "topicId": 4, "topicName": "Các mô hình rời rạc kinh điển", "name": "Phân phối Bernoulli", "latex": "X \\sim \\text{Bernoulli}(p), \\quad P(X = 1) = p, \\quad P(X = 0) = 1 - p, \\quad E(X) = p, \\quad \\operatorname{Var}(X) = p(1-p)", "whenToUse": "Một phép thử duy nhất chỉ có 2 kết cục (thành công / thất bại, được / mất).", "symbols": "$p$: xác suất thành công ($0 \\le p \\le 1$).", "traps": "Phương sai đạt giá trị cực đại bằng $0,25$ khi $p = 0,5$. Khi $p=0$ hoặc $p=1$, phương sai bằng 0.", "source": "Slide Week 07 tr. 10; Stat20 Mục 4.8"}, {"id": "CT4_02", "topicId": 4, "topicName": "Các mô hình rời rạc kinh điển", "name": "Phân phối Nhị thức B(n, p)", "latex": "P(X = k) = C_n^k p^k (1-p)^{n-k} \\quad (k = 0, 1, \\dots, n), \\quad E(X) = np, \\quad \\operatorname{Var}(X) = np(1-p)", "whenToUse": "Đếm số lần thành công trong $n$ phép thử Bernoulli độc lập, cùng xác suất thành công $p$ (RÚT CÓ HOÀN LẠI).", "symbols": "$n$: số lần thử; $k$: số lần thành công; $C_n^k = \\frac{n!}{k!(n-k)!}$.", "traps": "Bẫy quên hệ số tổ hợp $C_n^k$. Bẫy áp dụng Nhị thức cho bài toán rút KHÔNG hoàn lại từ tổng thể nhỏ.", "source": "Slide Week 07 tr. 15; Stat20 Mục 4.8"}, {"id": "CT4_03", "topicId": 4, "topicName": "Các mô hình rời rạc kinh điển", "name": "Phân phối Siêu bội HG(N, M, n)", "latex": "P(X = k) = \\frac{C_M^k C_{N-M}^{n-k}}{C_N^n}, \\quad E(X) = n \\frac{M}{N} = np, \\quad \\operatorname{Var}(X) = np(1-p) \\cdot \\frac{N-n}{N-1}", "whenToUse": "Đếm số phần tử đặc biệt rút được khi RÚT KHÔNG HOÀN LẠI $n$ phần tử từ tổng thể hữu hạn $N$ phần tử (trong đó có $M$ phần tử loại 1).", "symbols": "$N$: kích thước tổng thể; $M$: số phần tử đặc biệt; $n$: kích thước mẫu rút; $p = M/N$; $\\frac{N-n}{N-1}$: hệ số hiệu chỉnh FPC.", "traps": "Kỳ vọng của Siêu bội giống hệt Nhị thức ($np$), nhưng phương sai của Siêu bội luôn NHỎ HƠN Nhị thức vì có hệ số FPC $< 1$.", "source": "Slide Week 07 tr. 15; Stat20 Mục 4.9"}, {"id": "CT4_04", "topicId": 4, "topicName": "Các mô hình rời rạc kinh điển", "name": "Phân phối Poisson Po(λ)", "latex": "P(X = k) = \\frac{\\lambda^k e^{-\\lambda}}{k!} \\quad (k = 0, 1, 2, \\dots), \\quad E(X) = \\lambda, \\quad \\operatorname{Var}(X) = \\lambda, \\quad \\sigma(X) = \\sqrt{\\lambda}", "whenToUse": "Đếm số lần xảy ra sự kiện ngẫu nhiên hiếm trong một khoảng thời gian/không gian liên tục cố định.", "symbols": "$\\lambda$: tốc độ trung bình (số sự kiện kỳ vọng trong khoảng xét).", "traps": "Đặc trưng duy nhất của Poisson: Kỳ vọng và Phương sai BẰNG NHAU ($E = \\operatorname{Var} = \\lambda$). Độ lệch chuẩn là $\\sqrt{\\lambda}$.", "source": "Slide Week 07 tr. 16; Stat20 Mục 4.10"}, {"id": "CT4_05", "topicId": 4, "topicName": "Các mô hình rời rạc kinh điển", "name": "Xấp xỉ Poisson cho phân phối Nhị thức", "latex": "B(n, p) \\approx Po(\\lambda = np) \\quad \\text{khi } n \\ge 20 \\text{ (hoặc } 100\\text{)}, \\; p \\le 0,05, \\; np \\le 10", "whenToUse": "Tính xác suất Nhị thức khi số phép thử $n$ rất lớn và xác suất thành công $p$ rất nhỏ (luật biến cố hiếm).", "symbols": "$\\lambda = n \\cdot p$.", "traps": "Không được dùng xấp xỉ Poisson nếu $p$ không nhỏ (ví dụ $p = 0,5$). Khi $p=0,5$ và $n$ lớn, bắt buộc phải dùng XẤP XỈ CHUẨN (CLT).", "source": "Slide Week 07 tr. 16; Stat20 Mục 4.10"}, {"id": "CT5_01", "topicId": 5, "topicName": "Hộp, Tổng & Trung bình, Chebyshev & WLLN", "name": "Quy luật căn bậc hai cho Tổng và Trung bình (Square Root Law)", "latex": "\\text{Tổng } S_n: \\begin{cases} E(S_n) = n\\mu \\\\ \\sigma(S_n) = \\sigma\\sqrt{n} \\end{cases}, \\qquad \\text{Trung bình } \\bar{X}_n: \\begin{cases} E(\\bar{X}_n) = \\mu \\\\ \\sigma(\\bar{X}_n) = \\frac{\\sigma}{\\sqrt{n}} \\end{cases}", "whenToUse": "Rút $n$ lần có hoàn lại từ một chiếc hộp vé hoặc lấy mẫu ngẫu nhiên $n$ biến i.i.d.", "symbols": "$\\mu$: trung bình của hộp; $\\sigma$: độ lệch chuẩn của hộp; $n$: số lần rút.", "traps": "Bẫy nhân $n\\sigma$ cho độ lệch chuẩn của tổng (đúng ra chỉ nhân $\\sqrt{n}$). Khi $n$ tăng gấp 4 lần: $\\sigma(S_n)$ tăng gấp 2 lần, còn $\\sigma(\\bar{X}_n)$ giảm đi 2 lần.", "source": "Slide Week 07 tr. 23, 25; Stat20 Mục 4.12 - 4.13"}, {"id": "CT5_02", "topicId": 5, "topicName": "Hộp, Tổng & Trung bình, Chebyshev & WLLN", "name": "Bất đẳng thức Chebyshev tổng quát", "latex": "P(|X - \\mu| \\ge k\\sigma) \\le \\frac{1}{k^2} \\iff P(|X - \\mu| < k\\sigma) \\ge 1 - \\frac{1}{k^2} \\quad (k > 1)", "whenToUse": "Đánh giá xác suất độ lệch quanh kỳ vọng cho BẤT KỲ biến ngẫu nhiên nào khi CHƯA BIẾT phân phối cụ thể (chỉ cần biết $\\mu$ và $\\sigma$).", "symbols": "$k$: số độ lệch chuẩn cách tâm ($k > 1$). Dạng sai số $\\varepsilon$: $P(|X - \\mu| \\ge \\varepsilon) \\le \\frac{\\sigma^2}{\\varepsilon^2}$.", "traps": "Chebyshev áp dụng cho $k > 1$. Với $k=2 \\implies \\ge 75\\%$; với $k=3 \\implies \\ge 88,89\\%$. Không nhầm với quy tắc 68–95–99,7 của phân phối chuẩn.", "source": "Slide Week 07 tr. 34-35"}, {"id": "CT5_03", "topicId": 5, "topicName": "Hộp, Tổng & Trung bình, Chebyshev & WLLN", "name": "Luật số lớn yếu (WLLN) và Kích thước mẫu tối thiểu", "latex": "\\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| \\ge \\varepsilon) = 0 \\le \\frac{\\sigma^2}{n\\varepsilon^2}, \\qquad n \\ge \\frac{\\sigma^2}{\\alpha \\cdot \\varepsilon^2}", "whenToUse": "Chứng minh sự hội tụ của trung bình mẫu về kỳ vọng lý thuyết $\\mu$, và tìm kích thước mẫu $n$ tối thiểu theo cận an toàn Chebyshev.", "symbols": "$\\varepsilon$: sai số cho phép; $\\alpha$: mức rủi ro ($1 - \\alpha$ là độ tin cậy).", "traps": "Cỡ mẫu tính theo Chebyshev luôn lớn hơn tính theo phân phối Chuẩn vì Chebyshev là cận an toàn phi tham số.", "source": "Slide Week 07 tr. 38, 40"}, {"id": "CT6_01", "topicId": 6, "topicName": "Biến liên tục & Các phân phối liên tục", "name": "Hàm mật độ pdf và Hàm phân phối tích lũy cdf", "latex": "f(x) \\ge 0, \\quad \\int_{-\\infty}^{+\\infty} f(x) dx = 1, \\quad F(x) = \\int_{-\\infty}^x f(t) dt, \\quad P(a \\le X \\le b) = F(b) - F(a) = \\int_a^b f(x) dx", "whenToUse": "Các bài toán nền tảng về biến ngẫu nhiên liên tục.", "symbols": "$f(x)$: mật độ xác suất (có thể $> 1$); $F(x)$: xác suất tích lũy ($0 \\le F(x) \\le 1$); $f(x) = F'(x)$.", "traps": "Với biến liên tục, xác suất tại một điểm luôn bằng 0 ($P(X = c) = 0$). Dấu bằng không làm đổi xác suất: $P(a \\le X \\le b) = P(a < X < b)$.", "source": "Slide Week 07 tr. 42-43; Stat20 Mục 4.14"}, {"id": "CT6_02", "topicId": 6, "topicName": "Biến liên tục & Các phân phối liên tục", "name": "Phân phối Đều liên tục U(a, b)", "latex": "f(x) = \\frac{1}{b - a} \\quad (a \\le x \\le b), \\quad F(x) = \\frac{x - a}{b - a}, \\quad E(X) = \\frac{a + b}{2}, \\quad \\operatorname{Var}(X) = \\frac{(b - a)^2}{12}", "whenToUse": "Biến ngẫu nhiên có xác suất rơi đều đặn như nhau trên đoạn $[a, b]$.", "symbols": "$b - a$: độ dài khoảng.", "traps": "Bẫy quên chia cho 12 khi tính phương sai. Độ lệch chuẩn là $\\sigma = \\frac{b - a}{\\sqrt{12}}$.", "source": "Slide Week 07 tr. 50; Stat20 Mục 4.14"}, {"id": "CT6_03", "topicId": 6, "topicName": "Biến liên tục & Các phân phối liên tục", "name": "Phân phối Chuẩn và Chuẩn hóa Z-score", "latex": "X \\sim N(\\mu, \\sigma^2) \\implies Z = \\frac{X - \\mu}{\\sigma} \\sim N(0, 1), \\quad P(X \\le x) = \\Phi\\left(\\frac{x - \\mu}{\\sigma}\\right), \\quad \\Phi(-z) = 1 - \\Phi(z)", "whenToUse": "Mọi bài toán phân phối chuẩn: tính xác suất, tìm tỷ lệ, tìm ngưỡng phân vị ngược ($x = \\mu + z\\sigma$).", "symbols": "$\\mu$: trung bình; $\\sigma$: độ lệch chuẩn; $\\Phi(z)$: hàm phân phối tích lũy chuẩn tắc.", "traps": "Chia cho $\\sigma$ chứ không chia cho phương sai $\\sigma^2$ khi tính Z-score. Nhớ tính chất đối xứng $\\Phi(-z) = 1 - \\Phi(z)$.", "source": "Slide Week 07 tr. 52, 55; Stat20 Mục 4.15"}, {"id": "CT6_04", "topicId": 6, "topicName": "Biến liên tục & Các phân phối liên tục", "name": "Quy tắc kinh nghiệm 68–95–99,7 của phân phối Chuẩn", "latex": "P(\\mu - \\sigma < X < \\mu + \\sigma) \\approx 68,27\\%, \\quad P(\\mu - 2\\sigma < X < \\mu + 2\\sigma) \\approx 95,45\\%, \\quad P(\\mu - 3\\sigma < X < \\mu + 3\\sigma) \\approx 99,73\\%", "whenToUse": "Ước lượng nhanh xác suất của biến chuẩn trong vòng $\\pm 1\\sigma, \\pm 2\\sigma, \\pm 3\\sigma$ mà không cần tra bảng số.", "symbols": "Khoảng $\\pm 1,96\\sigma$ chứa đúng 95,0% diện tích.", "traps": "Chỉ áp dụng khi phân phối đã biết là phân phối CHUẨN hình chuông đối xứng.", "source": "Slide Week 07 tr. 54"}, {"id": "CT6_05", "topicId": 6, "topicName": "Biến liên tục & Các phân phối liên tục", "name": "Phân phối Mũ và Tính chất không nhớ (Memoryless)", "latex": "f(x) = \\lambda e^{-\\lambda x}, \\quad F(x) = 1 - e^{-\\lambda x} \\quad (x \\ge 0), \\quad E(X) = \\frac{1}{\\lambda}, \\quad \\operatorname{Var}(X) = \\frac{1}{\\lambda^2}, \\quad P(X > s + t \\mid X > s) = P(X > t) = e^{-\\lambda t}", "whenToUse": "Mô hình hóa thời gian chờ đợi giữa hai biến cố Poisson hoặc tuổi thọ linh kiện điện tử không bị lão hóa.", "symbols": "$\\lambda$: tốc độ biến cố ($E(X) = \\sigma(X) = 1/\\lambda$).", "traps": "Kỳ vọng và độ lệch chuẩn của phân phối Mũ bằng nhau. Xác suất sống thêm $t$ đơn vị hoàn toàn không phụ thuộc vào thời gian $s$ đã hoạt động.", "source": "Slide Week 07 tr. 63"}, {"id": "CT6_06", "topicId": 6, "topicName": "Biến liên tục & Các phân phối liên tục", "name": "Giới thiệu Phân phối Khi-bình phương và t-Student", "latex": "\\chi^2(k) = \\sum_{i=1}^k Z_i^2 \\quad (E = k, \\; \\operatorname{Var} = 2k); \\qquad T = \\frac{Z}{\\sqrt{V / k}} \\sim t(k) \\xrightarrow{k \\to \\infty} N(0, 1)", "whenToUse": "Khi-bình phương dùng cho tổng bình phương biến chuẩn tắc; $t$-Student dùng khi ước lượng trung bình với cỡ mẫu nhỏ và chưa biết $\\sigma$.", "symbols": "$k$: bậc tự do (degrees of freedom); $t$-Student có đồ thị hình chuông nhưng đuôi dày hơn phân phối chuẩn.", "traps": "Biến Khi-bình phương chỉ nhận giá trị không âm và lệch phải. Phân phối $t$ có phương sai $\\frac{k}{k-2} > 1$ với $k > 2$.", "source": "Slide Week 07 tr. 64-67"}, {"id": "CT7_01", "topicId": 7, "topicName": "Định lý giới hạn trung tâm & Ứng dụng", "name": "Định lý Giới hạn Trung tâm (CLT) cho Tổng và Trung bình", "latex": "Z_n = \\frac{S_n - n\\mu}{\\sigma\\sqrt{n}} = \\frac{\\bar{X}_n - \\mu}{\\sigma / \\sqrt{n}} \\xrightarrow{d} N(0, 1) \\quad \\text{khi } n \\ge 30", "whenToUse": "Xấp xỉ tổng $S_n$ hoặc trung bình mẫu $\\bar{X}_n$ của $n$ biến i.i.d. bất kỳ về phân phối Chuẩn.", "symbols": "$S_n = \\sum X_i$; $\\bar{X}_n = S_n / n$; $n \\ge 30$: quy tắc ngón tay cái kinh nghiệm.", "traps": "Nếu biến gốc $X_i$ ĐÃ LÀ phân phối Chuẩn thì tổng của chúng là Chuẩn CHÍNH XÁC với mọi $n \\ge 1$, không cần $n \\ge 30$ và không cần CLT.", "source": "Slide Week 07 tr. 68-71; Stat20 Mục 4.17"}, {"id": "CT7_02", "topicId": 7, "topicName": "Định lý giới hạn trung tâm & Ứng dụng", "name": "Quy tắc Hiệu chỉnh liên tục (Continuity Correction)", "latex": "P(X = k) \\approx P(k - 0,5 \\le Y \\le k + 0,5), \\quad P(X \\ge k) \\approx P(Y \\ge k - 0,5), \\quad P(X \\le k) \\approx P(Y \\le k + 0,5)", "whenToUse": "Khi dùng phân phối Chuẩn liên tục để xấp xỉ biến nhận giá trị nguyên rời rạc (như tổng số chấm, số thành công nhị thức).", "symbols": "$k$: số nguyên; $Y \\sim N(n\\mu, n\\sigma^2)$. Khoảng $[a, b] \\implies [a - 0,5; b + 0,5]$.", "traps": "Bỏ qua hiệu chỉnh liên tục khi $n$ nhỏ/vừa ($n < 100$) sẽ gây ra sai số đáng kể vì cắt mất một nửa cột xác suất tại điểm biên.", "source": "Slide Week 07 tr. 74"}, {"id": "CT7_03", "topicId": 7, "topicName": "Định lý giới hạn trung tâm & Ứng dụng", "name": "Cỡ mẫu thăm dò ý kiến (Polling Sample Size)", "latex": "n \\ge \\frac{z^2 \\cdot p(1-p)}{\\varepsilon^2} \\le \\frac{z^2 \\cdot 0,25}{\\varepsilon^2} \\quad (\\text{với } p(1-p) \\le 0,25)", "whenToUse": "Xác định kích thước mẫu tối thiểu cần điều tra để sai số tỷ lệ không quá $\\varepsilon$ với độ tin cậy tương ứng với $z$.", "symbols": "$\\varepsilon$: sai số biên (ví dụ 0,03 tương ứng 3%); $z = 1,96$ cho độ tin cậy 95%; $p(1-p) = 0,25$ là kịch bản xấu nhất (tại $p=0,5$).", "traps": "Với $\\varepsilon = 0,03$ và độ tin cậy 95%, $n \\ge \\frac{1,96^2 \\cdot 0,25}{0,03^2} \\approx 1.067,11 \\implies n = 1.068$ người.", "source": "Slide Week 07 tr. 77; Stat20 Mục 4.17"}, {"id": "CT7_04", "topicId": 7, "topicName": "Định lý giới hạn trung tâm & Ứng dụng", "name": "Bài toán bóng đèn / linh kiện dự phòng (Signature Exam Problem)", "latex": "P(S_n \\ge T) \\ge 1 - \\alpha \\iff \\frac{T - n\\mu}{\\sigma\\sqrt{n}} \\le -z_\\alpha \\iff \\mu u^2 - z_\\alpha \\sigma u - T \\ge 0 \\quad (u = \\sqrt{n})", "whenToUse": "Tìm số linh kiện dự phòng $n$ tối thiểu để hệ thống hoạt động liên tục trong thời gian $T$ với độ tin cậy $1 - \\alpha$.", "symbols": "$T$: tổng thời gian yêu cầu; $\\mu, \\sigma$: kỳ vọng và độ lệch chuẩn của một linh kiện; $u = \\sqrt{n} > 0$.", "traps": "Không lấy $T / \\mu$ vì nếu lấy $n = T/\\mu$ thì xác suất hoạt động đủ chỉ là 50%! Phải giải phương trình bậc hai theo $u = \\sqrt{n}$ rồi làm tròn lên.", "source": "Slide Week 07 tr. 90-91 (Bài 5)"}];
+</script>
+
+<!-- App Logic -->
+<script>
+let currentTopic = 0;
+let searchQuery = '';
+
+function initTheme() {
+  const saved = localStorage.getItem('xstk_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', saved);
+  document.getElementById('themeIcon').textContent = saved === 'dark' ? '☀️' : '🌙';
+}
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const target = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', target);
+  localStorage.setItem('xstk_theme', target);
+  document.getElementById('themeIcon').textContent = target === 'dark' ? '☀️' : '🌙';
+});
+
+function renderMathInPage() {
+  if (window.renderMathInElement) {
+    window.renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false},
+        {left: '\\[', right: '\\]', display: true}
+      ],
+      throwOnError: false
+    });
+  }
+}
+
+function filterTopic(tid) {
+  currentTopic = tid;
+  document.querySelectorAll('.topic-btn').forEach(b => b.classList.toggle('active', parseInt(b.dataset.topic) === tid));
+  renderFormulas();
+}
+
+function handleSearch() {
+  searchQuery = document.getElementById('searchInput').value.trim().toLowerCase();
+  renderFormulas();
+}
+
+function copyLatex(btn, latex) {
+  navigator.clipboard.writeText(latex).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = "✓ Đã copy";
+    btn.style.color = "var(--ok)";
+    setTimeout(() => {
+      btn.textContent = orig;
+      btn.style.color = "";
+    }, 1500);
+  });
+}
+
+function openZTableModal() {
+  document.getElementById('zTableModal').style.display = 'flex';
+  renderMathInPage();
+}
+
+function closeZTableModal() {
+  document.getElementById('zTableModal').style.display = 'none';
+}
+
+function renderFormulas() {
+  const grid = document.getElementById('formulasGrid');
+  grid.innerHTML = '';
+
+  const filtered = window.FORMULAS_DATA.filter(item => {
+    if (currentTopic !== 0 && item.topicId !== currentTopic) return false;
+    if (searchQuery) {
+      const q = (item.name + ' ' + item.latex + ' ' + item.whenToUse + ' ' + item.symbols + ' ' + item.traps + ' ' + item.topicName).toLowerCase();
+      if (!q.includes(searchQuery)) return false;
+    }
+    return true;
+  });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state">
+        <h3>Không tìm thấy công thức nào</h3>
+        <p>Vui lòng thử tìm từ khoá khác hoặc chọn lại chủ đề.</p>
+      </div>
+    `;
+    return;
+  }
+
+  filtered.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'formula-card';
+    card.innerHTML = `
+      <div class="card-header-row">
+        <span class="tag-topic">Chủ đề ${item.topicId}: ${item.topicName}</span>
+        <button class="btn-copy" onclick="copyLatex(this, '${item.latex.replace(/'/g, "\\'")}')">📋 Copy LaTeX</button>
+      </div>
+
+      <h3 class="formula-title">${item.name}</h3>
+
+      <div class="formula-display">
+        $$${item.latex}$$
+      </div>
+
+      <div class="info-block">
+        <div class="info-label">🎯 Khi nào dùng?</div>
+        <div class="info-text">${item.whenToUse}</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-label">🔍 Giải thích ký hiệu:</div>
+        <div class="info-text">${item.symbols}</div>
+      </div>
+
+      <div class="trap-card">
+        <b>⚠️ Bẫy hay gặp:</b> ${item.traps}
+      </div>
+
+      <div class="formula-source">Nguồn: ${item.source}</div>
+    `;
+    grid.appendChild(card);
+  });
+
+  renderMathInPage();
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  initTheme();
+  renderFormulas();
+});
+</script>
+
+</body>
+</html>

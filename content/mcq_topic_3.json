@@ -1,0 +1,354 @@
+[
+  {
+    "id": "TN3_01",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Cơ bản",
+    "question": "Biến ngẫu nhiên rời rạc $X$ nhận các giá trị $x \\in \\{1, 2, 3, 4\\}$ với bảng phân phối xác suất: $P(X = x) = c \\cdot x$ (với $c$ là một hằng số thực). Giá trị của $c$ bằng bao nhiêu để đây là một hàm khối xác suất (pmf) hợp lệ?",
+    "options": [
+      "0,10",
+      "1,00",
+      "0,25",
+      "0,05"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo điều kiện chuẩn hóa của hàm khối xác suất (pmf):\n$\\sum_{x=1}^4 P(X = x) = 1 \\iff c(1 + 2 + 3 + 4) = 1 \\iff 10c = 1 \\iff c = 0,10$.\n\nPhân tích bẫy sai:\n- Phương án B: Nhầm tổng xác suất bằng 1 thì $c = 1$.\n- Phương án C: Sai do lấy $1 / 4 = 0,25$ (coi như 4 giá trị có xác suất đều nhau).\n- Phương án D: Sai số học.",
+    "source": "Slide Week 07 tr. 5; Stat20 Mục 4.1"
+  },
+  {
+    "id": "TN3_02",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Cơ bản",
+    "question": "Cho biến ngẫu nhiên $X$ có bảng phân phối xác suất:\n$X$: 0, 1, 2, 3\n$P(X=x)$: 0,1; 0,4; 0,3; 0,2.\nKỳ vọng toán $E(X)$ bằng bao nhiêu?",
+    "options": [
+      "1,6",
+      "1,5",
+      "2,0",
+      "1,0"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì áp dụng định nghĩa kỳ vọng của biến ngẫu nhiên rời rạc:\n$E(X) = \\sum x \\cdot P(X = x) = 0 \\cdot 0,1 + 1 \\cdot 0,4 + 2 \\cdot 0,3 + 3 \\cdot 0,2 = 0 + 0,4 + 0,6 + 0,6 = 1,6$.\n\nPhân tích bẫy sai:\n- Phương án B: Lấy trung bình cộng ngây thơ các giá trị: $\\frac{0 + 1 + 2 + 3}{4} = 1,5$ (bỏ qua trọng số xác suất).\n- Phương án C: Làm tròn lên 2.\n- Phương án D: Sai do quên nhân giá trị với xác suất.",
+    "source": "Slide Week 07 tr. 6; Stat20 Mục 4.3"
+  },
+  {
+    "id": "TN3_03",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Trung bình",
+    "question": "Tiếp tục với biến ngẫu nhiên $X$ ở câu trên (có $E(X) = 1,6$). Phương sai $\\operatorname{Var}(X)$ bằng bao nhiêu?",
+    "options": [
+      "0,84",
+      "3,40",
+      "2,56",
+      "0,9165"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo công thức phương sai $\\operatorname{Var}(X) = E(X^2) - [E(X)]^2$:\n- $E(X^2) = 0^2 \\cdot 0,1 + 1^2 \\cdot 0,4 + 2^2 \\cdot 0,3 + 3^2 \\cdot 0,2 = 0 + 0,4 + 1,2 + 1,8 = 3,4$.\n- $\\operatorname{Var}(X) = 3,4 - (1,6)^2 = 3,4 - 2,56 = 0,84$.\n\nPhân tích bẫy sai:\n- Phương án B: 3,40 mới chỉ là $E(X^2)$, chưa trừ $[E(X)]^2$.\n- Phương án C: 2,56 là $[E(X)]^2$.\n- Phương án D: $\\sqrt{0,84} \\approx 0,9165$ là độ lệch chuẩn $\\sigma(X)$, không phải phương sai.",
+    "source": "Slide Week 07 tr. 8; Stat20 Mục 4.4"
+  },
+  {
+    "id": "TN3_04",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Cơ bản",
+    "question": "Cho biến ngẫu nhiên $X$ có $E(X) = 5$. Giá trị của $E(-3X + 8)$ là:",
+    "options": [
+      "-7",
+      "23",
+      "-15",
+      "7"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo tính tuyến tính của kỳ vọng:\n$E(aX + b) = a \\cdot E(X) + b = (-3) \\cdot 5 + 8 = -15 + 8 = -7$.\n\nPhân tích bẫy sai:\n- Phương án B: Tính sai dấu: $3 \\cdot 5 + 8 = 23$.\n- Phương án C: Quên không cộng hằng số 8.\n- Phương án D: Sai dấu kết quả.",
+    "source": "Slide Week 07 tr. 7; Stat20 Mục 4.3"
+  },
+  {
+    "id": "TN3_05",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Cơ bản",
+    "question": "Cho biến ngẫu nhiên $X$ có $\\operatorname{Var}(X) = 4$. Phương sai của biến ngẫu nhiên $Y = -3X + 8$ bằng bao nhiêu?",
+    "options": [
+      "36",
+      "-4",
+      "44",
+      "-12"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo tính chất phương sai biến đổi tuyến tính:\n$\\operatorname{Var}(aX + b) = a^2 \\cdot \\operatorname{Var}(X)$.\nỞ đây $a = -3$ và $b = 8$, suy ra: $\\operatorname{Var}(-3X + 8) = (-3)^2 \\cdot 4 = 9 \\cdot 4 = 36$.\nHằng số $+8$ chỉ làm tịnh tiến toàn bộ phân phối, không ảnh hưởng đến độ phân tán quanh tâm.\n\nPhân tích bẫy sai:\n- Phương án B: Sai do tính $-3 \\cdot 4 + 8 = -4$ (áp dụng quy tắc kỳ vọng cho phương sai; hơn nữa phương sai không bao giờ âm!).\n- Phương án C: Sai do tính $9 \\cdot 4 + 8 = 44$ (vô tình cộng thêm hằng số 8).\n- Phương án D: Sai do tính $(-3) \\cdot 4 = -12$ (quên bình phương $a$).",
+    "source": "Slide Week 07 tr. 9; Stat20 Mục 4.4"
+  },
+  {
+    "id": "TN3_06",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Cơ bản",
+    "question": "Cho hai biến ngẫu nhiên $X$ và $Y$ ĐỘC LẬP với nhau, biết $\\operatorname{Var}(X) = 5$ và $\\operatorname{Var}(Y) = 3$. Giá trị của $\\operatorname{Var}(X - Y)$ bằng bao nhiêu?",
+    "options": [
+      "8",
+      "2",
+      "15",
+      "\\(\\sqrt{8} \\approx 2,83\\)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì đối với hai biến ngẫu nhiên độc lập:\n$\\operatorname{Var}(X - Y) = \\operatorname{Var}(X + (-1)Y) = \\operatorname{Var}(X) + (-1)^2 \\operatorname{Var}(Y) = \\operatorname{Var}(X) + \\operatorname{Var}(Y) = 5 + 3 = 8$.\nĐộ bất định (phương sai) của hiệu hai nguồn biến thiên độc lập luôn CỘNG DỒN, không bao giờ triệt tiêu hay trừ lẫn nhau!\n\nPhân tích bẫy sai:\n- Phương án B: Bẫy sai kinh điển: lấy $5 - 3 = 2$ do nghĩ rằng hiệu thì phương sai cũng trừ đi.\n- Phương án C: Nhân $5 \\cdot 3 = 15$.\n- Phương án D: Độ lệch chuẩn $\\sqrt{8}$, không phải phương sai.",
+    "source": "Slide Week 07 tr. 14; Stat20 Mục 4.4"
+  },
+  {
+    "id": "TN3_07",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Cơ bản",
+    "question": "Cho hai biến ngẫu nhiên $X$ và $Y$ có $E(X) = 10$ và $E(Y) = 15$. Chưa rõ $X$ và $Y$ có độc lập hay không. Giá trị của $E(2X + 3Y)$ bằng bao nhiêu?",
+    "options": [
+      "65",
+      "Chưa đủ dữ kiện để tính vì chưa biết $X, Y$ có độc lập hay không",
+      "50",
+      "150"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì tính chất tuyến tính của kỳ vọng $E(aX + bY) = aE(X) + bE(Y)$ LUÔN LUÔN ĐÚNG trong mọi trường hợp, hoàn toàn KHÔNG CẦN điều kiện độc lập:\n$E(2X + 3Y) = 2 \\cdot 10 + 3 \\cdot 15 = 20 + 45 = 65$.\n(Điều kiện độc lập chỉ bắt buộc đối với phương sai hoặc tích $E(XY)$).\n\nPhân tích bẫy sai:\n- Phương án B: Nhầm lẫn điều kiện độc lập của phương sai sang kỳ vọng.\n- Phương án C, D: Sai số học.",
+    "source": "Slide Week 07 tr. 12; Stat20 Mục 4.3"
+  },
+  {
+    "id": "TN3_08",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Cơ bản",
+    "question": "Nếu hai biến ngẫu nhiên $X$ và $Y$ độc lập với nhau, có $E(X) = 4$ và $E(Y) = 6$, thì $E(X \\cdot Y)$ bằng bao nhiêu?",
+    "options": [
+      "24",
+      "10",
+      "Chưa đủ dữ kiện vì cần biết phương sai",
+      "0"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo định lý: Khi hai biến ngẫu nhiên độc lập thì kỳ vọng của tích bằng tích các kỳ vọng:\n$E(XY) = E(X) \\cdot E(Y) = 4 \\cdot 6 = 24$.\n\nPhân tích bẫy sai:\n- Phương án B: Lấy tổng $4 + 6 = 10$.\n- Phương án C: Không cần phương sai để tính $E(XY)$.\n- Phương án D: 0 là hiệp phương sai $\\operatorname{Cov}(X, Y) = 0$, không phải $E(XY)$.",
+    "source": "Slide Week 07 tr. 13"
+  },
+  {
+    "id": "TN3_09",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Cơ bản",
+    "question": "Cho biến ngẫu nhiên rời rạc $X$ nhận các giá trị 1, 2, 3 với xác suất tương ứng là $0,3$; $0,5$; $0,2$. Giá trị của hàm phân phối tích lũy tại $x = 2,5$ (tức $F(2,5)$) bằng bao nhiêu?",
+    "options": [
+      "0,8",
+      "0,5",
+      "0,3",
+      "1,0"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo định nghĩa hàm phân phối tích lũy:\n$F(2,5) = P(X \\le 2,5) = P(X = 1) + P(X = 2) = 0,3 + 0,5 = 0,8$.\n(Giá trị $X = 3$ lớn hơn 2,5 nên không được tính vào tích lũy).\n\nPhân tích bẫy sai:\n- Phương án B: 0,5 chỉ là $P(X=2)$.\n- Phương án C: 0,3 chỉ là $P(X=1)$.\n- Phương án D: 1,0 là $F(3)$ hoặc $F(x)$ khi $x \\ge 3$.",
+    "source": "Slide Week 07 tr. 4; Stat20 Mục 4.2"
+  },
+  {
+    "id": "TN3_10",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Trung bình",
+    "question": "Cho hàm phân phối tích lũy $F(x)$ của biến ngẫu nhiên rời rạc $X$. Biết rằng $\\lim_{x \\to 3^-} F(x) = 0,40$ và $F(3) = 0,75$. Xác suất tại đúng điểm $x = 3$ ($P(X = 3)$) bằng bao nhiêu?",
+    "options": [
+      "0,35",
+      "0,75",
+      "0,40",
+      "1,15"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì đối với biến ngẫu nhiên rời rạc, bước nhảy (độ gián đoạn) của hàm cdf tại điểm $x_0$ chính bằng xác suất tại điểm đó:\n$P(X = 3) = F(3) - \\lim_{x \\to 3^-} F(x) = 0,75 - 0,40 = 0,35$.\n\nPhân tích bẫy sai:\n- Phương án B: 0,75 là xác suất tích lũy $P(X \\le 3)$.\n- Phương án C: 0,40 là xác suất tích lũy nghiêm ngặt $P(X < 3)$.\n- Phương án D: Cộng hai giá trị $0,75 + 0,40 = 1,15$.",
+    "source": "Slide Week 07 tr. 4; Stat20 Mục 4.2"
+  },
+  {
+    "id": "TN3_11",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Trung bình",
+    "question": "Cho biến ngẫu nhiên $X$ nhận giá trị 1 và 2 với xác suất bằng nhau ($P(X=1) = P(X=2) = 0,5$). So sánh giữa $E\\left(\\frac{1}{X}\\right)$ và $\\frac{1}{E(X)}$:",
+    "options": [
+      "\\(E\\left(\\frac{1}{X}\\right) = 0,75 > \\frac{1}{E(X)} \\approx 0,667\\)",
+      "\\(E\\left(\\frac{1}{X}\\right) = \\frac{1}{E(X)} = 0,75\\)",
+      "\\(E\\left(\\frac{1}{X}\\right) = 0,5 < \\frac{1}{E(X)} = 0,667\\)",
+      "Không thể tính được vì hàm $1/X$ không có kỳ vọng"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo luật LOTUS và Bất đẳng thức Jensen (do hàm $g(x) = 1/x$ là hàm lồi nghiêm ngặt trên $(0, \\infty)$ nên $E(g(X)) > g(E(X))$):\n- $E(X) = 1 \\cdot 0,5 + 2 \\cdot 0,5 = 1,5 \\implies \\frac{1}{E(X)} = \\frac{1}{1,5} = \\frac{2}{3} \\approx 0,667$.\n- $E\\left(\\frac{1}{X}\\right) = \\frac{1}{1} \\cdot 0,5 + \\frac{1}{2} \\cdot 0,5 = 0,5 + 0,25 = 0,75$.\nDo đó $E\\left(\\frac{1}{X}\\right) > \\frac{1}{E(X)}$. Đây là bài học quan trọng: Kỳ vọng không được giao hoán qua các hàm phi tuyến!\n\nPhân tích bẫy sai:\n- Phương án B: Bẫy ngây thơ coi $E(g(X)) = g(E(X))$.\n- Phương án C, D: Sai kết quả tính toán.",
+    "source": "Slide Week 07 tr. 7; Stat20 Mục 4.3"
+  },
+  {
+    "id": "TN3_12",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Cơ bản",
+    "question": "Gọi $I_A$ là biến ngẫu nhiên chỉ thị của biến cố $A$ ($I_A = 1$ nếu $A$ xảy ra, $I_A = 0$ nếu $A$ không xảy ra), với $P(A) = p$. Kỳ vọng và phương sai của $I_A$ lần lượt là:",
+    "options": [
+      "$E(I_A) = p$ và $\\operatorname{Var}(I_A) = p(1 - p)$",
+      "$E(I_A) = 1$ và $\\operatorname{Var}(I_A) = p$",
+      "$E(I_A) = p$ và $\\operatorname{Var}(I_A) = p^2$",
+      "$E(I_A) = p^2$ và $\\operatorname{Var}(I_A) = p(1 - p)$"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì biến chỉ thị $I_A$ thực chất là biến Bernoulli($p$):\n- $E(I_A) = 1 \\cdot P(A) + 0 \\cdot P(\\bar{A}) = p$.\n- $E(I_A^2) = 1^2 \\cdot p + 0^2 \\cdot (1-p) = p$ (vì $I_A^2 = I_A$).\n- $\\operatorname{Var}(I_A) = E(I_A^2) - [E(I_A)]^2 = p - p^2 = p(1 - p)$.\n\nPhân tích bẫy sai:\n- Phương án B, C, D: Sai công thức toán học cơ bản của biến chỉ thị.",
+    "source": "Slide Week 07 tr. 10; Stat20 Mục 4.8"
+  },
+  {
+    "id": "TN3_13",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Trung bình",
+    "question": "Cho $X$ và $Y$ là hai biến ngẫu nhiên độc lập có $\\operatorname{Var}(X) = 2$ và $\\operatorname{Var}(Y) = 3$. Phương sai của biến $Z = 2X - 3Y + 5$ bằng bao nhiêu?",
+    "options": [
+      "35",
+      "40",
+      "-1",
+      "13"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n$\\operatorname{Var}(2X - 3Y + 5) = 2^2 \\operatorname{Var}(X) + (-3)^2 \\operatorname{Var}(Y) = 4 \\cdot 2 + 9 \\cdot 3 = 8 + 27 = 35$.\nHằng số $+5$ không làm đổi phương sai.\n\nPhân tích bẫy sai:\n- Phương án B: Sai do cộng thêm hằng số 5 ($35 + 5 = 40$).\n- Phương án C: Sai do tính $4 \\cdot 2 - 9 \\cdot 3 = 8 - 27 = -19$ hoặc $2(2) - 3(3) + 5 = 0$.\n- Phương án D: Sai do quên không bình phương các hệ số: $2 \\cdot 2 + 3 \\cdot 3 = 13$.",
+    "source": "Slide Week 07 tr. 9; Stat20 Mục 4.4"
+  },
+  {
+    "id": "TN3_14",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Trung bình",
+    "question": "Nếu $\\operatorname{Cov}(X, Y) = 0$, ta có thể rút ra kết luận nào sau đây?",
+    "options": [
+      "$X$ và $Y$ không có tương quan tuyến tính ($E(XY) = E(X)E(Y)$), nhưng chưa chắc độc lập",
+      "$X$ và $Y$ chắc chắn độc lập với nhau",
+      "Phương sai của $X$ bằng phương sai của $Y$",
+      "$P(X = x, Y = y) = P(X = x) \\cdot P(Y = y)$ với mọi $x, y$"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo định lý: Độc lập kéo theo $\\operatorname{Cov}(X, Y) = 0$, nhưng điều ngược lại KHÔNG đúng. $\\operatorname{Cov}(X, Y) = 0$ chỉ khẳng định không có quan hệ tuyến tính; giữa $X$ và $Y$ hoàn toàn có thể tồn tại mối quan hệ phi tuyến hoàn hảo (ví dụ $X \\sim U(-1, 1)$ và $Y = X^2$ có $\\operatorname{Cov}(X, Y) = 0$ nhưng $Y$ phụ thuộc hoàn toàn vào $X$).\n\nPhân tích bẫy sai:\n- Phương án B: Bẫy suy luận đảo ngược sai lầm (không tương quan $\\neq$ độc lập).\n- Phương án C: Không liên quan.\n- Phương án D: Đây là định nghĩa độc lập toàn phần, điều mà $\\operatorname{Cov}=0$ chưa đủ đảm bảo.",
+    "source": "Slide Week 07 tr. 13"
+  },
+  {
+    "id": "TN3_15",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Trung bình",
+    "question": "Bảng phân phối xác suất đồng thời của hai biến ngẫu nhiên $X$ và $Y$ như sau:\n$P(X=0, Y=1) = 0,2$; $P(X=0, Y=2) = 0,3$;\n$P(X=1, Y=1) = 0,1$; $P(X=1, Y=2) = 0,4$.\nKỳ vọng biên $E(X)$ bằng bao nhiêu?",
+    "options": [
+      "0,5",
+      "0,7",
+      "1,7",
+      "0,4"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì để tính $E(X)$, trước hết ta tìm phân phối biên của $X$ bằng cách cộng theo hàng:\n- $P(X = 0) = P(X=0, Y=1) + P(X=0, Y=2) = 0,2 + 0,3 = 0,5$.\n- $P(X = 1) = P(X=1, Y=1) + P(X=1, Y=2) = 0,1 + 0,4 = 0,5$.\nKỳ vọng: $E(X) = 0 \\cdot 0,5 + 1 \\cdot 0,5 = 0,5$.\n\nPhân tích bẫy sai:\n- Phương án B: Sai do tính $E(XY) = 0 + 0 + 1 \\cdot 1 \\cdot 0,1 + 1 \\cdot 2 \\cdot 0,4 = 0,1 + 0,8 = 0,9$ rồi nhầm sang số khác.\n- Phương án C: 1,7 là kỳ vọng biên của $Y$ ($P(Y=1)=0,3, P(Y=2)=0,7 \\implies E(Y) = 1 \\cdot 0,3 + 2 \\cdot 0,7 = 1,7$).\n- Phương án D: Sai số học.",
+    "source": "Slide Week 07 tr. 11"
+  },
+  {
+    "id": "TN3_16",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Trung bình",
+    "question": "Với bảng phân phối đồng thời ở câu trên ($P(X=0, Y=1) = 0,2$; $P(X=0) = 0,5$; $P(Y=1) = 0,3$), hai biến ngẫu nhiên $X$ và $Y$ có độc lập với nhau hay không?",
+    "options": [
+      "Không độc lập vì $P(X=0, Y=1) = 0,2 \\neq P(X=0) \\cdot P(Y=1) = 0,15$",
+      "Độc lập vì tổng xác suất toàn bảng bằng 1",
+      "Độc lập vì $E(X)$ và $E(Y)$ đều tính được",
+      "Không thể xác định vì cần biết phương sai của $X$"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo định nghĩa độc lập của hai biến ngẫu nhiên rời rạc, đẳng thức $P(X=x, Y=y) = P(X=x) \\cdot P(Y=y)$ phải thỏa mãn với MỌI cặp $(x, y)$.\nTại cặp $(0, 1)$:\n- $P(X=0, Y=1) = 0,20$.\n- $P(X=0) \\cdot P(Y=1) = 0,5 \\cdot 0,3 = 0,15 \\neq 0,20$.\nDo vi phạm ngay tại cặp này nên $X$ và $Y$ không độc lập.\n\nPhân tích bẫy sai:\n- Phương án B, C: Bảng phân phối nào cũng có tổng bằng 1 và tính được kỳ vọng, không liên quan đến tính độc lập.\n- Phương án D: Không cần biết phương sai.",
+    "source": "Slide Week 07 tr. 11"
+  },
+  {
+    "id": "TN3_17",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Nâng cao",
+    "question": "Một người bán báo nhập 20 tờ báo mỗi sáng với giá 5.000 đ/tờ và bán ra với giá 8.000 đ/tờ. Báo không bán hết trong ngày bị vứt bỏ (lỗ hoàn toàn). Nhu cầu mua báo trong ngày ($D$) có phân phối: $P(D = 10) = 0,2$; $P(D = 20) = 0,5$; $P(D = 30) = 0,3$. Lợi nhuận kỳ vọng của người bán báo mỗi sáng là bao nhiêu?",
+    "options": [
+      "44.000 đồng",
+      "60.000 đồng",
+      "63.000 đồng",
+      "30.000 đồng"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì lợi nhuận tính theo số báo thực tế bán được $\\min(D, 20)$ trừ đi chi phí nhập 20 tờ ($20 \\times 5.000 = 100.000$ đ):\n- Nếu $D = 10$ (xác suất 0,2): bán được 10 tờ $\\implies \\text{Lợi nhuận} = 10 \\times 8.000 - 100.000 = -20.000$ đ.\n- Nếu $D = 20$ (xác suất 0,5): bán được 20 tờ $\\implies \\text{Lợi nhuận} = 20 \\times 8.000 - 100.000 = +60.000$ đ.\n- Nếu $D = 30$ (xác suất 0,3): do chỉ nhập 20 tờ nên chỉ bán được 20 tờ $\\implies \\text{Lợi nhuận} = 20 \\times 8.000 - 100.000 = +60.000$ đ.\nLợi nhuận kỳ vọng:\n$E(\\text{Lợi nhuận}) = (-20.000) \\cdot 0,2 + 60.000 \\cdot 0,5 + 60.000 \\cdot 0,3 = -4.000 + 30.000 + 18.000 = 44.000$ đồng.\n\nPhân tích bẫy sai:\n- Phương án B: Bẫy coi như luôn bán hết 20 tờ ($60.000$ đ).\n- Phương án C: Bẫy tính nhu cầu kỳ vọng $E(D) = 10 \\cdot 0,2 + 20 \\cdot 0,5 + 30 \\cdot 0,3 = 21$ tờ, rồi lấy $21 \\times 3.000 = 63.000$ đ (sai vì số bán bị giới hạn trần ở 20).\n- Phương án D: Sai số học.",
+    "source": "Slide Week 07 tr. 7"
+  },
+  {
+    "id": "TN3_18",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Trung bình",
+    "question": "Cho biến ngẫu nhiên $X$ nhận các giá trị: $-2$ (xác suất 0,3), $0$ (xác suất 0,4), $+3$ (xác suất 0,3). Phương sai $\\operatorname{Var}(X)$ bằng bao nhiêu?",
+    "options": [
+      "3,81",
+      "3,90",
+      "0,30",
+      "2,19"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Kỳ vọng: $E(X) = (-2) \\cdot 0,3 + 0 \\cdot 0,4 + 3 \\cdot 0,3 = -0,6 + 0,9 = 0,3$.\n- Kỳ vọng bình phương: $E(X^2) = (-2)^2 \\cdot 0,3 + 0^2 \\cdot 0,4 + 3^2 \\cdot 0,3 = 4 \\cdot 0,3 + 0 + 9 \\cdot 0,3 = 1,2 + 2,7 = 3,9$.\n- Phương sai: $\\operatorname{Var}(X) = E(X^2) - [E(X)]^2 = 3,9 - 0,3^2 = 3,9 - 0,09 = 3,81$.\n\nPhân tích bẫy sai:\n- Phương án B: 3,90 mới chỉ là $E(X^2)$, chưa trừ $[E(X)]^2$.\n- Phương án C: 0,30 là $E(X)$.\n- Phương án D: Sai dấu bình phương $(-2)^2 = -4 \\implies E(X^2) = -1,2 + 2,7 = 1,5 \\implies 1,5 - 0,09 = 1,41$ hoặc sai phép tính.",
+    "source": "Slide Week 07 tr. 8"
+  },
+  {
+    "id": "TN3_19",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Trung bình",
+    "question": "Trong trò chơi Cò quay Roulette kiểu Mỹ có 38 ô: 18 ô Đỏ, 18 ô Đen và 2 ô Xanh lá (0 và 00). Một người chơi đặt cược 100.000 đồng vào cửa Đỏ. Nếu bóng rơi vào ô Đỏ, người chơi nhận lại 100.000 đồng vốn và được thưởng thêm 100.000 đồng; nếu bóng rơi vào Đen hoặc Xanh, người chơi mất toàn bộ 100.000 đồng tiền cược. Kỳ vọng số tiền lãi/lỗ của người chơi sau mỗi lượt cược là bao nhiêu?",
+    "options": [
+      "-5.263 đồng (tức lỗ trung bình khoảng 5,26%)",
+      "0 đồng (trò chơi công bằng)",
+      "+5.263 đồng",
+      "-50.000 đồng"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Xác suất thắng (ra Đỏ): $P(\\text{thắng}) = \\frac{18}{38}$. Lợi nhuận: $+100.000$ đ.\n- Xác suất thua (ra Đen hoặc Xanh): $P(\\text{thua}) = \\frac{20}{38}$. Lợi nhuận: $-100.000$ đ.\nKỳ vọng lợi nhuận:\n$E(X) = (+100.000) \\cdot \\frac{18}{38} + (-100.000) \\cdot \\frac{20}{38} = 100.000 \\cdot \\frac{-2}{38} \\approx -5.263$ đồng.\n(Đây chính là lợi thế nhà cái house edge bằng $2/38 \\approx 5,26\\%$).\n\nPhân tích bẫy sai:\n- Phương án B: Ảo tưởng trò chơi công bằng do quên mất 2 ô xanh lá nhà cái (0 và 00).\n- Phương án C: Sai dấu (người chơi luôn có kỳ vọng âm).\n- Phương án D: Sai số học.",
+    "source": "Stat20 Mục 4.3; Slide Week 07 tr. 7"
+  },
+  {
+    "id": "TN3_20",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Cơ bản",
+    "question": "Cho $X_1, X_2, \\dots, X_{16}$ là 16 biến ngẫu nhiên độc lập cùng phân phối (i.i.d.) có độ lệch chuẩn $\\sigma = 12$. Độ lệch chuẩn của biến trung bình mẫu $\\bar{X} = \\frac{1}{16} \\sum_{i=1}^{16} X_i$ bằng bao nhiêu?",
+    "options": [
+      "3",
+      "0,75",
+      "48",
+      "12"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo quy luật căn bậc hai đối với trung bình mẫu của $n$ biến i.i.d.:\n$\\sigma(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}} = \\frac{12}{\\sqrt{16}} = \\frac{12}{4} = 3$.\n\nPhân tích bẫy sai:\n- Phương án B: Sai do chia cho $n=16$ thay vì $\\sqrt{n}$ ($12/16 = 0,75$).\n- Phương án C: Nhầm sang độ lệch chuẩn của TỔNG: $\\sigma(S_n) = \\sigma\\sqrt{n} = 12 \\cdot 4 = 48$.\n- Phương án D: Giữ nguyên $\\sigma = 12$ là sai vì trung bình mẫu phải có độ phân tán nhỏ hơn từng quan sát đơn lẻ.",
+    "source": "Slide Week 07 tr. 25; Stat20 Mục 4.13"
+  },
+  {
+    "id": "TN3_21",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Cơ bản",
+    "question": "Với mọi biến ngẫu nhiên $X$ có phương sai hữu hạn, bất đẳng thức nào sau đây luôn luôn ĐÚNG?",
+    "options": [
+      "\\(E(X^2) \\ge [E(X)]^2\\), dấu bằng xảy ra khi và chỉ khi $X$ là một hằng số chắc chắn",
+      "\\(E(X^2) < [E(X)]^2\\)",
+      "\\(E(X^2) = [E(X)]^2\\) với mọi biến ngẫu nhiên",
+      "\\(E(X^2) \\le E(X)\\)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì phương sai định nghĩa là trung bình của bình phương độ lệch nên không bao giờ âm:\n$\\operatorname{Var}(X) = E(X^2) - [E(X)]^2 \\ge 0 \\implies E(X^2) \\ge [E(X)]^2$.\nDấu bằng xảy ra khi và chỉ khi $\\operatorname{Var}(X) = 0$, nghĩa là $X$ không hề có tính ngẫu nhiên mà là một hằng số chắc chắn ($P(X = c) = 1$).\n\nPhân tích bẫy sai:\n- Phương án B, C, D: Đều trái ngược với định lý cơ bản về phương sai.",
+    "source": "Slide Week 07 tr. 8"
+  },
+  {
+    "id": "TN3_22",
+    "topicId": 3,
+    "topicName": "Biến ngẫu nhiên rời rạc, Kỳ vọng & Phương sai",
+    "level": "Nâng cao",
+    "question": "Cho hai biến ngẫu nhiên $X$ và $Y$ có hiệp phương sai $\\operatorname{Cov}(X, Y) = 2$. Giá trị của $\\operatorname{Cov}(-2X, 3Y)$ bằng bao nhiêu?",
+    "options": [
+      "-12",
+      "12",
+      "-6",
+      "2"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo tính song tuyến tính (bilinearity) của hiệp phương sai:\n$\\operatorname{Cov}(aX, bY) = a \\cdot b \\cdot \\operatorname{Cov}(X, Y)$.\nỞ đây $a = -2$ và $b = 3$, do đó: $\\operatorname{Cov}(-2X, 3Y) = (-2) \\cdot 3 \\cdot 2 = -12$.\n\nPhân tích bẫy sai:\n- Phương án B: Quên dấu âm của hệ số $a=-2$.\n- Phương án C: Sai do lấy tích hai hệ số $(-2) \\cdot 3 = -6$ mà quên nhân hiệp phương sai gốc là 2.\n- Phương án D: Giữ nguyên giá trị cũ.",
+    "source": "Slide Week 07 tr. 13"
+  }
+]

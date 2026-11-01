@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/site/index.html" },
+    { "source": "/hoc", "destination": "/site/hoc.html" },
+    { "source": "/tuluan", "destination": "/site/tuluan.html" },
+    { "source": "/tracnghiem", "destination": "/site/tracnghiem.html" },
+    { "source": "/congthuc", "destination": "/site/congthuc.html" }
+  ]
+}

@@ -1,0 +1,462 @@
+import sys
+import json
+import numpy as np
+
+sys.stdout.reconfigure(encoding='utf-8')
+
+# Helper to format decimals with comma
+def fmt(val, digits=2):
+    if isinstance(val, (int, np.integer)):
+        return str(val)
+    res = f"{val:.{digits}f}".rstrip('0').rstrip('.')
+    return res.replace('.', ',')
+
+mcqs_1 = []
+
+# TN1_01: Phân loại biến số
+mcqs_1.append({
+    "id": "TN1_01",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Cơ bản",
+    "question": "Trong một nghiên cứu về sinh viên đại học, các biến số sau được thu thập: (1) Mã số sinh viên, (2) Điểm rèn luyện xếp loại (Xuất sắc, Tốt, Khá, Trung bình), (3) Số tín chỉ đã tích lũy, (4) Thời gian tự học mỗi tuần (giờ). Các biến này lần lượt thuộc loại nào?",
+    "options": [
+        "Định tính danh nghĩa (Nominal), Định tính thứ bậc (Ordinal), Định lượng rời rạc, Định lượng liên tục",
+        "Định lượng rời rạc, Định tính thứ bậc, Định lượng rời rạc, Định lượng liên tục",
+        "Định tính danh nghĩa, Định tính danh nghĩa, Định lượng liên tục, Định lượng rời rạc",
+        "Định tính thứ bậc, Định tính thứ bậc, Định lượng rời rạc, Định lượng liên tục"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- (1) Mã số sinh viên là nhãn định danh, các con số không dùng để cộng trừ nhân chia hay so sánh lớn bé -> Định tính danh nghĩa (Nominal).\n- (2) Điểm rèn luyện có thứ tự tự nhiên (Xuất sắc > Tốt > Khá > Trung bình) nhưng khoảng cách giữa các mức không đo đếm bằng số -> Định tính thứ bậc (Ordinal).\n- (3) Số tín chỉ tích lũy chỉ nhận các giá trị nguyên không âm 0, 1, 2, 3... đếm được -> Định lượng rời rạc (Discrete numeric).\n- (4) Thời gian tự học có thể nhận bất kỳ giá trị thực nào trên một khoảng (ví dụ 12,35 giờ) -> Định lượng liên tục (Continuous numeric).\n\nPhân tích bẫy sai:\n- Phương án B: Sai vì nhầm Mã số sinh viên là định lượng do nó ghi bằng các chữ số.\n- Phương án C: Sai vì xếp loại rèn luyện có quan hệ thứ bậc rõ ràng, không thể là danh nghĩa thuần túy.\n- Phương án D: Sai vì mã số sinh viên không có thứ bậc ưu tiên nào.",
+    "source": "Stat20 Mục 1.1 - 1.2"
+})
+
+# TN1_02: Đơn vị quan sát và biến số trong Tidy Data
+mcqs_1.append({
+    "id": "TN1_02",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Cơ bản",
+    "question": "Một bảng dữ liệu ghi lại thông tin tiêm chủng của 500 trẻ em tại một trung tâm y tế, mỗi dòng tương ứng với một trẻ, các cột gồm: Họ tên, Ngày sinh, Cân nặng, Chiều cao, Tình trạng tiêm chủng. Theo chuẩn cấu trúc dữ liệu gọn gàng (tidy data frame), phát biểu nào sau đây là ĐÚNG?",
+    "options": [
+        "Đơn vị quan sát (observational unit) là từng trẻ em, và mỗi cột là một biến số (variable)",
+        "Đơn vị quan sát là toàn bộ trung tâm y tế, và số quan sát là 5",
+        "Mỗi dòng là một biến số và mỗi cột là một đơn vị quan sát",
+        "Đơn vị quan sát là các lần tiêm chủng và kích thước mẫu là 5 x 500 = 2500"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo định nghĩa bảng dữ liệu tidy (Stat20 Ch.1): mỗi dòng đại diện cho một đơn vị quan sát cá thể (ở đây là một trẻ em), mỗi cột đại diện cho một đặc trưng đo lường (biến số), và mỗi ô là một giá trị duy nhất.\n\nPhân tích bẫy sai:\n- Phương án B: Sai vì trung tâm y tế là bối cảnh thu thập, không phải đơn vị đo lường cơ sở.\n- Phương án C: Nhầm lẫn ngược hoàn toàn giữa khái niệm dòng (quan sát) và cột (biến số).\n- Phương án D: Dữ liệu ghi thông tin từng trẻ chứ không phải từng mũi tiêm lặp lại.",
+    "source": "Stat20 Mục 1.2"
+})
+
+# TN1_03: Trung bình, trung vị và hình dạng phân phối (Skewness)
+mcqs_1.append({
+    "id": "TN1_03",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Cơ bản",
+    "question": "Một công ty công nghệ có 100 nhân viên. Thu nhập bình quân (mean) là 35 triệu đồng/tháng, nhưng trung vị (median) chỉ là 18 triệu đồng/tháng. Nhận định nào sau đây là CHÍNH XÁC NHẤT về hình dạng phân phối thu nhập của công ty?",
+    "options": [
+        "Phân phối lệch phải (Right-skewed) do có một số ít nhân viên cấp cao hoặc chuyên gia nhận mức lương cực cao kéo giá trị trung bình lên",
+        "Phân phối lệch trái (Left-skewed) do phần lớn nhân viên có mức lương cao hơn trung bình",
+        "Phân phối hoàn toàn đối xứng hình chuông vì số lượng nhân viên đủ lớn (n = 100)",
+        "Dữ liệu bị lỗi thu thập vì trung bình luôn luôn phải xấp xỉ bằng trung vị"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì khi $\\text{Mean} (35) > \\text{Median} (18)$, phân phối có đuôi dài kéo về phía giá trị lớn (phía bên phải), gọi là phân phối lệch phải (right-skewed). Các giá trị cực lớn (như lương của ban giám đốc vài trăm triệu) kéo mạnh giá trị Mean lên cao, trong khi Median không bị ảnh hưởng (bền vững).\n\nPhân tích bẫy sai:\n- Phương án B: Sai vì phân phối lệch trái có $\\text{Mean} < \\text{Median}$ (đuôi dài bên trái kéo Mean xuống).\n- Phương án C: Sai vì số lượng $n=100$ không đảm bảo dữ liệu gốc có dạng hình chuông đối xứng (nhất là biến thu nhập luôn lệch phải).\n- Phương án D: Sai vì Mean và Median chỉ bằng nhau khi phân phối đối xứng hoàn hảo.",
+    "source": "Stat20 Mục 2.4; Slide Week 07 tr. 5"
+})
+
+# TN1_04: Tính tứ phân vị và IQR
+# Dữ liệu 9 số: 3, 5, 7, 8, 9, 11, 15, 16, 20
+data_04 = [3, 5, 7, 8, 9, 11, 15, 16, 20]
+med_04 = np.median(data_04) # 9
+# Lower half: [3, 5, 7, 8] -> Q1 = 6.0
+# Upper half: [11, 15, 16, 20] -> Q3 = 15.5
+# IQR = 15.5 - 6 = 9.5
+q1_04 = 6.0
+q3_04 = 15.5
+iqr_04 = q3_04 - q1_04
+
+mcqs_1.append({
+    "id": "TN1_04",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Trung bình",
+    "question": f"Cho mẫu số liệu đã sắp xếp: 3, 5, 7, 8, 9, 11, 15, 16, 20. Khoảng tứ phân vị (IQR) của mẫu dữ liệu này bằng bao nhiêu (theo phương pháp tách trung vị phổ biến trong giáo trình)?",
+    "options": [
+        f"{fmt(iqr_04)}",
+        f"{fmt(q3_04)}",
+        f"{fmt(q1_04)}",
+        "17"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Số quan sát $n=9$ (lẻ), giá trị chính giữa ở vị trí thứ 5 là $\\text{Median} = Q_2 = 9$.\n- Nửa dưới gồm 4 số: [3, 5, 7, 8] $\\implies Q_1 = \\frac{5 + 7}{2} = 6,0$.\n- Nửa trên gồm 4 số: [11, 15, 16, 20] $\\implies Q_3 = \\frac{15 + 16}{2} = 15,5$.\n- Khoảng tứ phân vị $\\text{IQR} = Q_3 - Q_1 = 15,5 - 6,0 = 9,5$.\n\nPhân tích bẫy sai:\n- Phương án B: Sai do nhầm $\\text{IQR}$ chính là $Q_3 = 15,5$.\n- Phương án C: Sai do nhầm $\\text{IQR}$ là $Q_1 = 6,0$.\n- Phương án D: 17 là khoảng biến thiên toàn phần $\\text{Range} = 20 - 3 = 17$, không phải khoảng tứ phân vị.",
+    "source": "Stat20 Mục 2.4"
+})
+
+# TN1_05: Tiêu chuẩn xác định ngoại lai Tukey
+# Q1 = 10, Q3 = 22 -> IQR = 12
+# Lower fence = 10 - 1.5 * 12 = 10 - 18 = -8
+# Upper fence = 22 + 1.5 * 12 = 22 + 18 = 40
+mcqs_1.append({
+    "id": "TN1_05",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Cơ bản",
+    "question": "Một mẫu dữ liệu có tứ phân vị thứ nhất $Q_1 = 10$ và tứ phân vị thứ ba $Q_3 = 22$. Theo tiêu chuẩn 1,5×IQR của Tukey, một giá trị $x$ được coi là ngoại lai (outlier) nếu nằm ngoài khoảng nào?",
+    "options": [
+        "[-8; 40]",
+        "[4; 28]",
+        "[10; 22]",
+        "[-2; 34]"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Khoảng tứ phân vị: $\\text{IQR} = Q_3 - Q_1 = 22 - 10 = 12$.\n- Hàng rào dưới (Lower Fence): $Q_1 - 1,5 \\cdot \\text{IQR} = 10 - 1,5 \\cdot 12 = 10 - 18 = -8$.\n- Hàng rào trên (Upper Fence): $Q_3 + 1,5 \\cdot \\text{IQR} = 22 + 1,5 \\cdot 12 = 22 + 18 = 40$.\n- Do đó, giá trị $x$ nằm ngoài khoảng $[-8; 40]$ ($x < -8$ hoặc $x > 40$) là ngoại lai.\n\nPhân tích bẫy sai:\n- Phương án B: Nhầm công thức thành $[Q_1 - 0,5 \\cdot \\text{IQR}; Q_3 + 0,5 \\cdot \\text{IQR}] = [4; 28]$.\n- Phương án C: Đây chỉ là hộp $[Q_1; Q_3]$, chứa 50% dữ liệu trung tâm chứ không phải rào ngoại lai.\n- Phương án D: Tính nhầm $1 \\cdot \\text{IQR}$ thay vì $1,5 \\cdot \\text{IQR}$ ($10 - 12 = -2; 22 + 12 = 34$).",
+    "source": "Stat20 Mục 2.4; Slide Week 07 tr. 5"
+})
+
+# TN1_06: Tính bền vững (Robustness)
+mcqs_1.append({
+    "id": "TN1_06",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Cơ bản",
+    "question": "Khi trong tập dữ liệu xuất hiện một vài điểm ngoại lai cực kỳ lớn (do sai sót gõ nhầm thêm hai chữ số 0 vào cuối), cặp đại lượng thống kê nào sau đây ít bị ảnh hưởng nhất (có tính bền vững - robust)?",
+    "options": [
+        "Trung vị (Median) và Khoảng tứ phân vị (IQR)",
+        "Trung bình (Mean) và Độ lệch chuẩn (SD)",
+        "Trung bình (Mean) và Trung vị (Median)",
+        "Khoảng biến thiên (Range) và Phương sai (Variance)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì Trung vị và IQR dựa trên thứ tự xếp hạng vị trí của dữ liệu nên không bị kéo bởi giá trị số học của các điểm cực trị (tính bền vững cao). Ngược lại, Mean, Phương sai, Độ lệch chuẩn và Range đều phụ thuộc trực tiếp vào từng giá trị số học, do đó bị bóp méo dữ dội khi có ngoại lai.\n\nPhân tích bẫy sai:\n- Phương án B: Mean và SD là các đại lượng cực kỳ nhạy cảm (non-robust).\n- Phương án C: Chứa Mean là đại lượng không bền vững.\n- Phương án D: Range lấy $(\\max - \\min)$ nên bị ảnh hưởng trực tiếp 100% bởi ngoại lai.",
+    "source": "Stat20 Mục 2.4"
+})
+
+# TN1_07: Tính chất của phương sai mẫu khi biến đổi tuyến tính
+mcqs_1.append({
+    "id": "TN1_07",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Cơ bản",
+    "question": "Một mẫu số liệu $X$ có độ lệch chuẩn mẫu bằng $s_X = 4$. Nếu ta biến đổi từng quan sát theo công thức $Y = -3X + 5$, thì độ lệch chuẩn mẫu $s_Y$ của biến mới $Y$ bằng bao nhiêu?",
+    "options": [
+        "12",
+        "-12",
+        "-7",
+        "36"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo tính chất biến đổi tuyến tính của độ lệch chuẩn mẫu: $s_{aX+b} = |a| \\cdot s_X$.\nỞ đây $a = -3$ và $b = 5$, suy ra: $s_Y = |-3| \\cdot 4 = 3 \\cdot 4 = 12$.\n\nPhân tích bẫy sai:\n- Phương án B: Độ lệch chuẩn luôn là đại lượng không âm ($s \\ge 0$), không bao giờ nhận giá trị âm -12.\n- Phương án C: Nhầm lẫn tính toán $-3 \\cdot 4 + 5 = -7$ (áp dụng quy tắc kỳ vọng cho độ lệch chuẩn).\n- Phương án D: 36 là phương sai mẫu $s_Y^2 = a^2 s_X^2 = 9 \\cdot 16 = 144$ (hoặc nhầm $a^2 s_X = 9 \\cdot 4 = 36$).",
+    "source": "Stat20 Mục 2.4; Slide Week 07 tr. 9"
+})
+
+# TN1_08: Bảng liên hợp hai chiều (Contingency table) và tỷ lệ có điều kiện
+# Bảng 2x2:
+#            Đạt (P)   Không đạt (F)   Tổng
+# Tham gia CLB: 80         20          100
+# Không TG CLB: 60         40          100
+# Tổng:        140         60          200
+mcqs_1.append({
+    "id": "TN1_08",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Trung bình",
+    "question": "Khảo sát 200 sinh viên về việc tham gia CLB học thuật và kết quả môn học: Trong 100 sinh viên có tham gia CLB, có 80 bạn đạt điểm A/B và 20 bạn đạt điểm dưới B. Trong 100 sinh viên không tham gia CLB, có 60 bạn đạt điểm A/B và 40 bạn đạt điểm dưới B. Tỷ lệ sinh viên đạt điểm A/B trong nhóm có tham gia CLB và tỷ lệ sinh viên có tham gia CLB trong nhóm đạt điểm A/B lần lượt là:",
+    "options": [
+        "80% và 57,14%",
+        "80% và 40%",
+        "40% và 80%",
+        "57,14% và 80%"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Tỷ lệ đạt điểm A/B trong nhóm có tham gia CLB là xác suất có điều kiện: $P(A/B \\mid CLB) = \\frac{80}{100} = 80\\%$.\n- Tỷ lệ tham gia CLB trong nhóm đạt điểm A/B: Nhóm đạt A/B có tổng cộng $80 + 60 = 140$ sinh viên. Do đó: $P(CLB \\mid A/B) = \\frac{80}{140} = \\frac{4}{7} \\approx 57,14\\%$.\n\nPhân tích bẫy sai:\n- Phương án B: Sai do tính $P(CLB \\mid A/B) = 80/200 = 40\\%$ (chia cho toàn thể thay vì chia cho nhóm A/B).\n- Phương án C: Đảo ngược hai thứ tự câu hỏi và nhầm mẫu số.\n- Phương án D: Đảo ngược thứ tự của hai câu hỏi.",
+    "source": "Stat20 Mục 2.2"
+})
+
+# TN1_09: Hệ số tương quan Pearson r
+mcqs_1.append({
+    "id": "TN1_09",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Cơ bản",
+    "question": "Phát biểu nào sau đây về hệ số tương quan tuyến tính Pearson $r$ là ĐÚNG?",
+    "options": [
+        "$-1 \\le r \\le 1$; nếu đổi đơn vị đo của $X$ từ mét sang xentimét thì giá trị của $r$ không hề thay đổi",
+        "Nếu $r = 0$, ta có thể khẳng định chắc chắn giữa $X$ và $Y$ không có bất kỳ mối quan hệ nào",
+        "Hệ số tương quan mang đơn vị đo bằng tích đơn vị của $X$ và đơn vị của $Y$",
+        "Hệ số $r = 0,8$ chứng tỏ $X$ là nguyên nhân dẫn tới 80% sự thay đổi của $Y$"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì hệ số tương quan Pearson $r$ luôn nằm trong đoạn $[-1; 1]$, được chuẩn hóa qua Z-score nên là một đại lượng không thứ nguyên (không có đơn vị), độc lập hoàn toàn với đơn vị đo lường của cả $X$ và $Y$.\n\nPhân tích bẫy sai:\n- Phương án B: $r=0$ chỉ chứng tỏ không có quan hệ TUYẾN TÍNH. Giữa $X$ và $Y$ vẫn có thể có quan hệ phi tuyến hoàn hảo (ví dụ $Y = X^2$ với $X \\in [-2, 2]$ đối xứng thì $r = 0$).\n- Phương án C: $r$ không có đơn vị đo.\n- Phương án D: Sai vì tương quan không đồng nghĩa với quan hệ nhân quả (correlation does not imply causation).",
+    "source": "Stat20 Mục 2.10"
+})
+
+# TN1_10: Phương trình hồi quy OLS - tính hệ số góc beta_1
+# x_bar = 10, s_x = 2; y_bar = 50, s_y = 6; r = 0.8
+# beta_1 = r * s_y / s_x = 0.8 * 6 / 2 = 2.4
+# beta_0 = y_bar - beta_1 * x_bar = 50 - 2.4 * 10 = 26
+mcqs_1.append({
+    "id": "TN1_10",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Trung bình",
+    "question": "Cho dữ liệu hai biến $X$ và $Y$ có: $\\bar{x} = 10$, $s_x = 2$; $\\bar{y} = 50$, $s_y = 6$ và hệ số tương quan $r = 0,8$. Phương trình đường hồi quy tuyến tính OLS dự báo $Y$ theo $X$ có dạng $\\hat{y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 x$. Giá trị của $\\hat{\\beta}_0$ và $\\hat{\\beta}_1$ lần lượt là:",
+    "options": [
+        "$\\hat{\\beta}_1 = 2,4$ và $\\hat{\\beta}_0 = 26$",
+        "$\\hat{\\beta}_1 = 0,8$ và $\\hat{\\beta}_0 = 42$",
+        "$\\hat{\\beta}_1 = 2,4$ và $\\hat{\\beta}_0 = 50$",
+        "$\\hat{\\beta}_1 = 0,267$ và $\\hat{\\beta}_0 = 47,33$"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo công thức OLS:\n- Hệ số góc: $\\hat{\\beta}_1 = r \\cdot \\frac{s_y}{s_x} = 0,8 \\cdot \\frac{6}{2} = 2,4$.\n- Hệ số chặn: $\\hat{\\beta}_0 = \\bar{y} - \\hat{\\beta}_1 \\bar{x} = 50 - 2,4 \\cdot 10 = 50 - 24 = 26$.\nDo đó phương trình là $\\hat{y} = 26 + 2,4x$.\n\nPhân tích bẫy sai:\n- Phương án B: Nhầm lẫn trực tiếp lấy hệ số góc bằng hệ số tương quan $\\hat{\\beta}_1 = r = 0,8$, rồi tính $\\hat{\\beta}_0 = 50 - 0,8 \\cdot 10 = 42$.\n- Phương án C: Quên không trừ $\\hat{\\beta}_1 \\bar{x}$ khi tính hệ số chặn.\n- Phương án D: Nghịch đảo tỷ số độ lệch chuẩn thành $r \\cdot \\frac{s_x}{s_y} = 0,8 \\cdot \\frac{2}{6} \\approx 0,267$ (hồi quy $X$ theo $Y$ thay vì $Y$ theo $X$).",
+    "source": "Stat20 Mục 2.10"
+})
+
+# TN1_11: Diễn giải hệ số hồi quy góc beta_1
+mcqs_1.append({
+    "id": "TN1_11",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Cơ bản",
+    "question": "Mô hình hồi quy dự báo điểm thi môn XSTK ($Y$) theo số giờ tự học ($X$) thu được phương trình: $\\hat{y} = 3,5 + 0,15x$. Ý nghĩa của hệ số 0,15 là gì?",
+    "options": [
+        "Khi sinh viên dành thêm 1 giờ tự học, điểm thi môn XSTK trung bình được dự báo tăng thêm 0,15 điểm",
+        "Nếu sinh viên học thêm 1 giờ, chắc chắn điểm thi thực tế của sinh viên đó sẽ tăng chính xác 0,15 điểm",
+        "Nếu một sinh viên không học giờ nào ($x=0$), điểm thi dự báo của bạn đó là 0,15 điểm",
+        "Có 15% sự biến thiên của điểm thi được giải thích bởi số giờ tự học"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì hệ số góc trong mô hình OLS phản ánh mức thay đổi trung bình kỳ vọng (hoặc dự báo) của biến phản hồi $Y$ khi biến giải thích $X$ tăng thêm 1 đơn vị.\n\nPhân tích bẫy sai:\n- Phương án B: Sai nghiêm trọng vì hồi quy thống kê chỉ dự báo xu hướng trung bình cho tổng thể, không khẳng định một quan hệ tất định cá nhân tuyệt đối 100%.\n- Phương án C: Khi $x=0$, điểm dự báo là hệ số chặn $\\hat{\\beta}_0 = 3,5$, không phải 0,15.\n- Phương án D: Tỷ lệ biến thiên được đo bằng $R^2$, không phải bằng hệ số góc $\\hat{\\beta}_1$.",
+    "source": "Stat20 Mục 2.10"
+})
+
+# TN1_12: Tính phần dư (Residual)
+# y_hat = 20 + 1.5 * x; at x = 10, observed y = 38
+# y_hat(10) = 20 + 15 = 35 -> residual e = y - y_hat = 38 - 35 = +3
+mcqs_1.append({
+    "id": "TN1_12",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Cơ bản",
+    "question": "Cho đường hồi quy $\\hat{y} = 20 + 1,5x$. Một quan sát thực tế trong mẫu có $x_i = 10$ và $y_i = 38$. Phần dư (residual) $e_i$ tương ứng với quan sát này là bao nhiêu?",
+    "options": [
+        "+3",
+        "-3",
+        "+35",
+        "+16,5"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Giá trị dự báo từ mô hình: $\\hat{y}_i = 20 + 1,5 \\cdot 10 = 35$.\n- Phần dư định nghĩa là hiệu giữa giá trị thực tế và giá trị dự báo: $e_i = y_i - \\hat{y}_i = 38 - 35 = +3$.\nGiá trị phần dư dương thể hiện điểm dữ liệu thực tế nằm cao hơn đường hồi quy 3 đơn vị.\n\nPhân tích bẫy sai:\n- Phương án B: Sai do tính ngược $\\hat{y}_i - y_i = 35 - 38 = -3$.\n- Phương án C: Nhầm phần dư chính là giá trị dự báo $\\hat{y}_i = 35$.\n- Phương án D: Tính nhầm $38 - 1,5 \\cdot 10 - 20/2$ linh tinh.",
+    "source": "Stat20 Mục 2.10"
+})
+
+# TN1_13: Tính chất phần dư trong OLS
+mcqs_1.append({
+    "id": "TN1_13",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Trung bình",
+    "question": "Trong mô hình hồi quy tuyến tính OLS đơn biến có hệ số chặn (intercept), khẳng định nào sau đây luôn luôn ĐÚNG với tập các phần dư $e_i$ ($i = 1, \\dots, n$)?",
+    "options": [
+        "Tổng các phần dư bằng 0 ($\\sum_{i=1}^n e_i = 0$), do đó trung bình của phần dư luôn bằng 0",
+        "Mọi phần dư $e_i$ đều phải bằng 0 nếu kích thước mẫu đủ lớn",
+        "Tổng bình phương các phần dư luôn bằng 0 ($\\sum e_i^2 = 0$)",
+        "Độ lệch chuẩn của phần dư luôn bằng độ lệch chuẩn của biến phản hồi $Y$"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo tính chất toán học của phương pháp bình phương bé nhất OLS (khi mô hình có hệ số chặn $\\beta_0$), phương trình chuẩn thứ nhất bắt buộc $\\sum_{i=1}^n (y_i - \\hat{y}_i) = 0$, nghĩa là tổng các phần dư triệt tiêu lẫn nhau và trung bình phần dư $\\bar{e} = 0$.\n\nPhân tích bẫy sai:\n- Phương án B: Phần dư của từng điểm chỉ bằng 0 khi tất cả các điểm dữ liệu nằm thẳng hàng tuyệt đối trên một đường thẳng (điều không tưởng trong dữ liệu thực tế).\n- Phương án C: Tổng bình phương $\\sum e_i^2$ là hàm mục tiêu tối thiểu hóa ($SSE$), nó chỉ bằng 0 khi dữ liệu thẳng hàng hoàn hảo.\n- Phương án D: Sai vì độ lệch chuẩn phần dư $s_e = s_y \\sqrt{1 - R^2} \\le s_y$.",
+    "source": "Stat20 Mục 2.10"
+})
+
+# TN1_14: Hệ số xác định R^2
+# r = -0.7 -> R^2 = 0.49 = 49%
+mcqs_1.append({
+    "id": "TN1_14",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Cơ bản",
+    "question": "Hệ số tương quan giữa tốc độ chạy xe ($X$) và mức tiêu hao năng lượng hiệu quả ($Y$) là $r = -0,7$. Hệ số xác định $R^2$ của mô hình hồi quy tuyến tính đơn biến giữa $Y$ và $X$ là bao nhiêu và mang ý nghĩa gì?",
+    "options": [
+        "$R^2 = 0,49$; nghĩa là 49% sự biến thiên của $Y$ được giải thích bởi quan hệ tuyến tính với $X$",
+        "$R^2 = -0,49$; nghĩa là có sự tương quan nghịch biến mạnh giữa $X$ và $Y$",
+        "$R^2 = 0,7$; nghĩa là 70% các điểm dữ liệu nằm chính xác trên đường hồi quy",
+        "$R^2 = 0,3$; nghĩa là còn 30% sai số chưa được giải thích"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì trong hồi quy tuyến tính đơn biến, hệ số xác định $R^2$ chính bằng bình phương của hệ số tương quan Pearson: $R^2 = r^2 = (-0,7)^2 = 0,49$ (hay 49%). Nó đo lường tỷ lệ biến thiên của biến phản hồi $Y$ được giải thích bởi mô hình hồi quy tuyến tính theo $X$.\n\nPhân tích bẫy sai:\n- Phương án B: Sai nghiêm trọng vì bình phương của một số thực không bao giờ âm ($R^2 \\ge 0$).\n- Phương án C: Nhầm $R^2$ với $|r| = 0,7$ và hiểu sai ý nghĩa (không phải % số điểm nằm trên đường).\n- Phương án D: Sai phép tính $1 - 0,7 = 0,3$.",
+    "source": "Stat20 Mục 2.10"
+})
+
+# TN1_15: Nghịch lý Simpson (Simpson's Paradox)
+mcqs_1.append({
+    "id": "TN1_15",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Trung bình",
+    "question": "Một trường đại học nhận thấy tỷ lệ trúng tuyển chung của thí sinh nữ thấp hơn thí sinh nam. Tuy nhiên, khi xét riêng từng khoa (Kỹ thuật, Kinh tế, Xã hội), tỷ lệ trúng tuyển của nữ ở TỪNG KHOA đều cao hơn hoặc bằng nam. Hiện tượng này được gọi là gì và nguyên nhân chính là do đâu?",
+    "options": [
+        "Nghịch lý Simpson; do biến gây nhiễu (confounding variable) là 'Khoa ứng tuyển' - nữ nộp đơn nhiều hơn vào các khoa có tính cạnh tranh rất cao và tỷ lệ chọi khốc liệt",
+        "Hiệu ứng đòn bẩy (Leverage effect); do có nhiều quan sát ngoại lai làm bóp méo số liệu",
+        "Quy tắc 1,5xIQR; do dữ liệu của thí sinh nữ bị lệch trái nghiêm trọng",
+        "Hiện tượng quá khớp (Overfitting); do số lượng biến số nhiều hơn số lượng mẫu quan sát"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì đây là ví dụ kinh điển về Nghịch lý Simpson (Stat20 Ch.2, vụ kiện tuyển sinh UC Berkeley 1973). Xu hướng quan sát được ở từng nhóm nhỏ bị đảo ngược khi gộp chung dữ liệu lại, nguyên nhân là do tồn tại một biến ẩn/biến gây nhiễu phân bổ không đồng đều giữa hai nhóm (ở đây nữ nộp nhiều vào khoa khó đỗ, nam nộp nhiều vào khoa dễ đỗ).\n\nPhân tích bẫy sai:\n- Phương án B: Sai vì hiện tượng đòn bẩy là khái niệm trong hồi quy OLS khi điểm có giá trị $x$ cực đoan.\n- Phương án C: Sai vì 1,5xIQR là tiêu chuẩn lọc ngoại lai một chiều.\n- Phương án D: Sai vì overfitting là hiện tượng mô hình học máy học vẹt chi tiết nhiễu.",
+    "source": "Stat20 Mục 2.2, 2.10"
+})
+
+# TN1_16: Hồi quy bội - Ceteris Paribus
+mcqs_1.append({
+    "id": "TN1_16",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Trung bình",
+    "question": "Một mô hình hồi quy bội dự báo giá nhà ($Y$, triệu đồng) theo diện tích ($X_1$, $m^2$) và khoảng cách tới trung tâm ($X_2$, km) có dạng: $\\hat{y} = 500 + 40 x_1 - 85 x_2$. Ý nghĩa của hệ số $-85$ là gì?",
+    "options": [
+        "Trong điều kiện diện tích nhà không đổi (ceteris paribus), cứ xa trung tâm thêm 1 km thì giá nhà trung bình được dự báo giảm 85 triệu đồng",
+        "Cứ xa trung tâm thêm 1 km thì giá nhà của mọi căn hộ đều giảm chính xác 85 triệu đồng",
+        "Khoảng cách tới trung tâm và diện tích nhà có mối quan hệ nghịch biến với hệ số tương quan là -85",
+        "Nếu diện tích nhà tăng thêm $1 m^2$ thì giá nhà giảm 85 triệu đồng"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì trong hồi quy bội, mỗi hệ số góc $\\hat{\\beta}_j$ biểu diễn sự thay đổi dự báo của $Y$ khi biến giải thích $X_j$ tăng 1 đơn vị VỚI ĐIỀU KIỆN TẤT CẢ CÁC BIẾN CÒN LẠI ĐƯỢC GIỮ NGUYÊN (nguyên lý ceteris paribus / holding other variables constant).\n\nPhân tích bẫy sai:\n- Phương án B: Sai vì thiếu điều kiện giữ nguyên diện tích $X_1$, và dùng từ 'chắc chắn mọi căn hộ' thay vì trung bình dự báo.\n- Phương án C: Hệ số tương quan chỉ nằm từ -1 đến +1, không thể bằng -85.\n- Phương án D: Nhầm biến khoảng cách $X_2$ với biến diện tích $X_1$.",
+    "source": "Stat20 Mục 2.12"
+})
+
+# TN1_17: Hiệu ứng của biến đòn bẩy (Leverage) và ảnh hưởng (Influence) trong hồi quy
+mcqs_1.append({
+    "id": "TN1_17",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Nâng cao",
+    "question": "Trong phân tích hồi quy tuyến tính, một điểm quan sát có giá trị của biến độc lập $x_i$ rất xa so với giá trị trung bình $\\bar{x}$, nhưng lại nằm gần như hoàn hảo trên đường xu hướng chung của các điểm còn lại. Điểm này có đặc điểm gì?",
+    "options": [
+        "Có đòn bẩy cao (high leverage) nhưng có mức độ ảnh hưởng thấp (low influence) đến độ dốc của đường hồi quy",
+        "Có đòn bẩy thấp nhưng có mức độ ảnh hưởng cực cao",
+        "Là một điểm ngoại lai có phần dư cực lớn làm đảo ngược dấu của hệ số góc",
+        "Làm cho hệ số xác định $R^2$ giảm mạnh về gần 0"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Điểm có $x_i$ cách rất xa $\\bar{x}$ luôn có giá trị đòn bẩy (leverage) cao vì nó nằm ở vị trí tiềm năng có thể làm xoay đường hồi quy.\n- Tuy nhiên, vì nó lại nằm ngay trên đường xu hướng chung của toàn bộ mẫu, nên phần dư của nó rất nhỏ ($e_i \\approx 0$). Việc loại bỏ điểm này hay giữ lại điểm này hầu như không làm thay đổi hệ số góc $\\hat{\\beta}_1$, do đó nó có sức ảnh hưởng thấp (low influence).\n\nPhân tích bẫy sai:\n- Phương án B: Ngược hoàn toàn với bản chất toán học của leverage.\n- Phương án C: Sai vì phần dư của nó rất nhỏ do nằm ngay trên đường xu hướng.\n- Phương án D: Điểm đòn bẩy cao nằm thẳng hàng với xu hướng chung thực chất sẽ làm TĂNG $R^2$ chứ không làm giảm.",
+    "source": "Stat20 Mục 2.10"
+})
+
+# TN1_18: Khi thêm biến giải thích vào mô hình hồi quy bội, R^2 thay đổi thế nào?
+mcqs_1.append({
+    "id": "TN1_18",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Trung bình",
+    "question": "Khi ta thêm một biến giải thích bất kỳ $X_k$ vào mô hình hồi quy OLS bội (ngay cả khi biến này là các số ngẫu nhiên không có ý nghĩa thực tế), hệ số xác định $R^2$ thông thường sẽ thay đổi như thế nào?",
+    "options": [
+        "Luôn luôn tăng hoặc giữ nguyên không đổi, không bao giờ giảm",
+        "Luôn luôn giảm đi vì mô hình bị phân tán",
+        "Giảm đi một lượng đúng bằng hệ số tương quan giữa biến mới và $Y$",
+        "Không thể dự đoán được vì phụ thuộc vào kích thước mẫu $n$"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì về mặt đại số tuyến tính, thêm một biến mới đồng nghĩa với việc mở rộng không gian vector chiếu của các biến độc lập, làm cho tổng bình phương sai số phần dư ($SSE$) luôn giảm hoặc giữ nguyên ($SSE_{new} \\le SSE_{old}$). Do $R^2 = 1 - \\frac{SSE}{SST}$, nên $R^2$ chỉ có thể tăng hoặc cùng lắm giữ nguyên. Chính vì nhược điểm này, người ta mới cần dùng $R^2$ hiệu chỉnh ($Adjusted\\; R^2$) để phạt các biến vô bổ.\n\nPhân tích bẫy sai:\n- Phương án B, C, D: Đều sai với tính chất toán học của OLS.",
+    "source": "Stat20 Mục 2.12"
+})
+
+# TN1_19: Đọc hiểu Boxplot
+mcqs_1.append({
+    "id": "TN1_19",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Cơ bản",
+    "question": "Trong biểu đồ hộp (Boxplot), đường vạch ngang nằm bên trong hình hộp chữ nhật biểu diễn đại lượng nào của mẫu số liệu?",
+    "options": [
+        "Trung vị (Median)",
+        "Trung bình cộng (Mean)",
+        "Độ lệch chuẩn (SD)",
+        "Yếu vị (Mode)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo cấu trúc chuẩn của Boxplot (biểu đồ 5 số đặc trưng của Tukey):\n- Cạnh dưới hộp là $Q_1$, cạnh trên hộp là $Q_3$.\n- Vạch kẻ bên trong hộp luôn là Trung vị ($Median = Q_2$). Chiều cao hộp là $IQR = Q_3 - Q_1$.\n\nPhân tích bẫy sai:\n- Phương án B: Giá trị Mean thường không được vẽ trong boxplot tiêu chuẩn (hoặc nếu có chỉ là một dấu cộng/chấm riêng biệt).\n- Phương án C, D: SD và Mode không được thể hiện bằng vạch ngang trong hộp.",
+    "source": "Stat20 Mục 2.4"
+})
+
+# TN1_20: Tính toán phương sai mẫu s^2 từ công thức hiệu số
+# Dữ liệu: 2, 4, 6, 8, 10
+# n = 5, sum = 30 -> mean = 6
+# sum(x^2) = 4 + 16 + 36 + 64 + 100 = 220
+# s^2 = (220 - 5 * 36) / (5 - 1) = (220 - 180) / 4 = 40 / 4 = 10
+mcqs_1.append({
+    "id": "TN1_20",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Cơ bản",
+    "question": "Cho mẫu số liệu gồm 5 giá trị: 2, 4, 6, 8, 10. Phương sai mẫu hiệu chỉnh ($s^2$, mẫu số $n-1$) của mẫu này bằng bao nhiêu?",
+    "options": [
+        "10",
+        "8",
+        "\\(\\sqrt{10} \\approx 3,16\\)",
+        "40"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Số quan sát $n = 5$.\n- Trung bình mẫu: $\\bar{x} = \\frac{2 + 4 + 6 + 8 + 10}{5} = 6$.\n- Các độ lệch bình phương: $(2-6)^2 = 16$, $(4-6)^2 = 4$, $(6-6)^2 = 0$, $(8-6)^2 = 4$, $(10-6)^2 = 16$.\n- Tổng các độ lệch bình phương: $16 + 4 + 0 + 4 + 16 = 40$.\n- Phương sai mẫu hiệu chỉnh (chia cho $n-1 = 4$): $s^2 = \\frac{40}{4} = 10$.\n\nPhân tích bẫy sai:\n- Phương án B: Sai do chia cho $n=5$ thay vì $n-1=4$ ($40/5 = 8$, đây là phương sai chưa hiệu chỉnh $\\sigma^2$ của tổng thể).\n- Phương án C: Đây là độ lệch chuẩn $s = \\sqrt{10}$, câu hỏi hỏi phương sai $s^2$.\n- Phương án D: 40 là tổng các bình phương độ lệch ($SS$), chưa chia cho bậc tự do $n-1$.",
+    "source": "Stat20 Mục 2.4; Slide Week 07 tr. 8"
+})
+
+# TN1_21: Bảng tần số và tỷ lệ phần trăm
+mcqs_1.append({
+    "id": "TN1_21",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Cơ bản",
+    "question": "Một lớp học có 40 sinh viên, trong đó có 14 sinh viên đạt điểm Giỏi, 18 sinh viên đạt điểm Khá, còn lại là Trung bình. Tần số tương đối (tỷ lệ phần trăm) của sinh viên đạt loại Trung bình trong lớp là bao nhiêu?",
+    "options": [
+        "20%",
+        "8%",
+        "35%",
+        "45%"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Số sinh viên đạt loại Trung bình: $40 - (14 + 18) = 40 - 32 = 8$ sinh viên.\n- Tần số tương đối: $\\frac{8}{40} = 0,2 = 20\\%$.\n\nPhân tích bẫy sai:\n- Phương án B: Nhầm lẫn giữa số sinh viên (8 sinh viên) với số phần trăm (ghi nhầm thành 8%).\n- Phương án C: $14/40 = 35\\%$ là tỷ lệ sinh viên Giỏi.\n- Phương án D: $18/40 = 45\\%$ là tỷ lệ sinh viên Khá.",
+    "source": "Stat20 Mục 2.2"
+})
+
+# TN1_22: Dự báo ngoại suy (Extrapolation) trong hồi quy
+mcqs_1.append({
+    "id": "TN1_22",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Nâng cao",
+    "question": "Một nhà nghiên cứu xây dựng mô hình hồi quy biểu diễn chiều cao trẻ em theo độ tuổi dựa trên mẫu gồm các bé từ 2 đến 10 tuổi: $\\hat{y} = 75 + 6x$ (cm). Sau đó, nhà nghiên cứu dùng mô hình này để dự báo chiều cao của một người khi 35 tuổi ($x=35$) và thu được $\\hat{y} = 75 + 6 \\cdot 35 = 285$ cm. Sai lầm nghiêm trọng ở đây là gì?",
+    "options": [
+        "Ngoại suy (Extrapolation) quá xa ngoài miền dữ liệu quan sát gốc ($x \\in [2; 10]$), nơi quy luật sinh học không còn giữ nguyên dạng tuyến tính",
+        "Tính toán sai số học vì $6 \\cdot 35 + 75$ phải bằng 210 cm",
+        "Mô hình thiếu biến giới tính nên hệ số chặn bị đội lên quá cao",
+        "Hệ số góc phải là số âm vì tuổi càng cao thì người càng thấp đi"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì hiện tượng ngoại suy (extrapolation) là việc áp dụng phương trình hồi quy cho các giá trị nằm ngoài phạm vi quan sát của dữ liệu mẫu. Chiều cao trẻ em tăng tuyến tính từ 2 đến 10 tuổi, nhưng sau tuổi dậy thì chiều cao sẽ ngừng tăng. Ngoại suy đến tuổi 35 dẫn đến kết quả phi lý 285 cm.\n\nPhân tích bẫy sai:\n- Phương án B: Phép tính $75 + 210 = 285$ hoàn toàn đúng về mặt số học thuần túy, sai lầm nằm ở bản chất thống kê.\n- Phương án C, D: Không phải nguyên nhân gây ra kết quả phi lý này.",
+    "source": "Stat20 Mục 2.10"
+})
+
+# TN1_23: So sánh R^2 và R^2 hiệu chỉnh
+mcqs_1.append({
+    "id": "TN1_23",
+    "topicId": 1,
+    "topicName": "Dữ liệu & Thống kê mô tả",
+    "level": "Nâng cao",
+    "question": "Khi so sánh hai mô hình hồi quy bội dự báo cùng một biến phản hồi $Y$: Mô hình 1 có 2 biến độc lập với $R^2 = 0,65$ và $R^2_{adj} = 0,63$; Mô hình 2 thêm vào 5 biến độc lập nữa có $R^2 = 0,66$ và $R^2_{adj} = 0,58$. Nhà phân tích nên lựa chọn mô hình nào và vì sao?",
+    "options": [
+        "Chọn Mô hình 1 vì $R^2_{adj}$ cao hơn đáng kể (0,63 so với 0,58), chứng tỏ 5 biến thêm vào không đem lại giá trị thông tin bù đắp được sự phức tạp của mô hình",
+        "Chọn Mô hình 2 vì $R^2$ của nó cao hơn (0,66 so với 0,65), mô hình luôn tốt hơn khi $R^2$ lớn hơn",
+        "Cả hai mô hình tương đương nhau vì sai số chỉ chênh lệch 1%",
+        "Không thể kết luận được nếu chưa biết phương sai phần dư của Mô hình 1"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì trong hồi quy bội, $R^2$ thông thường luôn tăng khi thêm biến bất kể biến đó có vô nghĩa hay không. Để tránh overfitting, ta phải căn cứ vào $R^2$ hiệu chỉnh ($R^2_{adj}$). Việc $R^2_{adj}$ giảm từ 0,63 xuống 0,58 cho thấy 5 biến thêm vào là các biến gây nhiễu, làm mô hình cồng kềnh và giảm khả năng khái quát hóa.\n\nPhân tích bẫy sai:\n- Phương án B: Rơi vào bẫy cổ điển chỉ nhìn vào $R^2$ thông thường khi so sánh các mô hình có số lượng biến khác nhau.\n- Phương án C, D: Sai quy tắc chuẩn trong lựa chọn mô hình hồi quy.",
+    "source": "Stat20 Mục 2.12"
+})
+
+print(f"Total MCQs for Topic 1: {len(mcqs_1)}")
+
+with open('content/mcq_topic_1.json', 'w', encoding='utf-8') as f:
+    json.dump(mcqs_1, f, ensure_ascii=False, indent=2)
+print("Saved content/mcq_topic_1.json")

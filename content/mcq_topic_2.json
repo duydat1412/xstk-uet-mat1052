@@ -1,0 +1,370 @@
+[
+  {
+    "id": "TN2_01",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Cơ bản",
+    "question": "Cho hai biến cố $A$ và $B$ có $P(A) = 0,6$; $P(B) = 0,5$ và $P(A \\cap B) = 0,3$. Xác suất biến cố hợp $P(A \\cup B)$ bằng bao nhiêu?",
+    "options": [
+      "0,8",
+      "1,1",
+      "0,3",
+      "0,4"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo quy tắc cộng xác suất tổng quát:\n$P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = 0,6 + 0,5 - 0,3 = 0,8$.\n\nPhân tích bẫy sai:\n- Phương án B: Sai do cộng trực tiếp $0,6 + 0,5 = 1,1$ mà quên trừ phần giao (xác suất không bao giờ vượt quá 1!).\n- Phương án C: Nhầm $P(A \\cup B)$ với $P(A \\cap B) = 0,3$.\n- Phương án D: Sai do tính $0,6 - 0,5 + 0,3 = 0,4$.",
+    "source": "Slide Week 07; Stat20 Mục 3.1"
+  },
+  {
+    "id": "TN2_02",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Cơ bản",
+    "question": "Tiếp tục với hai biến cố $A$ và $B$ ở câu trên ($P(A) = 0,6; P(B) = 0,5; P(A \\cap B) = 0,3 \\implies P(A \\cup B) = 0,8$). Xác suất để CẢ HAI biến cố $A$ và $B$ đều KHÔNG xảy ra ($P(\\bar{A} \\cap \\bar{B})$) bằng bao nhiêu?",
+    "options": [
+      "0,2",
+      "0,1",
+      "0,5",
+      "0,7"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo định lý De Morgan: $\\bar{A} \\cap \\bar{B} = \\overline{A \\cup B}$.\nDo đó: $P(\\bar{A} \\cap \\bar{B}) = 1 - P(A \\cup B) = 1 - 0,8 = 0,2$.\n\nPhân tích bẫy sai:\n- Phương án B: Sai do tự ý nhân phần bù $P(\\bar{A}) \\cdot P(\\bar{B}) = (1-0,6)(1-0,5) = 0,4 \\cdot 0,5 = 0,2$ nhưng ngộ nhận công thức khác thành 0,1.\n- Phương án C: Sai do lấy $1 - P(B) = 0,5$.\n- Phương án D: Sai do lấy $1 - P(A \\cap B) = 1 - 0,3 = 0,7$ (đây là xác suất có ít nhất một biến cố không xảy ra $P(\\bar{A} \\cup \\bar{B})$).",
+    "source": "Stat20 Mục 3.1"
+  },
+  {
+    "id": "TN2_03",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Cơ bản",
+    "question": "Cho $P(A \\cap B) = 0,18$ và $P(B) = 0,4$. Xác suất có điều kiện $P(A \\mid B)$ bằng bao nhiêu?",
+    "options": [
+      "0,45",
+      "0,072",
+      "2,22",
+      "0,22"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo định nghĩa xác suất có điều kiện:\n$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{0,18}{0,4} = 0,45$.\n\nPhân tích bẫy sai:\n- Phương án B: Sai do lấy tích $0,18 \\cdot 0,4 = 0,072$.\n- Phương án C: Sai do lấy ngược $P(B) / P(A \\cap B) = 0,4 / 0,18 \\approx 2,22$ (xác suất không thể lớn hơn 1).\n- Phương án D: Sai do lấy hiệu $0,4 - 0,18 = 0,22$.",
+    "source": "Slide Week 07; Stat20 Mục 3.2"
+  },
+  {
+    "id": "TN2_04",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Trung bình",
+    "question": "Giả sử hai biến cố $A$ và $B$ có xác suất dương ($P(A) > 0, P(B) > 0$) và xung khắc nhau ($A \\cap B = \\emptyset$). Khẳng định nào sau đây là ĐÚNG?",
+    "options": [
+      "$A$ và $B$ KHÔNG THỂ độc lập với nhau",
+      "$A$ và $B$ chắc chắn độc lập với nhau vì chúng không liên quan tới nhau",
+      "$P(A \\cup B) = P(A) \\cdot P(B)$",
+      "$P(A \\mid B) = P(A)$"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Do $A$ và $B$ xung khắc nên $P(A \\cap B) = P(\\emptyset) = 0$.\n- Để $A$ và $B$ độc lập thì bắt buộc $P(A \\cap B) = P(A) \\cdot P(B)$.\n- Vì $P(A) > 0$ và $P(B) > 0$ nên $P(A) \\cdot P(B) > 0 \\neq 0$.\nDo đó hai biến cố có xác suất dương và xung khắc nhau thì KHÔNG BAO GIỜ độc lập (biết $B$ xảy ra thì $A$ chắc chắn không xảy ra, $P(A \\mid B) = 0 \\neq P(A)$).\n\nPhân tích bẫy sai:\n- Phương án B: Nhầm lẫn phổ biến giữa 'xung khắc' (không thể cùng xảy ra) và 'độc lập' (không làm thay đổi xác suất của nhau).\n- Phương án C: Viết sai công thức xác suất hợp.\n- Phương án D: Sai vì $P(A \\mid B) = 0 \\neq P(A)$.",
+    "source": "Stat20 Mục 3.2; Slide Week 07"
+  },
+  {
+    "id": "TN2_05",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Cơ bản",
+    "question": "Cho hai biến cố $A$ và $B$ độc lập với nhau, có $P(A) = 0,4$ và $P(B) = 0,5$. Xác suất của biến cố giao $P(A \\cap B)$ và biến cố hợp $P(A \\cup B)$ lần lượt là:",
+    "options": [
+      "0,20 và 0,70",
+      "0,20 và 0,90",
+      "0,00 và 0,90",
+      "0,10 và 0,80"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Do $A$ và $B$ độc lập: $P(A \\cap B) = P(A) \\cdot P(B) = 0,4 \\cdot 0,5 = 0,20$.\n- Quy tắc cộng: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = 0,4 + 0,5 - 0,20 = 0,70$.\n\nPhân tích bẫy sai:\n- Phương án B: Sai do tính $P(A \\cap B) = 0,20$ nhưng lại quên trừ phần giao khi tính hợp ($0,4 + 0,5 = 0,90$).\n- Phương án C: Nhầm độc lập thành xung khắc ($P(A \\cap B) = 0$).\n- Phương án D: Sai số học.",
+    "source": "Stat20 Mục 3.2"
+  },
+  {
+    "id": "TN2_06",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Cơ bản",
+    "question": "Từ một bộ bài tây tiêu chuẩn gồm 52 lá, người ta rút ngẫu nhiên đồng thời 3 lá bài (không quan tâm thứ tự). Có bao nhiêu kết quả có thể xảy ra trong không gian mẫu?",
+    "options": [
+      "22100",
+      "132600",
+      "156",
+      "140608"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì rút đồng thời 3 lá không xét thứ tự từ 52 lá là số tổ hợp chập 3 của 52 phần tử:\n$C_{52}^3 = \\frac{52!}{3! \\cdot 49!} = \\frac{52 \\cdot 51 \\cdot 50}{3 \\cdot 2 \\cdot 1} = 22.100$.\n\nPhân tích bẫy sai:\n- Phương án B: $52 \\cdot 51 \\cdot 50 = 132.600$ là số chỉnh hợp $A_{52}^3$ (có phân biệt thứ tự rút).\n- Phương án C: Sai do lấy $52 \\cdot 3 = 156$.\n- Phương án D: $52^3 = 140.608$ là trường hợp rút có hoàn lại từng lá.",
+    "source": "Stat20 Mục 3.3"
+  },
+  {
+    "id": "TN2_07",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Cơ bản",
+    "question": "Một chiếc hộp chứa 6 quả bóng màu đỏ và 4 quả bóng màu xanh. Rút ngẫu nhiên lần lượt 2 quả bóng không hoàn lại. Xác suất để cả 2 quả bóng rút được đều màu đỏ là:",
+    "options": [
+      "1/3 (khoảng 33,33%)",
+      "9/25 (36%)",
+      "3/5 (60%)",
+      "1/5 (20%)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo quy tắc nhân xác suất có điều kiện (rút không hoàn lại):\n- Lần 1 rút bóng đỏ: xác suất là $\\frac{6}{10}$.\n- Lần 2 rút tiếp bóng đỏ (trong hộp còn 5 bóng đỏ trên 9 quả): xác suất là $\\frac{5}{9}$.\n- Xác suất cả hai quả đỏ: $P = \\frac{6}{10} \\cdot \\frac{5}{9} = \\frac{30}{90} = \\frac{1}{3} \\approx 33,33\\%$.\n(Cách 2 dùng tổ hợp: $\\frac{C_6^2}{C_{10}^2} = \\frac{15}{45} = \\frac{1}{3}$).\n\nPhân tích bẫy sai:\n- Phương án B: Sai do coi là rút CÓ hoàn lại: $(\\frac{6}{10})^2 = \\frac{36}{100} = 36\\%$.\n- Phương án C: $\\frac{6}{10} = \\frac{3}{5}$ mới là xác suất rút 1 quả đỏ ở lần đầu.\n- Phương án D: Sai số học.",
+    "source": "Stat20 Mục 3.3"
+  },
+  {
+    "id": "TN2_08",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Cơ bản",
+    "question": "Cũng chiếc hộp trên (6 bóng đỏ, 4 bóng xanh), nhưng người ta rút lần 1, ghi lại màu, rồi TRẢ LẠI quả bóng vào hộp, khuấy đều rồi mới rút lần 2 (rút có hoàn lại). Xác suất để cả 2 quả bóng rút được đều màu đỏ là bao nhiêu?",
+    "options": [
+      "0,36",
+      "0,3333",
+      "0,60",
+      "0,16"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì do có hoàn lại, hai lần rút là hoàn toàn độc lập với xác suất đỏ mỗi lần là $p = \\frac{6}{10} = 0,6$.\nDo đó: $P = 0,6 \\cdot 0,6 = 0,36$ (36%).\n\nPhân tích bẫy sai:\n- Phương án B: 0,3333 (1/3) là kết quả của bài toán rút KHÔNG hoàn lại.\n- Phương án C: 0,60 là xác suất của một lần rút đơn lẻ.\n- Phương án D: $0,4 \\cdot 0,4 = 0,16$ là xác suất cả hai quả đều xanh.",
+    "source": "Stat20 Mục 3.3"
+  },
+  {
+    "id": "TN2_09",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Trung bình",
+    "question": "Một nhà máy có 2 phân xưởng cùng sản xuất một loại linh kiện: Phân xưởng I sản xuất 60% tổng sản lượng với tỷ lệ phế phẩm là 2%; Phân xưởng II sản xuất 40% sản lượng còn lại với tỷ lệ phế phẩm là 3%. Chọn ngẫu nhiên một linh kiện từ kho của nhà máy. Xác suất để linh kiện này là phế phẩm bằng bao nhiêu?",
+    "options": [
+      "0,024 (tức 2,4%)",
+      "0,050 (tức 5%)",
+      "0,025 (tức 2,5%)",
+      "0,012 (tức 1,2%)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì áp dụng công thức xác suất toàn phần với hệ đầy đủ $\\{A_1, A_2\\}$ là linh kiện do xưởng I và II sản xuất:\n$P(B) = P(A_1) P(B \\mid A_1) + P(A_2) P(B \\mid A_2) = 0,60 \\cdot 0,02 + 0,40 \\cdot 0,03 = 0,012 + 0,012 = 0,024$ (2,4%).\n\nPhân tích bẫy sai:\n- Phương án B: Sai do cộng ngây thơ hai tỷ lệ phế phẩm: $2\\% + 3\\% = 5\\%$.\n- Phương án C: Sai do lấy trung bình cộng giản đơn: $\\frac{2\\% + 3\\%}{2} = 2,5\\%$ (bỏ qua trọng số sản lượng 60% và 40%).\n- Phương án D: Chỉ tính riêng phần phế phẩm của một phân xưởng.",
+    "source": "Stat20 Mục 3.4; Slide Week 07"
+  },
+  {
+    "id": "TN2_10",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Trung bình",
+    "question": "Tiếp tục với bài toán nhà máy ở trên: Người ta kiểm tra một linh kiện lấy ngẫu nhiên và thấy nó là phế phẩm. Xác suất để phế phẩm này do Phân xưởng I sản xuất là bao nhiêu?",
+    "options": [
+      "0,50 (tức 50%)",
+      "0,60 (tức 60%)",
+      "0,40 (tức 40%)",
+      "0,012 (tức 1,2%)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo công thức Bayes:\n$P(A_1 \\mid B) = \\frac{P(A_1) P(B \\mid A_1)}{P(B)} = \\frac{0,60 \\cdot 0,02}{0,024} = \\frac{0,012}{0,024} = 0,5$ (50%).\n\nPhân tích bẫy sai:\n- Phương án B: Sai do nhầm với xác suất tiên nghiệm (prior probability) $P(A_1) = 0,60$.\n- Phương án C: Sai do chọn tiên nghiệm của xưởng II.\n- Phương án D: 0,012 mới chỉ là tử số $P(A_1 \\cap B)$, chưa chia cho xác suất toàn phần $P(B)$.",
+    "source": "Stat20 Mục 3.4; Slide Week 07"
+  },
+  {
+    "id": "TN2_11",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Nâng cao",
+    "question": "Một căn bệnh hiếm gặp có tỷ lệ mắc trong cộng đồng là 1% ($P(D) = 0,01$). Một xét nghiệm chẩn đoán có độ nhạy 95% ($P(+ \\mid D) = 0,95$) và độ đặc hiệu 90% (tức tỷ lệ dương tính giả trong người khỏe là 10%, $P(+ \\mid \\bar{D}) = 0,10$). Một người đi xét nghiệm và nhận kết quả dương tính (+). Xác suất thực sự người này bị bệnh ($P(D \\mid +)$) xấp xỉ bằng bao nhiêu?",
+    "options": [
+      "Khoảng 8,76%",
+      "Chính xác 95%",
+      "Khoảng 85,5%",
+      "Khoảng 50%"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo công thức Bayes:\n- Xác suất kết quả xét nghiệm dương tính toàn phần:\n$P(+) = P(D) P(+ \\mid D) + P(\\bar{D}) P(+ \\mid \\bar{D}) = 0,01 \\cdot 0,95 + 0,99 \\cdot 0,10 = 0,0095 + 0,0990 = 0,1085$.\n- Xác suất người dương tính thực sự mắc bệnh:\n$P(D \\mid +) = \\frac{0,01 \\cdot 0,95}{0,1085} = \\frac{0,0095}{0,1085} \\approx 0,08756$ (tức khoảng 8,76%).\nĐây là minh chứng kinh điển cho 'Ngụy biện tỷ lệ cơ sở' (Base Rate Fallacy): vì bệnh rất hiếm (chỉ 1%), số ca dương tính giả từ 99% người khỏe ($0,099$) áp đảo số ca dương tính thật ($0,0095$), khiến xác suất mắc bệnh khi dương tính chưa đến 9%!\n\nPhân tích bẫy sai:\n- Phương án B: Bẫy ngụy biện phổ biến nhất, nhầm độ nhạy $P(+ \\mid D) = 95\\%$ thành $P(D \\mid +)$.\n- Phương án C, D: Phép tính nhẩm sai lầm.",
+    "source": "Stat20 Mục 3.4"
+  },
+  {
+    "id": "TN2_12",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Cơ bản",
+    "question": "Một xạ thủ bắn 4 phát đạn độc lập vào bia, xác suất trúng bia ở mỗi phát đều bằng $0,7$. Xác suất để xạ thủ bắn TRÚNG BIA ÍT NHẤT MỘT PHÁT bằng bao nhiêu?",
+    "options": [
+      "0,9919",
+      "0,7599",
+      "2,8000",
+      "0,2401"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì biến cố đối của 'bắn trúng ít nhất một phát' là 'cả 4 phát đều trượt'.\n- Xác suất trượt ở mỗi phát: $1 - 0,7 = 0,3$.\n- Do các phát bắn độc lập, xác suất cả 4 phát trượt: $0,3^4 = 0,0081$.\n- Xác suất trúng ít nhất một phát: $1 - 0,0081 = 0,9919$.\n\nPhân tích bẫy sai:\n- Phương án B: Sai do tính nhầm $1 - 0,7^4 = 1 - 0,2401 = 0,7599$.\n- Phương án C: Sai do cộng trực tiếp $4 \\cdot 0,7 = 2,8$ (xác suất không thể lớn hơn 1).\n- Phương án D: 0,2401 là xác suất cả 4 phát đều trúng ($0,7^4$), không phải ít nhất một.",
+    "source": "Stat20 Mục 3.2"
+  },
+  {
+    "id": "TN2_13",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Trung bình",
+    "question": "Một trò chơi quay số trúng thưởng có xác suất trúng ở mỗi lần quay độc lập là $p = 0,2$. Cần quay ít nhất bao nhiêu lần để xác suất trúng thưởng ít nhất một lần đạt tối thiểu 99%?",
+    "options": [
+      "21 lần",
+      "5 lần",
+      "20 lần",
+      "15 lần"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Ta cần: $P(\\text{ít nhất 1 lần trúng}) = 1 - (1 - 0,2)^n = 1 - 0,8^n \\ge 0,99$.\n- Tương đương: $0,8^n \\le 0,01$.\n- Lấy logarit tự nhiên hai vế (chú ý $\\ln(0,8) < 0$ nên đổi chiều bất đẳng thức):\n$n \\ge \\frac{\\ln(0,01)}{\\ln(0,8)} \\approx \\frac{-4,60517}{-0,22314} \\approx 20,64$.\n- Vì số lần quay phải là số nguyên nên ta làm tròn lên: $n = 21$ lần.\n\nPhân tích bẫy sai:\n- Phương án B: Lấy $1 / p = 1 / 0,2 = 5$ lần (đây chỉ là kỳ vọng số lần quay để trúng 1 lần, nhưng với $n=5$ thì xác suất trúng mới là $1 - 0,8^5 \\approx 67,23\\%$, cách rất xa 99%).\n- Phương án C: Làm tròn xuống $n=20$ thì xác suất mới chỉ đạt $1 - 0,8^{20} \\approx 98,85\\% < 99\\%$.\n- Phương án D: Đoán mò.",
+    "source": "Stat20 Mục 3.2"
+  },
+  {
+    "id": "TN2_14",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Trung bình",
+    "question": "Trong bài toán ngày sinh nổi tiếng (giả định 1 năm có 365 ngày và ngày sinh phân bổ đều): Cần một nhóm tối thiểu bao nhiêu người để xác suất có ít nhất 2 người có cùng ngày sinh (ngày và tháng) vượt quá 50%?",
+    "options": [
+      "23 người",
+      "183 người",
+      "366 người",
+      "50 người"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo bài toán nghịch lý ngày sinh (Birthday Problem, Stat20 Ch.3):\n- Với $n=23$ người, số cặp ghép đôi là $C_{23}^2 = \\frac{23 \\cdot 22}{2} = 253$ cặp.\n- Xác suất để tất cả 23 người có ngày sinh hoàn toàn khác nhau là:\n$P(\\text{khác nhau}) = \\frac{365}{365} \\cdot \\frac{364}{365} \\cdot \\frac{363}{365} \\cdots \\frac{343}{365} \\approx 0,4927$.\n- Do đó, xác suất có ít nhất 2 người trùng ngày sinh là: $1 - 0,4927 = 0,5073 = 50,73\\% > 50\\%$.\n\nPhân tích bẫy sai:\n- Phương án B: 183 người (gần $365 / 2$) là suy luận trực giác ngây thơ so sánh số ngày trong năm.\n- Phương án C: 366 người là theo nguyên lý Dirichlet để CHẮC CHẮN 100% có trùng ngày sinh, không phải vượt quá 50%.\n- Phương án D: Ước lượng cảm tính.",
+    "source": "Stat20 Mục 3.3"
+  },
+  {
+    "id": "TN2_15",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Cơ bản",
+    "question": "Một người tung đồng xu cân đối đồng chất 6 lần liên tiếp và cả 6 lần đều xuất hiện mặt Ngửa. Ở lần tung thứ 7, xác suất xuất hiện mặt Sấp là bao nhiêu?",
+    "options": [
+      "Chính xác 0,5",
+      "Lớn hơn 0,5 vì theo quy luật bù trừ, mặt Sấp 'đã đến lúc' phải ra",
+      "Nhỏ hơn 0,5 vì đồng xu đang có đà xuất hiện mặt Ngửa",
+      "Bằng \\(1 - (0,5)^6 \\approx 0,984\\)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì mỗi lần tung đồng xu là một phép thử độc lập và đồng xu không có trí nhớ. Dù trước đó có ra 6 lần ngửa liên tiếp, xác suất mặt Sấp ở lần thứ 7 vẫn giữ nguyên bằng $0,5$. Suy nghĩ rằng mặt Sấp 'đã đến lúc phải ra' là một sai lầm nhận thức kinh điển mang tên 'Ngụy biện của con bạc' (Gambler's Fallacy).\n\nPhân tích bẫy sai:\n- Phương án B: Gambler's fallacy.\n- Phương án C: Hot-hand fallacy (ngụy biện bàn tay nóng).\n- Phương án D: Nhầm công thức xác suất biến cố hợp.",
+    "source": "Stat20 Mục 3.2"
+  },
+  {
+    "id": "TN2_16",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Cơ bản",
+    "question": "Gieo đồng thời hai con xúc xắc cân đối 6 mặt. Xác suất để tổng số chấm xuất hiện trên hai con xúc xắc bằng 7 là bao nhiêu?",
+    "options": [
+      "1/6 (khoảng 16,67%)",
+      "7/36",
+      "1/12",
+      "1/36"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Không gian mẫu gồm $|\\Omega| = 6 \\times 6 = 36$ kết quả đồng khả năng.\n- Các cặp có tổng bằng 7 là: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ gồm đúng 6 cặp thuận lợi.\n- Xác suất: $P = \\frac{6}{36} = \\frac{1}{6} \\approx 16,67\\%$.\n\nPhân tích bẫy sai:\n- Phương án B: Nhầm lẫn lấy tổng số chấm (7) chia cho không gian mẫu (36).\n- Phương án C: Sai do coi chỉ có 3 cặp vì quên không hoán vị thứ tự hai con xúc xắc ($3/36 = 1/12$).\n- Phương án D: 1/36 là xác suất của một cặp điểm cụ thể duy nhất (ví dụ đôi 1).",
+    "source": "Stat20 Mục 3.1"
+  },
+  {
+    "id": "TN2_17",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Cơ bản",
+    "question": "Một hệ các biến cố $\\{A_1, A_2, \\dots, A_n\\}$ được gọi là một hệ đầy đủ (hay phân hoạch của không gian mẫu $\\Omega$) khi và chỉ khi thỏa mãn hai điều kiện nào sau đây?",
+    "options": [
+      "Đôi một xung khắc ($A_i \\cap A_j = \\emptyset$ với mọi $i \\neq j$) và hợp của chúng phủ kín không gian mẫu ($\\bigcup_{i=1}^n A_i = \\Omega$)",
+      "Đôi một độc lập và có xác suất bằng nhau",
+      "Có tổng xác suất bằng 1 nhưng có thể giao nhau",
+      "Có ít nhất một biến cố chắc chắn"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo định nghĩa toán học của hệ đầy đủ các biến cố: Tập hợp các biến cố phải không có phần tử chung đôi một ($A_i \\cap A_j = \\emptyset$) và khi hợp lại phải bao quát toàn bộ không gian mẫu ($\\sum P(A_i) = 1$).\n\nPhân tích bẫy sai:\n- Phương án B: Nhầm lẫn giữa 'xung khắc' và 'độc lập'.\n- Phương án C: Nếu giao nhau thì không phải là một phân hoạch.\n- Phương án D: Sai hoàn toàn.",
+    "source": "Slide Week 07 tr. 4; Stat20 Mục 3.4"
+  },
+  {
+    "id": "TN2_18",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Cơ bản",
+    "question": "Một khóa học có 60 sinh viên nam và 40 sinh viên nữ. Trong đó có 30 nam và 10 nữ theo học chuyên ngành CNTT. Chọn ngẫu nhiên một sinh viên trong khóa và biết rằng sinh viên này học chuyên ngành CNTT. Xác suất để sinh viên được chọn là NỮ bằng bao nhiêu?",
+    "options": [
+      "0,25 (tức 25%)",
+      "0,10 (tức 10%)",
+      "0,40 (tức 40%)",
+      "0,33 (tức 33%)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Không gian mẫu thu hẹp của điều kiện 'học CNTT' gồm: $30 + 10 = 40$ sinh viên.\n- Trong nhóm này, số sinh viên nữ là 10 bạn.\n- Do đó: $P(\\text{Nữ} \\mid \\text{CNTT}) = \\frac{10}{40} = 0,25$ (25%).\n\nPhân tích bẫy sai:\n- Phương án B: $10 / 100 = 0,10$ là xác suất đồng thời vừa là nữ vừa học CNTT ($P(\\text{Nữ} \\cap \\text{CNTT})$ trên toàn khóa).\n- Phương án C: $40 / 100 = 0,40$ là tỷ lệ nữ toàn khóa.\n- Phương án D: $10 / 30 \\approx 0,33$ là tỷ số giữa nữ và nam học CNTT.",
+    "source": "Stat20 Mục 3.2"
+  },
+  {
+    "id": "TN2_19",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Cơ bản",
+    "question": "Cho 3 biến cố $A, B, C$ độc lập đôi một và độc lập toàn thể, với $P(A) = 0,5$; $P(B) = 0,4$; $P(C) = 0,2$. Xác suất để CẢ BA biến cố cùng xảy ra ($P(A \\cap B \\cap C)$) bằng bao nhiêu?",
+    "options": [
+      "0,04",
+      "1,10",
+      "0,20",
+      "0,08"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo tính chất độc lập toàn thể:\n$P(A \\cap B \\cap C) = P(A) \\cdot P(B) \\cdot P(C) = 0,5 \\cdot 0,4 \\cdot 0,2 = 0,04$.\n\nPhân tích bẫy sai:\n- Phương án B: Cộng đại số $0,5 + 0,4 + 0,2 = 1,1$ (vô nghĩa vì xác suất > 1).\n- Phương án C: Sai do lấy giá trị của $P(C)$.\n- Phương án D: $0,4 \\cdot 0,2 = 0,08$ (quên nhân $P(A)$).",
+    "source": "Stat20 Mục 3.2"
+  },
+  {
+    "id": "TN2_20",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Trung bình",
+    "question": "Giả sử hai biến cố $A$ và $B$ độc lập với nhau, có $P(A) = 0,5$ và $P(B) = 0,2$. Xác suất có điều kiện $P(A \\mid \\bar{B})$ bằng bao nhiêu?",
+    "options": [
+      "0,5",
+      "0,8",
+      "0,4",
+      "0,1"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì định lý quan trọng về tính độc lập: Nếu $A$ và $B$ độc lập thì $A$ và $\\bar{B}$ cũng hoàn toàn độc lập với nhau. Do đó, việc biến cố $\\bar{B}$ xảy ra không làm thay đổi xác suất của $A$:\n$P(A \\mid \\bar{B}) = P(A) = 0,5$.\n\nPhân tích bẫy sai:\n- Phương án B: $1 - P(B) = 0,8$ là xác suất của $\\bar{B}$.\n- Phương án C: $P(A \\cap \\bar{B}) = 0,5 \\cdot 0,8 = 0,4$ (nhầm xác suất giao với xác suất có điều kiện).\n- Phương án D: $P(A \\cap B) = 0,1$.",
+    "source": "Stat20 Mục 3.2"
+  },
+  {
+    "id": "TN2_21",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Trung bình",
+    "question": "Hai người cùng bắn độc lập vào một mục tiêu. Xác suất trúng của người thứ nhất là $0,6$ và người thứ hai là $0,4$. Xác suất để CÓ ĐÚNG MỘT người bắn trúng mục tiêu là:",
+    "options": [
+      "0,52",
+      "0,76",
+      "0,24",
+      "1,00"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì biến cố 'đúng một người trúng' gồm hai trường hợp xung khắc:\n- Người 1 trúng, Người 2 trượt: $P(A \\cap \\bar{B}) = 0,6 \\cdot (1 - 0,4) = 0,6 \\cdot 0,6 = 0,36$.\n- Người 1 trượt, Người 2 trúng: $P(\\bar{A} \\cap B) = (1 - 0,6) \\cdot 0,4 = 0,4 \\cdot 0,4 = 0,16$.\nTổng xác suất: $0,36 + 0,16 = 0,52$.\n(Hoặc dùng công thức: $P(A) + P(B) - 2P(A \\cap B) = 0,6 + 0,4 - 2(0,24) = 0,52$).\n\nPhân tích bẫy sai:\n- Phương án B: 0,76 là xác suất CÓ ÍT NHẤT một người trúng ($1 - 0,4 \\cdot 0,6 = 0,76$).\n- Phương án C: 0,24 là xác suất CẢ HAI người cùng trúng ($0,6 \\cdot 0,4 = 0,24$).\n- Phương án D: Cộng ngây thơ $0,6 + 0,4 = 1,00$.",
+    "source": "Stat20 Mục 3.2"
+  },
+  {
+    "id": "TN2_22",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Nâng cao",
+    "question": "Trong trò chơi truyền hình Monty Hall kinh điển: Có 3 cánh cửa (1 xe hơi, 2 con dê). Người chơi chọn Cửa 1. Người dẫn chương trình (biết rõ sau mỗi cửa có gì) mở Cửa 3 để lộ ra một con dê, sau đó cho người chơi quyền đổi sang Cửa 2 hoặc giữ nguyên Cửa 1. Quyết định tối ưu về mặt xác suất là gì?",
+    "options": [
+      "Nên ĐỔI sang Cửa 2 vì xác suất trúng xe hơi tăng lên thành 2/3 (khoảng 66,7%)",
+      "Đổi hay giữ nguyên đều có xác suất trúng như nhau là 1/2 (50%) vì chỉ còn lại 2 cánh cửa đóng",
+      "Nên GIỮ NGUYÊN Cửa 1 vì xác suất ban đầu luôn được bảo toàn ở mức 2/3",
+      "Không thể xác định được vì hành động của MC là hoàn toàn ngẫu nhiên"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Xác suất chọn đúng xe hơi ngay lần đầu ở Cửa 1 là $1/3$. Xác suất xe hơi nằm ở 2 cửa còn lại là $2/3$.\n- Vì MC luôn cố tình mở một cửa có dê trong số các cửa bạn chưa chọn, nên toàn bộ xác suất $2/3$ của nhóm cửa còn lại được dồn hoàn toàn vào cánh cửa duy nhất chưa mở (Cửa 2).\n- Do đó, đổi cửa sẽ mang lại xác suất thắng là $2/3$, trong khi giữ nguyên chỉ là $1/3$.\n\nPhân tích bẫy sai:\n- Phương án B: Ảo tưởng 50-50 kinh điển do ngộ nhận rằng việc còn 2 cửa đóng đồng nghĩa với xác suất đồng khả năng (bỏ qua điều kiện MC mở cửa dựa trên thông tin biết trước).\n- Phương án C, D: Sai hoàn toàn.",
+    "source": "Stat20 Mục 3.4"
+  },
+  {
+    "id": "TN2_23",
+    "topicId": 2,
+    "topicName": "Xác suất cổ điển, Có điều kiện & Bayes",
+    "level": "Nâng cao",
+    "question": "Có 3 chiếc hộp giống hệt nhau: Hộp I chứa 2 bi đỏ và 3 bi xanh; Hộp II chứa 4 bi đỏ và 1 bi xanh; Hộp III chứa 1 bi đỏ và 4 bi xanh. Chọn ngẫu nhiên một chiếc hộp với xác suất như nhau, rồi từ hộp đó rút ngẫu nhiên một viên bi và thấy nó màu ĐỎ. Xác suất viên bi đỏ này được rút ra từ Hộp II là bao nhiêu?",
+    "options": [
+      "4/7 (khoảng 57,14%)",
+      "1/3 (khoảng 33,33%)",
+      "4/5 (80%)",
+      "2/7 (khoảng 28,57%)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo định lý Bayes:\n- Gọi $H_i$ là biến cố chọn được Hộp $i$ ($P(H_1) = P(H_2) = P(H_3) = 1/3$).\n- Gọi $R$ là biến cố rút được bi đỏ:\n  + $P(R \\mid H_1) = 2/5 = 0,4$.\n  + $P(R \\mid H_2) = 4/5 = 0,8$.\n  + $P(R \\mid H_3) = 1/5 = 0,2$.\n- Xác suất toàn phần rút được bi đỏ:\n  $P(R) = \\frac{1}{3}(0,4 + 0,8 + 0,2) = \\frac{1}{3} \\cdot 1,4 = \\frac{1,4}{3}$.\n- Áp dụng công thức Bayes cho Hộp II:\n  $P(H_2 \\mid R) = \\frac{P(H_2) P(R \\mid H_2)}{P(R)} = \\frac{\\frac{1}{3} \\cdot 0,8}{\\frac{1,4}{3}} = \\frac{0,8}{1,4} = \\frac{4}{7} \\approx 57,14\\%$.\n\nPhân tích bẫy sai:\n- Phương án B: $1/3$ là xác suất tiên nghiệm khi chưa biết thông tin màu bi.\n- Phương án C: $4/5 = 80\\%$ là xác suất rút bi đỏ nếu ĐÃ BIẾT ở hộp II ($P(R \\mid H_2)$).\n- Phương án D: $2/7$ là xác suất bi đến từ Hộp I ($P(H_1 \\mid R) = 0,4/1,4 = 2/7$).",
+    "source": "Stat20 Mục 3.4; Slide Week 07"
+  }
+]

@@ -1,0 +1,370 @@
+[
+  {
+    "id": "TN7_01",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Cơ bản",
+    "question": "Cho $X_1, X_2, \\dots, X_n$ là các biến ngẫu nhiên độc lập cùng phân phối (i.i.d.) có kỳ vọng $\\mu$ và phương sai $\\sigma^2$ hữu hạn. Định lý Giới hạn Trung tâm (CLT) khẳng định điều gì khi kích thước mẫu $n$ đủ lớn?",
+    "options": [
+      "Biến chuẩn hóa của tổng \\(Z_n = \\frac{S_n - n\\mu}{\\sigma\\sqrt{n}}\\) và của trung bình mẫu \\(Z_n = \\frac{\\bar{X}_n - \\mu}{\\sigma/\\sqrt{n}}\\) sẽ hội tụ về phân phối Chuẩn tắc $N(0, 1)$",
+      "Bản thân từng biến $X_i$ sẽ tự động biến thành phân phối Chuẩn",
+      "Tổng $S_n$ sẽ trở thành một hằng số chắc chắn bằng $n\\mu$",
+      "Phương sai của tổng $S_n$ sẽ tiến dần về 0"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì CLT khẳng định rằng khi $n$ lớn, phân phối của tổng $S_n$ và của trung bình mẫu $\\bar{X}_n$ sẽ có dạng hình chuông và tiến dần về phân phối Chuẩn, bất kể phân phối ban đầu của từng biến $X_i$ có hình dạng như thế nào (kể cả phân phối rời rạc, phân phối lệch mạnh hay phân phối đều).\n\nPhân tích bẫy sai:\n- Phương án B: Từng biến $X_i$ giữ nguyên phân phối gốc của nó, chỉ có TỔNG và TRUNG BÌNH của nhiều biến mới tiến về Chuẩn.\n- Phương án C: Tổng $S_n$ vẫn là biến ngẫu nhiên, không phải hằng số.\n- Phương án D: Phương sai của tổng $n\\sigma^2$ tiến ra vô cùng, không tiến về 0.",
+    "source": "Slide Week 07 tr. 68-70; Stat20 Mục 4.17"
+  },
+  {
+    "id": "TN7_02",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Trung bình",
+    "question": "Trọng lượng một người đi thang máy tuân theo phân phối Chuẩn $X \\sim N(\\mu = 65\\text{ kg}, \\sigma^2 = 100\\text{ kg}^2)$. Xét một nhóm gồm $n = 4$ người đi thang máy. Tổng trọng lượng $S_4 = X_1 + X_2 + X_3 + X_4$ tuân theo phân phối nào?",
+    "options": [
+      "Phân phối Chuẩn CHÍNH XÁC \\(N(260, 400)\\) với mọi $n$ mà KHÔNG CẦN điều kiện $n \\ge 30$",
+      "Chỉ xấp xỉ Chuẩn theo CLT vì $n = 4 < 30$",
+      "Không thể xác định được vì kích thước mẫu quá nhỏ ($n < 30$)",
+      "Phân phối Chuẩn $N(260, 100)$"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì đây là một bẫy phân biệt lý thuyết cực kỳ quan trọng:\n- Nếu các biến thành phần $X_i$ BẢN THÂN NÓ ĐÃ CÓ PHÂN PHỐI CHUẨN, thì tổng của chúng có phân phối Chuẩn CHÍNH XÁC TUYỆT ĐỐI với BẤT KỲ $n \\ge 1$ nào (tính chất đóng kín tuyến tính của biến Chuẩn), không cần đến CLT và không cần điều kiện $n \\ge 30$.\n- Kỳ vọng tổng: $4 \\times 65 = 260$ kg.\n- Phương sai tổng: $4 \\times 100 = 400$ $\\text{kg}^2$ (độ lệch chuẩn $\\sigma = \\sqrt{400} = 20$ kg).\nDo đó $S_4 \\sim N(260, 400)$ chính xác 100%.\n\nPhân tích bẫy sai:\n- Phương án B, C: Bẫy máy móc đòi hỏi $n \\ge 30$ ngay cả khi biến gốc đã là phân phối Chuẩn (CLT chỉ cần thiết khi phân phối gốc KHÔNG PHẢI là chuẩn).\n- Phương án D: Quên nhân $n=4$ vào phương sai.",
+    "source": "Slide Week 07 tr. 70; Stat20 Mục 4.17"
+  },
+  {
+    "id": "TN7_03",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Cơ bản",
+    "question": "Khi phân phối của các biến thành phần $X_i$ không phải là phân phối Chuẩn (nhưng không bị lệch quá cực đoan), quy tắc ngón tay cái (rule of thumb) phổ biến trong thống kê yêu cầu kích thước mẫu $n$ tối thiểu bằng bao nhiêu để xấp xỉ CLT đủ tin cậy?",
+    "options": [
+      "\\(n \\ge 30\\)",
+      "\\(n \\ge 10\\)",
+      "\\(n \\ge 100\\)",
+      "\\(n \\ge 1.000\\)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì trong thực hành thống kê (Slide Week 07 và Stat20 Ch.4), mốc $n \\ge 30$ là quy ước ngón tay cái kinh điển. Với $n \\ge 30$, hình dạng phân phối của trung bình mẫu $\\bar{X}_n$ đã rất sát với đường cong hình chuông chuẩn, ngay cả khi phân phối gốc có dạng phân phối Đều hay phân phối Rời rạc.\n\nPhân tích bẫy sai:\n- Phương án B: $n \\ge 10$ thường chưa đủ để xấp xỉ tốt nếu phân phối gốc có độ lệch.\n- Phương án C, D: Kích thước mẫu quá lớn không cần thiết đối với hầu hết các phân phối thông thường.",
+    "source": "Slide Week 07 tr. 71; Stat20 Mục 4.17"
+  },
+  {
+    "id": "TN7_04",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Cơ bản",
+    "question": "Khi sử dụng phân phối Chuẩn liên tục $Y$ để xấp xỉ biến ngẫu nhiên nhận giá trị nguyên rời rạc $X$ (ví dụ số lần thành công trong phép thử Nhị thức), theo quy tắc hiệu chỉnh liên tục (continuity correction), xác suất tại đúng một điểm $P(X = k)$ được xấp xỉ bởi diện tích nào?",
+    "options": [
+      "\\(P(k - 0,5 \\le Y \\le k + 0,5)\\)",
+      "\\(P(Y = k) = 0\\)",
+      "\\(P(k \\le Y \\le k + 1)\\)",
+      "\\(P(Y \\ge k)\\)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì đối với biến liên tục $Y$, xác suất tại một điểm luôn bằng 0 ($P(Y=k)=0$). Để xấp xỉ cột xác suất rời rạc có đáy tại số nguyên $k$, ta mở rộng số nguyên $k$ thành một khoảng liên tục có độ rộng 1 đơn vị đối xứng quanh $k$, tức là đoạn $[k - 0,5; k + 0,5]$.\n\nPhân tích bẫy sai:\n- Phương án B: Bẫy không dùng hiệu chỉnh liên tục, khiến xác suất xấp xỉ bị triệt tiêu về 0 một cách vô lý.\n- Phương án C: Lệch sang phải nửa đơn vị.\n- Phương án D: Đây là diện tích của toàn bộ đuôi phải.",
+    "source": "Slide Week 07 tr. 74"
+  },
+  {
+    "id": "TN7_05",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Trung bình",
+    "question": "Với biến rời rạc nhận giá trị nguyên $X$, khi áp dụng hiệu chỉnh liên tục sang biến chuẩn $Y$, xác suất $P(X \\ge 25)$ và xác suất $P(X > 25)$ lần lượt được chuyển thành:",
+    "options": [
+      "\\(P(Y \\ge 24,5)\\) và \\(P(Y \\ge 25,5)\\)",
+      "\\(P(Y \\ge 25,5)\\) và \\(P(Y \\ge 24,5)\\)",
+      "\\(P(Y \\ge 25,0)\\) cho cả hai trường hợp",
+      "\\(P(Y \\le 24,5)\\) và \\(P(Y \\le 25,5)\\)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- $P(X \\ge 25)$ bao gồm các số nguyên $25, 26, 27, \\dots$. Điểm bắt đầu là cột 25, với mép trái là $25 - 0,5 = 24,5$. Do đó: $P(X \\ge 25) \\approx P(Y \\ge 24,5)$.\n- $P(X > 25)$ là biến cố không lấy 25, tương đương $X \\ge 26$, gồm các số $26, 27, 28, \\dots$. Điểm bắt đầu là cột 26, với mép trái là $26 - 0,5 = 25,5$. Do đó: $P(X > 25) \\approx P(Y \\ge 25,5)$.\n\nPhân tích bẫy sai:\n- Phương án B: Đảo ngược hai công thức.\n- Phương án C: Bỏ qua hiệu chỉnh liên tục, coi $X$ như biến liên tục.\n- Phương án D: Đảo ngược chiều bất đẳng thức.",
+    "source": "Slide Week 07 tr. 74"
+  },
+  {
+    "id": "TN7_06",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Trung bình",
+    "question": "Gieo một con xúc xắc cân đối 100 lần độc lập ($E(X) = 3,5; \\sigma = \\sqrt{35/12} \\approx 1,7078$). Tổng số chấm $S_{100}$ có kỳ vọng 350 và độ lệch chuẩn $\\sigma(S_{100}) \\approx 17,08$. Sử dụng CLT có hiệu chỉnh liên tục, biến đổi chuẩn hóa $Z$ để tính $P(S_{100} \\ge 380)$ là:",
+    "options": [
+      "\\(Z = \\frac{379,5 - 350}{17,08} \\approx 1,73\\)",
+      "\\(Z = \\frac{380 - 350}{17,08} \\approx 1,76\\)",
+      "\\(Z = \\frac{380,5 - 350}{17,08} \\approx 1,79\\)",
+      "\\(Z = \\frac{380 - 3,5}{1,7078} \\approx 220,5\\)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo quy tắc hiệu chỉnh liên tục cho $P(S_{100} \\ge 380)$, do là dấu $\\ge$ nên mép tích phân bắt đầu từ $380 - 0,5 = 379,5$.\nSau đó chuẩn hóa với trung bình $n\\mu = 350$ và độ lệch chuẩn $\\sigma\\sqrt{n} \\approx 17,08$:\n$Z = \\frac{379,5 - 350}{17,08} = \\frac{29,5}{17,08} \\approx 1,73$.\n\nPhân tích bẫy sai:\n- Phương án B: Quên hiệu chỉnh liên tục $\\pm 0,5$.\n- Phương án C: Hiệu chỉnh sai dấu $+0,5$ thay vì $-0,5$.\n- Phương án D: Nhầm công thức chuẩn hóa của 1 lần gieo thay vì của tổng 100 lần.",
+    "source": "Slide Week 07 tr. 75"
+  },
+  {
+    "id": "TN7_07",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Trung bình",
+    "question": "Trọng lượng của mỗi người vào thang máy có kỳ vọng $\\mu = 65$ kg và độ lệch chuẩn $\\sigma = 12$ kg. Một thang máy chở $n = 16$ người độc lập. Tải trọng an toàn tối đa của thang máy là 1.100 kg. Theo CLT, xác suất thang máy bị quá tải ($P(S_{16} > 1.100)$) xấp xỉ bằng bao nhiêu (biết $\\Phi(1,25) = 0,8944$)?",
+    "options": [
+      "10,56%",
+      "89,44%",
+      "1,25%",
+      "21,12%"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo CLT cho tổng trọng lượng 16 người $S_{16}$ (do trọng lượng là biến liên tục nên không cần hiệu chỉnh liên tục $\\pm 0,5$):\n- Kỳ vọng tổng: $E(S_{16}) = 16 \\times 65 = 1.040$ kg.\n- Độ lệch chuẩn tổng: $\\sigma(S_{16}) = \\sigma \\sqrt{n} = 12 \\times \\sqrt{16} = 12 \\times 4 = 48$ kg.\n- Chuẩn hóa Z-score tại mức 1.100 kg:\n$Z = \\frac{1.100 - 1.040}{48} = \\frac{60}{48} = 1,25$.\n- Xác suất quá tải:\n$P(S_{16} > 1.100) = 1 - \\Phi(1,25) = 1 - 0,8944 = 0,1056$ (tức 10,56%).\n\nPhân tích bẫy sai:\n- Phương án B: 89,44% là xác suất thang máy AN TOÀN không bị quá tải ($P(S_{16} \\le 1.100)$).\n- Phương án C: Nhầm giá trị $Z = 1,25$ thành xác suất 1,25%.\n- Phương án D: Sai số học.",
+    "source": "Slide Week 07 tr. 72"
+  },
+  {
+    "id": "TN7_08",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Nâng cao",
+    "question": "Một viện nghiên cứu muốn thăm dò tỷ lệ cử tri ủng hộ một dự luật. Họ muốn tỷ lệ mẫu sai lệch so với tỷ lệ thực tế không quá 3% (tức $\\varepsilon = 0,03$) với độ tin cậy 95% (ứng với $z = 1,96$). Trong trường hợp chưa có bất kỳ thông tin nào về tỷ lệ ủng hộ trước đó (kịch bản xấu nhất), cỡ mẫu tối thiểu cần điều tra là bao nhiêu?",
+    "options": [
+      "1.068 cử tri",
+      "385 cử tri",
+      "2.401 cử tri",
+      "500 cử tri"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo CLT cho tỷ lệ mẫu $\\hat{p} = \\bar{X}_n$:\n- Sai số biên: $\\varepsilon = z \\cdot \\sqrt{\\frac{p(1-p)}{n}}$.\n- Để bảo đảm với mọi $p$, ta lấy kịch bản phương sai lớn nhất (worst-case scenario) tại $p = 0,5 \\implies p(1-p) = 0,25$.\n- Suy ra cỡ mẫu tối thiểu:\n$n \\ge \\frac{z^2 \\cdot p(1-p)}{\\varepsilon^2} = \\frac{(1,96)^2 \\cdot 0,25}{(0,03)^2} = \\frac{3,8416 \\cdot 0,25}{0,0009} = \\frac{0,9604}{0,0009} \\approx 1.067,11$.\nLàm tròn lên số nguyên tiếp theo ta được $n = 1.068$ cử tri. Đây là con số tiêu chuẩn xuất hiện trên hầu hết các cuộc thăm dò dư luận uy tín trên thế giới (mẫu khoảng 1.000 - 1.100 người).\n\nPhân tích bẫy sai:\n- Phương án B: 385 là cỡ mẫu ứng với sai số rộng hơn $\\varepsilon = 0,05$ (5%).\n- Phương án C: Sai số học khi bình phương.\n- Phương án D: Ước lượng cảm tính.",
+    "source": "Stat20 Mục 4.17; Slide Week 07 tr. 77"
+  },
+  {
+    "id": "TN7_09",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Nâng cao",
+    "question": "Một trạm hải đăng cần duy trì chiếu sáng liên tục trong 2.000 giờ. Mỗi bóng đèn có tuổi thọ trung bình 100 giờ và độ lệch chuẩn 30 giờ. Khi một bóng đèn cháy, bóng tiếp theo được thay ngay lập tức (các tuổi thọ độc lập). Biết $\\Phi(1,645) = 0,95$. Cần chuẩn bị tối thiểu bao nhiêu bóng đèn ($n$) để xác suất hải đăng hoạt động liên tục không gián đoạn trong 2.000 giờ đạt ít nhất 95%?",
+    "options": [
+      "23 bóng đèn",
+      "20 bóng đèn",
+      "21 bóng đèn",
+      "25 bóng đèn"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo Bài tập vận dụng 5 trong Slide Week 07 (tr. 90-91):\n- Tổng tuổi thọ của $n$ bóng đèn là $S_n \\sim N(100n, 30^2 n)$.\n- Yêu cầu: $P(S_n \\ge 2.000) \\ge 0,95 \\iff P\\left(Z \\ge \\frac{2.000 - 100n}{30\\sqrt{n}}\\right) \\ge 0,95$.\n- Do $\\Phi(1,645) = 0,95$ nên $P(Z \\ge -1,645) = 0,95$. Từ đó ta có bất phương trình:\n$\\frac{2.000 - 100n}{30\\sqrt{n}} \\le -1,645 \\iff 100n - 49,35\\sqrt{n} - 2.000 \\ge 0$.\n- Đặt $u = \\sqrt{n} > 0$, ta có phương trình bậc hai: $100u^2 - 49,35u - 2.000 \\ge 0$.\n- Giải ra: $u \\ge \\frac{49,35 + \\sqrt{49,35^2 + 800.000}}{200} \\approx \\frac{49,35 + 895,79}{200} \\approx 4,7257$.\n- Suy ra $n = u^2 \\ge (4,7257)^2 \\approx 22,33$.\n- Do số bóng đèn phải là số nguyên, ta cần tối thiểu $n = 23$ bóng đèn.\n\nPhân tích bẫy sai:\n- Phương án B: 20 bóng đèn là lấy $2.000 / 100 = 20$ (chỉ tính theo kỳ vọng trung bình, nhưng nếu lấy $n=20$ thì xác suất chỉ đạt đúng 50%, có tới 50% nguy cơ tắt điện giữa chừng!).\n- Phương án C: Làm tròn xuống $n = 21$ hoặc $22$ bóng thì xác suất chưa đạt $95\\%$.\n- Phương án D: Ước lượng dư thừa.",
+    "source": "Slide Week 07 tr. 90-91 (Bài 5)"
+  },
+  {
+    "id": "TN7_10",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Nâng cao",
+    "question": "Một công ty bảo hiểm bán 10.000 hợp đồng bảo hiểm xe máy độc lập. Xác suất mỗi hợp đồng gặp tai nạn phải bồi thường là 1% ($p = 0,01$). Khi có tai nạn, số tiền bồi thường cố định là 50 triệu đồng. Biết rằng giá trị $z$ ứng với tích lũy 99% là $z \\approx 2,33$. Để đảm bảo an toàn với xác suất 99% không bị vỡ quỹ bồi thường, công ty cần lập quỹ dự phòng bồi thường tối thiểu khoảng bao nhiêu?",
+    "options": [
+      "Khoảng 6,16 tỷ đồng",
+      "Đúng 5,00 tỷ đồng (bằng mức bồi thường kỳ vọng)",
+      "Khoảng 10,00 tỷ đồng",
+      "Khoảng 5,12 tỷ đồng"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Số vụ tai nạn $N \\sim B(n = 10.000, p = 0,01)$.\n- Kỳ vọng số vụ tai nạn: $E(N) = np = 10.000 \\times 0,01 = 100$ vụ.\n- Độ lệch chuẩn số vụ tai nạn: $\\sigma(N) = \\sqrt{np(1-p)} = \\sqrt{10.000 \\times 0,01 \\times 0,99} = \\sqrt{99} \\approx 9,95$ vụ.\n- Theo CLT, số vụ tai nạn tối đa ở mức tin cậy 99% ($z = 2,33$) là:\n$N_{0,99} = E(N) + z \\cdot \\sigma(N) = 100 + 2,33 \\times 9,95 \\approx 100 + 23,18 = 123,18$ vụ.\n- Số tiền bồi thường cần chuẩn bị:\n$\\text{Quỹ} = 123,18 \\times 50\\text{ triệu} \\approx 6.159\\text{ triệu} \\approx 6,16$ tỷ đồng.\n(Công ty cần dự phòng thêm $1,16$ tỷ đồng trên mức kỳ vọng 5 tỷ để hấp thụ rủi ro biến động ngẫu nhiên).\n\nPhân tích bẫy sai:\n- Phương án B: 5,00 tỷ đồng là chỉ tính theo kỳ vọng $100 \\times 50$, nếu để 5 tỷ thì xác suất vỡ quỹ lên tới 50%!\n- Phương án C: Ước lượng gấp đôi cảm tính.\n- Phương án D: Sai số học.",
+    "source": "Slide Week 07 tr. 77"
+  },
+  {
+    "id": "TN7_11",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Trung bình",
+    "question": "Quãng đường di chuyển mỗi ngày của một nhân viên giao hàng có trung bình $\\mu = 15$ km và độ lệch chuẩn $\\sigma = 3$ km. Theo dõi trong $n = 36$ ngày làm việc độc lập. Xác suất để quãng đường trung bình mỗi ngày trong 36 ngày đó vượt quá 16 km ($P(\\bar{X}_{36} > 16)$) bằng bao nhiêu (biết $\\Phi(2,0) = 0,9772$)?",
+    "options": [
+      "2,28%",
+      "97,72%",
+      "37,07%",
+      "15,87%"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo CLT áp dụng cho biến trung bình mẫu $\\bar{X}_{36}$:\n- Kỳ vọng của trung bình mẫu: $E(\\bar{X}_{36}) = \\mu = 15$ km.\n- Độ lệch chuẩn của trung bình mẫu: $\\sigma(\\bar{X}_{36}) = \\frac{\\sigma}{\\sqrt{n}} = \\frac{3}{\\sqrt{36}} = \\frac{3}{6} = 0,5$ km.\n- Chuẩn hóa Z-score tại mốc 16 km:\n$Z = \\frac{16 - 15}{0,5} = \\frac{1}{0,5} = 2,0$.\n- Xác suất:\n$P(\\bar{X}_{36} > 16) = P(Z > 2,0) = 1 - \\Phi(2,0) = 1 - 0,9772 = 0,0228$ (tức 2,28%).\n\nPhân tích bẫy sai:\n- Phương án B: 97,72% là xác suất trung bình NHỎ HƠN HOẶC BẰNG 16 km ($P(\\bar{X} \\le 16)$).\n- Phương án C: $37,07\\%$ là kết quả nếu quên chia căn $n$ khi tính độ lệch chuẩn ($Z = (16-15)/3 = 0,33 \\implies 1 - 0,6293 = 0,3707$, đây là xác suất của MỘT NGÀY ĐƠN LẺ, không phải trung bình 36 ngày!).\n- Phương án D: Ứng với $Z = 1,0$.",
+    "source": "Slide Week 07 tr. 73; Stat20 Mục 4.17"
+  },
+  {
+    "id": "TN7_12",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Cơ bản",
+    "question": "Trường hợp nào sau đây KHÔNG THỂ áp dụng xấp xỉ phân phối Chuẩn (CLT) cho phân phối Nhị thức $B(n, p)$?",
+    "options": [
+      "Khi $n = 100$ nhưng xác suất thành công cực nhỏ $p = 0,001$ ($np = 0,1 < 10$)",
+      "Khi $n = 100$ và $p = 0,5$ ($np = 50 \\ge 10$)",
+      "Khi $n = 40$ và $p = 0,3$ ($np = 12 \\ge 10$ và $n(1-p) = 28 \\ge 10$)",
+      "Khi $n = 200$ và $p = 0,1$ ($np = 20 \\ge 10$)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì để xấp xỉ Chuẩn hoạt động tốt cho Nhị thức, phân phối không được quá lệch, đòi hỏi điều kiện kiểm tra:\n$np \\ge 10$ và $n(1 - p) \\ge 10$.\nỞ phương án A, $np = 100 \\times 0,001 = 0,1$ quá nhỏ, phân phối bị lệch cực độ về phía 0, không thể dùng phân phối Chuẩn đối xứng. Trong trường hợp này, bắt buộc phải dùng XẤP XỈ POISSON ($Po(\\lambda = 0,1)$).\n\nPhân tích bẫy sai:\n- Phương án B, C, D: Đều thỏa mãn mỹ mãn điều kiện $np \\ge 10$ và $n(1-p) \\ge 10$, xấp xỉ chuẩn rất chính xác.",
+    "source": "Slide Week 07 tr. 71; Stat20 Mục 4.17"
+  },
+  {
+    "id": "TN7_13",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Trung bình",
+    "question": "Khái niệm 'hội tụ' trong Định lý Giới hạn Trung tâm (CLT) chính xác là loại hội tụ nào trong lý thuyết xác suất?",
+    "options": [
+      "Hội tụ theo phân phối (Convergence in Distribution): Hàm phân phối tích lũy $F_{Z_n}(z)$ tiến dần về hàm phân phối tích lũy chuẩn tắc $\\Phi(z)$ tại mọi điểm $z$",
+      "Hội tụ hầu chắc chắn (Almost sure convergence)",
+      "Hội tụ theo trung bình bậc hai (Convergence in mean square)",
+      "Hội tụ đều của hàm mật độ xác suất"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì Định lý Giới hạn Trung tâm khẳng định sự hội tụ theo phân phối (kí hiệu $Z_n \\xrightarrow{d} N(0, 1)$):\n$\\lim_{n \\to \\infty} P(Z_n \\le z) = \\Phi(z) = \\int_{-\\infty}^z \\frac{1}{\\sqrt{2\\pi}} e^{-t^2/2} dt$ với mọi số thực $z$.\nĐiều này không đồng nghĩa với việc từng giá trị biến ngẫu nhiên bằng nhau, mà chỉ là diện tích tích lũy xác suất tiệm cận về diện tích hình chuông chuẩn.\n\nPhân tích bẫy sai:\n- Phương án B, C, D: Đều là các dạng hội tụ mạnh hơn trong giải tích ngẫu nhiên, không phải phát biểu của CLT.",
+    "source": "Slide Week 07 tr. 68"
+  },
+  {
+    "id": "TN7_14",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Trung bình",
+    "question": "Cho $X_1, X_2, \\dots, X_{12}$ là 12 biến ngẫu nhiên độc lập cùng phân phối Đều trên $[0; 1]$ ($X_i \\sim U(0, 1)$ có $\\mu = 0,5$ và $\\sigma^2 = 1/12$). Biến ngẫu nhiên $Y = \\left(\\sum_{i=1}^{12} X_i\\right) - 6$ có đặc điểm gì nổi tiếng trong kỹ thuật mô phỏng máy tính?",
+    "options": [
+      "Có kỳ vọng bằng 0, phương sai bằng 1 và xấp xỉ rất sát với biến Chuẩn tắc $N(0, 1)$ (thuật toán cổ điển tạo số chuẩn tắc không cần tính hàm lượng giác)",
+      "Có phân phối Đều trên khoảng $[-6; 6]$",
+      "Có kỳ vọng bằng 6 và phương sai bằng 12",
+      "Luôn nhận giá trị nguyên"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Tổng 12 biến: $E(S_{12}) = 12 \\times 0,5 = 6$.\n- Phương sai tổng: $\\operatorname{Var}(S_{12}) = 12 \\times \\frac{1}{12} = 1 \\implies \\sigma(S_{12}) = 1$.\n- Khi trừ đi 6: $Y = S_{12} - 6$ có $E(Y) = 0$ và $\\operatorname{Var}(Y) = 1$.\nDo phân phối Đều có tính đối xứng rất cao, chỉ cần $n = 12$ biến là tổng của chúng đã triệt tiêu độ gồ ghề và khớp với đường cong Chuẩn tắc $N(0, 1)$ tới kinh ngạc. Đây chính là thuật toán phát sinh biến ngẫu nhiên chuẩn sơ khai kinh điển trong các máy tính thế hệ đầu!\n\nPhân tích bẫy sai:\n- Phương án B: Tổng của nhiều biến Đều không còn là biến Đều nữa (nó trở thành phân phối Irwin-Hall hình chuông mượt mà).\n- Phương án C, D: Sai các tính chất cơ bản.",
+    "source": "Slide Week 07 tr. 69"
+  },
+  {
+    "id": "TN7_15",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Cơ bản",
+    "question": "Khi áp dụng CLT cho biến nhận giá trị nguyên (ví dụ phân phối Nhị thức), tại sao việc dùng Hiệu chỉnh liên tục (Continuity Correction $\\pm 0,5$) lại đặc biệt quan trọng khi cỡ mẫu $n$ ở mức vừa phải ($n$ khoảng 20 đến 50)?",
+    "options": [
+      "Vì nếu không cộng/trừ 0,5, ta sẽ bỏ sót hoàn toàn hoặc tính dư cả một cột xác suất tại điểm biên (vốn có bề rộng bằng 1), dẫn đến sai số đáng kể",
+      "Vì hiệu chỉnh liên tục giúp biến đổi phương sai mẫu thành phương sai tổng thể",
+      "Vì bắt buộc phải có hiệu chỉnh liên tục thì định lý CLT mới được chứng minh",
+      "Vì nếu không hiệu chỉnh thì kết quả xác suất luôn lớn hơn 1"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì trên biểu đồ histogram của biến rời rạc, mỗi số nguyên $k$ là một cột hình chữ nhật có độ rộng đáy từ $k - 0,5$ đến $k + 0,5$. Nếu tính tích phân của đường cong liên tục từ mốc $k$ thay vì $k - 0,5$, ta sẽ vô tình cắt xén mất một nửa diện tích của cột tại điểm $k$, gây ra sai số cố tật khá lớn khi $n$ chưa cực kỳ khổng lồ.\n\nPhân tích bẫy sai:\n- Phương án B, C, D: Đều là các giải thích sai bản chất hình học.",
+    "source": "Slide Week 07 tr. 74"
+  },
+  {
+    "id": "TN7_16",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Trung bình",
+    "question": "Một mẫu ngẫu nhiên gồm $n = 64$ quan sát độc lập được rút ra từ một tổng thể có $\\mu = 50$ và $\\sigma = 16$. Biết $\\Phi(1,0) = 0,8413$. Xác suất để trung bình mẫu $\\bar{X}_{64}$ nằm trong khoảng từ 48 đến 52 ($P(48 \\le \\bar{X}_{64} \\le 52)$) xấp xỉ bằng bao nhiêu?",
+    "options": [
+      "68,26%",
+      "84,13%",
+      "34,13%",
+      "95,45%"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Sai số chuẩn của trung bình mẫu: $\\sigma(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}} = \\frac{16}{\\sqrt{64}} = \\frac{16}{8} = 2$.\n- Chuẩn hóa hai cận:\n  + Cận dưới: $z_1 = \\frac{48 - 50}{2} = -1,0$.\n  + Cận trên: $z_2 = \\frac{52 - 50}{2} = +1,0$.\n- Xác suất:\n$P(-1,0 \\le Z \\le 1,0) = \\Phi(1,0) - \\Phi(-1,0) = 2\\Phi(1,0) - 1 = 2 \\times 0,8413 - 1 = 1,6826 - 1 = 0,6826$ (68,26%).\n(Đúng bằng quy tắc $1\\sigma$ chuẩn!).\n\nPhân tích bẫy sai:\n- Phương án B: 84,13% là diện tích từ $-\\infty$ đến $+1,0$.\n- Phương án C: 34,13% chỉ là nửa khoảng từ 50 đến 52.\n- Phương án D: 95,45% ứng với khoảng $\\pm 2\\sigma$ (từ 46 đến 54).",
+    "source": "Slide Week 07 tr. 73; Stat20 Mục 4.17"
+  },
+  {
+    "id": "TN7_17",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Cơ bản",
+    "question": "Số tiền chi tiêu của mỗi khách hàng tại siêu thị có trung bình 200.000 đồng và độ lệch chuẩn 50.000 đồng. Trong một buổi sáng có 100 khách hàng mua sắm độc lập. Xác suất để tổng doanh thu của siêu thị trong buổi sáng đó đạt ít nhất 21.000.000 đồng ($P(S_{100} \\ge 21.000.000)$) bằng bao nhiêu (biết $\\Phi(2,0) = 0,9772$)?",
+    "options": [
+      "2,28%",
+      "97,72%",
+      "50,00%",
+      "10,00%"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo CLT cho tổng doanh thu 100 khách:\n- Kỳ vọng tổng: $E(S_{100}) = 100 \\times 200.000 = 20.000.000$ đồng.\n- Độ lệch chuẩn tổng: $\\sigma(S_{100}) = 50.000 \\times \\sqrt{100} = 500.000$ đồng.\n- Chuẩn hóa Z-score tại 21.000.000 đồng:\n$Z = \\frac{21.000.000 - 20.000.000}{500.000} = \\frac{1.000.000}{500.000} = 2,0$.\n- Xác suất:\n$P(S_{100} \\ge 21.000.000) = 1 - \\Phi(2,0) = 1 - 0,9772 = 0,0228$ (2,28%).\n\nPhân tích bẫy sai:\n- Phương án B: 97,72% là xác suất doanh thu DƯỚI 21 triệu đồng.\n- Phương án C: 50% là xác suất đạt mức kỳ vọng 20 triệu đồng.\n- Phương án D: Sai số học.",
+    "source": "Slide Week 07 tr. 72"
+  },
+  {
+    "id": "TN7_18",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Trung bình",
+    "question": "Sự khác biệt cốt lõi nhất giữa Luật số lớn (WLLN) và Định lý Giới hạn Trung tâm (CLT) là gì?",
+    "options": [
+      "WLLN trả lời câu hỏi: 'Trung bình mẫu đi về đâu?' (nó co cụm về kỳ vọng $\\mu$ như một điểm cố định); còn CLT trả lời câu hỏi: 'Sự dao động ngẫu nhiên quanh $\\mu$ có hình dạng như thế nào?' (nó có hình dạng chuông chuẩn với độ tản mát $\\sigma/\\sqrt{n}$)",
+      "WLLN áp dụng cho biến liên tục, còn CLT chỉ áp dụng cho biến rời rạc",
+      "WLLN đòi hỏi $n \\ge 30$, còn CLT đúng với mọi $n$",
+      "Hai định lý này là một, chỉ khác tên gọi"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì đây là cách phân biệt kinh điển và sâu sắc nhất giữa hai trụ cột của lý thuyết xác suất hiện đại:\n- WLLN cho biết hành vi bậc một (First-order behavior): $\\bar{X}_n \\xrightarrow{P} \\mu$ (độ phân tán biến mất, trung bình mẫu hội tụ về một hằng số thực).\n- CLT cho biết hành vi bậc hai (Second-order fluctuation): khi phóng đại độ lệch đó lên $\\sqrt{n}$ lần (tức xem xét $\\sqrt{n}(\\bar{X}_n - \\mu)$), ta thấy quy luật dao động ngẫu nhiên quanh tâm có hình chuông chuẩn hoàn hảo $N(0, \\sigma^2)$.\n\nPhân tích bẫy sai:\n- Phương án B, C, D: Đều sai lệch hoàn toàn về mặt lý thuyết.",
+    "source": "Slide Week 07 tr. 38, 68; Stat20 Mục 4.17"
+  },
+  {
+    "id": "TN7_19",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Cơ bản",
+    "question": "Cho biến ngẫu nhiên nhận giá trị nguyên $X$. Khi xấp xỉ bằng biến Chuẩn $Y$, xác suất để $X$ nhận giá trị từ $a$ đến $b$ ($P(a \\le X \\le b)$, với $a < b$ là các số nguyên) được hiệu chỉnh liên tục thành:",
+    "options": [
+      "\\(P(a - 0,5 \\le Y \\le b + 0,5)\\)",
+      "\\(P(a + 0,5 \\le Y \\le b - 0,5)\\)",
+      "\\(P(a \\le Y \\le b)\\)",
+      "\\(P(a - 1 \\le Y \\le b + 1)\\)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì đoạn $[a, b]$ gồm các cột từ $a$ đến $b$. Mép trái của cột đầu tiên $a$ là $a - 0,5$, và mép phải của cột cuối cùng $b$ là $b + 0,5$. Do đó diện tích bao trọn vẹn toàn bộ các cột này là đoạn $[a - 0,5; b + 0,5]$.\n\nPhân tích bẫy sai:\n- Phương án B: Co hẹp khoảng, làm mất nửa cột tại $a$ và nửa cột tại $b$.\n- Phương án C: Bỏ qua hiệu chỉnh liên tục.\n- Phương án D: Mở rộng quá mức cần thiết.",
+    "source": "Slide Week 07 tr. 74"
+  },
+  {
+    "id": "TN7_20",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Cơ bản",
+    "question": "Để giảm sai số chuẩn (độ lệch chuẩn của trung bình mẫu $\\sigma(\\bar{X}_n)$) đi 10 lần, ta cần phải tăng kích thước mẫu $n$ lên bao nhiêu lần?",
+    "options": [
+      "100 lần",
+      "10 lần",
+      "\\(\\sqrt{10} \\approx 3,16\\) lần",
+      "1.000 lần"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì sai số chuẩn tỷ lệ nghịch với căn bậc hai của kích thước mẫu: $\\sigma(\\bar{X}_n) = \\frac{\\sigma}{\\sqrt{n}}$.\nĐể mẫu số $\\sqrt{n}$ tăng gấp 10 lần, bắt buộc $n$ phải tăng gấp $10^2 = 100$ lần.\nĐây là 'Quy luật lợi ích giảm dần' trong lấy mẫu thống kê: muốn tăng độ chính xác lên gấp đôi thì phải tốn gấp 4 lần chi phí mẫu; muốn chính xác gấp 10 lần thì phải lấy mẫu gấp 100 lần!\n\nPhân tích bẫy sai:\n- Phương án B: Bẫy nhầm tỷ lệ thuận trực tiếp với $n$.\n- Phương án C, D: Sai số học.",
+    "source": "Slide Week 07 tr. 26; Stat20 Mục 4.13"
+  },
+  {
+    "id": "TN7_21",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Trung bình",
+    "question": "Tỷ lệ phế phẩm thực tế của một quy trình sản xuất là $p = 0,20$. Kiểm tra một mẫu ngẫu nhiên độc lập gồm $n = 400$ sản phẩm. Sai số chuẩn của tỷ lệ phế phẩm mẫu $\\sigma(\\hat{p})$ bằng bao nhiêu và xác suất để tỷ lệ phế phẩm trong mẫu vượt quá 24% ($P(\\hat{p} \\ge 0,24)$) bằng bao nhiêu (biết $\\Phi(2,0) = 0,9772$)?",
+    "options": [
+      "\\(\\sigma(\\hat{p}) = 0,02\\) và \\(P(\\hat{p} \\ge 0,24) \\approx 2,28\\%\\)",
+      "\\(\\sigma(\\hat{p}) = 0,04\\) và \\(P(\\hat{p} \\ge 0,24) \\approx 15,87\\%\\)",
+      "\\(\\sigma(\\hat{p}) = 8\\) và \\(P(\\hat{p} \\ge 0,24) \\approx 50\\%\\)",
+      "\\(\\sigma(\\hat{p}) = 0,02\\) và \\(P(\\hat{p} \\ge 0,24) \\approx 97,72\\%\\)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì theo CLT cho tỷ lệ mẫu $\\hat{p} = \\frac{S_n}{n}$:\n- Kỳ vọng của tỷ lệ mẫu: $E(\\hat{p}) = p = 0,20$.\n- Sai số chuẩn của tỷ lệ mẫu:\n$\\sigma(\\hat{p}) = \\sqrt{\\frac{p(1 - p)}{n}} = \\sqrt{\\frac{0,20 \\times 0,80}{400}} = \\sqrt{\\frac{0,16}{400}} = \\frac{0,4}{20} = 0,02$ (tức 2%).\n- Chuẩn hóa Z-score tại $\\hat{p} = 0,24$:\n$Z = \\frac{0,24 - 0,20}{0,02} = \\frac{0,04}{0,02} = 2,0$.\n- Xác suất:\n$P(\\hat{p} \\ge 0,24) = 1 - \\Phi(2,0) = 1 - 0,9772 = 0,0228$ (tức 2,28%).\n\nPhân tích bẫy sai:\n- Phương án B: Sai do tính $\\sqrt{0,16} / 10 = 0,04$.\n- Phương án C: 8 là độ lệch chuẩn của SỐ LƯỢNG phế phẩm $\\sigma(S_n) = \\sqrt{np(1-p)} = \\sqrt{64} = 8$, không phải của TỶ LỆ $\\hat{p}$.\n- Phương án D: 97,72% là diện tích đuôi bên trái ($P \\le 0,24$).",
+    "source": "Slide Week 07 tr. 76; Stat20 Mục 4.17"
+  },
+  {
+    "id": "TN7_22",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Trung bình",
+    "question": "Chi phí bảo trì hàng năm của mỗi máy móc trong phân xưởng có trung bình $\\mu = 10$ triệu đồng và độ lệch chuẩn $\\sigma = 2$ triệu đồng. Phân xưởng có $n = 25$ máy móc hoạt động độc lập. Ngân sách dự trù cho toàn bộ phân xưởng là 265 triệu đồng. Biết $\\Phi(1,5) = 0,9332$. Xác suất để tổng chi phí bảo trì không vượt quá ngân sách dự trù ($P(S_{25} \\le 265)$) bằng bao nhiêu?",
+    "options": [
+      "93,32%",
+      "6,68%",
+      "50,00%",
+      "84,13%"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì:\n- Kỳ vọng tổng chi phí: $E(S_{25}) = 25 \\times 10 = 250$ triệu đồng.\n- Độ lệch chuẩn tổng chi phí: $\\sigma(S_{25}) = \\sigma \\sqrt{n} = 2 \\times \\sqrt{25} = 2 \\times 5 = 10$ triệu đồng.\n- Chuẩn hóa Z-score:\n$Z = \\frac{265 - 250}{10} = \\frac{15}{10} = 1,5$.\n- Xác suất chi phí không vượt ngân sách:\n$P(S_{25} \\le 265) = \\Phi(1,5) = 0,9332$ (tức 93,32%).\n\nPhân tích bẫy sai:\n- Phương án B: 6,68% là xác suất BỊ VƯỢT NGÂN SÁCH ($1 - 0,9332$).\n- Phương án C: 50% là xác suất không vượt 250 triệu.\n- Phương án D: Ứng với $Z = 1,0$.",
+    "source": "Slide Week 07 tr. 72"
+  },
+  {
+    "id": "TN7_23",
+    "topicId": 7,
+    "topicName": "Định lý giới hạn trung tâm (CLT) & Ứng dụng",
+    "level": "Cơ bản",
+    "question": "Vì sao Định lý Giới hạn Trung tâm (CLT) được tôn vinh là 'hòn đá tảng' của toàn bộ nền thống kê suy luận hiện đại?",
+    "options": [
+      "Vì nó giải thích tại sao phân phối Chuẩn xuất hiện phổ biến khắp nơi trong tự nhiên và khoa học, đồng thời cho phép ta xây dựng khoảng tin cậy và kiểm định giả thuyết cho trung bình tổng thể ngay cả khi hoàn toàn KHÔNG BIẾT phân phối gốc của dữ liệu",
+      "Vì nó chứng minh rằng mọi hiện tượng trong vũ trụ đều là tất định",
+      "Vì nó giúp tính toán xác suất mà không cần dùng đến bất kỳ phép tính tích phân nào",
+      "Vì nó đảm bảo sai số thống kê luôn bằng 0 nếu mẫu đạt trên 30"
+    ],
+    "correctIndex": 0,
+    "explanation": "Đáp án đúng là A vì trong thực tế, các nhà khoa học gần như không bao giờ biết được hình dạng phân phối thực sự của tổng thể. CLT trao cho chúng ta một sức mạnh phi thường: chỉ cần kích thước mẫu $n$ đủ lớn ($n \\ge 30$), ta được phép sử dụng phân phối Chuẩn với tất cả các công cụ suy luận mạnh mẽ (Z-test, khoảng tin cậy) để phân tích trung bình mẫu một cách hoàn toàn hợp lệ và chính xác.\n\nPhân tích bẫy sai:\n- Phương án B, C, D: Đều là các nhận định sai lệch và phản khoa học.",
+    "source": "Slide Week 07 tr. 68-70; Stat20 Mục 4.17"
+  }
+]

@@ -1,0 +1,557 @@
+<h2> Mục lục
+<h1> Bài giảng Xác suất thống kê (Bản dịch khóa học Stat20)
+<h1> 1 Chương 1: Các câu hỏi và dữ liệu
+<h2> 1.1 Giới thiệu và Đề cương môn học
+<h3> 1.1.1 Các loại Khẳng định
+<h2> 1.2 Phân loại Dữ liệu
+<h3> 1.2.1 Các loại biến
+<h4> 1.2.1.1 Các loại Biến
+<h4> 1.2.1.2 Ví dụ: Chim cánh cụt Palmer
+<h4> 1.2.1.3 Tại sao việc phân loại biến lại quan trọng
+<h3> 1.2.2 Một cấu trúc cho dữ liệu: Khung dữ liệu
+<h3> 1.2.3 Không phải là một khung dữ liệu
+<h2> 1.3 Tóm tắt
+<h2> 1.4 Thực hành với R: Phân loại Dữ liệu
+<h3> 1.4.1 Vector và Khung dữ liệu
+<h3> 1.4.2 R và RStudio
+<h3> 1.4.3 R như một chiếc máy tính
+<h3> 1.4.4 Lưu trữ đối tượng
+<h3> 1.4.5 Tạo Vector
+<h3> 1.4.6 Hàm
+<h3> 1.4.7 Các hàm trên Vector
+<h3> 1.4.8 Phân loại Dữ liệu trong R
+<h3> 1.4.9 Khung dữ liệu trong R
+<h4> 1.4.9.1 Tạo một khung dữ liệu
+<h3> 1.4.10 Tóm tắt
+<h3> 1.4.11 Bài tập
+<h4> 1.4.11.1 B.t: R như một chiếc máy tính
+<h4> 1.4.11.2 Đến lượt bạn: Chi phí của Leia
+<h4> 1.4.11.3 B.t: Phân loại dữ liệu và Vector trong R
+<h4> 1.4.11.4 Đến lượt bạn: Các hành tinh đất đá
+<h4> 1.4.11.5 B.t: Khung dữ liệu trong R
+<h4> 1.4.11.6 B.t: Thử thách
+<h4> 1.4.11.7 Tài liệu tham khảo và đọc thêm
+<h2> 1.5 Chú thích
+<h1> 2 Chương 2: Tóm tắt dữ liệu
+<h2> 2.1 Chú thích
+<h2> 2.2 Tóm tắt dữ liệu phân loại
+<h3> 2.2.1 Bảng liên hợp
+<h3> 2.2.2 Từ Tần số đến Tỉ lệ
+<h3> 2.2.3 Xác định mối liên hệ
+<h3> 2.2.4 Tóm tắt
+<h2> 2.3 Thực hành với R: Tóm tắt Dữ liệu phân loại
+<h3> 2.3.1 Trợ giúp và Tham số
+<h3> 2.3.2 Thư viện
+<h3> 2.3.3 Trực quan hóa đầu tiên với ggplot2
+<h2> 2.4 Tóm tắt Dữ liệu Số
+<h3> 2.4.1 Xây dựng các Tóm tắt bằng Đồ thị
+<h4> 2.4.1.1 Biểu đồ tần suất
+<h4> 2.4.1.2 Biểu đồ mật độ
+<h4> 2.4.1.3 Biểu đồ Violin
+<h3> 2.4.2 Mô tả các phân phối
+<h3> 2.4.3 Xây dựng các Tóm tắt bằng Số
+<h4> 2.4.3.1 Các thước đo tâm
+<h4> 2.4.3.2 Các thước đo độ phân tán
+<h4> 2.4.3.3 Khoảng biến thiên
+<h4> 2.4.3.4 Tóm tắt
+<h2> 2.5 Thực hành với R: Tóm tắt Dữ liệu Số
+<h3> 2.5.1 Tính toán các tóm tắt bằng số
+<h3> 2.5.2 Thao tác theo nhóm
+<h3> 2.5.3 Vẽ biểu đồ với các biến phân loại
+<h3> 2.5.4 Tóm tắt
+<h2> 2.6 Ngữ pháp đồ họa
+<h3> 2.6.1 Ngữ pháp đồ họa
+<h4> 2.6.1.1 Dữ liệu
+<h4> 2.6.1.2 Ánh xạ thuộc tính trực quan (Aesthetics)
+<h4> 2.6.1.3 Dạng hình học (Geometries)
+<h4> 2.6.1.4 Ví dụ: Số ca sinh theo thời gian
+<h3> 2.6.2 Tóm tắt
+<h2> 2.7 Thực hành với R: Một ngữ pháp của Đồ họa
+<h3> 2.7.1 Xây dựng một ggplot
+<h4> 2.7.1.1 Bài tập
+<h3> 2.7.2 Giao tiếp bằng Đồ họa
+<h4> 2.7.2.1 Ánh xạ so với Thiết lập
+<h4> 2.7.2.2 Thêm Nhãn để Rõ ràng
+<h4> 2.7.2.3 Chọn một Chủ đề
+<h4> 2.7.2.4 Chú thích
+<h3> 2.7.3 Tóm tắt
+<h3> 2.7.4 Chú thích
+<h2> 2.8 Điều kiện hóa
+<h3> 2.8.1 Lọc
+<h4> 2.8.1.1 Toán tử so sánh
+<h4> 2.8.1.2 Toán tử logic
+<h4> 2.8.1.3 Phân loại Dữ liệu: Kiểu Logic
+<h3> 2.8.2 Các chuỗi xử lý Dữ liệu
+<h4> 2.8.2.1 Ví dụ 2
+<h3> 2.8.3 Xem lại các thao tác theo nhóm …
+<h3> 2.8.4 Tóm tắt
+<h3> 2.8.5 Chú thích
+<h2> 2.9 Thực hành với R: Điều kiện hóa
+<h3> 2.9.1 mutate()
+<h3> 2.9.2 select()
+<h3> 2.9.3 arrange()
+<h3> 2.9.4 summarize()
+<h2> 2.10 Tóm tắt các liên hệ số
+<h3> 2.10.1 Hệ số tương quan
+<h4> 2.10.1.1 Ví dụ: Tỷ lệ nghèo đói và tốt nghiệp
+<h3> 2.10.2 Mô hình tuyến tính đơn giản
+<h4> 2.10.2.1 Đường bình phương tối thiểu
+<h4> 2.10.2.2 Phần dư (Residuals)
+<h3> 2.10.3 Tóm tắt
+<h2> 2.11 Thực hành với R: Tóm tắt mối liên hệ giữa các biến Số
+<h3> 2.11.1 cor()
+<h3> 2.11.2 lm()
+<h3> 2.11.3 fitted()
+<h3> 2.11.4 resid()
+<h2> 2.12 Hồi quy tuyến tính bội
+<h3> 2.12.1 Hồi quy tuyến tính bội
+<h3> 2.12.2 Hai biến số, một biến phân loại
+<h4> 2.12.2.1 Biến chỉ báo
+<h4> 2.12.2.2 Mức tham chiếu
+<h3> 2.12.3 Ba biến số
+<h3> 2.12.4 Diễn giải các hệ số
+<h4> 2.12.4.1 Ba biến số
+<h4> 2.12.4.2 Hai biến số, một biến phân loại
+<h3> 2.12.5 Tóm tắt
+<h3> 2.12.6 Chú thích
+<h1> 3 Chương 3: Khái quát hóa dữ liệu: Lý thuyết xác suất
+<h2> 3.1 Nền tảng Xác suất
+<h3> 3.1.1 Nghịch lý của De Méré
+<h3> 3.1.2 Các khái niệm cơ bản
+<h4> 3.1.2.1 Ví dụ: Tung một đồng xu cân đối
+<h4> 3.1.2.2 Ví dụ: Gieo một con xúc xắc sáu mặt cân đối24
+<h3> 3.1.3 Các tiên đề của xác suất
+<h4> 3.1.3.1 Một ví dụ với các tiên đề: chim cánh cụt
+<h3> 3.1.4 Biểu đồ Venn
+<h3> 3.1.5 Các ví dụ khác
+<h4> 3.1.5.1 1. Tung một đồng xu cân đối
+<h4> 3.1.5.2 2. Một hộp vé25
+<h4> 3.1.5.3 3. Tung một đồng xu không cân đối
+<h4> 3.1.5.4 4. Đặt cược vào màu đỏ trong trò roulette26
+<h3> 3.1.6 Tóm tắt
+<h2> 3.2 Thực hành với R: Nền tảng xác suất
+<h3> 3.2.1 sample()
+<h3> 3.2.2 set.seed()
+<h3> 3.2.3 seq()
+<h2> 3.3 Tính toán xác suất
+<h3> 3.3.1 Sally Clark: một nạn nhân bi thảm của sự thiếu hiểu biết về thống kê
+<h3> 3.3.2 Mô phỏng các trò chơi xúc xắc của De Méré
+<h4> 3.3.2.1 Ví dụ: Rút các vé màu đỏ và xanh từ một hộp
+<h4> 3.3.2.2 Các quy tắc xác suất (ôn tập)
+<h3> 3.3.3 Xác suất có điều kiện
+<h3> 3.3.4 Công thức nhân: tính xác suất của một giao
+<h3> 3.3.5 Tính độc lập
+<h4> 3.3.5.1 Ví dụ: Chọn 2 người từ một nhóm 5 người
+<h4> 3.3.5.2 Ví dụ: Các vé có màu và số
+<h4> 3.3.5.3 Ví dụ: Các vé ghi nhiều hơn một số
+<h3> 3.3.6 Trở lại với Sally Clark
+<h3> 3.3.7 Nghịch lý của De Méré
+<h3> 3.3.8 Các biến cố xung khắc và các biến cố độc lập
+<h3> 3.3.9 Bao hàm-loại trừ (quy tắc cộng tổng quát)
+<h3> 3.3.10 Tóm tắt
+<h3> 3.3.11 Chú thích
+<h2> 3.4 Phân phối xác suất
+<h3> 3.4.1 Phân phối xác suất và biểu đồ tần suất
+<h4> 3.4.1.1 Phân phối xác suất
+<h4> 3.4.1.2 Biểu đồ phân phối xác suất
+<h4> 3.4.1.3 Biểu đồ tần suất thực nghiệm
+<h4> 3.4.1.4 Ví dụ
+<h3> 3.4.2 Quy tắc đếm cơ bản
+<h4> 3.4.2.1 Đếm số cách chọn một tập con
+<h3> 3.4.3 Các phân phối đặc biệt
+<h4> 3.4.3.1 Phân phối đều rời rạc
+<h4> 3.4.3.2 Phân phối Bernoulli
+<h4> 3.4.3.3 Phân phối nhị thức
+<h4> 3.4.3.4 Phân phối siêu bội
+<h4> 3.4.3.5 Phân phối Nhị thức so với Phân phối Siêu bội
+<h3> 3.4.4 Thực hành với R
+<h4> 3.4.4.1 Ba hàm hữu ích
+<h4> 3.4.4.2 Ví dụ: Gieo một con xúc xắc hai lần và cộng tổng số chấm
+<h4> 3.4.4.3 Tính tổng
+<h4> 3.4.4.4 Trực quan hóa kết quả
+<h4> 3.4.4.5 So sánh kết quả mô phỏng với phân phối xác suất
+<h3> 3.4.5 Tóm tắt
+<h3> 3.4.6 Chú thích
+<h1> 4 Chương 4: Khái quát hóa dữ liệu: Biến ngẫu nhiên
+<h2> 4.1 Biến ngẫu nhiên
+<h2> 4.2 Ví dụ về biến ngẫu nhiên
+<h2> 4.3 Phân phối xác suất của một biến ngẫu nhiên rời rạc \(X\)
+<h3> 4.3.1 Hàm khối xác suất (pmf) của biến ngẫu nhiên rời rạc
+<h3> 4.3.2 Một số biến ngẫu nhiên rời rạc đặc biệt và các phân phối của chúng
+<h4> 4.3.2.1 Phân phối đều rời rạc
+<h4> 4.3.2.2 Phân phối Bernoulli
+<h4> 4.3.2.3 Phân phối nhị thức
+<h4> 4.3.2.4 Phân phối siêu bội (Hypergeometric Distribution)
+<h4> 4.3.2.5 Phân phối Poisson
+<h4> 4.3.2.6 Phân phối nhị thức và siêu bội
+<h2> 4.4 Hàm phân phối tích lũy \(F(x)\)
+<h2> 4.5 Thực hành với R
+<h3> 4.5.1 Các hàm hữu ích
+<h3> 4.5.2 Phân phối nhị thức trong R
+<h3> 4.5.3 Siêu bội \((N, G, n)\)
+<h3> 4.5.4 Poisson(λ)
+<h2> 4.6 Tóm tắt
+<h2> 4.7 Kỳ vọng và phương sai
+<h2> 4.8 Kỳ vọng của một biến ngẫu nhiên
+<h3> 4.8.1 Kỳ vọng
+<h3> 4.8.2 Các tính chất của kỳ vọng
+<h2> 4.9 Các phân phối đặc biệt
+<h3> 4.9.1 Phân phối nhị thức (Binomial)
+<h3> 4.9.2 Phân phối siêu bội (Hypergeometric)
+<h3> 4.9.3 Phân phối Poisson (Poisson Distribution)
+<h2> 4.10 Phương sai và độ lệch chuẩn của một biến ngẫu nhiên
+<h3> 4.10.1 Phương sai của một biến ngẫu nhiên
+<h3> 4.10.2 Độ lệch chuẩn của một biến ngẫu nhiên
+<h3> 4.10.3 Công thức tính phương sai
+<h3> 4.10.4 Các tính chất của phương sai và độ lệch chuẩn
+<h3> 4.10.5 Ví dụ: Hộp thẻ
+<h3> 4.10.6 Biến ngẫu nhiên Bernoulli
+<h3> 4.10.7 Biến ngẫu nhiên nhị thức (Binomial)
+<h3> 4.10.8 Biến ngẫu nhiên Poisson
+<h2> 4.11 Tóm tắt
+<h2> 4.12 Phân phối liên tục và xấp xỉ chuẩn
+<h2> 4.13 Các biến ngẫu nhiên độc lập và cùng phân phối
+<h3> 4.13.1 Mô hình hộp (The Box Model)37
+<h4> 4.13.1.1 Gieo một cặp xúc xắc và cộng số chấm
+<h4> 4.13.1.2 Quay roulette ở Las Vegas và cược vào màu đỏ
+<h2> 4.14 Tổng và trung bình của các biến ngẫu nhiên
+<h3> 4.14.1 Tổng
+<h3> 4.14.2 Trung bình
+<h2> 4.15 Phân phối liên tục
+<h3> 4.15.1 Hàm mật độ xác suất
+<h3> 4.15.2 Hàm phân phối tích lũy \(F(x)\)
+<h2> 4.16 Các phân phối đặc biệt
+<h3> 4.16.1 Phân phối đều \(Uniform(0,1)\)
+<h3> 4.16.2 Phân phối chuẩn (Normal distribution)
+<h2> 4.17 Định lý giới hạn trung tâm (The Central Limit Theorem)
+<h2> 4.18 Thực hành với R
+<h3> 4.18.1 Các hàm hữu ích
+<h4> 4.18.1.1 Phân phối đều \(Uniform(a, b)\)
+<h4> 4.18.1.2 Phân phối chuẩn \(\mathcal{N}(\mu, \sigma^2)\)
+<h3> 4.18.2 Tham số prob trong hàm sample()
+<h1> 5 Chương 5: Khái quát hóa dữ liệu: Suy luận thống kê
+<h2> 5.1 Từ mẫu đến tổng thể
+<h2> 5.2 Nguồn gốc của sai số
+<h3> 5.2.1 Các loại độ chệch thống kê
+<h3> 5.2.2 Các loại biến thiên
+<h2> 5.3 Phân phối lấy mẫu
+<h2> 5.4 Lấy mẫu từ tổng thể
+<h2> 5.5 Tóm tắt
+<h2> 5.6 Khoảng tin cậy
+<h2> 5.7 Một mẫu ngẫu nhiên đơn giản
+<h2> 5.8 Suy luận về trung bình tổng thể
+<h3> 5.8.1 Sai số chuẩn (Standard Error)
+<h3> 5.8.2 Khoảng tin cậy (Confidence Intervals)
+<h4> 5.8.2.1 Khoảng tin cậy dựa trên xấp xỉ chuẩn (Normal Confidence Intervals)
+<h4> 5.8.2.2 Tin cậy chứ không phải xác suất (Confidence not Probability)
+<h2> 5.9 Suy luận về một tỷ lệ tổng thể
+<h2> 5.10 Tóm tắt
+<h2> 5.11 Kỹ thuật Bootstrap
+<h2> 5.12 Bootstrap
+<h3> 5.12.1 Ví dụ 1: Điểm an toàn thực phẩm
+<h3> 5.12.2 Ví dụ 2: Khối lượng cơ thể của chim cánh cụt Adelie
+<h2> 5.13 Tóm tắt
+<h2> 5.14 Thực hành với R
+<h2> 5.15 Kiểm định giả thuyết
+<h2> 5.16 Ví dụ: Hoa Kỳ kiện Kristen Gilbert
+<h2> 5.17 Các thành phần của kiểm định giả thuyết
+<h3> 5.17.1 Thống kê kiểm định
+<h3> 5.17.2 giá trị p
+<h3> 5.17.3 Một số nhận định sai về giá trị p
+<h2> 5.18 Một khung kiểm định với nhiều ứng dụng
+<h2> 5.19 Tóm tắt
+<h2> 5.20 Thực hành với R
+<h2> 5.21 Kiểm định giả thuyết (tiếp theo)
+<h2> 5.22 Kiểm định phân phối của biến định tính
+<h3> 5.22.1 Lấy mẫu từ giả thuyết không
+<h3> 5.22.2 Thống kê Khoảng cách: \(\chi^2\)
+<h3> 5.22.3 Xấp xỉ phân phối dưới giả thuyết không
+<h3> 5.22.4 Bằng chứng của điều gì?
+<h2> 5.23 Kiểm định một phía hay hai phía?
+<h2> 5.24 Mức ý nghĩa
+<h2> 5.25 Tóm tắt
+<h2> 5.26 Sai lầm do thiết kế
+<h2> 5.27 Sai lầm thống kê
+<h2> 5.28 Lực kiểm định (Power)
+<h2> 5.29 Tóm tắt
+<h1> 6 Chương 6: Nhân quả
+<h2> 6.1 Định nghĩa Nhân quả
+<h3> 6.1.1 Phản thực có điều kiện (Conditional Counterfactual)
+<h3> 6.1.2 Thách thức của nhân quả
+<h3> 6.1.3 Từ tuyên bố ở mức cá nhân đến tuyên bố ở mức nhóm
+<h3> 6.1.4 Tổng kết
+<h2> 6.2 Thí nghiệm ngẫu nhiên
+<h3> 6.2.1 Nguyên tắc của thiết kế thí nghiệm
+<h4> 6.2.1.1 Đối chứng - Kiểm soát
+<h4> 6.2.1.2 Gán ngẫu nhiên
+<h4> 6.2.1.3 Lặp lại (Replication)
+<h4> 6.2.1.4 Làm mù (Blinding)
+<h3> 6.2.2 Sử dụng biến bổ sung trong thiết kế thí nghiệm
+<h4> 6.2.2.1 Các biến kiểm soát (Covariates)
+<h4> 6.2.2.2 Cân bằng biến kiểm soát (Covariate balance)
+<h4> 6.2.2.3 Mối liên hệ giữa cân bằng biến kiểm soát trong thí nghiệm
+<h3> 6.2.3 Thực hành với R
+<h3> 6.2.4 Tóm tắt
+<h2> 6.3 Tác động nhân quả trong nghiên cứu quan sát
+<h3> 6.3.1 Tuyên bố nhân quả khi không có ngẫu nhiên
+<h3> 6.3.2 Thí nghiệm tự nhiên
+<h3> 6.3.3 Các đối tượng giống nhau với sự can thiệp khác nhau
+<h4> 6.3.3.1 Anh chị em ruột
+<h3> 6.3.4 Nhiễu không quan sát được (Unobserved confounding)
+<h3> 6.3.5 Thực hành với R
+<h3> 6.3.6 Tóm tắt
+<h2> 6.4 Sử dụng thời gian để đo lường tác động nhân quả
+<h3> 6.4.1 Nhân quả và sự thay đổi theo thời gian
+<h4> 6.4.1.1 Cùng một đối tượng ở các thời điểm khác nhau
+<h3> 6.4.2 Quầy tính tiền siêu thị có gây ra ăn uống không lành mạnh?
+<h3> 6.4.3 Thiết kế Pre/Post
+<h4> 6.4.3.1 Ưu nhược điểm của phương pháp
+<h3> 6.4.4 Xử lý các tác động của thời gian
+<h4> 6.4.4.1 Nhiều mốc thời gian hơn: Thiết kế chuỗi thời gian bị gián đoạn (Interrupted Time Series)
+<h3> 6.4.5 Phụ thuộc trong dữ liệu bảng và thiết kế ghép cặp
+<h3> 6.4.6 Thực hành với R
+<h3> 6.4.7 Tóm tắt
+<h1> 7 Chương 7: Giới thiệu về Dự đoán
+<h2> 7.1 Các khái niệm chính trong dự đoán
+<h2> 7.2 Hồi quy tuyến tính
+<h3> 7.2.1 Phương pháp bình phương tối thiểu
+<h3> 7.2.2 Phương pháp thuật toán (Algorithmic Methods)
+<h3> 7.2.3 Thực hành với R
+<h4> 7.2.3.1 Viết một hàm trong R
+<h4> 7.2.3.2 Nelder–Mead trên một hàm đơn giản
+<h3> 7.2.4 Tổng kết
+<h2> 7.3 Đánh giá và cải thiện dự đoán
+<h3> 7.3.1 Đánh giá mức độ phù hợp với dữ liệu
+<h4> 7.3.1.1 Đo lường sức mạnh giải thích: \(R^2\)
+<h3> 7.3.2 Cải thiện dự đoán
+<h4> 7.3.2.1 Thêm biến dự đoán
+<h4> 7.3.2.2 Biến đổi phi tuyến
+<h4> 7.3.2.3 Đa thức
+<h3> 7.3.3 Thực hành với R
+<h4> 7.3.3.1 Kiểm tra đầu ra của mô hình bằng thư viện broom
+<h4> 7.3.3.2 Khớp đa thức trong R với poly()
+<h4> 7.3.3.3 Dự đoán cho một quan sát mới bằng predict()
+<h4> 7.3.3.4 Ví dụ: Điểm đánh giá món ăn của ZAGAT
+<h3> 7.3.4 Tóm tắt
+<h2> 7.4 Quá khớp (Overfitting)
+<h3> 7.4.1 Giới thiệu
+<h3> 7.4.2 Overfitting với đa thức
+<h3> 7.4.3 Tập huấn luyện và tập kiểm tra: quy trình để hạn chế quá khớp
+<h4> 7.4.3.1 Thêm thông tin về việc chia tách dữ liệu
+<h4> 7.4.3.2 Một thước đo khác: Sai số bình phương trung bình (MSE)
+<h3> 7.4.4 Thực hành với R
+<h4> 7.4.4.1 Bước 1: Chia dữ liệu
+<h4> 7.4.4.2 Bước 2: Huấn luyện mô hình
+<h4> 7.4.4.3 Bước 3: Đánh giá mô hình
+<h3> 7.4.5 Tóm tắt
+<h2> 7.5 Hồi quy Logistic
+<h3> 7.5.1 Ví dụ: Bộ lọc thư rác (Spam filters)
+<h4> 7.5.1.1 Dữ liệu
+<h4> 7.5.1.2 Phân tích khám phá dữ liệu
+<h3> 7.5.2 Từ hồi quy tuyến tính đến hồi quy logistic
+<h3> 7.5.3 Sai số phân loại
+<h4> 7.5.3.1 Tỷ lệ phân loại sai
+<h3> 7.5.4 Thực hành với R
+<h4> 7.5.4.1 Khớp mô hình hồi quy logistic bằng glm()
+<h4> 7.5.4.2 Đánh giá hiệu suất mô hình
+<h4> 7.5.4.3 Dương tính giả so với âm tính giả
+<h3> 7.5.5 Tóm tắt
+<h1> 8 Phụ lục A: Lab
+<h2> 8.1 UN Votes
+<h3> 8.1.1 Bối cảnh của Dữ liệu
+<h3> 8.1.2 Tính toán trên Dữ liệu
+<h4> 8.1.2.1 Câu hỏi 1
+<h4> 8.1.2.2 Câu hỏi 2
+<h4> 8.1.2.3 Câu hỏi 3
+<h2> 8.2 Phần Thực hành I: Khảo sát lớp học
+<h2> 8.3 Khảo sát Lớp học
+<h3> 8.3.1 Phần II: Tính toán trên Dữ liệu
+<h4> 8.3.1.1 Câu hỏi 1
+<h4> 8.3.1.2 Câu hỏi 2
+<h4> 8.3.1.3 Câu hỏi 3
+<h4> 8.3.1.4 Câu hỏi 4
+<h4> 8.3.1.5 Câu hỏi 5
+<h4> 8.3.1.6 Câu hỏi 6
+<h4> 8.3.1.7 Câu hỏi 7
+<h4> 8.3.1.8 Câu hỏi 8
+<h3> 8.3.2 Câu hỏi Cuối
+<h2> 8.4 Phần I: Chuyến bay
+<h2> 8.5 Lab: Chuyến bay — Phần II: Tính toán trên dữ liệu
+<h3> 8.5.1 Câu hỏi 1
+<h3> 8.5.2 Câu hỏi 2
+<h3> 8.5.3 Câu hỏi 3
+<h3> 8.5.4 Câu hỏi 4
+<h3> 8.5.5 Câu hỏi 5
+<h3> 8.5.6 Câu hỏi 6
+<h3> 8.5.7 Câu hỏi 7
+<h3> 8.5.8 Câu hỏi 8
+<h3> 8.5.9 Câu hỏi 9
+<h3> 8.5.10 Câu hỏi 10
+<h3> 8.5.11 Câu hỏi 11
+<h3> 8.5.12 Câu hỏi 12
+<h3> 8.5.13 Câu hỏi 13
+<h3> 8.5.14 Câu hỏi 14
+<h3> 8.5.15 Câu hỏi 15
+<h2> 8.6 Chuyến bay — Phần 2 II: Tính toán trên dữ liệu (Tiếp theo)
+<h3> 8.6.1 Câu hỏi 16
+<h3> 8.6.2 Câu hỏi 17
+<h3> 8.6.3 Câu hỏi 18
+<h3> 8.6.4 Câu hỏi 19
+<h3> 8.6.5 Câu hỏi 20
+<h3> 8.6.6 Câu hỏi cuối cùng
+<h2> 8.7 Lab phần I: Bầu cử
+<h2> 8.8 Lab Phần II: Bầu cử - Tính toán trên dữ liệu
+<h3> 8.8.1 Câu hỏi 1
+<h3> 8.8.2 Câu hỏi 2
+<h3> 8.8.3 Câu hỏi 3
+<h3> 8.8.4 Câu hỏi 4
+<h3> 8.8.5 Câu hỏi 5
+<h3> 8.8.6 Bầu cử Hoa Kỳ
+<h4> 8.8.6.1 Câu hỏi 6
+<h4> 8.8.6.2 Câu hỏi 7
+<h4> 8.8.6.3 Câu hỏi 8
+<h4> 8.8.6.4 Câu hỏi 9
+<h4> 8.8.6.5 Câu hỏi 10
+<h3> 8.8.7 Câu hỏi cuối cùng
+<h3> 8.8.8 Tìm hiểu thêm về Luật Benford:
+<h2> 8.9 Lab phần I: Công viên Nhân dân
+<h3> 8.9.1 Câu hỏi 1
+<h3> 8.9.2 Câu hỏi 2
+<h3> 8.9.3 Câu hỏi 3
+<h3> 8.9.4 Câu hỏi 4
+<h3> 8.9.5 Câu hỏi 5
+<h3> 8.9.6 Câu hỏi 6
+<h3> 8.9.7 Câu hỏi 7
+<h3> 8.9.8 Câu hỏi 8
+<h3> 8.9.9 Câu hỏi 9
+<h3> 8.9.10 Câu hỏi 10
+<h2> 8.10 Lab phần II: (Công viên Nhân dân) Tính toán trên dữ liệu
+<h3> 8.10.1 Câu hỏi 1
+<h3> 8.10.2 Câu hỏi 2
+<h3> 8.10.3 Câu hỏi 3
+<h3> 8.10.4 Câu hỏi 4
+<h3> 8.10.5 Câu hỏi 5
+<h3> 8.10.6 Câu hỏi 6
+<h3> 8.10.7 Câu hỏi 7
+<h3> 8.10.8 Câu hỏi 8
+<h3> 8.10.9 Câu hỏi 9
+<h3> 8.10.10 Câu hỏi 10
+<h3> 8.10.11 Câu hỏi 11
+<h3> 8.10.12 Câu hỏi 12
+<h3> 8.10.13 Câu hỏi cuối cùng
+<h2> 8.11 Lab phần I: Thí nghiệm về khẩu vị
+<h3> 8.11.1 Thành Viên Nhóm
+<h3> 8.11.2 Câu Hỏi Nhân Quả (Causal Question)
+<h3> 8.11.3 Giả Thuyết Không (Null Hypothesis)
+<h3> 8.11.4 Quy Trình (Protocol)
+<h3> 8.11.5 Dữ Liệu (Data)
+<h3> 8.11.6 Phân Tích Dữ Liệu Khám Phá (Exploratory Data Analysis)
+<h2> 8.12 Lab phần II: Thí nghiệm về khẩu vị: Tính toán trên dữ liệu
+<h3> 8.12.1 Câu hỏi 1
+<h3> 8.12.2 Câu hỏi 2
+<h3> 8.12.3 Câu hỏi 3
+<h3> 8.12.4 Câu hỏi 4
+<h3> 8.12.5 Câu hỏi 5
+<h3> 8.12.6 Câu hỏi 6
+<h3> 8.12.7 Câu hỏi Cuối Cùng
+<h2> 8.13 Lab phần I: Bóng chày
+<h3> 8.13.1 Câu hỏi 1
+<h3> 8.13.2 Câu hỏi 2
+<h3> 8.13.3 Câu hỏi 3
+<h3> 8.13.4 Câu hỏi 4
+<h3> 8.13.5 Câu hỏi 5
+<h3> 8.13.6 Câu hỏi 6
+<h3> 8.13.7 Câu hỏi 7
+<h2> 8.14 Lab phần II: Bóng chày: Tính toán trên dữ liệu
+<h3> 8.14.1 Câu hỏi 1
+<h3> 8.14.2 Câu hỏi 2
+<h3> 8.14.3 Câu hỏi 3
+<h3> 8.14.4 Câu hỏi 4
+<h3> 8.14.5 Câu hỏi 5
+<h3> 8.14.6 Câu hỏi 6
+<h3> 8.14.7 Câu hỏi 7
+<h3> 8.14.8 Câu hỏi 8
+<h3> 8.14.9 Câu hỏi 9
+<h3> 8.14.10 Câu hỏi 10
+<h3> 8.14.11 Câu hỏi cuối cùng
+<h1> 9 Phụ lục B: Worksheet
+<h2> 9.1 Phân loại Dữ liệu (Taxonomy of Data)
+<h2> 9.2 Tóm tắt Dữ liệu Phân loại (Summarizing Categorical Data)
+<h3> 9.2.1 Câu hỏi 1
+<h3> 9.2.2 Câu hỏi 2
+<h3> 9.2.3 Câu hỏi 3
+<h3> 9.2.4 Câu hỏi 4
+<h3> 9.2.5 Câu hỏi 5
+<h3> 9.2.6 Câu hỏi 6
+<h3> 9.2.7 Câu hỏi 7
+<h2> 9.3 WS: Tóm tắt Dữ liệu Số (Summarizing Numerical Data)
+<h2> 9.4 Ngữ pháp của Biểu đồ (A Grammar of Graphics)
+<h3> 9.4.1 Câu hỏi 1
+<h3> 9.4.2 Câu hỏi 2
+<h2> 9.5 Điều kiện hóa (Conditioning)
+<h3> 9.5.1 Câu hỏi 1*
+<h3> 9.5.2 Câu hỏi 2*
+<h3> 9.5.3 Câu hỏi 3
+<h3> 9.5.4 Câu hỏi 4
+<h3> 9.5.5 Câu hỏi 5
+<h3> 9.5.6 Câu hỏi 6
+<h3> 9.5.7 Câu hỏi 7
+<h2> 9.6 Bài tập: Tóm tắt mối quan hệ giữa các biến số
+<h3> 9.6.1 Câu hỏi 1
+<h3> 9.6.2 Câu hỏi 2
+<h3> 9.6.3 Câu hỏi 3
+<h3> 9.6.4 Câu hỏi 4
+<h3> 9.6.5 Câu hỏi 5
+<h3> 9.6.6 Câu hỏi 6
+<h3> 9.6.7 Câu hỏi 7
+<h3> 9.6.8 Câu hỏi 8
+<h2> 9.7 WS: Nền tảng Xác suất
+<h2> 9.8 WS: Tính toán Xác suất
+<h2> 9.9 WS: Phân phối Xác suất
+<h2> 9.10 Biến ngẫu nhiên
+<h2> 9.11 Kỳ vọng và phương sai
+<h2> 9.12 Phân phối lấy mẫu
+<h3> 9.12.1 Nghiên cứu tình huống 1: Khảo sát thuốc lá ở thanh thiếu niên quốc gia
+<h2> 9.13 Bootstrapping
+<h3> 9.13.1 The Triptych
+<h3> 9.13.2 Xấp xỉ (Approximations)
+<h2> 9.14 Kiểm định giả thuyết
+<h3> 9.14.1 Ngáp có lây không?
+<h3> 9.14.2 Mô phỏng Người Ngáp (Simulating Yawners)
+<h2> 9.15 Kiểm định giả thuyết II
+<h3> 9.15.1 Nghiên cứu tình huống 1
+<h3> 9.15.2 Nghiên cứu tình huống 2
+<h2> 9.16 Sai lầm do thiết kế
+<h3> 9.16.1 Câu hỏi 1
+<h3> 9.16.2 Câu hỏi 2
+<h2> 9.17 Hiệu ứng nhân quả trong các nghiên cứu quan sát
+<h3> 9.17.1 Nghiên cứu tình huống: Mức lương tối thiểu và ngành công nghiệp thức ăn nhanh NJ/PA
+<h2> 9.18 Sử dụng thời gian để đo lường các hiệu ứng nhân quả
+<h3> 9.18.1 Nghiên cứu tình huống: Mức lương tối thiểu và ngành công nghiệp thức ăn nhanh NJ/PA (tiếp theo)
+<h2> 9.19 Phương pháp bình phương tối thiểu
+<h2> 9.20 Đánh giá và cải thiện Dự đoán
+<h2> 9.21 Chẩn đoán ung thư phần I
+<h3> 9.21.1 Câu hỏi 1
+<h3> 9.21.2 Câu hỏi 2
+<h3> 9.21.3 Câu hỏi 3
+<h3> 9.21.4 Câu hỏi 4
+<h3> 9.21.5 Câu hỏi 5
+<h3> 9.21.6 Câu hỏi 6
+<h3> 9.21.7 Câu hỏi 7
+<h2> 9.22 Overfitting (Quá khớp)
+<h2> 9.23 Chẩn đoán ung thư phần II
+<h3> 9.23.1 Câu hỏi 1
+<h3> 9.23.2 Câu hỏi 2
+<h3> 9.23.3 Câu hỏi 3
+<h3> 9.23.4 Câu hỏi 4
+<h3> 9.23.5 Câu hỏi 5
+<h3> 9.23.6 Câu hỏi 6
+<h3> 9.23.7 Câu hỏi 7
+<h3> 9.23.8 Câu hỏi 8
+<h3> 9.23.9 Câu hỏi 9
+<h3> 9.23.10 Câu hỏi 10
+<h3> 9.23.11 Câu hỏi 11
+<h3> 9.23.12 Câu hỏi 12
+<h3> 9.23.13 Câu hỏi 13
+<h3> 9.23.14 Câu hỏi 14
+<h2> Footnotes

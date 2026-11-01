@@ -1,0 +1,1389 @@
+[
+  {
+    "page": 1,
+    "title": "Tuần 07 — Khái quát dữliệu (3/7)",
+    "subtitle": "Kỳvọng, phương sai, phân phối liên tục và các định lý giới hạn",
+    "lines": [
+      "Tuần 07 — Khái quát dữliệu (3/7)",
+      "Kỳvọng, phương sai, phân phối liên tục và các định lý giới hạn",
+      "Hoàng ThịĐiệp, Nghiêm Nguyễn Việt Dũng, Lê ThịHường",
+      "Khoa Công nghệThông tin (VNU-UET-FIT)",
+      "UET.MAT1052",
+      "Tuần 07 — Khái quát dữliệu (3/7)",
+      "1/94"
+    ]
+  },
+  {
+    "page": 2,
+    "title": "Nội dung chính",
+    "subtitle": "1 Kỳvọng, phương sai, độlệch chuẩn.",
+    "lines": [
+      "Nội dung chính",
+      "1 Kỳvọng, phương sai, độlệch chuẩn.",
+      "2 Các biến ngẫu nhiên độc lập và cùng phân phối; mô hình chiếc hộp;",
+      "tổng và trung bình.",
+      "3 Bất đẳng thức Chebyshev và luật sốlớn yếu.",
+      "4 Hàm mật độxác suất và hàm phân phối tích lũy.",
+      "5 Phân phối đều, chuẩn; giới thiệu phân phối mũ, 𝜒2 và 𝑡Student.",
+      "6 Định lý giới hạn trung tâm và mô phỏng bằng Python."
+    ]
+  },
+  {
+    "page": 3,
+    "title": "Mục tiêu học tập của Tuần 07",
+    "subtitle": "Sau buổi học, sinh viên có thể:",
+    "lines": [
+      "Mục tiêu học tập của Tuần 07",
+      "Sau buổi học, sinh viên có thể:",
+      "Tính, diễn giải và vận dụng tính chất của kỳvọng, phương sai, độ",
+      "lệch chuẩn.",
+      "Mô hình hóa phép thửbằng chiếc hộp; tính kỳvọng và độlệch chuẩn",
+      "của tổng và trung bình.",
+      "Sửdụng bất đẳng thức Chebyshev và giải thích luật sốlớn yếu.",
+      "Tính xác suất từhàm mật độ, hàm phân phối tích lũy; nhận diện các"
+    ]
+  },
+  {
+    "page": 4,
+    "title": "Kỳvọng và phương sai",
+    "subtitle": "Phần 1",
+    "lines": [
+      "Kỳvọng và phương sai",
+      "Phần 1",
+      "Kỳvọng và phương sai",
+      "UET.MAT1052",
+      "Tuần 07 — Khái quát dữliệu (3/7)",
+      "4/94"
+    ]
+  },
+  {
+    "page": 5,
+    "title": "Kỳvọng và phương sai",
+    "subtitle": "Kỳvọng của biến ngẫu nhiên rời rạc",
+    "lines": [
+      "Kỳvọng và phương sai",
+      "Kỳvọng của biến ngẫu nhiên rời rạc",
+      "Định nghĩa (Kỳvọng)",
+      "Cho 𝑋là biến ngẫu nhiên rời rạc có hàm khối xác suất",
+      "𝑝𝑋(𝑥) = 𝑃(𝑋= 𝑥). Nếu tổng dưới đây hội tụtuyệt đối, kỳvọng của 𝑋,",
+      "ký hiệu 𝐸(𝑋), được định nghĩa bởi",
+      "𝐸(𝑋) = ∑",
+      "𝑥"
+    ]
+  },
+  {
+    "page": 6,
+    "title": "Kỳvọng và phương sai",
+    "subtitle": "Ví dụ1",
+    "lines": [
+      "Kỳvọng và phương sai",
+      "Ví dụ1",
+      "Hai sản phẩm được kiểm tra độc lập, mỗi sản phẩm đạt chuẩn với xác",
+      "suất 0.8. Gọi 𝑋là sốsản phẩm đạt chuẩn.",
+      "𝑥",
+      "0",
+      "1",
+      "2"
+    ]
+  },
+  {
+    "page": 7,
+    "title": "Kỳvọng và phương sai",
+    "subtitle": "Tính chất của kỳvọng",
+    "lines": [
+      "Kỳvọng và phương sai",
+      "Tính chất của kỳvọng",
+      "Giảsửcác kỳvọng đang xét hữu hạn; 𝑎, 𝑏, 𝑐là các hằng số.",
+      "Tính chất",
+      "Công thức",
+      "Kỳvọng của hằng số",
+      "𝐸(𝑐) = 𝑐",
+      "Nhân với hằng số"
+    ]
+  },
+  {
+    "page": 8,
+    "title": "Kỳvọng và phương sai",
+    "subtitle": "Ví dụ2",
+    "lines": [
+      "Kỳvọng và phương sai",
+      "Ví dụ2",
+      "Một cơ sởkiểm tra hai sản phẩm độc lập. Mỗi sản phẩm đạt chuẩn với",
+      "xác suất 0.8. Gọi 𝑋là sốsản phẩm đạt chuẩn trong hai sản phẩm; biết",
+      "rằng 𝐸(𝑋) = 1.6.",
+      "Chi phí xửlý một cặp sản phẩm gồm 50 nghìn đồng cốđịnh và 20 nghìn",
+      "đồng cho mỗi sản phẩm đạt chuẩn. Gọi 𝐶là chi phí xửlý một cặp sản",
+      "phẩm, tính bằng nghìn đồng."
+    ]
+  },
+  {
+    "page": 9,
+    "title": "Kỳvọng và phương sai",
+    "subtitle": "Ví dụ2 — Lời giải",
+    "lines": [
+      "Kỳvọng và phương sai",
+      "Ví dụ2 — Lời giải",
+      "Chi phí xửlý là 𝐶= 50 + 20𝑋nghìn đồng.",
+      "Theo tính tuyến tính của kỳvọng,",
+      "𝐸(𝐶) = 50 + 20𝐸(𝑋) = 50 + 20(1.6) = 82 nghìn đồng.",
+      "Nếu xửlý nhiều cặp sản phẩm trong cùng điều kiện, chi phí trung bình",
+      "mỗi cặp tiến gần 82 nghìn đồng. Không phải cặp sản phẩm nào cũng có",
+      "chi phí đúng bằng 82 nghìn đồng."
+    ]
+  },
+  {
+    "page": 10,
+    "title": "Kỳvọng và phương sai",
+    "subtitle": "Kỳvọng của một hàm của biến ngẫu nhiên",
+    "lines": [
+      "Kỳvọng và phương sai",
+      "Kỳvọng của một hàm của biến ngẫu nhiên",
+      "Nếu 𝑋là biến ngẫu nhiên rời rạc và 𝑌= 𝑔(𝑋), thì",
+      "𝐸[𝑔(𝑋)] = ∑",
+      "𝑥",
+      "𝑔(𝑥)𝑃(𝑋= 𝑥),",
+      "khi kỳvọng đang xét hữu hạn.",
+      "Ta biến đổi giá trịcủa biến ngẫu nhiên, giữnguyên xác suất gắn với mỗi"
+    ]
+  },
+  {
+    "page": 11,
+    "title": "Kỳvọng và phương sai",
+    "subtitle": "Ví dụ3",
+    "lines": [
+      "Kỳvọng và phương sai",
+      "Ví dụ3",
+      "An mời hai người bạn đến ăn bánh. Mỗi người độc lập tung một đồng xu",
+      "cân đối đểquyết định có đến hay không. Chiếc bánh được chia đều cho An",
+      "và những người có mặt.",
+      "Gọi 𝑋là phần bánh An nhận được:",
+      "không ai đến: 𝑋= 1;",
+      "một người đến: 𝑋= 1/2;"
+    ]
+  },
+  {
+    "page": 12,
+    "title": "Kỳvọng và phương sai",
+    "subtitle": "Ví dụ3 — Đáp án",
+    "lines": [
+      "Kỳvọng và phương sai",
+      "Ví dụ3 — Đáp án",
+      "𝑁",
+      "0",
+      "1",
+      "2",
+      "𝑃(𝑁= 𝑛)",
+      "1/4"
+    ]
+  },
+  {
+    "page": 13,
+    "title": "Kỳvọng và phương sai",
+    "subtitle": "Kỳvọng của các phân phối rời rạc đặc biệt",
+    "lines": [
+      "Kỳvọng và phương sai",
+      "Kỳvọng của các phân phối rời rạc đặc biệt",
+      "Phân phối của biến ngẫu nhiên 𝑋",
+      "Kỳvọng 𝐸(𝑋)",
+      "Bernoulli, xác suất thành công 𝑝",
+      "𝑝",
+      "Nhịthức, 𝑛phép thửđộc lập, xác suất thành công 𝑝",
+      "𝑛𝑝"
+    ]
+  },
+  {
+    "page": 14,
+    "title": "Kỳvọng và phương sai",
+    "subtitle": "Phương sai và độlệch chuẩn",
+    "lines": [
+      "Kỳvọng và phương sai",
+      "Phương sai và độlệch chuẩn",
+      "Định nghĩa (Phương sai)",
+      "Cho 𝑋có kỳvọng 𝜇= 𝐸(𝑋). Phương sai của 𝑋, ký hiệu Var(𝑋), được",
+      "định nghĩa bởi",
+      "Var(𝑋) = 𝐸[(𝑋−𝜇)2].",
+      "Phương sai đo mức độphân tán của các giá trịcủa 𝑋quanh kỳvọng 𝜇.",
+      "Căn bậc hai của Var(𝑋) được gọi là độlệch chuẩn của 𝑋:"
+    ]
+  },
+  {
+    "page": 15,
+    "title": "Kỳvọng và phương sai",
+    "subtitle": "Ví dụ4",
+    "lines": [
+      "Kỳvọng và phương sai",
+      "Ví dụ4",
+      "Hai sản phẩm được kiểm tra độc lập; mỗi sản phẩm đạt chuẩn với xác",
+      "suất 0.8. Gọi 𝑋là sốsản phẩm đạt chuẩn. Ta có 𝐸(𝑋) = 1.6 và bảng",
+      "phân phối:",
+      "𝑥",
+      "0",
+      "1"
+    ]
+  },
+  {
+    "page": 16,
+    "title": "Kỳvọng và phương sai",
+    "subtitle": "Công thức tính phương sai",
+    "lines": [
+      "Kỳvọng và phương sai",
+      "Công thức tính phương sai",
+      "Định lý (Công thức rút gọn)",
+      "Nếu kỳvọng của 𝑋2 hữu hạn thì",
+      "Var(𝑋) = 𝐸(𝑋2) −[𝐸(𝑋)]2.",
+      "Trong ví dụhai sản phẩm, 𝐸(𝑋) = 1.6 và",
+      "𝐸(𝑋2) = 02(0.04) + 12(0.32) + 22(0.64) = 2.88, nên",
+      "Var(𝑋) = 2.88 −1.62 = 0.32,"
+    ]
+  },
+  {
+    "page": 17,
+    "title": "Kỳvọng và phương sai",
+    "subtitle": "Tính chất của phương sai và độlệch chuẩn",
+    "lines": [
+      "Kỳvọng và phương sai",
+      "Tính chất của phương sai và độlệch chuẩn",
+      "Giảsửcác phương sai hữu hạn; 𝑎, 𝑏, 𝑐là các hằng số.",
+      "Tính chất",
+      "Công thức",
+      "Phương sai của hằng số",
+      "Var(𝑐) = 0",
+      "Cộng hằng số"
+    ]
+  },
+  {
+    "page": 18,
+    "title": "Kỳvọng và phương sai",
+    "subtitle": "Ví dụ5",
+    "lines": [
+      "Kỳvọng và phương sai",
+      "Ví dụ5",
+      "Nhiệt độ𝑋tính theo độCelsius có 𝐸(𝑋) = 25 và SD(𝑋) = 3. Nhiệt độ",
+      "theo độFahrenheit là",
+      "𝑌= 1.8𝑋+ 32.",
+      "Tính kỳvọng 𝐸(𝑌), phương sai Var(𝑌) và độlệch chuẩn SD(𝑌) của",
+      "nhiệt độtheo độF.",
+      "UET.MAT1052"
+    ]
+  },
+  {
+    "page": 19,
+    "title": "Kỳvọng và phương sai",
+    "subtitle": "Ví dụ5 — Đáp án",
+    "lines": [
+      "Kỳvọng và phương sai",
+      "Ví dụ5 — Đáp án",
+      "𝐸(𝑌) = 1.8(25) + 32 = 77∘F.",
+      "Var(𝑌) = 1.82 Var(𝑋) = 3.24(9) = 29.16 (∘F)2.",
+      "SD(𝑌) = 1.8 SD(𝑋) = 5.4∘F.",
+      "Phép cộng 32 dịch chuyển trung tâm nhưng không thay đổi độphân tán.",
+      "UET.MAT1052",
+      "Tuần 07 — Khái quát dữliệu (3/7)"
+    ]
+  },
+  {
+    "page": 20,
+    "title": "Kỳvọng và phương sai",
+    "subtitle": "Phương sai của các phân phối rời rạc đặc biệt",
+    "lines": [
+      "Kỳvọng và phương sai",
+      "Phương sai của các phân phối rời rạc đặc biệt",
+      "Phân phối của biến ngẫu nhiên",
+      "𝑋",
+      "Phương sai Var(𝑋)",
+      "Bernoulli(𝑝)",
+      "𝑝(1 −𝑝)",
+      "Nhịthức(𝑛, 𝑝)"
+    ]
+  },
+  {
+    "page": 21,
+    "title": "Các biến ngẫu nhiên độc lập cùng phân phối",
+    "subtitle": "Phần 2",
+    "lines": [
+      "Các biến ngẫu nhiên độc lập cùng phân phối",
+      "Phần 2",
+      "Các biến ngẫu nhiên độc lập cùng phân phối",
+      "UET.MAT1052",
+      "Tuần 07 — Khái quát dữliệu (3/7)",
+      "21/94"
+    ]
+  },
+  {
+    "page": 22,
+    "title": "Các biến ngẫu nhiên độc lập cùng phân phối",
+    "subtitle": "Các biến ngẫu nhiên độc lập và cùng phân phối",
+    "lines": [
+      "Các biến ngẫu nhiên độc lập cùng phân phối",
+      "Các biến ngẫu nhiên độc lập và cùng phân phối",
+      "Các biến ngẫu nhiên 𝑋1, … , 𝑋𝑛được gọi là độc lập và cùng phân phối",
+      "khi:",
+      "Độc lập: thông tin vềcác biến còn lại không làm thay đổi phân phối",
+      "xác suất của một biến.",
+      "Cùng phân phối: tất cảcác biến có cùng hàm khối xác suất và cùng",
+      "hàm phân phối tích lũy, tức cùng quy luật xác suất."
+    ]
+  },
+  {
+    "page": 23,
+    "title": "Các biến ngẫu nhiên độc lập cùng phân phối",
+    "subtitle": "Mô hình chiếc hộp",
+    "lines": [
+      "Các biến ngẫu nhiên độc lập cùng phân phối",
+      "Mô hình chiếc hộp",
+      "Mô hình chiếc hộp biểu diễn một phép thửbằng việc rút ngẫu nhiên một",
+      "lá thăm có ghi số.",
+      "Sốtrên lá thăm là giá trịcủa biến ngẫu nhiên.",
+      "Mỗi lá có cùng xác suất được rút; nhiều lá có thểghi cùng một số.",
+      "Rút độc lập, có hoàn lại từcùng một hộp tạo ra các biến ngẫu nhiên",
+      "độc lập và cùng phân phối."
+    ]
+  },
+  {
+    "page": 24,
+    "title": "Các biến ngẫu nhiên độc lập cùng phân phối",
+    "subtitle": "Ví dụ6",
+    "lines": [
+      "Các biến ngẫu nhiên độc lập cùng phân phối",
+      "Ví dụ6",
+      "Phép thử: Gieo một cặp xúc xắc và cộng sốchấm.",
+      "Quy vềmô hình hộp: Xét hộp với các lá thăm 1, 2, 3, 4, 5, 6.",
+      "𝑋1: kết quảcủa việc rút ngẫu nhiên một lá thăm từhộp này. 𝑋1 có phân",
+      "phối đều rời rạc.",
+      "Đểbiểu diễn tổng sốchấm của một cặp xúc xắc, ta rút hai lần có hoàn lại",
+      "từhộp này. Gọi kết quảcủa hai lần rút lần lượt là 𝑋1 và 𝑋2. Khi đó, 𝑋1"
+    ]
+  },
+  {
+    "page": 25,
+    "title": "Các biến ngẫu nhiên độc lập cùng phân phối",
+    "subtitle": "Tổng và trung bình của các biến ngẫu nhiên",
+    "lines": [
+      "Các biến ngẫu nhiên độc lập cùng phân phối",
+      "Tổng và trung bình của các biến ngẫu nhiên",
+      "Cho 𝑋1, … , 𝑋𝑛độc lập và cùng phân phối, mỗi biến có kỳvọng 𝜇và",
+      "phương sai hữu hạn 𝜎2.",
+      "Tổng: 𝑆𝑛= 𝑋1 + ⋯+ 𝑋𝑛.",
+      "Trung bình: 𝑋𝑛= (𝑋1 + ⋯+ 𝑋𝑛)/𝑛.",
+      "Đại lượng",
+      "Kỳvọng"
+    ]
+  },
+  {
+    "page": 26,
+    "title": "Các biến ngẫu nhiên độc lập cùng phân phối",
+    "subtitle": "Độlệch chuẩn thay đổi theo cỡmẫu như thếnào?",
+    "lines": [
+      "Các biến ngẫu nhiên độc lập cùng phân phối",
+      "Độlệch chuẩn thay đổi theo cỡmẫu như thếnào?",
+      "Tính cộng của kỳvọng và tính cộng phương sai của các biến độc lập cho:",
+      "𝐸(𝑆𝑛) =",
+      "𝑛",
+      "∑",
+      "𝑖=1",
+      "𝐸(𝑋𝑖) = 𝑛𝜇,"
+    ]
+  },
+  {
+    "page": 27,
+    "title": "Các biến ngẫu nhiên độc lập cùng phân phối",
+    "subtitle": "Ví dụ7",
+    "lines": [
+      "Các biến ngẫu nhiên độc lập cùng phân phối",
+      "Ví dụ7",
+      "Một hộp có 10 lá thăm ghi các số",
+      "0, 0, 1, 1, 1, 2, 3, 3, 4, 4.",
+      "Rút ngẫu nhiên một lá, mỗi lá có xác suất được chọn bằng 1/10. Gọi 𝑋là",
+      "sốtrên lá được rút.",
+      "1 Lập bảng phân phối xác suất của 𝑋.",
+      "2 Tính kỳvọng, phương sai và độlệch chuẩn của 𝑋."
+    ]
+  },
+  {
+    "page": 28,
+    "title": "Các biến ngẫu nhiên độc lập cùng phân phối",
+    "subtitle": "Ví dụ7 — Lời giải",
+    "lines": [
+      "Các biến ngẫu nhiên độc lập cùng phân phối",
+      "Ví dụ7 — Lời giải",
+      "𝑥",
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "page": 29,
+    "title": "Các biến ngẫu nhiên độc lập cùng phân phối",
+    "subtitle": "Ví dụ8",
+    "lines": [
+      "Các biến ngẫu nhiên độc lập cùng phân phối",
+      "Ví dụ8",
+      "Hộp có các lá thăm 0, 0, 1, 1, 1, 2, 3, 3, 4, 4. Rút ngẫu nhiên độc lập 𝑛lần",
+      "có hoàn lại; mỗi lá có cùng xác suất được chọn ởmỗi lần. Gọi 𝑆𝑛là tổng",
+      "các sốrút được và 𝑋𝑛= 𝑆𝑛/𝑛là trung bình của chúng.",
+      "Biết rằng một lần rút có kỳvọng 𝜇= 1.9 và phương sai 𝜎2 = 2.09.",
+      "1 Tính kỳvọng và độlệch chuẩn của 𝑆𝑛và 𝑋𝑛khi 𝑛= 25.",
+      "2 Nếu tăng sốlần rút lên 𝑛= 100, các kết quảtrên thay đổi như thế"
+    ]
+  },
+  {
+    "page": 30,
+    "title": "Các biến ngẫu nhiên độc lập cùng phân phối",
+    "subtitle": "Ví dụ8 — Lời giải",
+    "lines": [
+      "Các biến ngẫu nhiên độc lập cùng phân phối",
+      "Ví dụ8 — Lời giải",
+      "Đại lượng",
+      "𝑛= 25",
+      "𝑛= 100",
+      "Kỳvọng của tổng",
+      "47.5",
+      "190"
+    ]
+  },
+  {
+    "page": 31,
+    "title": "Các biến ngẫu nhiên độc lập cùng phân phối",
+    "subtitle": "Python — Mô phỏng tổng và trung bình",
+    "lines": [
+      "Các biến ngẫu nhiên độc lập cùng phân phối",
+      "Python — Mô phỏng tổng và trung bình",
+      "Rút có hoàn lại 25 thẻtừhộp của Ví dụ8, lặp độc lập 5000 lần. Mỗi hàng",
+      "của mau là một mẫu gồm 25 lần rút.",
+      "import numpy as np",
+      "bo_sinh = np.random.default_rng(2026)",
+      "hop = np.array([0, 0, 1, 1, 1, 2, 3, 3, 4, 4])",
+      "mau = bo_sinh.choice(hop, size=(5000, 25))"
+    ]
+  },
+  {
+    "page": 32,
+    "title": "Các biến ngẫu nhiên độc lập cùng phân phối",
+    "subtitle": "Python — Cỡmẫu và độlệch chuẩn",
+    "lines": [
+      "Các biến ngẫu nhiên độc lập cùng phân phối",
+      "Python — Cỡmẫu và độlệch chuẩn",
+      "Tiếp tục dùng hộp thẻởslide trước. Với mỗi cỡmẫu, std() tính độlệch",
+      "chuẩn của 5000 kết quảmô phỏng.",
+      "print(\"n",
+      "SD(tong)",
+      "SD(trung binh)\")",
+      "for n in [25, 100]:"
+    ]
+  },
+  {
+    "page": 33,
+    "title": "Bất đẳng thức Chebyshev và luật sốlớn yếu",
+    "subtitle": "Phần 3",
+    "lines": [
+      "Bất đẳng thức Chebyshev và luật sốlớn yếu",
+      "Phần 3",
+      "Bất đẳng thức Chebyshev và luật sốlớn yếu",
+      "UET.MAT1052",
+      "Tuần 07 — Khái quát dữliệu (3/7)",
+      "33/94"
+    ]
+  },
+  {
+    "page": 34,
+    "title": "Bất đẳng thức Chebyshev và luật sốlớn yếu",
+    "subtitle": "Bất đẳng thức Chebyshev",
+    "lines": [
+      "Bất đẳng thức Chebyshev và luật sốlớn yếu",
+      "Bất đẳng thức Chebyshev",
+      "Định lý (Bất đẳng thức Chebyshev)",
+      "Cho biến ngẫu nhiên 𝑋có kỳvọng 𝜇và phương sai hữu hạn 𝜎2. Với mọi",
+      "𝜀> 0,",
+      "𝑃(|𝑋−𝜇| ≥𝜀) ≤𝜎2",
+      "𝜀2 .",
+      "𝜀là mức sai lệch cho trước. Bất đẳng thức cho một cận trên của xác"
+    ]
+  },
+  {
+    "page": 35,
+    "title": "Bất đẳng thức Chebyshev và luật sốlớn yếu",
+    "subtitle": "Ví dụ9",
+    "lines": [
+      "Bất đẳng thức Chebyshev và luật sốlớn yếu",
+      "Ví dụ9",
+      "Một nhà máy cần theo dõi nhiệt độthật 𝜇của lò sấy. Mỗi phép đo là",
+      "không chệch, nghĩa là giá trịđo có kỳvọng bằng 𝜇. Các phép đo độc lập,",
+      "cùng phân phối và có độlệch chuẩn 1∘C.",
+      "Nhà máy lấy trung bình cộng của 𝑛kết quảđo. Dùng bất đẳng thức",
+      "Chebyshev đểtìm sốlần đo đủbảo đảm xác suất trung bình này sai khác",
+      "nhiệt độthật không quá 0.2∘C đạt ít nhất 99%."
+    ]
+  },
+  {
+    "page": 36,
+    "title": "Bất đẳng thức Chebyshev và luật sốlớn yếu",
+    "subtitle": "Ví dụ9 — Đáp án",
+    "lines": [
+      "Bất đẳng thức Chebyshev và luật sốlớn yếu",
+      "Ví dụ9 — Đáp án",
+      "Gọi 𝑋𝑖là kết quảlần đo thứ𝑖và 𝑋𝑛là trung bình 𝑛lần đo. Ta có",
+      "𝜎2 = 1.",
+      "𝑃(|𝑋𝑛−𝜇| > 0.2) ≤",
+      "1",
+      "𝑛(0.2)2 = 25",
+      "𝑛."
+    ]
+  },
+  {
+    "page": 37,
+    "title": "Bất đẳng thức Chebyshev và luật sốlớn yếu",
+    "subtitle": "Luật sốlớn yếu",
+    "lines": [
+      "Bất đẳng thức Chebyshev và luật sốlớn yếu",
+      "Luật sốlớn yếu",
+      "Định lý (Luật sốlớn yếu)",
+      "Cho 𝑋1, 𝑋2, … độc lập và cùng phân phối, có kỳvọng 𝜇và",
+      "𝐸(|𝑋1|) < ∞. Đặt 𝑋𝑛= (𝑋1 + ⋯+ 𝑋𝑛)/𝑛. Với mọi 𝜀> 0,",
+      "𝑃(|𝑋𝑛−𝜇| > 𝜀) ⟶0",
+      "khi 𝑛⟶∞.",
+      "Xác suất trung bình mẫu sai khác kỳvọng quá một mức cho trước tiến về"
+    ]
+  },
+  {
+    "page": 38,
+    "title": "Bất đẳng thức Chebyshev và luật sốlớn yếu",
+    "subtitle": "Minh họa luật sốlớn yếu",
+    "lines": [
+      "Bất đẳng thức Chebyshev và luật sốlớn yếu",
+      "Minh họa luật sốlớn yếu",
+      "Tung độc lập một đồng xu có xác suất ngửa 0.7. Ghi 1 khi ngửa và 0 khi",
+      "sấp; trung bình tích lũy chính là tỷlệmặt ngửa.",
+      "Đây là một lần mô phỏng, không phải chứng minh. Tỷlệkhông nhất thiết",
+      "tiến gần 0.7 một cách đơn điệu.",
+      "UET.MAT1052",
+      "Tuần 07 — Khái quát dữliệu (3/7)"
+    ]
+  },
+  {
+    "page": 39,
+    "title": "Bất đẳng thức Chebyshev và luật sốlớn yếu",
+    "subtitle": "Ví dụ10",
+    "lines": [
+      "Bất đẳng thức Chebyshev và luật sốlớn yếu",
+      "Ví dụ10",
+      "Sau 10 lần tung đồng xu cân đối đều ra sấp, luật sốlớn có đảm bảo lần",
+      "thứ11 sẽra ngửa không? Tỷlệmặt ngửa có buộc tăng đều về0.5 không?",
+      "UET.MAT1052",
+      "Tuần 07 — Khái quát dữliệu (3/7)",
+      "39/94"
+    ]
+  },
+  {
+    "page": 40,
+    "title": "Bất đẳng thức Chebyshev và luật sốlớn yếu",
+    "subtitle": "Ví dụ10 — Đáp án",
+    "lines": [
+      "Bất đẳng thức Chebyshev và luật sốlớn yếu",
+      "Ví dụ10 — Đáp án",
+      "Không. Nếu các lần tung độc lập thì xác suất ngửa ởlần 11 vẫn là 0.5.",
+      "Tỷlệtích lũy có thểtăng hoặc giảm; luật sốlớn chỉkhẳng định sựhội tụ",
+      "khi sốphép thửtiến tới vô hạn, không khẳng định hội tụđơn điệu.",
+      "UET.MAT1052",
+      "Tuần 07 — Khái quát dữliệu (3/7)",
+      "40/94"
+    ]
+  },
+  {
+    "page": 41,
+    "title": "Biến ngẫu nhiên liên tục",
+    "subtitle": "Phần 4",
+    "lines": [
+      "Biến ngẫu nhiên liên tục",
+      "Phần 4",
+      "Biến ngẫu nhiên liên tục",
+      "UET.MAT1052",
+      "Tuần 07 — Khái quát dữliệu (3/7)",
+      "41/94"
+    ]
+  },
+  {
+    "page": 42,
+    "title": "Biến ngẫu nhiên liên tục",
+    "subtitle": "Hàm mật độxác suất",
+    "lines": [
+      "Biến ngẫu nhiên liên tục",
+      "Hàm mật độxác suất",
+      "Định nghĩa (Hàm mật độxác suất)",
+      "Hàm 𝑓𝑋được gọi là hàm mật độxác suất của biến ngẫu nhiên liên tục 𝑋",
+      "nếu",
+      "𝑓𝑋(𝑥) ≥0 với mọi 𝑥;",
+      "∫",
+      "∞"
+    ]
+  },
+  {
+    "page": 43,
+    "title": "Biến ngẫu nhiên liên tục",
+    "subtitle": "Ví dụ11",
+    "lines": [
+      "Biến ngẫu nhiên liên tục",
+      "Ví dụ11",
+      "Xét hàm số𝑓được xác định trên toàn bộtrục sốnhư sau:",
+      "𝑓(𝑥) = {2,",
+      "0 < 𝑥< 0.5,",
+      "0,",
+      "ngược lại.",
+      "Đây có phải là một hàm mật độhợp lệkhông?"
+    ]
+  },
+  {
+    "page": 44,
+    "title": "Biến ngẫu nhiên liên tục",
+    "subtitle": "Ví dụ11 — Đáp án",
+    "lines": [
+      "Biến ngẫu nhiên liên tục",
+      "Ví dụ11 — Đáp án",
+      "Hàm không âm và",
+      "∫",
+      "0.5",
+      "0",
+      "2 𝑑𝑥= 1,",
+      "nên đây là một hàm mật độhợp lệ."
+    ]
+  },
+  {
+    "page": 45,
+    "title": "Biến ngẫu nhiên liên tục",
+    "subtitle": "Hàm phân phối tích lũy",
+    "lines": [
+      "Biến ngẫu nhiên liên tục",
+      "Hàm phân phối tích lũy",
+      "Định nghĩa (Hàm phân phối tích lũy)",
+      "Với mọi biến ngẫu nhiên 𝑋, hàm phân phối tích lũy được định nghĩa bởi",
+      "𝐹𝑋(𝑥) = 𝑃(𝑋≤𝑥).",
+      "Nếu 𝑋có hàm mật độ𝑓𝑋, thì",
+      "𝐹𝑋(𝑥) = ∫",
+      "𝑥"
+    ]
+  },
+  {
+    "page": 46,
+    "title": "Biến ngẫu nhiên liên tục",
+    "subtitle": "Ví dụ12",
+    "lines": [
+      "Biến ngẫu nhiên liên tục",
+      "Ví dụ12",
+      "Cho biến ngẫu nhiên 𝑋có hàm mật độ",
+      "𝑓(𝑥) = {2𝑥,",
+      "0 < 𝑥< 1,",
+      "0,",
+      "ngược lại.",
+      "1 Tìm hàm phân phối tích lũy 𝐹𝑋(𝑥) trên toàn bộtrục số."
+    ]
+  },
+  {
+    "page": 47,
+    "title": "Biến ngẫu nhiên liên tục",
+    "subtitle": "Ví dụ12 — Lời giải",
+    "lines": [
+      "Biến ngẫu nhiên liên tục",
+      "Ví dụ12 — Lời giải",
+      "𝐹𝑋(𝑥) =",
+      "⎧",
+      "{",
+      "⎨",
+      "{",
+      "⎩"
+    ]
+  },
+  {
+    "page": 48,
+    "title": "Biến ngẫu nhiên liên tục",
+    "subtitle": "Kỳvọng và phương sai của biến ngẫu nhiên liên tục",
+    "lines": [
+      "Biến ngẫu nhiên liên tục",
+      "Kỳvọng và phương sai của biến ngẫu nhiên liên tục",
+      "Cho 𝑋có hàm mật độxác suất 𝑓𝑋. Giảsửcác tích phân dưới đây hữu",
+      "hạn.",
+      "Kỳvọng:",
+      "𝜇= 𝐸(𝑋) = ∫",
+      "∞",
+      "−∞"
+    ]
+  },
+  {
+    "page": 49,
+    "title": "Biến ngẫu nhiên liên tục",
+    "subtitle": "Ví dụ13",
+    "lines": [
+      "Biến ngẫu nhiên liên tục",
+      "Ví dụ13",
+      "Cho biến ngẫu nhiên liên tục 𝑋có hàm mật độ𝑓(𝑥) = 2𝑥khi 0 < 𝑥< 1",
+      "và 𝑓(𝑥) = 0 ngoài khoảng này. Ta tính kỳvọng và phương sai của 𝑋như",
+      "sau:",
+      "𝐸(𝑋) = ∫",
+      "1",
+      "0"
+    ]
+  },
+  {
+    "page": 50,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Phần 5",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Phần 5",
+      "Các phân phối liên tục đặc biệt",
+      "UET.MAT1052",
+      "Tuần 07 — Khái quát dữliệu (3/7)",
+      "50/94"
+    ]
+  },
+  {
+    "page": 51,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Phân phối đều trên một khoảng",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Phân phối đều trên một khoảng",
+      "Định nghĩa (Phân phối đều)",
+      "Cho 𝑎, 𝑏∈ℝ, 𝑎< 𝑏. Biến 𝑋có phân phối đều trên (𝑎, 𝑏), ký hiệu",
+      "𝑋∼𝑈(𝑎, 𝑏), nếu có mật độ",
+      "𝑓𝑋(𝑥) =",
+      "⎧",
+      "{"
+    ]
+  },
+  {
+    "page": 52,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Hình dạng của phân phối đều",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Hình dạng của phân phối đều",
+      "Mật độkhông đổi trên toàn bộkhoảng (0, 10).",
+      "UET.MAT1052",
+      "Tuần 07 — Khái quát dữliệu (3/7)",
+      "52/94"
+    ]
+  },
+  {
+    "page": 53,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Ví dụ14",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Ví dụ14",
+      "Giảsửthời điểm xe buýt đến bến được mô hình hóa là phân phối đều",
+      "trong 10 phút tiếp theo. Đặt 𝑋là sốphút phải chờ, 𝑋∼𝑈(0, 10).",
+      "Xác suất phải chờtừ2 đến 5 phút là",
+      "𝑃(2 < 𝑋< 5) = 5 −2",
+      "10",
+      "= 0.3."
+    ]
+  },
+  {
+    "page": 54,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Phân phối chuẩn",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Phân phối chuẩn",
+      "Định nghĩa (Phân phối chuẩn)",
+      "Cho 𝜇∈ℝ, 𝜎> 0. Biến 𝑋có phân phối chuẩn 𝒩(𝜇, 𝜎2) nếu hàm mật độ",
+      "có dạng",
+      "𝑓𝑋(𝑥) =",
+      "1",
+      "𝜎"
+    ]
+  },
+  {
+    "page": 55,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Hình dạng của phân phối chuẩn",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Hình dạng của phân phối chuẩn",
+      "Đường cong có dạng chuông và đối xứng quanh trung bình.",
+      "UET.MAT1052",
+      "Tuần 07 — Khái quát dữliệu (3/7)",
+      "55/94"
+    ]
+  },
+  {
+    "page": 56,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Chuẩn tắc hóa phân phối chuẩn",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Chuẩn tắc hóa phân phối chuẩn",
+      "Proposition (Chuẩn tắc hoá)",
+      "Nếu 𝑋∼𝒩(𝜇, 𝜎2) với 𝜎> 0, thì",
+      "𝑍= 𝑋−𝜇",
+      "𝜎",
+      "∼𝒩(0, 1).",
+      "Do đó, với mọi 𝑥∈ℝ,"
+    ]
+  },
+  {
+    "page": 57,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Ví dụ15",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Ví dụ15",
+      "Trong một kỳthi, điểm sốcó phân phối chuẩn với trung bình 70 và độlệch",
+      "chuẩn 8. Một sinh viên đạt 86 điểm. Điểm chuẩn tắc hoá của sinh viên là",
+      "𝑧= 86 −70",
+      "8",
+      "= 2.",
+      "Điểm sốnày cao hơn trung bình 2 độlệch chuẩn."
+    ]
+  },
+  {
+    "page": 58,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Quy tắc thực nghiệm (68–95–99.7)",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Quy tắc thực nghiệm (68–95–99.7)",
+      "Với phân phối chuẩn, xác suất một quan sát nằm cách kỳvọng không quá",
+      "một, hai hoặc ba độlệch chuẩn lần lượt xấp xỉ68%, 95% và 99.7%:",
+      "𝑃(𝜇−𝜎< 𝑋< 𝜇+ 𝜎) ≈0.68,",
+      "𝑃(𝜇−2𝜎< 𝑋< 𝜇+ 2𝜎) ≈0.95,",
+      "𝑃(𝜇−3𝜎< 𝑋< 𝜇+ 3𝜎) ≈0.997.",
+      "UET.MAT1052"
+    ]
+  },
+  {
+    "page": 59,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Ví dụ16",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Ví dụ16",
+      "Gọi 𝑋là dung tích một chai, tính bằng ml. Giảsử𝑋có phân phối chuẩn",
+      "với kỳvọng 500 ml và độlệch chuẩn 2 ml, tức 𝑋∼𝒩(500, 22). Áp dụng",
+      "quy tắc thực nghiệm:",
+      "Khoảng [498, 502] chứa xấp xỉ68% sản phẩm.",
+      "Khoảng [496, 504] chứa xấp xỉ95% sản phẩm.",
+      "Xác suất chai có dung tích trên 504 ml xấp xỉ2.5%."
+    ]
+  },
+  {
+    "page": 60,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Phân vịcủa phân phối chuẩn",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Phân vịcủa phân phối chuẩn",
+      "Phân vịmức 𝑝là ngưỡng 𝑞𝑝sao cho xác suất biến ngẫu nhiên không",
+      "vượt ngưỡng đó bằng 𝑝:",
+      "𝑃(𝑋≤𝑞𝑝) = 𝑝,",
+      "0 < 𝑝< 1.",
+      "Với 𝑋∼𝒩(𝜇, 𝜎2),",
+      "𝑞𝑝= 𝜇+ 𝜎Φ−1(𝑝)."
+    ]
+  },
+  {
+    "page": 61,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Ví dụ17",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Ví dụ17",
+      "Dung tích một chai được mô hình hóa bằng phân phối chuẩn với trung",
+      "bình 500 ml và độlệch chuẩn 2 ml. Gọi 𝑋là dung tích chai.",
+      "Dùng Python đểtính:",
+      "1 𝑃(𝑋≤503) và 𝑃(𝑋> 503).",
+      "2 𝑃(498 < 𝑋< 502).",
+      "3 Mức dung tích 𝑞0.95 sao cho 𝑃(𝑋≤𝑞0.95) = 0.95."
+    ]
+  },
+  {
+    "page": 62,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Ví dụ17 — Lời giải bằng Python",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Ví dụ17 — Lời giải bằng Python",
+      "from scipy.stats import norm",
+      "print(round(norm.cdf(503, loc=500, scale=2), 4))",
+      "print(round(norm.sf(503, loc=500, scale=2), 4))",
+      "p = norm.cdf(502, 500, 2) - norm.cdf(498, 500, 2)",
+      "print(round(p, 4))",
+      "print(round(norm.ppf(0.95, loc=500, scale=2), 3))"
+    ]
+  },
+  {
+    "page": 63,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Giới thiệu phân phối mũ",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Giới thiệu phân phối mũ",
+      "Biến ngẫu nhiên 𝑋có phân phối mũ với tham sốtốc độ𝜆> 0, ký hiệu",
+      "𝑋∼Exp(𝜆), khi có hàm mật độ:",
+      "𝑓𝑋(𝑥) = {𝜆𝑒−𝜆𝑥,",
+      "𝑥≥0,",
+      "0,",
+      "𝑥< 0."
+    ]
+  },
+  {
+    "page": 64,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Ví dụ18",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Ví dụ18",
+      "Giảsửthời gian chờtừlúc bắt đầu theo dõi đến khi hệthống nhận được",
+      "yêu cầu mới có phân phối mũ, với thời gian chờtrung bình là 2 phút. Gọi",
+      "𝑋là thời gian chờ, tính bằng phút.",
+      "1 Xác định tham sốtốc độ𝜆của phân phối.",
+      "2 Tính xác suất phải chờhơn 3 phút mới nhận được yêu cầu mới.",
+      "UET.MAT1052"
+    ]
+  },
+  {
+    "page": 65,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Ví dụ18 — Lời giải",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Ví dụ18 — Lời giải",
+      "Vì 𝐸(𝑋) = 1/𝜆= 2, nên 𝜆= 0.5 mỗi phút.",
+      "Xác suất phải chờhơn 3 phút là diện tích dưới đường cong mật độtừ3",
+      "đến vô hạn:",
+      "𝑃(𝑋> 3) = ∫",
+      "∞",
+      "3"
+    ]
+  },
+  {
+    "page": 66,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Giới thiệu phân phối 𝜒2 (khi bình phương)",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Giới thiệu phân phối 𝜒2 (khi bình phương)",
+      "Phân phối 𝜒2 (khi bình phương) với 𝜈bậc tựdo, ký hiệu 𝜒2",
+      "𝜈, có hàm mật độ",
+      "𝑓(𝑥) = 𝑥𝜈/2−1𝑒−𝑥/2",
+      "2𝜈/2Γ(𝜈/2) (𝑥> 0);",
+      "𝑓(𝑥) = 0 (𝑥< 0).",
+      "𝜈quyết định hình dạng; phân phối nhận giá trịkhông âm và lệch phải."
+    ]
+  },
+  {
+    "page": 67,
+    "title": "Các phân phối liên tục đặc biệt",
+    "subtitle": "Giới thiệu phân phối 𝑡Student",
+    "lines": [
+      "Các phân phối liên tục đặc biệt",
+      "Giới thiệu phân phối 𝑡Student",
+      "Phân phối 𝑡Student với 𝜈bậc tựdo, ký hiệu 𝑡𝜈, có hàm mật độ",
+      "𝑓(𝑥) = Γ((𝜈+ 1)/2)",
+      "√𝜈𝜋Γ(𝜈/2) (1 + 𝑥2",
+      "𝜈)",
+      "−(𝜈+1)/2",
+      ","
+    ]
+  },
+  {
+    "page": 68,
+    "title": "Định lý giới hạn trung tâm",
+    "subtitle": "Phần 6",
+    "lines": [
+      "Định lý giới hạn trung tâm",
+      "Phần 6",
+      "Định lý giới hạn trung tâm",
+      "UET.MAT1052",
+      "Tuần 07 — Khái quát dữliệu (3/7)",
+      "68/94"
+    ]
+  },
+  {
+    "page": 69,
+    "title": "Định lý giới hạn trung tâm",
+    "subtitle": "Định lý giới hạn trung tâm",
+    "lines": [
+      "Định lý giới hạn trung tâm",
+      "Định lý giới hạn trung tâm",
+      "Định lý (Định lý giới hạn trung tâm)",
+      "Cho 𝑋1, 𝑋2, … độc lập và cùng phân phối, với 𝐸(𝑋𝑖) = 𝜇và",
+      "0 < Var(𝑋𝑖) = 𝜎2 < ∞. Khi 𝑛→∞,",
+      "𝑍𝑛= 𝑆𝑛−𝑛𝜇",
+      "𝜎√𝑛",
+      "= 𝑋𝑛−𝜇"
+    ]
+  },
+  {
+    "page": 70,
+    "title": "Định lý giới hạn trung tâm",
+    "subtitle": "Ví dụ19",
+    "lines": [
+      "Định lý giới hạn trung tâm",
+      "Ví dụ19",
+      "Từhộp có các lá thăm 0, 0, 1, 1, 1, 2, 3, 3, 4, 4, rút ngẫu nhiên độc lập có",
+      "hoàn lại đểtạo một mẫu gồm 𝑛giá trị. Tính tổng và trung bình của mẫu.",
+      "Lặp độc lập toàn bộquy trình 5000 lần.",
+      "Thực hiện với 𝑛= 25 và 𝑛= 100.",
+      "1 So sánh hình dạng, tâm và độphân tán của hai phân phối tổng mẫu.",
+      "2 So sánh hình dạng, tâm và độphân tán của hai phân phối trung bình"
+    ]
+  },
+  {
+    "page": 71,
+    "title": "Định lý giới hạn trung tâm",
+    "subtitle": "Phân phối của tổng mẫu từhộp thẻ",
+    "lines": [
+      "Định lý giới hạn trung tâm",
+      "Phân phối của tổng mẫu từhộp thẻ",
+      "Tổng mẫu có phân phối gần hình chuông. Trong ví dụnày, 𝐸(𝑆𝑛) = 1.9𝑛",
+      "và SD(𝑆𝑛) =",
+      "√",
+      "2.09𝑛, nên khi 𝑛tăng từ25 lên 100, cảtâm và độlệch",
+      "chuẩn của phân phối tổng đều tăng.",
+      "UET.MAT1052"
+    ]
+  },
+  {
+    "page": 72,
+    "title": "Định lý giới hạn trung tâm",
+    "subtitle": "Phân phối của trung bình mẫu từhộp thẻ",
+    "lines": [
+      "Định lý giới hạn trung tâm",
+      "Phân phối của trung bình mẫu từhộp thẻ",
+      "Hai phân phối có cùng tâm 1.9; trung bình mẫu gồm 100 lần rút có độ",
+      "lệch chuẩn bằng một nửa so với 25 lần rút.",
+      "UET.MAT1052",
+      "Tuần 07 — Khái quát dữliệu (3/7)",
+      "72/94"
+    ]
+  },
+  {
+    "page": 73,
+    "title": "Định lý giới hạn trung tâm",
+    "subtitle": "Cỡmẫu và sốlần lặp mô phỏng",
+    "lines": [
+      "Định lý giới hạn trung tâm",
+      "Cỡmẫu và sốlần lặp mô phỏng",
+      "Trong ví dụhộp thẻ:",
+      "Cỡmẫu 𝑛= 25 hoặc 100: sốlần rút đểtính một tổng hoặc một",
+      "trung bình. Cỡmẫu quyết định phương sai của thống kê và ảnh",
+      "hưởng chất lượng xấp xỉchuẩn.",
+      "Sốlần lặp 5000: sốtổng hoặc trung bình thu được đểvẽhistogram.",
+      "Tăng sốlần lặp giúp mô tảphân phối thực nghiệm rõ hơn, không"
+    ]
+  },
+  {
+    "page": 74,
+    "title": "Định lý giới hạn trung tâm",
+    "subtitle": "Python — Định lý giới hạn trung tâm",
+    "lines": [
+      "Định lý giới hạn trung tâm",
+      "Python — Định lý giới hạn trung tâm",
+      "Thời gian chờ𝑋có phân phối mũ, kỳvọng 5 phút và độlệch chuẩn 5",
+      "phút. Với mỗi 𝑛, tạo 5000 mẫu độc lập rồi vẽphân phối của trung bình đã",
+      "chuẩn tắc hoá 𝑍𝑛.",
+      "import matplotlib.pyplot as plt",
+      "bo_sinh = np.random.default_rng(2026)",
+      "fig_clt, axes = plt.subplots(2, 2, figsize=(7, 3.2))"
+    ]
+  },
+  {
+    "page": 75,
+    "title": "Định lý giới hạn trung tâm",
+    "subtitle": "Mô phỏng — Từphân phối mũ đến dạng gần chuẩn",
+    "lines": [
+      "Định lý giới hạn trung tâm",
+      "Mô phỏng — Từphân phối mũ đến dạng gần chuẩn",
+      "Cột biểu diễn mật độmô phỏng của 𝑍𝑛; đường cong là mật độcủa phân",
+      "phối chuẩn tắc 𝑁(0, 1). Khi 𝑛tăng, hình dạng bớt lệch và gần đường",
+      "cong chuẩn hơn.",
+      "UET.MAT1052",
+      "Tuần 07 — Khái quát dữliệu (3/7)",
+      "75/94"
+    ]
+  },
+  {
+    "page": 76,
+    "title": "Định lý giới hạn trung tâm",
+    "subtitle": "Ví dụ20",
+    "lines": [
+      "Định lý giới hạn trung tâm",
+      "Ví dụ20",
+      "Thời gian xửlý một yêu cầu có trung bình 12 phút và độlệch chuẩn 6",
+      "phút; phân phối cá thểlệch phải. Chọn ngẫu nhiên 64 yêu cầu độc lập.",
+      "1 Xấp xỉphân phối của trung bình mẫu.",
+      "2 Tính xác suất trung bình mẫu vượt 13.5 phút.",
+      "3 Nêu điều kiện quan trọng của phép xấp xỉ.",
+      "UET.MAT1052"
+    ]
+  },
+  {
+    "page": 77,
+    "title": "Định lý giới hạn trung tâm",
+    "subtitle": "Ví dụ20 — Lời giải",
+    "lines": [
+      "Định lý giới hạn trung tâm",
+      "Ví dụ20 — Lời giải",
+      "Theo định lý giới hạn trung tâm,",
+      "𝑋≈𝒩(12, 62",
+      "64) ,",
+      "SD(𝑋) = 0.75.",
+      "𝑃(𝑋> 13.5) ≈𝑃(𝑍> 13.5 −12",
+      "0.75"
+    ]
+  },
+  {
+    "page": 78,
+    "title": "Bài tập vận dụng",
+    "subtitle": "Phần 7",
+    "lines": [
+      "Bài tập vận dụng",
+      "Phần 7",
+      "Bài tập vận dụng",
+      "UET.MAT1052",
+      "Tuần 07 — Khái quát dữliệu (3/7)",
+      "78/94"
+    ]
+  },
+  {
+    "page": 79,
+    "title": "Bài tập vận dụng",
+    "subtitle": "Bài tập 1",
+    "lines": [
+      "Bài tập vận dụng",
+      "Bài tập 1",
+      "Dung lượng của một USB được khách hàng mua là biến ngẫu nhiên 𝑋, đo",
+      "bằng GB. Phân phối dung lượng bán ra tại cửa hàng như sau:",
+      "𝑥(GB)",
+      "1",
+      "2",
+      "4"
+    ]
+  },
+  {
+    "page": 80,
+    "title": "Bài tập vận dụng",
+    "subtitle": "Bài tập 1 — Đáp án",
+    "lines": [
+      "Bài tập vận dụng",
+      "Bài tập 1 — Đáp án",
+      "𝐸(𝑋) = 1(0.05) + 2(0.10) + 4(0.35) + 8(0.40) + 16(0.10) = 6.45.",
+      "𝐸(𝑋2) = 0.05 + 0.40 + 5.60 + 25.60 + 25.60 = 57.25.",
+      "Theo định nghĩa, với 𝜇= 6.45:",
+      "Var(𝑋) = ∑",
+      "𝑥",
+      "(𝑥−6.45)2𝑝𝑋(𝑥) = 15.6475."
+    ]
+  },
+  {
+    "page": 81,
+    "title": "Bài tập vận dụng",
+    "subtitle": "Bài tập 1 — Đáp án",
+    "lines": [
+      "Bài tập vận dụng",
+      "Bài tập 1 — Đáp án",
+      "Kiểm tra phương sai bằng công thức rút gọn:",
+      "57.25 −6.452 = 15.6475 GB2.",
+      "SD(𝑋) =",
+      "√",
+      "15.6475 ≈3.9557 GB.",
+      "UET.MAT1052"
+    ]
+  },
+  {
+    "page": 82,
+    "title": "Bài tập vận dụng",
+    "subtitle": "Bài tập 2",
+    "lines": [
+      "Bài tập vận dụng",
+      "Bài tập 2",
+      "Biến ngẫu nhiên liên tục 𝑋nhận giá trịtrong đoạn [0, 𝑏], với 𝑏> 0. Hàm",
+      "phân phối tích lũy của 𝑋được cho bởi",
+      "𝐹𝑋(𝑥) =",
+      "⎧",
+      "{",
+      "⎨"
+    ]
+  },
+  {
+    "page": 83,
+    "title": "Bài tập vận dụng",
+    "subtitle": "Bài tập 2 — Đáp án",
+    "lines": [
+      "Bài tập vận dụng",
+      "Bài tập 2 — Đáp án",
+      "Vì 𝑋liên tục, hàm phân phối tích lũy liên tục tại 𝑏. Do đó",
+      "𝑏2",
+      "9 = 1,",
+      "𝑏> 0",
+      "⇒",
+      "𝑏= 3."
+    ]
+  },
+  {
+    "page": 84,
+    "title": "Bài tập vận dụng",
+    "subtitle": "Bài tập 3",
+    "lines": [
+      "Bài tập vận dụng",
+      "Bài tập 3",
+      "Khối lượng của người Việt Nam có phân phối chuẩn, trung bình là 65 kg",
+      "với độlệch chuẩn là 5 kg. Giảsửkhối lượng của những người được chọn",
+      "độc lập với nhau. Một thang máy chởtối đa 10 người và có tải trọng 700",
+      "kg. Tính xác suất để10 người được chọn ngẫu nhiên cùng đi vào thang",
+      "máy mà thang không bịquá tải.",
+      "UET.MAT1052"
+    ]
+  },
+  {
+    "page": 85,
+    "title": "Bài tập vận dụng",
+    "subtitle": "Bài tập 3 — Đáp án",
+    "lines": [
+      "Bài tập vận dụng",
+      "Bài tập 3 — Đáp án",
+      "Gọi 𝑋𝑖là khối lượng người thứ𝑖và 𝑆10 = 𝑋1 + ⋯+ 𝑋10. Khi đó",
+      "𝑆10 ∼𝒩(650, 250),",
+      "và",
+      "𝑃(𝑆10 ≤700) = Φ(700 −650",
+      "5",
+      "√"
+    ]
+  },
+  {
+    "page": 86,
+    "title": "Bài tập vận dụng",
+    "subtitle": "Bài tập 4",
+    "lines": [
+      "Bài tập vận dụng",
+      "Bài tập 4",
+      "Gọi 𝑋là khoảng cách từnơi ởđến trường của một sinh viên được chọn",
+      "ngẫu nhiên. Giảsử𝑋có phân phối mũ với kỳvọng 5 km. Khoảng cách",
+      "của các sinh viên được chọn được giảsửđộc lập và cùng phân phối.",
+      "1 Tính xác suất một sinh viên ởcách trường hơn 10 km.",
+      "2 Chọn ngẫu nhiên 100 sinh viên. Dùng định lý giới hạn trung tâm để",
+      "tính gần đúng xác suất tổng khoảng cách từnơi ởđến trường của họ"
+    ]
+  },
+  {
+    "page": 87,
+    "title": "Bài tập vận dụng",
+    "subtitle": "Bài tập 4 — Đáp án",
+    "lines": [
+      "Bài tập vận dụng",
+      "Bài tập 4 — Đáp án",
+      "Vì 𝐸(𝑋) = 5 và SD(𝑋) = 5, tham sốtốc độlà 𝜆= 1/5.",
+      "1 𝑃(𝑋> 10) = 𝑒−10/5 = 𝑒−2 ≈0.1353.",
+      "2 Với 𝑆100 = ∑",
+      "100",
+      "𝑖=1 𝑋𝑖, định lý giới hạn trung tâm cho",
+      "𝑆100 ≈𝒩(500, 2500). Do đó"
+    ]
+  },
+  {
+    "page": 88,
+    "title": "Bài tập vận dụng",
+    "subtitle": "Bài tập 4 — Đáp án",
+    "lines": [
+      "Bài tập vận dụng",
+      "Bài tập 4 — Đáp án",
+      "4 Với một sinh viên, dùng trực tiếp hàm phân phối mũ:",
+      "𝑃(4.9 < 𝑋< 5.2) = 𝑒−4.9/5 −𝑒−5.2/5 ≈0.0219.",
+      "5 SD(𝑋36) = 5/6, nên",
+      "𝑃(4.9 < 𝑋36 < 5.2) ≈Φ(0.24) −Φ(−0.12) ≈0.1426.",
+      "Hai câu 3 và 5 có cùng khoảng cần xét nhưng cho kết quảkhác nhau vì",
+      "độlệch chuẩn của trung bình mẫu phụthuộc cỡmẫu."
+    ]
+  },
+  {
+    "page": 89,
+    "title": "Bài tập vận dụng",
+    "subtitle": "Bài tập 5",
+    "lines": [
+      "Bài tập vận dụng",
+      "Bài tập 5",
+      "Một hệthống cần một linh kiện thiết yếu đểhoạt động. Khi linh kiện",
+      "hỏng, nó được thay ngay lập tức; bỏqua thời gian thay và giảsửhệthống",
+      "không hỏng vì nguyên nhân khác.",
+      "Tuổi thọcác linh kiện độc lập, cùng phân phối, có trung bình 100 giờvà",
+      "độlệch chuẩn 30 giờ.",
+      "Dùng định lý giới hạn trung tâm đểước tính sốlinh kiện cần có sao cho"
+    ]
+  },
+  {
+    "page": 90,
+    "title": "Bài tập vận dụng",
+    "subtitle": "Bài tập 5 — Đáp án",
+    "lines": [
+      "Bài tập vận dụng",
+      "Bài tập 5 — Đáp án",
+      "Gọi 𝑋𝑖là tuổi thọlinh kiện thứ𝑖và 𝑆𝑛= 𝑋1 + ⋯+ 𝑋𝑛. Tổng thời gian",
+      "hệthống có thểhoạt động là 𝑆𝑛.",
+      "𝐸(𝑆𝑛) = 100𝑛,",
+      "SD(𝑆𝑛) = 30√𝑛.",
+      "Theo định lý giới hạn trung tâm, 𝑆𝑛≈𝒩(100𝑛, 900𝑛), nên",
+      "𝑃(𝑆𝑛≥2000) ≈Φ(100𝑛−2000"
+    ]
+  },
+  {
+    "page": 91,
+    "title": "Bài tập vận dụng",
+    "subtitle": "Bài tập 5 — Chọn sốlượng",
+    "lines": [
+      "Bài tập vận dụng",
+      "Bài tập 5 — Chọn sốlượng",
+      "Yêu cầu xấp xỉtương đương",
+      "100𝑛−2000",
+      "30√𝑛",
+      "≥1.64485.",
+      "Đặt 𝑢= √𝑛> 0, giải 100𝑢2 −49.3455𝑢−2000 ≥0, rồi kiểm tra các số",
+      "nguyên gần ngưỡng:"
+    ]
+  },
+  {
+    "page": 92,
+    "title": "Tổng kết",
+    "subtitle": "Phần 8",
+    "lines": [
+      "Tổng kết",
+      "Phần 8",
+      "Tổng kết",
+      "UET.MAT1052",
+      "Tuần 07 — Khái quát dữliệu (3/7)",
+      "92/94"
+    ]
+  },
+  {
+    "page": 93,
+    "title": "Tổng kết",
+    "subtitle": "Tóm tắt nội dung Tuần 07",
+    "lines": [
+      "Tổng kết",
+      "Tóm tắt nội dung Tuần 07",
+      "Kỳvọng mô tảtrung tâm; phương sai và độlệch chuẩn mô tảsự",
+      "phân tán quanh kỳvọng.",
+      "Với các biến độc lập và cùng phân phối, tổng có độlệch chuẩn",
+      "𝜎√𝑛; trung bình mẫu có độlệch chuẩn 𝜎/√𝑛.",
+      "Bất đẳng thức Chebyshev cho biết một cận trên cho xác suất sai",
+      "lệch; luật sốlớn yếu giải thích sựổn định của trung bình mẫu."
+    ]
+  },
+  {
+    "page": 94,
+    "title": "Tổng kết",
+    "subtitle": "Chuẩn bịcho buổi tiếp theo",
+    "lines": [
+      "Tổng kết",
+      "Chuẩn bịcho buổi tiếp theo",
+      "Buổi 8: kiểm tra giữa kỳvà giải đáp câu hỏi vềđềthi.",
+      "Ôn các kiến thức đã học vềdữliệu, thống kê mô tả, xác suất và biến",
+      "ngẫu nhiên.",
+      "Ôn cách nhận diện mô hình, tính xác suất, kỳvọng, phương sai và độ",
+      "lệch chuẩn.",
+      "Làm các bài tựluyện trong tài liệu bổsung; ghi lại câu hỏi cần trao"
+    ]
+  }
+]

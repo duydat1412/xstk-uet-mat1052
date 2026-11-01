@@ -1,0 +1,1512 @@
+
+==================== TRANG 1 / 94 ====================
+Tuần 07 — Khái quát dữliệu (3/7)
+Kỳvọng, phương sai, phân phối liên tục và các định lý giới hạn
+Hoàng ThịĐiệp, Nghiêm Nguyễn Việt Dũng, Lê ThịHường
+Khoa Công nghệThông tin (VNU-UET-FIT)
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+1/94
+
+==================== TRANG 2 / 94 ====================
+Nội dung chính
+1 Kỳvọng, phương sai, độlệch chuẩn.
+2 Các biến ngẫu nhiên độc lập và cùng phân phối; mô hình chiếc hộp;
+tổng và trung bình.
+3 Bất đẳng thức Chebyshev và luật sốlớn yếu.
+4 Hàm mật độxác suất và hàm phân phối tích lũy.
+5 Phân phối đều, chuẩn; giới thiệu phân phối mũ, 𝜒2 và 𝑡Student.
+6 Định lý giới hạn trung tâm và mô phỏng bằng Python.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+2/94
+
+==================== TRANG 3 / 94 ====================
+Mục tiêu học tập của Tuần 07
+Sau buổi học, sinh viên có thể:
+Tính, diễn giải và vận dụng tính chất của kỳvọng, phương sai, độ
+lệch chuẩn.
+Mô hình hóa phép thửbằng chiếc hộp; tính kỳvọng và độlệch chuẩn
+của tổng và trung bình.
+Sửdụng bất đẳng thức Chebyshev và giải thích luật sốlớn yếu.
+Tính xác suất từhàm mật độ, hàm phân phối tích lũy; nhận diện các
+phân phối liên tục đã giới thiệu.
+Giải thích và vận dụng định lý giới hạn trung tâm cho tổng và trung
+bình mẫu.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+3/94
+
+==================== TRANG 4 / 94 ====================
+Kỳvọng và phương sai
+Phần 1
+Kỳvọng và phương sai
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+4/94
+
+==================== TRANG 5 / 94 ====================
+Kỳvọng và phương sai
+Kỳvọng của biến ngẫu nhiên rời rạc
+Định nghĩa (Kỳvọng)
+Cho 𝑋là biến ngẫu nhiên rời rạc có hàm khối xác suất
+𝑝𝑋(𝑥) = 𝑃(𝑋= 𝑥). Nếu tổng dưới đây hội tụtuyệt đối, kỳvọng của 𝑋,
+ký hiệu 𝐸(𝑋), được định nghĩa bởi
+𝐸(𝑋) = ∑
+𝑥
+𝑥𝑝𝑋(𝑥).
+Kỳvọng là trung bình có trọng số; trọng sốlà xác suất tương ứng. Kỳ
+vọng không nhất thiết là giá trịbiến ngẫu nhiên có thểnhận.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+5/94
+
+==================== TRANG 6 / 94 ====================
+Kỳvọng và phương sai
+Ví dụ1
+Hai sản phẩm được kiểm tra độc lập, mỗi sản phẩm đạt chuẩn với xác
+suất 0.8. Gọi 𝑋là sốsản phẩm đạt chuẩn.
+𝑥
+0
+1
+2
+𝑝𝑋(𝑥)
+0.04
+0.32
+0.64
+𝐸(𝑋) = 0(0.04) + 1(0.32) + 2(0.64) = 1.6.
+Nếu lặp lại phép thửnhiều lần trong cùng điều kiện, sốsản phẩm đạt
+chuẩn trung bình trên mỗi cặp sẽtiến gần 1.6; không có cặp cụthểnào có
+1.6 sản phẩm đạt chuẩn.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+6/94
+
+==================== TRANG 7 / 94 ====================
+Kỳvọng và phương sai
+Tính chất của kỳvọng
+Giảsửcác kỳvọng đang xét hữu hạn; 𝑎, 𝑏, 𝑐là các hằng số.
+Tính chất
+Công thức
+Kỳvọng của hằng số
+𝐸(𝑐) = 𝑐
+Nhân với hằng số
+𝐸(𝑎𝑋) = 𝑎𝐸(𝑋)
+Tính cộng của kỳvọng
+𝐸(𝑋+ 𝑌) = 𝐸(𝑋) + 𝐸(𝑌)
+Tính tuyến tính của kỳvọng
+𝐸(𝑎𝑋+ 𝑏𝑌) = 𝑎𝐸(𝑋) + 𝑏𝐸(𝑌)
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+7/94
+
+==================== TRANG 8 / 94 ====================
+Kỳvọng và phương sai
+Ví dụ2
+Một cơ sởkiểm tra hai sản phẩm độc lập. Mỗi sản phẩm đạt chuẩn với
+xác suất 0.8. Gọi 𝑋là sốsản phẩm đạt chuẩn trong hai sản phẩm; biết
+rằng 𝐸(𝑋) = 1.6.
+Chi phí xửlý một cặp sản phẩm gồm 50 nghìn đồng cốđịnh và 20 nghìn
+đồng cho mỗi sản phẩm đạt chuẩn. Gọi 𝐶là chi phí xửlý một cặp sản
+phẩm, tính bằng nghìn đồng.
+1 Viết 𝐶theo 𝑋.
+2 Tính và diễn giải kỳvọng của chi phí xửlý một cặp sản phẩm.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+8/94
+
+==================== TRANG 9 / 94 ====================
+Kỳvọng và phương sai
+Ví dụ2 — Lời giải
+Chi phí xửlý là 𝐶= 50 + 20𝑋nghìn đồng.
+Theo tính tuyến tính của kỳvọng,
+𝐸(𝐶) = 50 + 20𝐸(𝑋) = 50 + 20(1.6) = 82 nghìn đồng.
+Nếu xửlý nhiều cặp sản phẩm trong cùng điều kiện, chi phí trung bình
+mỗi cặp tiến gần 82 nghìn đồng. Không phải cặp sản phẩm nào cũng có
+chi phí đúng bằng 82 nghìn đồng.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+9/94
+
+==================== TRANG 10 / 94 ====================
+Kỳvọng và phương sai
+Kỳvọng của một hàm của biến ngẫu nhiên
+Nếu 𝑋là biến ngẫu nhiên rời rạc và 𝑌= 𝑔(𝑋), thì
+𝐸[𝑔(𝑋)] = ∑
+𝑥
+𝑔(𝑥)𝑃(𝑋= 𝑥),
+khi kỳvọng đang xét hữu hạn.
+Ta biến đổi giá trịcủa biến ngẫu nhiên, giữnguyên xác suất gắn với mỗi
+giá trịban đầu.
+Đặc biệt, 𝐸(𝑋2) = ∑𝑥𝑥2𝑃(𝑋= 𝑥).
+Nói chung, 𝐸[𝑔(𝑋)] ≠𝑔(𝐸(𝑋)).
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+10/94
+
+==================== TRANG 11 / 94 ====================
+Kỳvọng và phương sai
+Ví dụ3
+An mời hai người bạn đến ăn bánh. Mỗi người độc lập tung một đồng xu
+cân đối đểquyết định có đến hay không. Chiếc bánh được chia đều cho An
+và những người có mặt.
+Gọi 𝑋là phần bánh An nhận được:
+không ai đến: 𝑋= 1;
+một người đến: 𝑋= 1/2;
+cảhai người đến: 𝑋= 1/3.
+Tính 𝐸(𝑋) và so sánh với 1/𝐸(𝑁+ 1), trong đó 𝑁là sốngười bạn đến.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+11/94
+
+==================== TRANG 12 / 94 ====================
+Kỳvọng và phương sai
+Ví dụ3 — Đáp án
+𝑁
+0
+1
+2
+𝑃(𝑁= 𝑛)
+1/4
+1/2
+1/4
+Vì 𝑋= 1/(𝑁+ 1),
+𝐸(𝑋) = 1 (1
+4) + 1
+2 (1
+2) + 1
+3 (1
+4) = 7
+12.
+Trong khi đó, 1/𝐸(𝑁+ 1) = 1/2. Nói chung 𝐸[𝑔(𝑁)] ≠𝑔(𝐸(𝑁)).
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+12/94
+
+==================== TRANG 13 / 94 ====================
+Kỳvọng và phương sai
+Kỳvọng của các phân phối rời rạc đặc biệt
+Phân phối của biến ngẫu nhiên 𝑋
+Kỳvọng 𝐸(𝑋)
+Bernoulli, xác suất thành công 𝑝
+𝑝
+Nhịthức, 𝑛phép thửđộc lập, xác suất thành công 𝑝
+𝑛𝑝
+Siêu bội, lấy 𝑛phần tửtừ𝑁phần tử, có 𝐾phần tử
+thành công
+𝑛𝐾/𝑁
+Poisson, sốlần xuất hiện kỳvọng 𝜆
+𝜆
+Đây là các phân phối đã học ởtuần 6. Các tham sốphải thỏa điều kiện
+của từng mô hình.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+13/94
+
+==================== TRANG 14 / 94 ====================
+Kỳvọng và phương sai
+Phương sai và độlệch chuẩn
+Định nghĩa (Phương sai)
+Cho 𝑋có kỳvọng 𝜇= 𝐸(𝑋). Phương sai của 𝑋, ký hiệu Var(𝑋), được
+định nghĩa bởi
+Var(𝑋) = 𝐸[(𝑋−𝜇)2].
+Phương sai đo mức độphân tán của các giá trịcủa 𝑋quanh kỳvọng 𝜇.
+Căn bậc hai của Var(𝑋) được gọi là độlệch chuẩn của 𝑋:
+𝑆𝐷(𝑋) = √Var(𝑋)
+Phương sai có đơn vịbình phương; độlệch chuẩn có cùng đơn vịvới biến
+ngẫu nhiên. Giảsửphương sai hữu hạn.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+14/94
+
+==================== TRANG 15 / 94 ====================
+Kỳvọng và phương sai
+Ví dụ4
+Hai sản phẩm được kiểm tra độc lập; mỗi sản phẩm đạt chuẩn với xác
+suất 0.8. Gọi 𝑋là sốsản phẩm đạt chuẩn. Ta có 𝐸(𝑋) = 1.6 và bảng
+phân phối:
+𝑥
+0
+1
+2
+𝑃(𝑋= 𝑥)
+0.04
+0.32
+0.64
+Theo định nghĩa phương sai,
+Var(𝑋) = (0 −1.6)2(0.04) + (1 −1.6)2(0.32) + (2 −1.6)2(0.64) = 0.32.
+Độlệch chuẩn là SD(𝑋) =
+√
+0.32 ≈0.566 sản phẩm.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+15/94
+
+==================== TRANG 16 / 94 ====================
+Kỳvọng và phương sai
+Công thức tính phương sai
+Định lý (Công thức rút gọn)
+Nếu kỳvọng của 𝑋2 hữu hạn thì
+Var(𝑋) = 𝐸(𝑋2) −[𝐸(𝑋)]2.
+Trong ví dụhai sản phẩm, 𝐸(𝑋) = 1.6 và
+𝐸(𝑋2) = 02(0.04) + 12(0.32) + 22(0.64) = 2.88, nên
+Var(𝑋) = 2.88 −1.62 = 0.32,
+SD(𝑋) =
+√
+0.32 ≈0.566.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+16/94
+
+==================== TRANG 17 / 94 ====================
+Kỳvọng và phương sai
+Tính chất của phương sai và độlệch chuẩn
+Giảsửcác phương sai hữu hạn; 𝑎, 𝑏, 𝑐là các hằng số.
+Tính chất
+Công thức
+Phương sai của hằng số
+Var(𝑐) = 0
+Cộng hằng số
+Var(𝑋+ 𝑏) = Var(𝑋)
+Nhân và cộng hằng số
+Var(𝑎𝑋+ 𝑏) = 𝑎2 Var(𝑋)
+Độlệch chuẩn sau biến đổi
+SD(𝑎𝑋+ 𝑏) = |𝑎| SD(𝑋)
+Tổng hoặc hiệu hai biến độc lập
+Var(𝑋± 𝑌) = Var(𝑋) + Var(𝑌)
+Hai biến ngẫu nhiên 𝑋, 𝑌độc lập nếu, với mọi tập giá trịthích hợp 𝐴, 𝐵,
+𝑃(𝑋∈𝐴, 𝑌∈𝐵) = 𝑃(𝑋∈𝐴)𝑃(𝑌∈𝐵).
+Trực giác: biết giá trịcủa biến này không cung cấp thêm thông tin về
+phân phối của biến kia.
+Độlệch chuẩn không có tính cộng.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+17/94
+
+==================== TRANG 18 / 94 ====================
+Kỳvọng và phương sai
+Ví dụ5
+Nhiệt độ𝑋tính theo độCelsius có 𝐸(𝑋) = 25 và SD(𝑋) = 3. Nhiệt độ
+theo độFahrenheit là
+𝑌= 1.8𝑋+ 32.
+Tính kỳvọng 𝐸(𝑌), phương sai Var(𝑌) và độlệch chuẩn SD(𝑌) của
+nhiệt độtheo độF.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+18/94
+
+==================== TRANG 19 / 94 ====================
+Kỳvọng và phương sai
+Ví dụ5 — Đáp án
+𝐸(𝑌) = 1.8(25) + 32 = 77∘F.
+Var(𝑌) = 1.82 Var(𝑋) = 3.24(9) = 29.16 (∘F)2.
+SD(𝑌) = 1.8 SD(𝑋) = 5.4∘F.
+Phép cộng 32 dịch chuyển trung tâm nhưng không thay đổi độphân tán.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+19/94
+
+==================== TRANG 20 / 94 ====================
+Kỳvọng và phương sai
+Phương sai của các phân phối rời rạc đặc biệt
+Phân phối của biến ngẫu nhiên
+𝑋
+Phương sai Var(𝑋)
+Bernoulli(𝑝)
+𝑝(1 −𝑝)
+Nhịthức(𝑛, 𝑝)
+𝑛𝑝(1 −𝑝)
+Poisson(𝜆)
+𝜆
+Siêu bội(𝑁, 𝐾, 𝑛), đặt
+𝑝= 𝐾/𝑁, 𝑁> 1
+𝑛𝑝(1 −𝑝)𝑁−𝑛
+𝑁−1
+Với phân phối siêu bội, 𝑁là sốphần tửtổng thể, 𝐾là sốphần tửthành
+công và 𝑛là sốphần tửlấy không hoàn lại.
+Độlệch chuẩn bằng căn bậc hai của phương sai.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+20/94
+
+==================== TRANG 21 / 94 ====================
+Các biến ngẫu nhiên độc lập cùng phân phối
+Phần 2
+Các biến ngẫu nhiên độc lập cùng phân phối
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+21/94
+
+==================== TRANG 22 / 94 ====================
+Các biến ngẫu nhiên độc lập cùng phân phối
+Các biến ngẫu nhiên độc lập và cùng phân phối
+Các biến ngẫu nhiên 𝑋1, … , 𝑋𝑛được gọi là độc lập và cùng phân phối
+khi:
+Độc lập: thông tin vềcác biến còn lại không làm thay đổi phân phối
+xác suất của một biến.
+Cùng phân phối: tất cảcác biến có cùng hàm khối xác suất và cùng
+hàm phân phối tích lũy, tức cùng quy luật xác suất.
+Ký hiệu i.i.d. (independent and identically distributed) chỉcác biến
+ngẫu nhiên độc lập và cùng phân phối.
+Ví dụ: tung một đồng xu 𝑛lần. Mỗi lần tung có thểđược biểu diễn bằng
+một biến ngẫu nhiên Bernoulli; tổng của 𝑛biến Bernoulli độc lập và cùng
+phân phối là sốlần xuất hiện mặt ngửa.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+22/94
+
+==================== TRANG 23 / 94 ====================
+Các biến ngẫu nhiên độc lập cùng phân phối
+Mô hình chiếc hộp
+Mô hình chiếc hộp biểu diễn một phép thửbằng việc rút ngẫu nhiên một
+lá thăm có ghi số.
+Sốtrên lá thăm là giá trịcủa biến ngẫu nhiên.
+Mỗi lá có cùng xác suất được rút; nhiều lá có thểghi cùng một số.
+Rút độc lập, có hoàn lại từcùng một hộp tạo ra các biến ngẫu nhiên
+độc lập và cùng phân phối.
+Kỳvọng của một lần rút là trung bình các sốtrong hộp. Phương sai là
+trung bình bình phương độlệch của các sốso với trung bình hộp.
+Mô hình hộp hữu hạn biểu diễn chính xác các phân phối hữu hạn có xác
+suất là bội của một đơn vịchung. Với các phân phối khác, có thểdùng
+các thẻmang trọng sốhoặc dùng mô hình hộp đểxấp xỉ.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+23/94
+
+==================== TRANG 24 / 94 ====================
+Các biến ngẫu nhiên độc lập cùng phân phối
+Ví dụ6
+Phép thử: Gieo một cặp xúc xắc và cộng sốchấm.
+Quy vềmô hình hộp: Xét hộp với các lá thăm 1, 2, 3, 4, 5, 6.
+𝑋1: kết quảcủa việc rút ngẫu nhiên một lá thăm từhộp này. 𝑋1 có phân
+phối đều rời rạc.
+Đểbiểu diễn tổng sốchấm của một cặp xúc xắc, ta rút hai lần có hoàn lại
+từhộp này. Gọi kết quảcủa hai lần rút lần lượt là 𝑋1 và 𝑋2. Khi đó, 𝑋1
+và 𝑋2 độc lập và cùng phân phối.
+Tổng 𝑆= 𝑋1 + 𝑋2.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+24/94
+
+==================== TRANG 25 / 94 ====================
+Các biến ngẫu nhiên độc lập cùng phân phối
+Tổng và trung bình của các biến ngẫu nhiên
+Cho 𝑋1, … , 𝑋𝑛độc lập và cùng phân phối, mỗi biến có kỳvọng 𝜇và
+phương sai hữu hạn 𝜎2.
+Tổng: 𝑆𝑛= 𝑋1 + ⋯+ 𝑋𝑛.
+Trung bình: 𝑋𝑛= (𝑋1 + ⋯+ 𝑋𝑛)/𝑛.
+Đại lượng
+Kỳvọng
+Phương sai
+Độlệch chuẩn
+Tổng 𝑆𝑛
+𝑛𝜇
+𝑛𝜎2
+𝜎√𝑛
+Trung bình 𝑋𝑛
+𝜇
+𝜎2/𝑛
+𝜎/√𝑛
+Các công thức này đúng với mọi sốnguyên 𝑛≥1, không cần xấp xỉchuẩn.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+25/94
+
+==================== TRANG 26 / 94 ====================
+Các biến ngẫu nhiên độc lập cùng phân phối
+Độlệch chuẩn thay đổi theo cỡmẫu như thếnào?
+Tính cộng của kỳvọng và tính cộng phương sai của các biến độc lập cho:
+𝐸(𝑆𝑛) =
+𝑛
+∑
+𝑖=1
+𝐸(𝑋𝑖) = 𝑛𝜇,
+Var(𝑆𝑛) =
+𝑛
+∑
+𝑖=1
+Var(𝑋𝑖) = 𝑛𝜎2.
+Vì 𝑋𝑛= 𝑆𝑛/𝑛,
+Var(𝑋𝑛) = 1
+𝑛2 Var(𝑆𝑛) = 𝜎2
+𝑛.
+Lấy căn bậc hai: độlệch chuẩn của tổng tăng theo √𝑛, còn độlệch chuẩn
+của trung bình giảm theo √𝑛.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+26/94
+
+==================== TRANG 27 / 94 ====================
+Các biến ngẫu nhiên độc lập cùng phân phối
+Ví dụ7
+Một hộp có 10 lá thăm ghi các số
+0, 0, 1, 1, 1, 2, 3, 3, 4, 4.
+Rút ngẫu nhiên một lá, mỗi lá có xác suất được chọn bằng 1/10. Gọi 𝑋là
+sốtrên lá được rút.
+1 Lập bảng phân phối xác suất của 𝑋.
+2 Tính kỳvọng, phương sai và độlệch chuẩn của 𝑋.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+27/94
+
+==================== TRANG 28 / 94 ====================
+Các biến ngẫu nhiên độc lập cùng phân phối
+Ví dụ7 — Lời giải
+𝑥
+0
+1
+2
+3
+4
+𝑃(𝑋= 𝑥)
+0.2
+0.3
+0.1
+0.2
+0.2
+𝐸(𝑋) = 0(0.2) + 1(0.3) + 2(0.1) + 3(0.2) + 4(0.2) = 1.9.
+𝐸(𝑋2) = 0 + 0.3 + 0.4 + 1.8 + 3.2 = 5.7.
+Var(𝑋) = 5.7 −1.92 = 2.09.
+SD(𝑋) =
+√
+2.09 ≈1.4457.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+28/94
+
+==================== TRANG 29 / 94 ====================
+Các biến ngẫu nhiên độc lập cùng phân phối
+Ví dụ8
+Hộp có các lá thăm 0, 0, 1, 1, 1, 2, 3, 3, 4, 4. Rút ngẫu nhiên độc lập 𝑛lần
+có hoàn lại; mỗi lá có cùng xác suất được chọn ởmỗi lần. Gọi 𝑆𝑛là tổng
+các sốrút được và 𝑋𝑛= 𝑆𝑛/𝑛là trung bình của chúng.
+Biết rằng một lần rút có kỳvọng 𝜇= 1.9 và phương sai 𝜎2 = 2.09.
+1 Tính kỳvọng và độlệch chuẩn của 𝑆𝑛và 𝑋𝑛khi 𝑛= 25.
+2 Nếu tăng sốlần rút lên 𝑛= 100, các kết quảtrên thay đổi như thế
+nào?
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+29/94
+
+==================== TRANG 30 / 94 ====================
+Các biến ngẫu nhiên độc lập cùng phân phối
+Ví dụ8 — Lời giải
+Đại lượng
+𝑛= 25
+𝑛= 100
+Kỳvọng của tổng
+47.5
+190
+Độlệch chuẩn của
+tổng
+√25(2.09) ≈7.228
+√100(2.09) ≈14.457
+Kỳvọng của trung
+bình
+1.9
+1.9
+Độlệch chuẩn của
+trung bình
+√2.09/25 ≈0.289
+√2.09/100 ≈0.145
+Sốlần rút tăng gấp 4: độlệch chuẩn của tổng tăng gấp 2, độlệch chuẩn
+của trung bình giảm một nửa.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+30/94
+
+==================== TRANG 31 / 94 ====================
+Các biến ngẫu nhiên độc lập cùng phân phối
+Python — Mô phỏng tổng và trung bình
+Rút có hoàn lại 25 thẻtừhộp của Ví dụ8, lặp độc lập 5000 lần. Mỗi hàng
+của mau là một mẫu gồm 25 lần rút.
+import numpy as np
+bo_sinh = np.random.default_rng(2026)
+hop = np.array([0, 0, 1, 1, 1, 2, 3, 3, 4, 4])
+mau = bo_sinh.choice(hop, size=(5000, 25))
+tong = mau.sum(axis=1)
+trung_binh = mau.mean(axis=1)
+print(np.round([tong.mean(), trung_binh.mean()], 3))
+[47.409
+1.896]
+axis=1 tính theo từng hàng. Hai kết quảlần lượt ước lượng kỳvọng của
+tổng và của trung bình: 47.5 và 1.9.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+31/94
+
+==================== TRANG 32 / 94 ====================
+Các biến ngẫu nhiên độc lập cùng phân phối
+Python — Cỡmẫu và độlệch chuẩn
+Tiếp tục dùng hộp thẻởslide trước. Với mỗi cỡmẫu, std() tính độlệch
+chuẩn của 5000 kết quảmô phỏng.
+print("n
+SD(tong)
+SD(trung binh)")
+for n in [25, 100]:
+mau = bo_sinh.choice(hop, size=(5000, n))
+tong = mau.sum(axis=1)
+trung_binh = mau.mean(axis=1)
+print(n, np.round([tong.std(), trung_binh.std()], 3))
+n
+SD(tong)
+SD(trung binh)
+25 [7.203 0.288]
+100 [14.386
+0.144]
+Khi cỡmẫu tăng gấp 4, độlệch chuẩn của tổng tăng khoảng 2 lần; độ
+lệch chuẩn của trung bình giảm còn khoảng một nửa.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+32/94
+
+==================== TRANG 33 / 94 ====================
+Bất đẳng thức Chebyshev và luật sốlớn yếu
+Phần 3
+Bất đẳng thức Chebyshev và luật sốlớn yếu
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+33/94
+
+==================== TRANG 34 / 94 ====================
+Bất đẳng thức Chebyshev và luật sốlớn yếu
+Bất đẳng thức Chebyshev
+Định lý (Bất đẳng thức Chebyshev)
+Cho biến ngẫu nhiên 𝑋có kỳvọng 𝜇và phương sai hữu hạn 𝜎2. Với mọi
+𝜀> 0,
+𝑃(|𝑋−𝜇| ≥𝜀) ≤𝜎2
+𝜀2 .
+𝜀là mức sai lệch cho trước. Bất đẳng thức cho một cận trên của xác
+suất sai lệch.
+Với trung bình của 𝑛biến độc lập và cùng phân phối,
+𝑃(|𝑋𝑛−𝜇| ≥𝜀) ≤𝜎2
+𝑛𝜀2 .
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+34/94
+
+==================== TRANG 35 / 94 ====================
+Bất đẳng thức Chebyshev và luật sốlớn yếu
+Ví dụ9
+Một nhà máy cần theo dõi nhiệt độthật 𝜇của lò sấy. Mỗi phép đo là
+không chệch, nghĩa là giá trịđo có kỳvọng bằng 𝜇. Các phép đo độc lập,
+cùng phân phối và có độlệch chuẩn 1∘C.
+Nhà máy lấy trung bình cộng của 𝑛kết quảđo. Dùng bất đẳng thức
+Chebyshev đểtìm sốlần đo đủbảo đảm xác suất trung bình này sai khác
+nhiệt độthật không quá 0.2∘C đạt ít nhất 99%.
+Không giảsửcác phép đo có phân phối chuẩn.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+35/94
+
+==================== TRANG 36 / 94 ====================
+Bất đẳng thức Chebyshev và luật sốlớn yếu
+Ví dụ9 — Đáp án
+Gọi 𝑋𝑖là kết quảlần đo thứ𝑖và 𝑋𝑛là trung bình 𝑛lần đo. Ta có
+𝜎2 = 1.
+𝑃(|𝑋𝑛−𝜇| > 0.2) ≤
+1
+𝑛(0.2)2 = 25
+𝑛.
+Đểcận trên này không vượt 0.01, cần
+25
+𝑛≤0.01
+⇒
+𝑛≥2500.
+Vậy 2500 lần đo là đủtheo BĐT Chebyshev. Đây không nhất thiết là số
+lần đo tối thiểu cho phân phối thực tế.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+36/94
+
+==================== TRANG 37 / 94 ====================
+Bất đẳng thức Chebyshev và luật sốlớn yếu
+Luật sốlớn yếu
+Định lý (Luật sốlớn yếu)
+Cho 𝑋1, 𝑋2, … độc lập và cùng phân phối, có kỳvọng 𝜇và
+𝐸(|𝑋1|) < ∞. Đặt 𝑋𝑛= (𝑋1 + ⋯+ 𝑋𝑛)/𝑛. Với mọi 𝜀> 0,
+𝑃(|𝑋𝑛−𝜇| > 𝜀) ⟶0
+khi 𝑛⟶∞.
+Xác suất trung bình mẫu sai khác kỳvọng quá một mức cho trước tiến về
+0. Đây là hội tụtheo xác suất.
+Khi phương sai hữu hạn, BĐT Chebyshev giải thích kết quảvì
+𝜎2/(𝑛𝜀2) →0. Luật sốlớn yếu không đòi hỏi phương sai hữu hạn.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+37/94
+
+==================== TRANG 38 / 94 ====================
+Bất đẳng thức Chebyshev và luật sốlớn yếu
+Minh họa luật sốlớn yếu
+Tung độc lập một đồng xu có xác suất ngửa 0.7. Ghi 1 khi ngửa và 0 khi
+sấp; trung bình tích lũy chính là tỷlệmặt ngửa.
+Đây là một lần mô phỏng, không phải chứng minh. Tỷlệkhông nhất thiết
+tiến gần 0.7 một cách đơn điệu.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+38/94
+
+==================== TRANG 39 / 94 ====================
+Bất đẳng thức Chebyshev và luật sốlớn yếu
+Ví dụ10
+Sau 10 lần tung đồng xu cân đối đều ra sấp, luật sốlớn có đảm bảo lần
+thứ11 sẽra ngửa không? Tỷlệmặt ngửa có buộc tăng đều về0.5 không?
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+39/94
+
+==================== TRANG 40 / 94 ====================
+Bất đẳng thức Chebyshev và luật sốlớn yếu
+Ví dụ10 — Đáp án
+Không. Nếu các lần tung độc lập thì xác suất ngửa ởlần 11 vẫn là 0.5.
+Tỷlệtích lũy có thểtăng hoặc giảm; luật sốlớn chỉkhẳng định sựhội tụ
+khi sốphép thửtiến tới vô hạn, không khẳng định hội tụđơn điệu.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+40/94
+
+==================== TRANG 41 / 94 ====================
+Biến ngẫu nhiên liên tục
+Phần 4
+Biến ngẫu nhiên liên tục
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+41/94
+
+==================== TRANG 42 / 94 ====================
+Biến ngẫu nhiên liên tục
+Hàm mật độxác suất
+Định nghĩa (Hàm mật độxác suất)
+Hàm 𝑓𝑋được gọi là hàm mật độxác suất của biến ngẫu nhiên liên tục 𝑋
+nếu
+𝑓𝑋(𝑥) ≥0 với mọi 𝑥;
+∫
+∞
+−∞
+𝑓𝑋(𝑥) 𝑑𝑥= 1;
+với mọi 𝑎< 𝑏, 𝑃(𝑎< 𝑋≤𝑏) = ∫
+𝑏
+𝑎
+𝑓𝑋(𝑥) 𝑑𝑥.
+Với biến ngẫu nhiên liên tục có hàm mật độ𝑓,
+𝑃(𝑎< 𝑋< 𝑏) = ∫
+𝑏
+𝑎
+𝑓(𝑥) 𝑑𝑥.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+42/94
+
+==================== TRANG 43 / 94 ====================
+Biến ngẫu nhiên liên tục
+Ví dụ11
+Xét hàm số𝑓được xác định trên toàn bộtrục sốnhư sau:
+𝑓(𝑥) = {2,
+0 < 𝑥< 0.5,
+0,
+ngược lại.
+Đây có phải là một hàm mật độhợp lệkhông?
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+43/94
+
+==================== TRANG 44 / 94 ====================
+Biến ngẫu nhiên liên tục
+Ví dụ11 — Đáp án
+Hàm không âm và
+∫
+0.5
+0
+2 𝑑𝑥= 1,
+nên đây là một hàm mật độhợp lệ.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+44/94
+
+==================== TRANG 45 / 94 ====================
+Biến ngẫu nhiên liên tục
+Hàm phân phối tích lũy
+Định nghĩa (Hàm phân phối tích lũy)
+Với mọi biến ngẫu nhiên 𝑋, hàm phân phối tích lũy được định nghĩa bởi
+𝐹𝑋(𝑥) = 𝑃(𝑋≤𝑥).
+Nếu 𝑋có hàm mật độ𝑓𝑋, thì
+𝐹𝑋(𝑥) = ∫
+𝑥
+−∞
+𝑓𝑋(𝑡) 𝑑𝑡.
+Với biến ngẫu nhiên có hàm mật độ:
+𝑃(𝑎< 𝑋< 𝑏) = 𝐹(𝑏) −𝐹(𝑎).
+𝑃(𝑋= 𝑎) = 0.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+45/94
+
+==================== TRANG 46 / 94 ====================
+Biến ngẫu nhiên liên tục
+Ví dụ12
+Cho biến ngẫu nhiên 𝑋có hàm mật độ
+𝑓(𝑥) = {2𝑥,
+0 < 𝑥< 1,
+0,
+ngược lại.
+1 Tìm hàm phân phối tích lũy 𝐹𝑋(𝑥) trên toàn bộtrục số.
+2 Tính 𝑃(0.2 < 𝑋< 0.6).
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+46/94
+
+==================== TRANG 47 / 94 ====================
+Biến ngẫu nhiên liên tục
+Ví dụ12 — Lời giải
+𝐹𝑋(𝑥) =
+⎧
+{
+⎨
+{
+⎩
+0,
+𝑥≤0,
+𝑥2,
+0 < 𝑥< 1,
+1,
+𝑥≥1.
+Do đó
+𝑃(0.2 < 𝑋< 0.6) = 0.62 −0.22 = 0.32.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+47/94
+
+==================== TRANG 48 / 94 ====================
+Biến ngẫu nhiên liên tục
+Kỳvọng và phương sai của biến ngẫu nhiên liên tục
+Cho 𝑋có hàm mật độxác suất 𝑓𝑋. Giảsửcác tích phân dưới đây hữu
+hạn.
+Kỳvọng:
+𝜇= 𝐸(𝑋) = ∫
+∞
+−∞
+𝑥𝑓𝑋(𝑥) 𝑑𝑥.
+Phương sai:
+Var(𝑋) = ∫
+∞
+−∞
+(𝑥−𝜇)2𝑓𝑋(𝑥) 𝑑𝑥.
+Ta vẫn có Var(𝑋) = 𝐸(𝑋2) −[𝐸(𝑋)]2, với
+𝐸(𝑋2) = ∫
+∞
+−∞
+𝑥2𝑓𝑋(𝑥) 𝑑𝑥.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+48/94
+
+==================== TRANG 49 / 94 ====================
+Biến ngẫu nhiên liên tục
+Ví dụ13
+Cho biến ngẫu nhiên liên tục 𝑋có hàm mật độ𝑓(𝑥) = 2𝑥khi 0 < 𝑥< 1
+và 𝑓(𝑥) = 0 ngoài khoảng này. Ta tính kỳvọng và phương sai của 𝑋như
+sau:
+𝐸(𝑋) = ∫
+1
+0
+2𝑥2 𝑑𝑥= 2
+3,
+𝐸(𝑋2) = ∫
+1
+0
+2𝑥3 𝑑𝑥= 1
+2.
+Vì vậy
+Var(𝑋) = 1
+2 −4
+9 = 1
+18.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+49/94
+
+==================== TRANG 50 / 94 ====================
+Các phân phối liên tục đặc biệt
+Phần 5
+Các phân phối liên tục đặc biệt
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+50/94
+
+==================== TRANG 51 / 94 ====================
+Các phân phối liên tục đặc biệt
+Phân phối đều trên một khoảng
+Định nghĩa (Phân phối đều)
+Cho 𝑎, 𝑏∈ℝ, 𝑎< 𝑏. Biến 𝑋có phân phối đều trên (𝑎, 𝑏), ký hiệu
+𝑋∼𝑈(𝑎, 𝑏), nếu có mật độ
+𝑓𝑋(𝑥) =
+⎧
+{
+⎨
+{
+⎩
+1
+𝑏−𝑎,
+𝑎< 𝑥< 𝑏,
+0,
+ngược lại.
+𝐸(𝑋) = 𝑎+ 𝑏
+2
+,
+Var(𝑋) = (𝑏−𝑎)2
+12
+.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+51/94
+
+==================== TRANG 52 / 94 ====================
+Các phân phối liên tục đặc biệt
+Hình dạng của phân phối đều
+Mật độkhông đổi trên toàn bộkhoảng (0, 10).
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+52/94
+
+==================== TRANG 53 / 94 ====================
+Các phân phối liên tục đặc biệt
+Ví dụ14
+Giảsửthời điểm xe buýt đến bến được mô hình hóa là phân phối đều
+trong 10 phút tiếp theo. Đặt 𝑋là sốphút phải chờ, 𝑋∼𝑈(0, 10).
+Xác suất phải chờtừ2 đến 5 phút là
+𝑃(2 < 𝑋< 5) = 5 −2
+10
+= 0.3.
+Thời gian chờkỳvọng là
+𝐸(𝑋) = 5 phút.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+53/94
+
+==================== TRANG 54 / 94 ====================
+Các phân phối liên tục đặc biệt
+Phân phối chuẩn
+Định nghĩa (Phân phối chuẩn)
+Cho 𝜇∈ℝ, 𝜎> 0. Biến 𝑋có phân phối chuẩn 𝒩(𝜇, 𝜎2) nếu hàm mật độ
+có dạng
+𝑓𝑋(𝑥) =
+1
+𝜎
+√
+2𝜋
+exp[−(𝑥−𝜇)2
+2𝜎2
+] ,
+𝑥∈ℝ.
+𝐸(𝑋) = 𝜇,
+Var(𝑋) = 𝜎2.
+Trường hợp 𝜇= 0, 𝜎= 1 được gọi là phân phối chuẩn tắc, ký hiệu
+𝒩(0, 1).
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+54/94
+
+==================== TRANG 55 / 94 ====================
+Các phân phối liên tục đặc biệt
+Hình dạng của phân phối chuẩn
+Đường cong có dạng chuông và đối xứng quanh trung bình.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+55/94
+
+==================== TRANG 56 / 94 ====================
+Các phân phối liên tục đặc biệt
+Chuẩn tắc hóa phân phối chuẩn
+Proposition (Chuẩn tắc hoá)
+Nếu 𝑋∼𝒩(𝜇, 𝜎2) với 𝜎> 0, thì
+𝑍= 𝑋−𝜇
+𝜎
+∼𝒩(0, 1).
+Do đó, với mọi 𝑥∈ℝ,
+𝑃(𝑋≤𝑥) = Φ(𝑥−𝜇
+𝜎
+) .
+Với
+Φ(𝑧) = 𝑃(𝑍≤𝑧) = ∫
+𝑧
+−∞
+1
+√
+2𝜋
+𝑒−𝑡2/2 𝑑𝑡,
+𝑧∈ℝ.
+Giá trịΦ(𝑧) là diện tích dưới đường cong chuẩn tắc ởbên trái 𝑧.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+56/94
+
+==================== TRANG 57 / 94 ====================
+Các phân phối liên tục đặc biệt
+Ví dụ15
+Trong một kỳthi, điểm sốcó phân phối chuẩn với trung bình 70 và độlệch
+chuẩn 8. Một sinh viên đạt 86 điểm. Điểm chuẩn tắc hoá của sinh viên là
+𝑧= 86 −70
+8
+= 2.
+Điểm sốnày cao hơn trung bình 2 độlệch chuẩn.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+57/94
+
+==================== TRANG 58 / 94 ====================
+Các phân phối liên tục đặc biệt
+Quy tắc thực nghiệm (68–95–99.7)
+Với phân phối chuẩn, xác suất một quan sát nằm cách kỳvọng không quá
+một, hai hoặc ba độlệch chuẩn lần lượt xấp xỉ68%, 95% và 99.7%:
+𝑃(𝜇−𝜎< 𝑋< 𝜇+ 𝜎) ≈0.68,
+𝑃(𝜇−2𝜎< 𝑋< 𝜇+ 2𝜎) ≈0.95,
+𝑃(𝜇−3𝜎< 𝑋< 𝜇+ 3𝜎) ≈0.997.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+58/94
+
+==================== TRANG 59 / 94 ====================
+Các phân phối liên tục đặc biệt
+Ví dụ16
+Gọi 𝑋là dung tích một chai, tính bằng ml. Giảsử𝑋có phân phối chuẩn
+với kỳvọng 500 ml và độlệch chuẩn 2 ml, tức 𝑋∼𝒩(500, 22). Áp dụng
+quy tắc thực nghiệm:
+Khoảng [498, 502] chứa xấp xỉ68% sản phẩm.
+Khoảng [496, 504] chứa xấp xỉ95% sản phẩm.
+Xác suất chai có dung tích trên 504 ml xấp xỉ2.5%.
+Mô hình chuẩn chỉhợp lý khi quá trình ổn định và phân phối thực tếgần
+đối xứng.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+59/94
+
+==================== TRANG 60 / 94 ====================
+Các phân phối liên tục đặc biệt
+Phân vịcủa phân phối chuẩn
+Phân vịmức 𝑝là ngưỡng 𝑞𝑝sao cho xác suất biến ngẫu nhiên không
+vượt ngưỡng đó bằng 𝑝:
+𝑃(𝑋≤𝑞𝑝) = 𝑝,
+0 < 𝑝< 1.
+Với 𝑋∼𝒩(𝜇, 𝜎2),
+𝑞𝑝= 𝜇+ 𝜎Φ−1(𝑝).
+Φ là hàm phân phối tích lũy của phân phối chuẩn tắc; Φ−1(𝑝) là phân vị
+mức 𝑝của phân phối chuẩn tắc.
+Ví dụ, phân vịmức 0.95 chia diện tích dưới đường cong thành 95% bên
+trái và 5% bên phải.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+60/94
+
+==================== TRANG 61 / 94 ====================
+Các phân phối liên tục đặc biệt
+Ví dụ17
+Dung tích một chai được mô hình hóa bằng phân phối chuẩn với trung
+bình 500 ml và độlệch chuẩn 2 ml. Gọi 𝑋là dung tích chai.
+Dùng Python đểtính:
+1 𝑃(𝑋≤503) và 𝑃(𝑋> 503).
+2 𝑃(498 < 𝑋< 502).
+3 Mức dung tích 𝑞0.95 sao cho 𝑃(𝑋≤𝑞0.95) = 0.95.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+61/94
+
+==================== TRANG 62 / 94 ====================
+Các phân phối liên tục đặc biệt
+Ví dụ17 — Lời giải bằng Python
+from scipy.stats import norm
+print(round(norm.cdf(503, loc=500, scale=2), 4))
+print(round(norm.sf(503, loc=500, scale=2), 4))
+p = norm.cdf(502, 500, 2) - norm.cdf(498, 500, 2)
+print(round(p, 4))
+print(round(norm.ppf(0.95, loc=500, scale=2), 3))
+0.9332
+0.0668
+0.6827
+503.29
+loc=500 là trung bình; scale=2 là độlệch chuẩn, không phải phương sai.
+Phân vịcuối có đơn vịml.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+62/94
+
+==================== TRANG 63 / 94 ====================
+Các phân phối liên tục đặc biệt
+Giới thiệu phân phối mũ
+Biến ngẫu nhiên 𝑋có phân phối mũ với tham sốtốc độ𝜆> 0, ký hiệu
+𝑋∼Exp(𝜆), khi có hàm mật độ:
+𝑓𝑋(𝑥) = {𝜆𝑒−𝜆𝑥,
+𝑥≥0,
+0,
+𝑥< 0.
+Phân phối lệch phải, dùng đểmô hình hóa một sốthời gian chờ. Kỳvọng
+𝐸(𝑋) = 1/𝜆.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+63/94
+
+==================== TRANG 64 / 94 ====================
+Các phân phối liên tục đặc biệt
+Ví dụ18
+Giảsửthời gian chờtừlúc bắt đầu theo dõi đến khi hệthống nhận được
+yêu cầu mới có phân phối mũ, với thời gian chờtrung bình là 2 phút. Gọi
+𝑋là thời gian chờ, tính bằng phút.
+1 Xác định tham sốtốc độ𝜆của phân phối.
+2 Tính xác suất phải chờhơn 3 phút mới nhận được yêu cầu mới.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+64/94
+
+==================== TRANG 65 / 94 ====================
+Các phân phối liên tục đặc biệt
+Ví dụ18 — Lời giải
+Vì 𝐸(𝑋) = 1/𝜆= 2, nên 𝜆= 0.5 mỗi phút.
+Xác suất phải chờhơn 3 phút là diện tích dưới đường cong mật độtừ3
+đến vô hạn:
+𝑃(𝑋> 3) = ∫
+∞
+3
+0.5𝑒−0.5𝑥𝑑𝑥= 𝑒−1.5 ≈0.2231.
+Theo mô hình, khoảng 22.31% các lần theo dõi phải chờhơn 3 phút.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+65/94
+
+==================== TRANG 66 / 94 ====================
+Các phân phối liên tục đặc biệt
+Giới thiệu phân phối 𝜒2 (khi bình phương)
+Phân phối 𝜒2 (khi bình phương) với 𝜈bậc tựdo, ký hiệu 𝜒2
+𝜈, có hàm mật độ
+𝑓(𝑥) = 𝑥𝜈/2−1𝑒−𝑥/2
+2𝜈/2Γ(𝜈/2) (𝑥> 0);
+𝑓(𝑥) = 0 (𝑥< 0).
+𝜈quyết định hình dạng; phân phối nhận giá trịkhông âm và lệch phải.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+66/94
+
+==================== TRANG 67 / 94 ====================
+Các phân phối liên tục đặc biệt
+Giới thiệu phân phối 𝑡Student
+Phân phối 𝑡Student với 𝜈bậc tựdo, ký hiệu 𝑡𝜈, có hàm mật độ
+𝑓(𝑥) = Γ((𝜈+ 1)/2)
+√𝜈𝜋Γ(𝜈/2) (1 + 𝑥2
+𝜈)
+−(𝜈+1)/2
+,
+𝑥∈ℝ.
+Phân phối đối xứng quanh 0, đuôi dày hơn chuẩn và tiến gần chuẩn khi 𝜈tăng.
+𝜈là sốbậc tựdo; Γ là hàm Gamma.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+67/94
+
+==================== TRANG 68 / 94 ====================
+Định lý giới hạn trung tâm
+Phần 6
+Định lý giới hạn trung tâm
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+68/94
+
+==================== TRANG 69 / 94 ====================
+Định lý giới hạn trung tâm
+Định lý giới hạn trung tâm
+Định lý (Định lý giới hạn trung tâm)
+Cho 𝑋1, 𝑋2, … độc lập và cùng phân phối, với 𝐸(𝑋𝑖) = 𝜇và
+0 < Var(𝑋𝑖) = 𝜎2 < ∞. Khi 𝑛→∞,
+𝑍𝑛= 𝑆𝑛−𝑛𝜇
+𝜎√𝑛
+= 𝑋𝑛−𝜇
+𝜎/√𝑛
+hội tụtheo phân phối vềphân phối chuẩn tắc:
+𝑍𝑛
+𝑑−→𝒩(0, 1).
+Với cỡmẫu đủlớn đểxấp xỉphù hợp,
+𝑆𝑛≈𝒩(𝑛𝜇, 𝑛𝜎2),
+𝑋𝑛≈𝒩(𝜇, 𝜎2/𝑛).
+Nghĩa là phân phối của tổng hoặc trung bình sau khi chuẩn tắc hoá càng
+gần phân phối chuẩn tắc khi cỡmẫu tăng.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+69/94
+
+==================== TRANG 70 / 94 ====================
+Định lý giới hạn trung tâm
+Ví dụ19
+Từhộp có các lá thăm 0, 0, 1, 1, 1, 2, 3, 3, 4, 4, rút ngẫu nhiên độc lập có
+hoàn lại đểtạo một mẫu gồm 𝑛giá trị. Tính tổng và trung bình của mẫu.
+Lặp độc lập toàn bộquy trình 5000 lần.
+Thực hiện với 𝑛= 25 và 𝑛= 100.
+1 So sánh hình dạng, tâm và độphân tán của hai phân phối tổng mẫu.
+2 So sánh hình dạng, tâm và độphân tán của hai phân phối trung bình
+mẫu.
+3 Giải thích vai trò của các số25, 100 và 5000 trong mô phỏng.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+70/94
+
+==================== TRANG 71 / 94 ====================
+Định lý giới hạn trung tâm
+Phân phối của tổng mẫu từhộp thẻ
+Tổng mẫu có phân phối gần hình chuông. Trong ví dụnày, 𝐸(𝑆𝑛) = 1.9𝑛
+và SD(𝑆𝑛) =
+√
+2.09𝑛, nên khi 𝑛tăng từ25 lên 100, cảtâm và độlệch
+chuẩn của phân phối tổng đều tăng.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+71/94
+
+==================== TRANG 72 / 94 ====================
+Định lý giới hạn trung tâm
+Phân phối của trung bình mẫu từhộp thẻ
+Hai phân phối có cùng tâm 1.9; trung bình mẫu gồm 100 lần rút có độ
+lệch chuẩn bằng một nửa so với 25 lần rút.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+72/94
+
+==================== TRANG 73 / 94 ====================
+Định lý giới hạn trung tâm
+Cỡmẫu và sốlần lặp mô phỏng
+Trong ví dụhộp thẻ:
+Cỡmẫu 𝑛= 25 hoặc 100: sốlần rút đểtính một tổng hoặc một
+trung bình. Cỡmẫu quyết định phương sai của thống kê và ảnh
+hưởng chất lượng xấp xỉchuẩn.
+Sốlần lặp 5000: sốtổng hoặc trung bình thu được đểvẽhistogram.
+Tăng sốlần lặp giúp mô tảphân phối thực nghiệm rõ hơn, không
+thay đổi cỡmẫu.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+73/94
+
+==================== TRANG 74 / 94 ====================
+Định lý giới hạn trung tâm
+Python — Định lý giới hạn trung tâm
+Thời gian chờ𝑋có phân phối mũ, kỳvọng 5 phút và độlệch chuẩn 5
+phút. Với mỗi 𝑛, tạo 5000 mẫu độc lập rồi vẽphân phối của trung bình đã
+chuẩn tắc hoá 𝑍𝑛.
+import matplotlib.pyplot as plt
+bo_sinh = np.random.default_rng(2026)
+fig_clt, axes = plt.subplots(2, 2, figsize=(7, 3.2))
+for ax, n in zip(axes.flat, [1, 5, 30, 100]):
+mau = bo_sinh.exponential(5, size=(5000, n))
+z = (mau.mean(axis=1) - 5) / (5 / np.sqrt(n))
+ax.hist(z, bins=40, density=True)
+x = np.linspace(-4, 4, 200)
+ax.plot(x, np.exp(-x*x/2)/np.sqrt(2*np.pi))
+ax.set(title=f"n = {n}", xlim=(-4, 4))
+fig_clt.tight_layout()
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+74/94
+
+==================== TRANG 75 / 94 ====================
+Định lý giới hạn trung tâm
+Mô phỏng — Từphân phối mũ đến dạng gần chuẩn
+Cột biểu diễn mật độmô phỏng của 𝑍𝑛; đường cong là mật độcủa phân
+phối chuẩn tắc 𝑁(0, 1). Khi 𝑛tăng, hình dạng bớt lệch và gần đường
+cong chuẩn hơn.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+75/94
+
+==================== TRANG 76 / 94 ====================
+Định lý giới hạn trung tâm
+Ví dụ20
+Thời gian xửlý một yêu cầu có trung bình 12 phút và độlệch chuẩn 6
+phút; phân phối cá thểlệch phải. Chọn ngẫu nhiên 64 yêu cầu độc lập.
+1 Xấp xỉphân phối của trung bình mẫu.
+2 Tính xác suất trung bình mẫu vượt 13.5 phút.
+3 Nêu điều kiện quan trọng của phép xấp xỉ.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+76/94
+
+==================== TRANG 77 / 94 ====================
+Định lý giới hạn trung tâm
+Ví dụ20 — Lời giải
+Theo định lý giới hạn trung tâm,
+𝑋≈𝒩(12, 62
+64) ,
+SD(𝑋) = 0.75.
+𝑃(𝑋> 13.5) ≈𝑃(𝑍> 13.5 −12
+0.75
+) = 𝑃(𝑍> 2) ≈0.0228.
+Các quan sát độc lập, cùng phân phối và có phương sai hữu hạn, dương.
+Chất lượng xấp xỉcòn phụthuộc dạng phân phối gốc.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+77/94
+
+==================== TRANG 78 / 94 ====================
+Bài tập vận dụng
+Phần 7
+Bài tập vận dụng
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+78/94
+
+==================== TRANG 79 / 94 ====================
+Bài tập vận dụng
+Bài tập 1
+Dung lượng của một USB được khách hàng mua là biến ngẫu nhiên 𝑋, đo
+bằng GB. Phân phối dung lượng bán ra tại cửa hàng như sau:
+𝑥(GB)
+1
+2
+4
+8
+16
+𝑝𝑋(𝑥)
+0.05
+0.10
+0.35
+0.40
+0.10
+1 Tính 𝐸(𝑋) và 𝐸(𝑋2).
+2 Tính phương sai trực tiếp từđịnh nghĩa.
+3 Kiểm tra bằng công thức Var(𝑋) = 𝐸(𝑋2) −[𝐸(𝑋)]2.
+4 Tính độlệch chuẩn và ghi đúng đơn vị.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+79/94
+
+==================== TRANG 80 / 94 ====================
+Bài tập vận dụng
+Bài tập 1 — Đáp án
+𝐸(𝑋) = 1(0.05) + 2(0.10) + 4(0.35) + 8(0.40) + 16(0.10) = 6.45.
+𝐸(𝑋2) = 0.05 + 0.40 + 5.60 + 25.60 + 25.60 = 57.25.
+Theo định nghĩa, với 𝜇= 6.45:
+Var(𝑋) = ∑
+𝑥
+(𝑥−6.45)2𝑝𝑋(𝑥) = 15.6475.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+80/94
+
+==================== TRANG 81 / 94 ====================
+Bài tập vận dụng
+Bài tập 1 — Đáp án
+Kiểm tra phương sai bằng công thức rút gọn:
+57.25 −6.452 = 15.6475 GB2.
+SD(𝑋) =
+√
+15.6475 ≈3.9557 GB.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+81/94
+
+==================== TRANG 82 / 94 ====================
+Bài tập vận dụng
+Bài tập 2
+Biến ngẫu nhiên liên tục 𝑋nhận giá trịtrong đoạn [0, 𝑏], với 𝑏> 0. Hàm
+phân phối tích lũy của 𝑋được cho bởi
+𝐹𝑋(𝑥) =
+⎧
+{
+⎨
+{
+⎩
+0,
+𝑥< 0,
+𝑥2/9,
+0 ≤𝑥≤𝑏,
+1,
+𝑥> 𝑏.
+1 Xác định giá trịcủa 𝑏.
+2 Tìm hàm mật độxác suất của 𝑋trên toàn bộtrục số.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+82/94
+
+==================== TRANG 83 / 94 ====================
+Bài tập vận dụng
+Bài tập 2 — Đáp án
+Vì 𝑋liên tục, hàm phân phối tích lũy liên tục tại 𝑏. Do đó
+𝑏2
+9 = 1,
+𝑏> 0
+⇒
+𝑏= 3.
+Lấy đạo hàm của hàm phân phối tích lũy trên từng khoảng:
+𝑓𝑋(𝑥) = {2𝑥/9,
+0 < 𝑥< 3,
+0,
+ngược lại.
+Giá trịmật độtại hai đầu mút không làm thay đổi xác suất.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+83/94
+
+==================== TRANG 84 / 94 ====================
+Bài tập vận dụng
+Bài tập 3
+Khối lượng của người Việt Nam có phân phối chuẩn, trung bình là 65 kg
+với độlệch chuẩn là 5 kg. Giảsửkhối lượng của những người được chọn
+độc lập với nhau. Một thang máy chởtối đa 10 người và có tải trọng 700
+kg. Tính xác suất để10 người được chọn ngẫu nhiên cùng đi vào thang
+máy mà thang không bịquá tải.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+84/94
+
+==================== TRANG 85 / 94 ====================
+Bài tập vận dụng
+Bài tập 3 — Đáp án
+Gọi 𝑋𝑖là khối lượng người thứ𝑖và 𝑆10 = 𝑋1 + ⋯+ 𝑋10. Khi đó
+𝑆10 ∼𝒩(650, 250),
+và
+𝑃(𝑆10 ≤700) = Φ(700 −650
+5
+√
+10
+) ≈Φ(3.1623) ≈0.9992.
+Theo mô hình, xác suất thang máy không bịquá tải xấp xỉ99.92%.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+85/94
+
+==================== TRANG 86 / 94 ====================
+Bài tập vận dụng
+Bài tập 4
+Gọi 𝑋là khoảng cách từnơi ởđến trường của một sinh viên được chọn
+ngẫu nhiên. Giảsử𝑋có phân phối mũ với kỳvọng 5 km. Khoảng cách
+của các sinh viên được chọn được giảsửđộc lập và cùng phân phối.
+1 Tính xác suất một sinh viên ởcách trường hơn 10 km.
+2 Chọn ngẫu nhiên 100 sinh viên. Dùng định lý giới hạn trung tâm để
+tính gần đúng xác suất tổng khoảng cách từnơi ởđến trường của họ
+không quá 300 km.
+3 Tính gần đúng xác suất khoảng cách trung bình của 100 sinh viên
+nằm trong khoảng (4.9; 5.2) km.
+4 Tính chính xác xác suất khoảng cách của một sinh viên nằm trong
+khoảng (4.9; 5.2) km.
+5 Tính gần đúng xác suất khoảng cách trung bình của 36 sinh viên nằm
+trong khoảng (4.9; 5.2) km.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+86/94
+
+==================== TRANG 87 / 94 ====================
+Bài tập vận dụng
+Bài tập 4 — Đáp án
+Vì 𝐸(𝑋) = 5 và SD(𝑋) = 5, tham sốtốc độlà 𝜆= 1/5.
+1 𝑃(𝑋> 10) = 𝑒−10/5 = 𝑒−2 ≈0.1353.
+2 Với 𝑆100 = ∑
+100
+𝑖=1 𝑋𝑖, định lý giới hạn trung tâm cho
+𝑆100 ≈𝒩(500, 2500). Do đó
+𝑃(𝑆100 ≤300) ≈Φ(−4) ≈0.00003.
+3 SD(𝑋100) = 0.5, nên
+𝑃(4.9 < 𝑋100 < 5.2) ≈Φ(0.4) −Φ(−0.2) ≈0.2347.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+87/94
+
+==================== TRANG 88 / 94 ====================
+Bài tập vận dụng
+Bài tập 4 — Đáp án
+4 Với một sinh viên, dùng trực tiếp hàm phân phối mũ:
+𝑃(4.9 < 𝑋< 5.2) = 𝑒−4.9/5 −𝑒−5.2/5 ≈0.0219.
+5 SD(𝑋36) = 5/6, nên
+𝑃(4.9 < 𝑋36 < 5.2) ≈Φ(0.24) −Φ(−0.12) ≈0.1426.
+Hai câu 3 và 5 có cùng khoảng cần xét nhưng cho kết quảkhác nhau vì
+độlệch chuẩn của trung bình mẫu phụthuộc cỡmẫu.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+88/94
+
+==================== TRANG 89 / 94 ====================
+Bài tập vận dụng
+Bài tập 5
+Một hệthống cần một linh kiện thiết yếu đểhoạt động. Khi linh kiện
+hỏng, nó được thay ngay lập tức; bỏqua thời gian thay và giảsửhệthống
+không hỏng vì nguyên nhân khác.
+Tuổi thọcác linh kiện độc lập, cùng phân phối, có trung bình 100 giờvà
+độlệch chuẩn 30 giờ.
+Dùng định lý giới hạn trung tâm đểước tính sốlinh kiện cần có sao cho
+xác suất hệthống hoạt động liên tục trong ít nhất 2000 giờđạt ít nhất
+95%. Sốlượng này tính cảlinh kiện lắp ban đầu.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+89/94
+
+==================== TRANG 90 / 94 ====================
+Bài tập vận dụng
+Bài tập 5 — Đáp án
+Gọi 𝑋𝑖là tuổi thọlinh kiện thứ𝑖và 𝑆𝑛= 𝑋1 + ⋯+ 𝑋𝑛. Tổng thời gian
+hệthống có thểhoạt động là 𝑆𝑛.
+𝐸(𝑆𝑛) = 100𝑛,
+SD(𝑆𝑛) = 30√𝑛.
+Theo định lý giới hạn trung tâm, 𝑆𝑛≈𝒩(100𝑛, 900𝑛), nên
+𝑃(𝑆𝑛≥2000) ≈Φ(100𝑛−2000
+30√𝑛
+) .
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+90/94
+
+==================== TRANG 91 / 94 ====================
+Bài tập vận dụng
+Bài tập 5 — Chọn sốlượng
+Yêu cầu xấp xỉtương đương
+100𝑛−2000
+30√𝑛
+≥1.64485.
+Đặt 𝑢= √𝑛> 0, giải 100𝑢2 −49.3455𝑢−2000 ≥0, rồi kiểm tra các số
+nguyên gần ngưỡng:
+Sốlinh kiện 𝑛
+Xác suất xấp xỉ
+22
+0.9224
+23
+0.9815
+Chọn 23 linh kiện, gồm 1 linh kiện ban đầu và 22 dựphòng. Đây là ước
+tính theo định lý giới hạn trung tâm, không phải bảo đảm cho mọi phân
+phối tuổi thọ.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+91/94
+
+==================== TRANG 92 / 94 ====================
+Tổng kết
+Phần 8
+Tổng kết
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+92/94
+
+==================== TRANG 93 / 94 ====================
+Tổng kết
+Tóm tắt nội dung Tuần 07
+Kỳvọng mô tảtrung tâm; phương sai và độlệch chuẩn mô tảsự
+phân tán quanh kỳvọng.
+Với các biến độc lập và cùng phân phối, tổng có độlệch chuẩn
+𝜎√𝑛; trung bình mẫu có độlệch chuẩn 𝜎/√𝑛.
+Bất đẳng thức Chebyshev cho biết một cận trên cho xác suất sai
+lệch; luật sốlớn yếu giải thích sựổn định của trung bình mẫu.
+Với biến liên tục, hàm mật độxác suất cho xác suất bằng diện tích;
+hàm phân phối tích lũy cho 𝑃(𝑋≤𝑥).
+Định lý giới hạn trung tâm cho phép xấp xỉphân phối của tổng và
+trung bình.
+Nhận diện điều kiện áp dụng và tham sốcủa các phân phối đều,
+chuẩn, mũ, 𝜒2 và 𝑡Student.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+93/94
+
+==================== TRANG 94 / 94 ====================
+Tổng kết
+Chuẩn bịcho buổi tiếp theo
+Buổi 8: kiểm tra giữa kỳvà giải đáp câu hỏi vềđềthi.
+Ôn các kiến thức đã học vềdữliệu, thống kê mô tả, xác suất và biến
+ngẫu nhiên.
+Ôn cách nhận diện mô hình, tính xác suất, kỳvọng, phương sai và độ
+lệch chuẩn.
+Làm các bài tựluyện trong tài liệu bổsung; ghi lại câu hỏi cần trao
+đổi.
+Sau buổi kiểm tra giữa kỳ, buổi 9 chuyển sang từmẫu đến tổng thểvà
+khoảng tin cậy.
+UET.MAT1052
+Tuần 07 — Khái quát dữliệu (3/7)
+94/94
