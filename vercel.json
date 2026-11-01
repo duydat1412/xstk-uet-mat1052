@@ -1,11 +1,9 @@
 {
-  "version": 2,
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/", "destination": "/site/index.html" },
-    { "source": "/hoc", "destination": "/site/hoc.html" },
-    { "source": "/tuluan", "destination": "/site/tuluan.html" },
-    { "source": "/tracnghiem", "destination": "/site/tracnghiem.html" },
-    { "source": "/congthuc", "destination": "/site/congthuc.html" }
+  "redirects": [
+    { "source": "/", "destination": "/site/index.html", "permanent": false },
+    { "source": "/hoc", "destination": "/site/hoc.html", "permanent": false },
+    { "source": "/tuluan", "destination": "/site/tuluan.html", "permanent": false },
+    { "source": "/tracnghiem", "destination": "/site/tracnghiem.html", "permanent": false },
+    { "source": "/congthuc", "destination": "/site/congthuc.html", "permanent": false }
   ]
 }
