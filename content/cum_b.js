@@ -95,6 +95,47 @@ const CUM_B = [
         good: "Tiên đề cộng $P(A \\cup B) = P(A) + P(B)$ CHỈ ĐƯỢC PHÉP DÙNG khi $A$ và $B$ không có phần tử chung ($A \\cap B = \\emptyset$)!"
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Tiên đề xác suất nào sau đây thuộc 3 tiên đề nền tảng của Kolmogorov?",
+            "opts": [
+                  "$P(A \\cap B) = P(A)P(B)$ với mọi biến cố",
+                  "$0 \\le P(A) \\le 1$ với mọi biến cố $A$ và $P(S) = 1$",
+                  "$P(A) = 0 \\iff A = \\emptyset$",
+                  "$P(A \\cup B) = P(A) + P(B)$ với mọi cặp biến cố bất kỳ"
+            ],
+            "ans": 1,
+            "fb": "Chính xác! 3 tiên đề Kolmogorov gồm: Tính không âm ($P(A) \\ge 0$), Tính chuẩn hóa ($P(S) = 1$), và Tính cộng vô hạn cho các biến cố xung khắc."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Tung đồng thời hai con xúc xắc cân đối 6 mặt. Số phần tử của không gian mẫu $S$ là:",
+            "opts": [
+                  "$36$",
+                  "$12$",
+                  "$24$",
+                  "$6$"
+            ],
+            "ans": 0,
+            "fb": "Đúng! Theo quy tắc nhân, mỗi con xúc xắc có 6 kết quả $\\implies |S| = 6 \\times 6 = 36$ kết quả đồng khả năng."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Một biến cố $A$ có xác suất $P(A) = 0$. Khẳng định nào sau đây là chính xác nhất trong giải tích xác suất hiện đại?",
+            "opts": [
+                  "Biến cố đối $\\bar{A}$ có xác suất bằng 0",
+                  "$A$ độc lập với chính nó nhưng không độc lập với không gian mẫu",
+                  "$A$ là biến cố không thể xảy ra (đối với không gian rời rạc hữu hạn), nhưng trong không gian liên tục $A$ vẫn có thể xảy ra",
+                  "$A$ bắt buộc phải là tập rỗng $A = \\emptyset$"
+            ],
+            "ans": 2,
+            "fb": "Chính xác! Trong không gian xác suất liên tục (như chọn một số thực ngẫu nhiên trên $[0, 1]$), xác suất chọn trúng điểm $0{,}5$ là $0$, nhưng điểm này hoàn toàn thuộc không gian mẫu."
+      }
+],
     final_quiz: {
       q: "Điều kiện bắt buộc để áp dụng tiên đề cộng $P(A \\cup B) = P(A) + P(B)$ là gì?",
       opts: [
@@ -184,6 +225,47 @@ const CUM_B = [
         good: "Biến cố đối của 'Tất cả đều đạt' là 'Có ít nhất một người không đạt' (chứ không phải tất cả đều trượt)!"
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Công thức cộng xác suất cho hai biến cố $A$ và $B$ bất kỳ là:",
+            "opts": [
+                  "$P(A \\cup B) = P(A) + P(B) + P(A \\cap B)$",
+                  "$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$",
+                  "$P(A \\cup B) = P(A) P(B)$",
+                  "$P(A \\cup B) = P(A) + P(B)$"
+            ],
+            "ans": 1,
+            "fb": "Chính xác! Phần giao $A \\cap B$ được tính hai lần (trong $P(A)$ và trong $P(B)$) nên phải trừ đi 1 lần."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Cho $P(A) = 0{,}6$, $P(B) = 0{,}7$ và $P(A \\cap B) = 0{,}4$. Xác suất để ít nhất một trong hai biến cố xảy ra là:",
+            "opts": [
+                  "$0{,}30$",
+                  "$1{,}30$",
+                  "$0{,}42$",
+                  "$0{,}90$"
+            ],
+            "ans": 3,
+            "fb": "Đúng! $P(A \\cup B) = 0{,}6 + 0{,}7 - 0{,}4 = 0{,}90$."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Cho hai biến cố $A$ và $B$ có $P(A) = 0{,}7$ và $P(B) = 0{,}8$. Bất đẳng thức Bonferroni khẳng định xác suất đồng thời $P(A \\cap B)$ phải thỏa mãn:",
+            "opts": [
+                  "$P(A \\cap B) = 0{,}56$",
+                  "$P(A \\cap B) \\ge 0{,}50$",
+                  "$P(A \\cap B) \\le 0{,}50$",
+                  "$P(A \\cap B) \\ge 0{,}70$"
+            ],
+            "ans": 1,
+            "fb": "Chính xác! Vì $P(A \\cup B) \\le 1 \\implies P(A \\cap B) = P(A) + P(B) - P(A \\cup B) \\ge 0{,}7 + 0{,}8 - 1 = 0{,}50$."
+      }
+],
     final_quiz: {
       q: "Cho hai biến cố A và B có P(A) = 0,5; P(B) = 0,4 và P(A ∩ B) = 0,2. Xác suất P(A ∪ B) bằng bao nhiêu?",
       opts: [
@@ -269,6 +351,47 @@ const CUM_B = [
         good: "Đã rút không hoàn lại thì mỗi bước số phần tử trong hộp phải giảm đi 1: từ 5 xuống 4, rồi xuống 3!"
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Công thức định nghĩa xác suất có điều kiện $P(A \\mid B)$ là:",
+            "opts": [
+                  "$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$ với điều kiện $P(B) > 0$",
+                  "$P(A \\mid B) = \\frac{P(B \\mid A)}{P(B)}$",
+                  "$P(A \\mid B) = \\frac{P(A)}{P(B)}$",
+                  "$P(A \\mid B) = P(A) P(B)$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Xác suất của $A$ khi biết $B$ đã xảy ra thu hẹp không gian mẫu về tập $B$."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Một hộp có 5 bi trắng và 3 bi đen. Rút lần lượt 2 viên bi không hoàn lại. Xác suất viên thứ nhất trắng VÀ viên thứ hai đen là:",
+            "opts": [
+                  "$\\frac{3}{8}$",
+                  "$\\frac{5}{8} \\times \\frac{3}{8} = \\frac{15}{64} \\approx 0{,}2344$",
+                  "$\\frac{5}{8} \\times \\frac{3}{7} = \\frac{15}{56} \\approx 0{,}2679$",
+                  "$\\frac{5}{8} + \\frac{3}{7} \\approx 1{,}0536$"
+            ],
+            "ans": 2,
+            "fb": "Đúng! Theo quy tắc nhân: $P(T_1 \\cap Đ_2) = P(T_1) P(Đ_2 \\mid T_1) = \\frac{5}{8} \\times \\frac{3}{7} = \\frac{15}{56}$."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Một bệnh hiếm gặp có tỷ lệ mắc $P(D) = 0{,}001$. Xét nghiệm có độ nhạy $P(+ \\mid D) = 0{,}99$ và tỷ lệ dương tính giả $P(+ \\mid \\bar{D}) = 0{,}05$. Khi một người nhận kết quả dương tính, xác suất người đó thực sự mắc bệnh xấp xỉ là:",
+            "opts": [
+                  "$50\\%$",
+                  "$99\\%$",
+                  "$94\\%$",
+                  "$1{,}94\\%$"
+            ],
+            "ans": 3,
+            "fb": "Chính xác! Áp dụng Bayes: $P(+ ) = 0{,}001(0{,}99) + 0{,}999(0{,}05) = 0{,}00099 + 0{,}04995 = 0{,}05094$. Suy ra $P(D \\mid +) = 0{,}00099 / 0{,}05094 \\approx 0{,}0194 = 1{,}94\\%$ (Bẫy kinh điển: tỷ lệ nền bệnh quá thấp!)."
+      }
+],
     final_quiz: {
       q: "Hộp có 5 quả cầu gồm 2 đỏ và 3 xanh. Rút liên tiếp 2 quả không hoàn lại. Xác suất để quả thứ nhất màu đỏ VÀ quả thứ hai màu đỏ là:",
       opts: [
@@ -361,6 +484,47 @@ const CUM_B = [
         good: "Không liên quan trong đời thực nghĩa là ĐỘC LẬP, không phải xung khắc!"
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Khẳng định nào sau đây định nghĩa chính xác hai biến cố $A$ và $B$ độc lập thống kê?",
+            "opts": [
+                  "$P(A \\cup B) = P(A) + P(B)$",
+                  "$A \\cap B = \\emptyset$",
+                  "$P(A \\cap B) = P(A) P(B)$",
+                  "$P(A \\mid B) = 0$"
+            ],
+            "ans": 2,
+            "fb": "Chính xác! Độc lập là một thuộc tính thông tin: biến cố này xảy ra không làm thay đổi xác suất biến cố kia."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Cho hai biến cố $A$ và $B$ độc lập có $P(A) = 0{,}4$ và $P(B) = 0{,}5$. Xác suất $P(A \\cup B)$ bằng:",
+            "opts": [
+                  "$0{,}20$",
+                  "$0{,}90$",
+                  "$0{,}50$",
+                  "$0{,}70$"
+            ],
+            "ans": 3,
+            "fb": "Đúng! $P(A \\cap B) = 0{,}4 \\times 0{,}5 = 0{,}20$. Áp dụng công thức cộng: $P(A \\cup B) = 0{,}4 + 0{,}5 - 0{,}20 = 0{,}70$."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Giả sử $A$ và $B$ là hai biến cố có $P(A) > 0$ và $P(B) > 0$. Nếu $A$ và $B$ xung khắc ($A \\cap B = \\emptyset$), liệu chúng có thể độc lập với nhau không?",
+            "opts": [
+                  "Có, vì xung khắc nghĩa là chúng không liên quan đến nhau nên độc lập",
+                  "Không bao giờ, vì $P(A \\cap B) = 0$ trong khi $P(A)P(B) > 0$, hai vế không thể bằng nhau",
+                  "Có, nếu $P(A) + P(B) = 1$",
+                  "Chỉ độc lập khi $P(A) = P(B)$"
+            ],
+            "ans": 1,
+            "fb": "Chính xác! Bẫy kinh điển số 4: Xung khắc là phụ thuộc cực đại (nếu $A$ xảy ra thì chắc chắn $B$ không xảy ra, tức $P(B \\mid A) = 0 \\ne P(B)$)."
+      }
+],
     final_quiz: {
       q: "Cho hai biến cố A và B độc lập với nhau, có P(A) = 0,3 và P(B) = 0,5. Xác suất P(A ∩ B) bằng bao nhiêu?",
       opts: [
@@ -449,6 +613,47 @@ const CUM_B = [
         good: "Rút đồng thời chính là mô hình lấy mẫu không hoàn lại, sử dụng công thức tổ hợp tỷ lệ (phân phối siêu bội)."
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Số cách chọn một ban cán sự gồm 1 lớp trưởng, 1 lớp phó và 1 bí thư từ 30 sinh viên là một bài toán:",
+            "opts": [
+                  "Chỉnh hợp không lặp $A_{30}^3$",
+                  "Hoán vị $P_{30}$",
+                  "Chỉnh hợp lặp $30^3$",
+                  "Tổ hợp $C_{30}^3$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Vì 3 chức danh khác nhau nên việc chọn có phân biệt thứ tự/vai trò, đây là bài toán chỉnh hợp."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Có bao nhiêu cách chọn ra 4 sinh viên từ một nhóm 10 sinh viên đi dự hội nghị mà không phân biệt chức vụ?",
+            "opts": [
+                  "$C_{10}^4 = 210$",
+                  "$10^4 = 10000$",
+                  "$40$",
+                  "$A_{10}^4 = 5040$"
+            ],
+            "ans": 0,
+            "fb": "Đúng! Không phân biệt thứ tự là bài toán tổ hợp: $C_{10}^4 = \\frac{10!}{4!6!} = 210$ cách."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Một phòng thi có 23 sinh viên. Xác suất để có ít nhất hai sinh viên có cùng ngày sinh nhật (năm có 365 ngày) là:",
+            "opts": [
+                  "$1 - \\left(\\frac{364}{365}\\right)^{23} \\approx 6{,}1\\%$",
+                  "$\\frac{C_{23}^2}{365} \\approx 69{,}3\\%$",
+                  "$\\frac{23}{365} \\approx 6{,}3\\%$",
+                  "$1 - \\frac{A_{365}^{23}}{365^{23}} \\approx 50{,}7\\%$"
+            ],
+            "ans": 3,
+            "fb": "Chính xác! Nghịch lý ngày sinh (Birthday Paradox): Biến cố đối là mọi người đều có ngày sinh khác nhau, với 23 người xác suất trùng đã vượt 50%!"
+      }
+],
     final_quiz: {
       q: "Chọn ngẫu nhiên 3 người từ một nhóm gồm 10 người (không phân biệt thứ tự hay chức vụ). Có bao nhiêu cách chọn khác nhau?",
       opts: [

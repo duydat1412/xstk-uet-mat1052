@@ -342,6 +342,38 @@ test_assert(abs(phi(1.645) - 0.9500) < 1e-3, f"Phi(1.645) approx 0.9500 (Got {ph
 test_assert(abs(phi(-1.96) - (1.0 - phi(1.96))) < 1e-9, "Phi(-z) == 1 - Phi(z) symmetry holds")
 
 # ----------------------------------------------------------------------
+# SUITE 6: Interactive Learning 3-Level Quizzes & Section Navigation
+# ----------------------------------------------------------------------
+print("\n[SUITE 6] Interactive Learning 3-Level Quizzes & Section Navigation")
+quizzes_3lvl = json.load(open('content/quizzes_3levels.json', encoding='utf-8'))
+test_assert(len(quizzes_3lvl) == 26, f"All 26 lessons have 3-level quiz bank (Found: {len(quizzes_3lvl)})")
+
+lvl_c = {}
+ans_c = {}
+for lid, q_arr in quizzes_3lvl.items():
+    test_assert(len(q_arr) == 3, f"Lesson {lid} has exactly 3 questions (1 per level)")
+    for q in q_arr:
+        lvl = q['level']
+        lvl_c[lvl] = lvl_c.get(lvl, 0) + 1
+        ans_c[q['ans']] = ans_c.get(q['ans'], 0) + 1
+        test_assert(len(q['opts']) == 4, f"Quiz question in {lid} has 4 options")
+        test_assert(0 <= q['ans'] <= 3, f"Quiz question in {lid} has valid answer index")
+        test_assert(len(q['fb']) > 15, f"Quiz question in {lid} has substantive feedback")
+
+test_assert(lvl_c.get('Nhận biết') == 26, "26 Level 1 (Nhận biết) questions verified")
+test_assert(lvl_c.get('Thông hiểu') == 26, "26 Level 2 (Thông hiểu) questions verified")
+test_assert(lvl_c.get('Vận dụng') == 26, "26 Level 3 (Vận dụng / Bẫy) questions verified")
+
+hoc_html = open('site/hoc.html', 'r', encoding='utf-8').read()
+test_assert("const SUB_TABS = ['theory', 'examples', 'pitfalls', 'quiz']" in hoc_html, "Sub-tabs defined in hoc.html")
+test_assert("function prevSection()" in hoc_html, "prevSection navigation defined in hoc.html")
+test_assert("function nextSection()" in hoc_html, "nextSection navigation defined in hoc.html")
+test_assert("function updateNavButtons()" in hoc_html, "Dynamic nav button updater defined in hoc.html")
+test_assert("quiz-level-badge" in hoc_html, "Quiz level badge styles present in hoc.html")
+test_assert("quiz-item-card" in hoc_html, "Quiz item card styles present in hoc.html")
+test_assert("quiz-congrats-box" in hoc_html, "Quiz completion congrats banner present in hoc.html")
+
+# ----------------------------------------------------------------------
 # FINAL SUMMARY
 # ----------------------------------------------------------------------
 print("\n" + "=" * 80)

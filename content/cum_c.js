@@ -86,6 +86,47 @@ const CUM_C = [
         good: "Luôn luôn cộng nhẩm dòng xác suất: nếu không ra đúng 1,00 thì chắc chắn bạn đã lập luận thiếu trường hợp!"
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Hàm khối xác suất (pmf) $p(x) = P(X = x)$ của biến ngẫu nhiên rời rạc bắt buộc phải thỏa mãn:",
+            "opts": [
+                  "$p(x) \\le 1$ và tích phân bằng 1",
+                  "$p(x)$ là hàm liên tục",
+                  "$p(x) \\ge 0$ và $\\sum p(x) = 1$",
+                  "$\\lim_{x \\to \\infty} p(x) = 1$"
+            ],
+            "ans": 2,
+            "fb": "Chính xác! Tổng xác suất trên toàn bộ các giá trị có thể nhận phải bằng 1."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Cho $P(X = 1) = 0{,}3, P(X = 2) = 0{,}5, P(X = 3) = 0{,}2$. Giá trị hàm phân phối tích lũy $F(2) = P(X \\le 2)$ là:",
+            "opts": [
+                  "$0{,}30$",
+                  "$0{,}80$",
+                  "$0{,}50$",
+                  "$1{,}00$"
+            ],
+            "ans": 1,
+            "fb": "Đúng! $F(2) = P(X = 1) + P(X = 2) = 0{,}3 + 0{,}5 = 0{,}80$."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Cho $p(x) = c \\cdot x$ với $x \\in \\{1, 2, 3, 4\\}$. Hằng số $c$ bằng:",
+            "opts": [
+                  "$0{,}10$",
+                  "$1{,}00$",
+                  "$0{,}05$",
+                  "$0{,}25$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! $\\sum_{x=1}^4 c x = c(1 + 2 + 3 + 4) = 10c = 1 \\implies c = 0{,}10$."
+      }
+],
     final_quiz: {
       q: "Cho hàm phân phối tích lũy F(x) có F(1) = 0,3 và F(2) = 0,8. Xác suất để X nhận đúng giá trị bằng 2, tức P(X = 2), bằng bao nhiêu?",
       opts: [
@@ -190,6 +231,47 @@ const CUM_C = [
         good: "Rút không hoàn lại từ tập hữu hạn làm thay đổi xác suất p ở mỗi bước $\\implies$ Bắt buộc phải dùng phân phối SIÊU BỘI, không được dùng nhị thức!"
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Biến ngẫu nhiên $X \\sim \\text{Binomial}(n, p)$ có kỳ vọng và phương sai lần lượt là:",
+            "opts": [
+                  "$E[X] = n/p;\\quad \\text{Var}(X) = n/p^2$",
+                  "$E[X] = np;\\quad \\text{Var}(X) = np(1-p)$",
+                  "$E[X] = np;\\quad \\text{Var}(X) = np$",
+                  "$E[X] = p;\\quad \\text{Var}(X) = p(1-p)$"
+            ],
+            "ans": 1,
+            "fb": "Chính xác! Công thức giải tích của phân phối Nhị thức."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Tung 5 đồng xu cân đối độc lập. Xác suất xuất hiện đúng 2 mặt Ngửa là:",
+            "opts": [
+                  "$2/5 = 0{,}40$",
+                  "$\\binom{5}{2} (0{,}5)^2 = 2{,}5$",
+                  "$\\binom{5}{2} (0{,}5)^5 = 10/32 = 0{,}3125$",
+                  "$(0{,}5)^5 = 0{,}03125$"
+            ],
+            "ans": 2,
+            "fb": "Đúng! $P(X = 2) = \\binom{5}{2} (0{,}5)^2 (0{,}5)^3 = 10 \\times 0{,}03125 = 0{,}3125$."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Xác suất bắn trúng mục tiêu là $0{,}2$. Cần bắn ít nhất bao nhiêu phát để xác suất có ít nhất 1 phát trúng $\\ge 90\\%$?",
+            "opts": [
+                  "$5$ phát",
+                  "$15$ phát",
+                  "$8$ phát",
+                  "$11$ phát"
+            ],
+            "ans": 3,
+            "fb": "Chính xác! $1 - (0{,}8)^n \\ge 0{,}9 \\iff (0{,}8)^n \\le 0{,}1 \\iff n \\ge \\frac{\\ln 0{,}1}{\\ln 0{,}8} \\approx 10{,}32 \\implies n = 11$."
+      }
+],
     final_quiz: {
       q: "Cho biến ngẫu nhiên X có phân phối Nhị thức B(n = 10, p = 0,3). Phương sai Var(X) bằng bao nhiêu?",
       opts: [
@@ -287,6 +369,47 @@ const CUM_C = [
         good: "Luôn kiểm tra: số phần tử rút ra không thể vượt quá số lượng đang có trong hộp (k ≤ M và n - k ≤ N - M)."
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Phân phối Siêu bội (Hypergeometric) được áp dụng trong tình huống nào?",
+            "opts": [
+                  "Rút mẫu ngẫu nhiên CÓ hoàn lại",
+                  "Số biến cố xuất hiện trong một khoảng thời gian liên tục",
+                  "Rút mẫu ngẫu nhiên KHÔNG hoàn lại từ một tập hợp hữu hạn",
+                  "Số lần thử cho đến khi thành công lần đầu"
+            ],
+            "ans": 2,
+            "fb": "Chính xác! Rút không hoàn lại làm xác suất thành công thay đổi qua mỗi lần rút."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Một hộp có 10 sản phẩm (7 tốt, 3 hỏng). Rút không hoàn lại 2 sản phẩm. Kỳ vọng số sản phẩm hỏng rút được là:",
+            "opts": [
+                  "$1{,}0$",
+                  "$0{,}3$",
+                  "$1{,}4$",
+                  "$2 \\times \\frac{3}{10} = 0{,}6$"
+            ],
+            "ans": 3,
+            "fb": "Đúng! Kỳ vọng phân phối Siêu bội $E[X] = n \\frac{M}{N} = 2 \\times \\frac{3}{10} = 0{,}6$."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Khi nào phân phối Siêu bội có thể được xấp xỉ an toàn bằng phân phối Nhị thức?",
+            "opts": [
+                  "Khi cỡ mẫu nhỏ so với quy mô tổng thể ($n / N \\le 0{,}05$)",
+                  "Khi $p = 0{,}5$",
+                  "Khi $N \\le 30$",
+                  "Không bao giờ được xấp xỉ"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Khi tổng thể $N$ rất lớn so với cỡ mẫu $n$, việc rút không hoàn lại làm thay đổi xác suất không đáng kể."
+      }
+],
     final_quiz: {
       q: "Một hộp có 20 quả bóng (8 đỏ, 12 xanh). Rút ngẫu nhiên đồng thời 5 quả bóng và đếm số bóng đỏ. Biến ngẫu nhiên này tuân theo phân phối nào?",
       opts: [
@@ -387,6 +510,47 @@ const CUM_C = [
         good: "Nếu đề cho λ = 4 cuộc/giờ, nhưng hỏi trong 30 phút thì phải đổi λ mới = 4 * 0,5 = 2 cuộc!"
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Đặc trưng nổi bật của biến ngẫu nhiên tuân theo phân phối Poisson($\\lambda$) là:",
+            "opts": [
+                  "Hàm phân phối có dạng đối xứng hoàn hảo",
+                  "Phương sai bằng chính kỳ vọng: $\\text{Var}(X) = E[X] = \\lambda$",
+                  "Phương sai luôn gấp đôi kỳ vọng",
+                  "Giá trị chỉ nhận từ 0 đến $n$"
+            ],
+            "ans": 1,
+            "fb": "Chính xác! Với Poisson, $E[X] = \\lambda$ và $\\text{Var}(X) = \\lambda$."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Trung bình có 2 cuộc gọi tới tổng đài mỗi phút ($X \\sim \\text{Poisson}(2)$). Xác suất không có cuộc gọi nào trong 1 phút là:",
+            "opts": [
+                  "$e^{-2} \\approx 0{,}1353$",
+                  "$2 e^{-2} \\approx 0{,}2707$",
+                  "$0$",
+                  "$1 - e^{-2} \\approx 0{,}8647$"
+            ],
+            "ans": 0,
+            "fb": "Đúng! $P(X = 0) = \\frac{2^0 e^{-2}}{0!} = e^{-2} \\approx 0{,}1353$."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Một trang web có tỷ lệ click quảng cáo $p = 0{,}001$. Trong $n = 5000$ lượt xem, áp dụng xấp xỉ Poisson, tham số $\\lambda$ là:",
+            "opts": [
+                  "$\\lambda = 50$",
+                  "$\\lambda = 5000$",
+                  "$\\lambda = np = 5$",
+                  "$\\lambda = 0{,}5$"
+            ],
+            "ans": 2,
+            "fb": "Chính xác! Quy tắc Poisson xấp xỉ Nhị thức: $\\lambda = np = 5000 \\times 0{,}001 = 5$."
+      }
+],
     final_quiz: {
       q: "Số lượt khách truy cập vào một trang web thương mại điện tử trung bình là 10 lượt mỗi phút. Mô hình phân phối xác suất nào là phù hợp nhất?",
       opts: [
@@ -475,6 +639,47 @@ const CUM_C = [
         good: "E(X^2) và [E(X)]^2 là hai đại lượng hoàn toàn khác nhau. Hiệu của chúng chính là Phương sai!"
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Tính chất tuyến tính của kỳ vọng khẳng định rằng với mọi biến ngẫu nhiên $X, Y$ (dù độc lập hay phụ thuộc):",
+            "opts": [
+                  "$E[1/X] = 1/E[X]$",
+                  "$E[aX + bY + c] = aE[X] + bE[Y] + c$",
+                  "$E[X^2] = (E[X])^2$",
+                  "$E[XY] = E[X]E[Y]$"
+            ],
+            "ans": 1,
+            "fb": "Chính xác! Kỳ vọng luôn có tính tuyến tính không phụ thuộc vào tính độc lập."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Cho $E[X] = 4$. Kỳ vọng của $Y = 3X - 5$ bằng:",
+            "opts": [
+                  "$4$",
+                  "$12$",
+                  "$17$",
+                  "$7$"
+            ],
+            "ans": 3,
+            "fb": "Đúng! $E[Y] = 3(4) - 5 = 12 - 5 = 7$."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Bất đẳng thức Jensen khẳng định rằng với một hàm lồi $g(x) = x^2$, mối quan hệ giữa $E[X^2]$ và $(E[X])^2$ là:",
+            "opts": [
+                  "$E[X^2] \\ge (E[X])^2$, dấu bằng xảy ra khi và chỉ khi $X$ là hằng số",
+                  "$E[X^2] \\le (E[X])^2$",
+                  "$E[X^2] = (E[X])^2$",
+                  "$E[X^2] - (E[X])^2 < 0$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Vì phương sai $\\text{Var}(X) = E[X^2] - (E[X])^2 \\ge 0 \\implies E[X^2] \\ge (E[X])^2$."
+      }
+],
     final_quiz: {
       q: "Cho biến ngẫu nhiên X có E(X) = 4. Tính kỳ vọng E(3X + 2).",
       opts: [
@@ -566,6 +771,47 @@ const CUM_C = [
         good: "Cộng hằng số chỉ làm dịch chuyển đồ thị, không làm dãn dữ liệu nên hằng số b biến mất khỏi phương sai!"
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Phương sai $\\text{Var}(X)$ đo lường đại lượng nào của biến ngẫu nhiên?",
+            "opts": [
+                  "Độ bất đối xứng của phân phối",
+                  "Trung bình cộng các giá trị",
+                  "Giá trị có khả năng xuất hiện nhiều nhất",
+                  "Mức độ phân tán của các giá trị xung quanh giá trị kỳ vọng trung bình"
+            ],
+            "ans": 3,
+            "fb": "Chính xác! $\\text{Var}(X) = E[(X - \\mu)^2]$ đo bình phương khoảng cách phân tán tới tâm."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Cho $\\text{Var}(X) = 5$. Phương sai của $Y = -2X + 10$ bằng:",
+            "opts": [
+                  "$0$",
+                  "$20$",
+                  "$-10$",
+                  "$10$"
+            ],
+            "ans": 1,
+            "fb": "Đúng! $\\text{Var}(-2X + 10) = (-2)^2 \\text{Var}(X) = 4 \\times 5 = 20$ (hằng số biến mất và dấu âm bị bình phương)."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Cho hai biến ngẫu nhiên độc lập $X, Y$ có $\\text{Var}(X) = 9, \\text{Var}(Y) = 16$. Phương sai của hiệu $\\text{Var}(X - Y)$ là:",
+            "opts": [
+                  "$5$",
+                  "$7$",
+                  "$25$",
+                  "$-7$"
+            ],
+            "ans": 2,
+            "fb": "Chính xác! Bẫy kinh điển: Phương sai của hiệu hai biến độc lập là TỔNG phương sai: $\\text{Var}(X - Y) = \\text{Var}(X) + (-1)^2 \\text{Var}(Y) = 9 + 16 = 25$."
+      }
+],
     final_quiz: {
       q: "Cho biến ngẫu nhiên X có Var(X) = 4. Tính phương sai Var(3X + 2).",
       opts: [

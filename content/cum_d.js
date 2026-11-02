@@ -86,6 +86,47 @@ const CUM_D = [
         good: "Phải nhân với tần số xuất hiện của từng lá phiếu (tính trung bình có trọng số)!"
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Các biến ngẫu nhiên $X_1, X_2, \\dots, X_n$ được gọi là i.i.d. nếu chúng thỏa mãn:",
+            "opts": [
+                  "Có tương quan tuyến tính bằng 0",
+                  "Độc lập với nhau và cùng tuân theo một phân phối xác suất chung",
+                  "Có cùng kỳ vọng nhưng phân phối khác nhau",
+                  "Tất cả đều là phân phối chuẩn"
+            ],
+            "ans": 1,
+            "fb": "Chính xác! i.i.d. = independent and identically distributed."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Trong mô hình chiếc hộp (Box Model) chứa 3 vé: $[1, 2, 6]$. Giá trị trung bình của chiếc hộp là:",
+            "opts": [
+                  "$2$",
+                  "$9$",
+                  "$4{,}5$",
+                  "$3$"
+            ],
+            "ans": 3,
+            "fb": "Đúng! $\\mu = \\frac{1 + 2 + 6}{3} = 3$."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Rút $n = 100$ lần có hoàn lại từ một chiếc hộp có $\\mu = 5, \\sigma = 2$. Sai số chuẩn của tổng các vé rút ra là:",
+            "opts": [
+                  "$200$",
+                  "$2$",
+                  "$20$",
+                  "$0{,}2$"
+            ],
+            "ans": 2,
+            "fb": "Chính xác! $\\text{SD}(S_{100}) = \\sqrt{n} \\cdot \\sigma = \\sqrt{100} \\times 2 = 10 \\times 2 = 20$."
+      }
+],
     final_quiz: {
       q: "Điều kiện nào sau đây là BẮT BUỘC để các lần rút từ chiếc hộp được coi là các biến ngẫu nhiên i.i.d.?",
       opts: [
@@ -177,6 +218,47 @@ const CUM_D = [
         good: "Sai số giảm theo √n, nên muốn giảm 2 lần bắt buộc phải tăng gấp 4 lần số người!"
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Theo quy tắc căn bậc hai (Square root law), sai số chuẩn của trung bình mẫu $SE(\\bar{X})$ bằng:",
+            "opts": [
+                  "$\\frac{\\sigma}{\\sqrt{n}}$",
+                  "$\\sigma \\sqrt{n}$",
+                  "$\\frac{\\sigma}{n}$",
+                  "$\\frac{\\sigma^2}{n}$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Độ biến thiên của trung bình mẫu tỷ lệ nghịch với căn bậc hai cỡ mẫu."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Một mẫu gồm $n = 64$ quan sát độc lập từ tổng thể có $\\sigma = 16$. Sai số chuẩn $SE(\\bar{X})$ bằng:",
+            "opts": [
+                  "$1$",
+                  "$0{,}25$",
+                  "$2$",
+                  "$8$"
+            ],
+            "ans": 2,
+            "fb": "Đúng! $SE(\\bar{X}) = 16 / \\sqrt{64} = 16 / 8 = 2$."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Để giảm sai số chuẩn của trung bình mẫu xuống còn một phần ba ($1/3$ lần), ta cần tăng kích thước mẫu $n$ lên:",
+            "opts": [
+                  "$6$ lần",
+                  "$27$ lần",
+                  "$3$ lần",
+                  "$9$ lần"
+            ],
+            "ans": 3,
+            "fb": "Chính xác! Vì $SE \\propto 1/\\sqrt{n}$, muốn $SE$ giảm 3 lần thì $\\sqrt{n}$ phải tăng 3 lần $\\implies n$ tăng $3^2 = 9$ lần."
+      }
+],
     final_quiz: {
       q: "Muốn độ lệch chuẩn của trung bình mẫu giảm đi một nửa (giảm 2 lần), cần tăng cỡ mẫu n lên bao nhiêu lần?",
       opts: [
@@ -262,6 +344,47 @@ const CUM_D = [
         good: "Quy tắc 68–95–99,7 CHỈ ĐƯỢC DÙNG khi đề bài khẳng định là phân phối CHUẨN! Nếu đề ghi 'chưa biết phân phối' thì BẮT BUỘC phải dùng Chebyshev!"
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Bất đẳng thức Chebyshev $P(|X - \\mu| < k\\sigma) \\ge 1 - \\frac{1}{k^2}$ áp dụng được cho:",
+            "opts": [
+                  "MỌI biến ngẫu nhiên có phương sai hữu hạn, không phụ thuộc vào phân phối",
+                  "Chỉ khi $k \\ge 5$",
+                  "Chỉ các biến ngẫu nhiên có phân phối Chuẩn",
+                  "Chỉ các biến ngẫu nhiên rời rạc"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Chebyshev có tính phi tham số tuyệt đối, đúng cho bất kỳ phân phối nào."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Theo Chebyshev, tỷ lệ dữ liệu nằm trong khoảng 2 độ lệch chuẩn quanh trung bình $[\\mu - 2\\sigma, \\mu + 2\\sigma]$ luôn ít nhất là:",
+            "opts": [
+                  "$50\\%$",
+                  "$75\\%$",
+                  "$95\\%$",
+                  "$68\\%$"
+            ],
+            "ans": 1,
+            "fb": "Đúng! $1 - 1/2^2 = 1 - 0{,}25 = 0{,}75 = 75\\%$."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Cho $X$ có $\\mu = 50, \\sigma = 5$. Cận dưới xác suất $P(35 < X < 65)$ là:",
+            "opts": [
+                  "$99\\%$",
+                  "$95\\%$",
+                  "$\\frac{8}{9} \\approx 88{,}89\\%$",
+                  "$75\\%$"
+            ],
+            "ans": 2,
+            "fb": "Chính xác! Khoảng $(35, 65) \\iff |X - 50| < 15 = 3\\sigma \\implies k = 3$. Xác suất $\\ge 1 - 1/3^2 = 8/9 \\approx 88{,}89\\%$."
+      }
+],
     final_quiz: {
       q: "Theo bất đẳng thức Chebyshev, xác suất để biến ngẫu nhiên X sai lệch khỏi kỳ vọng từ 2 độ lệch chuẩn trở lên, P(|X - μ| ≥ 2σ), có cận trên bằng bao nhiêu?",
       opts: [
@@ -355,6 +478,47 @@ const CUM_D = [
         good: "Luật số lớn chỉ khẳng định trung bình tiến về một con số μ; còn CLT cho biết phân phối của trung bình mẫu có dạng đường cong hình chuông Gauss!"
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Luật số lớn yếu (WLLN) khẳng định rằng khi cỡ mẫu $n \\to \\infty$, trung bình mẫu $\\bar{X}_n$ sẽ:",
+            "opts": [
+                  "Hội tụ theo xác suất về kỳ vọng tổng thể $\\mu$",
+                  "Có phương sai tiến dần tới vô cùng",
+                  "Luôn luôn bằng chính xác $\\mu$ tại mọi bước thử",
+                  "Biến thiên ngẫu nhiên không có giới hạn"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! $\\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| < \\epsilon) = 1$."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Một sòng bạc hoạt động có lãi dựa trên nguyên lý toán học nào sau đây?",
+            "opts": [
+                  "Bất đẳng thức Jensen",
+                  "Luật số lớn: khi số lượt chơi $n$ đủ lớn, tỷ lệ thắng trung bình của nhà cái hội tụ chắc chắn về kỳ vọng dương",
+                  "Định lý Bayes",
+                  "Phân phối Chi-bình phương"
+            ],
+            "ans": 1,
+            "fb": "Đúng! Lợi nhuận của nhà cái được đảm bảo bằng Luật số lớn với hàng triệu lượt cược."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Một người tung đồng xu thấy ra 10 lần liên tiếp mặt Ngửa, liền tin rằng lần thứ 11 chắc chắn khả năng ra Sấp cao hơn để 'bù đắp lại'. Sai lầm tâm lý này gọi là:",
+            "opts": [
+                  "Quy luật bù trừ xác suất Kolmogorov",
+                  "Hội tụ theo phân phối",
+                  "Nghịch lý Simpson",
+                  "Ngụy biện con bạc (Gambler's fallacy) — Luật số lớn làm 'loãng' chứ không 'bù trừ'"
+            ],
+            "ans": 3,
+            "fb": "Chính xác! Các lần tung là độc lập, đồng xu không có trí nhớ, xác suất lần thứ 11 ra Sấp vẫn là 0,5."
+      }
+],
     final_quiz: {
       q: "Nội dung cốt lõi của Luật số lớn yếu (WLLN) khẳng định điều gì khi cỡ mẫu n tiến dần đến vô cùng?",
       opts: [

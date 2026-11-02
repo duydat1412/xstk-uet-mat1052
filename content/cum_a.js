@@ -79,6 +79,47 @@ const CUM_A = [
         good: "Các số 1, 2, 3, 4, 5 trên thang đo Likert chỉ là nhãn đại diện cho mức độ đồng ý, bản chất vẫn là biến phân loại thứ bậc."
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Trong một bảng dữ liệu sinh viên, biến 'Mã số sinh viên' (ví dụ: 24020123) thuộc loại biến nào?",
+            "opts": [
+                  "Biến phân loại thứ bậc (Ordinal)",
+                  "Biến phân loại định danh (Nominal)",
+                  "Biến số rời rạc (Discrete numerical)",
+                  "Biến số liên tục (Continuous numerical)"
+            ],
+            "ans": 1,
+            "fb": "Chính xác! Mã số sinh viên tuy dùng các chữ số để ghi nhưng bản chất là một 'nhãn danh xưng' dùng để định danh, việc tính trung bình cộng mã sinh viên là hoàn toàn vô nghĩa."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Biến số nào sau đây là một biến số liên tục (Continuous)?",
+            "opts": [
+                  "Số lượt đăng nhập vào cổng đào tạo trong một học kỳ",
+                  "Số phòng học trong tòa nhà E3",
+                  "Thời gian hoàn thành bài kiểm tra chạy bằng đồng hồ bấm giờ (phút)",
+                  "Số lượng bài tập sinh viên đã nộp trên hệ thống LMS"
+            ],
+            "ans": 2,
+            "fb": "Đúng! Thời gian là đại lượng đo lường trên trục số thực, có thể nhận bất kỳ giá trị thập phân nào tùy thuộc vào độ chính xác của đồng hồ đo (ví dụ: 45,32 phút)."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Một phiếu khảo sát môn học đánh giá mức độ hài lòng với thang điểm 1 (Rất tệ), 2 (Tệ), 3 (Bình thường), 4 (Tốt), 5 (Rất tốt). Một bạn sinh viên khẳng định: 'Vì các giá trị là 1, 2, 3, 4, 5 nên đây là biến số rời rạc và lấy hiệu 5 - 4 bằng 4 - 3'. Khẳng định này đúng hay sai?",
+            "opts": [
+                  "Đúng, vì 1, 2, 3, 4, 5 là các số nguyên đếm được nên bắt buộc là biến rời rạc",
+                  "Đúng, vì thang đo Likert luôn là biến số liên tục",
+                  "Sai, đây là biến phân loại định danh vì các mức độ hoàn toàn không so sánh hơn kém được",
+                  "Sai, đây là biến phân loại thứ bậc (Ordinal), khoảng cách giữa các mức độ không có ý nghĩa toán học định lượng"
+            ],
+            "ans": 3,
+            "fb": "Chính xác! Đây là Bẫy kinh điển số 1: Mã hóa số trên thang đo thứ bậc không biến nó thành biến số định lượng, vì khoảng cách giữa 'Rất tốt' và 'Tốt' không đo lường bằng một đơn vị cụ thể như giữa 4kg và 5kg."
+      }
+],
     final_quiz: {
       q: "Trong hồ sơ một chuyến bay, thuộc tính 'Mã số chuyến bay' (ví dụ: VN215) và 'Thời gian bay thực tế' (ví dụ: 125,5 phút) lần lượt thuộc loại biến nào?",
       opts: [
@@ -191,6 +232,47 @@ const CUM_A = [
         good: "Mối liên hệ thống kê (Association) KHÔNG đồng nghĩa với quan hệ Nhân quả (Causation). Có thể có biến ẩn thứ ba chi phối."
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Trong bảng liên hợp hai chiều (Contingency table) giữa Ngành học và Giới tính, tỷ lệ phần trăm được tính trên tổng số sinh viên của toàn bộ bảng được gọi là:",
+            "opts": [
+                  "Tỷ lệ đồng thời (Joint proportion)",
+                  "Tần số tương đối tích lũy",
+                  "Tỷ lệ có điều kiện (Conditional proportion)",
+                  "Tỷ lệ biên (Marginal proportion)"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Tỷ lệ đồng thời được tính bằng số phần tử ở ô giao chia cho tổng cỡ mẫu toàn bảng (Grand total)."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Cho bảng khảo sát: Lớp CNTT có 40 Nam, 10 Nữ; Lớp KHMT có 30 Nam, 20 Nữ. Trong số các sinh viên Nữ, tỷ lệ sinh viên thuộc lớp CNTT là:",
+            "opts": [
+                  "$\\frac{40}{70} \\approx 57{,}14\\%$",
+                  "$\\frac{10}{30} \\approx 33{,}33\\%$",
+                  "$\\frac{10}{100} = 10\\%$",
+                  "$\\frac{10}{50} = 20\\%$"
+            ],
+            "ans": 1,
+            "fb": "Đúng! Tổng số sinh viên Nữ là $10 + 20 = 30$. Tỷ lệ có điều kiện trong nhóm Nữ thuộc lớp CNTT là $10/30 \\approx 33{,}33\\%$."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Hiện tượng một xu hướng tương quan xuất hiện trong từng phân nhóm nhỏ nhưng lại bị đảo ngược hoàn toàn khi gộp chung tất cả các nhóm lại được gọi là:",
+            "opts": [
+                  "Nghịch lý Simpson (Simpson's Paradox)",
+                  "Nghịch lý Monty Hall",
+                  "Ngoại lai đòn bẩy cao",
+                  "Sai số chọn mẫu hệ thống"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Nghịch lý Simpson xảy ra do sự hiện diện của một biến ẩn (Lurking/Confounding variable) phân bố không đồng đều giữa các nhóm."
+      }
+],
     final_quiz: {
       q: "Theo bảng liên hợp 50 sinh viên ở trên, hỏi trong số những sinh viên CÓ ĐI LÀM THÊM, tỉ lệ sinh viên Năm 2 là bao nhiêu?",
       opts: [
@@ -317,6 +399,47 @@ const CUM_A = [
         good: "Tên gọi 'lệch phải' (Right-skewed) đặt theo phía của CÁI ĐUÔI DÀI! Đuôi kéo dài về bên phải thì gọi là lệch phải."
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Đại lượng nào sau đây đo độ phân tán của dữ liệu và có tính bền vững (Robust) chống lại giá trị ngoại lai?",
+            "opts": [
+                  "Độ lệch chuẩn mẫu ($s$)",
+                  "Khoảng biến thiên ($Range = x_{max} - x_{min}$)",
+                  "Khoảng tứ phân vị ($IQR = Q_3 - Q_1$)",
+                  "Phương sai mẫu ($s^2$)"
+            ],
+            "ans": 2,
+            "fb": "Chính xác! $IQR$ chỉ đo độ biến thiên của 50% dữ liệu trung tâm nên không bị ảnh hưởng bởi các giá trị cực đoan ở hai đầu mút."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Một tập dữ liệu điểm thi có hình dạng lệch phải rõ rệt (Right-skewed). So sánh nào sau đây là đúng về mối quan hệ giữa Số trung bình (Mean) và Trung vị (Median)?",
+            "opts": [
+                  "$\\text{Mean} = \\text{IQR}$",
+                  "$\\text{Mean} < \\text{Median}$",
+                  "$\\text{Mean} = \\text{Median}$",
+                  "$\\text{Mean} > \\text{Median}$"
+            ],
+            "ans": 3,
+            "fb": "Đúng! Đuôi dài bên phải kéo số trung bình lệch về phía các giá trị lớn, trong khi trung vị vẫn neo giữ ở vị trí chia đôi tập dữ liệu."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Cho mẫu số liệu có $Q_1 = 20$ và $Q_3 = 35$. Theo tiêu chuẩn hàng rào 1.5 IQR của Tukey, giá trị nào sau đây được xác định là một điểm ngoại lai (Outlier)?",
+            "opts": [
+                  "$30$",
+                  "$45$",
+                  "$60$",
+                  "$15$"
+            ],
+            "ans": 2,
+            "fb": "Chính xác! $IQR = 35 - 20 = 15$. Hàng rào trên: $Q_3 + 1{,}5 IQR = 35 + 1{,}5(15) = 35 + 22{,}5 = 57{,}5$. Giá trị $60 > 57{,}5$ nên là ngoại lai."
+      }
+],
     final_quiz: {
       q: "Một đồ thị phân phối thời gian chờ khám bệnh có dạng đuôi dài kéo về phía bên phải. Nhận định nào sau đây là ĐÚNG?",
       opts: [
@@ -430,6 +553,47 @@ const CUM_A = [
         good: "Dấu âm chỉ cho biết chiều nghịch! Độ lớn $|r| = 0{,}92$ rất gần 1, chứng tỏ đây là một mối quan hệ tuyến tính CỰC KỲ MẠNH."
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Nếu hệ số tương quan tuyến tính mẫu $r = 0$, ta có thể kết luận rằng:",
+            "opts": [
+                  "Phương sai của $y$ bằng 0",
+                  "Không có mối quan hệ tương quan tuyến tính giữa $x$ và $y$",
+                  "Hai biến hoàn toàn độc lập và không có bất kỳ quan hệ nào",
+                  "Đường hồi quy có hệ số góc bằng 1"
+            ],
+            "ans": 1,
+            "fb": "Chính xác! $r = 0$ chỉ khẳng định không có quan hệ tuyến tính, hai biến vẫn có thể phụ thuộc phi tuyến hoàn hảo (ví dụ: $y = x^2$ đối xứng qua 0)."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Trong mô hình OLS $\\hat{y} = b_0 + b_1 x$, nếu hệ số góc $b_1 = -1{,}5$, điều này có nghĩa là:",
+            "opts": [
+                  "Khi $x$ tăng thêm 1 đơn vị, giá trị $y$ chắc chắn giảm chính xác 1,5 đơn vị ở mọi quan sát",
+                  "Hệ số xác định $R^2$ là một số âm",
+                  "Hệ số tương quan $r$ chắc chắn bằng $-1{,}5$",
+                  "Khi $x$ tăng thêm 1 đơn vị, giá trị trung bình dự báo của $y$ giảm đi 1,5 đơn vị"
+            ],
+            "ans": 3,
+            "fb": "Đúng! $b_1$ phản ánh mức thay đổi trung bình của giá trị dự báo $\\hat{y}$, không phải giá trị thực tế của từng cá thể."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Cho phương trình hồi quy mẫu $\\hat{y} = 10 + 2x$. Tại điểm quan sát thực tế $(x_i = 4, y_i = 15)$, phần dư (Residual) $e_i = y_i - \\hat{y}_i$ có giá trị bằng:",
+            "opts": [
+                  "$-3$",
+                  "$18$",
+                  "$0$",
+                  "$3$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Giá trị dự báo $\\hat{y}_i = 10 + 2(4) = 18$. Phần dư $e_i = y_i - \\hat{y}_i = 15 - 18 = -3$."
+      }
+],
     final_quiz: {
       q: "Phương trình hồi quy là $\\hat{y} = 5 + 2x$. Tại điểm dữ liệu có $x = 3$, giá trị quan sát thực tế là $y = 10$. Phần dư tại điểm này bằng bao nhiêu?",
       opts: [
@@ -519,6 +683,47 @@ const CUM_A = [
         good: "Mức tham chiếu (Baseline) luôn là mức được gán giá trị 0. Hệ số của các biến chỉ báo đo độ chênh lệch so với mức tham chiếu này."
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Khi đưa một biến phân loại có $k = 4$ mức (ví dụ: Năm 1, Năm 2, Năm 3, Năm 4) vào mô hình hồi quy tuyến tính, ta cần tạo ra bao nhiêu biến chỉ báo (Dummy variables)?",
+            "opts": [
+                  "$4$ biến chỉ báo",
+                  "$1$ biến chỉ báo",
+                  "$2$ biến chỉ báo",
+                  "$3$ biến chỉ báo"
+            ],
+            "ans": 3,
+            "fb": "Chính xác! Luôn cần $k - 1$ biến chỉ báo, mức còn lại được chọn làm mức tham chiếu (Reference level) để tránh hiện tượng đa cộng tuyến hoàn hảo."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Xét mô hình $\\hat{y} = 20 + 5x + 8 D_{Nam}$, trong đó $D_{Nam} = 1$ nếu là Nam và $0$ nếu là Nữ. Mức chênh lệch về tung độ gốc giữa Nam và Nữ là:",
+            "opts": [
+                  "$8$ đơn vị",
+                  "$28$ đơn vị",
+                  "$5$ đơn vị",
+                  "$20$ đơn vị"
+            ],
+            "ans": 0,
+            "fb": "Đúng! Hệ số của biến chỉ báo $8$ chính là độ dịch chuyển song song của đường hồi quy nhóm Nam so với nhóm tham chiếu Nữ."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Nếu một nhà nghiên cứu cố tình đưa cả 4 biến chỉ báo cho 4 mùa trong năm vào mô hình hồi quy có hệ số chặn $b_0$, ma trận dữ liệu sẽ gặp hiện tượng gì?",
+            "opts": [
+                  "Hệ số xác định $R^2$ vượt quá 1",
+                  "Độ lệch chuẩn của phần dư bằng 0",
+                  "Bẫy biến giả (Dummy variable trap) — ma trận bị suy biến không thể nghịch đảo",
+                  "Hệ số góc của các biến bị đổi dấu"
+            ],
+            "ans": 2,
+            "fb": "Chính xác! Vì tổng 4 biến chỉ báo luôn bằng 1 (bằng cột hệ số chặn), tạo ra mối quan hệ cộng tuyến hoàn hảo khiến phần mềm báo lỗi singular matrix."
+      }
+],
     final_quiz: {
       q: "Mô hình hồi quy: $\\hat{y} = 15 + 3x_1 - 4d_2$, trong đó $d_2 = 1$ nếu là nhân viên thời vụ, $0$ nếu là nhân viên chính thức. Con số -4 có ý nghĩa gì?",
       opts: [

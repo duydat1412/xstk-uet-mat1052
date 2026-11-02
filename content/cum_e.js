@@ -91,6 +91,47 @@ const CUM_E = [
         good: "Với biến liên tục, P(X < 3) và P(X ≤ 3) LÀ HOÀN TOÀN NHƯ NHAU vì P(X = 3) = 0!"
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Với biến ngẫu nhiên liên tục $X$, xác suất tại một điểm đơn lẻ bất kỳ $P(X = c)$ luôn bằng:",
+            "opts": [
+                  "$0$",
+                  "$f(c)$",
+                  "$1$",
+                  "$F(c)$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Diện tích dưới đường cong tại một điểm có độ rộng bằng 0 nên xác suất luôn bằng 0."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Hàm mật độ $f(x) = 2x$ với $0 \\le x \\le 1$. Xác suất $P(0{,}2 \\le X \\le 0{,}6)$ bằng:",
+            "opts": [
+                  "$0{,}80$",
+                  "$\\int_{0{,}2}^{0{,}6} 2x dx = [x^2]_{0{,}2}^{0{,}6} = 0{,}36 - 0{,}04 = 0{,}32$",
+                  "$0{,}16$",
+                  "$0{,}40$"
+            ],
+            "ans": 1,
+            "fb": "Đúng! $P(a \\le X \\le b) = \\int_a^b f(x) dx = 0{,}36 - 0{,}04 = 0{,}32$."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Cho hàm mật độ $f(x) = k e^{-3x}$ với $x > 0$. Hằng số $k$ bằng:",
+            "opts": [
+                  "$1$",
+                  "$e^3$",
+                  "$3$",
+                  "$1/3$"
+            ],
+            "ans": 2,
+            "fb": "Chính xác! $\\int_0^\\infty k e^{-3x} dx = k/3 = 1 \\implies k = 3$."
+      }
+],
     final_quiz: {
       q: "Cho X là biến ngẫu nhiên liên tục có hàm mật độ f(x). Khẳng định nào sau đây là CHÍNH XÁC?",
       opts: [
@@ -180,6 +221,47 @@ const CUM_E = [
         good: "Phương sai luôn là E(X^2) trừ đi [E(X)]^2. Tuyệt đối không nhầm lẫn thứ tự phép tính!"
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Kỳ vọng của biến ngẫu nhiên liên tục có hàm mật độ $f(x)$ được tính bằng công thức:",
+            "opts": [
+                  "$E[X] = \\int_{-\\infty}^{+\\infty} x^2 f(x) dx$",
+                  "$E[X] = \\int_{-\\infty}^{+\\infty} f(x) dx$",
+                  "$E[X] = \\sum x f(x)$",
+                  "$E[X] = \\int_{-\\infty}^{+\\infty} x f(x) dx$"
+            ],
+            "ans": 3,
+            "fb": "Chính xác! Định nghĩa tích phân kỳ vọng liên tục."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Nếu hàm mật độ $f(x)$ đối xứng qua điểm $x = 5$ và kỳ vọng tồn tại, thì $E[X]$ bằng:",
+            "opts": [
+                  "$10$",
+                  "$2{,}5$",
+                  "$5$",
+                  "$0$"
+            ],
+            "ans": 2,
+            "fb": "Đúng! Do tính đối xứng của hàm mật độ, tâm đối xứng chính là kỳ vọng."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Cho $f(x) = 3x^2$ trên đoạn $[0, 1]$. Phương sai $\\text{Var}(X)$ bằng:",
+            "opts": [
+                  "$0{,}125$",
+                  "$\\frac{3}{5} - \\left(\\frac{3}{4}\\right)^2 = 0{,}6 - 0{,}5625 = 0{,}0375$",
+                  "$0{,}75$",
+                  "$0{,}0625$"
+            ],
+            "ans": 1,
+            "fb": "Chính xác! $E[X] = \\int_0^1 3x^3 dx = 3/4$. $E[X^2] = \\int_0^1 3x^4 dx = 3/5$. $\\text{Var}(X) = 0{,}6 - (0{,}75)^2 = 0{,}0375$."
+      }
+],
     final_quiz: {
       q: "Cho X có hàm mật độ f(x) = 2x trên (0, 1). Đã biết E(X) = 2/3 và E(X²) = 1/2. Phương sai Var(X) bằng bao nhiêu?",
       opts: [
@@ -267,6 +349,47 @@ const CUM_E = [
         good: "Phân phối đều KHÔNG CÓ tính không nhớ! Đã chờ 4 phút thì không gian thời gian còn lại thu hẹp chỉ còn từ 4 đến 10 phút."
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Cho $X \\sim \\text{Uniform}(a, b)$. Phương sai của $X$ là:",
+            "opts": [
+                  "$\\frac{b - a}{2}$",
+                  "$\\frac{b + a}{12}$",
+                  "$\\frac{(b - a)^2}{2}$",
+                  "$\\frac{(b - a)^2}{12}$"
+            ],
+            "ans": 3,
+            "fb": "Chính xác! Công thức giải tích phương sai phân phối đều."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Xe buýt đến trạm ngẫu nhiên đều trong khoảng từ 0 đến 10 phút ($X \\sim \\text{Uniform}(0, 10)$). Xác suất phải chờ từ 3 đến 7 phút là:",
+            "opts": [
+                  "$\\frac{7 - 3}{10 - 0} = 0{,}40$",
+                  "$0{,}70$",
+                  "$0{,}30$",
+                  "$0{,}50$"
+            ],
+            "ans": 0,
+            "fb": "Đúng! Với phân phối đều, xác suất bằng tỉ lệ độ dài khoảng con trên tổng độ dài: $4/10 = 0{,}40$."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Cho $X \\sim \\text{Uniform}(0, 10)$. Biết rằng đã chờ hơn 4 phút ($X > 4$), kỳ vọng thời gian chờ là:",
+            "opts": [
+                  "$8\\text{ phút}$",
+                  "$5\\text{ phút}$",
+                  "$6\\text{ phút}$",
+                  "$7\\text{ phút}$"
+            ],
+            "ans": 3,
+            "fb": "Chính xác! Phân phối có điều kiện của $X$ khi biết $X > 4$ là $\\text{Uniform}(4, 10) \\implies E = (4 + 10)/2 = 7$ phút."
+      }
+],
     final_quiz: {
       q: "Biến ngẫu nhiên X có phân phối đều trên đoạn [0, 10]. Xác suất P(X < 3) bằng bao nhiêu?",
       opts: [
@@ -368,6 +491,47 @@ const CUM_E = [
         good: "Bảng tra chuẩn thường chỉ in số z dương. Gặp z âm, luôn đổi sang 1 - Φ(|z|)!"
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Để chuẩn hóa biến ngẫu nhiên $X \\sim \\mathcal{N}(\\mu, \\sigma^2)$ về biến chuẩn tắc $Z \\sim \\mathcal{N}(0, 1)$, công thức biến đổi là:",
+            "opts": [
+                  "$Z = \\frac{X - \\mu}{\\sigma}$",
+                  "$Z = \\sigma X + \\mu$",
+                  "$Z = \\frac{X - \\mu}{\\sigma^2}$",
+                  "$Z = \\frac{X - \\sigma}{\\mu}$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Lấy biến số trừ kỳ vọng rồi chia cho độ lệch chuẩn $\\sigma$."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Biết $\\Phi(1{,}645) = 0{,}9500$. Giá trị $\\Phi(-1{,}645)$ bằng:",
+            "opts": [
+                  "$0{,}5000$",
+                  "$1 - 0{,}9500 = 0{,}0500$",
+                  "$-0{,}9500$",
+                  "$0{,}0250$"
+            ],
+            "ans": 1,
+            "fb": "Đúng! Do tính đối xứng: $\\Phi(-z) = 1 - \\Phi(z) \\implies 1 - 0{,}9500 = 0{,}0500$."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Điểm kiểm tra $X \\sim \\mathcal{N}(70, 25)$. Để lọt vào top $2{,}5\\%$ điểm cao nhất (tương ứng $\\Phi(1{,}96) = 0{,}975$), sinh viên cần đạt tối thiểu:",
+            "opts": [
+                  "$80\\text{ điểm}$",
+                  "$75\\text{ điểm}$",
+                  "$79{,}8\\text{ điểm}$",
+                  "$89{,}6\\text{ điểm}$"
+            ],
+            "ans": 2,
+            "fb": "Chính xác! $\\sigma = \\sqrt{25} = 5$. $x = \\mu + z \\sigma = 70 + 1{,}96(5) = 70 + 9{,}8 = 79{,}8$ điểm."
+      }
+],
     final_quiz: {
       q: "Cho biến ngẫu nhiên X ~ N(50, 10²). Theo quy tắc thực nghiệm 68–95–99,7, xác suất P(X > 70) xấp xỉ bằng bao nhiêu?",
       opts: [
@@ -459,6 +623,47 @@ const CUM_E = [
         good: "Hàm mật độ và xác suất đuôi phải luôn giảm dần về 0 khi x tăng, do đó bắt buộc phải có dấu trừ: e^(-λx)!"
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Tính chất 'không nhớ' (Memoryless): $P(X > s + t \\mid X > s) = P(X > t)$ là đặc trưng của phân phối liên tục nào?",
+            "opts": [
+                  "Phân phối Chi-bình phương",
+                  "Phân phối Chuẩn (Normal)",
+                  "Phân phối Mũ (Exponential)",
+                  "Phân phối Đều (Uniform)"
+            ],
+            "ans": 2,
+            "fb": "Chính xác! Phân phối Mũ mô hình hóa tuổi thọ của các thiết bị không bị lão hóa cơ học."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Tuổi thọ linh kiện $X \\sim \\text{Exp}(\\lambda = 0{,}2)$ (trung bình 5 năm). Xác suất linh kiện sống quá 5 năm là:",
+            "opts": [
+                  "$e^{-0{,}2 \\times 5} = e^{-1} \\approx 0{,}3679$",
+                  "$0{,}5000$",
+                  "$0{,}2000$",
+                  "$1 - e^{-1} \\approx 0{,}6321$"
+            ],
+            "ans": 0,
+            "fb": "Đúng! $P(X > t) = e^{-\\lambda t} = e^{-1} \\approx 0{,}3679$."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Nếu $Z_1, Z_2, \\dots, Z_k$ là các biến ngẫu nhiên độc lập cùng tuân theo chuẩn tắc $\\mathcal{N}(0, 1)$, thì tổng bình phương $W = \\sum_{i=1}^k Z_i^2$ tuân theo phân phối:",
+            "opts": [
+                  "Phân phối Mũ $\\text{Exp}(k)$",
+                  "Phân phối Chi-bình phương với $k$ bậc tự do: $\\chi^2(k)$",
+                  "Phân phối $t$-Student với $k$ bậc tự do",
+                  "Phân phối Chuẩn $\\mathcal{N}(0, k)$"
+            ],
+            "ans": 1,
+            "fb": "Chính xác! Định nghĩa toán học của phân phối Chi-bình phương."
+      }
+],
     final_quiz: {
       q: "Biến ngẫu nhiên X có phân phối mũ Exp(λ = 0,5). Giá trị trung bình E(X) bằng bao nhiêu?",
       opts: [
@@ -587,6 +792,47 @@ const CUM_E = [
         good: "Độ lệch chuẩn của X̄ là σ/√n! Nếu quên chia √n, bạn sẽ tính sai hoàn toàn Z-score."
       }
     ],
+    quizzes: [
+      {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Theo Định lý Giới hạn Trung tâm (CLT), khi cỡ mẫu $n$ đủ lớn ($n \\ge 30$), tổng $S_n = \\sum_{i=1}^n X_i$ của các biến i.i.d. có phân phối xấp xỉ:",
+            "opts": [
+                  "$\\mathcal{N}(\\mu, \\sigma^2)$",
+                  "$\\mathcal{N}(\\mu, \\sigma^2/n)$",
+                  "Phân phối Đều",
+                  "$\\mathcal{N}(n\\mu, n\\sigma^2)$"
+            ],
+            "ans": 3,
+            "fb": "Chính xác! Tổng $S_n$ xấp xỉ chuẩn với kỳ vọng $n\\mu$ và phương sai $n\\sigma^2$."
+      },
+      {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Rút mẫu $n = 100$ từ tổng thể có $\\mu = 50, \\sigma = 10$. Khoảng đối xứng chứa $95\\%$ giá trị trung bình mẫu $\\bar{X}$ (với $z = 1{,}96$) là:",
+            "opts": [
+                  "$[30{,}4; 69{,}6]$",
+                  "$[48{,}04; 51{,}96]$",
+                  "$[40; 60]$",
+                  "$[49; 51]$"
+            ],
+            "ans": 1,
+            "fb": "Đúng! $SE = 10/\\sqrt{100} = 1$. Khoảng $95\\%: [50 - 1{,}96(1); 50 + 1{,}96(1)] = [48{,}04; 51{,}96]$."
+      },
+      {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Trong bài toán bóng đèn dự phòng UET ($\\mu = 100, \\sigma = 20, T = 2000$), sau khi chuẩn hóa $P(S_n \\ge 2000) \\ge 0{,}99$, phương trình bậc hai $100u^2 - 49{,}35u - 2000 \\ge 0$ (với $u = \\sqrt{n}$) cho số bóng đèn tối thiểu là:",
+            "opts": [
+                  "$n = 20$ bóng đèn",
+                  "$n = 22$ bóng đèn",
+                  "$n = 23$ bóng đèn",
+                  "$n = 25$ bóng đèn"
+            ],
+            "ans": 2,
+            "fb": "Chính xác! Bẫy kinh điển số 10: Nghiệm $u \\ge 4{,}726 \\implies n \\ge 22{,}33$. Vì $n$ nguyên nên bắt buộc phải làm tròn LÊN $n = 23$ bóng."
+      }
+],
     final_quiz: {
       q: "Điều kiện nào sau đây KHÔNG PHẢI là điều kiện bắt buộc để áp dụng Định lý giới hạn trung tâm (CLT)?",
       opts: [

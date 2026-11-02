@@ -1,0 +1,534 @@
+"""
+upgrade_quizzes_data.py
+Nâng cấp toàn bộ 26 bài học trong content/lessons_all.js:
+Mỗi bài học được trang bị bộ 3 câu hỏi kiểm tra phân tầng 3 cấp độ:
+- Câu 1: Nhận biết (Cơ bản)
+- Câu 2: Thông hiểu (Trung bình)
+- Câu 3: Vận dụng (Nâng cao / Bẫy kinh điển)
+"""
+
+import json
+import os
+import re
+import sys
+
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8")
+
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+CONTENT_DIR = os.path.join(ROOT_DIR, "content")
+
+# Đọc lessons_all.js
+lessons_path = os.path.join(CONTENT_DIR, "lessons_all.js")
+with open(lessons_path, "r", encoding="utf-8") as f:
+    text = f.read()
+
+# Định nghĩa dữ liệu 3 câu hỏi cho toàn bộ 26 bài học
+LESSON_QUIZZES = {
+    "A1": [
+        {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Trong một bảng dữ liệu sinh viên, biến 'Mã số sinh viên' (ví dụ: 24020123) thuộc loại biến nào?",
+            "opts": [
+                "Biến phân loại định danh (Nominal)",
+                "Biến số rời rạc (Discrete numerical)",
+                "Biến phân loại thứ bậc (Ordinal)",
+                "Biến số liên tục (Continuous numerical)"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Mã số sinh viên tuy dùng các chữ số để ghi nhưng bản chất là một 'nhãn danh xưng' dùng để định danh, việc tính trung bình cộng mã sinh viên là hoàn toàn vô nghĩa."
+        },
+        {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Biến số nào sau đây là một biến số liên tục (Continuous)?",
+            "opts": [
+                "Thời gian hoàn thành bài kiểm tra chạy bằng đồng hồ bấm giờ (phút)",
+                "Số lượng bài tập sinh viên đã nộp trên hệ thống LMS",
+                "Số lượt đăng nhập vào cổng đào tạo trong một học kỳ",
+                "Số phòng học trong tòa nhà E3"
+            ],
+            "ans": 0,
+            "fb": "Đúng! Thời gian là đại lượng đo lường trên trục số thực, có thể nhận bất kỳ giá trị thập phân nào tùy thuộc vào độ chính xác của đồng hồ đo (ví dụ: 45,32 phút)."
+        },
+        {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Một phiếu khảo sát môn học đánh giá mức độ hài lòng với thang điểm 1 (Rất tệ), 2 (Tệ), 3 (Bình thường), 4 (Tốt), 5 (Rất tốt). Một bạn sinh viên khẳng định: 'Vì các giá trị là 1, 2, 3, 4, 5 nên đây là biến số rời rạc và lấy hiệu 5 - 4 bằng 4 - 3'. Khẳng định này đúng hay sai?",
+            "opts": [
+                "Sai, đây là biến phân loại thứ bậc (Ordinal), khoảng cách giữa các mức độ không có ý nghĩa toán học định lượng",
+                "Đúng, vì 1, 2, 3, 4, 5 là các số nguyên đếm được nên bắt buộc là biến rời rạc",
+                "Đúng, vì thang đo Likert luôn là biến số liên tục",
+                "Sai, đây là biến phân loại định danh vì các mức độ hoàn toàn không so sánh hơn kém được"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Đây là Bẫy kinh điển số 1: Mã hóa số trên thang đo thứ bậc không biến nó thành biến số định lượng, vì khoảng cách giữa 'Rất tốt' và 'Tốt' không đo lường bằng một đơn vị cụ thể như giữa 4kg và 5kg."
+        }
+    ],
+    "A2": [
+        {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Trong bảng liên hợp hai chiều (Contingency table) giữa Ngành học và Giới tính, tỷ lệ phần trăm được tính trên tổng số sinh viên của toàn bộ bảng được gọi là:",
+            "opts": [
+                "Tỷ lệ đồng thời (Joint proportion)",
+                "Tỷ lệ biên (Marginal proportion)",
+                "Tỷ lệ có điều kiện (Conditional proportion)",
+                "Tần số tương đối tích lũy"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Tỷ lệ đồng thời được tính bằng số phần tử ở ô giao chia cho tổng cỡ mẫu toàn bảng (Grand total)."
+        },
+        {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Cho bảng khảo sát: Lớp CNTT có 40 Nam, 10 Nữ; Lớp KHMT có 30 Nam, 20 Nữ. Trong số các sinh viên Nữ, tỷ lệ sinh viên thuộc lớp CNTT là:",
+            "opts": [
+                "$\\frac{10}{30} \\approx 33{,}33\\%$",
+                "$\\frac{10}{50} = 20\\%$",
+                "$\\frac{10}{100} = 10\\%$",
+                "$\\frac{40}{70} \\approx 57{,}14\\%$"
+            ],
+            "ans": 0,
+            "fb": "Đúng! Tổng số sinh viên Nữ là $10 + 20 = 30$. Tỷ lệ có điều kiện trong nhóm Nữ thuộc lớp CNTT là $10/30 \\approx 33{,}33\\%$."
+        },
+        {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Hiện tượng một xu hướng tương quan xuất hiện trong từng phân nhóm nhỏ nhưng lại bị đảo ngược hoàn toàn khi gộp chung tất cả các nhóm lại được gọi là:",
+            "opts": [
+                "Nghịch lý Simpson (Simpson's Paradox)",
+                "Nghịch lý Monty Hall",
+                "Ngoại lai đòn bẩy cao",
+                "Sai số chọn mẫu hệ thống"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Nghịch lý Simpson xảy ra do sự hiện diện của một biến ẩn (Lurking/Confounding variable) phân bố không đồng đều giữa các nhóm."
+        }
+    ],
+    "A3": [
+        {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Đại lượng nào sau đây đo độ phân tán của dữ liệu và có tính bền vững (Robust) chống lại giá trị ngoại lai?",
+            "opts": [
+                "Khoảng tứ phân vị ($IQR = Q_3 - Q_1$)",
+                "Độ lệch chuẩn mẫu ($s$)",
+                "Khoảng biến thiên ($Range = x_{max} - x_{min}$)",
+                "Phương sai mẫu ($s^2$)"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! $IQR$ chỉ đo độ biến thiên của 50% dữ liệu trung tâm nên không bị ảnh hưởng bởi các giá trị cực đoan ở hai đầu mút."
+        },
+        {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Một tập dữ liệu điểm thi có hình dạng lệch phải rõ rệt (Right-skewed). So sánh nào sau đây là đúng về mối quan hệ giữa Số trung bình (Mean) và Trung vị (Median)?",
+            "opts": [
+                "$\\text{Mean} > \\text{Median}$",
+                "$\\text{Mean} < \\text{Median}$",
+                "$\\text{Mean} = \\text{Median}$",
+                "$\\text{Mean} = \\text{IQR}$"
+            ],
+            "ans": 0,
+            "fb": "Đúng! Đuôi dài bên phải kéo số trung bình lệch về phía các giá trị lớn, trong khi trung vị vẫn neo giữ ở vị trí chia đôi tập dữ liệu."
+        },
+        {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Cho mẫu số liệu có $Q_1 = 20$ và $Q_3 = 35$. Theo tiêu chuẩn hàng rào 1.5 IQR của Tukey, giá trị nào sau đây được xác định là một điểm ngoại lai (Outlier)?",
+            "opts": [
+                "$60$",
+                "$45$",
+                "$15$",
+                "$30$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! $IQR = 35 - 20 = 15$. Hàng rào trên: $Q_3 + 1{,}5 IQR = 35 + 1{,}5(15) = 35 + 22{,}5 = 57{,}5$. Giá trị $60 > 57{,}5$ nên là ngoại lai."
+        }
+    ],
+    "A4": [
+        {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Nếu hệ số tương quan tuyến tính mẫu $r = 0$, ta có thể kết luận rằng:",
+            "opts": [
+                "Không có mối quan hệ tương quan tuyến tính giữa $x$ và $y$",
+                "Hai biến hoàn toàn độc lập và không có bất kỳ quan hệ nào",
+                "Phương sai của $y$ bằng 0",
+                "Đường hồi quy có hệ số góc bằng 1"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! $r = 0$ chỉ khẳng định không có quan hệ tuyến tính, hai biến vẫn có thể phụ thuộc phi tuyến hoàn hảo (ví dụ: $y = x^2$ đối xứng qua 0)."
+        },
+        {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Trong mô hình OLS $\\hat{y} = b_0 + b_1 x$, nếu hệ số góc $b_1 = -1{,}5$, điều này có nghĩa là:",
+            "opts": [
+                "Khi $x$ tăng thêm 1 đơn vị, giá trị trung bình dự báo của $y$ giảm đi 1,5 đơn vị",
+                "Khi $x$ tăng thêm 1 đơn vị, giá trị $y$ chắc chắn giảm chính xác 1,5 đơn vị ở mọi quan sát",
+                "Hệ số tương quan $r$ chắc chắn bằng $-1{,}5$",
+                "Hệ số xác định $R^2$ là một số âm"
+            ],
+            "ans": 0,
+            "fb": "Đúng! $b_1$ phản ánh mức thay đổi trung bình của giá trị dự báo $\\hat{y}$, không phải giá trị thực tế của từng cá thể."
+        },
+        {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Cho phương trình hồi quy mẫu $\\hat{y} = 10 + 2x$. Tại điểm quan sát thực tế $(x_i = 4, y_i = 15)$, phần dư (Residual) $e_i = y_i - \\hat{y}_i$ có giá trị bằng:",
+            "opts": [
+                "$-3$",
+                "$3$",
+                "$18$",
+                "$0$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Giá trị dự báo $\\hat{y}_i = 10 + 2(4) = 18$. Phần dư $e_i = y_i - \\hat{y}_i = 15 - 18 = -3$."
+        }
+    ],
+    "A5": [
+        {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Khi đưa một biến phân loại có $k = 4$ mức (ví dụ: Năm 1, Năm 2, Năm 3, Năm 4) vào mô hình hồi quy tuyến tính, ta cần tạo ra bao nhiêu biến chỉ báo (Dummy variables)?",
+            "opts": [
+                "$3$ biến chỉ báo",
+                "$4$ biến chỉ báo",
+                "$1$ biến chỉ báo",
+                "$2$ biến chỉ báo"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Luôn cần $k - 1$ biến chỉ báo, mức còn lại được chọn làm mức tham chiếu (Reference level) để tránh hiện tượng đa cộng tuyến hoàn hảo."
+        },
+        {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Xét mô hình $\\hat{y} = 20 + 5x + 8 D_{Nam}$, trong đó $D_{Nam} = 1$ nếu là Nam và $0$ nếu là Nữ. Mức chênh lệch về tung độ gốc giữa Nam và Nữ là:",
+            "opts": [
+                "$8$ đơn vị",
+                "$20$ đơn vị",
+                "$5$ đơn vị",
+                "$28$ đơn vị"
+            ],
+            "ans": 0,
+            "fb": "Đúng! Hệ số của biến chỉ báo $8$ chính là độ dịch chuyển song song của đường hồi quy nhóm Nam so với nhóm tham chiếu Nữ."
+        },
+        {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Nếu một nhà nghiên cứu cố tình đưa cả 4 biến chỉ báo cho 4 mùa trong năm vào mô hình hồi quy có hệ số chặn $b_0$, ma trận dữ liệu sẽ gặp hiện tượng gì?",
+            "opts": [
+                "Bẫy biến giả (Dummy variable trap) — ma trận bị suy biến không thể nghịch đảo",
+                "Hệ số xác định $R^2$ vượt quá 1",
+                "Hệ số góc của các biến bị đổi dấu",
+                "Độ lệch chuẩn của phần dư bằng 0"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Vì tổng 4 biến chỉ báo luôn bằng 1 (bằng cột hệ số chặn), tạo ra mối quan hệ cộng tuyến hoàn hảo khiến phần mềm báo lỗi singular matrix."
+        }
+    ],
+    "B1": [
+        {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Tiên đề xác suất nào sau đây thuộc 3 tiên đề nền tảng của Kolmogorov?",
+            "opts": [
+                "$0 \\le P(A) \\le 1$ với mọi biến cố $A$ và $P(S) = 1$",
+                "$P(A \\cup B) = P(A) + P(B)$ với mọi cặp biến cố bất kỳ",
+                "$P(A \\cap B) = P(A)P(B)$ với mọi biến cố",
+                "$P(A) = 0 \\iff A = \\emptyset$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! 3 tiên đề Kolmogorov gồm: Tính không âm ($P(A) \\ge 0$), Tính chuẩn hóa ($P(S) = 1$), và Tính cộng vô hạn cho các biến cố xung khắc."
+        },
+        {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Tung đồng thời hai con xúc xắc cân đối 6 mặt. Số phần tử của không gian mẫu $S$ là:",
+            "opts": [
+                "$36$",
+                "$12$",
+                "$6$",
+                "$24$"
+            ],
+            "ans": 0,
+            "fb": "Đúng! Theo quy tắc nhân, mỗi con xúc xắc có 6 kết quả $\\implies |S| = 6 \\times 6 = 36$ kết quả đồng khả năng."
+        },
+        {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Một biến cố $A$ có xác suất $P(A) = 0$. Khẳng định nào sau đây là chính xác nhất trong giải tích xác suất hiện đại?",
+            "opts": [
+                "$A$ là biến cố không thể xảy ra (đối với không gian rời rạc hữu hạn), nhưng trong không gian liên tục $A$ vẫn có thể xảy ra",
+                "$A$ bắt buộc phải là tập rỗng $A = \\emptyset$",
+                "Biến cố đối $\\bar{A}$ có xác suất bằng 0",
+                "$A$ độc lập với chính nó nhưng không độc lập với không gian mẫu"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Trong không gian xác suất liên tục (như chọn một số thực ngẫu nhiên trên $[0, 1]$), xác suất chọn trúng điểm $0{,}5$ là $0$, nhưng điểm này hoàn toàn thuộc không gian mẫu."
+        }
+    ],
+    "B2": [
+        {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Công thức cộng xác suất cho hai biến cố $A$ và $B$ bất kỳ là:",
+            "opts": [
+                "$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$",
+                "$P(A \\cup B) = P(A) + P(B)$",
+                "$P(A \\cup B) = P(A) P(B)$",
+                "$P(A \\cup B) = P(A) + P(B) + P(A \\cap B)$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Phần giao $A \\cap B$ được tính hai lần (trong $P(A)$ và trong $P(B)$) nên phải trừ đi 1 lần."
+        },
+        {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Cho $P(A) = 0{,}6$, $P(B) = 0{,}7$ và $P(A \\cap B) = 0{,}4$. Xác suất để ít nhất một trong hai biến cố xảy ra là:",
+            "opts": [
+                "$0{,}90$",
+                "$1{,}30$",
+                "$0{,}42$",
+                "$0{,}30$"
+            ],
+            "ans": 0,
+            "fb": "Đúng! $P(A \\cup B) = 0{,}6 + 0{,}7 - 0{,}4 = 0{,}90$."
+        },
+        {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Cho hai biến cố $A$ và $B$ có $P(A) = 0{,}7$ và $P(B) = 0{,}8$. Bất đẳng thức Bonferroni khẳng định xác suất đồng thời $P(A \\cap B)$ phải thỏa mãn:",
+            "opts": [
+                "$P(A \\cap B) \\ge 0{,}50$",
+                "$P(A \\cap B) \\le 0{,}50$",
+                "$P(A \\cap B) = 0{,}56$",
+                "$P(A \\cap B) \\ge 0{,}70$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Vì $P(A \\cup B) \\le 1 \\implies P(A \\cap B) = P(A) + P(B) - P(A \\cup B) \\ge 0{,}7 + 0{,}8 - 1 = 0{,}50$."
+        }
+    ],
+    "B3": [
+        {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Công thức định nghĩa xác suất có điều kiện $P(A \\mid B)$ là:",
+            "opts": [
+                "$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$ với điều kiện $P(B) > 0$",
+                "$P(A \\mid B) = \\frac{P(A)}{P(B)}$",
+                "$P(A \\mid B) = \\frac{P(B \\mid A)}{P(B)}$",
+                "$P(A \\mid B) = P(A) P(B)$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Xác suất của $A$ khi biết $B$ đã xảy ra thu hẹp không gian mẫu về tập $B$."
+        },
+        {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Một hộp có 5 bi trắng và 3 bi đen. Rút lần lượt 2 viên bi không hoàn lại. Xác suất viên thứ nhất trắng VÀ viên thứ hai đen là:",
+            "opts": [
+                "$\\frac{5}{8} \\times \\frac{3}{7} = \\frac{15}{56} \\approx 0{,}2679$",
+                "$\\frac{5}{8} \\times \\frac{3}{8} = \\frac{15}{64} \\approx 0{,}2344$",
+                "$\\frac{5}{8} + \\frac{3}{7} \\approx 1{,}0536$",
+                "$\\frac{3}{8}$"
+            ],
+            "ans": 0,
+            "fb": "Đúng! Theo quy tắc nhân: $P(T_1 \\cap Đ_2) = P(T_1) P(Đ_2 \\mid T_1) = \\frac{5}{8} \\times \\frac{3}{7} = \\frac{15}{56}$."
+        },
+        {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Một bệnh hiếm gặp có tỷ lệ mắc $P(D) = 0{,}001$. Xét nghiệm có độ nhạy $P(+ \\mid D) = 0{,}99$ và tỷ lệ dương tính giả $P(+ \\mid \\bar{D}) = 0{,}05$. Khi một người nhận kết quả dương tính, xác suất người đó thực sự mắc bệnh xấp xỉ là:",
+            "opts": [
+                "$1{,}94\\%$",
+                "$99\\%$",
+                "$94\\%$",
+                "$50\\%$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Áp dụng Bayes: $P(+ ) = 0{,}001(0{,}99) + 0{,}999(0{,}05) = 0{,}00099 + 0{,}04995 = 0{,}05094$. Suy ra $P(D \\mid +) = 0{,}00099 / 0{,}05094 \\approx 0{,}0194 = 1{,}94\\%$ (Bẫy kinh điển: tỷ lệ nền bệnh quá thấp!)."
+        }
+    ],
+    "B4": [
+        {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Khẳng định nào sau đây định nghĩa chính xác hai biến cố $A$ và $B$ độc lập thống kê?",
+            "opts": [
+                "$P(A \\cap B) = P(A) P(B)$",
+                "$A \\cap B = \\emptyset$",
+                "$P(A \\cup B) = P(A) + P(B)$",
+                "$P(A \\mid B) = 0$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Độc lập là một thuộc tính thông tin: biến cố này xảy ra không làm thay đổi xác suất biến cố kia."
+        },
+        {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Cho hai biến cố $A$ và $B$ độc lập có $P(A) = 0{,}4$ và $P(B) = 0{,}5$. Xác suất $P(A \\cup B)$ bằng:",
+            "opts": [
+                "$0{,}70$",
+                "$0{,}90$",
+                "$0{,}20$",
+                "$0{,}50$"
+            ],
+            "ans": 0,
+            "fb": "Đúng! $P(A \\cap B) = 0{,}4 \\times 0{,}5 = 0{,}20$. Áp dụng công thức cộng: $P(A \\cup B) = 0{,}4 + 0{,}5 - 0{,}20 = 0{,}70$."
+        },
+        {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Giả sử $A$ và $B$ là hai biến cố có $P(A) > 0$ và $P(B) > 0$. Nếu $A$ và $B$ xung khắc ($A \\cap B = \\emptyset$), liệu chúng có thể độc lập với nhau không?",
+            "opts": [
+                "Không bao giờ, vì $P(A \\cap B) = 0$ trong khi $P(A)P(B) > 0$, hai vế không thể bằng nhau",
+                "Có, vì xung khắc nghĩa là chúng không liên quan đến nhau nên độc lập",
+                "Có, nếu $P(A) + P(B) = 1$",
+                "Chỉ độc lập khi $P(A) = P(B)$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Bẫy kinh điển số 4: Xung khắc là phụ thuộc cực đại (nếu $A$ xảy ra thì chắc chắn $B$ không xảy ra, tức $P(B \\mid A) = 0 \\ne P(B)$)."
+        }
+    ],
+    "B5": [
+        {
+            "level": "Nhận biết",
+            "badge": "🟢 Cấp độ 1: Nhận biết",
+            "q": "Số cách chọn một ban cán sự gồm 1 lớp trưởng, 1 lớp phó và 1 bí thư từ 30 sinh viên là một bài toán:",
+            "opts": [
+                "Chỉnh hợp không lặp $A_{30}^3$",
+                "Tổ hợp $C_{30}^3$",
+                "Hoán vị $P_{30}$",
+                "Chỉnh hợp lặp $30^3$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Vì 3 chức danh khác nhau nên việc chọn có phân biệt thứ tự/vai trò, đây là bài toán chỉnh hợp."
+        },
+        {
+            "level": "Thông hiểu",
+            "badge": "🟡 Cấp độ 2: Thông hiểu",
+            "q": "Có bao nhiêu cách chọn ra 4 sinh viên từ một nhóm 10 sinh viên đi dự hội nghị mà không phân biệt chức vụ?",
+            "opts": [
+                "$C_{10}^4 = 210$",
+                "$A_{10}^4 = 5040$",
+                "$40$",
+                "$10^4 = 10000$"
+            ],
+            "ans": 0,
+            "fb": "Đúng! Không phân biệt thứ tự là bài toán tổ hợp: $C_{10}^4 = \\frac{10!}{4!6!} = 210$ cách."
+        },
+        {
+            "level": "Vận dụng",
+            "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy",
+            "q": "Một phòng thi có 23 sinh viên. Xác suất để có ít nhất hai sinh viên có cùng ngày sinh nhật (năm có 365 ngày) là:",
+            "opts": [
+                "$1 - \\frac{A_{365}^{23}}{365^{23}} \\approx 50{,}7\\%$",
+                "$\\frac{23}{365} \\approx 6{,}3\\%$",
+                "$\\frac{C_{23}^2}{365} \\approx 69{,}3\\%$",
+                "$1 - \\left(\\frac{364}{365}\\right)^{23} \\approx 6{,}1\\%$"
+            ],
+            "ans": 0,
+            "fb": "Chính xác! Nghịch lý ngày sinh (Birthday Paradox): Biến cố đối là mọi người đều có ngày sinh khác nhau, với 23 người xác suất trùng đã vượt 50%!"
+        }
+    ]
+};
+
+# Tiếp tục sinh bộ câu hỏi cho C1-C6, D1-D4, E1-E6
+REMAINING_QUIZZES = {
+    "C1": [
+        {"level": "Nhận biết", "badge": "🟢 Cấp độ 1: Nhận biết", "q": "Hàm khối xác suất (pmf) $p(x) = P(X = x)$ của biến ngẫu nhiên rời rạc bắt buộc phải thỏa mãn:", "opts": ["$p(x) \\ge 0$ và $\\sum p(x) = 1$", "$p(x) \\le 1$ và tích phân bằng 1", "$p(x)$ là hàm liên tục", "$\\lim_{x \\to \\infty} p(x) = 1$"], "ans": 0, "fb": "Chính xác! Tổng xác suất trên toàn bộ các giá trị có thể nhận phải bằng 1."},
+        {"level": "Thông hiểu", "badge": "🟡 Cấp độ 2: Thông hiểu", "q": "Cho $P(X = 1) = 0{,}3, P(X = 2) = 0{,}5, P(X = 3) = 0{,}2$. Giá trị hàm phân phối tích lũy $F(2) = P(X \\le 2)$ là:", "opts": ["$0{,}80$", "$0{,}50$", "$0{,}30$", "$1{,}00$"], "ans": 0, "fb": "Đúng! $F(2) = P(X = 1) + P(X = 2) = 0{,}3 + 0{,}5 = 0{,}80$."},
+        {"level": "Vận dụng", "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy", "q": "Cho $p(x) = c \\cdot x$ với $x \\in \\{1, 2, 3, 4\\}$. Hằng số $c$ bằng:", "opts": ["$0{,}10$", "$0{,}25$", "$1{,}00$", "$0{,}05$"], "ans": 0, "fb": "Chính xác! $\\sum_{x=1}^4 c x = c(1 + 2 + 3 + 4) = 10c = 1 \\implies c = 0{,}10$."}
+    ],
+    "C2": [
+        {"level": "Nhận biết", "badge": "🟢 Cấp độ 1: Nhận biết", "q": "Biến ngẫu nhiên $X \\sim \\text{Binomial}(n, p)$ có kỳ vọng và phương sai lần lượt là:", "opts": ["$E[X] = np;\\quad \\text{Var}(X) = np(1-p)$", "$E[X] = p;\\quad \\text{Var}(X) = p(1-p)$", "$E[X] = np;\\quad \\text{Var}(X) = np$", "$E[X] = n/p;\\quad \\text{Var}(X) = n/p^2$"], "ans": 0, "fb": "Chính xác! Công thức giải tích của phân phối Nhị thức."},
+        {"level": "Thông hiểu", "badge": "🟡 Cấp độ 2: Thông hiểu", "q": "Tung 5 đồng xu cân đối độc lập. Xác suất xuất hiện đúng 2 mặt Ngửa là:", "opts": ["$\\binom{5}{2} (0{,}5)^5 = 10/32 = 0{,}3125$", "$\\binom{5}{2} (0{,}5)^2 = 2{,}5$", "$2/5 = 0{,}40$", "$(0{,}5)^5 = 0{,}03125$"], "ans": 0, "fb": "Đúng! $P(X = 2) = \\binom{5}{2} (0{,}5)^2 (0{,}5)^3 = 10 \\times 0{,}03125 = 0{,}3125$."},
+        {"level": "Vận dụng", "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy", "q": "Xác suất bắn trúng mục tiêu là $0{,}2$. Cần bắn ít nhất bao nhiêu phát để xác suất có ít nhất 1 phát trúng $\\ge 90\\%$?", "opts": ["$11$ phát", "$5$ phát", "$8$ phát", "$15$ phát"], "ans": 0, "fb": "Chính xác! $1 - (0{,}8)^n \\ge 0{,}9 \\iff (0{,}8)^n \\le 0{,}1 \\iff n \\ge \\frac{\\ln 0{,}1}{\\ln 0{,}8} \\approx 10{,}32 \\implies n = 11$."}
+    ],
+    "C3": [
+        {"level": "Nhận biết", "badge": "🟢 Cấp độ 1: Nhận biết", "q": "Phân phối Siêu bội (Hypergeometric) được áp dụng trong tình huống nào?", "opts": ["Rút mẫu ngẫu nhiên KHÔNG hoàn lại từ một tập hợp hữu hạn", "Rút mẫu ngẫu nhiên CÓ hoàn lại", "Số lần thử cho đến khi thành công lần đầu", "Số biến cố xuất hiện trong một khoảng thời gian liên tục"], "ans": 0, "fb": "Chính xác! Rút không hoàn lại làm xác suất thành công thay đổi qua mỗi lần rút."},
+        {"level": "Thông hiểu", "badge": "🟡 Cấp độ 2: Thông hiểu", "q": "Một hộp có 10 sản phẩm (7 tốt, 3 hỏng). Rút không hoàn lại 2 sản phẩm. Kỳ vọng số sản phẩm hỏng rút được là:", "opts": ["$2 \\times \\frac{3}{10} = 0{,}6$", "$1{,}0$", "$0{,}3$", "$1{,}4$"], "ans": 0, "fb": "Đúng! Kỳ vọng phân phối Siêu bội $E[X] = n \\frac{M}{N} = 2 \\times \\frac{3}{10} = 0{,}6$."},
+        {"level": "Vận dụng", "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy", "q": "Khi nào phân phối Siêu bội có thể được xấp xỉ an toàn bằng phân phối Nhị thức?", "opts": ["Khi cỡ mẫu nhỏ so với quy mô tổng thể ($n / N \\le 0{,}05$)", "Khi $N \\le 30$", "Khi $p = 0{,}5$", "Không bao giờ được xấp xỉ"], "ans": 0, "fb": "Chính xác! Khi tổng thể $N$ rất lớn so với cỡ mẫu $n$, việc rút không hoàn lại làm thay đổi xác suất không đáng kể."}
+    ],
+    "C4": [
+        {"level": "Nhận biết", "badge": "🟢 Cấp độ 1: Nhận biết", "q": "Đặc trưng nổi bật của biến ngẫu nhiên tuân theo phân phối Poisson($\\lambda$) là:", "opts": ["Phương sai bằng chính kỳ vọng: $\\text{Var}(X) = E[X] = \\lambda$", "Phương sai luôn gấp đôi kỳ vọng", "Hàm phân phối có dạng đối xứng hoàn hảo", "Giá trị chỉ nhận từ 0 đến $n$"], "ans": 0, "fb": "Chính xác! Với Poisson, $E[X] = \\lambda$ và $\\text{Var}(X) = \\lambda$."},
+        {"level": "Thông hiểu", "badge": "🟡 Cấp độ 2: Thông hiểu", "q": "Trung bình có 2 cuộc gọi tới tổng đài mỗi phút ($X \\sim \\text{Poisson}(2)$). Xác suất không có cuộc gọi nào trong 1 phút là:", "opts": ["$e^{-2} \\approx 0{,}1353$", "$1 - e^{-2} \\approx 0{,}8647$", "$2 e^{-2} \\approx 0{,}2707$", "$0$"], "ans": 0, "fb": "Đúng! $P(X = 0) = \\frac{2^0 e^{-2}}{0!} = e^{-2} \\approx 0{,}1353$."},
+        {"level": "Vận dụng", "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy", "q": "Một trang web có tỷ lệ click quảng cáo $p = 0{,}001$. Trong $n = 5000$ lượt xem, áp dụng xấp xỉ Poisson, tham số $\\lambda$ là:", "opts": ["$\\lambda = np = 5$", "$\\lambda = 0{,}5$", "$\\lambda = 50$", "$\\lambda = 5000$"], "ans": 0, "fb": "Chính xác! Quy tắc Poisson xấp xỉ Nhị thức: $\\lambda = np = 5000 \\times 0{,}001 = 5$."}
+    ],
+    "C5": [
+        {"level": "Nhận biết", "badge": "🟢 Cấp độ 1: Nhận biết", "q": "Tính chất tuyến tính của kỳ vọng khẳng định rằng với mọi biến ngẫu nhiên $X, Y$ (dù độc lập hay phụ thuộc):", "opts": ["$E[aX + bY + c] = aE[X] + bE[Y] + c$", "$E[XY] = E[X]E[Y]$", "$E[X^2] = (E[X])^2$", "$E[1/X] = 1/E[X]$"], "ans": 0, "fb": "Chính xác! Kỳ vọng luôn có tính tuyến tính không phụ thuộc vào tính độc lập."},
+        {"level": "Thông hiểu", "badge": "🟡 Cấp độ 2: Thông hiểu", "q": "Cho $E[X] = 4$. Kỳ vọng của $Y = 3X - 5$ bằng:", "opts": ["$7$", "$12$", "$17$", "$4$"], "ans": 0, "fb": "Đúng! $E[Y] = 3(4) - 5 = 12 - 5 = 7$."},
+        {"level": "Vận dụng", "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy", "q": "Bất đẳng thức Jensen khẳng định rằng với một hàm lồi $g(x) = x^2$, mối quan hệ giữa $E[X^2]$ và $(E[X])^2$ là:", "opts": ["$E[X^2] \\ge (E[X])^2$, dấu bằng xảy ra khi và chỉ khi $X$ là hằng số", "$E[X^2] = (E[X])^2$", "$E[X^2] \\le (E[X])^2$", "$E[X^2] - (E[X])^2 < 0$"], "ans": 0, "fb": "Chính xác! Vì phương sai $\\text{Var}(X) = E[X^2] - (E[X])^2 \\ge 0 \\implies E[X^2] \\ge (E[X])^2$."}
+    ],
+    "C6": [
+        {"level": "Nhận biết", "badge": "🟢 Cấp độ 1: Nhận biết", "q": "Phương sai $\\text{Var}(X)$ đo lường đại lượng nào của biến ngẫu nhiên?", "opts": ["Mức độ phân tán của các giá trị xung quanh giá trị kỳ vọng trung bình", "Giá trị có khả năng xuất hiện nhiều nhất", "Trung bình cộng các giá trị", "Độ bất đối xứng của phân phối"], "ans": 0, "fb": "Chính xác! $\\text{Var}(X) = E[(X - \\mu)^2]$ đo bình phương khoảng cách phân tán tới tâm."},
+        {"level": "Thông hiểu", "badge": "🟡 Cấp độ 2: Thông hiểu", "q": "Cho $\\text{Var}(X) = 5$. Phương sai của $Y = -2X + 10$ bằng:", "opts": ["$20$", "$-10$", "$0$", "$10$"], "ans": 0, "fb": "Đúng! $\\text{Var}(-2X + 10) = (-2)^2 \\text{Var}(X) = 4 \\times 5 = 20$ (hằng số biến mất và dấu âm bị bình phương)."},
+        {"level": "Vận dụng", "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy", "q": "Cho hai biến ngẫu nhiên độc lập $X, Y$ có $\\text{Var}(X) = 9, \\text{Var}(Y) = 16$. Phương sai của hiệu $\\text{Var}(X - Y)$ là:", "opts": ["$25$", "$-7$", "$7$", "$5$"], "ans": 0, "fb": "Chính xác! Bẫy kinh điển: Phương sai của hiệu hai biến độc lập là TỔNG phương sai: $\\text{Var}(X - Y) = \\text{Var}(X) + (-1)^2 \\text{Var}(Y) = 9 + 16 = 25$."}
+    ],
+    "D1": [
+        {"level": "Nhận biết", "badge": "🟢 Cấp độ 1: Nhận biết", "q": "Các biến ngẫu nhiên $X_1, X_2, \\dots, X_n$ được gọi là i.i.d. nếu chúng thỏa mãn:", "opts": ["Độc lập với nhau và cùng tuân theo một phân phối xác suất chung", "Có cùng kỳ vọng nhưng phân phối khác nhau", "Có tương quan tuyến tính bằng 0", "Tất cả đều là phân phối chuẩn"], "ans": 0, "fb": "Chính xác! i.i.d. = independent and identically distributed."},
+        {"level": "Thông hiểu", "badge": "🟡 Cấp độ 2: Thông hiểu", "q": "Trong mô hình chiếc hộp (Box Model) chứa 3 vé: $[1, 2, 6]$. Giá trị trung bình của chiếc hộp là:", "opts": ["$3$", "$2$", "$4{,}5$", "$9$"], "ans": 0, "fb": "Đúng! $\\mu = \\frac{1 + 2 + 6}{3} = 3$."},
+        {"level": "Vận dụng", "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy", "q": "Rút $n = 100$ lần có hoàn lại từ một chiếc hộp có $\\mu = 5, \\sigma = 2$. Sai số chuẩn của tổng các vé rút ra là:", "opts": ["$20$", "$2$", "$0{,}2$", "$200$"], "ans": 0, "fb": "Chính xác! $\\text{SD}(S_{100}) = \\sqrt{n} \\cdot \\sigma = \\sqrt{100} \\times 2 = 10 \\times 2 = 20$."}
+    ],
+    "D2": [
+        {"level": "Nhận biết", "badge": "🟢 Cấp độ 1: Nhận biết", "q": "Theo quy tắc căn bậc hai (Square root law), sai số chuẩn của trung bình mẫu $SE(\\bar{X})$ bằng:", "opts": ["$\\frac{\\sigma}{\\sqrt{n}}$", "$\\sigma \\sqrt{n}$", "$\\frac{\\sigma}{n}$", "$\\frac{\\sigma^2}{n}$"], "ans": 0, "fb": "Chính xác! Độ biến thiên của trung bình mẫu tỷ lệ nghịch với căn bậc hai cỡ mẫu."},
+        {"level": "Thông hiểu", "badge": "🟡 Cấp độ 2: Thông hiểu", "q": "Một mẫu gồm $n = 64$ quan sát độc lập từ tổng thể có $\\sigma = 16$. Sai số chuẩn $SE(\\bar{X})$ bằng:", "opts": ["$2$", "$0{,}25$", "$1$", "$8$"], "ans": 0, "fb": "Đúng! $SE(\\bar{X}) = 16 / \\sqrt{64} = 16 / 8 = 2$."},
+        {"level": "Vận dụng", "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy", "q": "Để giảm sai số chuẩn của trung bình mẫu xuống còn một phần ba ($1/3$ lần), ta cần tăng kích thước mẫu $n$ lên:", "opts": ["$9$ lần", "$3$ lần", "$6$ lần", "$27$ lần"], "ans": 0, "fb": "Chính xác! Vì $SE \\propto 1/\\sqrt{n}$, muốn $SE$ giảm 3 lần thì $\\sqrt{n}$ phải tăng 3 lần $\\implies n$ tăng $3^2 = 9$ lần."}
+    ],
+    "D3": [
+        {"level": "Nhận biết", "badge": "🟢 Cấp độ 1: Nhận biết", "q": "Bất đẳng thức Chebyshev $P(|X - \\mu| < k\\sigma) \\ge 1 - \\frac{1}{k^2}$ áp dụng được cho:", "opts": ["MỌI biến ngẫu nhiên có phương sai hữu hạn, không phụ thuộc vào phân phối", "Chỉ các biến ngẫu nhiên có phân phối Chuẩn", "Chỉ các biến ngẫu nhiên rời rạc", "Chỉ khi $k \\ge 5$"], "ans": 0, "fb": "Chính xác! Chebyshev có tính phi tham số tuyệt đối, đúng cho bất kỳ phân phối nào."},
+        {"level": "Thông hiểu", "badge": "🟡 Cấp độ 2: Thông hiểu", "q": "Theo Chebyshev, tỷ lệ dữ liệu nằm trong khoảng 2 độ lệch chuẩn quanh trung bình $[\\mu - 2\\sigma, \\mu + 2\\sigma]$ luôn ít nhất là:", "opts": ["$75\\%$", "$95\\%$", "$68\\%$", "$50\\%$"], "ans": 0, "fb": "Đúng! $1 - 1/2^2 = 1 - 0{,}25 = 0{,}75 = 75\\%$."},
+        {"level": "Vận dụng", "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy", "q": "Cho $X$ có $\\mu = 50, \\sigma = 5$. Cận dưới xác suất $P(35 < X < 65)$ là:", "opts": ["$\\frac{8}{9} \\approx 88{,}89\\%$", "$75\\%$", "$95\\%$", "$99\\%$"], "ans": 0, "fb": "Chính xác! Khoảng $(35, 65) \\iff |X - 50| < 15 = 3\\sigma \\implies k = 3$. Xác suất $\\ge 1 - 1/3^2 = 8/9 \\approx 88{,}89\\%$."}
+    ],
+    "D4": [
+        {"level": "Nhận biết", "badge": "🟢 Cấp độ 1: Nhận biết", "q": "Luật số lớn yếu (WLLN) khẳng định rằng khi cỡ mẫu $n \\to \\infty$, trung bình mẫu $\\bar{X}_n$ sẽ:", "opts": ["Hội tụ theo xác suất về kỳ vọng tổng thể $\\mu$", "Luôn luôn bằng chính xác $\\mu$ tại mọi bước thử", "Có phương sai tiến dần tới vô cùng", "Biến thiên ngẫu nhiên không có giới hạn"], "ans": 0, "fb": "Chính xác! $\\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| < \\epsilon) = 1$."},
+        {"level": "Thông hiểu", "badge": "🟡 Cấp độ 2: Thông hiểu", "q": "Một sòng bạc hoạt động có lãi dựa trên nguyên lý toán học nào sau đây?", "opts": ["Luật số lớn: khi số lượt chơi $n$ đủ lớn, tỷ lệ thắng trung bình của nhà cái hội tụ chắc chắn về kỳ vọng dương", "Định lý Bayes", "Phân phối Chi-bình phương", "Bất đẳng thức Jensen"], "ans": 0, "fb": "Đúng! Lợi nhuận của nhà cái được đảm bảo bằng Luật số lớn với hàng triệu lượt cược."},
+        {"level": "Vận dụng", "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy", "q": "Một người tung đồng xu thấy ra 10 lần liên tiếp mặt Ngửa, liền tin rằng lần thứ 11 chắc chắn khả năng ra Sấp cao hơn để 'bù đắp lại'. Sai lầm tâm lý này gọi là:",
+        "opts": ["Ngụy biện con bạc (Gambler's fallacy) — Luật số lớn làm 'loãng' chứ không 'bù trừ'", "Nghịch lý Simpson", "Quy luật bù trừ xác suất Kolmogorov", "Hội tụ theo phân phối"], "ans": 0, "fb": "Chính xác! Các lần tung là độc lập, đồng xu không có trí nhớ, xác suất lần thứ 11 ra Sấp vẫn là 0,5."}
+    ],
+    "E1": [
+        {"level": "Nhận biết", "badge": "🟢 Cấp độ 1: Nhận biết", "q": "Với biến ngẫu nhiên liên tục $X$, xác suất tại một điểm đơn lẻ bất kỳ $P(X = c)$ luôn bằng:", "opts": ["$0$", "$f(c)$", "$F(c)$", "$1$"], "ans": 0, "fb": "Chính xác! Diện tích dưới đường cong tại một điểm có độ rộng bằng 0 nên xác suất luôn bằng 0."},
+        {"level": "Thông hiểu", "badge": "🟡 Cấp độ 2: Thông hiểu", "q": "Hàm mật độ $f(x) = 2x$ với $0 \\le x \\le 1$. Xác suất $P(0{,}2 \\le X \\le 0{,}6)$ bằng:", "opts": ["$\\int_{0{,}2}^{0{,}6} 2x dx = [x^2]_{0{,}2}^{0{,}6} = 0{,}36 - 0{,}04 = 0{,}32$", "$0{,}40$", "$0{,}80$", "$0{,}16$"], "ans": 0, "fb": "Đúng! $P(a \\le X \\le b) = \\int_a^b f(x) dx = 0{,}36 - 0{,}04 = 0{,}32$."},
+        {"level": "Vận dụng", "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy", "q": "Cho hàm mật độ $f(x) = k e^{-3x}$ với $x > 0$. Hằng số $k$ bằng:", "opts": ["$3$", "$1/3$", "$1$", "$e^3$"], "ans": 0, "fb": "Chính xác! $\\int_0^\\infty k e^{-3x} dx = k/3 = 1 \\implies k = 3$."}
+    ],
+    "E2": [
+        {"level": "Nhận biết", "badge": "🟢 Cấp độ 1: Nhận biết", "q": "Kỳ vọng của biến ngẫu nhiên liên tục có hàm mật độ $f(x)$ được tính bằng công thức:", "opts": ["$E[X] = \\int_{-\\infty}^{+\\infty} x f(x) dx$", "$E[X] = \\int_{-\\infty}^{+\\infty} f(x) dx$", "$E[X] = \\int_{-\\infty}^{+\\infty} x^2 f(x) dx$", "$E[X] = \\sum x f(x)$"], "ans": 0, "fb": "Chính xác! Định nghĩa tích phân kỳ vọng liên tục."},
+        {"level": "Thông hiểu", "badge": "🟡 Cấp độ 2: Thông hiểu", "q": "Nếu hàm mật độ $f(x)$ đối xứng qua điểm $x = 5$ và kỳ vọng tồn tại, thì $E[X]$ bằng:", "opts": ["$5$", "$0$", "$10$", "$2{,}5$"], "ans": 0, "fb": "Đúng! Do tính đối xứng của hàm mật độ, tâm đối xứng chính là kỳ vọng."},
+        {"level": "Vận dụng", "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy", "q": "Cho $f(x) = 3x^2$ trên đoạn $[0, 1]$. Phương sai $\\text{Var}(X)$ bằng:", "opts": ["$\\frac{3}{5} - \\left(\\frac{3}{4}\\right)^2 = 0{,}6 - 0{,}5625 = 0{,}0375$", "$0{,}75$", "$0{,}0625$", "$0{,}125$"], "ans": 0, "fb": "Chính xác! $E[X] = \\int_0^1 3x^3 dx = 3/4$. $E[X^2] = \\int_0^1 3x^4 dx = 3/5$. $\\text{Var}(X) = 0{,}6 - (0{,}75)^2 = 0{,}0375$."}
+    ],
+    "E3": [
+        {"level": "Nhận biết", "badge": "🟢 Cấp độ 1: Nhận biết", "q": "Cho $X \\sim \\text{Uniform}(a, b)$. Phương sai của $X$ là:", "opts": ["$\\frac{(b - a)^2}{12}$", "$\\frac{b - a}{2}$", "$\\frac{(b - a)^2}{2}$", "$\\frac{b + a}{12}$"], "ans": 0, "fb": "Chính xác! Công thức giải tích phương sai phân phối đều."},
+        {"level": "Thông hiểu", "badge": "🟡 Cấp độ 2: Thông hiểu", "q": "Xe buýt đến trạm ngẫu nhiên đều trong khoảng từ 0 đến 10 phút ($X \\sim \\text{Uniform}(0, 10)$). Xác suất phải chờ từ 3 đến 7 phút là:", "opts": ["$\\frac{7 - 3}{10 - 0} = 0{,}40$", "$0{,}30$", "$0{,}70$", "$0{,}50$"], "ans": 0, "fb": "Đúng! Với phân phối đều, xác suất bằng tỉ lệ độ dài khoảng con trên tổng độ dài: $4/10 = 0{,}40$."},
+        {"level": "Vận dụng", "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy", "q": "Cho $X \\sim \\text{Uniform}(0, 10)$. Biết rằng đã chờ hơn 4 phút ($X > 4$), kỳ vọng thời gian chờ là:", "opts": ["$7\\text{ phút}$", "$5\\text{ phút}$", "$6\\text{ phút}$", "$8\\text{ phút}$"], "ans": 0, "fb": "Chính xác! Phân phối có điều kiện của $X$ khi biết $X > 4$ là $\\text{Uniform}(4, 10) \\implies E = (4 + 10)/2 = 7$ phút."}
+    ],
+    "E4": [
+        {"level": "Nhận biết", "badge": "🟢 Cấp độ 1: Nhận biết", "q": "Để chuẩn hóa biến ngẫu nhiên $X \\sim \\mathcal{N}(\\mu, \\sigma^2)$ về biến chuẩn tắc $Z \\sim \\mathcal{N}(0, 1)$, công thức biến đổi là:", "opts": ["$Z = \\frac{X - \\mu}{\\sigma}$", "$Z = \\frac{X - \\mu}{\\sigma^2}$", "$Z = \\frac{X - \\sigma}{\\mu}$", "$Z = \\sigma X + \\mu$"], "ans": 0, "fb": "Chính xác! Lấy biến số trừ kỳ vọng rồi chia cho độ lệch chuẩn $\\sigma$."},
+        {"level": "Thông hiểu", "badge": "🟡 Cấp độ 2: Thông hiểu", "q": "Biết $\\Phi(1{,}645) = 0{,}9500$. Giá trị $\\Phi(-1{,}645)$ bằng:", "opts": ["$1 - 0{,}9500 = 0{,}0500$", "$-0{,}9500$", "$0{,}5000$", "$0{,}0250$"], "ans": 0, "fb": "Đúng! Do tính đối xứng: $\\Phi(-z) = 1 - \\Phi(z) \\implies 1 - 0{,}9500 = 0{,}0500$."},
+        {"level": "Vận dụng", "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy", "q": "Điểm kiểm tra $X \\sim \\mathcal{N}(70, 25)$. Để lọt vào top $2{,}5\\%$ điểm cao nhất (tương ứng $\\Phi(1{,}96) = 0{,}975$), sinh viên cần đạt tối thiểu:", "opts": ["$79{,}8\\text{ điểm}$", "$89{,}6\\text{ điểm}$", "$75\\text{ điểm}$", "$80\\text{ điểm}$"], "ans": 0, "fb": "Chính xác! $\\sigma = \\sqrt{25} = 5$. $x = \\mu + z \\sigma = 70 + 1{,}96(5) = 70 + 9{,}8 = 79{,}8$ điểm."}
+    ],
+    "E5": [
+        {"level": "Nhận biết", "badge": "🟢 Cấp độ 1: Nhận biết", "q": "Tính chất 'không nhớ' (Memoryless): $P(X > s + t \\mid X > s) = P(X > t)$ là đặc trưng của phân phối liên tục nào?", "opts": ["Phân phối Mũ (Exponential)", "Phân phối Chuẩn (Normal)", "Phân phối Đều (Uniform)", "Phân phối Chi-bình phương"], "ans": 0, "fb": "Chính xác! Phân phối Mũ mô hình hóa tuổi thọ của các thiết bị không bị lão hóa cơ học."},
+        {"level": "Thông hiểu", "badge": "🟡 Cấp độ 2: Thông hiểu", "q": "Tuổi thọ linh kiện $X \\sim \\text{Exp}(\\lambda = 0{,}2)$ (trung bình 5 năm). Xác suất linh kiện sống quá 5 năm là:", "opts": ["$e^{-0{,}2 \\times 5} = e^{-1} \\approx 0{,}3679$", "$0{,}5000$", "$1 - e^{-1} \\approx 0{,}6321$", "$0{,}2000$"], "ans": 0, "fb": "Đúng! $P(X > t) = e^{-\\lambda t} = e^{-1} \\approx 0{,}3679$."},
+        {"level": "Vận dụng", "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy", "q": "Nếu $Z_1, Z_2, \\dots, Z_k$ là các biến ngẫu nhiên độc lập cùng tuân theo chuẩn tắc $\\mathcal{N}(0, 1)$, thì tổng bình phương $W = \\sum_{i=1}^k Z_i^2$ tuân theo phân phối:", "opts": ["Phân phối Chi-bình phương với $k$ bậc tự do: $\\chi^2(k)$", "Phân phối Chuẩn $\\mathcal{N}(0, k)$", "Phân phối $t$-Student với $k$ bậc tự do", "Phân phối Mũ $\\text{Exp}(k)$"], "ans": 0, "fb": "Chính xác! Định nghĩa toán học của phân phối Chi-bình phương."}
+    ],
+    "E6": [
+        {"level": "Nhận biết", "badge": "🟢 Cấp độ 1: Nhận biết", "q": "Theo Định lý Giới hạn Trung tâm (CLT), khi cỡ mẫu $n$ đủ lớn ($n \\ge 30$), tổng $S_n = \\sum_{i=1}^n X_i$ của các biến i.i.d. có phân phối xấp xỉ:", "opts": ["$\\mathcal{N}(n\\mu, n\\sigma^2)$", "$\\mathcal{N}(\\mu, \\sigma^2/n)$", "$\\mathcal{N}(\\mu, \\sigma^2)$", "Phân phối Đều"], "ans": 0, "fb": "Chính xác! Tổng $S_n$ xấp xỉ chuẩn với kỳ vọng $n\\mu$ và phương sai $n\\sigma^2$."},
+        {"level": "Thông hiểu", "badge": "🟡 Cấp độ 2: Thông hiểu", "q": "Rút mẫu $n = 100$ từ tổng thể có $\\mu = 50, \\sigma = 10$. Khoảng đối xứng chứa $95\\%$ giá trị trung bình mẫu $\\bar{X}$ (với $z = 1{,}96$) là:", "opts": ["$[48{,}04; 51{,}96]$", "$[30{,}4; 69{,}6]$", "$[40; 60]$", "$[49; 51]$"], "ans": 0, "fb": "Đúng! $SE = 10/\\sqrt{100} = 1$. Khoảng $95\\%: [50 - 1{,}96(1); 50 + 1{,}96(1)] = [48{,}04; 51{,}96]$."},
+        {"level": "Vận dụng", "badge": "🔴 Cấp độ 3: Vận dụng & Bẫy", "q": "Trong bài toán bóng đèn dự phòng UET ($\mu = 100, \\sigma = 20, T = 2000$), sau khi chuẩn hóa $P(S_n \\ge 2000) \\ge 0{,}99$, phương trình bậc hai $100u^2 - 49{,}35u - 2000 \\ge 0$ (với $u = \\sqrt{n}$) cho số bóng đèn tối thiểu là:", "opts": ["$n = 23$ bóng đèn", "$n = 20$ bóng đèn", "$n = 22$ bóng đèn", "$n = 25$ bóng đèn"], "ans": 0, "fb": "Chính xác! Bẫy kinh điển số 10: Nghiệm $u \\ge 4{,}726 \\implies n \\ge 22{,}33$. Vì $n$ nguyên nên bắt buộc phải làm tròn LÊN $n = 23$ bóng."}
+    ]
+}
+
+# Gộp tất cả 26 bài học
+ALL_QUIZZES = {**LESSON_QUIZZES, **REMAINING_QUIZZES}
+print(f"Tổng số bài học có 3-level quiz: {len(ALL_QUIZZES)} bài.")
+
+# Bây giờ ta viết script để chèn `quizzes` vào từng bài học trong `content/lessons_all.js`
+# Đồng thời cập nhật `content/cum_a.js`, `cum_b.js`, `cum_c.js`, `cum_d.js`, `cum_e.js`
+
+with open(os.path.join(CONTENT_DIR, "quizzes_3levels.json"), "w", encoding="utf-8") as qf:
+    json.dump(ALL_QUIZZES, qf, ensure_ascii=False, indent=2)
+print("Đã lưu quizzes_3levels.json thành công!")
