@@ -73,31 +73,43 @@ const CUM_B = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Tung một con xúc xắc cân đối. Hãy xác định không gian mẫu $\\Omega$, biến cố $A$ là 'xuất hiện số nguyên tố', và tính $P(A)$.",
-        sol: "<b>Bước 1:</b> Không gian mẫu gồm 6 mặt: $\\Omega = \\{1, 2, 3, 4, 5, 6\\}$.<br>" +
-             "<b>Bước 2:</b> Các số nguyên tố trong $\\Omega$ là $2, 3, 5$. Do đó $A = \\{2, 3, 5\\}$.<br>" +
-             "<b>Bước 3:</b> Vì xúc xắc cân đối, mỗi mặt có xác suất $1/6$. Theo tiên đề 3:<br>" +
-             "$$P(A) = P(\\{2\\}) + P(\\{3\\}) + P(\\{5\\}) = \\frac{1}{6} + \\frac{1}{6} + \\frac{1}{6} = \\frac{3}{6} = 0{,}5$$."
+        t: "[Slide Week 05 — W05-BT01] Phép thử phức hợp Tung xu rồi Gieo xúc xắc",
+        q: "Một người tung một đồng xu cân đối. Nếu lần đầu được mặt Ngửa (H), người đó tung tiếp một đồng xu; nếu lần đầu được mặt Sấp (T), người đó gieo một con xúc xắc 6 mặt (Slide 15–16).<br>" +
+           "a) Hãy liệt kê toàn bộ các phần tử của không gian mẫu $\\Omega$.<br>" +
+           "b) Tính xác suất của biến cố $A$: 'Kết quả của phép thử xuất hiện số chẵn'.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 05 (trang 16):</b><br>" +
+             "a) Không gian mẫu $\\Omega$ gồm 8 kết quả sơ cấp:<br>" +
+             "   $$\\Omega = \\{HH, HT, T1, T2, T3, T4, T5, T6\\}$$<br>" +
+             "b) Xác suất của mỗi nhánh:<br>" +
+             "   - Nhánh ngửa: $P(HH) = P(HT) = \\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4}$.<br>" +
+             "   - Nhánh sấp: $P(Ti) = \\frac{1}{2} \\times \\frac{1}{6} = \\frac{1}{12}$ với mọi $i \\in \\{1, 2, 3, 4, 5, 6\\}$.<br>" +
+             "   Biến cố $A = \\{T2, T4, T6\\}$ gồm 3 kết quả số chẵn:<br>" +
+             "   $$P(A) = P(T2) + P(T4) + P(T6) = \\frac{1}{12} + \\frac{1}{12} + \\frac{1}{12} = \\frac{3}{12} = \\frac{1}{4} = 0{,}25$$"
       },
       {
         level: "Trung bình",
-        q: "Tung đồng thời hai đồng xu cân đối. Tìm xác suất để xuất hiện 'ít nhất một mặt ngửa'.",
-        sol: "<b>Bước 1:</b> Không gian mẫu $\\Omega = \\{\\text{NN}, \\text{NS}, \\text{SN}, \\text{SS}\\}$, gồm 4 phần tử đồng khả năng, mỗi phần tử có xác suất $1/4$.<br>" +
-             "<b>Bước 2:</b> Gọi $A$ là biến cố 'ít nhất một mặt ngửa': $A = \\{\\text{NN}, \\text{NS}, \\text{SN}\\}$.<br>" +
-             "<b>Bước 3:</b> $P(A) = \\frac{3}{4} = 0{,}75$."
+        t: "[Slide Week 05 — W05-Q02] Phân biệt Xung khắc vs Đối nhau trong Vé hỗ trợ",
+        q: "Một vé yêu cầu hỗ trợ kỹ thuật tại UET được phân loại vào đúng một trong bốn mức ưu tiên: Thấp, Trung bình, Cao, Khẩn cấp (Slide 23–24). Gọi $A$ là biến cố 'Vé có mức ưu tiên Thấp' và $B$ là biến cố 'Vé có mức ưu tiên Khẩn cấp'. Hai biến cố $A$ và $B$ có quan hệ gì: Xung khắc, Đối nhau hay cả hai?",
+        sol: "<b>Phân tích bản chất theo Slide Week 05 (trang 24):</b><br>" +
+             "1. Vì mỗi vé chỉ được gán đúng MỘT mức ưu tiên nên một vé không thể vừa có mức Thấp vừa có mức Khẩn cấp $\\implies A \\cap B = \\emptyset$. Do đó, $A$ và $B$ <b>Xung khắc</b>.<br>" +
+             "2. Tuy nhiên, nếu vé không phải mức Thấp ($A^c$), nó có thể là Trung bình, Cao hoặc Khẩn cấp, chứ không nhất thiết phải là Khẩn cấp. Tức là $A \\cup B \\neq \\Omega$. Do đó, $A$ và $B$ <b>KHÔNG đối nhau</b>.<br>" +
+             "<b>Kết luận:</b> $A$ và $B$ xung khắc nhưng không đối lập."
       },
       {
         level: "Vận dụng",
-        q: "Từ 3 tiên đề Kolmogorov, hãy chứng minh một cách chặt chẽ rằng xác suất của biến cố không thể bằng 0: $P(\\emptyset) = 0$, và với mọi biến cố $A$ luôn có $0 \\le P(A) \\le 1$.",
-        sol: "<b>Chứng minh $P(\\emptyset) = 0$:</b><br>" +
-             "- Ta có $\\Omega = \\Omega \\cup \\emptyset$. Vì $\\Omega \\cap \\emptyset = \\emptyset$ (xung khắc), theo Tiên đề 3:<br>" +
-             "$$P(\\Omega) = P(\\Omega) + P(\\emptyset)$$<br>" +
-             "- Thay $P(\\Omega) = 1$ (Tiên đề 2) vào: $1 = 1 + P(\\emptyset) \\implies P(\\emptyset) = 0$.<br>" +
-             "<b>Chứng minh $P(A) \\le 1$:</b><br>" +
-             "- Ta có $\\Omega = A \\cup A^c$ với $A \\cap A^c = \\emptyset$.<br>" +
-             "- Theo Tiên đề 3: $P(\\Omega) = P(A) + P(A^c) \\implies 1 = P(A) + P(A^c)$.<br>" +
-             "- Vì $P(A^c) \\ge 0$ (Tiên đề 1), suy ra $P(A) = 1 - P(A^c) \\le 1$. Kết hợp Tiên đề 1 $\\implies 0 \\le P(A) \\le 1$."
+        t: "[Slide Week 05 — W05-EX01] Biểu diễn Biến cố Hệ thống hai Máy chủ",
+        q: "Một hệ thống trung tâm dữ liệu có hai máy chủ. Đặt $A$: 'Máy chủ 1 gặp sự cố' và $B$: 'Máy chủ 2 gặp sự cố' (Slide 26–27). Hãy dùng các phép toán tập hợp để biểu diễn các biến cố sau:<br>" +
+           "1. Ít nhất một máy chủ gặp sự cố.<br>" +
+           "2. Cả hai máy chủ cùng gặp sự cố.<br>" +
+           "3. Đúng một máy chủ gặp sự cố.<br>" +
+           "4. Cả hai máy chủ đều hoạt động bình thường.",
+        sol: "<b>Đáp án theo Slide Week 05 (trang 27):</b><br>" +
+             "1. 'Ít nhất một máy chủ gặp sự cố': Biến cố hợp $A \\cup B$.<br>" +
+             "2. 'Cả hai máy chủ cùng gặp sự cố': Biến cố giao $A \\cap B$ (hay $AB$).<br>" +
+             "3. 'Đúng một máy chủ gặp sự cố': $(A \\setminus B) \\cup (B \\setminus A)$ hoặc $(A \\cap B^c) \\cup (A^c \\cap B)$ hoặc $(A \\cup B) \\setminus (A \\cap B)$.<br>" +
+             "4. 'Cả hai máy chủ đều hoạt động bình thường': Biến cố đối $(A \\cup B)^c$ hoặc $A^c \\cap B^c$ (theo luật De Morgan)."
       }
+    
     ],
     pitfalls: [
       {
@@ -214,34 +226,44 @@ const CUM_B = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Gieo một con xúc xắc cân đối. Gọi A là biến cố 'ra số chẵn', B là biến cố 'ra số lớn hơn hoặc bằng 4'. Tính xác suất P(A ∪ B).",
-        sol: "<b>Bước 1:</b> Liệt kê các phần tử:<br>" +
-             "- $\\Omega = \\{1, 2, 3, 4, 5, 6\\}$<br>" +
-             "- $A = \\{2, 4, 6\\} \\implies P(A) = 3/6$<br>" +
-             "- $B = \\{4, 5, 6\\} \\implies P(B) = 3/6$<br>" +
-             "- Phần giao: $A \\cap B = \\{4, 6\\} \\implies P(A \\cap B) = 2/6$<br>" +
-             "<b>Bước 2:</b> Áp dụng quy tắc cộng tổng quát:<br>" +
-             "$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = \\frac{3}{6} + \\frac{3}{6} - \\frac{2}{6} = \\frac{4}{6} = \\frac{2}{3} \\approx 0{,}6667$$."
+        t: "[Slide Week 05 — Slide 36–37] Quy tắc cộng từ Khảo sát 137 Hộ gia đình",
+        q: "Một cuộc khảo sát ngẫu nhiên 137 hộ gia đình (Slide 36–37) về việc sử dụng dịch vụ cho thấy:<br>" +
+           "- 86 hộ sử dụng Internet ($I$);<br>" +
+           "- 92 hộ sử dụng truyền hình cáp ($T$);<br>" +
+           "- 69 hộ sử dụng đồng thời cả Internet và truyền hình cáp ($I \\cap T$).<br>" +
+           "Chọn ngẫu nhiên một hộ gia đình. Tính xác suất để hộ đó sử dụng ít nhất một trong hai dịch vụ trên.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 05 (trang 37):</b><br>" +
+             "1. Xác suất từng biến cố:<br>" +
+             "   $$P(I) = \\frac{86}{137}, \\quad P(T) = \\frac{92}{137}, \\quad P(I \\cap T) = \\frac{69}{137}$$<br>" +
+             "2. Biến cố 'hộ gia đình sử dụng ít nhất một dịch vụ' là biến cố hợp $I \\cup T$.<br>" +
+             "   Áp dụng Quy tắc cộng xác suất tổng quát:<br>" +
+             "   $$P(I \\cup T) = P(I) + P(T) - P(I \\cap T)$$<br>" +
+             "   $$P(I \\cup T) = \\frac{86}{137} + \\frac{92}{137} - \\frac{69}{137} = \\frac{109}{137} \\approx 0{,}7956 \\approx 79{,}56\\%$$"
       },
       {
         level: "Trung bình",
-        q: "Tung 4 đồng xu cân đối độc lập. Tính xác suất để có ít nhất một mặt ngửa xuất hiện.",
-        sol: "<b>Bước 1:</b> Gọi $A$ là biến cố 'có ít nhất một mặt ngửa'.<br>" +
-             "<b>Bước 2:</b> Xét biến cố đối $A^c$: 'không có mặt ngửa nào' (tức là cả 4 lần đều ra mặt Sấp: SSSS).<br>" +
-             "<b>Bước 3:</b> Vì mỗi lần tung độc lập, xác suất ra sấp là $1/2$:<br>" +
-             "$$P(A^c) = P(\\text{SSSS}) = \\left(\\frac{1}{2}\\right)^4 = \\frac{1}{16}$$<br>" +
-             "<b>Bước 4:</b> Áp dụng quy tắc bù trừ:<br>" +
-             "$$P(A) = 1 - P(A^c) = 1 - \\frac{1}{16} = \\frac{15}{16} = 0{,}9375\\text{ (hay } 93{,}75\\%\\text{)}$$."
+        t: "[Slide Week 05 — W05-Q01 & Slide 75] Nghịch lý De Méré và Biến cố đối",
+        q: "Hiệp sĩ De Méré từng thắc mắc: 'Khi gieo 4 lần một con xúc xắc cân đối độc lập, xác suất xuất hiện ít nhất một mặt 6 có lớn hơn 50% không?' (Slide 10–12, 75). Hãy tính xác suất này và giải thích vì sao không thể lấy $4 \\times \\frac{1}{6} = \\frac{4}{6}$ như De Méré đã từng lầm tưởng.",
+        sol: "<b>Phân tích bản chất theo Slide Week 05 (trang 12 & 75):</b><br>" +
+             "1. <b>Sai lầm của De Méré:</b> Các lần gieo xúc xắc không xung khắc (có thể ra mặt 6 ở nhiều lần), nên không thể cộng trực tiếp $4 \\times \\frac{1}{6}$. Cộng như vậy sẽ tính lặp các trường hợp giao nhau!<br>" +
+             "2. <b>Cách giải chuẩn mực qua Biến cố đối:</b><br>" +
+             "   Gọi $A$ là biến cố 'Có ít nhất một mặt 6 trong 4 lần gieo'.<br>" +
+             "   Biến cố đối $A^c$: 'Cả 4 lần đều không ra mặt 6'.<br>" +
+             "   Xác suất mỗi lần không ra mặt 6 là $\\frac{5}{6}$. Vì các lần gieo độc lập:<br>" +
+             "   $$P(A^c) = \\left(\\frac{5}{6}\\right)^4 = \\frac{625}{1296} \\approx 0{,}4823$$<br>" +
+             "   $$P(A) = 1 - P(A^c) = 1 - \\frac{625}{1296} = \\frac{671}{1296} \\approx 0{,}5177 > 0{,}5$$<br>" +
+             "   Trò chơi này có lợi thế cho người đặt cược (tỉ lệ thắng $51{,}77\\% > 50\\%$)."
       },
       {
         level: "Vận dụng",
-        q: "Một lớp sinh viên có 60% thích môn Toán, 50% thích môn Lập trình và 30% thích cả hai môn. Chọn ngẫu nhiên một sinh viên. Tính xác suất sinh viên đó không thích môn nào trong hai môn trên.",
-        sol: "<b>Bước 1:</b> Gọi $T$ là thích Toán ($P(T) = 0{,}6$), $L$ là thích Lập trình ($P(L) = 0{,}5$). Phần giao $P(T \\cap L) = 0{,}3$.<br>" +
-             "<b>Bước 2:</b> Xác suất sinh viên thích ít nhất một môn ($T \\cup L$):<br>" +
-             "$$P(T \\cup L) = P(T) + P(L) - P(T \\cap L) = 0{,}6 + 0{,}5 - 0{,}3 = 0{,}8\\text{ (80\\%)}$$<br>" +
-             "<b>Bước 3:</b> Biến cố 'không thích môn nào' chính là đối lập của 'thích ít nhất một môn':<br>" +
-             "$$P(\\text{Không thích môn nào}) = 1 - P(T \\cup L) = 1 - 0{,}8 = 0{,}2\\text{ (20\\%)}$$."
+        t: "[Slide Week 05 — W05-BT02] Bao hàm - Loại trừ cho Ba Dự án Nhà máy",
+        q: "Một tập đoàn công nghệ thi công 3 nhà máy tại 3 địa điểm độc lập. Gọi $A_1, A_2, A_3$ lần lượt là các biến cố nhà máy 1, 2, 3 hoàn thành đúng tiến độ (Slide 28–29). Hãy viết công thức tính xác suất để có ít nhất một nhà máy hoàn thành đúng tiến độ bằng Nguyên lý bao hàm - loại trừ.",
+        sol: "<b>Công thức chuẩn xác theo Slide Week 05 (trang 29):</b><br>" +
+             "Biến cố 'Có ít nhất một nhà máy hoàn thành đúng tiến độ' là $A_1 \\cup A_2 \\cup A_3$.<br>" +
+             "Theo Nguyên lý bao hàm - loại trừ cho 3 biến cố:<br>" +
+             "$$P(A_1 \\cup A_2 \\cup A_3) = P(A_1) + P(A_2) + P(A_3) - [P(A_1 A_2) + P(A_2 A_3) + P(A_3 A_1)] + P(A_1 A_2 A_3)$$"
       }
+    
     ],
     pitfalls: [
       {
@@ -357,31 +379,44 @@ const CUM_B = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Biết P(A ∩ B) = 0,2 và P(B) = 0,4. Hãy tính xác suất có điều kiện P(A | B).",
-        sol: "<b>Áp dụng công thức:</b><br>" +
-             "$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{0{,}2}{0{,}4} = 0{,}5$$."
+        t: "[Slide Week 05 — W05-EX02] Tính Xác suất có điều kiện từ Dữ liệu Khảo sát",
+        q: "Từ dữ liệu khảo sát 137 hộ gia đình ở trên (Slide 40–41), biết rằng có 86 hộ sử dụng Internet và trong số đó có 69 hộ sử dụng truyền hình cáp. Nếu chọn ngẫu nhiên một hộ gia đình và biết rằng hộ này CÓ dùng Internet, tính xác suất hộ đó cũng dùng truyền hình cáp.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 05 (trang 41):</b><br>" +
+             "1. Ký hiệu $I$: 'Hộ dùng Internet' và $T$: 'Hộ dùng truyền hình cáp'.<br>" +
+             "2. Yêu cầu bài toán là tính xác suất có điều kiện $P(T \\mid I)$.<br>" +
+             "   Không gian mẫu lúc này đã <b>thu hẹp về nhóm 86 hộ có dùng Internet</b>.<br>" +
+             "   $$P(T \\mid I) = \\frac{n(T \\cap I)}{n(I)} = \\frac{69}{86} \\approx 0{,}8023 \\approx 80{,}23\\%$$"
       },
       {
         level: "Trung bình",
-        q: "Một hộp có 5 thẻ bài, trong đó có 2 thẻ màu đỏ và 3 thẻ màu đen. Rút ngẫu nhiên lần lượt 2 thẻ không hoàn lại. Tính xác suất để cả hai thẻ rút ra đều là màu đỏ.",
-        sol: "<b>Bước 1:</b> Gọi $R_1$ là lần 1 rút được thẻ đỏ, $R_2$ là lần 2 rút được thẻ đỏ.<br>" +
-             "<b>Bước 2:</b> Ở lần rút thứ nhất, có 2 thẻ đỏ trong 5 thẻ: $P(R_1) = 2/5 = 0{,}4$.<br>" +
-             "<b>Bước 3:</b> Sau khi đã rút 1 thẻ đỏ (không hoàn lại), trong hộp chỉ còn lại 4 thẻ, trong đó có đúng 1 thẻ đỏ: $P(R_2 \\mid R_1) = 1/4 = 0{,}25$.<br>" +
-             "<b>Bước 4:</b> Áp dụng quy tắc nhân:<br>" +
-             "$$P(R_1 \\cap R_2) = P(R_1) \\cdot P(R_2 \\mid R_1) = \\frac{2}{5} \\times \\frac{1}{4} = \\frac{2}{20} = 0{,}10\\text{ (10\\%)}$$."
+        t: "[Slide Week 05 — Slide 45–46] Quy tắc nhân lấy mẫu Không hoàn lại",
+        q: "Một túi có 3 quân cờ xanh và 7 quân cờ màu khác (Slide 45–46). Lấy ngẫu nhiên lần lượt hai quân cờ không hoàn lại. Gọi $A$ là biến cố lần đầu lấy được quân xanh, $B$ là biến cố lần thứ hai lấy được quân xanh. Tính xác suất để cả hai lần đều lấy được quân xanh.",
+        sol: "<b>Lời giải từng bước theo Slide Week 05 (trang 46):</b><br>" +
+             "1. Xác suất lần đầu lấy được quân xanh: $P(A) = \\frac{3}{10}$.<br>" +
+             "2. Sau khi đã lấy 1 quân xanh, trong túi còn 9 quân cờ gồm 2 quân xanh và 7 quân khác.<br>" +
+             "   Xác suất lần hai lấy được quân xanh biết lần đầu đã lấy quân xanh là:<br>" +
+             "   $$P(B \\mid A) = \\frac{2}{9}$$<br>" +
+             "3. Theo Quy tắc nhân xác suất:<br>" +
+             "   $$P(A \\cap B) = P(A) \\times P(B \\mid A) = \\frac{3}{10} \\times \\frac{2}{9} = \\frac{6}{90} = \\frac{1}{15} \\approx 0{,}0667$$"
       },
       {
         level: "Vận dụng",
-        q: "Trong kho có 10 chiếc máy tính xách tay, trong đó có 3 chiếc bị lỗi phần cứng. Một kỹ sư kiểm tra ngẫu nhiên lần lượt 3 chiếc không hoàn lại. Tính xác suất để cả 3 chiếc đều hoạt động tốt.",
-        sol: "<b>Bước 1:</b> Tổng số máy = 10, máy tốt = 7, máy lỗi = 3.<br>" +
-             "<b>Bước 2:</b> Gọi $T_1, T_2, T_3$ lần lượt là chiếc thứ 1, 2, 3 hoạt động tốt.<br>" +
-             "<b>Bước 3:</b> Áp dụng quy tắc chuỗi:<br>" +
-             "- Lần 1: $P(T_1) = \\frac{7}{10}$ (còn lại 9 máy, 6 máy tốt).<br>" +
-             "- Lần 2: $P(T_2 \\mid T_1) = \\frac{6}{9}$ (còn lại 8 máy, 5 máy tốt).<br>" +
-             "- Lần 3: $P(T_3 \\mid T_1 \\cap T_2) = \\frac{5}{8}$.<br>" +
-             "<b>Bước 4:</b> Nhân xác suất:<br>" +
-             "$$P(T_1 \\cap T_2 \\cap T_3) = \\frac{7}{10} \\times \\frac{6}{9} \\times \\frac{5}{8} = \\frac{210}{720} = \\frac{7}{24} \\approx 0{,}2917\\text{ (29{,}17\\%)}$$."
+        t: "[Slide Week 05 — W05-EX04] Công thức Bayes cho Nhà máy hai Dây chuyền",
+        q: "Một nhà máy có hai dây chuyền sản xuất linh kiện vi mạch (Slide 58, 62–63):<br>" +
+           "- Dây chuyền A tạo ra 60% sản lượng toàn nhà máy, với tỉ lệ lỗi là 2%.<br>" +
+           "- Dây chuyền B tạo ra 40% sản lượng toàn nhà máy, với tỉ lệ lỗi là 4%.<br>" +
+           "Kiểm tra ngẫu nhiên một linh kiện ở kho thấy bị lỗi. Tính xác suất linh kiện này do dây chuyền B sản xuất.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 05 (trang 63):</b><br>" +
+             "1. Gọi $A$: 'Linh kiện do dây chuyền A sản xuất' $\\implies P(A) = 0{,}60$.<br>" +
+             "   Gọi $B$: 'Linh kiện do dây chuyền B sản xuất' $\\implies P(B) = 0{,}40$.<br>" +
+             "   Gọi $L$: 'Linh kiện bị lỗi' $\\implies P(L \\mid A) = 0{,}02$ và $P(L \\mid B) = 0{,}04$.<br>" +
+             "2. Áp dụng Công thức xác suất toàn phần tính tỉ lệ lỗi chung của nhà máy:<br>" +
+             "   $$P(L) = P(A)P(L \\mid A) + P(B)P(L \\mid B) = 0{,}60 \\times 0{,}02 + 0{,}40 \\times 0{,}04 = 0{,}012 + 0{,}016 = 0{,}028$$<br>" +
+             "3. Áp dụng Định lý Bayes tính xác suất hậu nghiệm $P(B \\mid L)$:<br>" +
+             "   $$P(B \\mid L) = \\frac{P(B)P(L \\mid B)}{P(L)} = \\frac{0{,}016}{0{,}028} = \\frac{4}{7} \\approx 0{,}5714 \\approx 57{,}14\\%$$<br>" +
+             "   Mặc dù dây chuyền B chỉ đóng góp 40% sản lượng, nhưng khi một linh kiện bị lỗi thì khả năng nó đến từ dây chuyền B lên tới 57,14%!"
       }
+    
     ],
     pitfalls: [
       {
@@ -507,28 +542,38 @@ const CUM_B = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Hai biến cố A và B độc lập với P(A) = 0,3 và P(B) = 0,5. Tính P(A ∩ B) và P(A ∪ B).",
-        sol: "<b>Vì A và B độc lập:</b><br>" +
-             "- Xác suất giao: $P(A \\cap B) = P(A) \\cdot P(B) = 0{,}3 \\times 0{,}5 = 0{,}15$.<br>" +
-             "- Xác suất hợp: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = 0{,}3 + 0{,}5 - 0{,}15 = 0{,}65$."
+        t: "[Slide Week 05 — W05-EX03] Gieo hai Xúc xắc: Độc lập hay Phụ thuộc?",
+        q: "Gieo đồng thời hai con xúc xắc cân đối độc lập (Slide 52–53). Đặt $A$: 'Xúc xắc thứ nhất bằng 4' và $B$: 'Tổng số chấm bằng 6'. Chứng minh rằng $A$ và $B$ KHÔNG độc lập với nhau.",
+        sol: "<b>Chứng minh chặt chẽ theo Slide Week 05 (trang 53):</b><br>" +
+             "1. Tính $P(B)$ (không điều kiện): Tổng số chấm bằng 6 gồm 5 cặp $(1,5), (2,4), (3,3), (4,2), (5,1)$ trong số 36 cặp đồng khả năng:<br>" +
+             "   $$P(B) = \\frac{5}{36}$$<br>" +
+             "2. Tính $P(B \\mid A)$: Khi biết xúc xắc 1 bằng 4, để tổng bằng 6 thì xúc xắc 2 bắt buộc phải bằng 2 (duy nhất cặp $(4,2)$ trong 6 khả năng của xúc xắc 2):<br>" +
+             "   $$P(B \\mid A) = \\frac{1}{6} = \\frac{6}{36}$$<br>" +
+             "3. Vì $P(B \\mid A) \\neq P(B)$ ($6/36 \\neq 5/36$), thông tin về biến cố $A$ đã làm thay đổi xác suất của biến cố $B$.<br>" +
+             "<b>Kết luận:</b> $A$ và $B$ phụ thuộc, không độc lập!"
       },
       {
         level: "Trung bình",
-        q: "Một bài thi gồm 2 câu hỏi độc lập. Sinh viên A có xác suất làm đúng câu 1 là 0,8 và làm đúng câu 2 là 0,7. Tính xác suất sinh viên đó làm đúng ít nhất một câu.",
-        sol: "<b>Cách 1 (Dùng quy tắc cộng độc lập):</b><br>" +
-             "$$P(\\text{Đúng ít nhất 1}) = P(C_1) + P(C_2) - P(C_1 \\cap C_2) = 0{,}8 + 0{,}7 - (0{,}8 \\times 0{,}7) = 1{,}5 - 0{,}56 = 0{,}94$$.<br>" +
-             "<b>Cách 2 (Dùng biến cố đối):</b><br>" +
-             "Xác suất sai cả 2 câu: $(1 - 0{,}8) \\times (1 - 0{,}7) = 0{,}2 \\times 0{,}3 = 0{,}06$.<br>" +
-             "$\\implies P(\\text{Đúng ít nhất 1}) = 1 - 0{,}06 = 0{,}94$."
+        t: "[Slide Week 05 — W05-Q03] Xung khắc không phải Độc lập!",
+        q: "Gieo một con xúc xắc 6 mặt cân đối (Slide 70–72). Đặt $A = \\{1, 2\\}$ và $B = \\{3, 4\\}$. Chứng minh rằng hai biến cố này Xung khắc nhưng KHÔNG Độc lập.",
+        sol: "<b>Phân tích bản chất cốt tử theo Slide Week 05 (trang 70 & 72):</b><br>" +
+             "1. Giao của hai biến cố: $A \\cap B = \\{1, 2\\} \\cap \\{3, 4\\} = \\emptyset \\implies P(A \\cap B) = 0$.<br>" +
+             "   Do đó, $A$ và $B$ <b>Xung khắc hoàn toàn</b>.<br>" +
+             "2. Kiểm tra tính độc lập:<br>" +
+             "   $$P(A) = \\frac{2}{6} = \\frac{1}{3}, \\quad P(B) = \\frac{2}{6} = \\frac{1}{3} \\implies P(A) \\times P(B) = \\frac{1}{9}$$<br>" +
+             "   Vì $P(A \\cap B) = 0 \\neq P(A)P(B) = \\frac{1}{9}$, điều kiện độc lập bị vi phạm nghiêm trọng!<br>" +
+             "<b>Quy tắc vàng:</b> Hai biến cố có xác suất dương mà xung khắc thì KHÔNG BAO GIỜ độc lập, vì biến cố này xảy ra lập tức loại trừ hoàn toàn biến cố kia!"
       },
       {
         level: "Vận dụng",
-        q: "Một hệ thống điện tử có 2 rơ-le mắc song song hoạt động độc lập. Xác suất rơ-le 1 hỏng là 0,05; rơ-le 2 hỏng là 0,08. Hệ thống chỉ ngừng hoạt động khi CẢ HAI rơ-le cùng hỏng. Tính xác suất hệ thống hoạt động bình thường.",
-        sol: "<b>Bước 1:</b> Vì 2 rơ-le hoạt động độc lập, xác suất cả hai cùng hỏng là:<br>" +
-             "$$P(\\text{Cả 2 hỏng}) = 0{,}05 \\times 0{,}08 = 0{,}004\\text{ (0{,}4\\%)}$$<br>" +
-             "<b>Bước 2:</b> Hệ thống hoạt động bình thường khi không phải cả hai cùng hỏng (biến cố đối):<br>" +
-             "$$P(\\text{Hoạt động}) = 1 - P(\\text{Cả 2 hỏng}) = 1 - 0{,}004 = 0{,}996\\text{ (99{,}6\\%)}$$."
+        t: "[Slide Week 05 — Slide 54–55] Vụ án Sally Clark: Bẫy nhân xác suất khi không độc lập",
+        q: "Trong phiên tòa xét xử Sally Clark (Slide 54–55), chuyên gia y tế đã tính xác suất hai đứa trẻ trong cùng một gia đình đột tử (SIDS) là: $\\left(\\frac{1}{8543}\\right)^2 \\approx \\frac{1}{73.000.000}$ và tòa án coi đây là bằng chứng có tội. Hãy chỉ ra sai lầm toán học nghiêm trọng của phép tính này.",
+        sol: "<b>Phân tích bài học lịch sử theo Slide Week 05 (trang 54–55):</b><br>" +
+             "1. Phép nhân xác suất $P(E_1 \\cap E_2) = P(E_1) \\times P(E_2) = (1/8543)^2$ <b>chỉ đúng khi hai ca đột tử hoàn toàn độc lập</b>.<br>" +
+             "2. Trên thực tế, hai đứa trẻ trong cùng một gia đình chia sẻ <b>chung mã gen di truyền và cùng môi trường sống</b>. Nếu đứa con thứ nhất bị hội chứng này, khả năng đứa thứ hai mắc phải sẽ cao hơn rất nhiều lần ($P(E_2 \\mid E_1) \\gg P(E_2)$).<br>" +
+             "3. Việc ngộ nhận tính độc lập đã dẫn đến án oan chấn động lịch sử tư pháp nước Anh. Bài học cốt tử: Tuyệt đối không được áp dụng quy tắc nhân độc lập khi chưa kiểm chứng điều kiện độc lập!"
       }
+    
     ],
     pitfalls: [
       {
@@ -649,29 +694,44 @@ const CUM_B = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Có bao nhiêu cách chọn 3 sinh viên từ một nhóm 10 sinh viên để thành lập một nhóm làm bài tập lớn?",
-        sol: "<b>Phân tích:</b> Các thành viên trong nhóm làm bài tập có vai trò bình đẳng, việc đổi chỗ các thành viên không tạo ra nhóm mới $\\implies$ Không xét thứ tự, dùng <b>Tổ hợp</b>.<br>" +
-             "$$C_{10}^3 = \\frac{10!}{3! \\cdot 7!} = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120\\text{ cách}$$."
+        t: "[Slide Week 05 — W05-TH01] Bài toán Chuyển bi giữa hai Hộp",
+        q: "Hộp thứ nhất có 2 viên bi trắng và 1 viên bi đen; hộp thứ hai có 1 viên bi trắng và 2 viên bi đen (Slide 84–86). Lấy ngẫu nhiên 1 viên bi từ hộp 1 chuyển sang hộp 2, sau đó từ hộp 2 lấy ngẫu nhiên ra 1 viên bi. Tính xác suất để viên bi lấy ra từ hộp 2 là bi trắng.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 05 (trang 85–86):</b><br>" +
+             "1. Gọi $A$: 'Viên bi chuyển từ hộp 1 sang hộp 2 là bi trắng'.<br>" +
+             "   Trong hộp 1 có 2 trắng, 1 đen $\\implies P(A) = \\frac{2}{3}$ và $P(A^c) = \\frac{1}{3}$.<br>" +
+             "2. Gọi $B$: 'Viên bi lấy từ hộp 2 là bi trắng':<br>" +
+             "   - Nếu $A$ xảy ra: Hộp 2 có $1 + 1 = 2$ bi trắng và 2 bi đen (tổng 4 viên) $\\implies P(B \\mid A) = \\frac{2}{4} = \\frac{1}{2}$.<br>" +
+             "   - Nếu $A^c$ xảy ra: Hộp 2 có 1 bi trắng và $2 + 1 = 3$ bi đen (tổng 4 viên) $\\implies P(B \\mid A^c) = \\frac{1}{4}$.<br>" +
+             "3. Theo công thức xác suất toàn phần:<br>" +
+             "   $$P(B) = P(A)P(B \\mid A) + P(A^c)P(B \\mid A^c) = \\frac{2}{3} \\times \\frac{1}{2} + \\frac{1}{3} \\times \\frac{1}{4} = \\frac{1}{3} + \\frac{1}{12} = \\frac{5}{12} \\approx 0{,}4167$$"
       },
       {
         level: "Trung bình",
-        q: "Một mã PIN bảo mật của ứng dụng ngân hàng gồm 4 chữ số (mỗi chữ số từ 0 đến 9). Có bao nhiêu mã PIN khác nhau nếu: (a) Các chữ số được phép lặp lại; (b) Các chữ số phải đôi một khác nhau?",
-        sol: "<b>Ý (a) Được lặp lại:</b> Mỗi vị trí trong 4 vị trí đều có 10 cách chọn (từ 0 đến 9). Theo quy tắc nhân:<br>" +
-             "$$N = 10 \\times 10 \\times 10 \\times 10 = 10^4 = 10.000\\text{ mã}$$<br>" +
-             "<b>Ý (b) Đôi một khác nhau:</b> Chọn 4 chữ số từ 10 chữ số và có xét thứ tự (vị trí hàng nghìn, trăm, chục, đơn vị) $\\implies$ Chỉnh hợp:<br>" +
-             "$$A_{10}^4 = \\frac{10!}{6!} = 10 \\times 9 \\times 8 \\times 7 = 5.040\\text{ mã}$$."
+        t: "[Slide Week 05 — W05-TH03] Rút mẫu kiểm tra Chất lượng Lô 10 Linh kiện",
+        q: "Một nhà cung cấp giao một lô gồm 10 linh kiện (Slide 87–90). Biết lô hàng có chứa đúng 2 linh kiện lỗi. Kỹ sư kiểm tra rút ngẫu nhiên đồng thời không hoàn lại 2 linh kiện. Có bao nhiêu cách chọn 2 linh kiện bất kỳ và tính xác suất để cả 2 linh kiện rút ra đều là linh kiện tốt.",
+        sol: "<b>Lời giải dùng Kỹ thuật đếm Tổ hợp theo Slide Week 05:</b><br>" +
+             "1. Số cách chọn 2 linh kiện bất kỳ từ 10 linh kiện là số tổ hợp chập 2 của 10:<br>" +
+             "   $$n(\\Omega) = C_{10}^2 = \\frac{10 \\times 9}{2} = 45 \\text{ cách}$$<br>" +
+             "2. Trong lô có $10 - 2 = 8$ linh kiện tốt. Số cách chọn 2 linh kiện đều tốt là:<br>" +
+             "   $$n(A) = C_8^2 = \\frac{8 \\times 7}{2} = 28 \\text{ cách}$$<br>" +
+             "3. Xác suất cả 2 linh kiện rút ra đều tốt:<br>" +
+             "   $$P(A) = \\frac{C_8^2}{C_{10}^2} = \\frac{28}{45} \\approx 0{,}6222 \\approx 62{,}22\\%$$"
       },
       {
         level: "Vận dụng",
-        q: "Một hộp chứa 6 quả cầu đỏ và 4 quả cầu xanh. Rút ngẫu nhiên đồng thời 3 quả cầu. Tính xác suất để rút được đúng 2 quả đỏ và 1 quả xanh.",
-        sol: "<b>Bước 1:</b> Tổng số cách rút 3 quả bất kỳ từ 10 quả cầu (không gian mẫu):<br>" +
-             "$$|\\Omega| = C_{10}^3 = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120$$<br>" +
-             "<b>Bước 2:</b> Số cách chọn 2 quả đỏ từ 6 quả đỏ: $C_6^2 = \\frac{6 \\times 5}{2 \\times 1} = 15$.<br>" +
-             "<b>Bước 3:</b> Số cách chọn 1 quả xanh từ 4 quả xanh: $C_4^1 = 4$.<br>" +
-             "<b>Bước 4:</b> Theo quy tắc nhân, số kết quả thuận lợi là $|A| = C_6^2 \\times C_4^1 = 15 \\times 4 = 60$.<br>" +
-             "<b>Bước 5:</b> Xác suất cần tìm:<br>" +
-             "$$P(A) = \\frac{|A|}{|\\Omega|} = \\frac{60}{120} = 0{,}50\\text{ (50\\%)}$$."
+        t: "[Slide Week 05 — W05-CASE01] Bài toán Tình huống Hệ thống Báo cháy Tòa nhà",
+        q: "Một hệ thống phòng cháy chữa cháy tại tòa nhà cao tầng gồm hai thiết bị cảm biến khói D1 và D2 hoạt động song song (Slide 82–83). Khi xảy ra cháy, xác suất thiết bị D1 phát tín hiệu là $0{,}92$; thiết bị D2 phát tín hiệu là $0{,}95$; và cả hai cùng phát tín hiệu là $0{,}88$.<br>" +
+           "a) Tính xác suất để hệ thống phát chuông cảnh báo (ít nhất một thiết bị hoạt động).<br>" +
+           "b) Tính xác suất để đúng một trong hai thiết bị hoạt động.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 05 (trang 83):</b><br>" +
+             "a) Ký hiệu $A$: 'D1 phát tín hiệu' ($P(A) = 0{,}92$); $B$: 'D2 phát tín hiệu' ($P(B) = 0{,}95$).<br>" +
+             "   Cả hai cùng phát tín hiệu: $P(A \\cap B) = 0{,}88$.<br>" +
+             "   Xác suất hệ thống phát chuông cảnh báo khi có cháy là biến cố hợp $A \\cup B$:<br>" +
+             "   $$P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = 0{,}92 + 0{,}95 - 0{,}88 = 0{,}99$$<br>" +
+             "b) Xác suất để đúng một trong hai thiết bị hoạt động:<br>" +
+             "   $$P(\\text{Đúng 1 thiết bị}) = P(A \\cup B) - P(A \\cap B) = 0{,}99 - 0{,}88 = 0{,}11 \\text{ (hay 11\\%)}$$"
       }
+    
     ],
     pitfalls: [
       {

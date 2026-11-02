@@ -56,39 +56,45 @@ const CUM_D = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Gieo một con xúc xắc cân đối. Hãy biểu diễn phép thử này dưới dạng Mô hình chiếc hộp và tính trung bình μ cùng độ lệch chuẩn σ của chiếc hộp.",
-        sol: "<b>Bước 1:</b> Chiếc hộp chứa 6 lá phiếu: $[1, 2, 3, 4, 5, 6]$. Rút có hoàn lại 1 lá.<br>" +
-             "<b>Bước 2:</b> Trung bình của hộp:<br>" +
-             "$$\\mu = \\frac{1 + 2 + 3 + 4 + 5 + 6}{6} = \\frac{21}{6} = 3{,}5$$<br>" +
-             "<b>Bước 3:</b> Phương sai của hộp (tổng thể):<br>" +
-             "$$\\sigma^2 = \\frac{1}{6}\\sum (x - 3{,}5)^2 = \\frac{(-2{,}5)^2 + (-1{,}5)^2 + (-0{,}5)^2 + 0{,}5^2 + 1{,}5^2 + 2{,}5^2}{6} = \\frac{17{,}5}{6} \\approx 2{,}9167$$<br>" +
-             "<b>Bước 4:</b> Độ lệch chuẩn: $\\sigma = \\sqrt{2{,}9167} \\approx 1{,}7078$."
+        t: "[Slide Week 07 — Ví dụ 6] Gieo cặp xúc xắc qua Mô hình Chiếc hộp",
+        q: "Xét phép thử: Gieo đồng thời một cặp xúc xắc 6 mặt cân đối và tính tổng số chấm xuất hiện (Slide 24). Hãy biểu diễn phép thử này dưới dạng Mô hình chiếc hộp (Box model) và xác định các tấm vé bên trong hộp.",
+        sol: "<b>Lời giải theo Slide Week 07 (trang 24):</b><br>" +
+             "1. Mỗi lần gieo một cặp xúc xắc, tổng số chấm có thể nhận các giá trị từ $2$ đến $12$.<br>" +
+             "2. Có 36 kết quả sơ cấp đồng khả năng. Ta mô hình hóa bằng <b>một chiếc hộp chứa 36 tấm vé</b> ghi các con số tổng tương ứng:<br>" +
+             "   - 1 vé ghi [2] (ứng với $(1,1)$);<br>" +
+             "   - 2 vé ghi [3]; 3 vé ghi [4]; 4 vé ghi [5]; 5 vé ghi [6];<br>" +
+             "   - 6 vé ghi [7] (tổng phổ biến nhất);<br>" +
+             "   - 5 vé ghi [8]; 4 vé ghi [9]; 3 vé ghi [10]; 2 vé ghi [11];<br>" +
+             "   - 1 vé ghi [12] (ứng với $(6,6)$).<br>" +
+             "3. Mỗi lần gieo cặp xúc xắc tương đương với việc <b>rút ngẫu nhiên một tấm vé</b> từ chiếc hộp 36 vé này."
       },
       {
         level: "Trung bình",
-        q: "Một hộp chứa 10 lá thăm ghi các số: [0, 0, 1, 1, 1, 2, 3, 3, 4, 4] (Slide 27-28). Hãy tính trung bình μ và phương sai σ² của hộp.",
-        sol: "<b>Bước 1:</b> Tính trung bình $\\mu$:<br>" +
-             "$$\\mu = \\frac{0(2) + 1(3) + 2(1) + 3(2) + 4(2)}{10} = \\frac{0 + 3 + 2 + 6 + 8}{10} = \\frac{19}{10} = 1{,}9$$<br>" +
-             "<b>Bước 2:</b> Tính phương sai $\\sigma^2 = \\frac{1}{10}\\sum (x - 1{,}9)^2$:<br>" +
-             "- $(0 - 1{,}9)^2 \\times 2 = 3{,}61 \\times 2 = 7{,}22$<br>" +
-             "- $(1 - 1{,}9)^2 \\times 3 = 0{,}81 \\times 3 = 2{,}43$<br>" +
-             "- $(2 - 1{,}9)^2 \\times 1 = 0{,}01 \\times 1 = 0{,}01$<br>" +
-             "- $(3 - 1{,}9)^2 \\times 2 = 1{,}21 \\times 2 = 2{,}42$<br>" +
-             "- $(4 - 1{,}9)^2 \\times 2 = 4{,}41 \\times 2 = 8{,}82$<br>" +
-             "$$\\sigma^2 = \\frac{7{,}22 + 2{,}43 + 0{,}01 + 2{,}42 + 8{,}82}{10} = \\frac{20{,}90}{10} = 2{,}09$$<br>" +
-             "$\\implies \\sigma = \\sqrt{2{,}09} \\approx 1{,}4457$."
+        t: "[Slide Week 07 — Ví dụ 7] Hộp 10 lá thăm và Trung bình của Hộp",
+        q: "Một chiếc hộp chứa 10 lá thăm ghi các số: $[0, 0, 1, 1, 1, 2, 3, 3, 4, 4]$ (Slide 27–28). Rút ngẫu nhiên một lá thăm từ hộp.<br>" +
+           "a) Lập bảng phân phối xác suất của số ghi trên lá thăm rút ra.<br>" +
+           "b) Tính trung bình của hộp $\\mu$ và độ lệch chuẩn của hộp $\\sigma$.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 07 (trang 28):</b><br>" +
+             "a) Bảng phân phối xác suất của $X$ (tổng 10 vé):<br>" +
+             "   - $p(0) = \\frac{2}{10} = 0{,}2$; $p(1) = \\frac{3}{10} = 0{,}3$; $p(2) = \\frac{1}{10} = 0{,}1$; $p(3) = \\frac{2}{10} = 0{,}2$; $p(4) = \\frac{2}{10} = 0{,}2$.<br>" +
+             "b) Tính trung bình của hộp (Kỳ vọng):<br>" +
+             "   $$\\mu = E(X) = 0(0{,}2) + 1(0{,}3) + 2(0{,}1) + 3(0{,}2) + 4(0{,}2) = 0 + 0{,}3 + 0{,}2 + 0{,}6 + 0{,}8 = 1{,}9$$<br>" +
+             "   Tính $E(X^2)$:<br>" +
+             "   $$E(X^2) = 0^2(0{,}2) + 1^2(0{,}3) + 2^2(0{,}1) + 3^2(0{,}2) + 4^2(0{,}2) = 0 + 0{,}3 + 0{,}4 + 1{,}8 + 3{,}2 = 5{,}5$$<br>" +
+             "   Phương sai và độ lệch chuẩn của hộp:<br>" +
+             "   $$\\operatorname{Var}(X) = E(X^2) - \\mu^2 = 5{,}5 - (1{,}9)^2 = 5{,}5 - 3{,}61 = 1{,}89$$<br>" +
+             "   $$\\sigma = \\sqrt{1{,}89} \\approx 1{,}3748 \\approx 1{,}375$$"
       },
       {
         level: "Vận dụng",
-        q: "Trong trò chơi Roulette kiểu Mỹ, bánh xe có 38 ô: 18 ô Đỏ, 18 ô Đen, và 2 ô Xanh (0, 00). Nếu đặt 1 USD vào Đỏ: trúng thì nhận lại 2 USD (lãi 1 USD); trượt thì mất 1 USD (lãi -1 USD). Hãy lập mô hình chiếc hộp biểu diễn số tiền lãi cho 1 ván chơi.",
-        sol: "<b>Phân tích:</b><br>" +
-             "- Số phiếu thắng (ghi $+1$): $18$ phiếu.<br>" +
-             "- Số phiếu thua (ghi $-1$): $18 + 2 = 20$ phiếu.<br>" +
-             "- Tổng số phiếu: $38$ phiếu.<br>" +
-             "<b>Tính kỳ vọng của chiếc hộp:</b><br>" +
-             "$$\\mu = (+1) \\times \\frac{18}{38} + (-1) \\times \\frac{20}{38} = -\\frac{2}{38} = -\\frac{1}{19} \\approx -0{,}0526\\text{ USD}$$<br>" +
-             "<b>Kết luận:</b> Mỗi ván cược 1 USD, người chơi kỳ vọng mất trung bình $5{,}26$ cent. Đây chính là lợi nhuận kỳ vọng của sòng bạc (House Edge)!"
+        t: "[Slide Week 07 — Slide 21–24] Bản chất Biến ngẫu nhiên i.i.d. khi Lấy mẫu",
+        q: "Từ chiếc hộp 10 lá thăm ở trên, một người thực hiện rút ngẫu nhiên $n$ lần. Giải thích rõ sự khác biệt bản chất giữa: (1) Rút CÓ HOÀN LẠI và (2) Rút KHÔNG HOÀN LẠI. Trường hợp nào các biến ngẫu nhiên kết quả $X_1, X_2, \\dots, X_n$ tạo thành một mẫu i.i.d.?",
+        sol: "<b>Phân tích bản chất theo Slide Week 07 (trang 21–24):</b><br>" +
+             "1. <b>Rút CÓ HOÀN LẠI:</b> Sau mỗi lần rút, lá thăm được trả lại vào hộp và xáo đều. Do đó thành phần của hộp không thay đổi $\\implies$ Mỗi lần rút tuân theo <b>cùng phân phối</b> gốc $\\mu=1{,}9, \\sigma=1{,}375$ và kết quả lần trước hoàn toàn <b>độc lập</b> với lần sau.<br>" +
+             "   \\rightarrow <b>Đây chính là mẫu i.i.d. (independent and identically distributed)!</b><br>" +
+             "2. <b>Rút KHÔNG HOÀN LẠI:</b> Sau mỗi lần rút, số vé trong hộp giảm đi, tỉ lệ các con số thay đổi tùy thuộc vào vé đã rút $\\implies$ Các biến ngẫu nhiên $X_1, X_2, \\dots$ bị phụ thuộc lẫn nhau, KHÔNG độc lập và phân phối có điều kiện bị thay đổi."
       }
+    
     ],
     pitfalls: [
       {
@@ -212,29 +218,40 @@ const CUM_D = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Một chiếc hộp có độ lệch chuẩn σ = 2. Rút ngẫu nhiên độc lập có hoàn lại 100 lần. Hãy tính độ lệch chuẩn của Tổng các lần rút và của Trung bình các lần rút.",
-        sol: "<b>Bước 1:</b> Độ lệch chuẩn của Tổng $S_{100}$:<br>" +
-             "$$\\operatorname{SD}(S_{100}) = \\sigma \\sqrt{n} = 2 \\times \\sqrt{100} = 2 \\times 10 = 20$$<br>" +
-             "<b>Bước 2:</b> Độ lệch chuẩn của Trung bình $\\bar{X}_{100}$:<br>" +
-             "$$\\operatorname{SD}(\\bar{X}_{100}) = \\frac{\\sigma}{\\sqrt{n}} = \\frac{2}{\\sqrt{100}} = \\frac{2}{10} = 0{,}2$$."
+        t: "[Slide Week 07 — Ví dụ 8] Tổng số điểm của 25 lần rút thẻ từ Hộp",
+        q: "Từ hộp có các lá thăm $[0, 0, 1, 1, 1, 2, 3, 3, 4, 4]$ với $\\mu = 1{,}9$ và $\\sigma = 1{,}375$ (Slide 29–30). Rút ngẫu nhiên độc lập có hoàn lại $n = 25$ lần. Gọi $S_{25} = X_1 + X_2 + \\dots + X_{25}$ là tổng số điểm ghi trên 25 lá thăm rút được.<br>" +
+           "a) Tính kỳ vọng của tổng $E(S_{25})$.<br>" +
+           "b) Tính độ lệch chuẩn của tổng $\\operatorname{SD}(S_{25})$.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 07 (trang 30):</b><br>" +
+             "a) Theo quy tắc nhân $n$ của kỳ vọng tổng:<br>" +
+             "   $$E(S_{25}) = n \\cdot \\mu = 25 \\times 1{,}9 = 47{,}5$$<br>" +
+             "b) Theo Quy tắc căn bậc hai (Square Root Law) cho tổng các biến i.i.d.:<br>" +
+             "   $$\\operatorname{Var}(S_{25}) = n \\cdot \\sigma^2 = 25 \\times 1{,}89 = 47{,}25$$<br>" +
+             "   $$\\operatorname{SD}(S_{25}) = \\sigma \\sqrt{n} = 1{,}3748 \\times \\sqrt{25} = 1{,}3748 \\times 5 \\approx 6{,}874 \\approx 6{,}875$$"
       },
       {
         level: "Trung bình",
-        q: "Tung một con xúc xắc cân đối 100 lần độc lập. Biết mỗi lần tung có kỳ vọng μ = 3,5 và độ lệch chuẩn σ ≈ 1,71. Tính kỳ vọng và độ lệch chuẩn của tổng số chấm sau 100 lần tung.",
-        sol: "<b>Bước 1:</b> Kỳ vọng của tổng:<br>" +
-             "$$E(S_{100}) = n \\cdot \\mu = 100 \\times 3{,}5 = 350\\text{ (chấm)}$$<br>" +
-             "<b>Bước 2:</b> Độ lệch chuẩn của tổng:<br>" +
-             "$$\\operatorname{SD}(S_{100}) = \\sigma \\sqrt{n} = 1{,}71 \\times \\sqrt{100} = 1{,}71 \\times 10 = 17{,}1\\text{ (chấm)}$$."
+        t: "[Slide Week 07 — Ví dụ 8] Trung bình mẫu của 25 lần rút thẻ",
+        q: "Cũng với phép thử rút có hoàn lại $n = 25$ lần ở trên (Slide 29–30). Gọi $\\bar{X}_{25} = \\frac{S_{25}}{25}$ là số điểm trung bình của một lá thăm trong mẫu 25 lần rút.<br>" +
+           "a) Tính kỳ vọng của trung bình mẫu $E(\\bar{X}_{25})$.<br>" +
+           "b) Tính độ lệch chuẩn của trung bình mẫu $\\operatorname{SD}(\\bar{X}_{25})$.",
+        sol: "<b>Lời giải chuẩn xác theo Slide Week 07 (trang 30):</b><br>" +
+             "a) Kỳ vọng của trung bình mẫu bằng đúng trung bình tổng thể:<br>" +
+             "   $$E(\\bar{X}_{25}) = \\mu = 1{,}9$$<br>" +
+             "b) Độ lệch chuẩn của trung bình mẫu giảm theo nghịch đảo căn bậc hai của cỡ mẫu ($1/\\sqrt{n}$):<br>" +
+             "   $$\\operatorname{SD}(\\bar{X}_{25}) = \\frac{\\sigma}{\\sqrt{n}} = \\frac{1{,}3748}{\\sqrt{25}} = \\frac{1{,}3748}{5} \\approx 0{,}275$$"
       },
       {
         level: "Vận dụng",
-        q: "Một viện nghiên cứu muốn ước lượng mức chi tiêu trung bình của sinh viên với độ lệch chuẩn của trung bình mẫu là 50 nghìn đồng. Ban đầu họ khảo sát 100 sinh viên và thấy độ lệch chuẩn mẫu đạt 150 nghìn đồng. Họ cần khảo sát TỔNG CỘNG bao nhiêu sinh viên để đạt mục tiêu trên?",
-        sol: "<b>Phân tích:</b><br>" +
-             "- Độ lệch chuẩn hiện tại của trung bình mẫu là $150$ nghìn. Mục tiêu là đưa về $50$ nghìn (giảm đi $150/50 = 3$ lần).<br>" +
-             "- Theo quy tắc căn bậc hai, muốn độ lệch chuẩn trung bình giảm đi 3 lần, cỡ mẫu mới phải gấp $3^2 = 9$ lần cỡ mẫu ban đầu:<br>" +
-             "$$n_{\\text{mới}} = 100 \\times 3^2 = 100 \\times 9 = 900\\text{ (sinh viên)}$$<br>" +
-             "<b>Kết luận:</b> Cần khảo sát tổng cộng 900 sinh viên."
+        t: "[Slide Week 07 — Slide 26] Ứng dụng Quy tắc Căn bậc hai (Square Root Law)",
+        q: "Một nhà nghiên cứu đang đo độ dày linh kiện với độ lệch chuẩn trung bình mẫu hiện tại là $\\operatorname{SD}(\\bar{X}) = 0{,}275$ mm khi dùng cỡ mẫu $n = 25$. Để nâng cao độ chính xác của phép đo, nhà nghiên cứu muốn giảm độ lệch chuẩn của trung bình mẫu đi 4 lần (xuống còn $\\approx 0{,}06875$ mm). Cần phải tăng cỡ mẫu lên bao nhiêu lần và cỡ mẫu mới $n'$ là bao nhiêu?",
+        sol: "<b>Phân tích định lý theo Slide Week 07 (trang 26):</b><br>" +
+             "1. Theo công thức: $\\operatorname{SD}(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}}$. Để $\\operatorname{SD}(\\bar{X})$ giảm đi $k = 4$ lần, mẫu số $\\sqrt{n}$ phải tăng lên $4$ lần.<br>" +
+             "2. Do đó, cỡ mẫu $n$ phải tăng lên $k^2 = 4^2 = 16$ lần!<br>" +
+             "   $$n' = n \\times 16 = 25 \\times 16 = 400 \\text{ quan sát}$$<br>" +
+             "<b>Kết luận quy tắc vàng:</b> Muốn độ chính xác tăng gấp đôi, cỡ mẫu phải tăng gấp 4; muốn độ chính xác tăng gấp 4, cỡ mẫu phải tăng gấp 16!"
       }
+    
     ],
     pitfalls: [
       {
@@ -354,27 +371,36 @@ const CUM_D = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Theo bất đẳng thức Chebyshev, xác suất để một biến ngẫu nhiên nhận giá trị lệch khỏi kỳ vọng từ 3 độ lệch chuẩn trở lên, tức P(|X - μ| ≥ 3σ), tối đa bằng bao nhiêu?",
-        sol: "<b>Áp dụng công thức trực tiếp với k = 3:</b><br>" +
-             "$$P(|X - \\mu| \\ge 3\\sigma) \\le \\frac{1}{3^2} = \\frac{1}{9} \\approx 0{,}1111\\text{ (hay } 11{,}11\\%\\text{)}$$."
+        t: "[Slide Week 07 — Slide 34] Đánh giá Xác suất Sai lệch bằng BĐT Chebyshev",
+        q: "Cho một biến ngẫu nhiên $X$ có phân phối bất kỳ (chưa biết là phân phối gì) với kỳ vọng $\\mu$ và độ lệch chuẩn $\\sigma$. Dùng Bất đẳng thức Chebyshev đánh giá cận trên của xác suất để $X$ nhận giá trị lệch khỏi kỳ vọng từ 2 độ lệch chuẩn trở lên ($P(|X - \\mu| \\ge 2\\sigma)$).",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 07 (trang 34):</b><br>" +
+             "Bất đẳng thức Chebyshev phát biểu rằng với mọi $k > 0$:<br>" +
+             "$$P(|X - \\mu| \\ge k\\sigma) \\le \\frac{1}{k^2}$$<br>" +
+             "Thay $k = 2$ vào bất đẳng thức:<br>" +
+             "$$P(|X - \\mu| \\ge 2\\sigma) \\le \\frac{1}{2^2} = \\frac{1}{4} = 0{,}25 \\text{ (hay 25\\%)}$$<br>" +
+             "Tương đương: Xác suất để biến ngẫu nhiên nằm trong khoảng $[\\mu - 2\\sigma, \\mu + 2\\sigma]$ đạt ít nhất $1 - 0{,}25 = 75\\%$ đối với MỌI phân phối xác suất!"
       },
       {
         level: "Trung bình",
-        q: "Một xưởng cơ khí sản xuất bu-lông có chiều dài trung bình μ = 50 mm và độ lệch chuẩn σ = 1 mm (chưa biết dạng phân phối). Hãy dùng Chebyshev để tìm cận dưới cho xác suất một bu-lông có chiều dài nằm trong khoảng từ 46 mm đến 54 mm.",
-        sol: "<b>Bước 1:</b> Xác định khoảng cách sai lệch: $|X - 50| &lt; 4$ mm.<br>" +
-             "<b>Bước 2:</b> Tính số độ lệch chuẩn $k$: $k = \\frac{4}{\\sigma} = \\frac{4}{1} = 4$.<br>" +
-             "<b>Bước 3:</b> Áp dụng Chebyshev dạng khoảng:<br>" +
-             "$$P(46 &lt; X &lt; 54) = P(|X - 50| &lt; 4\\sigma) \\ge 1 - \\frac{1}{4^2} = 1 - \\frac{1}{16} = \\frac{15}{16} = 0{,}9375\\text{ (93{,}75\\%)}$$<br>" +
-             "<b>Kết luận:</b> Ít nhất 93,75% số bu-lông có chiều dài đạt tiêu chuẩn."
+        t: "[Slide Week 07 — Ví dụ 9] Giám sát Nhiệt độ Lò sấy UET",
+        q: "Một nhà máy cần theo dõi nhiệt độ thật $\\mu$ của lò sấy (Slide 35–36). Mỗi phép đo là biến ngẫu nhiên có kỳ vọng $\\mu$ và độ lệch chuẩn $\\sigma = 2^\\circ\\text{C}$. Các phép đo độc lập. Gọi $\\bar{X}_n$ là trung bình của $n$ lần đo. Cần thực hiện ít nhất bao nhiêu lần đo để xác suất sai lệch $|\\bar{X}_n - \\mu| \\ge 1^\\circ\\text{C}$ không vượt quá 5% ($0{,}05$)?",
+        sol: "<b>Lời giải chi tiết theo Slide Week 07 (trang 36):</b><br>" +
+             "1. Trung bình mẫu $\\bar{X}_n$ có $E(\\bar{X}_n) = \\mu$ và phương sai $\\operatorname{Var}(\\bar{X}_n) = \\frac{\\sigma^2}{n} = \\frac{4}{n}$.<br>" +
+             "2. Áp dụng Bất đẳng thức Chebyshev dạng sai số tuyệt đối $\\epsilon = 1^\\circ\\text{C}$:<br>" +
+             "   $$P(|\\bar{X}_n - \\mu| \\ge \\epsilon) \\le \\frac{\\operatorname{Var}(\\bar{X}_n)}{\\epsilon^2} = \\frac{4/n}{1^2} = \\frac{4}{n}$$<br>" +
+             "3. Yêu cầu xác suất này không vượt quá $0{,}05$:<br>" +
+             "   $$\\frac{4}{n} \\le 0{,}05 \\iff n \\ge \\frac{4}{0{,}05} = 80$$<br>" +
+             "<b>Kết luận:</b> Cần đo ít nhất <b>80 lần</b> để bảo đảm độ tin cậy theo BĐT Chebyshev."
       },
       {
         level: "Vận dụng",
-        q: "Điểm thi của một môn học có trung bình μ = 70 và độ lệch chuẩn σ = 10. Tìm cận trên cho xác suất để một sinh viên có điểm thi nhỏ hơn 40 hoặc lớn hơn 100.",
-        sol: "<b>Bước 1:</b> Điểm nhỏ hơn 40 hoặc lớn hơn 100 tương đương với $|X - 70| \\ge 30$.<br>" +
-             "<b>Bước 2:</b> Số độ lệch chuẩn $k$: $k = \\frac{30}{\\sigma} = \\frac{30}{10} = 3$.<br>" +
-             "<b>Bước 3:</b> Áp dụng Chebyshev:<br>" +
-             "$$P(|X - 70| \\ge 30) = P(|X - \\mu| \\ge 3\\sigma) \\le \\frac{1}{3^2} = \\frac{1}{9} \\approx 11{,}11\\%$$\\text{."
+        t: "[Slide Week 07 — Slide 37] So sánh Đánh giá Chebyshev vs Quy tắc Phân phối Chuẩn",
+        q: "Tại sao ở $k = 2$, BĐT Chebyshev cho xác suất sai lệch là $\\le 25\\%$, trong khi quy tắc thực nghiệm phân phối chuẩn lại cho xác suất sai lệch chỉ khoảng $5\\%$? Khi nào trong bài thi bắt buộc phải dùng BĐT Chebyshev?",
+        sol: "<b>Phân tích bản chất theo Slide Week 07 (trang 37):</b><br>" +
+             "1. <b>Lý do chênh lệch:</b> Bất đẳng thức Chebyshev là cận trên cho <b>MỌI phân phối xác suất khả dĩ</b> (kể cả phân phối hai đỉnh, phân phối cực kỳ lệch hay phân phối có đuôi rất nặng). Quy tắc $5\\%$ chỉ đúng cho duy nhất hình chuông đối xứng chuẩn Gauss.<br>" +
+             "2. <b>Khi nào bắt buộc dùng Chebyshev:</b> Khi đề bài <b>không cho biết dạng phân phối</b> của biến ngẫu nhiên (hoặc biết rõ phân phối không phải chuẩn) và cỡ mẫu $n$ chưa đủ lớn để áp dụng Định lý giới hạn trung tâm."
       }
+    
     ],
     pitfalls: [
       {
@@ -500,29 +526,38 @@ const CUM_D = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Luật số lớn yếu khẳng định điều gì khi cỡ mẫu n tiến ra vô cùng?",
-        sol: "<b>Khẳng định:</b> Khi cỡ mẫu $n$ tăng vô hạn, trung bình mẫu $\\bar{X}_n$ sẽ tiến sát (hội tụ theo xác suất) về giá trị kỳ vọng thực tế $\\mu$, và xác suất để nó đi lệch khỏi $\\mu$ quá một khoảng $\\epsilon$ sẽ tiến về 0."
+        t: "[Slide Week 07 — Slide 38] Bản chất Toán học của Luật số lớn yếu (WLLN)",
+        q: "Dùng Bất đẳng thức Chebyshev chứng minh chặt chẽ phát biểu của Luật số lớn yếu: Cho dãy biến ngẫu nhiên $X_1, X_2, \\dots, X_n$ i.i.d. có kỳ vọng $\\mu$ và phương sai $\\sigma^2$ hữu hạn. Chứng minh với mọi $\\epsilon > 0$ tùy ý:<br>" +
+           "$$\\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| \\ge \\epsilon) = 0$$",
+        sol: "<b>Chứng minh giải tích theo Slide Week 07 (trang 38):</b><br>" +
+             "1. Ta có $E(\\bar{X}_n) = \\mu$ và $\\operatorname{Var}(\\bar{X}_n) = \\frac{\\sigma^2}{n}$.<br>" +
+             "2. Áp dụng Bất đẳng thức Chebyshev cho biến $\\bar{X}_n$ với sai số $\\epsilon > 0$:<br>" +
+             "   $$0 \\le P(|\\bar{X}_n - \\mu| \\ge \\epsilon) \\le \\frac{\\operatorname{Var}(\\bar{X}_n)}{\\epsilon^2} = \\frac{\\sigma^2}{n \\cdot \\epsilon^2}$$<br>" +
+             "3. Lấy giới hạn hai vế khi $n \\to \\infty$ (với $\\sigma^2$ và $\\epsilon^2$ là các hằng số dương cố định):<br>" +
+             "   $$\\lim_{n \\to \\infty} \\frac{\\sigma^2}{n \\cdot \\epsilon^2} = 0$$<br>" +
+             "   Theo nguyên lý kẹp (Squeeze Theorem), ta suy ra $\\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| \\ge \\epsilon) = 0$ (ĐPCM)."
       },
       {
         level: "Trung bình",
-        q: "Tung một đồng xu cân đối (μ = 0,5, σ = 0,5). Dùng bất đẳng thức Chebyshev chứng minh rằng xác suất để tỉ lệ mặt ngửa chệch khỏi 0,5 quá 0,1 sẽ nhỏ hơn 0,05 khi tung ít nhất 500 lần.",
-        sol: "<b>Bước 1:</b> Tỉ lệ mặt ngửa chính là trung bình mẫu $\\bar{X}_n$. Ta có $\\mu = 0{,}5; \\sigma = 0{,}5; \\epsilon = 0{,}1$.<br>" +
-             "<b>Bước 2:</b> Áp dụng Chebyshev cho trung bình mẫu:<br>" +
-             "$$P(|\\bar{X}_n - 0{,}5| \\ge 0{,}1) \\le \\frac{\\sigma^2}{n \\epsilon^2} = \\frac{0{,}5^2}{n \\times 0{,}1^2} = \\frac{0{,}25}{0{,}01 n} = \\frac{25}{n}$$<br>" +
-             "<b>Bước 3:</b> Để xác suất này $\\le 0{,}05$:<br>" +
-             "$$\\frac{25}{n} \\le 0{,}05 \\implies n \\ge \\frac{25}{0{,}05} = 500$$<br>" +
-             "<b>Kết luận:</b> Khi tung từ 500 lần trở lên, xác suất sai lệch quá 0,1 chắc chắn không vượt quá 5%."
+        t: "[Slide Week 07 — Ví dụ 10] Bác bỏ Ngộ nhận Con bạc (Gambler's Fallacy)",
+        q: "Sau 10 lần tung một đồng xu cân đối đều ra mặt Sấp, một người đánh cược khẳng định: <i>'Theo Luật số lớn, lần thứ 11 chắc chắn khả năng ra mặt Ngửa phải cao hơn rất nhiều để bù trừ lại cho cân bằng!'</i> (Slide 39–40). Khẳng định này đúng hay sai? Luật số lớn hoạt động theo cơ chế nào?",
+        sol: "<b>Phân tích bản chất theo Slide Week 07 (trang 40):</b><br>" +
+             "1. <b>Khẳng định SAI HOÀN TOÀN (Ngộ nhận con bạc)!</b> Các lần tung đồng xu là hoàn toàn độc lập, đồng xu không có trí nhớ. Ở lần tung thứ 11, xác suất ra mặt Ngửa vẫn chính xác bằng $0{,}5$.<br>" +
+             "2. <b>Cơ chế của Luật số lớn là LÀM LOÃNG (Dilution), KHÔNG PHẢI BÙ TRỪ (Compensation):</b><br>" +
+             "   - Chênh lệch 10 lần sấp ban đầu sẽ không mất đi.<br>" +
+             "   - Nhưng khi $n$ tăng lên 10.000 hay 1.000.000 lần, con số 10 này khi chia cho mẫu số $n$ khổng lồ sẽ bị triệt tiêu về $0$: $\\frac{10}{1.000.000} = 0{,}00001 \\to 0$!"
       },
       {
         level: "Vận dụng",
-        q: "Một cuộc thăm dò ý kiến muốn ước lượng tỉ lệ cử tri ủng hộ ứng viên A sao cho độ lệch không quá 2% (ε = 0,02) với độ tin cậy ít nhất 95% (xác suất sai lệch không quá 5%). Hãy dùng Chebyshev để tìm cỡ mẫu n cần thiết (biết rằng với phân phối nhị thức, σ² = p(1-p) luôn ≤ 0,25).",
-        sol: "<b>Bước 1:</b> Ta có $\\operatorname{Var}(X) = p(1-p) \\le 0{,}25$ với mọi $p$. Sai số $\\epsilon = 0{,}02$. Xác suất cho phép $\\alpha = 0{,}05$.<br>" +
-             "<b>Bước 2:</b> Theo Chebyshev:<br>" +
-             "$$P(|\\bar{X}_n - p| \\ge 0{,}02) \\le \\frac{\\sigma^2}{n \\epsilon^2} \\le \\frac{0{,}25}{n \\times 0{,}02^2} = \\frac{0{,}25}{0{,}0004 n} = \\frac{625}{n}$$<br>" +
-             "<b>Bước 3:</b> Thiết lập bất phương trình:<br>" +
-             "$$\\frac{625}{n} \\le 0{,}05 \\implies n \\ge \\frac{625}{0{,}05} = 12.500\\text{ (người)}$$<br>" +
-             "<i>Nhận xét: Chebyshev cho cận rất an toàn (12.500 người). Sau này khi học CLT (Cụm E), nhờ phân phối Chuẩn ta sẽ thấy chỉ cần cỡ mẫu khoảng 2.400 người là đủ!</i>"
+        t: "[Slide Week 07 — Slide 40] Ứng dụng WLLN trong Quản trị Rủi ro Bảo hiểm",
+        q: "Một công ty bảo hiểm bán 100.000 hợp đồng bảo hiểm xe máy độc lập trong một năm. Xác suất một xe gặp sự cố trong năm là $p = 0{,}02$ với số tiền bồi thường là 50 triệu đồng. Giải thích tại sao bán cho 1 khách hàng là canh bạc rủi ro lớn, nhưng bán cho 100.000 khách hàng thì lợi nhuận của công ty lại an toàn tuyệt đối nhờ Luật số lớn yếu.",
+        sol: "<b>Phân tích kinh tế lượng theo Slide Week 07 (trang 40):</b><br>" +
+             "1. Với 1 khách hàng: Biến cố nhận bồi thường là ngẫu nhiên cực đoan (hoặc 0 đồng hoặc mất ngay 50 triệu), rủi ro phương sai rất lớn.<br>" +
+             "2. Với $n = 100.000$ hợp đồng độc lập: Tỉ lệ số vụ yêu cầu bồi thường $\\bar{X}_n$ tuân theo Luật số lớn yếu. Phương sai của tỉ lệ bồi thường là:<br>" +
+             "   $$\\operatorname{Var}(\\bar{X}_n) = \\frac{p(1-p)}{n} = \\frac{0{,}02 \\times 0{,}98}{100.000} = 1{,}96 \\times 10^{-7} \\approx 0$$<br>" +
+             "   Tỉ lệ bồi thường thực tế gần như chắc chắn $100\\%$ sẽ hội tụ sát nút về $2\\%$ (tức khoảng đúng 2.000 vụ bồi thường). Do đó công ty bảo hiểm chủ động định phí để thu lợi nhuận ổn định mà không lo phá sản."
       }
+    
     ],
     pitfalls: [
       {

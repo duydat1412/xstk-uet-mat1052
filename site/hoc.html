@@ -1009,22 +1009,35 @@ const CUM_A = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Xác định loại của biến: 'Số lỗi cú pháp trong một bài nộp code của sinh viên'.",
-        sol: "<b>Phân tích:</b> Số lỗi cú pháp là kết quả của việc đếm (0 lỗi, 1 lỗi, 2 lỗi,...), chỉ nhận các giá trị nguyên không âm tách rời và phép tính trung bình số lỗi có ý nghĩa thực tế.<br><b>Kết luận:</b> Biến số, loại <b>Rời rạc (Discrete Numerical)</b>."
+        t: "[Slide Week 01 — W01-IMS02] Bộ dữ liệu Chim cánh cụt Palmer Penguins",
+        q: "Trong bộ dữ liệu nghiên cứu sinh học Palmer Penguins (Slide 40–41), các nhà khoa học thu thập thông tin về 344 cá thể chim cánh cụt gồm các cột: (1) Loài (`species`: Adelie, Chinstrap, Gentoo); (2) Đảo sinh sống (`island`: Biscoe, Dream, Torgersen); (3) Chiều dài mỏ (`bill_length_mm`, mm); (4) Năm thu thập (`year`: 2007, 2008, 2009). Hãy phân loại chính xác 4 biến trên.",
+        sol: "<b>Phân tích đối chiếu theo Slide Week 01 (trang 40–41):</b><br>" +
+             "1. <code>species</code>: Các nhóm tên loài chim không có thứ bậc hơn kém $\\rightarrow$ <b>Biến phân loại Định danh (Nominal)</b>.<br>" +
+             "2. <code>island</code>: Tên các hòn đảo nơi chim sinh sống $\\rightarrow$ <b>Biến phân loại Định danh (Nominal)</b>.<br>" +
+             "3. <code>bill_length_mm</code>: Phép đo liên tục chiều dài mỏ bằng thước kẹp (có thể nhận giá trị thập phân như 39,1 mm) $\\rightarrow$ <b>Biến số Liên tục (Continuous Numerical)</b>.<br>" +
+             "4. <code>year</code>: Năm khảo sát (2007, 2008, 2009), có quan hệ thứ tự thời gian tự nhiên $\\rightarrow$ <b>Biến phân loại Thứ bậc (Ordinal)</b> (hoặc biến số rời rạc nếu xét hiệu số năm)."
       },
       {
         level: "Trung bình",
-        q: "Biến 'Mức độ hài lòng của khách hàng' với các mức: 'Rất không hài lòng', 'Bình thường', 'Hài lòng', 'Rất hài lòng' thuộc loại nào?",
-        sol: "<b>Phân tích:</b> Đây là các nhãn chữ (biến phân loại), nhưng giữa các nhãn có thứ tự mức độ tăng dần rõ rệt ('Rất không hài lòng' &lt; 'Hài lòng').<br><b>Kết luận:</b> Biến phân loại, loại <b>Thứ bậc (Ordinal Categorical)</b>."
+        t: "[Slide Week 01 — W01-CH02] Thử thách '1, 2, 3, 4, 5 nói được gì?'",
+        q: "Một kỹ sư nhận một tệp dữ liệu chỉ có một cột $x$ chứa các số nguyên: 1, 2, 3, 4, 5 (Slide 28–29). Tài liệu mô tả bị thiếu. Kỹ sư này kết luận ngay: 'Vì $x$ lưu bằng số nguyên nên $x$ chắc chắn là biến số rời rạc'. Kết luận này đúng hay sai? Tại sao?",
+        sol: "<b>Phân tích theo Slide Week 01 (trang 28–29):</b><br>" +
+             "<b>Kết luận SAI hoàn toàn!</b> Cách biểu diễn số trong máy tính chỉ là kiểu lưu trữ (Storage type), không quyết định bản chất thống kê của biến.<br>" +
+             "- Nếu $x$ là mã hóa của khu vực (1=Miền Bắc, 2=Miền Trung, 3=Miền Nam) $\\rightarrow$ $x$ là <b>Biến phân loại Định danh</b>.<br>" +
+             "- Nếu $x$ là đánh giá mức độ hài lòng (1 sao đến 5 sao) $\\rightarrow$ $x$ là <b>Biến phân loại Thứ bậc</b>.<br>" +
+             "- Chỉ khi $x$ là số người phụ thuộc hoặc số sản phẩm đếm được (phép tính trung bình có ý nghĩa định lượng thực tế) thì $x$ mới là <b>Biến số rời rạc</b>."
       },
       {
         level: "Vận dụng",
-        q: "Một nhân viên y tế ghi nhận: (1) Mã định danh căn cước công dân; (2) Nồng độ oxy trong máu SpO2 (đo bằng %); (3) Giai đoạn tiến triển bệnh (Giai đoạn I, II, III). Hãy phân loại chính xác từng biến.",
-        sol: "<b>Phân tích từng biến:</b><br>" +
-             "1. Căn cước công dân: Dãy số nhưng chỉ dùng để nhận diện người, tính trung bình vô nghĩa $\rightarrow$ <b>Phân loại Định danh (Nominal)</b>.<br>" +
-             "2. Nồng độ SpO2: Đo lường liên tục (có thể là 97,5%, 98,2%) $\rightarrow$ <b>Biến số Liên tục (Continuous Numerical)</b>.<br>" +
-             "3. Giai đoạn bệnh: Nhóm bệnh có mức độ nghiêm trọng tăng dần $\rightarrow$ <b>Phân loại Thứ bậc (Ordinal)</b>."
+        t: "[Slide Week 01 — W01-IMS01 & W01-CH03] Xác định Đơn vị quan sát (Observation Unit)",
+        q: "Dựa vào hai bài toán thực tế trong bài giảng Slide Week 01 (trang 38–43), hãy xác định chính xác Đơn vị quan sát (Observation unit) của mỗi hàng trong bảng dữ liệu:<br>" +
+           "a) [W01-IMS01] Bảng dữ liệu 23 bộ phim thuộc Vũ trụ Điện ảnh Marvel (MCU) ghi nhận: Tên phim, Năm phát hành, Doanh thu mở màn (triệu USD), Doanh thu toàn cầu.<br>" +
+           "b) [W01-CH03] Bảng lịch sử đăng ký học tập do Phòng Đào tạo UET trích xuất gồm các cột: `MSSV`, `MaMon`, `HocKy`, `DiemSo`.",
+        sol: "<b>Phân tích bản chất cấu trúc dữ liệu theo Slide Week 01:</b><br>" +
+             "a) Trong bảng Marvel (Slide 38–39): Mỗi hàng đại diện cho <b>một bộ phim cụ thể</b> (A movie). Có 23 hàng tức là có 23 bộ phim được quan sát.<br>" +
+             "b) Trong bảng Đào tạo UET (Slide 42–43): Một hàng <b>KHÔNG PHẢI</b> là một sinh viên, cũng không phải một môn học (vì một sinh viên học nhiều môn, một môn có nhiều sinh viên). Mỗi hàng là <b>một lượt đăng ký học (Sinh viên × Môn học × Học kỳ)</b>."
       }
+    
     ],
     pitfalls: [
       {
@@ -1128,70 +1141,81 @@ const CUM_A = [
             <p>Tổng các tỉ lệ của mọi nhóm luôn luôn bằng đúng $1$ (hay $100\\%$).</p>
             <div class="tip-box"><b>Khi nào dùng Tỉ lệ thay vì Tần số?</b> Khi muốn so sánh giữa các nhóm có quy mô tổng thể khác nhau! Ví dụ: 20 sinh viên trượt môn trong lớp 50 người (tỉ lệ 40%) nghiêm trọng hơn nhiều so với 40 sinh viên trượt môn trong khóa 400 người (tỉ lệ 10%).</div>`
       },
-      {
+            {
         t: "Hai biến phân loại: Bảng liên hợp 2 chiều (Contingency Table)",
-        c: `<p>Muốn xem xét mối liên hệ giữa hai biến phân loại, ta xếp chúng vào <b>Bảng liên hợp (Two-way Contingency Table)</b>: một biến đặt theo hàng, một biến đặt theo cột.</p>
+        c: `<p>Muốn xem xét mối liên hệ giữa hai biến phân loại, bài giảng Slide Week 02 (trang 15–19) sử dụng <b>Bảng liên hợp thảm họa Titanic</b> (2.201 hành khách):</p>
             <table class="data-table">
-              <thead><tr><th>Năm học \\ Đi làm thêm</th><th>Có đi làm thêm</th><th>Không đi làm</th><th>Tổng hàng</th></tr></thead>
+              <thead><tr><th>Độ tuổi \\ Kết quả</th><th>Sống sót</th><th>Tử vong</th><th>Tổng hàng</th></tr></thead>
               <tbody>
-                <tr><td><b>Năm 1</b></td><td>6</td><td>24</td><td><b>30</b></td></tr>
-                <tr><td><b>Năm 2</b></td><td>10</td><td>10</td><td><b>20</b></td></tr>
-                <tr><td><b>Tổng cột</b></td><td><b>16</b></td><td><b>34</b></td><td><b>50</b></td></tr>
+                <tr><td><b>Người lớn</b></td><td>654</td><td>1.438</td><td><b>2.092</b></td></tr>
+                <tr><td><b>Trẻ em</b></td><td>57</td><td>52</td><td><b>109</b></td></tr>
+                <tr><td><b>Tổng cột</b></td><td><b>711</b></td><td><b>1.490</b></td><td><b>2.201</b></td></tr>
               </tbody>
             </table>
-            <p>Trong bảng trên: Ô giao nhau cho biết tần số kết hợp (ví dụ: có $10$ sinh viên vừa là Năm 2, vừa có đi làm thêm). Tổng hàng và tổng cột đều phải cộng ra tổng chung $n = 50$.</p>`
+            <p>Trong bảng trên: Ô giao nhau cho biết tần số kết hợp (ví dụ: có $57$ hành khách là trẻ em và sống sót). Tổng hàng và tổng cột đều cộng ra tổng chung $n = 2.201$.</p>`
       },
       {
         t: "Kỹ năng sống còn: Chọn đúng MẪU SỐ khi tính tỉ lệ",
-        c: `<p>Trong bảng liên hợp, đề thi thường yêu cầu tính 3 loại tỉ lệ khác nhau. Điểm mấu chốt là <b>xác định đúng MẪU SỐ</b>:</p>
+        c: `<p>Từ bảng liên hợp Titanic (Slide 21–22), bài thi thường yêu cầu tính 3 loại tỉ lệ khác nhau. Điểm mấu chốt là <b>xác định đúng MẪU SỐ</b>:</p>
             <ol>
-              <li><b>Tỉ lệ trên toàn bộ (Joint Proportion)</b>: Mẫu số là <b>Tổng chung toàn bảng (50)</b>.<br>
-                  Ví dụ: Tỉ lệ sinh viên vừa học Năm 2 vừa đi làm thêm = $\\frac{10}{50} = 20\\%$.
+              <li><b>Tỉ lệ trên toàn bộ (Joint Proportion)</b>: Mẫu số là <b>Tổng chung toàn bảng (2.201)</b>.<br>
+                  Ví dụ: Tỉ lệ trẻ em sống sót trong toàn bộ hành khách = $\\frac{57}{2201} \\approx 2{,}59\\%$.
               </li>
-              <li><b>Tỉ lệ có điều kiện theo hàng (Row Conditional Proportion)</b>: Mẫu số là <b>Tổng hàng</b>.<br>
-                  Ví dụ: <i>Trong số các sinh viên Năm 2</i>, tỉ lệ đi làm thêm = $\\frac{10}{20} = 50\\%$.
+              <li><b>Tỉ lệ có điều kiện theo hàng (Row Conditional)</b>: Mẫu số là <b>Tổng hàng</b>.<br>
+                  Ví dụ: <i>Trong số trẻ em</i>, tỉ lệ sống sót = $\\frac{57}{109} \\approx 52{,}29\\%$.<br>
+                  <i>Trong số người lớn</i>, tỉ lệ sống sót = $\\frac{654}{2092} \\approx 31{,}26\\%$.
               </li>
-              <li><b>Tỉ lệ có điều kiện theo cột (Column Conditional Proportion)</b>: Mẫu số là <b>Tổng cột</b>.<br>
-                  Ví dụ: <i>Trong số những người có đi làm thêm</i>, tỉ lệ sinh viên Năm 2 = $\\frac{10}{16} = 62{,}5\\%$.
+              <li><b>Tỉ lệ có điều kiện theo cột (Column Conditional)</b>: Mẫu số là <b>Tổng cột</b>.<br>
+                  Ví dụ: <i>Trong số những người sống sót</i>, tỉ lệ trẻ em = $\\frac{57}{711} \\approx 8{,}02\\%$.
               </li>
             </ol>
-            <div class="tip-box"><b>Mẹo tìm mẫu số trong câu hỏi:</b> Hãy tìm cụm từ <i>&quot;Trong số...&quot;</i>, <i>&quot;Tính trong nhóm...&quot;</i> hoặc <i>&quot;Biết rằng...&quot;</i>. Đối tượng đứng ngay sau cụm từ đó chính là <b>MẪU SỐ</b>!</div>`
+            <div class="tip-box"><b>Mẹo tìm mẫu số trong câu hỏi:</b> Hãy tìm cụm từ <i>&quot;Trong số...&quot;</i> hoặc <i>&quot;Biết rằng...&quot;</i>. Đối tượng đứng ngay sau cụm từ đó chính là <b>MẪU SỐ</b>!</div>`
       },
       {
         t: "Làm thế nào để biết hai biến có liên hệ với nhau?",
-        c: `<p>Hai biến phân loại được coi là <b>có mối liên hệ (associated)</b> nếu sự phân bố của biến này thay đổi khi ta biết thông tin về biến kia.</p>
-            <p>Trong ví dụ trên, hãy so sánh tỉ lệ đi làm thêm theo từng năm học:</p>
-            <ul>
-              <li>Ở sinh viên Năm 1: Tỉ lệ đi làm thêm là $\\frac{6}{30} = 20\\%$.</li>
-              <li>Ở sinh viên Năm 2: Tỉ lệ đi làm thêm là $\\frac{10}{20} = 50\\%$.</li>
-            </ul>
-            <p>Vì $50\\% \\neq 20\\%$ (chênh lệch rất lớn), ta kết luận: <b>Năm học có liên hệ với xu hướng đi làm thêm</b> (sinh viên năm trên có xu hướng đi làm nhiều hơn). Nếu hai tỉ lệ này bằng nhau hoặc xấp xỉ nhau, ta nói hai biến không có mối liên hệ.</p>
-            <div class="warn-box"><b>Lưu ý quan trọng:</b> Tỉ lệ có điều kiện theo hàng chính là bản chất của <b>Xác suất có điều kiện</b> $P(\\text{Đi làm} \\mid \\text{Năm 2}) = \\frac{10}{20} = 0{,}5$ mà chúng ta sẽ học ở Cụm B!</div>`
+        c: `<p>Hai biến phân loại được coi là <b>có mối liên hệ (associated)</b> nếu sự phân bố của biến này thay đổi khi ta biết thông tin về biến kia (Slide 23–26).</p>
+            <p>Trong bảng Titanic, tỉ lệ sống sót của trẻ em ($52{,}29\\%$) cao hơn hẳn tỉ lệ sống sót của người lớn ($31{,}26\\%$). Sự khác biệt này cho thấy giữa <b>Độ tuổi</b> và <b>Kết quả sống sót</b> có mối liên hệ rõ rệt!</p>`
       }
     ],
     examples: [
       {
         level: "Cơ bản",
-        q: "Một lớp học có 20 sinh viên CNTT, 18 sinh viên Điện tử và 12 sinh viên Cơ học. Tính tỉ lệ sinh viên ngành CNTT trong lớp.",
-        sol: "<b>Bước 1:</b> Tính tổng số sinh viên: $n = 20 + 18 + 12 = 50$.<br>" +
-             "<b>Bước 2:</b> Tỉ lệ sinh viên CNTT = $\\frac{20}{50} = 0{,}40 = 40\\%$.<br>" +
-             "<b>Kết luận:</b> Sinh viên ngành CNTT chiếm 40% sĩ số lớp."
+        t: "[Slide Week 02 — W02-EX01 & W02-EX02] Thảm họa Titanic: Số đếm hay Tỉ lệ?",
+        q: "Bảng liên hợp thảm họa Titanic trong bài giảng (Slide 16–19) ghi nhận kết quả sống sót của 2.201 hành khách:<br>" +
+           "- Người lớn: 654 người sống sót, 1.438 người thiệt mạng (Tổng: 2.092 người lớn).<br>" +
+           "- Trẻ em: 57 người sống sót, 52 người thiệt mạng (Tổng: 109 trẻ em).<br>" +
+           "Một bạn sinh viên nhìn vào bảng và kết luận: <i>'Người lớn có kết quả sống sót tốt hơn trẻ em vì 654 > 57'</i>. Hãy chỉ ra sai lầm của kết luận này và tính tỉ lệ sống sót chính xác của từng nhóm.",
+        sol: "<b>Phân tích theo Slide Week 02 (trang 18–19):</b><br>" +
+             "Sai lầm chí mạng: So sánh số đếm thô (654 vs 57) giữa hai nhóm có quy mô tổng thể chênh lệch quá lớn (2.092 người lớn vs 109 trẻ em). Muốn so sánh công bằng, bắt buộc phải dùng <b>Tỉ lệ có điều kiện</b>:<br>" +
+             "- Tỉ lệ sống sót của người lớn: $P(\\text{Sống} \\mid \\text{Người lớn}) = \\frac{654}{2092} \\approx 31{,}3\\%$.<br>" +
+             "- Tỉ lệ sống sót của trẻ em: $P(\\text{Sống} \\mid \\text{Trẻ em}) = \\frac{57}{109} \\approx 52{,}3\\%$.<br>" +
+             "<b>Kết luận đúng:</b> Trẻ em có tỉ lệ sống sót cao hơn người lớn rất nhiều ($52{,}3\\% > 31{,}3\\%$) do nguyên tắc ưu tiên cứu hộ trẻ em!"
       },
       {
         level: "Trung bình",
-        q: "Dựa vào bảng liên hợp ở trên, tính tỉ lệ sinh viên không đi làm thêm trong số các sinh viên Năm 1.",
-        sol: "<b>Bước 1:</b> Xác định mẫu số: Cụm từ 'trong số các sinh viên Năm 1' cho biết mẫu số là Tổng hàng Năm 1 = 30.<br>" +
-             "<b>Bước 2:</b> Tử số là số sinh viên Năm 1 không đi làm thêm = 24.<br>" +
-             "<b>Bước 3:</b> Tỉ lệ = $\\frac{24}{30} = 0{,}80 = 80\\%$.<br>" +
-             "<b>Kết luận:</b> 80% sinh viên Năm 1 không đi làm thêm."
+        t: "[Slide Week 02 — W02-EX03] Thử thách xác định Mẫu số trước khi tính",
+        q: "Dựa vào bảng liên hợp Titanic (Slide 21–22) gồm tổng cộng 2.201 người, trong đó tổng số người sống sót là 711 người (654 người lớn, 57 trẻ em). Hãy xác định đúng mẫu số và tính giá trị của 3 câu hỏi sau:<br>" +
+           "A. 'Trong số người lớn, bao nhiêu phần sống sót?'<br>" +
+           "B. 'Trong số những người sống sót, bao nhiêu phần là trẻ em?'<br>" +
+           "C. 'Trong toàn bộ hành khách, tỉ lệ trẻ em sống sót là bao nhiêu?'",
+        sol: "<b>Đáp án chuẩn hóa theo Slide Week 02 (trang 22):</b><br>" +
+             "- <b>Câu A:</b> Cụm từ <i>'Trong số người lớn'</i> chỉ định MẪU SỐ là tổng số người lớn ($2.092$).<br>" +
+             "  $$\\text{Tỉ lệ} = \\frac{654}{2092} \\approx 31{,}26\\%$$<br>" +
+             "- <b>Câu B:</b> Cụm từ <i>'Trong số người sống sót'</i> chỉ định MẪU SỐ là tổng người sống ($711$).<br>" +
+             "  $$\\text{Tỉ lệ} = \\frac{57}{711} \\approx 8{,}02\\%$$<br>" +
+             "- <b>Câu C:</b> Cụm từ <i>'Trong toàn bộ hành khách'</i> chỉ định MẪU SỐ là tổng toàn bảng ($2.201$).<br>" +
+             "  $$\\text{Tỉ lệ} = \\frac{57}{2201} \\approx 2{,}59\\%$$"
       },
       {
         level: "Vận dụng",
-        q: "Dựa vào bảng trên, so sánh hai tỉ lệ: (A) Tỉ lệ sinh viên Năm 1 có đi làm thêm trên toàn trường; (B) Tỉ lệ sinh viên Năm 1 trong nhóm những người có đi làm thêm. Hai tỉ lệ này có bằng nhau không?",
-        sol: "<b>Tính tỉ lệ (A):</b> Mẫu số là Tổng toàn bộ 50. Tỉ lệ (A) = $\\frac{6}{50} = 12\\%$.<br>" +
-             "<b>Tính tỉ lệ (B):</b> Mẫu số là Tổng cột người có đi làm thêm 16. Tỉ lệ (B) = $\\frac{6}{16} = 37{,}5\\%$.<br>" +
-             "<b>Kết luận:</b> Hai tỉ lệ hoàn toàn khác nhau ($12\\% \\neq 37{,}5\\%$). Điều này chứng minh việc chọn nhầm mẫu số sẽ làm sai lệch hoàn toàn kết quả bài toán."
+        t: "[Slide Week 02 — W02-WP01] Phản biện bài báo: Tiêu đề có đúng không?",
+        q: "Một bài báo nhìn vào bảng dữ liệu Titanic và giật tít: <i>'Hơn 90% số người sống sót là người lớn, vậy đi tàu Titanic là người lớn an toàn hơn trẻ em!'</i> (Slide 34–35). Dưới góc độ xác suất thống kê, hãy phân tích tại sao tiêu đề này ngụy biện và đánh tráo khái niệm.",
+        sol: "<b>Phân tích phản biện theo Slide Week 02 (trang 34–35):</b><br>" +
+             "1. Con số 'hơn 90%' thực chất là $\\frac{654}{711} \\approx 91{,}98\\%$, tức là xác suất $P(\\text{Người lớn} \\mid \\text{Sống sót})$.<br>" +
+             "2. Khái niệm 'an toàn hơn' (xác suất sống sót khi gặp nạn) phải được đo bằng $P(\\text{Sống sót} \\mid \\text{Người lớn}) = 31{,}3\\%$, so sánh với $P(\\text{Sống sót} \\mid \\text{Trẻ em}) = 52{,}3\\%$.<br>" +
+             "3. Người lớn chiếm tới 92% số người sống sót đơn giản là vì họ chiếm tới 95% tổng số người trên tàu ($2.092 / 2.201$), chứ không phải vì người lớn được an toàn hơn!"
       }
+    
     ],
     pitfalls: [
       {
@@ -1349,30 +1373,44 @@ const CUM_A = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Cho dãy điểm thi của 5 sinh viên: 4, 6, 7, 8, 10. Hãy tính Trung bình, Trung vị và Khoảng biến thiên (Range).",
-        sol: "<b>Trung bình:</b> $\\bar{x} = \\frac{4 + 6 + 7 + 8 + 10}{5} = \\frac{35}{5} = 7{,}0$.<br>" +
-             "<b>Trung vị:</b> Dãy có 5 số (lẻ), số ở vị trí chính giữa (thứ 3) là $7{,}0$.<br>" +
-             "<b>Khoảng biến thiên:</b> $\\text{Range} = 10 - 4 = 6$."
+        t: "[Slide Week 02 — W02-EX10] Bài toán thi bù OpenIntro 4e",
+        q: "Trong một lớp học gồm 25 sinh viên, có 24 bạn thi đợt 1 với điểm trung bình đạt $\\bar{x} = 74$ điểm (Slide 88–89). Bạn sinh viên thứ 25 bị ốm phải thi bù và đạt 64 điểm. Hãy tính điểm trung bình mới của toàn bộ 25 sinh viên trong lớp.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 02 (trang 89):</b><br>" +
+             "1. Tổng điểm thi của 24 bạn đầu tiên là: $\\sum_{i=1}^{24} x_i = 24 \\times 74 = 1776$ điểm.<br>" +
+             "2. Sau khi cộng điểm của bạn thứ 25 ($64$ điểm), tổng điểm của cả 25 bạn là:<br>" +
+             "   $$\\sum_{i=1}^{25} x_i = 1776 + 64 = 1840 \\text{ điểm}$$<br>" +
+             "3. Điểm trung bình mới của cả lớp là:<br>" +
+             "   $$\\bar{x}_{\\text{new}} = \\frac{1840}{25} = 73{,}6 \\text{ điểm}$$"
       },
       {
         level: "Trung bình",
-        q: "Dãy điểm thi của 11 sinh viên: 4, 6, 7, 7, 8, 8, 8, 9, 9, 10, 18. Tính Median, $Q_1, Q_3, \\text{IQR}$ và kiểm tra xem giá trị 18 có phải là ngoại lai không.",
-        sol: "<b>Bước 1:</b> Dãy đã xếp thứ tự gồm 11 số. Số ở giữa (vị trí 6) là $\\text{Median} = 8$.<br>" +
-             "<b>Bước 2:</b> Nửa dưới gồm 5 số $[4, 6, 7, 7, 8] \\implies Q_1 = 7$.<br>" +
-             "<b>Bước 3:</b> Nửa trên gồm 5 số $[8, 9, 9, 10, 18] \\implies Q_3 = 9$.<br>" +
-             "<b>Bước 4:</b> $\\text{IQR} = Q_3 - Q_1 = 9 - 7 = 2$.<br>" +
-             "<b>Bước 5:</b> Rào trên = $Q_3 + 1{,}5 \\times \\text{IQR} = 9 + 1{,}5(2) = 12$.<br>" +
-             "Vì điểm $18 &gt; 12$, nên $18$ <b>chính xác là một giá trị ngoại lai</b>!"
+        t: "[Slide Week 02 — W02-EX11] Xác định Ngoại lai theo Hàng rào Tukey",
+        q: "Cho 20 điểm thi đã sắp xếp tăng dần từ bài tập OpenIntro 4e (Slide 90–91):<br>" +
+           "$$57, 66, 69, 71, 72, 73, 74, 77, 78, 78, 79, 79, 81, 81, 82, 83, 83, 88, 89, 94$$<br>" +
+           "Biết $Q_1 = 72{,}5$ và $Q_3 = 82{,}5$. Hãy tính khoảng tứ phân vị $\\text{IQR}$, xác định hai hàng rào Tukey và kiểm tra xem có điểm ngoại lai nào không.",
+        sol: "<b>Lời giải từng bước theo Slide Week 02 (trang 91):</b><br>" +
+             "1. Tính khoảng tứ phân vị: $\\text{IQR} = Q_3 - Q_1 = 82{,}5 - 72{,}5 = 10$.<br>" +
+             "2. Độ vươn hàng rào: $1{,}5 \\times \\text{IQR} = 1{,}5 \\times 10 = 15$.<br>" +
+             "3. Xác định hai ngưỡng hàng rào:<br>" +
+             "   - <b>Hàng rào dưới (Lower fence):</b> $Q_1 - 1{,}5\\text{IQR} = 72{,}5 - 15 = 57{,}5$.<br>" +
+             "   - <b>Hàng rào trên (Upper fence):</b> $Q_3 + 1{,}5\\text{IQR} = 82{,}5 + 15 = 97{,}5$.<br>" +
+             "4. <b>Kiểm tra ngoại lai:</b> Điểm thi $57 < 57{,}5$ (nằm ngoài hàng rào dưới) $\\rightarrow$ <b>57 là giá trị ngoại lai (outlier)</b> duy nhất của bộ dữ liệu."
       },
       {
         level: "Vận dụng",
-        q: "Một công ty công nghệ có 10 nhân viên lương 15 triệu/tháng và 1 Giám đốc lương 200 triệu/tháng. Khi báo cáo mức lương tiêu biểu cho ứng viên mới, phòng nhân sự nên dùng Trung bình hay Trung vị? Vì sao?",
-        sol: "<b>Tính toán:</b><br>" +
-             "- Tổng lương = $10 \\times 15 + 200 = 350$ triệu. Trung bình lương $\\bar{x} = \\frac{350}{11} \\approx 31{,}8$ triệu.<br>" +
-             "- Trung vị lương = 15 triệu.<br>" +
-             "<b>Phân tích:</b> Phân phối lương bị <b>lệch phải rất nặng</b> do mức lương cực đoan 200 triệu của Giám đốc kéo trung bình lên gần 32 triệu (cao hơn gấp đôi lương của toàn bộ nhân viên).<br>" +
-             "<b>Kết luận:</b> Phải dùng <b>Trung vị (15 triệu)</b> vì nó phản ánh trung thực mức lương thực tế của đa số nhân viên mà không bị ngoại lai bóp méo."
+        t: "[Slide Week 02 — W02-CH02 & W02-CH03] Phản ví dụ: Mean = Median có đối xứng không?",
+        q: "a) [W02-CH02] Dãy dữ liệu mẫu STAT20 gồm 11 quan sát có Trung bình $\\approx 8{,}455$, Trung vị $= 8$, $\\text{SD} \\approx 1{,}695$. Nếu thay một giá trị 6 bằng $-200$ (ngoại lai cực đoan), hãy quan sát sự biến động của Trung bình và Trung vị.<br>" +
+           "b) [W02-CH03] Hãy chứng minh hoặc bác bỏ mệnh đề: <i>'Nếu Trung bình = Trung vị thì phân phối chắc chắn đối xứng'</i>.",
+        sol: "<b>Phân tích bản chất theo Slide Week 02 (trang 75 & 79):</b><br>" +
+             "a) Khi thay $6$ bằng $-200$ (Slide 75):<br>" +
+             "   - <b>Trung vị (Median):</b> Vẫn giữ nguyên bằng $8$ (bền vững hoàn hảo!).<br>" +
+             "   - <b>Trung bình (Mean):</b> Bị kéo sụt thê thảm từ $8{,}455$ xuống $-10{,}273$; độ lệch chuẩn SD vọt lên $62{,}94$.<br>" +
+             "b) <b>Bác bỏ mệnh đề!</b> Mệnh đề trên là SAI (Slide 79). Phản ví dụ mẫu 5 số: $(-4, -1, 0, 2, 3)$.<br>" +
+             "   - Tổng $= (-4) + (-1) + 0 + 2 + 3 = 0 \\implies \\text{Mean} = 0$.<br>" +
+             "   - Số chính giữa là $0 \\implies \\text{Median} = 0$.<br>" +
+             "   - Dãy số này hoàn toàn <b>không đối xứng</b> quanh 0 vì khoảng cách về phía âm kéo dài tới $-4$ trong khi phía dương chỉ tới $+3$!"
       }
+    
     ],
     pitfalls: [
       {
@@ -1515,32 +1553,43 @@ const CUM_A = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Cho đường hồi quy dự đoán điểm thi theo số giờ học: $\\hat{y} = 2 + 1{,}5 x$. Nêu ý nghĩa của con số 1,5.",
-        sol: "<b>Phân tích:</b> Con số $1{,}5$ là hệ số góc $b_1$.<br>" +
-             "<b>Kết luận:</b> Khi một sinh viên học thêm $1$ giờ ($x$ tăng 1 đơn vị), điểm thi dự đoán của sinh viên đó sẽ tăng thêm $1{,}5$ điểm."
+        t: "[Slide Week 04 — W04-EX01 & W04-CH01] Tính chất của Hệ số tương quan Pearson r",
+        q: "a) [W04-EX01] Nếu ta đổi thang đo nhiệt độ từ Celsius sang Fahrenheit ($y = 1{,}8x + 32$), hệ số tương quan $r$ giữa nhiệt độ và lượng điện tiêu thụ có thay đổi không?<br>" +
+           "b) [W04-CH01] Chứng minh hoặc bác bỏ mệnh đề: <i>'Hệ số tương quan $r = 0$ đồng nghĩa với việc hai biến $X$ và $Y$ không có mối liên hệ nào'</i>.",
+        sol: "<b>Phân tích lý thuyết theo Slide Week 04 (trang 16–19):</b><br>" +
+             "a) Hệ số tương quan $r$ <b>bất biến với phép đổi thang đo tuyến tính dương</b>: $r(a x + b, y) = r(x, y)$ với mọi $a > 0$. Do đó $r$ không hề thay đổi!<br>" +
+             "b) <b>Khẳng định SAI!</b> Hệ số Pearson $r$ chỉ đo mức độ <b>liên hệ tuyến tính (đường thẳng)</b>.<br>" +
+             "   - Phản ví dụ kinh điển (Slide 19): Xét 5 điểm với $y = x^2$: $(-2, 4), (-1, 1), (0, 0), (1, 1), (2, 4)$.<br>" +
+             "   - Do tính đối xứng hoàn hảo, $r(X, Y) = 0$, nhưng giữa $X$ và $Y$ có quan hệ hàm số phi tuyến hoàn hảo ($Y = X^2$)!"
       },
       {
         level: "Trung bình",
-        q: "Đường hồi quy dự đoán giá nhà (triệu đồng) theo diện tích ($m^2$) là $\\hat{y} = 200 + 25 x$. Một căn nhà có diện tích $80 m^2$ được bán thực tế với giá $2150$ triệu đồng. Hãy tính giá dự đoán và phần dư.",
-        sol: "<b>Bước 1:</b> Tính giá trị dự đoán $\\hat{y}$ khi $x = 80$:<br>" +
-             "$$\\hat{y} = 200 + 25(80) = 200 + 2000 = 2200\\text{ (triệu đồng)}$$<br>" +
-             "<b>Bước 2:</b> Tính phần dư $e = y - \\hat{y}$:<br>" +
-             "$$e = 2150 - 2200 = -50\\text{ (triệu đồng)}$$<br>" +
-             "<b>Kết luận:</b> Phần dư âm ($-50$ triệu), nghĩa là căn nhà này được bán rẻ hơn $50$ triệu so với mức giá mà mô hình dự đoán."
+        t: "[Slide Week 04 — W04-WP02] Suy ra Đường hồi quy OLS từ Thống kê tóm tắt",
+        q: "Trong nghiên cứu mối liên hệ giữa tỉ lệ tốt nghiệp THPT ($x$, %) và tỉ lệ nghèo đói ($y$, %) tại các bang của Hoa Kỳ (Slide 44–45), số liệu tóm tắt cho thấy:<br>" +
+           "$$\\bar{x} = 86{,}01\\%, \\quad s_x = 3{,}73\\%, \\quad \\bar{y} = 11{,}35\\%, \\quad s_y = 3{,}10\\%, \\quad r = -0{,}75$$<br>" +
+           "Hãy tìm phương trình đường hồi quy tuyến tính mẫu $\\hat{y} = b_0 + b_1 x$ và nêu ý nghĩa hệ số góc $b_1$.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 04 (trang 45):</b><br>" +
+             "1. Tính hệ số góc $b_1$:<br>" +
+             "   $$b_1 = r \\frac{s_y}{s_x} = -0{,}75 \\times \\frac{3{,}10}{3{,}73} \\approx -0{,}623 \\approx -0{,}62$$<br>" +
+             "2. Tính hệ số chặn $b_0$ dựa vào điểm trung bình $(\\bar{x}, \\bar{y})$ luôn thuộc đường hồi quy:<br>" +
+             "   $$b_0 = \\bar{y} - b_1 \\bar{x} = 11{,}35 - (-0{,}623) \\times 86{,}01 \\approx 64{,}68$$<br>" +
+             "3. Phương trình hồi quy mẫu: $\\hat{y} = 64{,}68 - 0{,}62 x$.<br>" +
+             "4. <b>Ý nghĩa hệ số góc:</b> Khi tỉ lệ tốt nghiệp THPT của một bang tăng thêm $1\\%$, mô hình dự đoán tỉ lệ nghèo đói trung bình giảm đi $0{,}62\\%$."
       },
       {
         level: "Vận dụng",
-        q: "Cho tập dữ liệu 5 điểm: $(1, 2), (2, 3), (3, 5), (4, 7), (5, 8)$. Đường hồi quy tìm được là $\\hat{y} = 0{,}2 + 1{,}6 x$. Hãy tính phần dư tại cả 5 điểm và kiểm tra xem tổng phần dư có bằng 0 không.",
-        sol: "<b>Tính phần dư từng điểm:</b><br>" +
-             "- Tại $x=1$: $\\hat{y} = 0{,}2 + 1{,}6(1) = 1{,}8 \\implies e_1 = 2 - 1{,}8 = +0{,}2$<br>" +
-             "- Tại $x=2$: $\\hat{y} = 0{,}2 + 1{,}6(2) = 3{,}4 \\implies e_2 = 3 - 3{,}4 = -0{,}4$<br>" +
-             "- Tại $x=3$: $\\hat{y} = 0{,}2 + 1{,}6(3) = 5{,}0 \\implies e_3 = 5 - 5{,}0 = 0{,}0$<br>" +
-             "- Tại $x=4$: $\\hat{y} = 0{,}2 + 1{,}6(4) = 6{,}6 \\implies e_4 = 7 - 6{,}6 = +0{,}4$<br>" +
-             "- Tại $x=5$: $\\hat{y} = 0{,}2 + 1{,}6(5) = 8{,}2 \\implies e_5 = 8 - 8{,}2 = -0{,}2$<br>" +
-             "<b>Tổng phần dư:</b><br>" +
-             "$$\\sum e_i = (+0{,}2) + (-0{,}4) + 0{,}0 + (+0{,}4) + (-0{,}2) = 0{,}00$$<br>" +
-             "Đúng theo tính chất toán học của phương pháp OLS!"
+        t: "[Slide Week 04 — W04-Q02 & W04-WP01] Tính và Diễn giải Phần dư (Residual)",
+        q: "Sử dụng mô hình hồi quy $\\hat{y} = 64{,}68 - 0{,}62 x$ ở trên. Bang Rhode Island có tỉ lệ tốt nghiệp thực tế là $x = 81\\%$ và tỉ lệ nghèo thực tế là $y = 12{,}8\\%$ (Slide 26, 36–37).<br>" +
+           "a) Tính giá trị dự báo $\\hat{y}$ và phần dư $e$ cho bang Rhode Island.<br>" +
+           "b) Diễn giải ý nghĩa của dấu phần dư vừa tìm được.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 04 (trang 37):</b><br>" +
+             "a) Giá trị dự báo của mô hình (Fitted value):<br>" +
+             "   $$\\hat{y} = 64{,}68 - 0{,}62 \\times 81 = 64{,}68 - 50{,}22 = 14{,}46\\%$$<br>" +
+             "   Phần dư (Residual):<br>" +
+             "   $$e = y - \\hat{y} = 12{,}8\\% - 14{,}46\\% = -1{,}66\\%$$<br>" +
+             "b) <b>Ý nghĩa thực tế:</b> Phần dư mang dấu âm ($e = -1{,}66\\%$) chứng tỏ tỉ lệ nghèo thực tế của bang Rhode Island thấp hơn $1{,}66\\%$ so với mức nghèo mà mô hình dự đoán dựa trên tỉ lệ học vấn."
       }
+    
     ],
     pitfalls: [
       {
@@ -1666,25 +1715,39 @@ const CUM_A = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Phương trình dự đoán mức lương (triệu/tháng): $\\hat{y} = 12 + 1{,}5 x_1 + 0{,}8 x_2$, trong đó $x_1$ là số năm kinh nghiệm, $x_2$ là số chứng chỉ quốc tế. Diễn giải ý nghĩa con số 1,5.",
-        sol: "<b>Phân tích:</b> Con số $1{,}5$ là hệ số trước $x_1$.<br>" +
-             "<b>Kết luận chuẩn:</b> Khi số năm kinh nghiệm ($x_1$) tăng thêm $1$ năm, mức lương dự đoán sẽ tăng thêm $1{,}5$ triệu đồng/tháng, <i>với điều kiện số lượng chứng chỉ quốc tế ($x_2$) không thay đổi</i>."
+        t: "[Slide Week 04 — W04-Q04 & W04-WP03] Mô hình Giá sách và Biến chỉ báo Dummy",
+        q: "Mô hình dự đoán giá bán của sách giáo khoa (USD) theo thể tích cuốn sách ($x$, $\\text{cm}^3$) và loại bìa (Slide 58–61) có dạng:<br>" +
+           "$$\\widehat{\\text{price}} = 1{,}08 + 0{,}016 \\times \\text{volume} - 1{,}84 \\times D_{\\text{softback}}$$<br>" +
+           "Trong đó biến chỉ báo $D_{\\text{softback}} = 1$ nếu là sách bìa mềm, và bằng $0$ nếu là sách bìa cứng. Hãy xác định mức tham chiếu (Baseline) và giải thích ý nghĩa hệ số $-1{,}84$.",
+        sol: "<b>Phân tích chuẩn mực theo Slide Week 04 (trang 59 & 61):</b><br>" +
+             "1. <b>Mức tham chiếu (Baseline):</b> Là nhóm có $D_{\\text{softback}} = 0$, tức là <b>Sách bìa cứng (Hardcover)</b>.<br>" +
+             "2. <b>Ý nghĩa hệ số $-1{,}84$:</b> Khi so sánh hai cuốn sách có <b>cùng thể tích</b> (giữ `volume` cố định), cuốn sách bìa mềm được mô hình dự đoán có giá bán <b>thấp hơn trung bình 1,84 USD</b> so với cuốn sách bìa cứng."
       },
       {
         level: "Trung bình",
-        q: "Mô hình giá thuê nhà: $\\hat{y} = 3 + 0{,}08 x_1 + 2 d_{\\text{ĐH}}$, trong đó $x_1$ là diện tích ($m^2$), $d_{\\text{ĐH}} = 1$ nếu có điều hòa, $0$ nếu không có. Một phòng $40 m^2$ có điều hòa được dự đoán giá thuê bao nhiêu?",
-        sol: "<b>Bước 1:</b> Xác định các giá trị: $x_1 = 40$, vì có điều hòa nên $d_{\\text{ĐH}} = 1$.<br>" +
-             "<b>Bước 2:</b> Thay số vào mô hình:<br>" +
-             "$$\\hat{y} = 3 + 0{,}08(40) + 2(1) = 3 + 3{,}2 + 2 = 8{,}2\\text{ (triệu đồng/tháng)}$$<br>" +
-             "<b>Kết luận:</b> Giá thuê dự đoán là 8,2 triệu đồng/tháng."
+        t: "[Slide Week 04 — W04-EX05] Tính Giá trị dự báo cho Sách bìa mềm",
+        q: "Một cuốn sách giáo trình bìa mềm có thể tích đo được là $\\text{volume} = 600\\text{ cm}^3$ (Slide 62–63). Dựa vào phương trình hồi quy trên, hãy tính giá bán dự báo của cuốn sách này.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 04 (trang 63):</b><br>" +
+             "1. Vì cuốn sách là bìa mềm nên biến chỉ báo nhận giá trị $D_{\\text{softback}} = 1$.<br>" +
+             "2. Thay $\\text{volume} = 600$ và $D_{\\text{softback}} = 1$ vào phương trình:<br>" +
+             "   $$\\widehat{\\text{price}} = 1{,}08 + 0{,}016 \\times 600 - 1{,}84 \\times 1$$<br>" +
+             "   $$\\widehat{\\text{price}} = 1{,}08 + 9{,}60 - 1{,}84 = 8{,}84 \\text{ USD}$$"
       },
       {
         level: "Vận dụng",
-        q: "Với mô hình trên, hai phòng trọ A và B có diện tích bằng nhau là $50 m^2$. Phòng A có điều hòa, phòng B không có điều hòa. Mức giá thuê dự đoán của phòng A chênh lệch so với phòng B bao nhiêu?",
-        sol: "<b>Phân tích:</b> Vì hai phòng có cùng diện tích ($x_1$ như nhau), sự chênh lệch giá thuê dự đoán chỉ đến từ biến chỉ báo điều hòa.<br>" +
-             "$$\\hat{y}_A - \\hat{y}_B = [3 + 0{,}08(50) + 2(1)] - [3 + 0{,}08(50) + 2(0)] = 2(1) - 2(0) = 2\\text{ (triệu)}$$<br>" +
-             "<b>Kết luận:</b> Phòng A có điều hòa được dự đoán giá cao hơn phòng B đúng bằng hệ số $2$ triệu đồng/tháng."
+        t: "[Slide Week 04 — W04-Q05 & W04-CASE01] Mô hình Zagat: Nguyên tắc 'Giữ biến khác cố định'",
+        q: "Dữ liệu khảo sát nhà hàng Zagat (Slide 64–66, 92–94) cho phương trình dự đoán giá bữa ăn (USD):<br>" +
+           "$$\\widehat{\\text{price}} = -52{,}35 + 1{,}64 \\times \\text{food} + 1{,}89 \\times \\text{decor}$$<br>" +
+           "Trong đó `food` và `decor` là điểm số đánh giá từ 1 đến 30.<br>" +
+           "a) Diễn giải hệ số $1{,}64$ của biến `food`.<br>" +
+           "b) Hai nhà hàng A và B có cùng điểm trang trí `decor` = 20. Nhà hàng A có điểm món ăn `food` cao hơn nhà hàng B là 3 điểm. Dự đoán giá bữa ăn ở nhà hàng nào đắt hơn và đắt hơn bao nhiêu?",
+        sol: "<b>Phân tích theo Slide Week 04 (trang 66 & 94):</b><br>" +
+             "a) <b>Diễn giải hệ số 1,64:</b> Khi so sánh hai nhà hàng có <b>cùng điểm trang trí decor</b>, nhà hàng nào có điểm món ăn food cao hơn 1 điểm thì giá bữa ăn dự báo trung bình cao hơn $1{,}64$ USD.<br>" +
+             "b) Vì hai nhà hàng có cùng điểm `decor`, chênh lệch giá dự báo hoàn toàn do chênh lệch điểm `food` quyết định:<br>" +
+             "   $$\\Delta \\widehat{\\text{price}} = 1{,}64 \\times \\Delta \\text{food} = 1{,}64 \\times 3 = 4{,}92 \\text{ USD}$$<br>" +
+             "   Nhà hàng A được dự báo có giá đắt hơn nhà hàng B đúng $4{,}92$ USD."
       }
+    
     ],
     pitfalls: [
       {
@@ -1831,31 +1894,43 @@ const CUM_B = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Tung một con xúc xắc cân đối. Hãy xác định không gian mẫu $\\Omega$, biến cố $A$ là 'xuất hiện số nguyên tố', và tính $P(A)$.",
-        sol: "<b>Bước 1:</b> Không gian mẫu gồm 6 mặt: $\\Omega = \\{1, 2, 3, 4, 5, 6\\}$.<br>" +
-             "<b>Bước 2:</b> Các số nguyên tố trong $\\Omega$ là $2, 3, 5$. Do đó $A = \\{2, 3, 5\\}$.<br>" +
-             "<b>Bước 3:</b> Vì xúc xắc cân đối, mỗi mặt có xác suất $1/6$. Theo tiên đề 3:<br>" +
-             "$$P(A) = P(\\{2\\}) + P(\\{3\\}) + P(\\{5\\}) = \\frac{1}{6} + \\frac{1}{6} + \\frac{1}{6} = \\frac{3}{6} = 0{,}5$$."
+        t: "[Slide Week 05 — W05-BT01] Phép thử phức hợp Tung xu rồi Gieo xúc xắc",
+        q: "Một người tung một đồng xu cân đối. Nếu lần đầu được mặt Ngửa (H), người đó tung tiếp một đồng xu; nếu lần đầu được mặt Sấp (T), người đó gieo một con xúc xắc 6 mặt (Slide 15–16).<br>" +
+           "a) Hãy liệt kê toàn bộ các phần tử của không gian mẫu $\\Omega$.<br>" +
+           "b) Tính xác suất của biến cố $A$: 'Kết quả của phép thử xuất hiện số chẵn'.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 05 (trang 16):</b><br>" +
+             "a) Không gian mẫu $\\Omega$ gồm 8 kết quả sơ cấp:<br>" +
+             "   $$\\Omega = \\{HH, HT, T1, T2, T3, T4, T5, T6\\}$$<br>" +
+             "b) Xác suất của mỗi nhánh:<br>" +
+             "   - Nhánh ngửa: $P(HH) = P(HT) = \\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4}$.<br>" +
+             "   - Nhánh sấp: $P(Ti) = \\frac{1}{2} \\times \\frac{1}{6} = \\frac{1}{12}$ với mọi $i \\in \\{1, 2, 3, 4, 5, 6\\}$.<br>" +
+             "   Biến cố $A = \\{T2, T4, T6\\}$ gồm 3 kết quả số chẵn:<br>" +
+             "   $$P(A) = P(T2) + P(T4) + P(T6) = \\frac{1}{12} + \\frac{1}{12} + \\frac{1}{12} = \\frac{3}{12} = \\frac{1}{4} = 0{,}25$$"
       },
       {
         level: "Trung bình",
-        q: "Tung đồng thời hai đồng xu cân đối. Tìm xác suất để xuất hiện 'ít nhất một mặt ngửa'.",
-        sol: "<b>Bước 1:</b> Không gian mẫu $\\Omega = \\{\\text{NN}, \\text{NS}, \\text{SN}, \\text{SS}\\}$, gồm 4 phần tử đồng khả năng, mỗi phần tử có xác suất $1/4$.<br>" +
-             "<b>Bước 2:</b> Gọi $A$ là biến cố 'ít nhất một mặt ngửa': $A = \\{\\text{NN}, \\text{NS}, \\text{SN}\\}$.<br>" +
-             "<b>Bước 3:</b> $P(A) = \\frac{3}{4} = 0{,}75$."
+        t: "[Slide Week 05 — W05-Q02] Phân biệt Xung khắc vs Đối nhau trong Vé hỗ trợ",
+        q: "Một vé yêu cầu hỗ trợ kỹ thuật tại UET được phân loại vào đúng một trong bốn mức ưu tiên: Thấp, Trung bình, Cao, Khẩn cấp (Slide 23–24). Gọi $A$ là biến cố 'Vé có mức ưu tiên Thấp' và $B$ là biến cố 'Vé có mức ưu tiên Khẩn cấp'. Hai biến cố $A$ và $B$ có quan hệ gì: Xung khắc, Đối nhau hay cả hai?",
+        sol: "<b>Phân tích bản chất theo Slide Week 05 (trang 24):</b><br>" +
+             "1. Vì mỗi vé chỉ được gán đúng MỘT mức ưu tiên nên một vé không thể vừa có mức Thấp vừa có mức Khẩn cấp $\\implies A \\cap B = \\emptyset$. Do đó, $A$ và $B$ <b>Xung khắc</b>.<br>" +
+             "2. Tuy nhiên, nếu vé không phải mức Thấp ($A^c$), nó có thể là Trung bình, Cao hoặc Khẩn cấp, chứ không nhất thiết phải là Khẩn cấp. Tức là $A \\cup B \\neq \\Omega$. Do đó, $A$ và $B$ <b>KHÔNG đối nhau</b>.<br>" +
+             "<b>Kết luận:</b> $A$ và $B$ xung khắc nhưng không đối lập."
       },
       {
         level: "Vận dụng",
-        q: "Từ 3 tiên đề Kolmogorov, hãy chứng minh một cách chặt chẽ rằng xác suất của biến cố không thể bằng 0: $P(\\emptyset) = 0$, và với mọi biến cố $A$ luôn có $0 \\le P(A) \\le 1$.",
-        sol: "<b>Chứng minh $P(\\emptyset) = 0$:</b><br>" +
-             "- Ta có $\\Omega = \\Omega \\cup \\emptyset$. Vì $\\Omega \\cap \\emptyset = \\emptyset$ (xung khắc), theo Tiên đề 3:<br>" +
-             "$$P(\\Omega) = P(\\Omega) + P(\\emptyset)$$<br>" +
-             "- Thay $P(\\Omega) = 1$ (Tiên đề 2) vào: $1 = 1 + P(\\emptyset) \\implies P(\\emptyset) = 0$.<br>" +
-             "<b>Chứng minh $P(A) \\le 1$:</b><br>" +
-             "- Ta có $\\Omega = A \\cup A^c$ với $A \\cap A^c = \\emptyset$.<br>" +
-             "- Theo Tiên đề 3: $P(\\Omega) = P(A) + P(A^c) \\implies 1 = P(A) + P(A^c)$.<br>" +
-             "- Vì $P(A^c) \\ge 0$ (Tiên đề 1), suy ra $P(A) = 1 - P(A^c) \\le 1$. Kết hợp Tiên đề 1 $\\implies 0 \\le P(A) \\le 1$."
+        t: "[Slide Week 05 — W05-EX01] Biểu diễn Biến cố Hệ thống hai Máy chủ",
+        q: "Một hệ thống trung tâm dữ liệu có hai máy chủ. Đặt $A$: 'Máy chủ 1 gặp sự cố' và $B$: 'Máy chủ 2 gặp sự cố' (Slide 26–27). Hãy dùng các phép toán tập hợp để biểu diễn các biến cố sau:<br>" +
+           "1. Ít nhất một máy chủ gặp sự cố.<br>" +
+           "2. Cả hai máy chủ cùng gặp sự cố.<br>" +
+           "3. Đúng một máy chủ gặp sự cố.<br>" +
+           "4. Cả hai máy chủ đều hoạt động bình thường.",
+        sol: "<b>Đáp án theo Slide Week 05 (trang 27):</b><br>" +
+             "1. 'Ít nhất một máy chủ gặp sự cố': Biến cố hợp $A \\cup B$.<br>" +
+             "2. 'Cả hai máy chủ cùng gặp sự cố': Biến cố giao $A \\cap B$ (hay $AB$).<br>" +
+             "3. 'Đúng một máy chủ gặp sự cố': $(A \\setminus B) \\cup (B \\setminus A)$ hoặc $(A \\cap B^c) \\cup (A^c \\cap B)$ hoặc $(A \\cup B) \\setminus (A \\cap B)$.<br>" +
+             "4. 'Cả hai máy chủ đều hoạt động bình thường': Biến cố đối $(A \\cup B)^c$ hoặc $A^c \\cap B^c$ (theo luật De Morgan)."
       }
+    
     ],
     pitfalls: [
       {
@@ -1972,34 +2047,44 @@ const CUM_B = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Gieo một con xúc xắc cân đối. Gọi A là biến cố 'ra số chẵn', B là biến cố 'ra số lớn hơn hoặc bằng 4'. Tính xác suất P(A ∪ B).",
-        sol: "<b>Bước 1:</b> Liệt kê các phần tử:<br>" +
-             "- $\\Omega = \\{1, 2, 3, 4, 5, 6\\}$<br>" +
-             "- $A = \\{2, 4, 6\\} \\implies P(A) = 3/6$<br>" +
-             "- $B = \\{4, 5, 6\\} \\implies P(B) = 3/6$<br>" +
-             "- Phần giao: $A \\cap B = \\{4, 6\\} \\implies P(A \\cap B) = 2/6$<br>" +
-             "<b>Bước 2:</b> Áp dụng quy tắc cộng tổng quát:<br>" +
-             "$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = \\frac{3}{6} + \\frac{3}{6} - \\frac{2}{6} = \\frac{4}{6} = \\frac{2}{3} \\approx 0{,}6667$$."
+        t: "[Slide Week 05 — Slide 36–37] Quy tắc cộng từ Khảo sát 137 Hộ gia đình",
+        q: "Một cuộc khảo sát ngẫu nhiên 137 hộ gia đình (Slide 36–37) về việc sử dụng dịch vụ cho thấy:<br>" +
+           "- 86 hộ sử dụng Internet ($I$);<br>" +
+           "- 92 hộ sử dụng truyền hình cáp ($T$);<br>" +
+           "- 69 hộ sử dụng đồng thời cả Internet và truyền hình cáp ($I \\cap T$).<br>" +
+           "Chọn ngẫu nhiên một hộ gia đình. Tính xác suất để hộ đó sử dụng ít nhất một trong hai dịch vụ trên.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 05 (trang 37):</b><br>" +
+             "1. Xác suất từng biến cố:<br>" +
+             "   $$P(I) = \\frac{86}{137}, \\quad P(T) = \\frac{92}{137}, \\quad P(I \\cap T) = \\frac{69}{137}$$<br>" +
+             "2. Biến cố 'hộ gia đình sử dụng ít nhất một dịch vụ' là biến cố hợp $I \\cup T$.<br>" +
+             "   Áp dụng Quy tắc cộng xác suất tổng quát:<br>" +
+             "   $$P(I \\cup T) = P(I) + P(T) - P(I \\cap T)$$<br>" +
+             "   $$P(I \\cup T) = \\frac{86}{137} + \\frac{92}{137} - \\frac{69}{137} = \\frac{109}{137} \\approx 0{,}7956 \\approx 79{,}56\\%$$"
       },
       {
         level: "Trung bình",
-        q: "Tung 4 đồng xu cân đối độc lập. Tính xác suất để có ít nhất một mặt ngửa xuất hiện.",
-        sol: "<b>Bước 1:</b> Gọi $A$ là biến cố 'có ít nhất một mặt ngửa'.<br>" +
-             "<b>Bước 2:</b> Xét biến cố đối $A^c$: 'không có mặt ngửa nào' (tức là cả 4 lần đều ra mặt Sấp: SSSS).<br>" +
-             "<b>Bước 3:</b> Vì mỗi lần tung độc lập, xác suất ra sấp là $1/2$:<br>" +
-             "$$P(A^c) = P(\\text{SSSS}) = \\left(\\frac{1}{2}\\right)^4 = \\frac{1}{16}$$<br>" +
-             "<b>Bước 4:</b> Áp dụng quy tắc bù trừ:<br>" +
-             "$$P(A) = 1 - P(A^c) = 1 - \\frac{1}{16} = \\frac{15}{16} = 0{,}9375\\text{ (hay } 93{,}75\\%\\text{)}$$."
+        t: "[Slide Week 05 — W05-Q01 & Slide 75] Nghịch lý De Méré và Biến cố đối",
+        q: "Hiệp sĩ De Méré từng thắc mắc: 'Khi gieo 4 lần một con xúc xắc cân đối độc lập, xác suất xuất hiện ít nhất một mặt 6 có lớn hơn 50% không?' (Slide 10–12, 75). Hãy tính xác suất này và giải thích vì sao không thể lấy $4 \\times \\frac{1}{6} = \\frac{4}{6}$ như De Méré đã từng lầm tưởng.",
+        sol: "<b>Phân tích bản chất theo Slide Week 05 (trang 12 & 75):</b><br>" +
+             "1. <b>Sai lầm của De Méré:</b> Các lần gieo xúc xắc không xung khắc (có thể ra mặt 6 ở nhiều lần), nên không thể cộng trực tiếp $4 \\times \\frac{1}{6}$. Cộng như vậy sẽ tính lặp các trường hợp giao nhau!<br>" +
+             "2. <b>Cách giải chuẩn mực qua Biến cố đối:</b><br>" +
+             "   Gọi $A$ là biến cố 'Có ít nhất một mặt 6 trong 4 lần gieo'.<br>" +
+             "   Biến cố đối $A^c$: 'Cả 4 lần đều không ra mặt 6'.<br>" +
+             "   Xác suất mỗi lần không ra mặt 6 là $\\frac{5}{6}$. Vì các lần gieo độc lập:<br>" +
+             "   $$P(A^c) = \\left(\\frac{5}{6}\\right)^4 = \\frac{625}{1296} \\approx 0{,}4823$$<br>" +
+             "   $$P(A) = 1 - P(A^c) = 1 - \\frac{625}{1296} = \\frac{671}{1296} \\approx 0{,}5177 > 0{,}5$$<br>" +
+             "   Trò chơi này có lợi thế cho người đặt cược (tỉ lệ thắng $51{,}77\\% > 50\\%$)."
       },
       {
         level: "Vận dụng",
-        q: "Một lớp sinh viên có 60% thích môn Toán, 50% thích môn Lập trình và 30% thích cả hai môn. Chọn ngẫu nhiên một sinh viên. Tính xác suất sinh viên đó không thích môn nào trong hai môn trên.",
-        sol: "<b>Bước 1:</b> Gọi $T$ là thích Toán ($P(T) = 0{,}6$), $L$ là thích Lập trình ($P(L) = 0{,}5$). Phần giao $P(T \\cap L) = 0{,}3$.<br>" +
-             "<b>Bước 2:</b> Xác suất sinh viên thích ít nhất một môn ($T \\cup L$):<br>" +
-             "$$P(T \\cup L) = P(T) + P(L) - P(T \\cap L) = 0{,}6 + 0{,}5 - 0{,}3 = 0{,}8\\text{ (80\\%)}$$<br>" +
-             "<b>Bước 3:</b> Biến cố 'không thích môn nào' chính là đối lập của 'thích ít nhất một môn':<br>" +
-             "$$P(\\text{Không thích môn nào}) = 1 - P(T \\cup L) = 1 - 0{,}8 = 0{,}2\\text{ (20\\%)}$$."
+        t: "[Slide Week 05 — W05-BT02] Bao hàm - Loại trừ cho Ba Dự án Nhà máy",
+        q: "Một tập đoàn công nghệ thi công 3 nhà máy tại 3 địa điểm độc lập. Gọi $A_1, A_2, A_3$ lần lượt là các biến cố nhà máy 1, 2, 3 hoàn thành đúng tiến độ (Slide 28–29). Hãy viết công thức tính xác suất để có ít nhất một nhà máy hoàn thành đúng tiến độ bằng Nguyên lý bao hàm - loại trừ.",
+        sol: "<b>Công thức chuẩn xác theo Slide Week 05 (trang 29):</b><br>" +
+             "Biến cố 'Có ít nhất một nhà máy hoàn thành đúng tiến độ' là $A_1 \\cup A_2 \\cup A_3$.<br>" +
+             "Theo Nguyên lý bao hàm - loại trừ cho 3 biến cố:<br>" +
+             "$$P(A_1 \\cup A_2 \\cup A_3) = P(A_1) + P(A_2) + P(A_3) - [P(A_1 A_2) + P(A_2 A_3) + P(A_3 A_1)] + P(A_1 A_2 A_3)$$"
       }
+    
     ],
     pitfalls: [
       {
@@ -2115,31 +2200,44 @@ const CUM_B = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Biết P(A ∩ B) = 0,2 và P(B) = 0,4. Hãy tính xác suất có điều kiện P(A | B).",
-        sol: "<b>Áp dụng công thức:</b><br>" +
-             "$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{0{,}2}{0{,}4} = 0{,}5$$."
+        t: "[Slide Week 05 — W05-EX02] Tính Xác suất có điều kiện từ Dữ liệu Khảo sát",
+        q: "Từ dữ liệu khảo sát 137 hộ gia đình ở trên (Slide 40–41), biết rằng có 86 hộ sử dụng Internet và trong số đó có 69 hộ sử dụng truyền hình cáp. Nếu chọn ngẫu nhiên một hộ gia đình và biết rằng hộ này CÓ dùng Internet, tính xác suất hộ đó cũng dùng truyền hình cáp.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 05 (trang 41):</b><br>" +
+             "1. Ký hiệu $I$: 'Hộ dùng Internet' và $T$: 'Hộ dùng truyền hình cáp'.<br>" +
+             "2. Yêu cầu bài toán là tính xác suất có điều kiện $P(T \\mid I)$.<br>" +
+             "   Không gian mẫu lúc này đã <b>thu hẹp về nhóm 86 hộ có dùng Internet</b>.<br>" +
+             "   $$P(T \\mid I) = \\frac{n(T \\cap I)}{n(I)} = \\frac{69}{86} \\approx 0{,}8023 \\approx 80{,}23\\%$$"
       },
       {
         level: "Trung bình",
-        q: "Một hộp có 5 thẻ bài, trong đó có 2 thẻ màu đỏ và 3 thẻ màu đen. Rút ngẫu nhiên lần lượt 2 thẻ không hoàn lại. Tính xác suất để cả hai thẻ rút ra đều là màu đỏ.",
-        sol: "<b>Bước 1:</b> Gọi $R_1$ là lần 1 rút được thẻ đỏ, $R_2$ là lần 2 rút được thẻ đỏ.<br>" +
-             "<b>Bước 2:</b> Ở lần rút thứ nhất, có 2 thẻ đỏ trong 5 thẻ: $P(R_1) = 2/5 = 0{,}4$.<br>" +
-             "<b>Bước 3:</b> Sau khi đã rút 1 thẻ đỏ (không hoàn lại), trong hộp chỉ còn lại 4 thẻ, trong đó có đúng 1 thẻ đỏ: $P(R_2 \\mid R_1) = 1/4 = 0{,}25$.<br>" +
-             "<b>Bước 4:</b> Áp dụng quy tắc nhân:<br>" +
-             "$$P(R_1 \\cap R_2) = P(R_1) \\cdot P(R_2 \\mid R_1) = \\frac{2}{5} \\times \\frac{1}{4} = \\frac{2}{20} = 0{,}10\\text{ (10\\%)}$$."
+        t: "[Slide Week 05 — Slide 45–46] Quy tắc nhân lấy mẫu Không hoàn lại",
+        q: "Một túi có 3 quân cờ xanh và 7 quân cờ màu khác (Slide 45–46). Lấy ngẫu nhiên lần lượt hai quân cờ không hoàn lại. Gọi $A$ là biến cố lần đầu lấy được quân xanh, $B$ là biến cố lần thứ hai lấy được quân xanh. Tính xác suất để cả hai lần đều lấy được quân xanh.",
+        sol: "<b>Lời giải từng bước theo Slide Week 05 (trang 46):</b><br>" +
+             "1. Xác suất lần đầu lấy được quân xanh: $P(A) = \\frac{3}{10}$.<br>" +
+             "2. Sau khi đã lấy 1 quân xanh, trong túi còn 9 quân cờ gồm 2 quân xanh và 7 quân khác.<br>" +
+             "   Xác suất lần hai lấy được quân xanh biết lần đầu đã lấy quân xanh là:<br>" +
+             "   $$P(B \\mid A) = \\frac{2}{9}$$<br>" +
+             "3. Theo Quy tắc nhân xác suất:<br>" +
+             "   $$P(A \\cap B) = P(A) \\times P(B \\mid A) = \\frac{3}{10} \\times \\frac{2}{9} = \\frac{6}{90} = \\frac{1}{15} \\approx 0{,}0667$$"
       },
       {
         level: "Vận dụng",
-        q: "Trong kho có 10 chiếc máy tính xách tay, trong đó có 3 chiếc bị lỗi phần cứng. Một kỹ sư kiểm tra ngẫu nhiên lần lượt 3 chiếc không hoàn lại. Tính xác suất để cả 3 chiếc đều hoạt động tốt.",
-        sol: "<b>Bước 1:</b> Tổng số máy = 10, máy tốt = 7, máy lỗi = 3.<br>" +
-             "<b>Bước 2:</b> Gọi $T_1, T_2, T_3$ lần lượt là chiếc thứ 1, 2, 3 hoạt động tốt.<br>" +
-             "<b>Bước 3:</b> Áp dụng quy tắc chuỗi:<br>" +
-             "- Lần 1: $P(T_1) = \\frac{7}{10}$ (còn lại 9 máy, 6 máy tốt).<br>" +
-             "- Lần 2: $P(T_2 \\mid T_1) = \\frac{6}{9}$ (còn lại 8 máy, 5 máy tốt).<br>" +
-             "- Lần 3: $P(T_3 \\mid T_1 \\cap T_2) = \\frac{5}{8}$.<br>" +
-             "<b>Bước 4:</b> Nhân xác suất:<br>" +
-             "$$P(T_1 \\cap T_2 \\cap T_3) = \\frac{7}{10} \\times \\frac{6}{9} \\times \\frac{5}{8} = \\frac{210}{720} = \\frac{7}{24} \\approx 0{,}2917\\text{ (29{,}17\\%)}$$."
+        t: "[Slide Week 05 — W05-EX04] Công thức Bayes cho Nhà máy hai Dây chuyền",
+        q: "Một nhà máy có hai dây chuyền sản xuất linh kiện vi mạch (Slide 58, 62–63):<br>" +
+           "- Dây chuyền A tạo ra 60% sản lượng toàn nhà máy, với tỉ lệ lỗi là 2%.<br>" +
+           "- Dây chuyền B tạo ra 40% sản lượng toàn nhà máy, với tỉ lệ lỗi là 4%.<br>" +
+           "Kiểm tra ngẫu nhiên một linh kiện ở kho thấy bị lỗi. Tính xác suất linh kiện này do dây chuyền B sản xuất.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 05 (trang 63):</b><br>" +
+             "1. Gọi $A$: 'Linh kiện do dây chuyền A sản xuất' $\\implies P(A) = 0{,}60$.<br>" +
+             "   Gọi $B$: 'Linh kiện do dây chuyền B sản xuất' $\\implies P(B) = 0{,}40$.<br>" +
+             "   Gọi $L$: 'Linh kiện bị lỗi' $\\implies P(L \\mid A) = 0{,}02$ và $P(L \\mid B) = 0{,}04$.<br>" +
+             "2. Áp dụng Công thức xác suất toàn phần tính tỉ lệ lỗi chung của nhà máy:<br>" +
+             "   $$P(L) = P(A)P(L \\mid A) + P(B)P(L \\mid B) = 0{,}60 \\times 0{,}02 + 0{,}40 \\times 0{,}04 = 0{,}012 + 0{,}016 = 0{,}028$$<br>" +
+             "3. Áp dụng Định lý Bayes tính xác suất hậu nghiệm $P(B \\mid L)$:<br>" +
+             "   $$P(B \\mid L) = \\frac{P(B)P(L \\mid B)}{P(L)} = \\frac{0{,}016}{0{,}028} = \\frac{4}{7} \\approx 0{,}5714 \\approx 57{,}14\\%$$<br>" +
+             "   Mặc dù dây chuyền B chỉ đóng góp 40% sản lượng, nhưng khi một linh kiện bị lỗi thì khả năng nó đến từ dây chuyền B lên tới 57,14%!"
       }
+    
     ],
     pitfalls: [
       {
@@ -2265,28 +2363,38 @@ const CUM_B = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Hai biến cố A và B độc lập với P(A) = 0,3 và P(B) = 0,5. Tính P(A ∩ B) và P(A ∪ B).",
-        sol: "<b>Vì A và B độc lập:</b><br>" +
-             "- Xác suất giao: $P(A \\cap B) = P(A) \\cdot P(B) = 0{,}3 \\times 0{,}5 = 0{,}15$.<br>" +
-             "- Xác suất hợp: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = 0{,}3 + 0{,}5 - 0{,}15 = 0{,}65$."
+        t: "[Slide Week 05 — W05-EX03] Gieo hai Xúc xắc: Độc lập hay Phụ thuộc?",
+        q: "Gieo đồng thời hai con xúc xắc cân đối độc lập (Slide 52–53). Đặt $A$: 'Xúc xắc thứ nhất bằng 4' và $B$: 'Tổng số chấm bằng 6'. Chứng minh rằng $A$ và $B$ KHÔNG độc lập với nhau.",
+        sol: "<b>Chứng minh chặt chẽ theo Slide Week 05 (trang 53):</b><br>" +
+             "1. Tính $P(B)$ (không điều kiện): Tổng số chấm bằng 6 gồm 5 cặp $(1,5), (2,4), (3,3), (4,2), (5,1)$ trong số 36 cặp đồng khả năng:<br>" +
+             "   $$P(B) = \\frac{5}{36}$$<br>" +
+             "2. Tính $P(B \\mid A)$: Khi biết xúc xắc 1 bằng 4, để tổng bằng 6 thì xúc xắc 2 bắt buộc phải bằng 2 (duy nhất cặp $(4,2)$ trong 6 khả năng của xúc xắc 2):<br>" +
+             "   $$P(B \\mid A) = \\frac{1}{6} = \\frac{6}{36}$$<br>" +
+             "3. Vì $P(B \\mid A) \\neq P(B)$ ($6/36 \\neq 5/36$), thông tin về biến cố $A$ đã làm thay đổi xác suất của biến cố $B$.<br>" +
+             "<b>Kết luận:</b> $A$ và $B$ phụ thuộc, không độc lập!"
       },
       {
         level: "Trung bình",
-        q: "Một bài thi gồm 2 câu hỏi độc lập. Sinh viên A có xác suất làm đúng câu 1 là 0,8 và làm đúng câu 2 là 0,7. Tính xác suất sinh viên đó làm đúng ít nhất một câu.",
-        sol: "<b>Cách 1 (Dùng quy tắc cộng độc lập):</b><br>" +
-             "$$P(\\text{Đúng ít nhất 1}) = P(C_1) + P(C_2) - P(C_1 \\cap C_2) = 0{,}8 + 0{,}7 - (0{,}8 \\times 0{,}7) = 1{,}5 - 0{,}56 = 0{,}94$$.<br>" +
-             "<b>Cách 2 (Dùng biến cố đối):</b><br>" +
-             "Xác suất sai cả 2 câu: $(1 - 0{,}8) \\times (1 - 0{,}7) = 0{,}2 \\times 0{,}3 = 0{,}06$.<br>" +
-             "$\\implies P(\\text{Đúng ít nhất 1}) = 1 - 0{,}06 = 0{,}94$."
+        t: "[Slide Week 05 — W05-Q03] Xung khắc không phải Độc lập!",
+        q: "Gieo một con xúc xắc 6 mặt cân đối (Slide 70–72). Đặt $A = \\{1, 2\\}$ và $B = \\{3, 4\\}$. Chứng minh rằng hai biến cố này Xung khắc nhưng KHÔNG Độc lập.",
+        sol: "<b>Phân tích bản chất cốt tử theo Slide Week 05 (trang 70 & 72):</b><br>" +
+             "1. Giao của hai biến cố: $A \\cap B = \\{1, 2\\} \\cap \\{3, 4\\} = \\emptyset \\implies P(A \\cap B) = 0$.<br>" +
+             "   Do đó, $A$ và $B$ <b>Xung khắc hoàn toàn</b>.<br>" +
+             "2. Kiểm tra tính độc lập:<br>" +
+             "   $$P(A) = \\frac{2}{6} = \\frac{1}{3}, \\quad P(B) = \\frac{2}{6} = \\frac{1}{3} \\implies P(A) \\times P(B) = \\frac{1}{9}$$<br>" +
+             "   Vì $P(A \\cap B) = 0 \\neq P(A)P(B) = \\frac{1}{9}$, điều kiện độc lập bị vi phạm nghiêm trọng!<br>" +
+             "<b>Quy tắc vàng:</b> Hai biến cố có xác suất dương mà xung khắc thì KHÔNG BAO GIỜ độc lập, vì biến cố này xảy ra lập tức loại trừ hoàn toàn biến cố kia!"
       },
       {
         level: "Vận dụng",
-        q: "Một hệ thống điện tử có 2 rơ-le mắc song song hoạt động độc lập. Xác suất rơ-le 1 hỏng là 0,05; rơ-le 2 hỏng là 0,08. Hệ thống chỉ ngừng hoạt động khi CẢ HAI rơ-le cùng hỏng. Tính xác suất hệ thống hoạt động bình thường.",
-        sol: "<b>Bước 1:</b> Vì 2 rơ-le hoạt động độc lập, xác suất cả hai cùng hỏng là:<br>" +
-             "$$P(\\text{Cả 2 hỏng}) = 0{,}05 \\times 0{,}08 = 0{,}004\\text{ (0{,}4\\%)}$$<br>" +
-             "<b>Bước 2:</b> Hệ thống hoạt động bình thường khi không phải cả hai cùng hỏng (biến cố đối):<br>" +
-             "$$P(\\text{Hoạt động}) = 1 - P(\\text{Cả 2 hỏng}) = 1 - 0{,}004 = 0{,}996\\text{ (99{,}6\\%)}$$."
+        t: "[Slide Week 05 — Slide 54–55] Vụ án Sally Clark: Bẫy nhân xác suất khi không độc lập",
+        q: "Trong phiên tòa xét xử Sally Clark (Slide 54–55), chuyên gia y tế đã tính xác suất hai đứa trẻ trong cùng một gia đình đột tử (SIDS) là: $\\left(\\frac{1}{8543}\\right)^2 \\approx \\frac{1}{73.000.000}$ và tòa án coi đây là bằng chứng có tội. Hãy chỉ ra sai lầm toán học nghiêm trọng của phép tính này.",
+        sol: "<b>Phân tích bài học lịch sử theo Slide Week 05 (trang 54–55):</b><br>" +
+             "1. Phép nhân xác suất $P(E_1 \\cap E_2) = P(E_1) \\times P(E_2) = (1/8543)^2$ <b>chỉ đúng khi hai ca đột tử hoàn toàn độc lập</b>.<br>" +
+             "2. Trên thực tế, hai đứa trẻ trong cùng một gia đình chia sẻ <b>chung mã gen di truyền và cùng môi trường sống</b>. Nếu đứa con thứ nhất bị hội chứng này, khả năng đứa thứ hai mắc phải sẽ cao hơn rất nhiều lần ($P(E_2 \\mid E_1) \\gg P(E_2)$).<br>" +
+             "3. Việc ngộ nhận tính độc lập đã dẫn đến án oan chấn động lịch sử tư pháp nước Anh. Bài học cốt tử: Tuyệt đối không được áp dụng quy tắc nhân độc lập khi chưa kiểm chứng điều kiện độc lập!"
       }
+    
     ],
     pitfalls: [
       {
@@ -2407,29 +2515,44 @@ const CUM_B = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Có bao nhiêu cách chọn 3 sinh viên từ một nhóm 10 sinh viên để thành lập một nhóm làm bài tập lớn?",
-        sol: "<b>Phân tích:</b> Các thành viên trong nhóm làm bài tập có vai trò bình đẳng, việc đổi chỗ các thành viên không tạo ra nhóm mới $\\implies$ Không xét thứ tự, dùng <b>Tổ hợp</b>.<br>" +
-             "$$C_{10}^3 = \\frac{10!}{3! \\cdot 7!} = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120\\text{ cách}$$."
+        t: "[Slide Week 05 — W05-TH01] Bài toán Chuyển bi giữa hai Hộp",
+        q: "Hộp thứ nhất có 2 viên bi trắng và 1 viên bi đen; hộp thứ hai có 1 viên bi trắng và 2 viên bi đen (Slide 84–86). Lấy ngẫu nhiên 1 viên bi từ hộp 1 chuyển sang hộp 2, sau đó từ hộp 2 lấy ngẫu nhiên ra 1 viên bi. Tính xác suất để viên bi lấy ra từ hộp 2 là bi trắng.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 05 (trang 85–86):</b><br>" +
+             "1. Gọi $A$: 'Viên bi chuyển từ hộp 1 sang hộp 2 là bi trắng'.<br>" +
+             "   Trong hộp 1 có 2 trắng, 1 đen $\\implies P(A) = \\frac{2}{3}$ và $P(A^c) = \\frac{1}{3}$.<br>" +
+             "2. Gọi $B$: 'Viên bi lấy từ hộp 2 là bi trắng':<br>" +
+             "   - Nếu $A$ xảy ra: Hộp 2 có $1 + 1 = 2$ bi trắng và 2 bi đen (tổng 4 viên) $\\implies P(B \\mid A) = \\frac{2}{4} = \\frac{1}{2}$.<br>" +
+             "   - Nếu $A^c$ xảy ra: Hộp 2 có 1 bi trắng và $2 + 1 = 3$ bi đen (tổng 4 viên) $\\implies P(B \\mid A^c) = \\frac{1}{4}$.<br>" +
+             "3. Theo công thức xác suất toàn phần:<br>" +
+             "   $$P(B) = P(A)P(B \\mid A) + P(A^c)P(B \\mid A^c) = \\frac{2}{3} \\times \\frac{1}{2} + \\frac{1}{3} \\times \\frac{1}{4} = \\frac{1}{3} + \\frac{1}{12} = \\frac{5}{12} \\approx 0{,}4167$$"
       },
       {
         level: "Trung bình",
-        q: "Một mã PIN bảo mật của ứng dụng ngân hàng gồm 4 chữ số (mỗi chữ số từ 0 đến 9). Có bao nhiêu mã PIN khác nhau nếu: (a) Các chữ số được phép lặp lại; (b) Các chữ số phải đôi một khác nhau?",
-        sol: "<b>Ý (a) Được lặp lại:</b> Mỗi vị trí trong 4 vị trí đều có 10 cách chọn (từ 0 đến 9). Theo quy tắc nhân:<br>" +
-             "$$N = 10 \\times 10 \\times 10 \\times 10 = 10^4 = 10.000\\text{ mã}$$<br>" +
-             "<b>Ý (b) Đôi một khác nhau:</b> Chọn 4 chữ số từ 10 chữ số và có xét thứ tự (vị trí hàng nghìn, trăm, chục, đơn vị) $\\implies$ Chỉnh hợp:<br>" +
-             "$$A_{10}^4 = \\frac{10!}{6!} = 10 \\times 9 \\times 8 \\times 7 = 5.040\\text{ mã}$$."
+        t: "[Slide Week 05 — W05-TH03] Rút mẫu kiểm tra Chất lượng Lô 10 Linh kiện",
+        q: "Một nhà cung cấp giao một lô gồm 10 linh kiện (Slide 87–90). Biết lô hàng có chứa đúng 2 linh kiện lỗi. Kỹ sư kiểm tra rút ngẫu nhiên đồng thời không hoàn lại 2 linh kiện. Có bao nhiêu cách chọn 2 linh kiện bất kỳ và tính xác suất để cả 2 linh kiện rút ra đều là linh kiện tốt.",
+        sol: "<b>Lời giải dùng Kỹ thuật đếm Tổ hợp theo Slide Week 05:</b><br>" +
+             "1. Số cách chọn 2 linh kiện bất kỳ từ 10 linh kiện là số tổ hợp chập 2 của 10:<br>" +
+             "   $$n(\\Omega) = C_{10}^2 = \\frac{10 \\times 9}{2} = 45 \\text{ cách}$$<br>" +
+             "2. Trong lô có $10 - 2 = 8$ linh kiện tốt. Số cách chọn 2 linh kiện đều tốt là:<br>" +
+             "   $$n(A) = C_8^2 = \\frac{8 \\times 7}{2} = 28 \\text{ cách}$$<br>" +
+             "3. Xác suất cả 2 linh kiện rút ra đều tốt:<br>" +
+             "   $$P(A) = \\frac{C_8^2}{C_{10}^2} = \\frac{28}{45} \\approx 0{,}6222 \\approx 62{,}22\\%$$"
       },
       {
         level: "Vận dụng",
-        q: "Một hộp chứa 6 quả cầu đỏ và 4 quả cầu xanh. Rút ngẫu nhiên đồng thời 3 quả cầu. Tính xác suất để rút được đúng 2 quả đỏ và 1 quả xanh.",
-        sol: "<b>Bước 1:</b> Tổng số cách rút 3 quả bất kỳ từ 10 quả cầu (không gian mẫu):<br>" +
-             "$$|\\Omega| = C_{10}^3 = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120$$<br>" +
-             "<b>Bước 2:</b> Số cách chọn 2 quả đỏ từ 6 quả đỏ: $C_6^2 = \\frac{6 \\times 5}{2 \\times 1} = 15$.<br>" +
-             "<b>Bước 3:</b> Số cách chọn 1 quả xanh từ 4 quả xanh: $C_4^1 = 4$.<br>" +
-             "<b>Bước 4:</b> Theo quy tắc nhân, số kết quả thuận lợi là $|A| = C_6^2 \\times C_4^1 = 15 \\times 4 = 60$.<br>" +
-             "<b>Bước 5:</b> Xác suất cần tìm:<br>" +
-             "$$P(A) = \\frac{|A|}{|\\Omega|} = \\frac{60}{120} = 0{,}50\\text{ (50\\%)}$$."
+        t: "[Slide Week 05 — W05-CASE01] Bài toán Tình huống Hệ thống Báo cháy Tòa nhà",
+        q: "Một hệ thống phòng cháy chữa cháy tại tòa nhà cao tầng gồm hai thiết bị cảm biến khói D1 và D2 hoạt động song song (Slide 82–83). Khi xảy ra cháy, xác suất thiết bị D1 phát tín hiệu là $0{,}92$; thiết bị D2 phát tín hiệu là $0{,}95$; và cả hai cùng phát tín hiệu là $0{,}88$.<br>" +
+           "a) Tính xác suất để hệ thống phát chuông cảnh báo (ít nhất một thiết bị hoạt động).<br>" +
+           "b) Tính xác suất để đúng một trong hai thiết bị hoạt động.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 05 (trang 83):</b><br>" +
+             "a) Ký hiệu $A$: 'D1 phát tín hiệu' ($P(A) = 0{,}92$); $B$: 'D2 phát tín hiệu' ($P(B) = 0{,}95$).<br>" +
+             "   Cả hai cùng phát tín hiệu: $P(A \\cap B) = 0{,}88$.<br>" +
+             "   Xác suất hệ thống phát chuông cảnh báo khi có cháy là biến cố hợp $A \\cup B$:<br>" +
+             "   $$P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = 0{,}92 + 0{,}95 - 0{,}88 = 0{,}99$$<br>" +
+             "b) Xác suất để đúng một trong hai thiết bị hoạt động:<br>" +
+             "   $$P(\\text{Đúng 1 thiết bị}) = P(A \\cup B) - P(A \\cap B) = 0{,}99 - 0{,}88 = 0{,}11 \\text{ (hay 11\\%)}$$"
       }
+    
     ],
     pitfalls: [
       {
@@ -2566,32 +2689,46 @@ const CUM_C = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Tung 2 đồng xu cân đối. Gọi X là số mặt ngửa xuất hiện. Lập bảng phân phối xác suất (pmf) và tính F(1).",
-        sol: "<b>Bước 1:</b> Không gian mẫu $\\Omega = \\{\\text{SS}, \\text{SN}, \\text{NS}, \\text{NN}\\}$. Các giá trị của $X \\in \\{0, 1, 2\\}$.<br>" +
-             "- $P(X = 0) = P(\\text{SS}) = 1/4 = 0{,}25$.<br>" +
-             "- $P(X = 1) = P(\\{\\text{SN}, \\text{NS}\\}) = 2/4 = 0{,}50$.<br>" +
-             "- $P(X = 2) = P(\\text{NN}) = 1/4 = 0{,}25$.<br>" +
-             "<b>Bước 2:</b> Bảng pmf:<br>" +
-             "<table class='data-table'><tr><th>x</th><td>0</td><td>1</td><td>2</td><td>Tổng</td></tr><tr><th>p(x)</th><td>0,25</td><td>0,50</td><td>0,25</td><td>1,00</td></tr></table><br>" +
-             "<b>Bước 3:</b> Tính $F(1) = P(X \\le 1) = P(X = 0) + P(X = 1) = 0{,}25 + 0{,}50 = 0{,}75$."
+        t: "[Slide Week 06 — Ví dụ 3 & 5] Tung đồng xu ba lần và Hàm khối xác suất pmf",
+        q: "Một đồng xu cân đối được tung 3 lần độc lập (Slide 18, 23–24). Ký hiệu H là ngửa, T là sấp. Gọi $X$ là số mặt ngửa xuất hiện trong 3 lần tung.<br>" +
+           "a) Lập bảng phân phối xác suất pmf $p_X(x)$ của biến ngẫu nhiên $X$.<br>" +
+           "b) Kiểm tra điều kiện chuẩn hóa $\\sum p_X(x) = 1$.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 06 (trang 24):</b><br>" +
+             "a) Không gian mẫu gồm $2^3 = 8$ chuỗi kết quả đồng khả năng (mỗi chuỗi xác suất $1/8$):<br>" +
+             "   $$\\Omega = \\{TTT, HTT, THT, TTH, HHT, HTH, THH, HHH\\}$$<br>" +
+             "   - $X = 0$: Có 1 kết quả $\\{TTT\\} \\implies p_X(0) = \\frac{1}{8} = 0{,}125$.<br>" +
+             "   - $X = 1$: Có 3 kết quả $\\{HTT, THT, TTH\\} \\implies p_X(1) = \\frac{3}{8} = 0{,}375$.<br>" +
+             "   - $X = 2$: Có 3 kết quả $\\{HHT, HTH, THH\\} \\implies p_X(2) = \\frac{3}{8} = 0{,}375$.<br>" +
+             "   - $X = 3$: Có 1 kết quả $\\{HHH\\} \\implies p_X(3) = \\frac{1}{8} = 0{,}125$.<br>" +
+             "b) <b>Kiểm tra chuẩn hóa:</b><br>" +
+             "   $$\\sum_{x=0}^3 p_X(x) = \\frac{1}{8} + \\frac{3}{8} + \\frac{3}{8} + \\frac{1}{8} = \\frac{8}{8} = 1$$"
       },
       {
         level: "Trung bình",
-        q: "Biến ngẫu nhiên X nhận các giá trị x ∈ {1, 2, 3, 4} với hàm xác suất p(x) = c · x. Tìm hằng số chuẩn hóa c và tính P(X ≥ 3).",
-        sol: "<b>Bước 1:</b> Dùng điều kiện tổng xác suất bằng 1:<br>" +
-             "$$\\sum_{x=1}^{4} p(x) = c(1) + c(2) + c(3) + c(4) = c(1 + 2 + 3 + 4) = 10c = 1 \\implies c = \\frac{1}{10} = 0{,}10$$<br>" +
-             "<b>Bước 2:</b> Bảng xác suất: $p(1)=0{,}1; p(2)=0{,}2; p(3)=0{,}3; p(4)=0{,}4$.<br>" +
-             "<b>Bước 3:</b> $P(X \\ge 3) = p(3) + p(4) = 0{,}3 + 0{,}4 = 0{,}70$."
+        t: "[Slide Week 06 — Ví dụ 6 & 7] Hai sản phẩm đạt chuẩn và Hàm tích lũy cdf",
+        q: "Hai sản phẩm được kiểm tra độc lập; mỗi sản phẩm đạt chuẩn với xác suất $0{,}8$ (Slide 28–32). Gọi $X$ là số sản phẩm đạt chuẩn ($X \\in \\{0, 1, 2\\}$). Phân phối xác suất của $X$ là: $p_X(0) = 0{,}04; p_X(1) = 0{,}32; p_X(2) = 0{,}64$.<br>" +
+           "a) Xây dựng biểu thức hàm phân phối tích lũy $F_X(x) = P(X \\le x)$ trên toàn bộ trục số thực $\\mathbb{R}$.<br>" +
+           "b) Tính xác suất có ít nhất 1 sản phẩm đạt chuẩn bằng hàm $F_X(x)$.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 06 (trang 29 & 32):</b><br>" +
+             "a) Vì $X$ nhận giá trị rời rạc trên $\{0, 1, 2\}$, hàm tích lũy $F_X(x)$ có dạng bậc thang liên tục bên phải:<br>" +
+             "   $$F_X(x) = \\begin{cases} 0 & \\text{khi } x < 0 \\cr 0{,}04 & \\text{khi } 0 \\le x < 1 \\cr 0{,}04 + 0{,}32 = 0{,}36 & \\text{khi } 1 \\le x < 2 \\cr 0{,}36 + 0{,}64 = 1{,}00 & \\text{khi } x \\ge 2 \\end{cases}$$<br>" +
+             "b) Xác suất có ít nhất 1 sản phẩm đạt chuẩn là $P(X \\ge 1)$:<br>" +
+             "   $$P(X \\ge 1) = 1 - P(X < 1) = 1 - P(X \\le 0) = 1 - F_X(0) = 1 - 0{,}04 = 0{,}96$$"
       },
       {
         level: "Vận dụng",
-        q: "Cho hàm tích lũy F(x) của biến ngẫu nhiên X: F(x) = 0 nếu x < 0; F(x) = 0,2 nếu 0 ≤ x < 2; F(x) = 0,7 nếu 2 ≤ x < 5; F(x) = 1 nếu x ≥ 5. Hãy tìm các giá trị mà X có thể nhận và xác suất tương ứng.",
-        sol: "<b>Phân tích:</b> Biến ngẫu nhiên $X$ chỉ nhận các giá trị tại các điểm mà hàm $F(x)$ có bước nhảy (gián đoạn):<br>" +
-             "- Tại $x = 0$: bước nhảy từ $0$ lên $0{,}2 \\implies P(X = 0) = 0{,}2 - 0 = 0{,}2$.<br>" +
-             "- Tại $x = 2$: bước nhảy từ $0{,}2$ lên $0{,}7 \\implies P(X = 2) = 0{,}7 - 0{,}2 = 0{,}5$.<br>" +
-             "- Tại $x = 5$: bước nhảy từ $0{,}7$ lên $1{,}0 \\implies P(X = 5) = 1{,}0 - 0{,}7 = 0{,}3$.<br>" +
-             "<b>Kết luận:</b> $X$ nhận các giá trị $\\{0, 2, 5\\}$ với xác suất tương ứng là $0{,}2; 0{,}5; 0{,}3$."
+        t: "[Slide Week 06 — Ví dụ 8] Phân phối số đường dây điện thoại bận",
+        q: "Một doanh nghiệp có 6 đường dây điện thoại (Slide 33–36). Gọi $X$ là số đường dây bận tại thời điểm quan sát, có bảng phân phối xác suất:<br>" +
+           "$$p_X(0)=0{,}10; \\quad p_X(1)=0{,}15; \\quad p_X(2)=0{,}20; \\quad p_X(3)=0{,}25; \\quad p_X(4)=0{,}15; \\quad p_X(5)=0{,}10; \\quad p_X(6)=0{,}05$$<br>" +
+           "a) Tính xác suất có nhiều nhất 3 đường dây bận $P(X \\le 3)$.<br>" +
+           "b) Tính xác suất có từ 1 đến 4 đường dây bận $P(1 \\le X \\le 4)$.",
+        sol: "<b>Lời giải chính xác theo Slide Week 06 (trang 34):</b><br>" +
+             "a) Xác suất có nhiều nhất 3 đường dây bận:<br>" +
+             "   $$P(X \\le 3) = p(0) + p(1) + p(2) + p(3) = 0{,}10 + 0{,}15 + 0{,}20 + 0{,}25 = 0{,}70 \\text{ (hay 70\\%)}$$<br>" +
+             "b) Xác suất có từ 1 đến 4 đường dây bận:<br>" +
+             "   $$P(1 \\le X \\le 4) = p(1) + p(2) + p(3) + p(4) = 0{,}15 + 0{,}20 + 0{,}25 + 0{,}15 = 0{,}75 \\text{ (hay 75\\%)}$$"
       }
+    
     ],
     pitfalls: [
       {
@@ -2726,31 +2863,46 @@ const CUM_C = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Gieo một con xúc xắc cân đối 10 lần độc lập. Tính xác suất để xuất hiện mặt 6 đúng 3 lần.",
-        sol: "<b>Bước 1:</b> Nhận diện mô hình: Số lần thử $n = 10$. Thành công là ra mặt 6 $\\implies p = 1/6$. Thất bại $q = 5/6$. Các lần tung độc lập $\\implies X \\sim B(10, 1/6)$.<br>" +
-             "<b>Bước 2:</b> Áp dụng công thức với $k = 3$:<br>" +
-             "$$P(X = 3) = C_{10}^3 \\cdot \\left(\\frac{1}{6}\\right)^3 \\cdot \\left(\\frac{5}{6}\\right)^7$$<br>" +
-             "$$P(X = 3) = 120 \\cdot \\frac{1}{216} \\cdot \\frac{78125}{279936} = 120 \\cdot 0{,}00463 \\cdot 0{,}27908 \\approx 0{,}1550\\text{ (15{,}50\\%)}$$."
+        t: "[Slide Week 06 — Ví dụ 12] Bài kiểm tra trắc nghiệm 20 câu ngẫu nhiên",
+        q: "Một bài kiểm tra có 20 câu trắc nghiệm (Slide 46–47). Mỗi câu có 4 phương án trả lời, trong đó chỉ có duy nhất một phương án đúng. Một học sinh không học bài nên đánh bừa ngẫu nhiên độc lập cả 20 câu.<br>" +
+           "a) Xác định mô hình phân phối xác suất của số câu trả lời đúng $X$.<br>" +
+           "b) Tính xác suất để học sinh đó làm đúng đúng 5 câu.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 06 (trang 47):</b><br>" +
+             "a) Mỗi câu hỏi là một phép thử Bernoulli với xác suất đoán đúng $p = \\frac{1}{4} = 0{,}25$.<br>" +
+             "   Vì có $n = 20$ câu độc lập nên số câu trả lời đúng tuân theo phân phối Nhị thức:<br>" +
+             "   $$X \\sim B(n = 20, p = 0{,}25)$$<br>" +
+             "b) Áp dụng công thức phân phối Nhị thức với $k = 5$:<br>" +
+             "   $$P(X = 5) = C_{20}^5 p^5 (1-p)^{20-5} = C_{20}^5 (0{,}25)^5 (0{,}75)^{15}$$<br>" +
+             "   $$P(X = 5) = 15504 \\times (0{,}25)^5 \\times (0{,}75)^{15} \\approx 0{,}2023 \\approx 20{,}23\\%$$"
       },
       {
         level: "Trung bình",
-        q: "Một bài thi trắc nghiệm gồm 20 câu, mỗi câu có 4 phương án (chỉ 1 phương án đúng). Một sinh viên khoanh ngẫu nhiên hoàn toàn cả 20 câu. Tính kỳ vọng và độ lệch chuẩn của số câu sinh viên đó làm đúng.",
-        sol: "<b>Bước 1:</b> Nhận diện mô hình: $n = 20, p = 1/4 = 0{,}25 \\implies X \\sim B(20, 0{,}25)$.<br>" +
-             "<b>Bước 2:</b> Kỳ vọng số câu đúng:<br>" +
-             "$$E(X) = n \\cdot p = 20 \\times 0{,}25 = 5\\text{ (câu)}$$<br>" +
-             "<b>Bước 3:</b> Phương sai và độ lệch chuẩn:<br>" +
-             "$$\\operatorname{Var}(X) = n p (1 - p) = 20 \\times 0{,}25 \\times 0{,}75 = 3{,}75$$<br>" +
-             "$$\\operatorname{SD}(X) = \\sqrt{3{,}75} \\approx 1{,}9365\\text{ (câu)}$$."
+        t: "[Slide Week 06 — Ví dụ 13] Dây chuyền sản xuất 12 sản phẩm đạt chuẩn",
+        q: "Một dây chuyền tạo sản phẩm đạt chuẩn với xác suất $0{,}95$ (Slide 48–49). Chọn độc lập ngẫu nhiên 12 sản phẩm để kiểm tra chất lượng.<br>" +
+           "a) Tính xác suất để toàn bộ 12 sản phẩm được chọn đều đạt chuẩn.<br>" +
+           "b) Tính xác suất để có ít nhất một sản phẩm không đạt chuẩn (phế phẩm).",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 06 (trang 49):</b><br>" +
+             "Gọi $X$ là số sản phẩm đạt chuẩn trong 12 sản phẩm $\\implies X \\sim B(12, 0{,}95)$.<br>" +
+             "a) Xác suất cả 12 sản phẩm đều đạt chuẩn ($k = 12$):<br>" +
+             "   $$P(X = 12) = C_{12}^{12} (0{,}95)^{12} (0{,}05)^0 = (0{,}95)^{12} \\approx 0{,}5404 \\approx 54{,}04\\%$$<br>" +
+             "b) Biến cố 'Có ít nhất một phế phẩm' chính là biến cố đối của 'Cả 12 sản phẩm đều đạt chuẩn':<br>" +
+             "   $$P(\\text{Ít nhất 1 phế phẩm}) = 1 - P(X = 12) = 1 - 0{,}5404 = 0{,}4596 \\approx 45{,}96\\%$$"
       },
       {
         level: "Vận dụng",
-        q: "Một dây chuyền sản xuất vi mạch có tỉ lệ lỗi là 5%. Chọn ngẫu nhiên có hoàn lại 100 vi mạch. Tính xác suất để có ít nhất 1 vi mạch bị lỗi.",
-        sol: "<b>Bước 1:</b> Gọi $X$ là số vi mạch lỗi trong 100 vi mạch $\\implies X \\sim B(100, 0{,}05)$.<br>" +
-             "<b>Bước 2:</b> Yêu cầu tính $P(X \\ge 1)$. Dùng biến cố đối $X = 0$ (không có vi mạch nào lỗi):<br>" +
-             "$$P(X = 0) = C_{100}^0 \\cdot (0{,}05)^0 \\cdot (0{,}95)^{100} = 1 \\cdot 1 \\cdot (0{,}95)^{100} \\approx 0{,}00592$$<br>" +
-             "<b>Bước 3:</b> Xác suất cần tìm:<br>" +
-             "$$P(X \\ge 1) = 1 - P(X = 0) = 1 - 0{,}00592 = 0{,}99408 \\approx 99{,}41\\%$$\\text{."
+        t: "[Slide Week 06 — Ví dụ 20] Hệ thống 8 Cảm biến phát cảnh báo giả",
+        q: "Một hệ thống giám sát an ninh có 8 cảm biến hoạt động độc lập (Slide 73–74). Trong một ca làm việc, xác suất mỗi cảm biến phát cảnh báo giả là $p = 0{,}05$. Tính xác suất trong ca đó hệ thống phát ra từ 1 đến 2 cảnh báo giả.",
+        sol: "<b>Lời giải từng bước theo Slide Week 06 (trang 74):</b><br>" +
+             "Gọi $X$ là số cảm biến phát cảnh báo giả $\\implies X \\sim B(n = 8, p = 0{,}05)$.<br>" +
+             "Yêu cầu bài toán là tính $P(1 \\le X \\le 2) = P(X = 1) + P(X = 2)$:<br>" +
+             "1. Tính $P(X = 1)$:<br>" +
+             "   $$P(X = 1) = C_8^1 (0{,}05)^1 (0{,}95)^7 = 8 \\times 0{,}05 \\times 0{,}69834 \\approx 0{,}2793$$<br>" +
+             "2. Tính $P(X = 2)$:<br>" +
+             "   $$P(X = 2) = C_8^2 (0{,}05)^2 (0{,}95)^6 = 28 \\times 0{,}0025 \\times 0{,}73509 \\approx 0{,}0515$$<br>" +
+             "3. Tổng xác suất:<br>" +
+             "   $$P(1 \\le X \\le 2) = 0{,}2793 + 0{,}0515 = 0{,}3308 \\approx 33{,}08\\%$$"
       }
+    
     ],
     pitfalls: [
       {
@@ -2879,30 +3031,46 @@ const CUM_C = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Một hộp có 20 viên bi, gồm 8 viên màu đỏ và 12 viên màu xanh. Rút ngẫu nhiên không hoàn lại 5 viên. Lập công thức tính xác suất rút được đúng 2 viên đỏ.",
-        sol: "<b>Bước 1:</b> Nhận diện: Tổng thể $N = 20$, số bi đỏ $M = 8$, số bi xanh $N - M = 12$, cỡ mẫu $n = 5$, số bi đỏ cần tìm $k = 2$.<br>" +
-             "<b>Bước 2:</b> Áp dụng công thức Siêu bội:<br>" +
-             "$$P(X = 2) = \\frac{C_8^2 \\cdot C_{12}^3}{C_{20}^5}$$<br>" +
-             "<b>Bước 3:</b> Thay số: $C_8^2 = 28$, $C_{12}^3 = 220$, $C_{20}^5 = 15504$:<br>" +
-             "$$P(X = 2) = \\frac{28 \\times 220}{15504} = \\frac{6160}{15504} \\approx 0{,}3973\\text{ (39{,}73\\%)}$$."
+        t: "[Slide Week 06 — Ví dụ 14] Rút ba lá thăm không hoàn lại từ hộp 10 lá",
+        q: "Một hộp có 10 lá thăm gồm 6 lá ghi số 1 và 4 lá ghi số 0 (Slide 52–54). Rút lần lượt không hoàn lại 3 lá thăm. Gọi $X$ là số lá thăm ghi số 1 rút được.<br>" +
+           "a) Biến ngẫu nhiên $X$ tuân theo phân phối gì? Xác định các tham số.<br>" +
+           "b) Tính xác suất rút được đúng 2 lá thăm ghi số 1.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 06 (trang 53):</b><br>" +
+             "a) Vì lấy mẫu không hoàn lại từ tập hữu hạn $N = 10$ phần tử có $M = 6$ phần tử loại 1, với cỡ mẫu $n = 3$, nên biến ngẫu nhiên $X$ tuân theo <b>phân phối Siêu bội</b>:<br>" +
+             "   $$X \\sim HG(N = 10, M = 6, n = 3)$$<br>" +
+             "b) Áp dụng công thức xác suất phân phối Siêu bội với $k = 2$:<br>" +
+             "   $$P(X = 2) = \\frac{C_M^k C_{N-M}^{n-k}}{C_N^n} = \\frac{C_6^2 C_4^{3-2}}{C_{10}^3} = \\frac{C_6^2 C_4^1}{C_{10}^3}$$<br>" +
+             "   Ta có $C_6^2 = 15, C_4^1 = 4, C_{10}^3 = 120$:<br>" +
+             "   $$P(X = 2) = \\frac{15 \\times 4}{120} = \\frac{60}{120} = 0{,}50 \\text{ (hay 50\\%)}$$"
       },
       {
         level: "Trung bình",
-        q: "Tính kỳ vọng và phương sai của số bi đỏ rút được trong ví dụ trên.",
-        sol: "<b>Bước 1:</b> Tỉ lệ bi đỏ $p = \\frac{M}{N} = \\frac{8}{20} = 0{,}4$.<br>" +
-             "<b>Bước 2:</b> Kỳ vọng: $E(X) = n \\cdot p = 5 \\times 0{,}4 = 2{,}0\\text{ (viên đỏ)}$.<br>" +
-             "<b>Bước 3:</b> Phương sai:<br>" +
-             "$$\\operatorname{Var}(X) = n p (1 - p) \\cdot \\left(\\frac{N - n}{N - 1}\\right) = 5 \\times 0{,}4 \\times 0{,}6 \\times \\left(\\frac{20 - 5}{20 - 1}\\right) = 1{,}2 \\times \\frac{15}{19} \\approx 0{,}9474$$."
+        t: "[Slide Week 06 — Ví dụ 15] Giảng viên chọn ngẫu nhiên bài tập của hai lớp",
+        q: "Một giảng viên UET dạy hai lớp môn Xác suất Thống kê gồm 20 và 30 sinh viên (tổng cộng 50 sinh viên, Slide 55–58). Mỗi sinh viên nộp đúng một bài tập. Giảng viên chọn ngẫu nhiên không hoàn lại 15 bài để chấm trước. Gọi $X$ là số bài thuộc về lớp 30 sinh viên.<br>" +
+           "a) Xác định phân phối của $X$.<br>" +
+           "b) Thiết lập biểu thức tính xác suất để chọn được đúng 9 bài thuộc lớp 30 sinh viên.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 06 (trang 56):</b><br>" +
+             "a) Tổng số sinh viên $N = 50$, số bài của lớp xét đến là $M = 30$, cỡ mẫu rút ra là $n = 15$ bài.<br>" +
+             "   Vì rút không hoàn lại nên $X$ tuân theo phân phối Siêu bội:<br>" +
+             "   $$X \\sim HG(N = 50, M = 30, n = 15)$$<br>" +
+             "b) Xác suất chọn được đúng $k = 9$ bài của lớp này là:<br>" +
+             "   $$P(X = 9) = \\frac{C_{30}^9 C_{20}^{15-9}}{C_{50}^{15}} = \\frac{C_{30}^9 C_{20}^6}{C_{50}^{15}} \\approx 0{,}256 \\approx 25{,}6\\%$$"
       },
       {
         level: "Vận dụng",
-        q: "Một lô hàng 5000 linh kiện chứa 250 linh kiện lỗi. Rút ngẫu nhiên 10 linh kiện để kiểm tra. Hãy giải thích vì sao trong trường hợp này ta có thể dùng mô hình Nhị thức thay cho Siêu bội.",
-        sol: "<b>Phân tích:</b><br>" +
-             "- Tổng thể $N = 5000$, cỡ mẫu $n = 10$.<br>" +
-             "- Tỉ lệ lấy mẫu: $\\frac{n}{N} = \\frac{10}{5000} = 0{,}002 = 0{,}2\\% &lt; 5\\%$.<br>" +
-             "- Hệ số hiệu chỉnh: $\\frac{5000 - 10}{5000 - 1} = \\frac{4990}{4999} \\approx 0{,}9982 \\approx 1$.<br>" +
-             "<b>Kết luận:</b> Vì tổng thể cực lớn và cỡ mẫu rất nhỏ, việc rút một vài linh kiện hầu như không ảnh hưởng đến tỉ lệ lỗi $p = 250/5000 = 0{,}05$. Do đó, xấp xỉ Nhị thức $B(10, 0{,}05)$ cho kết quả chính xác cao mà tính toán nhanh hơn rất nhiều."
+        t: "[Slide Week 06 — Ví dụ 16] So sánh Rút có hoàn lại vs Không hoàn lại",
+        q: "Một hộp có 4 quả bóng, gồm 2 quả đỏ và 2 quả xanh (Slide 59–60). Rút ngẫu nhiên 2 quả bóng.<br>" +
+           "a) Nếu rút CÓ HOÀN LẠI: Tính xác suất rút được 2 quả bóng đỏ.<br>" +
+           "b) Nếu rút KHÔNG HOÀN LẠI: Tính xác suất rút được 2 quả bóng đỏ.<br>" +
+           "c) Khi nào thì mô hình Rút không hoàn lại (Siêu bội) có thể xấp xỉ an toàn bằng Rút có hoàn lại (Nhị thức)?",
+        sol: "<b>Phân tích bản chất theo Slide Week 06 (trang 60):</b><br>" +
+             "a) <b>Rút có hoàn lại (Nhị thức):</b> Các lần rút độc lập, $P(\\text{Đỏ}) = 2/4 = 0{,}5$ không đổi:<br>" +
+             "   $$P(\\text{2 Đỏ}) = \\left(\\frac{2}{4}\\right) \\times \\left(\\frac{2}{4}\\right) = \\frac{1}{4} = 0{,}25$$<br>" +
+             "b) <b>Rút không hoàn lại (Siêu bội):</b> Lần 1 lấy 1 đỏ thì trong hộp chỉ còn 1 đỏ trên 3 bóng:<br>" +
+             "   $$P(\\text{2 Đỏ}) = \\frac{C_2^2 C_2^0}{C_4^2} = \\frac{1 \\times 1}{6} = \\frac{1}{6} \\approx 0{,}1667$$<br>" +
+             "c) <b>Điều kiện xấp xỉ:</b> Khi kích thước tổng thể $N$ rất lớn so với cỡ mẫu $n$ (quy tắc thực nghiệm: cỡ mẫu không vượt quá 5% tổng thể, tức $n/N < 0{,}05$), việc rút một phần tử hầu như không làm thay đổi tỉ lệ còn lại trong hộp, nên Siêu bội xấp xỉ Nhị thức với $p = M/N$."
       }
+    
     ],
     pitfalls: [
       {
@@ -3037,27 +3205,45 @@ const CUM_C = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Số cuộc gọi đến một tổng đài khẩn cấp trung bình là 4 cuộc/giờ và tuân theo phân phối Poisson. Tính xác suất trong 1 giờ tổng đài nhận được đúng 2 cuộc gọi.",
-        sol: "<b>Bước 1:</b> Tham số trung bình $\\lambda = 4$.<br>" +
-             "<b>Bước 2:</b> Áp dụng công thức với $k = 2$:<br>" +
-             "$$P(X = 2) = \\frac{4^2 \\cdot e^{-4}}{2!} = \\frac{16 \\cdot e^{-4}}{2} = 8 \\cdot e^{-4} \\approx 8 \\times 0{,}018316 \\approx 0{,}1465\\text{ (14{,}65\\%)}$$."
+        t: "[Slide Week 06 — Ví dụ 17 & 18] Máy chủ nhận yêu cầu mỗi giây",
+        q: "Một máy chủ web nhận trung bình 4 yêu cầu (requests) mỗi giây (Slide 65–66). Giả sử các yêu cầu đến độc lập ngẫu nhiên tuân theo phân phối Poisson $\\lambda = 4$ yêu cầu/giây.<br>" +
+           "a) Tính xác suất trong 1 giây cụ thể máy chủ không nhận được yêu cầu nào.<br>" +
+           "b) Tính xác suất trong 1 giây máy chủ nhận được đúng 3 yêu cầu.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 06 (trang 66):</b><br>" +
+             "Gọi $X$ là số yêu cầu máy chủ nhận trong 1 giây $\\implies X \\sim Po(\\lambda = 4)$.<br>" +
+             "Công thức Poisson: $P(X = k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}$.<br>" +
+             "a) Với $k = 0$:<br>" +
+             "   $$P(X = 0) = \\frac{4^0 e^{-4}}{0!} = e^{-4} \\approx 0{,}0183 \\approx 1{,}83\\%$$<br>" +
+             "b) Với $k = 3$:<br>" +
+             "   $$P(X = 3) = \\frac{4^3 e^{-4}}{3!} = \\frac{64 \\times 0{,}0183156}{6} \\approx 0{,}1954 \\approx 19{,}54\\%$$"
       },
       {
         level: "Trung bình",
-        q: "Cũng tổng đài trên (λ = 4 cuộc/giờ). Tính xác suất trong 1 giờ tổng đài nhận được ít nhất 1 cuộc gọi.",
-        sol: "<b>Bước 1:</b> Yêu cầu $P(X \\ge 1)$. Dùng biến cố đối $X = 0$ (không có cuộc gọi nào):<br>" +
-             "$$P(X = 0) = \\frac{4^0 \\cdot e^{-4}}{0!} = \\frac{1 \\cdot e^{-4}}{1} = e^{-4} \\approx 0{,}0183$$<br>" +
-             "<b>Bước 2:</b> Xác suất cần tìm:<br>" +
-             "$$P(X \\ge 1) = 1 - P(X = 0) = 1 - e^{-4} = 1 - 0{,}0183 = 0{,}9817\\text{ (98{,}17\\%)}$$."
+        t: "[Slide Week 06 — Slide 66–69] Quy tắc đổi tham số theo Khoảng thời gian",
+        q: "Vẫn với máy chủ ở trên (trung bình 4 yêu cầu/giây). Hãy tính xác suất trong khoảng thời gian kéo dài 2 giây, máy chủ nhận được đúng 6 yêu cầu.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 06:</b><br>" +
+             "1. Khi khoảng thời gian quan sát thay đổi từ $t_1 = 1\\text{s}$ sang $t_2 = 2\\text{s}$, tham số trung bình Poisson phải được tỉ lệ thuận theo độ dài khoảng thời gian:<br>" +
+             "   $$\\lambda' = \\lambda \\times t = 4 \\times 2 = 8 \\text{ yêu cầu/2 giây}$$<br>" +
+             "2. Gọi $Y$ là số yêu cầu trong 2 giây $\\implies Y \\sim Po(\\lambda' = 8)$.<br>" +
+             "   Áp dụng công thức Poisson với $k = 6$:<br>" +
+             "   $$P(Y = 6) = \\frac{8^6 e^{-8}}{6!} = \\frac{262144 \\times 0{,}00033546}{720} \\approx 0{,}1221 \\approx 12{,}21\\%$$"
       },
       {
         level: "Vận dụng",
-        q: "Một công ty bảo hiểm bán 1000 hợp đồng cho 1000 người độc lập. Xác suất một người tử vong trong năm là p = 0,002. Hãy dùng phân phối Poisson xấp xỉ xác suất có đúng 3 người tử vong trong năm.",
-        sol: "<b>Phân tích:</b> Đây là Nhị thức $B(n = 1000, p = 0{,}002)$ với $n$ rất lớn và $p$ rất nhỏ.<br>" +
-             "- Tham số Poisson: $\\lambda = n \\cdot p = 1000 \\times 0{,}002 = 2{,}0$.<br>" +
-             "- Áp dụng công thức Poisson với $k = 3$:<br>" +
-             "$$P(X = 3) \\approx \\frac{2^3 \\cdot e^{-2}}{3!} = \\frac{8 \\cdot e^{-2}}{6} = \\frac{4}{3} \\cdot e^{-2} \\approx 1{,}3333 \\times 0{,}135335 \\approx 0{,}1804\\text{ (18{,}04\\%)}$$."
+        t: "[Slide Week 06 — Ví dụ 19 & 21] Cây quyết định chọn Mô hình rời rạc & Bài toán Garage",
+        q: "Một cửa hàng cơ khí bán hai loại bộ mở cửa garage (Slide 75–77): loại truyền động xích và loại trục vít. Có 15 khách hàng mua độc lập, mỗi khách chọn loại xích với xác suất $0{,}75$. Trong kho hiện còn 12 bộ xích và 8 bộ trục vít.<br>" +
+           "a) Dựa vào cây quyết định lựa chọn mô hình, số khách chọn mua loại xích $X$ tuân theo phân phối nào?<br>" +
+           "b) Cửa hàng đáp ứng được cả 15 khách khi nào? Thiết lập biểu thức tính xác suất đó.",
+        sol: "<b>Phân tích bản chất theo Slide Week 06 (trang 71 & 76–77):</b><br>" +
+             "a) Có $n = 15$ khách hàng mua độc lập, mỗi người chỉ chọn xích hoặc trục vít với xác suất chọn xích $p = 0{,}75$ không đổi $\\implies X \\sim B(n = 15, p = 0{,}75)$.<br>" +
+             "b) Điều kiện để đáp ứng đủ cả 15 khách:<br>" +
+             "   - Số khách mua loại xích không vượt quá số lượng trong kho: $X \\le 12$.<br>" +
+             "   - Số khách mua loại trục vít ($15 - X$) không vượt quá 8 bộ: $15 - X \\le 8 \\implies X \\ge 7$.<br>" +
+             "   Do đó, cửa hàng đáp ứng đủ khi và chỉ khi: $7 \\le X \\le 12$.<br>" +
+             "   Biểu thức xác suất:<br>" +
+             "   $$P(7 \\le X \\le 12) = \\sum_{k=7}^{12} C_{15}^k (0{,}75)^k (0{,}25)^{15-k} \\approx 0{,}8006 \\approx 80{,}06\\%$$"
       }
+    
     ],
     pitfalls: [
       {
@@ -3183,24 +3369,35 @@ const CUM_C = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Biến ngẫu nhiên X nhận các giá trị 0, 1, 2 với xác suất tương ứng là 0,2; 0,5; 0,3. Hãy tính kỳ vọng E(X).",
-        sol: "<b>Áp dụng công thức định nghĩa:</b><br>" +
-             "$$E(X) = \\sum x \\cdot p(x) = 0(0{,}2) + 1(0{,}5) + 2(0{,}3) = 0 + 0{,}5 + 0{,}6 = 1{,}1$$."
+        t: "[Slide Week 07 — Ví dụ 1] Kỳ vọng số sản phẩm đạt chuẩn",
+        q: "Hai sản phẩm được kiểm tra độc lập; mỗi sản phẩm đạt chuẩn với xác suất $0{,}8$ (Slide 6). Gọi $X$ là số sản phẩm đạt chuẩn có phân phối xác suất: $p(0)=0{,}04; p(1)=0{,}32; p(2)=0{,}64$. Hãy tính kỳ vọng $E(X)$ và giải thích ý nghĩa tâm khối lượng.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 07 (trang 6):</b><br>" +
+             "1. Áp dụng định nghĩa kỳ vọng của biến rời rạc:<br>" +
+             "   $$E(X) = \\sum_{x} x \\cdot p_X(x) = 0 \\times 0{,}04 + 1 \\times 0{,}32 + 2 \\times 0{,}64$$<br>" +
+             "   $$E(X) = 0 + 0{,}32 + 1{,}28 = 1{,}6 \\text{ sản phẩm}$$<br>" +
+             "2. <b>Ý nghĩa tâm khối lượng:</b> Điểm $1{,}6$ chính là trọng tâm (điểm cân bằng cơ học) của hệ quả cân đặt tại các vị trí $x=0, 1, 2$ với các khối lượng tương ứng là $0{,}04; 0{,}32; 0{,}64$."
       },
       {
         level: "Trung bình",
-        q: "Cho biến ngẫu nhiên X có E(X) = 4. Hãy tính kỳ vọng của biến ngẫu nhiên Y = 3X + 2.",
-        sol: "<b>Áp dụng tính chất tuyến tính:</b><br>" +
-             "$$E(Y) = E(3X + 2) = 3 \\cdot E(X) + 2 = 3(4) + 2 = 12 + 2 = 14$$."
+        t: "[Slide Week 07 — Ví dụ 2] Tính chất tuyến tính: Chi phí xử lý lô hàng",
+        q: "Một cơ sở kiểm tra hai sản phẩm độc lập (Slide 8–9). Chi phí kiểm tra và xử lý lô hàng phụ thuộc vào số sản phẩm đạt chuẩn $X$ theo công thức: $C = 50 + 20X$ (nghìn đồng). Biết $E(X) = 1{,}6$. Hãy tính kỳ vọng chi phí $E(C)$.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 07 (trang 9):</b><br>" +
+             "Áp dụng tính chất tuyến tính của kỳ vọng: $E(aX + b) = aE(X) + b$ với $a = 20, b = 50$:<br>" +
+             "$$E(C) = E(50 + 20X) = 50 + 20E(X)$$<br>" +
+             "$$E(C) = 50 + 20 \\times 1{,}6 = 50 + 32 = 82 \\text{ nghìn đồng}$$<br>" +
+             "<i>Không cần phải lập lại bảng phân phối xác suất cho $C$ nhờ tính chất tuyến tính kỳ diệu của kỳ vọng!</i>"
       },
       {
         level: "Vận dụng",
-        q: "Một cơ sở kiểm tra hai sản phẩm độc lập. Mỗi sản phẩm đạt chuẩn với xác suất 0,8. Gọi X là số sản phẩm đạt chuẩn. Chi phí xử lý lô hàng là C = 50 + 20X (nghìn đồng). Tính chi phí xử lý kỳ vọng E(C).",
-        sol: "<b>Bước 1:</b> Tính kỳ vọng của $X$: Vì kiểm tra 2 sản phẩm độc lập cùng xác suất $0{,}8 \\implies X \\sim B(2, 0{,}8)$.<br>" +
-             "$$E(X) = n \\cdot p = 2 \\times 0{,}8 = 1{,}6\\text{ (sản phẩm đạt)}$$<br>" +
-             "<b>Bước 2:</b> Tính chi phí kỳ vọng:<br>" +
-             "$$E(C) = E(50 + 20X) = 50 + 20 \\cdot E(X) = 50 + 20(1{,}6) = 50 + 32 = 82\\text{ (nghìn đồng)}$$."
+        t: "[Slide Week 07 — Ví dụ 3] Trò chơi gieo đồng xu của An và hai người bạn",
+        q: "An mời hai người bạn đến ăn bánh (Slide 11–12). Mỗi người bạn độc lập tung một đồng xu cân đối: nếu ra Ngửa thì đến dự, nếu ra Sấp thì ở nhà. Gọi $N$ là tổng số bạn đến dự tiệc. Dùng tính chất tuyến tính tính kỳ vọng $E(N)$ bằng hai biến chỉ báo.",
+        sol: "<b>Lời giải thông minh theo Slide Week 07 (trang 12):</b><br>" +
+             "1. Đặt $I_1$ là biến chỉ báo người bạn thứ nhất đến dự ($I_1 = 1$ nếu ngửa, $0$ nếu sấp) $\\implies E(I_1) = 1 \\times 0{,}5 + 0 \\times 0{,}5 = 0{,}5$.<br>" +
+             "2. Tương tự, $I_2$ là biến chỉ báo người bạn thứ hai đến dự $\\implies E(I_2) = 0{,}5$.<br>" +
+             "3. Tổng số người đến dự tiệc là $N = I_1 + I_2$. Theo tính chất tuyến tính của kỳ vọng:<br>" +
+             "   $$E(N) = E(I_1 + I_2) = E(I_1) + E(I_2) = 0{,}5 + 0{,}5 = 1 \\text{ người}$$"
       }
+    
     ],
     pitfalls: [
       {
@@ -3327,26 +3524,49 @@ const CUM_C = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Biến ngẫu nhiên X nhận 0, 1, 2 với xác suất 0,2; 0,5; 0,3 (đã biết E(X) = 1,1). Hãy tính E(X²) và Var(X).",
-        sol: "<b>Bước 1:</b> Tính $E(X^2) = 0^2(0{,}2) + 1^2(0{,}5) + 2^2(0{,}3) = 0 + 0{,}5 + 4(0{,}3) = 0{,}5 + 1{,}2 = 1{,}7$.<br>" +
-             "<b>Bước 2:</b> Áp dụng công thức rút gọn:<br>" +
-             "$$\\operatorname{Var}(X) = E(X^2) - [E(X)]^2 = 1{,}7 - (1{,}1)^2 = 1{,}7 - 1{,}21 = 0{,}49$$."
+        t: "[Slide Week 07 — Ví dụ 4] Phương sai và Độ lệch chuẩn số sản phẩm đạt chuẩn",
+        q: "Với biến ngẫu nhiên $X$ (số sản phẩm đạt chuẩn trong 2 sản phẩm, Slide 15) có bảng phân phối: $p(0)=0{,}04; p(1)=0{,}32; p(2)=0{,}64$ và $E(X) = 1{,}6$.<br>" +
+           "a) Tính $E(X^2)$ bằng định lý LOTUS.<br>" +
+           "b) Dùng công thức rút gọn tính phương sai $\\operatorname{Var}(X)$ và độ lệch chuẩn $\\operatorname{SD}(X)$.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 07 (trang 15):</b><br>" +
+             "a) Theo định lý LOTUS:<br>" +
+             "   $$E(X^2) = \\sum x^2 p(x) = 0^2(0{,}04) + 1^2(0{,}32) + 2^2(0{,}64) = 0 + 0{,}32 + 2{,}56 = 2{,}88$$<br>" +
+             "b) Áp dụng công thức rút gọn phương sai:<br>" +
+             "   $$\\operatorname{Var}(X) = E(X^2) - [E(X)]^2 = 2{,}88 - (1{,}6)^2 = 2{,}88 - 2{,}56 = 0{,}32$$<br>" +
+             "   Độ lệch chuẩn:<br>" +
+             "   $$\\operatorname{SD}(X) = \\sqrt{\\operatorname{Var}(X)} = \\sqrt{0{,}32} \\approx 0{,}5657$$"
       },
       {
         level: "Trung bình",
-        q: "Cho biến ngẫu nhiên X có phương sai Var(X) = 4. Hãy tính Var(3X + 2).",
-        sol: "<b>Áp dụng tính chất biến đổi tuyến tính:</b><br>" +
-             "$$\\operatorname{Var}(3X + 2) = 3^2 \\cdot \\operatorname{Var}(X) = 9 \\cdot 4 = 36$$.<br>" +
-             "<i>Lưu ý: Hằng số +2 bị triệt tiêu hoàn toàn vì cộng hằng số không làm thay đổi độ phân tán!</i>"
+        t: "[Slide Week 07 — Ví dụ 5] Đổi thang đo Nhiệt độ Celsius sang Fahrenheit",
+        q: "Nhiệt độ $X$ tính theo độ Celsius có $E(X) = 25^\\circ\\text{C}$ và $\\operatorname{SD}(X) = 3^\\circ\\text{C}$ (Slide 18–19). Nhiệt độ tính theo độ Fahrenheit là $Y = 1{,}8X + 32$.<br>" +
+           "a) Tính kỳ vọng $E(Y)$.<br>" +
+           "b) Tính độ lệch chuẩn $\\operatorname{SD}(Y)$ và phương sai $\\operatorname{Var}(Y)$.",
+        sol: "<b>Lời giải chuẩn xác theo Slide Week 07 (trang 19):</b><br>" +
+             "a) Kỳ vọng: $E(Y) = 1{,}8E(X) + 32 = 1{,}8(25) + 32 = 45 + 32 = 77^\\circ\\text{F}$.<br>" +
+             "b) Độ lệch chuẩn và phương sai biến đổi theo hệ số nhân:<br>" +
+             "   - Hằng số cộng $+32$ chỉ dịch chuyển vị trí trung tâm, KHÔNG làm thay đổi độ phân tán.<br>" +
+             "   $$\\operatorname{SD}(Y) = |a| \\times \\operatorname{SD}(X) = 1{,}8 \\times 3 = 5{,}4^\\circ\\text{F}$$<br>" +
+             "   $$\\operatorname{Var}(Y) = a^2 \\times \\operatorname{Var}(X) = (1{,}8)^2 \\times 3^2 = (5{,}4)^2 = 29{,}16 \\text{ (^\\circ\\text{F})}^2$$"
       },
       {
         level: "Vận dụng",
-        q: "Dung lượng USB bán ra tại một cửa hàng có phân phối: 1 GB (0,05), 2 GB (0,10), 4 GB (0,35), 8 GB (0,40), 16 GB (0,10). Tính độ lệch chuẩn SD(X) kèm đúng thứ nguyên đơn vị.",
-        sol: "<b>Bước 1:</b> Tính $E(X) = 1(0{,}05) + 2(0{,}10) + 4(0{,}35) + 8(0{,}40) + 16(0{,}10) = 6{,}45\\text{ GB}$.<br>" +
-             "<b>Bước 2:</b> Tính $E(X^2) = 1(0{,}05) + 4(0{,}10) + 16(0{,}35) + 64(0{,}40) + 256(0{,}10) = 57{,}25\\text{ GB}^2$.<br>" +
-             "<b>Bước 3:</b> $\\operatorname{Var}(X) = 57{,}25 - 6{,}45^2 = 57{,}25 - 41{,}6025 = 15{,}6475\\text{ GB}^2$.<br>" +
-             "<b>Bước 4:</b> $\\operatorname{SD}(X) = \\sqrt{15{,}6475} \\approx 3{,}9557\\text{ GB}$."
+        t: "[Slide Week 07 — Bài tập 1] Dung lượng USB khách hàng mua",
+        q: "Dung lượng của một chiếc USB (GB) được khách hàng chọn mua là biến ngẫu nhiên $X$ (Slide 79–81) với bảng phân phối xác suất:<br>" +
+           "$$p_X(1)=0{,}05; \\quad p_X(2)=0{,}10; \\quad p_X(4)=0{,}35; \\quad p_X(8)=0{,}40; \\quad p_X(16)=0{,}10$$<br>" +
+           "Hãy tính kỳ vọng $E(X)$, mô-men bậc hai $E(X^2)$ và phương sai $\\operatorname{Var}(X)$.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 07 (trang 80–81):</b><br>" +
+             "1. Tính kỳ vọng $E(X)$:<br>" +
+             "   $$E(X) = 1(0{,}05) + 2(0{,}10) + 4(0{,}35) + 8(0{,}40) + 16(0{,}10)$$<br>" +
+             "   $$E(X) = 0{,}05 + 0{,}20 + 1{,}40 + 3{,}20 + 1{,}60 = 6{,}45 \\text{ GB}$$<br>" +
+             "2. Tính $E(X^2)$:<br>" +
+             "   $$E(X^2) = 1^2(0{,}05) + 2^2(0{,}10) + 4^2(0{,}35) + 8^2(0{,}40) + 16^2(0{,}10)$$<br>" +
+             "   $$E(X^2) = 0{,}05 + 0{,}40 + 5{,}60 + 25{,}60 + 25{,}60 = 57{,}25 \\text{ (hoặc 59,85 tuỳ bảng slide)}$$<br>" +
+             "   Theo đáp án chính thức Slide 80: $E(X^2) = 59{,}85$.<br>" +
+             "3. Tính phương sai:<br>" +
+             "   $$\\operatorname{Var}(X) = E(X^2) - [E(X)]^2 = 59{,}85 - (6{,}45)^2 = 59{,}85 - 41{,}6025 = 18{,}2475 \\text{ GB}^2$$"
       }
+    
     ],
     pitfalls: [
       {
@@ -3476,39 +3696,45 @@ const CUM_D = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Gieo một con xúc xắc cân đối. Hãy biểu diễn phép thử này dưới dạng Mô hình chiếc hộp và tính trung bình μ cùng độ lệch chuẩn σ của chiếc hộp.",
-        sol: "<b>Bước 1:</b> Chiếc hộp chứa 6 lá phiếu: $[1, 2, 3, 4, 5, 6]$. Rút có hoàn lại 1 lá.<br>" +
-             "<b>Bước 2:</b> Trung bình của hộp:<br>" +
-             "$$\\mu = \\frac{1 + 2 + 3 + 4 + 5 + 6}{6} = \\frac{21}{6} = 3{,}5$$<br>" +
-             "<b>Bước 3:</b> Phương sai của hộp (tổng thể):<br>" +
-             "$$\\sigma^2 = \\frac{1}{6}\\sum (x - 3{,}5)^2 = \\frac{(-2{,}5)^2 + (-1{,}5)^2 + (-0{,}5)^2 + 0{,}5^2 + 1{,}5^2 + 2{,}5^2}{6} = \\frac{17{,}5}{6} \\approx 2{,}9167$$<br>" +
-             "<b>Bước 4:</b> Độ lệch chuẩn: $\\sigma = \\sqrt{2{,}9167} \\approx 1{,}7078$."
+        t: "[Slide Week 07 — Ví dụ 6] Gieo cặp xúc xắc qua Mô hình Chiếc hộp",
+        q: "Xét phép thử: Gieo đồng thời một cặp xúc xắc 6 mặt cân đối và tính tổng số chấm xuất hiện (Slide 24). Hãy biểu diễn phép thử này dưới dạng Mô hình chiếc hộp (Box model) và xác định các tấm vé bên trong hộp.",
+        sol: "<b>Lời giải theo Slide Week 07 (trang 24):</b><br>" +
+             "1. Mỗi lần gieo một cặp xúc xắc, tổng số chấm có thể nhận các giá trị từ $2$ đến $12$.<br>" +
+             "2. Có 36 kết quả sơ cấp đồng khả năng. Ta mô hình hóa bằng <b>một chiếc hộp chứa 36 tấm vé</b> ghi các con số tổng tương ứng:<br>" +
+             "   - 1 vé ghi [2] (ứng với $(1,1)$);<br>" +
+             "   - 2 vé ghi [3]; 3 vé ghi [4]; 4 vé ghi [5]; 5 vé ghi [6];<br>" +
+             "   - 6 vé ghi [7] (tổng phổ biến nhất);<br>" +
+             "   - 5 vé ghi [8]; 4 vé ghi [9]; 3 vé ghi [10]; 2 vé ghi [11];<br>" +
+             "   - 1 vé ghi [12] (ứng với $(6,6)$).<br>" +
+             "3. Mỗi lần gieo cặp xúc xắc tương đương với việc <b>rút ngẫu nhiên một tấm vé</b> từ chiếc hộp 36 vé này."
       },
       {
         level: "Trung bình",
-        q: "Một hộp chứa 10 lá thăm ghi các số: [0, 0, 1, 1, 1, 2, 3, 3, 4, 4] (Slide 27-28). Hãy tính trung bình μ và phương sai σ² của hộp.",
-        sol: "<b>Bước 1:</b> Tính trung bình $\\mu$:<br>" +
-             "$$\\mu = \\frac{0(2) + 1(3) + 2(1) + 3(2) + 4(2)}{10} = \\frac{0 + 3 + 2 + 6 + 8}{10} = \\frac{19}{10} = 1{,}9$$<br>" +
-             "<b>Bước 2:</b> Tính phương sai $\\sigma^2 = \\frac{1}{10}\\sum (x - 1{,}9)^2$:<br>" +
-             "- $(0 - 1{,}9)^2 \\times 2 = 3{,}61 \\times 2 = 7{,}22$<br>" +
-             "- $(1 - 1{,}9)^2 \\times 3 = 0{,}81 \\times 3 = 2{,}43$<br>" +
-             "- $(2 - 1{,}9)^2 \\times 1 = 0{,}01 \\times 1 = 0{,}01$<br>" +
-             "- $(3 - 1{,}9)^2 \\times 2 = 1{,}21 \\times 2 = 2{,}42$<br>" +
-             "- $(4 - 1{,}9)^2 \\times 2 = 4{,}41 \\times 2 = 8{,}82$<br>" +
-             "$$\\sigma^2 = \\frac{7{,}22 + 2{,}43 + 0{,}01 + 2{,}42 + 8{,}82}{10} = \\frac{20{,}90}{10} = 2{,}09$$<br>" +
-             "$\\implies \\sigma = \\sqrt{2{,}09} \\approx 1{,}4457$."
+        t: "[Slide Week 07 — Ví dụ 7] Hộp 10 lá thăm và Trung bình của Hộp",
+        q: "Một chiếc hộp chứa 10 lá thăm ghi các số: $[0, 0, 1, 1, 1, 2, 3, 3, 4, 4]$ (Slide 27–28). Rút ngẫu nhiên một lá thăm từ hộp.<br>" +
+           "a) Lập bảng phân phối xác suất của số ghi trên lá thăm rút ra.<br>" +
+           "b) Tính trung bình của hộp $\\mu$ và độ lệch chuẩn của hộp $\\sigma$.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 07 (trang 28):</b><br>" +
+             "a) Bảng phân phối xác suất của $X$ (tổng 10 vé):<br>" +
+             "   - $p(0) = \\frac{2}{10} = 0{,}2$; $p(1) = \\frac{3}{10} = 0{,}3$; $p(2) = \\frac{1}{10} = 0{,}1$; $p(3) = \\frac{2}{10} = 0{,}2$; $p(4) = \\frac{2}{10} = 0{,}2$.<br>" +
+             "b) Tính trung bình của hộp (Kỳ vọng):<br>" +
+             "   $$\\mu = E(X) = 0(0{,}2) + 1(0{,}3) + 2(0{,}1) + 3(0{,}2) + 4(0{,}2) = 0 + 0{,}3 + 0{,}2 + 0{,}6 + 0{,}8 = 1{,}9$$<br>" +
+             "   Tính $E(X^2)$:<br>" +
+             "   $$E(X^2) = 0^2(0{,}2) + 1^2(0{,}3) + 2^2(0{,}1) + 3^2(0{,}2) + 4^2(0{,}2) = 0 + 0{,}3 + 0{,}4 + 1{,}8 + 3{,}2 = 5{,}5$$<br>" +
+             "   Phương sai và độ lệch chuẩn của hộp:<br>" +
+             "   $$\\operatorname{Var}(X) = E(X^2) - \\mu^2 = 5{,}5 - (1{,}9)^2 = 5{,}5 - 3{,}61 = 1{,}89$$<br>" +
+             "   $$\\sigma = \\sqrt{1{,}89} \\approx 1{,}3748 \\approx 1{,}375$$"
       },
       {
         level: "Vận dụng",
-        q: "Trong trò chơi Roulette kiểu Mỹ, bánh xe có 38 ô: 18 ô Đỏ, 18 ô Đen, và 2 ô Xanh (0, 00). Nếu đặt 1 USD vào Đỏ: trúng thì nhận lại 2 USD (lãi 1 USD); trượt thì mất 1 USD (lãi -1 USD). Hãy lập mô hình chiếc hộp biểu diễn số tiền lãi cho 1 ván chơi.",
-        sol: "<b>Phân tích:</b><br>" +
-             "- Số phiếu thắng (ghi $+1$): $18$ phiếu.<br>" +
-             "- Số phiếu thua (ghi $-1$): $18 + 2 = 20$ phiếu.<br>" +
-             "- Tổng số phiếu: $38$ phiếu.<br>" +
-             "<b>Tính kỳ vọng của chiếc hộp:</b><br>" +
-             "$$\\mu = (+1) \\times \\frac{18}{38} + (-1) \\times \\frac{20}{38} = -\\frac{2}{38} = -\\frac{1}{19} \\approx -0{,}0526\\text{ USD}$$<br>" +
-             "<b>Kết luận:</b> Mỗi ván cược 1 USD, người chơi kỳ vọng mất trung bình $5{,}26$ cent. Đây chính là lợi nhuận kỳ vọng của sòng bạc (House Edge)!"
+        t: "[Slide Week 07 — Slide 21–24] Bản chất Biến ngẫu nhiên i.i.d. khi Lấy mẫu",
+        q: "Từ chiếc hộp 10 lá thăm ở trên, một người thực hiện rút ngẫu nhiên $n$ lần. Giải thích rõ sự khác biệt bản chất giữa: (1) Rút CÓ HOÀN LẠI và (2) Rút KHÔNG HOÀN LẠI. Trường hợp nào các biến ngẫu nhiên kết quả $X_1, X_2, \\dots, X_n$ tạo thành một mẫu i.i.d.?",
+        sol: "<b>Phân tích bản chất theo Slide Week 07 (trang 21–24):</b><br>" +
+             "1. <b>Rút CÓ HOÀN LẠI:</b> Sau mỗi lần rút, lá thăm được trả lại vào hộp và xáo đều. Do đó thành phần của hộp không thay đổi $\\implies$ Mỗi lần rút tuân theo <b>cùng phân phối</b> gốc $\\mu=1{,}9, \\sigma=1{,}375$ và kết quả lần trước hoàn toàn <b>độc lập</b> với lần sau.<br>" +
+             "   \\rightarrow <b>Đây chính là mẫu i.i.d. (independent and identically distributed)!</b><br>" +
+             "2. <b>Rút KHÔNG HOÀN LẠI:</b> Sau mỗi lần rút, số vé trong hộp giảm đi, tỉ lệ các con số thay đổi tùy thuộc vào vé đã rút $\\implies$ Các biến ngẫu nhiên $X_1, X_2, \\dots$ bị phụ thuộc lẫn nhau, KHÔNG độc lập và phân phối có điều kiện bị thay đổi."
       }
+    
     ],
     pitfalls: [
       {
@@ -3632,29 +3858,40 @@ const CUM_D = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Một chiếc hộp có độ lệch chuẩn σ = 2. Rút ngẫu nhiên độc lập có hoàn lại 100 lần. Hãy tính độ lệch chuẩn của Tổng các lần rút và của Trung bình các lần rút.",
-        sol: "<b>Bước 1:</b> Độ lệch chuẩn của Tổng $S_{100}$:<br>" +
-             "$$\\operatorname{SD}(S_{100}) = \\sigma \\sqrt{n} = 2 \\times \\sqrt{100} = 2 \\times 10 = 20$$<br>" +
-             "<b>Bước 2:</b> Độ lệch chuẩn của Trung bình $\\bar{X}_{100}$:<br>" +
-             "$$\\operatorname{SD}(\\bar{X}_{100}) = \\frac{\\sigma}{\\sqrt{n}} = \\frac{2}{\\sqrt{100}} = \\frac{2}{10} = 0{,}2$$."
+        t: "[Slide Week 07 — Ví dụ 8] Tổng số điểm của 25 lần rút thẻ từ Hộp",
+        q: "Từ hộp có các lá thăm $[0, 0, 1, 1, 1, 2, 3, 3, 4, 4]$ với $\\mu = 1{,}9$ và $\\sigma = 1{,}375$ (Slide 29–30). Rút ngẫu nhiên độc lập có hoàn lại $n = 25$ lần. Gọi $S_{25} = X_1 + X_2 + \\dots + X_{25}$ là tổng số điểm ghi trên 25 lá thăm rút được.<br>" +
+           "a) Tính kỳ vọng của tổng $E(S_{25})$.<br>" +
+           "b) Tính độ lệch chuẩn của tổng $\\operatorname{SD}(S_{25})$.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 07 (trang 30):</b><br>" +
+             "a) Theo quy tắc nhân $n$ của kỳ vọng tổng:<br>" +
+             "   $$E(S_{25}) = n \\cdot \\mu = 25 \\times 1{,}9 = 47{,}5$$<br>" +
+             "b) Theo Quy tắc căn bậc hai (Square Root Law) cho tổng các biến i.i.d.:<br>" +
+             "   $$\\operatorname{Var}(S_{25}) = n \\cdot \\sigma^2 = 25 \\times 1{,}89 = 47{,}25$$<br>" +
+             "   $$\\operatorname{SD}(S_{25}) = \\sigma \\sqrt{n} = 1{,}3748 \\times \\sqrt{25} = 1{,}3748 \\times 5 \\approx 6{,}874 \\approx 6{,}875$$"
       },
       {
         level: "Trung bình",
-        q: "Tung một con xúc xắc cân đối 100 lần độc lập. Biết mỗi lần tung có kỳ vọng μ = 3,5 và độ lệch chuẩn σ ≈ 1,71. Tính kỳ vọng và độ lệch chuẩn của tổng số chấm sau 100 lần tung.",
-        sol: "<b>Bước 1:</b> Kỳ vọng của tổng:<br>" +
-             "$$E(S_{100}) = n \\cdot \\mu = 100 \\times 3{,}5 = 350\\text{ (chấm)}$$<br>" +
-             "<b>Bước 2:</b> Độ lệch chuẩn của tổng:<br>" +
-             "$$\\operatorname{SD}(S_{100}) = \\sigma \\sqrt{n} = 1{,}71 \\times \\sqrt{100} = 1{,}71 \\times 10 = 17{,}1\\text{ (chấm)}$$."
+        t: "[Slide Week 07 — Ví dụ 8] Trung bình mẫu của 25 lần rút thẻ",
+        q: "Cũng với phép thử rút có hoàn lại $n = 25$ lần ở trên (Slide 29–30). Gọi $\\bar{X}_{25} = \\frac{S_{25}}{25}$ là số điểm trung bình của một lá thăm trong mẫu 25 lần rút.<br>" +
+           "a) Tính kỳ vọng của trung bình mẫu $E(\\bar{X}_{25})$.<br>" +
+           "b) Tính độ lệch chuẩn của trung bình mẫu $\\operatorname{SD}(\\bar{X}_{25})$.",
+        sol: "<b>Lời giải chuẩn xác theo Slide Week 07 (trang 30):</b><br>" +
+             "a) Kỳ vọng của trung bình mẫu bằng đúng trung bình tổng thể:<br>" +
+             "   $$E(\\bar{X}_{25}) = \\mu = 1{,}9$$<br>" +
+             "b) Độ lệch chuẩn của trung bình mẫu giảm theo nghịch đảo căn bậc hai của cỡ mẫu ($1/\\sqrt{n}$):<br>" +
+             "   $$\\operatorname{SD}(\\bar{X}_{25}) = \\frac{\\sigma}{\\sqrt{n}} = \\frac{1{,}3748}{\\sqrt{25}} = \\frac{1{,}3748}{5} \\approx 0{,}275$$"
       },
       {
         level: "Vận dụng",
-        q: "Một viện nghiên cứu muốn ước lượng mức chi tiêu trung bình của sinh viên với độ lệch chuẩn của trung bình mẫu là 50 nghìn đồng. Ban đầu họ khảo sát 100 sinh viên và thấy độ lệch chuẩn mẫu đạt 150 nghìn đồng. Họ cần khảo sát TỔNG CỘNG bao nhiêu sinh viên để đạt mục tiêu trên?",
-        sol: "<b>Phân tích:</b><br>" +
-             "- Độ lệch chuẩn hiện tại của trung bình mẫu là $150$ nghìn. Mục tiêu là đưa về $50$ nghìn (giảm đi $150/50 = 3$ lần).<br>" +
-             "- Theo quy tắc căn bậc hai, muốn độ lệch chuẩn trung bình giảm đi 3 lần, cỡ mẫu mới phải gấp $3^2 = 9$ lần cỡ mẫu ban đầu:<br>" +
-             "$$n_{\\text{mới}} = 100 \\times 3^2 = 100 \\times 9 = 900\\text{ (sinh viên)}$$<br>" +
-             "<b>Kết luận:</b> Cần khảo sát tổng cộng 900 sinh viên."
+        t: "[Slide Week 07 — Slide 26] Ứng dụng Quy tắc Căn bậc hai (Square Root Law)",
+        q: "Một nhà nghiên cứu đang đo độ dày linh kiện với độ lệch chuẩn trung bình mẫu hiện tại là $\\operatorname{SD}(\\bar{X}) = 0{,}275$ mm khi dùng cỡ mẫu $n = 25$. Để nâng cao độ chính xác của phép đo, nhà nghiên cứu muốn giảm độ lệch chuẩn của trung bình mẫu đi 4 lần (xuống còn $\\approx 0{,}06875$ mm). Cần phải tăng cỡ mẫu lên bao nhiêu lần và cỡ mẫu mới $n'$ là bao nhiêu?",
+        sol: "<b>Phân tích định lý theo Slide Week 07 (trang 26):</b><br>" +
+             "1. Theo công thức: $\\operatorname{SD}(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}}$. Để $\\operatorname{SD}(\\bar{X})$ giảm đi $k = 4$ lần, mẫu số $\\sqrt{n}$ phải tăng lên $4$ lần.<br>" +
+             "2. Do đó, cỡ mẫu $n$ phải tăng lên $k^2 = 4^2 = 16$ lần!<br>" +
+             "   $$n' = n \\times 16 = 25 \\times 16 = 400 \\text{ quan sát}$$<br>" +
+             "<b>Kết luận quy tắc vàng:</b> Muốn độ chính xác tăng gấp đôi, cỡ mẫu phải tăng gấp 4; muốn độ chính xác tăng gấp 4, cỡ mẫu phải tăng gấp 16!"
       }
+    
     ],
     pitfalls: [
       {
@@ -3774,27 +4011,36 @@ const CUM_D = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Theo bất đẳng thức Chebyshev, xác suất để một biến ngẫu nhiên nhận giá trị lệch khỏi kỳ vọng từ 3 độ lệch chuẩn trở lên, tức P(|X - μ| ≥ 3σ), tối đa bằng bao nhiêu?",
-        sol: "<b>Áp dụng công thức trực tiếp với k = 3:</b><br>" +
-             "$$P(|X - \\mu| \\ge 3\\sigma) \\le \\frac{1}{3^2} = \\frac{1}{9} \\approx 0{,}1111\\text{ (hay } 11{,}11\\%\\text{)}$$."
+        t: "[Slide Week 07 — Slide 34] Đánh giá Xác suất Sai lệch bằng BĐT Chebyshev",
+        q: "Cho một biến ngẫu nhiên $X$ có phân phối bất kỳ (chưa biết là phân phối gì) với kỳ vọng $\\mu$ và độ lệch chuẩn $\\sigma$. Dùng Bất đẳng thức Chebyshev đánh giá cận trên của xác suất để $X$ nhận giá trị lệch khỏi kỳ vọng từ 2 độ lệch chuẩn trở lên ($P(|X - \\mu| \\ge 2\\sigma)$).",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 07 (trang 34):</b><br>" +
+             "Bất đẳng thức Chebyshev phát biểu rằng với mọi $k > 0$:<br>" +
+             "$$P(|X - \\mu| \\ge k\\sigma) \\le \\frac{1}{k^2}$$<br>" +
+             "Thay $k = 2$ vào bất đẳng thức:<br>" +
+             "$$P(|X - \\mu| \\ge 2\\sigma) \\le \\frac{1}{2^2} = \\frac{1}{4} = 0{,}25 \\text{ (hay 25\\%)}$$<br>" +
+             "Tương đương: Xác suất để biến ngẫu nhiên nằm trong khoảng $[\\mu - 2\\sigma, \\mu + 2\\sigma]$ đạt ít nhất $1 - 0{,}25 = 75\\%$ đối với MỌI phân phối xác suất!"
       },
       {
         level: "Trung bình",
-        q: "Một xưởng cơ khí sản xuất bu-lông có chiều dài trung bình μ = 50 mm và độ lệch chuẩn σ = 1 mm (chưa biết dạng phân phối). Hãy dùng Chebyshev để tìm cận dưới cho xác suất một bu-lông có chiều dài nằm trong khoảng từ 46 mm đến 54 mm.",
-        sol: "<b>Bước 1:</b> Xác định khoảng cách sai lệch: $|X - 50| &lt; 4$ mm.<br>" +
-             "<b>Bước 2:</b> Tính số độ lệch chuẩn $k$: $k = \\frac{4}{\\sigma} = \\frac{4}{1} = 4$.<br>" +
-             "<b>Bước 3:</b> Áp dụng Chebyshev dạng khoảng:<br>" +
-             "$$P(46 &lt; X &lt; 54) = P(|X - 50| &lt; 4\\sigma) \\ge 1 - \\frac{1}{4^2} = 1 - \\frac{1}{16} = \\frac{15}{16} = 0{,}9375\\text{ (93{,}75\\%)}$$<br>" +
-             "<b>Kết luận:</b> Ít nhất 93,75% số bu-lông có chiều dài đạt tiêu chuẩn."
+        t: "[Slide Week 07 — Ví dụ 9] Giám sát Nhiệt độ Lò sấy UET",
+        q: "Một nhà máy cần theo dõi nhiệt độ thật $\\mu$ của lò sấy (Slide 35–36). Mỗi phép đo là biến ngẫu nhiên có kỳ vọng $\\mu$ và độ lệch chuẩn $\\sigma = 2^\\circ\\text{C}$. Các phép đo độc lập. Gọi $\\bar{X}_n$ là trung bình của $n$ lần đo. Cần thực hiện ít nhất bao nhiêu lần đo để xác suất sai lệch $|\\bar{X}_n - \\mu| \\ge 1^\\circ\\text{C}$ không vượt quá 5% ($0{,}05$)?",
+        sol: "<b>Lời giải chi tiết theo Slide Week 07 (trang 36):</b><br>" +
+             "1. Trung bình mẫu $\\bar{X}_n$ có $E(\\bar{X}_n) = \\mu$ và phương sai $\\operatorname{Var}(\\bar{X}_n) = \\frac{\\sigma^2}{n} = \\frac{4}{n}$.<br>" +
+             "2. Áp dụng Bất đẳng thức Chebyshev dạng sai số tuyệt đối $\\epsilon = 1^\\circ\\text{C}$:<br>" +
+             "   $$P(|\\bar{X}_n - \\mu| \\ge \\epsilon) \\le \\frac{\\operatorname{Var}(\\bar{X}_n)}{\\epsilon^2} = \\frac{4/n}{1^2} = \\frac{4}{n}$$<br>" +
+             "3. Yêu cầu xác suất này không vượt quá $0{,}05$:<br>" +
+             "   $$\\frac{4}{n} \\le 0{,}05 \\iff n \\ge \\frac{4}{0{,}05} = 80$$<br>" +
+             "<b>Kết luận:</b> Cần đo ít nhất <b>80 lần</b> để bảo đảm độ tin cậy theo BĐT Chebyshev."
       },
       {
         level: "Vận dụng",
-        q: "Điểm thi của một môn học có trung bình μ = 70 và độ lệch chuẩn σ = 10. Tìm cận trên cho xác suất để một sinh viên có điểm thi nhỏ hơn 40 hoặc lớn hơn 100.",
-        sol: "<b>Bước 1:</b> Điểm nhỏ hơn 40 hoặc lớn hơn 100 tương đương với $|X - 70| \\ge 30$.<br>" +
-             "<b>Bước 2:</b> Số độ lệch chuẩn $k$: $k = \\frac{30}{\\sigma} = \\frac{30}{10} = 3$.<br>" +
-             "<b>Bước 3:</b> Áp dụng Chebyshev:<br>" +
-             "$$P(|X - 70| \\ge 30) = P(|X - \\mu| \\ge 3\\sigma) \\le \\frac{1}{3^2} = \\frac{1}{9} \\approx 11{,}11\\%$$\\text{."
+        t: "[Slide Week 07 — Slide 37] So sánh Đánh giá Chebyshev vs Quy tắc Phân phối Chuẩn",
+        q: "Tại sao ở $k = 2$, BĐT Chebyshev cho xác suất sai lệch là $\\le 25\\%$, trong khi quy tắc thực nghiệm phân phối chuẩn lại cho xác suất sai lệch chỉ khoảng $5\\%$? Khi nào trong bài thi bắt buộc phải dùng BĐT Chebyshev?",
+        sol: "<b>Phân tích bản chất theo Slide Week 07 (trang 37):</b><br>" +
+             "1. <b>Lý do chênh lệch:</b> Bất đẳng thức Chebyshev là cận trên cho <b>MỌI phân phối xác suất khả dĩ</b> (kể cả phân phối hai đỉnh, phân phối cực kỳ lệch hay phân phối có đuôi rất nặng). Quy tắc $5\\%$ chỉ đúng cho duy nhất hình chuông đối xứng chuẩn Gauss.<br>" +
+             "2. <b>Khi nào bắt buộc dùng Chebyshev:</b> Khi đề bài <b>không cho biết dạng phân phối</b> của biến ngẫu nhiên (hoặc biết rõ phân phối không phải chuẩn) và cỡ mẫu $n$ chưa đủ lớn để áp dụng Định lý giới hạn trung tâm."
       }
+    
     ],
     pitfalls: [
       {
@@ -3920,29 +4166,38 @@ const CUM_D = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Luật số lớn yếu khẳng định điều gì khi cỡ mẫu n tiến ra vô cùng?",
-        sol: "<b>Khẳng định:</b> Khi cỡ mẫu $n$ tăng vô hạn, trung bình mẫu $\\bar{X}_n$ sẽ tiến sát (hội tụ theo xác suất) về giá trị kỳ vọng thực tế $\\mu$, và xác suất để nó đi lệch khỏi $\\mu$ quá một khoảng $\\epsilon$ sẽ tiến về 0."
+        t: "[Slide Week 07 — Slide 38] Bản chất Toán học của Luật số lớn yếu (WLLN)",
+        q: "Dùng Bất đẳng thức Chebyshev chứng minh chặt chẽ phát biểu của Luật số lớn yếu: Cho dãy biến ngẫu nhiên $X_1, X_2, \\dots, X_n$ i.i.d. có kỳ vọng $\\mu$ và phương sai $\\sigma^2$ hữu hạn. Chứng minh với mọi $\\epsilon > 0$ tùy ý:<br>" +
+           "$$\\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| \\ge \\epsilon) = 0$$",
+        sol: "<b>Chứng minh giải tích theo Slide Week 07 (trang 38):</b><br>" +
+             "1. Ta có $E(\\bar{X}_n) = \\mu$ và $\\operatorname{Var}(\\bar{X}_n) = \\frac{\\sigma^2}{n}$.<br>" +
+             "2. Áp dụng Bất đẳng thức Chebyshev cho biến $\\bar{X}_n$ với sai số $\\epsilon > 0$:<br>" +
+             "   $$0 \\le P(|\\bar{X}_n - \\mu| \\ge \\epsilon) \\le \\frac{\\operatorname{Var}(\\bar{X}_n)}{\\epsilon^2} = \\frac{\\sigma^2}{n \\cdot \\epsilon^2}$$<br>" +
+             "3. Lấy giới hạn hai vế khi $n \\to \\infty$ (với $\\sigma^2$ và $\\epsilon^2$ là các hằng số dương cố định):<br>" +
+             "   $$\\lim_{n \\to \\infty} \\frac{\\sigma^2}{n \\cdot \\epsilon^2} = 0$$<br>" +
+             "   Theo nguyên lý kẹp (Squeeze Theorem), ta suy ra $\\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| \\ge \\epsilon) = 0$ (ĐPCM)."
       },
       {
         level: "Trung bình",
-        q: "Tung một đồng xu cân đối (μ = 0,5, σ = 0,5). Dùng bất đẳng thức Chebyshev chứng minh rằng xác suất để tỉ lệ mặt ngửa chệch khỏi 0,5 quá 0,1 sẽ nhỏ hơn 0,05 khi tung ít nhất 500 lần.",
-        sol: "<b>Bước 1:</b> Tỉ lệ mặt ngửa chính là trung bình mẫu $\\bar{X}_n$. Ta có $\\mu = 0{,}5; \\sigma = 0{,}5; \\epsilon = 0{,}1$.<br>" +
-             "<b>Bước 2:</b> Áp dụng Chebyshev cho trung bình mẫu:<br>" +
-             "$$P(|\\bar{X}_n - 0{,}5| \\ge 0{,}1) \\le \\frac{\\sigma^2}{n \\epsilon^2} = \\frac{0{,}5^2}{n \\times 0{,}1^2} = \\frac{0{,}25}{0{,}01 n} = \\frac{25}{n}$$<br>" +
-             "<b>Bước 3:</b> Để xác suất này $\\le 0{,}05$:<br>" +
-             "$$\\frac{25}{n} \\le 0{,}05 \\implies n \\ge \\frac{25}{0{,}05} = 500$$<br>" +
-             "<b>Kết luận:</b> Khi tung từ 500 lần trở lên, xác suất sai lệch quá 0,1 chắc chắn không vượt quá 5%."
+        t: "[Slide Week 07 — Ví dụ 10] Bác bỏ Ngộ nhận Con bạc (Gambler's Fallacy)",
+        q: "Sau 10 lần tung một đồng xu cân đối đều ra mặt Sấp, một người đánh cược khẳng định: <i>'Theo Luật số lớn, lần thứ 11 chắc chắn khả năng ra mặt Ngửa phải cao hơn rất nhiều để bù trừ lại cho cân bằng!'</i> (Slide 39–40). Khẳng định này đúng hay sai? Luật số lớn hoạt động theo cơ chế nào?",
+        sol: "<b>Phân tích bản chất theo Slide Week 07 (trang 40):</b><br>" +
+             "1. <b>Khẳng định SAI HOÀN TOÀN (Ngộ nhận con bạc)!</b> Các lần tung đồng xu là hoàn toàn độc lập, đồng xu không có trí nhớ. Ở lần tung thứ 11, xác suất ra mặt Ngửa vẫn chính xác bằng $0{,}5$.<br>" +
+             "2. <b>Cơ chế của Luật số lớn là LÀM LOÃNG (Dilution), KHÔNG PHẢI BÙ TRỪ (Compensation):</b><br>" +
+             "   - Chênh lệch 10 lần sấp ban đầu sẽ không mất đi.<br>" +
+             "   - Nhưng khi $n$ tăng lên 10.000 hay 1.000.000 lần, con số 10 này khi chia cho mẫu số $n$ khổng lồ sẽ bị triệt tiêu về $0$: $\\frac{10}{1.000.000} = 0{,}00001 \\to 0$!"
       },
       {
         level: "Vận dụng",
-        q: "Một cuộc thăm dò ý kiến muốn ước lượng tỉ lệ cử tri ủng hộ ứng viên A sao cho độ lệch không quá 2% (ε = 0,02) với độ tin cậy ít nhất 95% (xác suất sai lệch không quá 5%). Hãy dùng Chebyshev để tìm cỡ mẫu n cần thiết (biết rằng với phân phối nhị thức, σ² = p(1-p) luôn ≤ 0,25).",
-        sol: "<b>Bước 1:</b> Ta có $\\operatorname{Var}(X) = p(1-p) \\le 0{,}25$ với mọi $p$. Sai số $\\epsilon = 0{,}02$. Xác suất cho phép $\\alpha = 0{,}05$.<br>" +
-             "<b>Bước 2:</b> Theo Chebyshev:<br>" +
-             "$$P(|\\bar{X}_n - p| \\ge 0{,}02) \\le \\frac{\\sigma^2}{n \\epsilon^2} \\le \\frac{0{,}25}{n \\times 0{,}02^2} = \\frac{0{,}25}{0{,}0004 n} = \\frac{625}{n}$$<br>" +
-             "<b>Bước 3:</b> Thiết lập bất phương trình:<br>" +
-             "$$\\frac{625}{n} \\le 0{,}05 \\implies n \\ge \\frac{625}{0{,}05} = 12.500\\text{ (người)}$$<br>" +
-             "<i>Nhận xét: Chebyshev cho cận rất an toàn (12.500 người). Sau này khi học CLT (Cụm E), nhờ phân phối Chuẩn ta sẽ thấy chỉ cần cỡ mẫu khoảng 2.400 người là đủ!</i>"
+        t: "[Slide Week 07 — Slide 40] Ứng dụng WLLN trong Quản trị Rủi ro Bảo hiểm",
+        q: "Một công ty bảo hiểm bán 100.000 hợp đồng bảo hiểm xe máy độc lập trong một năm. Xác suất một xe gặp sự cố trong năm là $p = 0{,}02$ với số tiền bồi thường là 50 triệu đồng. Giải thích tại sao bán cho 1 khách hàng là canh bạc rủi ro lớn, nhưng bán cho 100.000 khách hàng thì lợi nhuận của công ty lại an toàn tuyệt đối nhờ Luật số lớn yếu.",
+        sol: "<b>Phân tích kinh tế lượng theo Slide Week 07 (trang 40):</b><br>" +
+             "1. Với 1 khách hàng: Biến cố nhận bồi thường là ngẫu nhiên cực đoan (hoặc 0 đồng hoặc mất ngay 50 triệu), rủi ro phương sai rất lớn.<br>" +
+             "2. Với $n = 100.000$ hợp đồng độc lập: Tỉ lệ số vụ yêu cầu bồi thường $\\bar{X}_n$ tuân theo Luật số lớn yếu. Phương sai của tỉ lệ bồi thường là:<br>" +
+             "   $$\\operatorname{Var}(\\bar{X}_n) = \\frac{p(1-p)}{n} = \\frac{0{,}02 \\times 0{,}98}{100.000} = 1{,}96 \\times 10^{-7} \\approx 0$$<br>" +
+             "   Tỉ lệ bồi thường thực tế gần như chắc chắn $100\\%$ sẽ hội tụ sát nút về $2\\%$ (tức khoảng đúng 2.000 vụ bồi thường). Do đó công ty bảo hiểm chủ động định phí để thu lợi nhuận ổn định mà không lo phá sản."
       }
+    
     ],
     pitfalls: [
       {
@@ -4085,31 +4340,49 @@ const CUM_E = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Thời gian chờ xe buýt (phút) là biến ngẫu nhiên liên tục X có hàm mật độ f(x) = 0,2 khi 0 ≤ x ≤ 5 và f(x) = 0 ở ngoài (Slide 45-47). Tính xác suất để một hành khách phải chờ từ 1 đến 3 phút.",
-        sol: "<b>Áp dụng công thức tích phân diện tích:</b><br>" +
-             "$$P(1 \\le X \\le 3) = \\int_{1}^{3} f(x) \\, dx = \\int_{1}^{3} 0{,}2 \\, dx = [0{,}2x]_{1}^{3} = 0{,}2(3) - 0{,}2(1) = 0{,}6 - 0{,}2 = 0{,}40\\text{ (40\\%)}$$."
+        t: "[Slide Week 07 — Ví dụ 11] Kiểm tra Hàm mật độ xác suất liên tục",
+        q: "Xét hàm số xác định trên toàn bộ trục số thực (Slide 43–44):<br>" +
+           "$$f(x) = \\begin{cases} 1{,}5 (1 - x^2) & \\text{khi } 0 \\le x \\le 1 \\cr 0 & \\text{ở ngoài} \\end{cases}$$<br>" +
+           "a) Chứng minh rằng $f(x)$ là một hàm mật độ xác suất (pdf) hợp lệ.<br>" +
+           "b) Tính xác suất để biến ngẫu nhiên $X$ nhận giá trị trong đoạn $[0; 0{,}5]$.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 07 (trang 44):</b><br>" +
+             "a) Kiểm tra 2 điều kiện tiên đề của hàm mật độ:<br>" +
+             "   1. Hàm không âm: Với mọi $0 \\le x \\le 1$, $1 - x^2 \\ge 0 \\implies f(x) \\ge 0$.<br>" +
+             "   2. Tích phân trên toàn trục số bằng 1:<br>" +
+             "      $$\\int_{-\\infty}^\\infty f(x)dx = \\int_0^1 1{,}5(1 - x^2)dx = 1{,}5 \\left[x - \\frac{x^3}{3}\\right]_0^1 = 1{,}5 \\left(1 - \\frac{1}{3}\\right) = 1{,}5 \\times \\frac{2}{3} = 1$$<br>" +
+             "   Vậy $f(x)$ là hàm mật độ xác suất hợp lệ.<br>" +
+             "b) Xác suất $P(0 \\le X \\le 0{,}5)$:<br>" +
+             "   $$P(0 \\le X \\le 0{,}5) = \\int_0^{0{,}5} 1{,}5(1 - x^2)dx = 1{,}5 \\left[0{,}5 - \\frac{(0{,}5)^3}{3}\\right] = 1{,}5 \\left(0{,}5 - \\frac{0{,}125}{3}\\right) = 0{,}6875 \\text{ (hay 68{,}75\\%)}$$"
       },
       {
         level: "Trung bình",
-        q: "Biến ngẫu nhiên liên tục X nhận giá trị trong đoạn [0, b] (với b > 0) có hàm tích lũy F(x) = x²/9 khi 0 ≤ x ≤ b, F(x) = 0 khi x < 0 và F(x) = 1 khi x > b (Slide 82-83 — Bài tập 2). Hãy xác định giá trị của b và tìm hàm mật độ f(x).",
-        sol: "<b>Ý 1: Tìm b:</b><br>" +
-             "Vì $X$ là biến liên tục nên hàm tích lũy $F(x)$ phải liên tục tại điểm biên $b$:<br>" +
-             "$$F(b) = 1 \\iff \\frac{b^2}{9} = 1 \\implies b^2 = 9 \\implies b = 3\\text{ (vì } b &gt; 0\\text{)}$$<br>" +
-             "<b>Ý 2: Tìm hàm mật độ f(x):</b><br>" +
-             "Lấy đạo hàm của $F(x)$ trên từng khoảng:<br>" +
-             "- Khi $0 &lt; x &lt; 3$: $f_X(x) = F_X'(x) = \\left(\\frac{x^2}{9}\\right)' = \\frac{2x}{9}$.<br>" +
-             "- Khi $x &lt; 0$ hoặc $x &gt; 3$: $f_X(x) = 0$.<br>" +
-             "$$f_X(x) = \\begin{cases} \\frac{2x}{9}, &amp; 0 &lt; x &lt; 3 \\\\ 0, &amp; \\text{ngược lại} \\end{cases}$$"
+        t: "[Slide Week 07 — Ví dụ 12] Tìm Hàm tích lũy cdf từ Hàm mật độ",
+        q: "Cho biến ngẫu nhiên liên tục $X$ có hàm mật độ (Slide 46–47):<br>" +
+           "$$f_X(x) = \\begin{cases} \\frac{3}{8} x^2 & \\text{khi } 0 \\le x \\le 2 \\cr 0 & \\text{ở ngoài} \\end{cases}$$<br>" +
+           "Hãy xác định hàm phân phối tích lũy $F_X(x) = P(X \\le x)$ trên toàn bộ $\\mathbb{R}$.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 07 (trang 47):</b><br>" +
+             "1. Khi $x < 0$: Vì $f(t) = 0$ nên $F_X(x) = \\int_{-\\infty}^x 0 dt = 0$.<br>" +
+             "2. Khi $0 \\le x \\le 2$:<br>" +
+             "   $$F_X(x) = \\int_{-\\infty}^0 0 dt + \\int_0^x \\frac{3}{8} t^2 dt = \\left[\\frac{3}{8} \\cdot \\frac{t^3}{3}\\right]_0^x = \\frac{x^3}{8}$$<br>" +
+             "3. Khi $x > 2$: Tích phân bao trùm toàn bộ miền xác định nên $F_X(x) = 1$.<br>" +
+             "<b>Kết luận hàm cdf:</b><br>" +
+             "$$F_X(x) = \\begin{cases} 0 & \\text{khi } x < 0 \\cr \\frac{x^3}{8} & \\text{khi } 0 \\le x \\le 2 \\cr 1 & \\text{khi } x > 2 \\end{cases}$$"
       },
       {
         level: "Vận dụng",
-        q: "Tìm hằng số k để hàm số f(x) = k · (1 - x²) với 0 ≤ x ≤ 1 (và bằng 0 ở ngoài) là một hàm mật độ xác suất hợp lệ. Sau đó tính P(X > 0,5).",
-        sol: "<b>Bước 1: Tìm k:</b> Áp dụng điều kiện chuẩn hóa $\\int_{-\\infty}^\\infty f(x)dx = 1$:<br>" +
-             "$$\\int_{0}^{1} k (1 - x^2) \\, dx = k \\left[ x - \\frac{x^3}{3} \\right]_{0}^{1} = k \\left( 1 - \\frac{1}{3} \\right) = \\frac{2}{3}k = 1 \\implies k = \\frac{3}{2} = 1{,}5$$<br>" +
-             "<b>Bước 2: Tính P(X > 0,5):</b><br>" +
-             "$$P(X &gt; 0{,}5) = \\int_{0{,}5}^{1} \\frac{3}{2}(1 - x^2) \\, dx = \\frac{3}{2} \\left[ x - \\frac{x^3}{3} \\right]_{0{,}5}^{1}$$<br>" +
-             "$$= \\frac{3}{2} \\left[ \\left(1 - \\frac{1}{3}\\right) - \\left(0{,}5 - \\frac{0{,}125}{3}\\right) \\right] = \\frac{3}{2} \\left[ \\frac{2}{3} - \\left(\\frac{1}{2} - \\frac{1}{24}\\right) \\right] = \\frac{3}{2} \\left[ \\frac{2}{3} - \\frac{11}{24} \\right] = \\frac{3}{2} \\cdot \\frac{5}{24} = \\frac{5}{16} = 0{,}3125$$."
+        t: "[Slide Week 07 — Bài tập 2] Bài toán Xác định Tham số Cận trên b",
+        q: "Biến ngẫu nhiên liên tục $X$ nhận giá trị trong đoạn $[0, b]$ với $b > 0$ (Slide 82–83). Hàm phân phối tích lũy trên đoạn này là $F_X(x) = \\frac{x^2}{9}$ (với $0 \\le x \\le b$).<br>" +
+           "a) Tìm giá trị của hằng số $b$.<br>" +
+           "b) Tìm hàm mật độ xác suất $f_X(x)$ và tính $P(1 \\le X \\le 2)$.",
+        sol: "<b>Lời giải mẫu bài thi theo Slide Week 07 (trang 83):</b><br>" +
+             "a) Vì $X$ là biến liên tục nên hàm tích lũy $F_X(x)$ liên tục tại cận trên $b$ và đạt giá trị $1$:<br>" +
+             "   $$F_X(b) = 1 \\iff \\frac{b^2}{9} = 1 \\iff b^2 = 9 \\implies b = 3 \\quad (\\text{do } b > 0)$$<br>" +
+             "b) Hàm mật độ $f_X(x)$ là đạo hàm của hàm tích lũy $F_X'(x)$ trên khoảng $(0, 3)$:<br>" +
+             "   $$f_X(x) = F_X'(x) = \\left(\\frac{x^2}{9}\\right)' = \\frac{2x}{9} \\quad (0 < x < 3)$$<br>" +
+             "   Xác suất $P(1 \\le X \\le 2)$ tính trực tiếp qua hàm tích lũy cdf:<br>" +
+             "   $$P(1 \\le X \\le 2) = F_X(2) - F_X(1) = \\frac{2^2}{9} - \\frac{1^2}{9} = \\frac{4}{9} - \\frac{1}{9} = \\frac{3}{9} = \\frac{1}{3} \\approx 0{,}3333$$"
       }
+    
     ],
     pitfalls: [
       {
@@ -4229,31 +4502,40 @@ const CUM_E = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Cho biến ngẫu nhiên liên tục X có hàm mật độ f(x) = 2x khi 0 < x < 1 (và bằng 0 ở ngoài) (Slide 49 — Ví dụ 13). Hãy tính E(X).",
-        sol: "<b>Áp dụng công thức tích phân:</b><br>" +
-             "$$E(X) = \\int_{0}^{1} x \\cdot f(x) \\, dx = \\int_{0}^{1} x \\cdot (2x) \\, dx = \\int_{0}^{1} 2x^2 \\, dx = \\left[ \\frac{2x^3}{3} \\right]_{0}^{1} = \\frac{2}{3} \\approx 0{,}6667$$."
+        t: "[Slide Week 07 — Ví dụ 13] Kỳ vọng biến ngẫu nhiên liên tục",
+        q: "Cho biến ngẫu nhiên liên tục $X$ có hàm mật độ xác suất: $f(x) = 2x$ khi $0 < x < 1$ (và bằng 0 ở ngoài, Slide 49). Hãy tính kỳ vọng $E(X)$.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 07 (trang 49):</b><br>" +
+             "Áp dụng định nghĩa kỳ vọng của biến ngẫu nhiên liên tục:<br>" +
+             "$$E(X) = \\int_{-\\infty}^\\infty x f(x)dx = \\int_0^1 x \\cdot (2x)dx = \\int_0^1 2x^2 dx$$<br>" +
+             "$$E(X) = \\left[\\frac{2x^3}{3}\\right]_0^1 = \\frac{2(1)^3}{3} - 0 = \\frac{2}{3} \\approx 0{,}6667$$"
       },
       {
         level: "Trung bình",
-        q: "Cũng biến ngẫu nhiên X ở trên (f(x) = 2x trên (0, 1)). Hãy tính E(X²), Var(X) và SD(X).",
-        sol: "<b>Bước 1: Tính E(X²):</b><br>" +
-             "$$E(X^2) = \\int_{0}^{1} x^2 \\cdot f(x) \\, dx = \\int_{0}^{1} x^2 \\cdot (2x) \\, dx = \\int_{0}^{1} 2x^3 \\, dx = \\left[ \\frac{2x^4}{4} \\right]_{0}^{1} = \\frac{1}{2} = 0{,}50$$<br>" +
-             "<b>Bước 2: Tính Var(X):</b><br>" +
-             "$$\\operatorname{Var}(X) = E(X^2) - [E(X)]^2 = \\frac{1}{2} - \\left(\\frac{2}{3}\\right)^2 = \\frac{1}{2} - \\frac{4}{9} = \\frac{9 - 8}{18} = \\frac{1}{18} \\approx 0{,}0556$$<br>" +
-             "<b>Bước 3: Tính SD(X):</b><br>" +
-             "$$\\operatorname{SD}(X) = \\sqrt{\\frac{1}{18}} = \\frac{1}{3\\sqrt{2}} \\approx 0{,}2357$$."
+        t: "[Slide Week 07 — Ví dụ 13] Phương sai và Độ lệch chuẩn qua Tích phân",
+        q: "Vẫn với biến ngẫu nhiên liên tục $X$ ở trên ($f(x) = 2x$ trên $(0, 1)$, $E(X) = 2/3$).<br>" +
+           "a) Tính mô-men bậc hai $E(X^2)$.<br>" +
+           "b) Tính phương sai $\\operatorname{Var}(X)$ và độ lệch chuẩn $\\operatorname{SD}(X)$.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 07 (trang 49):</b><br>" +
+             "a) Tính $E(X^2)$ bằng tích phân:<br>" +
+             "   $$E(X^2) = \\int_0^1 x^2 f(x)dx = \\int_0^1 x^2 \\cdot (2x)dx = \\int_0^1 2x^3 dx = \\left[\\frac{2x^4}{4}\\right]_0^1 = \\frac{1}{2} = 0{,}5$$<br>" +
+             "b) Áp dụng công thức rút gọn tính phương sai:<br>" +
+             "   $$\\operatorname{Var}(X) = E(X^2) - [E(X)]^2 = \\frac{1}{2} - \\left(\\frac{2}{3}\\right)^2 = \\frac{1}{2} - \\frac{4}{9} = \\frac{9 - 8}{18} = \\frac{1}{18} \\approx 0{,}0556$$<br>" +
+             "   Độ lệch chuẩn:<br>" +
+             "   $$\\operatorname{SD}(X) = \\sqrt{\\operatorname{Var}(X)} = \\frac{1}{\\sqrt{18}} = \\frac{1}{3\\sqrt{2}} \\approx 0{,}2357$$"
       },
       {
         level: "Vận dụng",
-        q: "Từ Bài tập 2 ở Slide 83: X có f(x) = 2x/9 trên khoảng (0, 3). Tính kỳ vọng và phương sai của biến ngẫu nhiên Y = 3X + 4.",
-        sol: "<b>Bước 1: Tính E(X) và Var(X):</b><br>" +
-             "- $E(X) = \\int_{0}^{3} x \\cdot \\frac{2x}{9} \\, dx = \\frac{2}{9} \\left[ \\frac{x^3}{3} \\right]_{0}^{3} = \\frac{2}{9} \\times 9 = 2{,}0$.<br>" +
-             "- $E(X^2) = \\int_{0}^{3} x^2 \\cdot \\frac{2x}{9} \\, dx = \\frac{2}{9} \\left[ \\frac{x^4}{4} \\right]_{0}^{3} = \\frac{2}{9} \\times \\frac{81}{4} = 4{,}5$.<br>" +
-             "- $\\operatorname{Var}(X) = 4{,}5 - 2{,}0^2 = 0{,}5$.<br>" +
-             "<b>Bước 2: Tính cho Y = 3X + 4:</b><br>" +
-             "- $E(Y) = 3 \\cdot E(X) + 4 = 3(2{,}0) + 4 = 10{,}0$.<br>" +
-             "- $\\operatorname{Var}(Y) = 3^2 \\cdot \\operatorname{Var}(X) = 9 \\times 0{,}5 = 4{,}5$."
+        t: "[Slide Week 07 — Bài tập 2 Ý 3] Kỳ vọng và Phương sai từ Bài tập mẫu UET",
+        q: "Từ Bài tập 2 ở Slide 83: Biến ngẫu nhiên $X$ có hàm mật độ $f(x) = \\frac{2x}{9}$ trên khoảng $(0, 3)$. Hãy tính kỳ vọng $E(X)$ và phương sai $\\operatorname{Var}(X)$.",
+        sol: "<b>Lời giải mẫu tự luận theo Slide Week 07 (trang 83):</b><br>" +
+             "1. Tính kỳ vọng $E(X)$:<br>" +
+             "   $$E(X) = \\int_0^3 x \\cdot \\left(\\frac{2x}{9}\\right)dx = \\int_0^3 \\frac{2x^2}{9}dx = \\left[\\frac{2x^3}{27}\\right]_0^3 = \\frac{2 \\times 27}{27} = 2$$<br>" +
+             "2. Tính $E(X^2)$:<br>" +
+             "   $$E(X^2) = \\int_0^3 x^2 \\cdot \\left(\\frac{2x}{9}\\right)dx = \\int_0^3 \\frac{2x^3}{9}dx = \\left[\\frac{2x^4}{36}\\right]_0^3 = \\left[\\frac{x^4}{18}\\right]_0^3 = \\frac{81}{18} = 4{,}5$$<br>" +
+             "3. Tính phương sai:<br>" +
+             "   $$\\operatorname{Var}(X) = E(X^2) - [E(X)]^2 = 4{,}5 - 2^2 = 4{,}5 - 4 = 0{,}5$$"
       }
+    
     ],
     pitfalls: [
       {
@@ -4373,29 +4655,40 @@ const CUM_E = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Thời gian xe buýt đến bến tuân theo phân phối đều từ 0 đến 10 phút, tức X ~ U(0, 10) (Slide 51-53). Tính xác suất để một hành khách phải chờ ít hơn 3 phút.",
-        sol: "<b>Áp dụng công thức tỉ lệ chiều dài đoạn:</b><br>" +
-             "$$P(X &lt; 3) = P(0 \\le X \\le 3) = \\frac{3 - 0}{10 - 0} = \\frac{3}{10} = 0{,}30\\text{ (30\\%)}$$."
+        t: "[Slide Week 07 — Ví dụ 14] Thời điểm xe buýt đến bến qua Phân phối Đều",
+        q: "Thời điểm xe buýt đến bến được mô hình hóa là phân phối đều từ 0 đến 10 phút, tức $X \\sim U(0, 10)$ (Slide 51–53).<br>" +
+           "a) Viết hàm mật độ xác suất $f(x)$ của $X$.<br>" +
+           "b) Tính xác suất xe buýt đến bến trong khoảng từ 3 đến 7 phút.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 07 (trang 53):</b><br>" +
+             "a) Với phân phối đều $X \\sim U(a = 0, b = 10)$, hàm mật độ là hằng số trên $[0, 10]$:<br>" +
+             "   $$f(x) = \\frac{1}{b - a} = \\frac{1}{10 - 0} = 0{,}1 \\quad (0 \\le x \\le 10)$$<br>" +
+             "b) Xác suất trên khoảng con tỉ lệ thuận với độ dài của khoảng đó:<br>" +
+             "   $$P(3 \\le X \\le 7) = \\frac{7 - 3}{b - a} = \\frac{4}{10} = 0{,}4 \\text{ (hay 40\\%)}$$"
       },
       {
         level: "Trung bình",
-        q: "Tính kỳ vọng và độ lệch chuẩn của thời gian chờ xe buýt trong ví dụ trên (X ~ U(0, 10)).",
-        sol: "<b>Bước 1: Kỳ vọng:</b><br>" +
-             "$$E(X) = \\frac{a + b}{2} = \\frac{0 + 10}{2} = 5{,}0\\text{ (phút)}$$<br>" +
-             "<b>Bước 2: Phương sai:</b><br>" +
-             "$$\\operatorname{Var}(X) = \\frac{(b - a)^2}{12} = \\frac{(10 - 0)^2}{12} = \\frac{100}{12} = \\frac{25}{3} \\approx 8{,}3333\\text{ (phút}^2\\text{)}$$<br>" +
-             "<b>Bước 3: Độ lệch chuẩn:</b><br>" +
-             "$$\\operatorname{SD}(X) = \\sqrt{\\frac{25}{3}} = \\frac{5}{\\sqrt{3}} \\approx 2{,}8868\\text{ (phút)}$$."
+        t: "[Slide Week 07 — Slide 50–53] Đặc trưng số học của Phân phối Đều",
+        q: "Với thời gian chờ xe buýt $X \\sim U(0, 10)$ ở trên (Slide 50–53). Hãy tính kỳ vọng $E(X)$, phương sai $\\operatorname{Var}(X)$ và độ lệch chuẩn $\\operatorname{SD}(X)$.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 07 (trang 50):</b><br>" +
+             "1. Kỳ vọng của phân phối đều nằm tại chính giữa đoạn $[a, b]$:<br>" +
+             "   $$E(X) = \\frac{a + b}{2} = \\frac{0 + 10}{2} = 5 \\text{ phút}$$<br>" +
+             "2. Phương sai tính theo công thức chuẩn giải tích:<br>" +
+             "   $$\\operatorname{Var}(X) = \\frac{(b - a)^2}{12} = \\frac{(10 - 0)^2}{12} = \\frac{100}{12} = \\frac{25}{3} \\approx 8{,}3333 \\text{ phút}^2$$<br>" +
+             "3. Độ lệch chuẩn:<br>" +
+             "   $$\\operatorname{SD}(X) = \\sqrt{\\frac{25}{3}} = \\frac{5}{\\sqrt{3}} \\approx 2{,}8868 \\approx 2{,}887 \\text{ phút}$$"
       },
       {
         level: "Vận dụng",
-        q: "Một xe buýt X ~ U(0, 10). Biết rằng bạn đã đứng chờ ở bến được 4 phút mà xe vẫn chưa tới. Tính xác suất để bạn phải chờ thêm ít nhất 3 phút nữa (tức tổng thời gian chờ vượt quá 7 phút).",
-        sol: "<b>Phân tích:</b> Đây là bài toán Xác suất có điều kiện trên phân phối liên tục: $P(X &gt; 7 \\mid X &gt; 4)$.<br>" +
-             "$$P(X &gt; 7 \\mid X &gt; 4) = \\frac{P(X &gt; 7 \\cap X &gt; 4)}{P(X &gt; 4)} = \\frac{P(X &gt; 7)}{P(X &gt; 4)}$$<br>" +
-             "- $P(X &gt; 7) = \\frac{10 - 7}{10} = \\frac{3}{10} = 0{,}3$.<br>" +
-             "- $P(X &gt; 4) = \\frac{10 - 4}{10} = \\frac{6}{10} = 0{,}6$.<br>" +
-             "$$\\implies P(X &gt; 7 \\mid X &gt; 4) = \\frac{0{,}3}{0{,}6} = 0{,}50\\text{ (50\\%)}$$."
+        t: "[Slide Week 07 — Slide 51–53] Xác suất có điều kiện của Phân phối Đều",
+        q: "Vẫn với thời gian xe buýt $X \\sim U(0, 10)$. Bạn đã đứng đợi tại bến xe được đúng 4 phút mà xe vẫn chưa tới ($X > 4$). Tính xác suất để xe buýt sẽ đến trong vòng 2 phút tiếp theo (tức $X \\le 6$).",
+        sol: "<b>Lời giải xác suất có điều kiện theo Slide Week 07:</b><br>" +
+             "1. Yêu cầu bài toán là tính $P(X \\le 6 \\mid X > 4)$, tức $P(4 < X \\le 6 \\mid X > 4)$.<br>" +
+             "2. Theo công thức xác suất có điều kiện:<br>" +
+             "   $$P(X \\le 6 \\mid X > 4) = \\frac{P(4 < X \\le 6)}{P(X > 4)}$$<br>" +
+             "3. Ta có $P(4 < X \\le 6) = \\frac{6 - 4}{10} = \\frac{2}{10} = 0{,}2$, và $P(X > 4) = \\frac{10 - 4}{10} = \\frac{6}{10} = 0{,}6$.<br>" +
+             "   $$P(X \\le 6 \\mid X > 4) = \\frac{0{,}2}{0{,}6} = \\frac{2}{6} = \\frac{1}{3} \\approx 0{,}3333 \\text{ (hay 33{,}33\\%)}$$"
       }
+    
     ],
     pitfalls: [
       {
@@ -4524,35 +4817,49 @@ const CUM_E = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Điểm thi môn Xác suất Thống kê tuân theo phân phối chuẩn N(μ = 70, σ² = 10²). Một sinh viên đạt 85 điểm thì giá trị chuẩn hóa Z bằng bao nhiêu?",
-        sol: "<b>Áp dụng công thức chuẩn hóa Z:</b><br>" +
-             "$$Z = \\frac{X - \\mu}{\\sigma} = \\frac{85 - 70}{10} = \\frac{15}{10} = 1{,}5$$<br>" +
-             "<b>Ý nghĩa:</b> Điểm của sinh viên này cao hơn điểm trung bình của lớp đúng 1,5 độ lệch chuẩn."
+        t: "[Slide Week 07 — Ví dụ 15] Điểm thi và Chuẩn hóa Z-score",
+        q: "Trong một kỳ thi, điểm số có phân phối chuẩn với trung bình $\\mu = 70$ và độ lệch chuẩn $\\sigma = 10$, tức $X \\sim N(70, 10^2)$ (Slide 57). Một sinh viên đạt 85 điểm.<br>" +
+           "a) Tính điểm chuẩn hóa $Z$ của sinh viên này.<br>" +
+           "b) Tra bảng hàm Laplace $\\Phi(z)$, tính tỉ lệ sinh viên có điểm số cao hơn sinh viên này.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 07 (trang 57):</b><br>" +
+             "a) Công thức chuẩn hóa Z-score:<br>" +
+             "   $$Z = \\frac{X - \\mu}{\\sigma} = \\frac{85 - 70}{10} = \\frac{15}{10} = 1{,}5$$<br>" +
+             "b) Tra bảng phân phối chuẩn tắc: $\\Phi(1{,}5) = P(Z \\le 1{,}5) = 0{,}9332$.<br>" +
+             "   Tỉ lệ sinh viên có điểm cao hơn sinh viên này là:<br>" +
+             "   $$P(X > 85) = P(Z > 1{,}5) = 1 - \\Phi(1{,}5) = 1 - 0{,}9332 = 0{,}0668 \\text{ (hay 6{,}68\\%)}$$"
       },
       {
         level: "Trung bình",
-        q: "Một máy chiết nước ngọt đóng chai tự động có dung tích phân phối chuẩn N(500, 5²). Dùng quy tắc 68–95–99,7 để tính xấp xỉ xác suất một chai nước có dung tích lớn hơn 510 ml.",
-        sol: "<b>Bước 1:</b> Chuẩn hóa giá trị 510:<br>" +
-             "$$Z = \\frac{510 - 500}{5} = \\frac{10}{5} = 2{,}0$$<br>" +
-             "<b>Bước 2:</b> Theo quy tắc thực nghiệm, khoảng trong 2 SD quanh trung bình (từ 490 đến 510) chiếm 95% dữ liệu.<br>" +
-             "<b>Bước 3:</b> Phần diện tích hai đuôi (nhỏ hơn 490 hoặc lớn hơn 510) chiếm $100\\% - 95\\% = 5\\%$.<br>" +
-             "Vì phân phối chuẩn đối xứng hoàn hảo, đuôi bên phải chiếm một nửa:<br>" +
-             "$$P(X &gt; 510) = P(Z &gt; 2) \\approx \\frac{5\\%}{2} = 2{,}5\\% = 0{,}025$$."
+        t: "[Slide Week 07 — Ví dụ 16 & 17] Dung tích Đóng chai và Bài toán Phân vị",
+        q: "Dung tích một chai nước giải khát (ml) được mô hình hóa bằng phân phối chuẩn $X \\sim N(500, 5^2)$ với $\\mu = 500$ ml và $\\sigma = 5$ ml (Slide 59, 61–62).<br>" +
+           "a) Áp dụng quy tắc thực nghiệm 68–95–99.7: Xác định khoảng dung tích chứa 95% số chai.<br>" +
+           "b) Tìm phân vị mức $p = 0{,}975$ (ngưỡng dung tích $x_0$ sao cho 97,5% số chai có dung tích không vượt quá $x_0$).",
+        sol: "<b>Lời giải chi tiết theo Slide Week 07 (trang 59 & 61):</b><br>" +
+             "a) Theo quy tắc thực nghiệm 68–95–99.7, khoảng $[\\mu - 2\\sigma, \\mu + 2\\sigma]$ chứa xấp xỉ 95% số quan sát:<br>" +
+             "   $$[500 - 2(5), 500 + 2(5)] = [490, 510] \\text{ ml}$$<br>" +
+             "b) Bài toán phân vị ngược:<br>" +
+             "   Ta tìm $z_{0{,}975}$ sao cho $\\Phi(z_{0{,}975}) = 0{,}975$. Tra bảng chuẩn tắc được $z_{0{,}975} = 1{,}96$.<br>" +
+             "   Chuyển ngược về đơn vị ban đầu:<br>" +
+             "   $$x_0 = \\mu + z_{0{,}975} \\cdot \\sigma = 500 + 1{,}96 \\times 5 = 500 + 9{,}8 = 509{,}8 \\text{ ml}$$"
       },
       {
         level: "Vận dụng",
-        q: "Bài tập 3 Slide 84-85: Khối lượng người Việt Nam có phân phối chuẩn N(65, 5²). Giả sử khối lượng của những người được chọn độc lập. Một thang máy chở tối đa 10 người và tải trọng 700 kg. Tính xác suất để 10 người ngẫu nhiên vào thang máy mà không bị quá tải.",
-        sol: "<b>Bước 1: Xác định phân phối của tổng 10 người:</b><br>" +
-             "Gọi $X_i \\sim \\mathcal{N}(65, 5^2)$ là cân nặng người thứ $i$. Đặt $S_{10} = X_1 + \\dots + X_{10}$.<br>" +
-             "- Kỳ vọng của tổng: $E(S_{10}) = 10 \\times 65 = 650\\text{ kg}$.<br>" +
-             "- Phương sai của tổng: $\\operatorname{Var}(S_{10}) = 10 \\times 5^2 = 250\\text{ kg}^2$.<br>" +
-             "- Độ lệch chuẩn: $\\operatorname{SD}(S_{10}) = \\sqrt{250} = 5\\sqrt{10} \\approx 15{,}8114\\text{ kg}$.<br>" +
-             "Vì tổng các biến chuẩn độc lập cũng là biến chuẩn $\\implies S_{10} \\sim \\mathcal{N}(650, 250)$.<br>" +
-             "<b>Bước 2: Tính xác suất không quá tải P(S₁₀ ≤ 700):</b><br>" +
-             "$$Z = \\frac{700 - 650}{5\\sqrt{10}} = \\frac{50}{15{,}8114} \\approx 3{,}1623$$<br>" +
-             "$$P(S_{10} \\le 700) = \\Phi(3{,}1623) \\approx 0{,}9992\\text{ (hay } 99{,}92\\%\\text{)}$$<br>" +
-             "<b>Kết luận:</b> Xác suất thang máy không bị quá tải xấp xỉ 99,92%."
+        t: "[Slide Week 07 — Bài tập 3] Bài toán Tải trọng Thang máy UET",
+        q: "Khối lượng của người Việt Nam trưởng thành có phân phối chuẩn với trung bình $\\mu = 65$ kg và độ lệch chuẩn $\\sigma = 5$ kg (Slide 84–85). Một thang máy chở tối đa 10 người và có tải trọng giới hạn an toàn là 700 kg. Giả sử 10 người ngẫu nhiên bước vào thang máy có khối lượng độc lập. Tính xác suất thang máy bị quá tải.",
+        sol: "<b>Lời giải chuẩn tự luận theo Slide Week 07 (trang 85):</b><br>" +
+             "1. Gọi $X_i$ là khối lượng người thứ $i$ ($X_i \\sim N(65, 5^2)$ với $i=1, \\dots, 10$).<br>" +
+             "   Tổng khối lượng của 10 người là $S_{10} = \\sum_{i=1}^{10} X_i$.<br>" +
+             "2. Vì tổng của các biến chuẩn độc lập cũng là một biến chuẩn:<br>" +
+             "   $$E(S_{10}) = 10 \\times \\mu = 10 \\times 65 = 650 \\text{ kg}$$<br>" +
+             "   $$\\operatorname{Var}(S_{10}) = 10 \\times \\sigma^2 = 10 \\times 5^2 = 250 \\implies \\operatorname{SD}(S_{10}) = \\sqrt{250} = 5\\sqrt{10} \\approx 15{,}8114 \\text{ kg}$$<br>" +
+             "   Do đó: $S_{10} \\sim N(650, 250)$.<br>" +
+             "3. Thang máy quá tải khi $S_{10} > 700$ kg. Chuẩn hóa $Z$:<br>" +
+             "   $$Z = \\frac{700 - 650}{\\sqrt{250}} = \\frac{50}{15{,}8114} \\approx 3{,}16$$<br>" +
+             "   Tra bảng $\\Phi(3{,}16) = 0{,}9992$:<br>" +
+             "   $$P(S_{10} > 700) = 1 - \\Phi(3{,}16) = 1 - 0{,}9992 = 0{,}0008 \\text{ (hay 0{,}08\\%)}$$<br>" +
+             "   Xác suất quá tải cực kỳ nhỏ, thang máy hoạt động rất an toàn."
       }
+    
     ],
     pitfalls: [
       {
@@ -4680,25 +4987,42 @@ const CUM_E = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Thời gian chờ giữa các lần bảo trì máy chủ có phân phối mũ với kỳ vọng 5 tháng. Tham số tốc độ λ bằng bao nhiêu và phương sai bằng bao nhiêu?",
-        sol: "<b>Bước 1:</b> Vì $E(X) = \\frac{1}{\\lambda} = 5 \\implies \\lambda = \\frac{1}{5} = 0{,}2\\text{ (lần/tháng)}$.<br>" +
-             "<b>Bước 2:</b> Phương sai:<br>" +
-             "$$\\operatorname{Var}(X) = \\frac{1}{\\lambda^2} = 5^2 = 25\\text{ (tháng}^2\\text{)}$$."
+        t: "[Slide Week 07 — Ví dụ 18] Thời gian chờ hệ thống nhận yêu cầu",
+        q: "Thời gian chờ từ lúc bắt đầu theo dõi đến khi hệ thống nhận được yêu cầu có phân phối mũ với kỳ vọng $E(X) = 2$ phút (Slide 64–65).<br>" +
+           "a) Xác định tham số tốc độ $\\lambda$.<br>" +
+           "b) Tính xác suất để phải chờ nhiều hơn 3 phút mới nhận được yêu cầu.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 07 (trang 65):</b><br>" +
+             "a) Với phân phối mũ $X \\sim Exp(\\lambda)$, kỳ vọng $E(X) = \\frac{1}{\\lambda}$:<br>" +
+             "   $$\\lambda = \\frac{1}{E(X)} = \\frac{1}{2} = 0{,}5 \\text{ (mỗi phút)}$$<br>" +
+             "b) Xác suất đuôi của phân phối mũ tính theo công thức trực tiếp $P(X > x) = e^{-\\lambda x}$:<br>" +
+             "   $$P(X > 3) = e^{-0{,}5 \\times 3} = e^{-1{,}5} \\approx 0{,}2231 \\text{ (hay 22{,}31\\%)}$$"
       },
       {
         level: "Trung bình",
-        q: "Thời gian phục vụ một khách hàng tại quầy giao dịch là biến ngẫu nhiên X ~ Exp(λ = 0,5 phút⁻¹). Tính xác suất để một khách hàng được phục vụ trong hơn 4 phút.",
-        sol: "<b>Áp dụng công thức xác suất đuôi phải:</b><br>" +
-             "$$P(X &gt; 4) = e^{-\\lambda x} = e^{-0{,}5 \\times 4} = e^{-2} \\approx 0{,}1353\\text{ (hay } 13{,}53\\%\\text{)}$$."
+        t: "[Slide Week 07 — Slide 63–65] Tính không nhớ (Memoryless Property)",
+        q: "Vẫn với hệ thống ở trên ($X \\sim Exp(\\lambda = 0{,}5)$). Giả sử người quản trị đã chờ 4 phút mà hệ thống vẫn chưa nhận được yêu cầu nào ($X > 4$). Tính xác suất để phải chờ thêm ít nhất 3 phút nữa mới có yêu cầu đến (tức $X > 7$).",
+        sol: "<b>Chứng minh tính chất không nhớ theo Slide Week 07:</b><br>" +
+             "1. Theo công thức xác suất có điều kiện:<br>" +
+             "   $$P(X > 4 + 3 \\mid X > 4) = \\frac{P(X > 7)}{P(X > 4)} = \\frac{e^{-0{,}5 \\times 7}}{e^{-0{,}5 \\times 4}} = \\frac{e^{-3{,}5}}{e^{-2{,}0}} = e^{-1{,}5} \\approx 0{,}2231$$<br>" +
+             "2. Ta thấy $P(X > 4 + 3 \\mid X > 4) = P(X > 3)$.<br>" +
+             "<b>Ý nghĩa:</b> Phân phối mũ 'không có trí nhớ' (Memoryless) — việc bạn đã mất công chờ 4 phút không hề làm tăng hay giảm cơ hội yêu cầu đến ở phút tiếp theo!"
       },
       {
         level: "Vận dụng",
-        q: "Bài tập 4 Ý 4 Slide 88: Khoảng cách X từ nơi ở đến trường của một sinh viên có phân phối mũ với kỳ vọng 5 km (λ = 1/5 = 0,2). Tính xác suất chính xác để khoảng cách của một sinh viên nằm trong khoảng từ 4,9 km đến 5,2 km.",
-        sol: "<b>Áp dụng công thức xác suất khoảng của phân phối mũ:</b><br>" +
-             "$$P(4{,}9 &lt; X &lt; 5{,}2) = e^{-\\lambda(4{,}9)} - e^{-\\lambda(5{,}2)} = e^{-4{,}9/5} - e^{-5{,}2/5} = e^{-0{,}98} - e^{-1{,}04}$$<br>" +
-             "$$= 0{,}37531 - 0{,}35345 \\approx 0{,}0219\\text{ (hay } 2{,}19\\%\\text{)}$$<br>" +
-             "<i>Nhận xét: Đây là xác suất chính xác cho 1 sinh viên đơn lẻ, rất khác với xác suất trung bình của 100 sinh viên (được tính bằng CLT ở bài sau)!</i>"
+        t: "[Slide Week 07 — Bài tập 4] Khoảng cách từ nơi ở đến trường",
+        q: "Khoảng cách $X$ (km) từ nơi ở đến trường của một sinh viên có phân phối mũ với kỳ vọng $E(X) = 5$ km và độ lệch chuẩn $\\operatorname{SD}(X) = 5$ km (Slide 86–88).<br>" +
+           "a) Xác định tham số $\\lambda$ và viết hàm mật độ $f(x)$.<br>" +
+           "b) Tính xác suất một sinh viên sống cách trường trên 10 km.<br>" +
+           "c) Nhận diện định tính đồ thị phân phối Chi-bình phương và $t$-Student (Slide 66–67).",
+        sol: "<b>Lời giải theo Slide Week 07 (trang 87–88):</b><br>" +
+             "a) Tham số tốc độ: $\\lambda = 1/E(X) = 1/5 = 0{,}2$. Hàm mật độ: $f(x) = 0{,}2 e^{-0{,}2 x}$ với $x \\ge 0$.<br>" +
+             "b) Xác suất sinh viên sống cách trường trên 10 km:<br>" +
+             "   $$P(X > 10) = e^{-0{,}2 \\times 10} = e^{-2} \\approx 0{,}1353 \\text{ (hay 13{,}53\\%)}$$<br>" +
+             "c) Nhận diện theo Slide 66–67:<br>" +
+             "   - <b>Phân phối Chi-bình phương ($\\chi^2$):</b> Luôn không âm ($x \\ge 0$), đồ thị lệch phải mạnh ở bậc tự do $\\nu$ nhỏ, dần đối xứng khi $\\nu$ lớn.<br>" +
+             "   - <b>Phân phối $t$-Student:</b> Đối xứng hình chuông quanh 0 giống chuẩn tắc nhưng có <b>đuôi dày hơn</b> (Heavy-tailed); khi bậc tự do $\\nu \\to \\infty$, $t$-Student hội tụ về Chuẩn tắc $N(0, 1)$."
       }
+    
     ],
     pitfalls: [
       {
@@ -4842,47 +5166,54 @@ const CUM_E = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Thời gian xử lý một yêu cầu có trung bình μ = 12 phút và độ lệch chuẩn σ = 6 phút (Slide 76-77 — Ví dụ 20). Chọn ngẫu nhiên độc lập 64 yêu cầu. Tính xác suất để thời gian xử lý trung bình nhỏ hơn 11 phút.",
-        sol: "<b>Bước 1: Kiểm tra điều kiện:</b> Các yêu cầu độc lập, cùng phân phối, cỡ mẫu $n = 64 &gt; 30$.<br>" +
-             "<b>Bước 2: Phân phối của trung bình mẫu:</b><br>" +
-             "- $E(\\bar{X}_{64}) = \\mu = 12\\text{ phút}$.<br>" +
-             "- $\\operatorname{SD}(\\bar{X}_{64}) = \\frac{\\sigma}{\\sqrt{n}} = \\frac{6}{\\sqrt{64}} = \\frac{6}{8} = 0{,}75\\text{ phút}$.<br>" +
-             "Theo CLT: $\\bar{X}_{64} \\approx \\mathcal{N}(12, \\, 0{,}75^2)$.<br>" +
-             "<b>Bước 3: Chuẩn hóa Z và tra bảng:</b><br>" +
-             "$$Z = \\frac{11 - 12}{0{,}75} = \\frac{-1}{0{,}75} \\approx -1{,}3333$$<br>" +
-             "$$P(\\bar{X}_{64} &lt; 11) \\approx \\Phi(-1{,}33) = 1 - \\Phi(1{,}33) = 1 - 0{,}9082 = 0{,}0918\\text{ (hay } 9{,}18\\%\\text{)}$$."
+        t: "[Slide Week 07 — Ví dụ 20] Thời gian Xử lý Yêu cầu qua Định lý CLT",
+        q: "Thời gian xử lý một yêu cầu dịch vụ có trung bình $\\mu = 12$ phút và độ lệch chuẩn $\\sigma = 6$ phút (Slide 76–77). Một ca làm việc xử lý độc lập $n = 36$ yêu cầu. Gọi $S_{36}$ là tổng thời gian xử lý của cả ca.<br>" +
+           "a) Xác định phân phối xấp xỉ của $S_{36}$ theo Định lý giới hạn trung tâm.<br>" +
+           "b) Tính xác suất tổng thời gian xử lý không vượt quá 7,5 giờ (450 phút).",
+        sol: "<b>Lời giải chi tiết theo Slide Week 07 (trang 77):</b><br>" +
+             "a) Vì cỡ mẫu $n = 36 \\ge 30$, theo Định lý giới hạn trung tâm (CLT):<br>" +
+             "   - $E(S_{36}) = n \\cdot \\mu = 36 \\times 12 = 432 \\text{ phút}$.<br>" +
+             "   - $\\operatorname{SD}(S_{36}) = \\sigma \\sqrt{n} = 6 \\times \\sqrt{36} = 6 \\times 6 = 36 \\text{ phút}$.<br>" +
+             "   Do đó: $S_{36} \\approx N(432, 36^2) = N(432, 1296)$.<br>" +
+             "b) Chuẩn hóa biến $Z$ với ngưỡng 450 phút:<br>" +
+             "   $$Z = \\frac{450 - 432}{36} = \\frac{18}{36} = 0{,}5$$<br>" +
+             "   Tra bảng Laplace: $\\Phi(0{,}5) = 0{,}6915$.<br>" +
+             "   $$P(S_{36} \\le 450) = P(Z \\le 0{,}5) = \\Phi(0{,}5) = 0{,}6915 \\text{ (hay 69{,}15\\%)}$$"
       },
       {
         level: "Trung bình",
-        q: "Bài tập 4 Ý 3 Slide 87: Khoảng cách từ nhà đến trường có μ = 5 km, σ = 5 km. Chọn ngẫu nhiên 100 sinh viên. Dùng CLT tính xác suất khoảng cách trung bình của 100 sinh viên nằm trong (4,9; 5,2) km.",
-        sol: "<b>Bước 1:</b> $n = 100 \\ge 30$, $\\mu = 5$, $\\sigma = 5$.<br>" +
-             "- $E(\\bar{X}_{100}) = 5\\text{ km}$.<br>" +
-             "- $\\operatorname{SD}(\\bar{X}_{100}) = \\frac{5}{\\sqrt{100}} = \\frac{5}{10} = 0{,}5\\text{ km}$.<br>" +
-             "<b>Bước 2: Chuẩn hóa hai đầu mút:</b><br>" +
-             "- Tại $4{,}9$: $Z_1 = \\frac{4{,}9 - 5}{0{,}5} = -0{,}20$.<br>" +
-             "- Tại $5{,}2$: $Z_2 = \\frac{5{,}2 - 5}{0{,}5} = +0{,}40$.<br>" +
-             "<b>Bước 3: Tra bảng:</b><br>" +
-             "$$P(4{,}9 &lt; \\bar{X}_{100} &lt; 5{,}2) \\approx \\Phi(0{,}40) - \\Phi(-0{,}20) = \\Phi(0{,}40) - [1 - \\Phi(0{,}20)]$$<br>" +
-             "$$= 0{,}6554 - (1 - 0{,}5793) = 0{,}6554 - 0{,}4207 = 0{,}2347\\text{ (hay } 23{,}47\\%\\text{)}$$."
+        t: "[Slide Week 07 — Bài tập 4 Ý 3] Khoảng cách Trung bình của 100 Sinh viên",
+        q: "Khoảng cách từ nhà đến trường có phân phối mũ với $\\mu = 5$ km và $\\sigma = 5$ km (Slide 87). Khảo sát ngẫu nhiên $n = 100$ sinh viên. Dù phân phối gốc là phân phối mũ cực kỳ lệch phải, hãy áp dụng CLT để tính xác suất khoảng cách trung bình của 100 sinh viên nằm trong khoảng từ 4,5 km đến 5,5 km.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 07 (trang 87):</b><br>" +
+             "1. Với cỡ mẫu lớn $n = 100$, theo CLT trung bình mẫu $\\bar{X}_{100}$ xấp xỉ phân phối Chuẩn:<br>" +
+             "   - $E(\\bar{X}_{100}) = \\mu = 5 \\text{ km}$.<br>" +
+             "   - $\\operatorname{SD}(\\bar{X}_{100}) = \\frac{\\sigma}{\\sqrt{n}} = \\frac{5}{\\sqrt{100}} = \\frac{5}{10} = 0{,}5 \\text{ km}$.<br>" +
+             "   Suy ra: $\\bar{X}_{100} \\approx N(5, 0{,}5^2) = N(5, 0{,}25)$.<br>" +
+             "2. Tính xác suất $P(4{,}5 \\le \\bar{X}_{100} \\le 5{,}5)$:<br>" +
+             "   - Tại cận dưới: $z_1 = \\frac{4{,}5 - 5}{0{,}5} = -1{,}0$.<br>" +
+             "   - Tại cận trên: $z_2 = \\frac{5{,}5 - 5}{0{,}5} = +1{,}0$.<br>" +
+             "   $$P(4{,}5 \\le \\bar{X}_{100} \\le 5{,}5) = \\Phi(1{,}0) - \\Phi(-1{,}0) = 2\\Phi(1{,}0) - 1$$<br>" +
+             "   Tra bảng $\\Phi(1{,}0) = 0{,}8413$:<br>" +
+             "   $$P = 2(0{,}8413) - 1 = 1{,}6826 - 1 = 0{,}6826 \\text{ (hay 68{,}26\\%)}$$"
       },
       {
         level: "Vận dụng",
-        q: "Bài tập 5 Slide 89-91: Tuổi thọ linh kiện có trung bình 100 giờ và độ lệch chuẩn 30 giờ. Khi linh kiện hỏng được thay ngay. Dùng CLT ước tính số linh kiện n cần có sao cho xác suất hệ thống chạy ít nhất 2000 giờ đạt tối thiểu 95%.",
-        sol: "<b>Bước 1: Thiết lập mô hình:</b><br>" +
-             "Tổng thời gian hoạt động $S_n = X_1 + \\dots + X_n$.<br>" +
-             "- $E(S_n) = 100n$, $\\operatorname{SD}(S_n) = 30\\sqrt{n}$.<br>" +
-             "- Theo CLT: $P(S_n \\ge 2000) \\approx \\Phi\\left(\\frac{100n - 2000}{30\\sqrt{n}}\\right) \\ge 0{,}95$.<br>" +
-             "<b>Bước 2: Giải bất phương trình ẩn u = √n:</b><br>" +
-             "Ta có giá trị phân vị $\\Phi(1{,}64485) = 0{,}95$. Do đó:<br>" +
-             "$$\\frac{100n - 2000}{30\\sqrt{n}} \\ge 1{,}64485 \\implies 100n - 2000 \\ge 49{,}3455\\sqrt{n}$$<br>" +
-             "Đặt $u = \\sqrt{n} &gt; 0$: $100u^2 - 49{,}3455u - 2000 \\ge 0$.<br>" +
-             "Giải phương trình bậc hai: $\\Delta = (-49{,}3455)^2 - 4(100)(-2000) \\approx 802435 \\implies \\sqrt{\\Delta} \\approx 895{,}79$.<br>" +
-             "$$u \\ge \\frac{49{,}3455 + 895{,}79}{200} \\approx 4{,}7257 \\implies n = u^2 \\ge 4{,}7257^2 \\approx 22{,}33$$<br>" +
-             "<b>Bước 3: Kiểm tra các số nguyên lân cận:</b><br>" +
-             "- Với $n = 22$: $Z = \\frac{100(22) - 2000}{30\\sqrt{22}} = \\frac{200}{140{,}71} \\approx 1{,}4213 \\implies \\Phi(1{,}4213) \\approx 0{,}9224 &lt; 95\\%$.<br>" +
-             "- Với $n = 23$: $Z = \\frac{100(23) - 2000}{30\\sqrt{23}} = \\frac{300}{143{,}87} \\approx 2{,}0851 \\implies \\Phi(2{,}0851) \\approx 0{,}9815 &gt; 95\\%$.<br>" +
-             "<b>Kết luận:</b> Cần chọn $n = 23$ linh kiện (gồm 1 linh kiện ban đầu và 22 linh kiện dự phòng)."
+        t: "[Slide Week 07 — Bài tập 5] Bài toán Bóng đèn Dự phòng Phân loại 9–10 Điểm UET",
+        q: "Một hệ thống cần một linh kiện thiết yếu để hoạt động liên tục (Slide 89–91). Khi linh kiện hỏng, một linh kiện dự phòng cùng loại sẽ được thay thế tức thì. Tuổi thọ mỗi linh kiện là biến ngẫu nhiên độc lập có trung bình $\\mu = 100$ giờ và độ lệch chuẩn $\\sigma = 30$ giờ (hoặc $\\sigma = 20$). Cần chuẩn bị tối thiểu bao nhiêu linh kiện $n$ để hệ thống hoạt động liên tục ít nhất $T = 2000$ giờ với xác suất không dưới 99% ($0{,}99$)?",
+        sol: "<b>Lời giải kinh điển bằng Tam thức bậc hai theo Slide Week 07 (trang 90–91):</b><br>" +
+             "1. Gọi $X_i$ là tuổi thọ linh kiện thứ $i$. Tổng thời gian hoạt động là $S_n = \\sum_{i=1}^n X_i$.<br>" +
+             "   Theo CLT: $S_n \\approx N(n\\mu, n\\sigma^2) = N(100n, 900n) \\implies \\operatorname{SD}(S_n) = 30\\sqrt{n}$.<br>" +
+             "2. Yêu cầu $P(S_n \\ge 2000) \\ge 0{,}99 \\iff P\\left(Z \\ge \\frac{2000 - 100n}{30\\sqrt{n}}\\right) \\ge 0{,}99$.<br>" +
+             "   Tương đương: $\\frac{100n - 2000}{30\\sqrt{n}} \\ge z_{0{,}99} \\approx 2{,}3263$ (hoặc với $\\sigma=20$ thì mẫu số là $20\\sqrt{n}$).<br>" +
+             "3. Nhân chéo chuyển vế, đặt ẩn phụ $u = \\sqrt{n} > 0$:<br>" +
+             "   $$100u^2 - 69{,}789u - 2000 \\ge 0$$<br>" +
+             "   Giải phương trình bậc hai: $\\Delta = (-69{,}789)^2 - 4(100)(-2000) = 4870{,}5 + 800000 = 804870{,}5 \\implies \\sqrt{\\Delta} \\approx 897{,}14$.<br>" +
+             "   Nghiệm dương:<br>" +
+             "   $$u \\ge \\frac{69{,}789 + 897{,}14}{200} = \\frac{966{,}93}{200} \\approx 4{,}835$$<br>" +
+             "   Suy ra: $n = u^2 \\ge (4{,}835)^2 \\approx 23{,}38$.<br>" +
+             "4. <b>Kết luận:</b> Vì $n$ nguyên nên bắt buộc phải làm tròn LÊN: <b>cần tối thiểu $n = 24$ linh kiện</b> (với $\\sigma=20$ nghiệm là $n = 23$ linh kiện)."
       }
+    
     ],
     pitfalls: [
       {

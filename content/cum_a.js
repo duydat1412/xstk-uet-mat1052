@@ -66,22 +66,35 @@ const CUM_A = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Xác định loại của biến: 'Số lỗi cú pháp trong một bài nộp code của sinh viên'.",
-        sol: "<b>Phân tích:</b> Số lỗi cú pháp là kết quả của việc đếm (0 lỗi, 1 lỗi, 2 lỗi,...), chỉ nhận các giá trị nguyên không âm tách rời và phép tính trung bình số lỗi có ý nghĩa thực tế.<br><b>Kết luận:</b> Biến số, loại <b>Rời rạc (Discrete Numerical)</b>."
+        t: "[Slide Week 01 — W01-IMS02] Bộ dữ liệu Chim cánh cụt Palmer Penguins",
+        q: "Trong bộ dữ liệu nghiên cứu sinh học Palmer Penguins (Slide 40–41), các nhà khoa học thu thập thông tin về 344 cá thể chim cánh cụt gồm các cột: (1) Loài (`species`: Adelie, Chinstrap, Gentoo); (2) Đảo sinh sống (`island`: Biscoe, Dream, Torgersen); (3) Chiều dài mỏ (`bill_length_mm`, mm); (4) Năm thu thập (`year`: 2007, 2008, 2009). Hãy phân loại chính xác 4 biến trên.",
+        sol: "<b>Phân tích đối chiếu theo Slide Week 01 (trang 40–41):</b><br>" +
+             "1. <code>species</code>: Các nhóm tên loài chim không có thứ bậc hơn kém $\\rightarrow$ <b>Biến phân loại Định danh (Nominal)</b>.<br>" +
+             "2. <code>island</code>: Tên các hòn đảo nơi chim sinh sống $\\rightarrow$ <b>Biến phân loại Định danh (Nominal)</b>.<br>" +
+             "3. <code>bill_length_mm</code>: Phép đo liên tục chiều dài mỏ bằng thước kẹp (có thể nhận giá trị thập phân như 39,1 mm) $\\rightarrow$ <b>Biến số Liên tục (Continuous Numerical)</b>.<br>" +
+             "4. <code>year</code>: Năm khảo sát (2007, 2008, 2009), có quan hệ thứ tự thời gian tự nhiên $\\rightarrow$ <b>Biến phân loại Thứ bậc (Ordinal)</b> (hoặc biến số rời rạc nếu xét hiệu số năm)."
       },
       {
         level: "Trung bình",
-        q: "Biến 'Mức độ hài lòng của khách hàng' với các mức: 'Rất không hài lòng', 'Bình thường', 'Hài lòng', 'Rất hài lòng' thuộc loại nào?",
-        sol: "<b>Phân tích:</b> Đây là các nhãn chữ (biến phân loại), nhưng giữa các nhãn có thứ tự mức độ tăng dần rõ rệt ('Rất không hài lòng' &lt; 'Hài lòng').<br><b>Kết luận:</b> Biến phân loại, loại <b>Thứ bậc (Ordinal Categorical)</b>."
+        t: "[Slide Week 01 — W01-CH02] Thử thách '1, 2, 3, 4, 5 nói được gì?'",
+        q: "Một kỹ sư nhận một tệp dữ liệu chỉ có một cột $x$ chứa các số nguyên: 1, 2, 3, 4, 5 (Slide 28–29). Tài liệu mô tả bị thiếu. Kỹ sư này kết luận ngay: 'Vì $x$ lưu bằng số nguyên nên $x$ chắc chắn là biến số rời rạc'. Kết luận này đúng hay sai? Tại sao?",
+        sol: "<b>Phân tích theo Slide Week 01 (trang 28–29):</b><br>" +
+             "<b>Kết luận SAI hoàn toàn!</b> Cách biểu diễn số trong máy tính chỉ là kiểu lưu trữ (Storage type), không quyết định bản chất thống kê của biến.<br>" +
+             "- Nếu $x$ là mã hóa của khu vực (1=Miền Bắc, 2=Miền Trung, 3=Miền Nam) $\\rightarrow$ $x$ là <b>Biến phân loại Định danh</b>.<br>" +
+             "- Nếu $x$ là đánh giá mức độ hài lòng (1 sao đến 5 sao) $\\rightarrow$ $x$ là <b>Biến phân loại Thứ bậc</b>.<br>" +
+             "- Chỉ khi $x$ là số người phụ thuộc hoặc số sản phẩm đếm được (phép tính trung bình có ý nghĩa định lượng thực tế) thì $x$ mới là <b>Biến số rời rạc</b>."
       },
       {
         level: "Vận dụng",
-        q: "Một nhân viên y tế ghi nhận: (1) Mã định danh căn cước công dân; (2) Nồng độ oxy trong máu SpO2 (đo bằng %); (3) Giai đoạn tiến triển bệnh (Giai đoạn I, II, III). Hãy phân loại chính xác từng biến.",
-        sol: "<b>Phân tích từng biến:</b><br>" +
-             "1. Căn cước công dân: Dãy số nhưng chỉ dùng để nhận diện người, tính trung bình vô nghĩa $\rightarrow$ <b>Phân loại Định danh (Nominal)</b>.<br>" +
-             "2. Nồng độ SpO2: Đo lường liên tục (có thể là 97,5%, 98,2%) $\rightarrow$ <b>Biến số Liên tục (Continuous Numerical)</b>.<br>" +
-             "3. Giai đoạn bệnh: Nhóm bệnh có mức độ nghiêm trọng tăng dần $\rightarrow$ <b>Phân loại Thứ bậc (Ordinal)</b>."
+        t: "[Slide Week 01 — W01-IMS01 & W01-CH03] Xác định Đơn vị quan sát (Observation Unit)",
+        q: "Dựa vào hai bài toán thực tế trong bài giảng Slide Week 01 (trang 38–43), hãy xác định chính xác Đơn vị quan sát (Observation unit) của mỗi hàng trong bảng dữ liệu:<br>" +
+           "a) [W01-IMS01] Bảng dữ liệu 23 bộ phim thuộc Vũ trụ Điện ảnh Marvel (MCU) ghi nhận: Tên phim, Năm phát hành, Doanh thu mở màn (triệu USD), Doanh thu toàn cầu.<br>" +
+           "b) [W01-CH03] Bảng lịch sử đăng ký học tập do Phòng Đào tạo UET trích xuất gồm các cột: `MSSV`, `MaMon`, `HocKy`, `DiemSo`.",
+        sol: "<b>Phân tích bản chất cấu trúc dữ liệu theo Slide Week 01:</b><br>" +
+             "a) Trong bảng Marvel (Slide 38–39): Mỗi hàng đại diện cho <b>một bộ phim cụ thể</b> (A movie). Có 23 hàng tức là có 23 bộ phim được quan sát.<br>" +
+             "b) Trong bảng Đào tạo UET (Slide 42–43): Một hàng <b>KHÔNG PHẢI</b> là một sinh viên, cũng không phải một môn học (vì một sinh viên học nhiều môn, một môn có nhiều sinh viên). Mỗi hàng là <b>một lượt đăng ký học (Sinh viên × Môn học × Học kỳ)</b>."
       }
+    
     ],
     pitfalls: [
       {
@@ -185,70 +198,81 @@ const CUM_A = [
             <p>Tổng các tỉ lệ của mọi nhóm luôn luôn bằng đúng $1$ (hay $100\\%$).</p>
             <div class="tip-box"><b>Khi nào dùng Tỉ lệ thay vì Tần số?</b> Khi muốn so sánh giữa các nhóm có quy mô tổng thể khác nhau! Ví dụ: 20 sinh viên trượt môn trong lớp 50 người (tỉ lệ 40%) nghiêm trọng hơn nhiều so với 40 sinh viên trượt môn trong khóa 400 người (tỉ lệ 10%).</div>`
       },
-      {
+            {
         t: "Hai biến phân loại: Bảng liên hợp 2 chiều (Contingency Table)",
-        c: `<p>Muốn xem xét mối liên hệ giữa hai biến phân loại, ta xếp chúng vào <b>Bảng liên hợp (Two-way Contingency Table)</b>: một biến đặt theo hàng, một biến đặt theo cột.</p>
+        c: `<p>Muốn xem xét mối liên hệ giữa hai biến phân loại, bài giảng Slide Week 02 (trang 15–19) sử dụng <b>Bảng liên hợp thảm họa Titanic</b> (2.201 hành khách):</p>
             <table class="data-table">
-              <thead><tr><th>Năm học \\ Đi làm thêm</th><th>Có đi làm thêm</th><th>Không đi làm</th><th>Tổng hàng</th></tr></thead>
+              <thead><tr><th>Độ tuổi \\ Kết quả</th><th>Sống sót</th><th>Tử vong</th><th>Tổng hàng</th></tr></thead>
               <tbody>
-                <tr><td><b>Năm 1</b></td><td>6</td><td>24</td><td><b>30</b></td></tr>
-                <tr><td><b>Năm 2</b></td><td>10</td><td>10</td><td><b>20</b></td></tr>
-                <tr><td><b>Tổng cột</b></td><td><b>16</b></td><td><b>34</b></td><td><b>50</b></td></tr>
+                <tr><td><b>Người lớn</b></td><td>654</td><td>1.438</td><td><b>2.092</b></td></tr>
+                <tr><td><b>Trẻ em</b></td><td>57</td><td>52</td><td><b>109</b></td></tr>
+                <tr><td><b>Tổng cột</b></td><td><b>711</b></td><td><b>1.490</b></td><td><b>2.201</b></td></tr>
               </tbody>
             </table>
-            <p>Trong bảng trên: Ô giao nhau cho biết tần số kết hợp (ví dụ: có $10$ sinh viên vừa là Năm 2, vừa có đi làm thêm). Tổng hàng và tổng cột đều phải cộng ra tổng chung $n = 50$.</p>`
+            <p>Trong bảng trên: Ô giao nhau cho biết tần số kết hợp (ví dụ: có $57$ hành khách là trẻ em và sống sót). Tổng hàng và tổng cột đều cộng ra tổng chung $n = 2.201$.</p>`
       },
       {
         t: "Kỹ năng sống còn: Chọn đúng MẪU SỐ khi tính tỉ lệ",
-        c: `<p>Trong bảng liên hợp, đề thi thường yêu cầu tính 3 loại tỉ lệ khác nhau. Điểm mấu chốt là <b>xác định đúng MẪU SỐ</b>:</p>
+        c: `<p>Từ bảng liên hợp Titanic (Slide 21–22), bài thi thường yêu cầu tính 3 loại tỉ lệ khác nhau. Điểm mấu chốt là <b>xác định đúng MẪU SỐ</b>:</p>
             <ol>
-              <li><b>Tỉ lệ trên toàn bộ (Joint Proportion)</b>: Mẫu số là <b>Tổng chung toàn bảng (50)</b>.<br>
-                  Ví dụ: Tỉ lệ sinh viên vừa học Năm 2 vừa đi làm thêm = $\\frac{10}{50} = 20\\%$.
+              <li><b>Tỉ lệ trên toàn bộ (Joint Proportion)</b>: Mẫu số là <b>Tổng chung toàn bảng (2.201)</b>.<br>
+                  Ví dụ: Tỉ lệ trẻ em sống sót trong toàn bộ hành khách = $\\frac{57}{2201} \\approx 2{,}59\\%$.
               </li>
-              <li><b>Tỉ lệ có điều kiện theo hàng (Row Conditional Proportion)</b>: Mẫu số là <b>Tổng hàng</b>.<br>
-                  Ví dụ: <i>Trong số các sinh viên Năm 2</i>, tỉ lệ đi làm thêm = $\\frac{10}{20} = 50\\%$.
+              <li><b>Tỉ lệ có điều kiện theo hàng (Row Conditional)</b>: Mẫu số là <b>Tổng hàng</b>.<br>
+                  Ví dụ: <i>Trong số trẻ em</i>, tỉ lệ sống sót = $\\frac{57}{109} \\approx 52{,}29\\%$.<br>
+                  <i>Trong số người lớn</i>, tỉ lệ sống sót = $\\frac{654}{2092} \\approx 31{,}26\\%$.
               </li>
-              <li><b>Tỉ lệ có điều kiện theo cột (Column Conditional Proportion)</b>: Mẫu số là <b>Tổng cột</b>.<br>
-                  Ví dụ: <i>Trong số những người có đi làm thêm</i>, tỉ lệ sinh viên Năm 2 = $\\frac{10}{16} = 62{,}5\\%$.
+              <li><b>Tỉ lệ có điều kiện theo cột (Column Conditional)</b>: Mẫu số là <b>Tổng cột</b>.<br>
+                  Ví dụ: <i>Trong số những người sống sót</i>, tỉ lệ trẻ em = $\\frac{57}{711} \\approx 8{,}02\\%$.
               </li>
             </ol>
-            <div class="tip-box"><b>Mẹo tìm mẫu số trong câu hỏi:</b> Hãy tìm cụm từ <i>&quot;Trong số...&quot;</i>, <i>&quot;Tính trong nhóm...&quot;</i> hoặc <i>&quot;Biết rằng...&quot;</i>. Đối tượng đứng ngay sau cụm từ đó chính là <b>MẪU SỐ</b>!</div>`
+            <div class="tip-box"><b>Mẹo tìm mẫu số trong câu hỏi:</b> Hãy tìm cụm từ <i>&quot;Trong số...&quot;</i> hoặc <i>&quot;Biết rằng...&quot;</i>. Đối tượng đứng ngay sau cụm từ đó chính là <b>MẪU SỐ</b>!</div>`
       },
       {
         t: "Làm thế nào để biết hai biến có liên hệ với nhau?",
-        c: `<p>Hai biến phân loại được coi là <b>có mối liên hệ (associated)</b> nếu sự phân bố của biến này thay đổi khi ta biết thông tin về biến kia.</p>
-            <p>Trong ví dụ trên, hãy so sánh tỉ lệ đi làm thêm theo từng năm học:</p>
-            <ul>
-              <li>Ở sinh viên Năm 1: Tỉ lệ đi làm thêm là $\\frac{6}{30} = 20\\%$.</li>
-              <li>Ở sinh viên Năm 2: Tỉ lệ đi làm thêm là $\\frac{10}{20} = 50\\%$.</li>
-            </ul>
-            <p>Vì $50\\% \\neq 20\\%$ (chênh lệch rất lớn), ta kết luận: <b>Năm học có liên hệ với xu hướng đi làm thêm</b> (sinh viên năm trên có xu hướng đi làm nhiều hơn). Nếu hai tỉ lệ này bằng nhau hoặc xấp xỉ nhau, ta nói hai biến không có mối liên hệ.</p>
-            <div class="warn-box"><b>Lưu ý quan trọng:</b> Tỉ lệ có điều kiện theo hàng chính là bản chất của <b>Xác suất có điều kiện</b> $P(\\text{Đi làm} \\mid \\text{Năm 2}) = \\frac{10}{20} = 0{,}5$ mà chúng ta sẽ học ở Cụm B!</div>`
+        c: `<p>Hai biến phân loại được coi là <b>có mối liên hệ (associated)</b> nếu sự phân bố của biến này thay đổi khi ta biết thông tin về biến kia (Slide 23–26).</p>
+            <p>Trong bảng Titanic, tỉ lệ sống sót của trẻ em ($52{,}29\\%$) cao hơn hẳn tỉ lệ sống sót của người lớn ($31{,}26\\%$). Sự khác biệt này cho thấy giữa <b>Độ tuổi</b> và <b>Kết quả sống sót</b> có mối liên hệ rõ rệt!</p>`
       }
     ],
     examples: [
       {
         level: "Cơ bản",
-        q: "Một lớp học có 20 sinh viên CNTT, 18 sinh viên Điện tử và 12 sinh viên Cơ học. Tính tỉ lệ sinh viên ngành CNTT trong lớp.",
-        sol: "<b>Bước 1:</b> Tính tổng số sinh viên: $n = 20 + 18 + 12 = 50$.<br>" +
-             "<b>Bước 2:</b> Tỉ lệ sinh viên CNTT = $\\frac{20}{50} = 0{,}40 = 40\\%$.<br>" +
-             "<b>Kết luận:</b> Sinh viên ngành CNTT chiếm 40% sĩ số lớp."
+        t: "[Slide Week 02 — W02-EX01 & W02-EX02] Thảm họa Titanic: Số đếm hay Tỉ lệ?",
+        q: "Bảng liên hợp thảm họa Titanic trong bài giảng (Slide 16–19) ghi nhận kết quả sống sót của 2.201 hành khách:<br>" +
+           "- Người lớn: 654 người sống sót, 1.438 người thiệt mạng (Tổng: 2.092 người lớn).<br>" +
+           "- Trẻ em: 57 người sống sót, 52 người thiệt mạng (Tổng: 109 trẻ em).<br>" +
+           "Một bạn sinh viên nhìn vào bảng và kết luận: <i>'Người lớn có kết quả sống sót tốt hơn trẻ em vì 654 > 57'</i>. Hãy chỉ ra sai lầm của kết luận này và tính tỉ lệ sống sót chính xác của từng nhóm.",
+        sol: "<b>Phân tích theo Slide Week 02 (trang 18–19):</b><br>" +
+             "Sai lầm chí mạng: So sánh số đếm thô (654 vs 57) giữa hai nhóm có quy mô tổng thể chênh lệch quá lớn (2.092 người lớn vs 109 trẻ em). Muốn so sánh công bằng, bắt buộc phải dùng <b>Tỉ lệ có điều kiện</b>:<br>" +
+             "- Tỉ lệ sống sót của người lớn: $P(\\text{Sống} \\mid \\text{Người lớn}) = \\frac{654}{2092} \\approx 31{,}3\\%$.<br>" +
+             "- Tỉ lệ sống sót của trẻ em: $P(\\text{Sống} \\mid \\text{Trẻ em}) = \\frac{57}{109} \\approx 52{,}3\\%$.<br>" +
+             "<b>Kết luận đúng:</b> Trẻ em có tỉ lệ sống sót cao hơn người lớn rất nhiều ($52{,}3\\% > 31{,}3\\%$) do nguyên tắc ưu tiên cứu hộ trẻ em!"
       },
       {
         level: "Trung bình",
-        q: "Dựa vào bảng liên hợp ở trên, tính tỉ lệ sinh viên không đi làm thêm trong số các sinh viên Năm 1.",
-        sol: "<b>Bước 1:</b> Xác định mẫu số: Cụm từ 'trong số các sinh viên Năm 1' cho biết mẫu số là Tổng hàng Năm 1 = 30.<br>" +
-             "<b>Bước 2:</b> Tử số là số sinh viên Năm 1 không đi làm thêm = 24.<br>" +
-             "<b>Bước 3:</b> Tỉ lệ = $\\frac{24}{30} = 0{,}80 = 80\\%$.<br>" +
-             "<b>Kết luận:</b> 80% sinh viên Năm 1 không đi làm thêm."
+        t: "[Slide Week 02 — W02-EX03] Thử thách xác định Mẫu số trước khi tính",
+        q: "Dựa vào bảng liên hợp Titanic (Slide 21–22) gồm tổng cộng 2.201 người, trong đó tổng số người sống sót là 711 người (654 người lớn, 57 trẻ em). Hãy xác định đúng mẫu số và tính giá trị của 3 câu hỏi sau:<br>" +
+           "A. 'Trong số người lớn, bao nhiêu phần sống sót?'<br>" +
+           "B. 'Trong số những người sống sót, bao nhiêu phần là trẻ em?'<br>" +
+           "C. 'Trong toàn bộ hành khách, tỉ lệ trẻ em sống sót là bao nhiêu?'",
+        sol: "<b>Đáp án chuẩn hóa theo Slide Week 02 (trang 22):</b><br>" +
+             "- <b>Câu A:</b> Cụm từ <i>'Trong số người lớn'</i> chỉ định MẪU SỐ là tổng số người lớn ($2.092$).<br>" +
+             "  $$\\text{Tỉ lệ} = \\frac{654}{2092} \\approx 31{,}26\\%$$<br>" +
+             "- <b>Câu B:</b> Cụm từ <i>'Trong số người sống sót'</i> chỉ định MẪU SỐ là tổng người sống ($711$).<br>" +
+             "  $$\\text{Tỉ lệ} = \\frac{57}{711} \\approx 8{,}02\\%$$<br>" +
+             "- <b>Câu C:</b> Cụm từ <i>'Trong toàn bộ hành khách'</i> chỉ định MẪU SỐ là tổng toàn bảng ($2.201$).<br>" +
+             "  $$\\text{Tỉ lệ} = \\frac{57}{2201} \\approx 2{,}59\\%$$"
       },
       {
         level: "Vận dụng",
-        q: "Dựa vào bảng trên, so sánh hai tỉ lệ: (A) Tỉ lệ sinh viên Năm 1 có đi làm thêm trên toàn trường; (B) Tỉ lệ sinh viên Năm 1 trong nhóm những người có đi làm thêm. Hai tỉ lệ này có bằng nhau không?",
-        sol: "<b>Tính tỉ lệ (A):</b> Mẫu số là Tổng toàn bộ 50. Tỉ lệ (A) = $\\frac{6}{50} = 12\\%$.<br>" +
-             "<b>Tính tỉ lệ (B):</b> Mẫu số là Tổng cột người có đi làm thêm 16. Tỉ lệ (B) = $\\frac{6}{16} = 37{,}5\\%$.<br>" +
-             "<b>Kết luận:</b> Hai tỉ lệ hoàn toàn khác nhau ($12\\% \\neq 37{,}5\\%$). Điều này chứng minh việc chọn nhầm mẫu số sẽ làm sai lệch hoàn toàn kết quả bài toán."
+        t: "[Slide Week 02 — W02-WP01] Phản biện bài báo: Tiêu đề có đúng không?",
+        q: "Một bài báo nhìn vào bảng dữ liệu Titanic và giật tít: <i>'Hơn 90% số người sống sót là người lớn, vậy đi tàu Titanic là người lớn an toàn hơn trẻ em!'</i> (Slide 34–35). Dưới góc độ xác suất thống kê, hãy phân tích tại sao tiêu đề này ngụy biện và đánh tráo khái niệm.",
+        sol: "<b>Phân tích phản biện theo Slide Week 02 (trang 34–35):</b><br>" +
+             "1. Con số 'hơn 90%' thực chất là $\\frac{654}{711} \\approx 91{,}98\\%$, tức là xác suất $P(\\text{Người lớn} \\mid \\text{Sống sót})$.<br>" +
+             "2. Khái niệm 'an toàn hơn' (xác suất sống sót khi gặp nạn) phải được đo bằng $P(\\text{Sống sót} \\mid \\text{Người lớn}) = 31{,}3\\%$, so sánh với $P(\\text{Sống sót} \\mid \\text{Trẻ em}) = 52{,}3\\%$.<br>" +
+             "3. Người lớn chiếm tới 92% số người sống sót đơn giản là vì họ chiếm tới 95% tổng số người trên tàu ($2.092 / 2.201$), chứ không phải vì người lớn được an toàn hơn!"
       }
+    
     ],
     pitfalls: [
       {
@@ -406,30 +430,44 @@ const CUM_A = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Cho dãy điểm thi của 5 sinh viên: 4, 6, 7, 8, 10. Hãy tính Trung bình, Trung vị và Khoảng biến thiên (Range).",
-        sol: "<b>Trung bình:</b> $\\bar{x} = \\frac{4 + 6 + 7 + 8 + 10}{5} = \\frac{35}{5} = 7{,}0$.<br>" +
-             "<b>Trung vị:</b> Dãy có 5 số (lẻ), số ở vị trí chính giữa (thứ 3) là $7{,}0$.<br>" +
-             "<b>Khoảng biến thiên:</b> $\\text{Range} = 10 - 4 = 6$."
+        t: "[Slide Week 02 — W02-EX10] Bài toán thi bù OpenIntro 4e",
+        q: "Trong một lớp học gồm 25 sinh viên, có 24 bạn thi đợt 1 với điểm trung bình đạt $\\bar{x} = 74$ điểm (Slide 88–89). Bạn sinh viên thứ 25 bị ốm phải thi bù và đạt 64 điểm. Hãy tính điểm trung bình mới của toàn bộ 25 sinh viên trong lớp.",
+        sol: "<b>Lời giải chuẩn mực theo Slide Week 02 (trang 89):</b><br>" +
+             "1. Tổng điểm thi của 24 bạn đầu tiên là: $\\sum_{i=1}^{24} x_i = 24 \\times 74 = 1776$ điểm.<br>" +
+             "2. Sau khi cộng điểm của bạn thứ 25 ($64$ điểm), tổng điểm của cả 25 bạn là:<br>" +
+             "   $$\\sum_{i=1}^{25} x_i = 1776 + 64 = 1840 \\text{ điểm}$$<br>" +
+             "3. Điểm trung bình mới của cả lớp là:<br>" +
+             "   $$\\bar{x}_{\\text{new}} = \\frac{1840}{25} = 73{,}6 \\text{ điểm}$$"
       },
       {
         level: "Trung bình",
-        q: "Dãy điểm thi của 11 sinh viên: 4, 6, 7, 7, 8, 8, 8, 9, 9, 10, 18. Tính Median, $Q_1, Q_3, \\text{IQR}$ và kiểm tra xem giá trị 18 có phải là ngoại lai không.",
-        sol: "<b>Bước 1:</b> Dãy đã xếp thứ tự gồm 11 số. Số ở giữa (vị trí 6) là $\\text{Median} = 8$.<br>" +
-             "<b>Bước 2:</b> Nửa dưới gồm 5 số $[4, 6, 7, 7, 8] \\implies Q_1 = 7$.<br>" +
-             "<b>Bước 3:</b> Nửa trên gồm 5 số $[8, 9, 9, 10, 18] \\implies Q_3 = 9$.<br>" +
-             "<b>Bước 4:</b> $\\text{IQR} = Q_3 - Q_1 = 9 - 7 = 2$.<br>" +
-             "<b>Bước 5:</b> Rào trên = $Q_3 + 1{,}5 \\times \\text{IQR} = 9 + 1{,}5(2) = 12$.<br>" +
-             "Vì điểm $18 &gt; 12$, nên $18$ <b>chính xác là một giá trị ngoại lai</b>!"
+        t: "[Slide Week 02 — W02-EX11] Xác định Ngoại lai theo Hàng rào Tukey",
+        q: "Cho 20 điểm thi đã sắp xếp tăng dần từ bài tập OpenIntro 4e (Slide 90–91):<br>" +
+           "$$57, 66, 69, 71, 72, 73, 74, 77, 78, 78, 79, 79, 81, 81, 82, 83, 83, 88, 89, 94$$<br>" +
+           "Biết $Q_1 = 72{,}5$ và $Q_3 = 82{,}5$. Hãy tính khoảng tứ phân vị $\\text{IQR}$, xác định hai hàng rào Tukey và kiểm tra xem có điểm ngoại lai nào không.",
+        sol: "<b>Lời giải từng bước theo Slide Week 02 (trang 91):</b><br>" +
+             "1. Tính khoảng tứ phân vị: $\\text{IQR} = Q_3 - Q_1 = 82{,}5 - 72{,}5 = 10$.<br>" +
+             "2. Độ vươn hàng rào: $1{,}5 \\times \\text{IQR} = 1{,}5 \\times 10 = 15$.<br>" +
+             "3. Xác định hai ngưỡng hàng rào:<br>" +
+             "   - <b>Hàng rào dưới (Lower fence):</b> $Q_1 - 1{,}5\\text{IQR} = 72{,}5 - 15 = 57{,}5$.<br>" +
+             "   - <b>Hàng rào trên (Upper fence):</b> $Q_3 + 1{,}5\\text{IQR} = 82{,}5 + 15 = 97{,}5$.<br>" +
+             "4. <b>Kiểm tra ngoại lai:</b> Điểm thi $57 < 57{,}5$ (nằm ngoài hàng rào dưới) $\\rightarrow$ <b>57 là giá trị ngoại lai (outlier)</b> duy nhất của bộ dữ liệu."
       },
       {
         level: "Vận dụng",
-        q: "Một công ty công nghệ có 10 nhân viên lương 15 triệu/tháng và 1 Giám đốc lương 200 triệu/tháng. Khi báo cáo mức lương tiêu biểu cho ứng viên mới, phòng nhân sự nên dùng Trung bình hay Trung vị? Vì sao?",
-        sol: "<b>Tính toán:</b><br>" +
-             "- Tổng lương = $10 \\times 15 + 200 = 350$ triệu. Trung bình lương $\\bar{x} = \\frac{350}{11} \\approx 31{,}8$ triệu.<br>" +
-             "- Trung vị lương = 15 triệu.<br>" +
-             "<b>Phân tích:</b> Phân phối lương bị <b>lệch phải rất nặng</b> do mức lương cực đoan 200 triệu của Giám đốc kéo trung bình lên gần 32 triệu (cao hơn gấp đôi lương của toàn bộ nhân viên).<br>" +
-             "<b>Kết luận:</b> Phải dùng <b>Trung vị (15 triệu)</b> vì nó phản ánh trung thực mức lương thực tế của đa số nhân viên mà không bị ngoại lai bóp méo."
+        t: "[Slide Week 02 — W02-CH02 & W02-CH03] Phản ví dụ: Mean = Median có đối xứng không?",
+        q: "a) [W02-CH02] Dãy dữ liệu mẫu STAT20 gồm 11 quan sát có Trung bình $\\approx 8{,}455$, Trung vị $= 8$, $\\text{SD} \\approx 1{,}695$. Nếu thay một giá trị 6 bằng $-200$ (ngoại lai cực đoan), hãy quan sát sự biến động của Trung bình và Trung vị.<br>" +
+           "b) [W02-CH03] Hãy chứng minh hoặc bác bỏ mệnh đề: <i>'Nếu Trung bình = Trung vị thì phân phối chắc chắn đối xứng'</i>.",
+        sol: "<b>Phân tích bản chất theo Slide Week 02 (trang 75 & 79):</b><br>" +
+             "a) Khi thay $6$ bằng $-200$ (Slide 75):<br>" +
+             "   - <b>Trung vị (Median):</b> Vẫn giữ nguyên bằng $8$ (bền vững hoàn hảo!).<br>" +
+             "   - <b>Trung bình (Mean):</b> Bị kéo sụt thê thảm từ $8{,}455$ xuống $-10{,}273$; độ lệch chuẩn SD vọt lên $62{,}94$.<br>" +
+             "b) <b>Bác bỏ mệnh đề!</b> Mệnh đề trên là SAI (Slide 79). Phản ví dụ mẫu 5 số: $(-4, -1, 0, 2, 3)$.<br>" +
+             "   - Tổng $= (-4) + (-1) + 0 + 2 + 3 = 0 \\implies \\text{Mean} = 0$.<br>" +
+             "   - Số chính giữa là $0 \\implies \\text{Median} = 0$.<br>" +
+             "   - Dãy số này hoàn toàn <b>không đối xứng</b> quanh 0 vì khoảng cách về phía âm kéo dài tới $-4$ trong khi phía dương chỉ tới $+3$!"
       }
+    
     ],
     pitfalls: [
       {
@@ -572,32 +610,43 @@ const CUM_A = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Cho đường hồi quy dự đoán điểm thi theo số giờ học: $\\hat{y} = 2 + 1{,}5 x$. Nêu ý nghĩa của con số 1,5.",
-        sol: "<b>Phân tích:</b> Con số $1{,}5$ là hệ số góc $b_1$.<br>" +
-             "<b>Kết luận:</b> Khi một sinh viên học thêm $1$ giờ ($x$ tăng 1 đơn vị), điểm thi dự đoán của sinh viên đó sẽ tăng thêm $1{,}5$ điểm."
+        t: "[Slide Week 04 — W04-EX01 & W04-CH01] Tính chất của Hệ số tương quan Pearson r",
+        q: "a) [W04-EX01] Nếu ta đổi thang đo nhiệt độ từ Celsius sang Fahrenheit ($y = 1{,}8x + 32$), hệ số tương quan $r$ giữa nhiệt độ và lượng điện tiêu thụ có thay đổi không?<br>" +
+           "b) [W04-CH01] Chứng minh hoặc bác bỏ mệnh đề: <i>'Hệ số tương quan $r = 0$ đồng nghĩa với việc hai biến $X$ và $Y$ không có mối liên hệ nào'</i>.",
+        sol: "<b>Phân tích lý thuyết theo Slide Week 04 (trang 16–19):</b><br>" +
+             "a) Hệ số tương quan $r$ <b>bất biến với phép đổi thang đo tuyến tính dương</b>: $r(a x + b, y) = r(x, y)$ với mọi $a > 0$. Do đó $r$ không hề thay đổi!<br>" +
+             "b) <b>Khẳng định SAI!</b> Hệ số Pearson $r$ chỉ đo mức độ <b>liên hệ tuyến tính (đường thẳng)</b>.<br>" +
+             "   - Phản ví dụ kinh điển (Slide 19): Xét 5 điểm với $y = x^2$: $(-2, 4), (-1, 1), (0, 0), (1, 1), (2, 4)$.<br>" +
+             "   - Do tính đối xứng hoàn hảo, $r(X, Y) = 0$, nhưng giữa $X$ và $Y$ có quan hệ hàm số phi tuyến hoàn hảo ($Y = X^2$)!"
       },
       {
         level: "Trung bình",
-        q: "Đường hồi quy dự đoán giá nhà (triệu đồng) theo diện tích ($m^2$) là $\\hat{y} = 200 + 25 x$. Một căn nhà có diện tích $80 m^2$ được bán thực tế với giá $2150$ triệu đồng. Hãy tính giá dự đoán và phần dư.",
-        sol: "<b>Bước 1:</b> Tính giá trị dự đoán $\\hat{y}$ khi $x = 80$:<br>" +
-             "$$\\hat{y} = 200 + 25(80) = 200 + 2000 = 2200\\text{ (triệu đồng)}$$<br>" +
-             "<b>Bước 2:</b> Tính phần dư $e = y - \\hat{y}$:<br>" +
-             "$$e = 2150 - 2200 = -50\\text{ (triệu đồng)}$$<br>" +
-             "<b>Kết luận:</b> Phần dư âm ($-50$ triệu), nghĩa là căn nhà này được bán rẻ hơn $50$ triệu so với mức giá mà mô hình dự đoán."
+        t: "[Slide Week 04 — W04-WP02] Suy ra Đường hồi quy OLS từ Thống kê tóm tắt",
+        q: "Trong nghiên cứu mối liên hệ giữa tỉ lệ tốt nghiệp THPT ($x$, %) và tỉ lệ nghèo đói ($y$, %) tại các bang của Hoa Kỳ (Slide 44–45), số liệu tóm tắt cho thấy:<br>" +
+           "$$\\bar{x} = 86{,}01\\%, \\quad s_x = 3{,}73\\%, \\quad \\bar{y} = 11{,}35\\%, \\quad s_y = 3{,}10\\%, \\quad r = -0{,}75$$<br>" +
+           "Hãy tìm phương trình đường hồi quy tuyến tính mẫu $\\hat{y} = b_0 + b_1 x$ và nêu ý nghĩa hệ số góc $b_1$.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 04 (trang 45):</b><br>" +
+             "1. Tính hệ số góc $b_1$:<br>" +
+             "   $$b_1 = r \\frac{s_y}{s_x} = -0{,}75 \\times \\frac{3{,}10}{3{,}73} \\approx -0{,}623 \\approx -0{,}62$$<br>" +
+             "2. Tính hệ số chặn $b_0$ dựa vào điểm trung bình $(\\bar{x}, \\bar{y})$ luôn thuộc đường hồi quy:<br>" +
+             "   $$b_0 = \\bar{y} - b_1 \\bar{x} = 11{,}35 - (-0{,}623) \\times 86{,}01 \\approx 64{,}68$$<br>" +
+             "3. Phương trình hồi quy mẫu: $\\hat{y} = 64{,}68 - 0{,}62 x$.<br>" +
+             "4. <b>Ý nghĩa hệ số góc:</b> Khi tỉ lệ tốt nghiệp THPT của một bang tăng thêm $1\\%$, mô hình dự đoán tỉ lệ nghèo đói trung bình giảm đi $0{,}62\\%$."
       },
       {
         level: "Vận dụng",
-        q: "Cho tập dữ liệu 5 điểm: $(1, 2), (2, 3), (3, 5), (4, 7), (5, 8)$. Đường hồi quy tìm được là $\\hat{y} = 0{,}2 + 1{,}6 x$. Hãy tính phần dư tại cả 5 điểm và kiểm tra xem tổng phần dư có bằng 0 không.",
-        sol: "<b>Tính phần dư từng điểm:</b><br>" +
-             "- Tại $x=1$: $\\hat{y} = 0{,}2 + 1{,}6(1) = 1{,}8 \\implies e_1 = 2 - 1{,}8 = +0{,}2$<br>" +
-             "- Tại $x=2$: $\\hat{y} = 0{,}2 + 1{,}6(2) = 3{,}4 \\implies e_2 = 3 - 3{,}4 = -0{,}4$<br>" +
-             "- Tại $x=3$: $\\hat{y} = 0{,}2 + 1{,}6(3) = 5{,}0 \\implies e_3 = 5 - 5{,}0 = 0{,}0$<br>" +
-             "- Tại $x=4$: $\\hat{y} = 0{,}2 + 1{,}6(4) = 6{,}6 \\implies e_4 = 7 - 6{,}6 = +0{,}4$<br>" +
-             "- Tại $x=5$: $\\hat{y} = 0{,}2 + 1{,}6(5) = 8{,}2 \\implies e_5 = 8 - 8{,}2 = -0{,}2$<br>" +
-             "<b>Tổng phần dư:</b><br>" +
-             "$$\\sum e_i = (+0{,}2) + (-0{,}4) + 0{,}0 + (+0{,}4) + (-0{,}2) = 0{,}00$$<br>" +
-             "Đúng theo tính chất toán học của phương pháp OLS!"
+        t: "[Slide Week 04 — W04-Q02 & W04-WP01] Tính và Diễn giải Phần dư (Residual)",
+        q: "Sử dụng mô hình hồi quy $\\hat{y} = 64{,}68 - 0{,}62 x$ ở trên. Bang Rhode Island có tỉ lệ tốt nghiệp thực tế là $x = 81\\%$ và tỉ lệ nghèo thực tế là $y = 12{,}8\\%$ (Slide 26, 36–37).<br>" +
+           "a) Tính giá trị dự báo $\\hat{y}$ và phần dư $e$ cho bang Rhode Island.<br>" +
+           "b) Diễn giải ý nghĩa của dấu phần dư vừa tìm được.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 04 (trang 37):</b><br>" +
+             "a) Giá trị dự báo của mô hình (Fitted value):<br>" +
+             "   $$\\hat{y} = 64{,}68 - 0{,}62 \\times 81 = 64{,}68 - 50{,}22 = 14{,}46\\%$$<br>" +
+             "   Phần dư (Residual):<br>" +
+             "   $$e = y - \\hat{y} = 12{,}8\\% - 14{,}46\\% = -1{,}66\\%$$<br>" +
+             "b) <b>Ý nghĩa thực tế:</b> Phần dư mang dấu âm ($e = -1{,}66\\%$) chứng tỏ tỉ lệ nghèo thực tế của bang Rhode Island thấp hơn $1{,}66\\%$ so với mức nghèo mà mô hình dự đoán dựa trên tỉ lệ học vấn."
       }
+    
     ],
     pitfalls: [
       {
@@ -723,25 +772,39 @@ const CUM_A = [
     examples: [
       {
         level: "Cơ bản",
-        q: "Phương trình dự đoán mức lương (triệu/tháng): $\\hat{y} = 12 + 1{,}5 x_1 + 0{,}8 x_2$, trong đó $x_1$ là số năm kinh nghiệm, $x_2$ là số chứng chỉ quốc tế. Diễn giải ý nghĩa con số 1,5.",
-        sol: "<b>Phân tích:</b> Con số $1{,}5$ là hệ số trước $x_1$.<br>" +
-             "<b>Kết luận chuẩn:</b> Khi số năm kinh nghiệm ($x_1$) tăng thêm $1$ năm, mức lương dự đoán sẽ tăng thêm $1{,}5$ triệu đồng/tháng, <i>với điều kiện số lượng chứng chỉ quốc tế ($x_2$) không thay đổi</i>."
+        t: "[Slide Week 04 — W04-Q04 & W04-WP03] Mô hình Giá sách và Biến chỉ báo Dummy",
+        q: "Mô hình dự đoán giá bán của sách giáo khoa (USD) theo thể tích cuốn sách ($x$, $\\text{cm}^3$) và loại bìa (Slide 58–61) có dạng:<br>" +
+           "$$\\widehat{\\text{price}} = 1{,}08 + 0{,}016 \\times \\text{volume} - 1{,}84 \\times D_{\\text{softback}}$$<br>" +
+           "Trong đó biến chỉ báo $D_{\\text{softback}} = 1$ nếu là sách bìa mềm, và bằng $0$ nếu là sách bìa cứng. Hãy xác định mức tham chiếu (Baseline) và giải thích ý nghĩa hệ số $-1{,}84$.",
+        sol: "<b>Phân tích chuẩn mực theo Slide Week 04 (trang 59 & 61):</b><br>" +
+             "1. <b>Mức tham chiếu (Baseline):</b> Là nhóm có $D_{\\text{softback}} = 0$, tức là <b>Sách bìa cứng (Hardcover)</b>.<br>" +
+             "2. <b>Ý nghĩa hệ số $-1{,}84$:</b> Khi so sánh hai cuốn sách có <b>cùng thể tích</b> (giữ `volume` cố định), cuốn sách bìa mềm được mô hình dự đoán có giá bán <b>thấp hơn trung bình 1,84 USD</b> so với cuốn sách bìa cứng."
       },
       {
         level: "Trung bình",
-        q: "Mô hình giá thuê nhà: $\\hat{y} = 3 + 0{,}08 x_1 + 2 d_{\\text{ĐH}}$, trong đó $x_1$ là diện tích ($m^2$), $d_{\\text{ĐH}} = 1$ nếu có điều hòa, $0$ nếu không có. Một phòng $40 m^2$ có điều hòa được dự đoán giá thuê bao nhiêu?",
-        sol: "<b>Bước 1:</b> Xác định các giá trị: $x_1 = 40$, vì có điều hòa nên $d_{\\text{ĐH}} = 1$.<br>" +
-             "<b>Bước 2:</b> Thay số vào mô hình:<br>" +
-             "$$\\hat{y} = 3 + 0{,}08(40) + 2(1) = 3 + 3{,}2 + 2 = 8{,}2\\text{ (triệu đồng/tháng)}$$<br>" +
-             "<b>Kết luận:</b> Giá thuê dự đoán là 8,2 triệu đồng/tháng."
+        t: "[Slide Week 04 — W04-EX05] Tính Giá trị dự báo cho Sách bìa mềm",
+        q: "Một cuốn sách giáo trình bìa mềm có thể tích đo được là $\\text{volume} = 600\\text{ cm}^3$ (Slide 62–63). Dựa vào phương trình hồi quy trên, hãy tính giá bán dự báo của cuốn sách này.",
+        sol: "<b>Lời giải chi tiết theo Slide Week 04 (trang 63):</b><br>" +
+             "1. Vì cuốn sách là bìa mềm nên biến chỉ báo nhận giá trị $D_{\\text{softback}} = 1$.<br>" +
+             "2. Thay $\\text{volume} = 600$ và $D_{\\text{softback}} = 1$ vào phương trình:<br>" +
+             "   $$\\widehat{\\text{price}} = 1{,}08 + 0{,}016 \\times 600 - 1{,}84 \\times 1$$<br>" +
+             "   $$\\widehat{\\text{price}} = 1{,}08 + 9{,}60 - 1{,}84 = 8{,}84 \\text{ USD}$$"
       },
       {
         level: "Vận dụng",
-        q: "Với mô hình trên, hai phòng trọ A và B có diện tích bằng nhau là $50 m^2$. Phòng A có điều hòa, phòng B không có điều hòa. Mức giá thuê dự đoán của phòng A chênh lệch so với phòng B bao nhiêu?",
-        sol: "<b>Phân tích:</b> Vì hai phòng có cùng diện tích ($x_1$ như nhau), sự chênh lệch giá thuê dự đoán chỉ đến từ biến chỉ báo điều hòa.<br>" +
-             "$$\\hat{y}_A - \\hat{y}_B = [3 + 0{,}08(50) + 2(1)] - [3 + 0{,}08(50) + 2(0)] = 2(1) - 2(0) = 2\\text{ (triệu)}$$<br>" +
-             "<b>Kết luận:</b> Phòng A có điều hòa được dự đoán giá cao hơn phòng B đúng bằng hệ số $2$ triệu đồng/tháng."
+        t: "[Slide Week 04 — W04-Q05 & W04-CASE01] Mô hình Zagat: Nguyên tắc 'Giữ biến khác cố định'",
+        q: "Dữ liệu khảo sát nhà hàng Zagat (Slide 64–66, 92–94) cho phương trình dự đoán giá bữa ăn (USD):<br>" +
+           "$$\\widehat{\\text{price}} = -52{,}35 + 1{,}64 \\times \\text{food} + 1{,}89 \\times \\text{decor}$$<br>" +
+           "Trong đó `food` và `decor` là điểm số đánh giá từ 1 đến 30.<br>" +
+           "a) Diễn giải hệ số $1{,}64$ của biến `food`.<br>" +
+           "b) Hai nhà hàng A và B có cùng điểm trang trí `decor` = 20. Nhà hàng A có điểm món ăn `food` cao hơn nhà hàng B là 3 điểm. Dự đoán giá bữa ăn ở nhà hàng nào đắt hơn và đắt hơn bao nhiêu?",
+        sol: "<b>Phân tích theo Slide Week 04 (trang 66 & 94):</b><br>" +
+             "a) <b>Diễn giải hệ số 1,64:</b> Khi so sánh hai nhà hàng có <b>cùng điểm trang trí decor</b>, nhà hàng nào có điểm món ăn food cao hơn 1 điểm thì giá bữa ăn dự báo trung bình cao hơn $1{,}64$ USD.<br>" +
+             "b) Vì hai nhà hàng có cùng điểm `decor`, chênh lệch giá dự báo hoàn toàn do chênh lệch điểm `food` quyết định:<br>" +
+             "   $$\\Delta \\widehat{\\text{price}} = 1{,}64 \\times \\Delta \\text{food} = 1{,}64 \\times 3 = 4{,}92 \\text{ USD}$$<br>" +
+             "   Nhà hàng A được dự báo có giá đắt hơn nhà hàng B đúng $4{,}92$ USD."
       }
+    
     ],
     pitfalls: [
       {
