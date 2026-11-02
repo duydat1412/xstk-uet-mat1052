@@ -11,6 +11,20 @@ const CUM_A = [
     cluster: "A",
     title: "Khung dữ liệu và Các loại biến",
     sources: "Slide Week 01 (tr. 1–75); Stat20 Mục 1.1, 1.2, 1.3",
+    ref: {
+      "slide_file": "week01.pdf",
+      "slide_name": "Tuần 01 — Dữ liệu và Thu thập",
+      "pages": "Slide 23 – 50",
+      "page_start": 23,
+      "section": "Phần 2: Từ đối tượng đến biến (Slide 23–30) & Phần 3: Từ biến đến khung dữ liệu (Slide 31–50)",
+      "stat20": "Stat20 Mục 1.1, 1.2, 1.3 (Data Frames & Variable Types)",
+      "key_points": [
+            "Đơn vị quan sát (Observation) ở mỗi hàng và Biến số (Variable) ở mỗi cột",
+            "Phân loại 4 họ biến: Định danh (Nominal), Thứ bậc (Ordinal), Rời rạc (Discrete), Liên tục (Continuous)",
+            "Cạm bẫy mã số: MSSV, SĐT, Mã chuyến bay là biến phân loại định danh, không phải biến số"
+      ],
+      "remind": "Nếu bạn chưa phân biệt được biến định danh vs thứ bậc, hoặc hay nhầm mã số là biến số, hãy mở lại Slide Week 01 từ trang 23 đến 45 để xem các ví dụ trực quan về bảng Palmer Penguins và phim Marvel."
+},
     desc: "Nắm vững cách cấu trúc dữ liệu dưới dạng bảng và phân loại chính xác 4 họ biến: Định danh, Thứ bậc, Rời rạc, Liên tục. Không bao giờ mắc bẫy mã số.",
     steps: [
       {
@@ -143,6 +157,20 @@ const CUM_A = [
     cluster: "A",
     title: "Tóm tắt dữ liệu phân loại: Bảng tần số & Bảng liên hợp",
     sources: "Slide Week 02 (tr. 1–35); Stat20 Mục 2.2",
+    ref: {
+      "slide_file": "week02.pdf",
+      "slide_name": "Tuần 02 — Tóm tắt dữ liệu (Phần 1)",
+      "pages": "Slide 6 – 35",
+      "page_start": 6,
+      "section": "Phần 1: Dữ liệu phân loại — Bảng liên hợp, Bảng tần số & Tỉ lệ (Slide 6–35)",
+      "stat20": "Stat20 Mục 2.2 (Categorical Summaries & Contingency Tables)",
+      "key_points": [
+            "Bảng liên hợp 2 chiều (Contingency Table) tóm tắt mối quan hệ giữa 2 biến phân loại",
+            "Xác định đúng mẫu số: Tỉ lệ trên tổng hàng, tổng cột hay tổng toàn bảng",
+            "Bài tập mẫu UET W02-EX03 và phân tích tiêu đề W02-WP01"
+      ],
+      "remind": "Nếu bạn hay tính nhầm tỉ lệ phần trăm hoặc chọn sai mẫu số trong bảng 2 chiều, hãy đọc lại Slide Week 02 từ trang 15 đến 25 về quy tắc 'Đọc trước khi tính'."
+},
     desc: "Học cách tóm tắt một hoặc hai biến phân loại bằng Bảng tần số, Bảng tỉ lệ, Bảng liên hợp 2 chiều và chọn đúng mẫu số theo ngữ cảnh câu hỏi.",
     steps: [
       {
@@ -296,6 +324,20 @@ const CUM_A = [
     cluster: "A",
     title: "Tóm tắt dữ liệu số: Tâm, Phân tán, Hình dạng & Ngoại lai",
     sources: "Slide Week 02 (tr. 36–114); Stat20 Mục 2.4",
+    ref: {
+      "slide_file": "week02.pdf",
+      "slide_name": "Tuần 02 — Tóm tắt dữ liệu (Phần 2 & 3)",
+      "pages": "Slide 36 – 114",
+      "page_start": 36,
+      "section": "Phần 2: Dữ liệu số (Slide 36–56), Phần 3: Đo lường phân tán (Slide 57–69) & Phần 4: Giá trị bất thường (Slide 70–95)",
+      "stat20": "Stat20 Mục 2.4 (Numerical Summaries, IQR & Robustness)",
+      "key_points": [
+            "Đo độ tập trung: Trung bình (Mean) nhạy cảm ngoại lai vs Trung vị (Median) bền vững (Robust)",
+            "Đo độ phân tán: Khoảng biến thiên (Range), Phương sai mẫu, Độ lệch chuẩn (SD), Tứ phân vị (IQR = Q3 - Q1)",
+            "Quy tắc hàng rào Tukey xác định ngoại lai: [Q1 - 1.5*IQR, Q3 + 1.5*IQR]"
+      ],
+      "remind": "Nếu bạn chưa nắm chắc cách tìm Q1, Q3 hoặc công thức xác định ngoại lai 1.5*IQR, hãy mở lại Slide Week 02 các trang 44, 70–75 và 91 (bài mẫu W02-EX11)."
+},
     desc: "Hiểu sâu 3 khía cạnh khi phân tích dữ liệu số: Tâm (Mean vs Median), Độ phân tán (SD vs IQR), Hình dạng phân phối (Skewness) và quy tắc 1.5×IQR phát hiện ngoại lai.",
     widget: "outlier_widget",
     steps: [
@@ -463,6 +505,20 @@ const CUM_A = [
     cluster: "A",
     title: "Tương quan tuyến tính & Hồi quy đơn giản (OLS)",
     sources: "Slide Week 04 (tr. 1–75); Stat20 Mục 2.10, 7.2",
+    ref: {
+      "slide_file": "week04.pdf",
+      "slide_name": "Tuần 04 — Mối quan hệ giữa các biến & Hồi quy OLS",
+      "pages": "Slide 1 – 75",
+      "page_start": 1,
+      "section": "Phần 1: Hệ số tương quan Pearson r (Slide 1–40) & Phần 2: Hồi quy tuyến tính bình phương tối thiểu OLS (Slide 41–75)",
+      "stat20": "Stat20 Mục 2.10 & Mục 7.2 (Correlation & Simple Linear Regression)",
+      "key_points": [
+            "Hệ số tương quan r ∈ [-1, 1], đo mức độ tuyến tính, bất biến với phép đổi thang đo tuyến tính",
+            "Đường hồi quy mẫu: y^ = b0 + b1*x với b1 = r * (sy / sx) và b0 = y_bar - b1 * x_bar",
+            "Phần dư e = y - y^, tổng phần dư luôn bằng 0, hệ số xác định R^2 = r^2"
+      ],
+      "remind": "Nếu bạn chưa thành thạo bấm máy Casio tính b0, b1 hoặc diễn giải ý nghĩa kinh tế của hệ số góc b1, hãy ôn lại Slide Week 04 từ trang 45 đến trang 65."
+},
     desc: "Hiểu bản chất Hệ số tương quan Pearson r, phương trình đường hồi quy bình phương tối thiểu (OLS), ý nghĩa của hệ số góc, hệ số chặn và phần dư.",
     steps: [
       {
@@ -617,6 +673,20 @@ const CUM_A = [
     cluster: "A",
     title: "Hồi quy tuyến tính bội cơ bản: Biến chỉ báo & Mức tham chiếu",
     sources: "Slide Week 04 (tr. 76–99); Stat20 Mục 2.12",
+    ref: {
+      "slide_file": "week04.pdf",
+      "slide_name": "Tuần 04 — Hồi quy tuyến tính nâng cao",
+      "pages": "Slide 76 – 99",
+      "page_start": 76,
+      "section": "Phần 3: Hồi quy với biến phân loại & Biến chỉ báo (Dummy Variables) (Slide 76–99)",
+      "stat20": "Stat20 Mục 2.12 (Regression with Categorical Predictors)",
+      "key_points": [
+            "Biến chỉ báo Dummy: Nhận giá trị 1 nếu đối tượng thuộc nhóm, và 0 nếu ngược lại",
+            "Mức tham chiếu (Baseline / Reference level): Nhóm bị khuyết hệ số, đóng vai trò mốc so sánh",
+            "Ý nghĩa hệ số góc: Chênh lệch trung bình của nhóm chỉ báo so với nhóm tham chiếu"
+      ],
+      "remind": "Nếu bạn còn lúng túng khi viết phương trình hồi quy có biến Dummy hoặc đọc bảng output, hãy xem lại Slide Week 04 các trang 78–92."
+},
     desc: "Mở rộng sang mô hình nhiều biến giải thích, cách diễn giải hệ số khi có mặt biến phân loại thông qua Biến chỉ báo (Dummy variable 0/1) và Mức tham chiếu.",
     steps: [
       {

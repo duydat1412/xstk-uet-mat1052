@@ -11,6 +11,20 @@ const CUM_E = [
     cluster: "E",
     title: "Biến ngẫu nhiên liên tục, Hàm mật độ (pdf) & Hàm tích lũy (cdf)",
     sources: "Slide Week 07 (tr. 41–47, 82–83); Stat20 Mục 4.15",
+    ref: {
+      "slide_file": "week07.pdf",
+      "slide_name": "Tuần 07 — Biến liên tục, Hàm mật độ (pdf) & Hàm cdf",
+      "pages": "Slide 41 – 47, 82 – 83",
+      "page_start": 41,
+      "section": "Phần 4: Biến ngẫu nhiên liên tục, Hàm mật độ pdf & Hàm tích lũy cdf (Slide 41–47) & Bài tập vận dụng 2 (Slide 82–83)",
+      "stat20": "Stat20 Mục 4.15 (Continuous Random Variables & Probability Density)",
+      "key_points": [
+            "Hàm mật độ f(x) ≥ 0, điều kiện chuẩn hóa: ∫(-∞→∞) f(x)dx = 1",
+            "Xác suất tại một điểm luôn bằng 0: P(X = c) = 0 ⇒ P(a ≤ X ≤ b) = P(a < X < b) = ∫(a→b) f(x)dx",
+            "Hàm tích lũy F(x) = ∫(-∞→x) f(t)dt, liên tục trên R và f(x) = F'(x) tại các điểm khả vi"
+      ],
+      "remind": "Nếu bạn chưa vững kỹ năng tích phân tìm tham số k để hàm là mật độ hợp lệ, hãy đọc Slide Week 07 trang 42–46 và lời giải mẫu Bài tập 2 ở Slide 82–83."
+},
     desc: "Bước chuyển từ rời rạc sang liên tục: Xác suất tại 1 điểm luôn bằng 0, xác suất là DIỆN TÍCH tích phân dưới đường cong mật độ, mối liên hệ giải tích f(x) = F'(x).",
     steps: [
       {
@@ -155,6 +169,20 @@ const CUM_E = [
     cluster: "E",
     title: "Kỳ vọng & Phương sai của Biến ngẫu nhiên liên tục",
     sources: "Slide Week 07 (tr. 48–49); Stat20 Mục 4.15",
+    ref: {
+      "slide_file": "week07.pdf",
+      "slide_name": "Tuần 07 — Kỳ vọng & Phương sai của biến liên tục",
+      "pages": "Slide 48 – 49",
+      "page_start": 48,
+      "section": "Phần 4: Kỳ vọng và phương sai của biến ngẫu nhiên liên tục (Slide 48–49)",
+      "stat20": "Stat20 Mục 4.15 (Expectation & Variance for Continuous Variables)",
+      "key_points": [
+            "Kỳ vọng liên tục: E(X) = ∫(-∞→∞) x*f(x)dx; E[g(X)] = ∫(-∞→∞) g(x)*f(x)dx",
+            "Phương sai: Var(X) = ∫(-∞→∞) x^2*f(x)dx - [E(X)]^2",
+            "Kỹ năng giải tích: Tích phân từng phần ∫u dv = uv - ∫v du là công cụ bắt buộc trong bài thi tự luận UET"
+      ],
+      "remind": "Nếu bạn hay tính nhầm tích phân từng phần khi tìm E(X) hoặc Var(X), hãy mở Slide Week 07 trang 48–49 để xem kỹ các bước biến đổi mẫu."
+},
     desc: "Tính toán kỳ vọng E(X) và phương sai Var(X) bằng tích phân. Quy tắc công thức rút gọn và bảo toàn tính chất tuyến tính của kỳ vọng và phương sai.",
     steps: [
       {
@@ -285,6 +313,20 @@ const CUM_E = [
     cluster: "E",
     title: "Phân phối Đều U(a, b): Mật độ phẳng & Tỉ lệ độ dài",
     sources: "Slide Week 07 (tr. 50–53); Stat20 Mục 4.16.1",
+    ref: {
+      "slide_file": "week07.pdf",
+      "slide_name": "Tuần 07 — Phân phối Đều U(a, b)",
+      "pages": "Slide 50 – 53",
+      "page_start": 50,
+      "section": "Phần 5: Các phân phối liên tục đặc biệt — Phân phối Đều U(a, b) (Slide 50–53)",
+      "stat20": "Stat20 Mục 4.16.1 (Uniform Distribution)",
+      "key_points": [
+            "Hàm mật độ không đổi: f(x) = 1 / (b - a) trên đoạn [a, b]",
+            "Xác suất tỉ lệ thuận với độ dài khoảng con: P(c ≤ X ≤ d) = (d - c) / (b - a)",
+            "Đặc trưng số học: Kỳ vọng E(X) = (a + b)/2 (trung điểm); Phương sai Var(X) = (b - a)^2 / 12"
+      ],
+      "remind": "Nếu bạn gặp bài toán thời gian chờ xe buýt hoặc đồng hồ ngẫu nhiên, hãy mở Slide Week 07 trang 50–53 về mô hình phân phối Đều."
+},
     desc: "Phân phối liên tục đơn giản nhất: Xác suất tỉ lệ thuận trực tiếp với độ dài khoảng. Công thức kỳ vọng trung điểm (a+b)/2 và phương sai (b-a)²/12.",
     steps: [
       {
@@ -413,6 +455,21 @@ const CUM_E = [
     cluster: "E",
     title: "Phân phối Chuẩn N(μ, σ²): Chuẩn hóa Z & Tra bảng Φ(z)",
     sources: "Slide Week 07 (tr. 54–62, 84–85); Stat20 Mục 4.16.2",
+    ref: {
+      "slide_file": "week07.pdf",
+      "slide_name": "Tuần 07 — Phân phối Chuẩn N(μ, σ²)",
+      "pages": "Slide 54 – 62, 84 – 85",
+      "page_start": 54,
+      "section": "Phần 5: Phân phối Chuẩn Gauss, Chuẩn hóa Z & Tra bảng Laplace (Slide 54–62) & Bài tập vận dụng 3 (Slide 84–85)",
+      "stat20": "Stat20 Mục 4.16.2 (Normal Distribution & Z-scores)",
+      "key_points": [
+            "Đồ thị hình chuông Gauss đối xứng quanh kỳ vọng μ; Điểm uốn tại μ ± σ",
+            "Biến đổi chuẩn hóa Z = (X - μ) / σ ~ N(0, 1); Quy tắc tra bảng Φ(z) và tính chất đối xứng Φ(-z) = 1 - Φ(z)",
+            "Quy tắc thực nghiệm: 68% trong khoảng μ±1σ, 95% trong khoảng μ±2σ, 99.7% trong khoảng μ±3σ",
+            "Bài toán ngược tìm phân vị x_p = μ + z_p * σ và bài toán tải trọng thang máy (Slide 84–85)"
+      ],
+      "remind": "Phân phối chuẩn chiếm tới 2–3 điểm trong bài thi. Hãy ôn kỹ Slide Week 07 từ trang 54 đến 62 và bài tập thang máy ở Slide 84–85."
+},
     desc: "Ông hoàng của lý thuyết thống kê: Phân phối Chuẩn Gauss. Kỹ thuật chuẩn hóa Z-score, quy tắc thực nghiệm 68–95–99,7, tra bảng Φ(z) và bài toán tìm phân vị ngược.",
     steps: [
       {
@@ -555,6 +612,20 @@ const CUM_E = [
     cluster: "E",
     title: "Phân phối Mũ Exp(λ), Chi-bình phương & t-Student",
     sources: "Slide Week 07 (tr. 63–67, 86–88) [CHỈ CÓ TRONG SLIDE UET]",
+    ref: {
+      "slide_file": "week07.pdf",
+      "slide_name": "Tuần 07 — Phân phối Mũ, Chi-bình phương & t-Student",
+      "pages": "Slide 63 – 67, 86 – 88",
+      "page_start": 63,
+      "section": "Phần 5: Phân phối Mũ Exp(λ), Chi-bình phương & t-Student [ĐỘC QUYỀN SLIDE UET] (Slide 63–67) & Bài tập vận dụng 4 (Slide 86–88)",
+      "stat20": "Chuyên đề phân phối liên tục mở rộng của Slide UET Week 07",
+      "key_points": [
+            "Phân phối Mũ Exp(λ): Hàm mật độ f(x) = λ*e^(-λx) (x ≥ 0); Hàm cdf F(x) = 1 - e^(-λx); Xác suất đuôi P(X > x) = e^(-λx)",
+            "Đặc trưng: Kỳ vọng E(X) = 1/λ, Phương sai Var(X) = 1/λ^2; Tính chất không nhớ (Memoryless): P(X > s+t | X > s) = P(X > t)",
+            "Nhận diện đồ thị phân phối Chi-bình phương (lệch phải, k bậc tự do) và t-Student (hình chuông, đuôi dày hơn chuẩn)"
+      ],
+      "remind": "Đề thi UET thường có câu hỏi về tính chất không nhớ hoặc kết hợp phân phối Mũ với CLT. Hãy xem Slide Week 07 trang 63–65 và Bài tập 4 ở Slide 86–88."
+},
     desc: "Các phân phối liên tục bổ sung quan trọng: Phân phối Mũ mô hình hóa thời gian chờ (không nhớ), giới thiệu nhận diện phân phối χ² và t-Student.",
     steps: [
       {
@@ -687,6 +758,21 @@ const CUM_E = [
     cluster: "E",
     title: "Định lý giới hạn trung tâm (CLT) & Ứng dụng bài thi",
     sources: "Slide Week 07 (tr. 68–77, 86–91); Stat20 Mục 4.17",
+    ref: {
+      "slide_file": "week07.pdf",
+      "slide_name": "Tuần 07 — Định lý Giới hạn Trung tâm (CLT)",
+      "pages": "Slide 68 – 77, 89 – 91",
+      "page_start": 68,
+      "section": "Phần 6: Định lý giới hạn trung tâm (CLT) (Slide 68–77) & Phần 7: Bài tập vận dụng 5 — Bóng đèn dự phòng / Cỡ mẫu (Slide 89–91)",
+      "stat20": "Stat20 Mục 4.17 (Central Limit Theorem)",
+      "key_points": [
+            "Phát biểu CLT: Với mẫu i.i.d. có kỳ vọng μ và phương sai σ^2 hữu hạn, khi n đủ lớn (n ≥ 30):",
+            "Tổng mẫu Sn ≈ N(n*μ, n*σ^2) ⇒ Z = (Sn - n*μ) / (σ*√n) ~ N(0, 1)",
+            "Trung bình mẫu X_bar ≈ N(μ, σ^2/n) ⇒ Z = (X_bar - μ) / (σ/√n) ~ N(0, 1)",
+            "Bài toán tìm số lượng linh kiện dự phòng n: Đặt ẩn phụ u = √n, giải bất phương trình bậc hai (Bài tập 5, Slide 89–91)"
+      ],
+      "remind": "Đây là bài toán 'chốt hạ' phân loại điểm 9–10 của UET. Hãy xem thật kỹ lời giải phương trình bậc hai tìm n = 23 bóng đèn ở Slide Week 07 trang 89–91."
+},
     desc: "Định lý vĩ đại nhất của xác suất thống kê: Tổng hoặc Trung bình của các biến i.i.d. luôn xấp xỉ phân phối Chuẩn khi n đủ lớn, BẤT KỂ phân phối gốc là gì! Dạng bài tìm cỡ mẫu n.",
     widget: "clt_widget",
     steps: [

@@ -11,6 +11,20 @@ const CUM_C = [
     cluster: "C",
     title: "Biến ngẫu nhiên rời rạc, Hàm khối xác suất (pmf) & Hàm tích lũy (cdf)",
     sources: "Slide Week 06 (tr. 1–35); Stat20 Mục 4.1 - 4.4",
+    ref: {
+      "slide_file": "week06.pdf",
+      "slide_name": "Tuần 06 — Biến ngẫu nhiên rời rạc & Hàm phân phối",
+      "pages": "Slide 16 – 36",
+      "page_start": 16,
+      "section": "Phần 2: Biến ngẫu nhiên và Phân phối xác suất (Slide 16–24) & Phần 3: Hàm phân phối tích lũy cdf (Slide 25–36)",
+      "stat20": "Stat20 Mục 4.1, 4.2, 4.3.1, 4.4 (Discrete Random Variables & CDF)",
+      "key_points": [
+            "Biến ngẫu nhiên rời rạc X: Ánh xạ từ không gian mẫu Ω vào tập con đếm được của R",
+            "Hàm khối xác suất pmf p_X(x) = P(X = x) với điều kiện chuẩn hóa ∑p(x) = 1",
+            "Hàm tích lũy cdf F(x) = P(X ≤ x): Hàm đơn điệu tăng, dạng bậc thang, liên tục bên phải"
+      ],
+      "remind": "Nếu bạn chưa biết cách lập bảng pmf tìm hằng số c hoặc vẽ đồ thị bậc thang của F(x), hãy đọc lại Slide Week 06 từ trang 18 đến 35."
+},
     desc: "Hiểu bản chất của Biến ngẫu nhiên như một ánh xạ gán số, Hàm khối xác suất pmf p(x) và Hàm phân phối tích lũy cdf F(x) bậc thang.",
     steps: [
       {
@@ -150,6 +164,20 @@ const CUM_C = [
     cluster: "C",
     title: "Phân phối Bernoulli & Phân phối Nhị thức B(n, p)",
     sources: "Slide Week 06 (tr. 36–52); Stat20 Mục 4.3.2.2, 4.3.2.3",
+    ref: {
+      "slide_file": "week06.pdf",
+      "slide_name": "Tuần 06 — Phân phối Bernoulli & Nhị thức",
+      "pages": "Slide 37 – 52",
+      "page_start": 37,
+      "section": "Phần 4: Các phân phối rời rạc thông dụng — Phân phối Bernoulli & Nhị thức B(n, p) (Slide 37–52)",
+      "stat20": "Stat20 Mục 4.3.2.2 & 4.3.2.3 (Bernoulli & Binomial Distributions)",
+      "key_points": [
+            "Dãy phép thử Bernoulli: n phép thử độc lập, mỗi phép thử chỉ có 2 kết quả (Thành công p, Thất bại 1-p)",
+            "Công thức xác suất Nhị thức: P(X = k) = C_n^k * p^k * (1 - p)^(n - k)",
+            "Bẫy ít nhất 1 lần thành công: P(X ≥ 1) = 1 - P(X = 0) = 1 - (1 - p)^n"
+      ],
+      "remind": "Nếu bạn chưa tự tin nhận diện các điều kiện của mô hình Nhị thức, hãy mở Slide Week 06 từ trang 39 đến 51."
+},
     desc: "Mô hình xác suất thông dụng nhất: Đếm số lần thành công trong n phép thử độc lập. Công thức tổ hợp, kỳ vọng np và phương sai np(1-p).",
     steps: [
       {
@@ -295,6 +323,20 @@ const CUM_C = [
     cluster: "C",
     title: "Phân phối Siêu bội HG(N, M, n): Rút mẫu không hoàn lại",
     sources: "Slide Week 06 (tr. 53–65); Stat20 Mục 4.3.2.4",
+    ref: {
+      "slide_file": "week06.pdf",
+      "slide_name": "Tuần 06 — Phân phối Siêu bội HG(N, M, n)",
+      "pages": "Slide 53 – 65",
+      "page_start": 53,
+      "section": "Phần 4: Phân phối Siêu bội — Lấy mẫu không hoàn lại từ tổng thể hữu hạn (Slide 53–65)",
+      "stat20": "Stat20 Mục 4.3.2.4 (Hypergeometric Distribution)",
+      "key_points": [
+            "Mô hình rút KHÔNG hoàn lại n phần tử từ hộp N phần tử có M phần tử đặc biệt",
+            "Công thức xác suất Siêu bội: P(X = k) = [C_M^k * C_(N-M)^(n-k)] / C_N^n",
+            "Liên hệ với Nhị thức: Khi N rất lớn so với n (n/N < 0.05), Siêu bội xấp xỉ Nhị thức với p = M/N"
+      ],
+      "remind": "Nếu bạn còn phân vân khi nào dùng Nhị thức (rút có hoàn lại), khi nào dùng Siêu bội (rút không hoàn lại), hãy xem lại bảng so sánh ở Slide Week 06 trang 55–62."
+},
     desc: "Mô hình rút mẫu không hoàn lại từ tổng thể hữu hạn. Phân biệt triệt để với Nhị thức và điều kiện khi nào Siêu bội xấp xỉ Nhị thức.",
     steps: [
       {
@@ -433,6 +475,20 @@ const CUM_C = [
     cluster: "C",
     title: "Phân phối Poisson(λ) & Cây quyết định chọn mô hình",
     sources: "Slide Week 06 (tr. 66–80); Stat20 Mục 4.3.2.5, 4.3.2.6",
+    ref: {
+      "slide_file": "week06.pdf",
+      "slide_name": "Tuần 06 — Phân phối Poisson & Cây quyết định mô hình",
+      "pages": "Slide 66 – 80",
+      "page_start": 66,
+      "section": "Phần 4: Phân phối Poisson (Slide 66–69) & Phần 5: Cây quyết định lựa chọn mô hình rời rạc (Slide 70–80)",
+      "stat20": "Stat20 Mục 4.3.2.5 & 4.3.2.6 (Poisson Distribution & Model Selection)",
+      "key_points": [
+            "Phân phối Poisson Po(λ): Mô hình hóa số biến cố hiếm xảy ra trong một khoảng thời gian/không gian liên tục",
+            "Công thức xác suất: P(X = k) = (λ^k * e^(-λ)) / k!",
+            "Quy tắc đổi tham số theo khoảng thời gian: λ' = λ * t; Xấp xỉ Poisson cho Nhị thức khi n ≥ 20, p ≤ 0.05"
+      ],
+      "remind": "Nếu bạn muốn nắm chắc sơ đồ chọn nhanh mô hình (Nhị thức, Siêu bội hay Poisson) khi đọc đề thi, hãy xem ngay Slide Week 06 trang 70–78."
+},
     desc: "Mô hình đếm các sự kiện xảy ra trong một khoảng liên tục (thời gian/không gian). Bí quyết vàng: Kỳ vọng bằng Phương sai, và Cây quyết định chọn đúng mô hình thi.",
     steps: [
       {
@@ -574,6 +630,20 @@ const CUM_C = [
     cluster: "C",
     title: "Kỳ vọng E(X), LOTUS & Tính chất tuyến tính",
     sources: "Slide Week 07 (tr. 4–13); Stat20 Mục 4.7, 4.8",
+    ref: {
+      "slide_file": "week07.pdf",
+      "slide_name": "Tuần 07 — Kỳ vọng & Tính chất tuyến tính",
+      "pages": "Slide 4 – 13",
+      "page_start": 4,
+      "section": "Phần 1: Kỳ vọng và phương sai — Định nghĩa và Tính chất của Kỳ vọng (Slide 4–13)",
+      "stat20": "Stat20 Mục 4.7 & 4.8 (Expected Value & LOTUS)",
+      "key_points": [
+            "Kỳ vọng E(X) = ∑ x*p(x): Trọng tâm khối lượng của phân phối xác suất",
+            "Định lý LOTUS: E[g(X)] = ∑ g(x)*p(x) (không cần tìm phân phối của g(X))",
+            "Tính chất tuyến tính vô điều kiện: E(aX + b) = a*E(X) + b và E(X + Y) = E(X) + E(Y) (kể cả khi không độc lập)"
+      ],
+      "remind": "Nếu bạn chưa nắm được bản chất trực giác của kỳ vọng như một điểm tựa cân bằng trên bập bênh, hãy xem hình minh họa trực quan ở Slide Week 07 trang 5–9."
+},
     desc: "Hiểu sâu kỳ vọng như tâm khối lượng. Luật vô thức LOTUS để tính kỳ vọng của hàm g(X). Tính tuyến tính tuyệt đối của kỳ vọng (đúng kể cả khi không độc lập).",
     steps: [
       {
@@ -703,6 +773,20 @@ const CUM_C = [
     cluster: "C",
     title: "Phương sai Var(X), Độ lệch chuẩn SD(X) & Tính chất",
     sources: "Slide Week 07 (tr. 14–20, 79–81); Stat20 Mục 4.10",
+    ref: {
+      "slide_file": "week07.pdf",
+      "slide_name": "Tuần 07 — Phương sai & Độ lệch chuẩn",
+      "pages": "Slide 14 – 20, 79 – 81",
+      "page_start": 14,
+      "section": "Phần 1: Phương sai và độ lệch chuẩn (Slide 14–20) & Phần 7: Bài tập vận dụng 1 (Slide 79–81)",
+      "stat20": "Stat20 Mục 4.10 (Variance & Standard Deviation)",
+      "key_points": [
+            "Định nghĩa: Var(X) = E[(X - μ)^2] = E(X^2) - [E(X)]^2; Độ lệch chuẩn SD(X) = √Var(X)",
+            "Tính chất biến đổi: Var(aX + b) = a^2 * Var(X) và SD(aX + b) = |a| * SD(X)",
+            "Khi X, Y độc lập: Var(X ± Y) = Var(X) + Var(Y) (luôn cộng phương sai, không bao giờ trừ)"
+      ],
+      "remind": "Nếu bạn hay làm sai bài tập tính Var(2X - 3Y) hoặc quên bình phương hệ số a^2, hãy đọc kỹ Slide Week 07 trang 16–19 và lời giải bài mẫu số 1 ở Slide 79–81."
+},
     desc: "Đo lường độ rung lắc và rủi ro. Công thức rút gọn E(X²) - [E(X)]², biến đổi tuyến tính Var(aX+b) = a²Var(X) và thứ nguyên đơn vị bắt buộc.",
     steps: [
       {

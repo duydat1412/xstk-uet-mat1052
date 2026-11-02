@@ -11,6 +11,20 @@ const CUM_B = [
     cluster: "B",
     title: "Không gian mẫu, Biến cố & 3 Tiên đề Kolmogorov",
     sources: "Slide Week 05 (tr. 1–30); Stat20 Mục 3.1",
+    ref: {
+      "slide_file": "week05.pdf",
+      "slide_name": "Tuần 05 — Không gian mẫu & Tiên đề xác suất",
+      "pages": "Slide 1 – 30",
+      "page_start": 1,
+      "section": "Phần 1 & 2: Không gian mẫu Ω, Biến cố và 3 Tiên đề xác suất Kolmogorov (Slide 1–30)",
+      "stat20": "Stat20 Mục 3.1; OpenIntro Statistics Chương 3",
+      "key_points": [
+            "Không gian mẫu Ω: Tập hợp toàn bộ các kết quả sơ cấp có thể xảy ra của phép thử",
+            "Biến cố A ⊆ Ω; Xác suất cổ điển P(A) = |A| / |Ω| khi các kết quả đồng khả năng",
+            "3 Tiên đề Kolmogorov: P(A) ≥ 0, P(Ω) = 1, và P(∪Ai) = ∑P(Ai) khi các Ai xung khắc"
+      ],
+      "remind": "Nếu bạn cảm thấy khái niệm không gian mẫu và tiên đề xác suất trừu tượng, hãy đọc lại Slide Week 05 từ trang 10 đến 25 với các ví dụ tung đồng xu, xúc xắc."
+},
     desc: "Xây dựng nền móng giải tích xác suất: Không gian mẫu, biến cố, và 3 tiên đề Kolmogorov đảm bảo tính nhất quán của toán học xác suất.",
     steps: [
       {
@@ -159,6 +173,20 @@ const CUM_B = [
     cluster: "B",
     title: "Quy tắc cộng, Biến cố đối & Nguyên lý bao hàm - loại trừ",
     sources: "Slide Week 05 (tr. 31–50); Stat20 Mục 3.1, 3.3.9",
+    ref: {
+      "slide_file": "week05.pdf",
+      "slide_name": "Tuần 05 — Quy tắc cộng & Biến cố đối",
+      "pages": "Slide 31 – 50",
+      "page_start": 31,
+      "section": "Phần 3: Quy tắc cộng, Biến cố đối và Nguyên lý bao hàm - loại trừ (Slide 31–50)",
+      "stat20": "Stat20 Mục 3.1 & Mục 3.3.9 (Addition Rule & Inclusion-Exclusion)",
+      "key_points": [
+            "Biến cố đối lập: P(A^c) = 1 - P(A); Quy tắc vàng 'Ít nhất một' = 1 - P('Không có cái nào')",
+            "Quy tắc cộng tổng quát: P(A ∪ B) = P(A) + P(B) - P(A ∩ B)",
+            "Nguyên lý bao hàm - loại trừ cho 3 biến cố: P(A ∪ B ∪ C)"
+      ],
+      "remind": "Nếu bạn hay quên trừ phần giao P(A ∩ B) khi hai biến cố không xung khắc, hãy xem lại sơ đồ Venn ở Slide Week 05 trang 33–42."
+},
     desc: "Làm chủ quy tắc cộng xác suất tổng quát cho hai biến cố bất kỳ, kỹ thuật biến cố đối (vũ khí tối thượng cho dạng 'ít nhất một') và biểu đồ Venn.",
     steps: [
       {
@@ -289,6 +317,20 @@ const CUM_B = [
     cluster: "B",
     title: "Xác suất có điều kiện & Quy tắc nhân",
     sources: "Slide Week 05 (tr. 51–68); Stat20 Mục 3.3.3, 3.3.4",
+    ref: {
+      "slide_file": "week05.pdf",
+      "slide_name": "Tuần 05 — Xác suất điều kiện & Định lý Bayes",
+      "pages": "Slide 51 – 68",
+      "page_start": 51,
+      "section": "Phần 4: Xác suất có điều kiện, Quy tắc nhân, Sơ đồ cây & Định lý Bayes (Slide 51–68)",
+      "stat20": "Stat20 Mục 3.3.3 & 3.3.4 (Conditional Probability & Bayes' Rule)",
+      "key_points": [
+            "Xác suất có điều kiện: P(A|B) = P(AB) / P(B) (với P(B) > 0), không gian mẫu thu hẹp về B",
+            "Quy tắc nhân: P(AB) = P(B) * P(A|B) = P(A) * P(B|A)",
+            "Định lý Bayes: P(Ai|B) = P(Ai)P(B|Ai) / ∑P(Aj)P(B|Aj); Mô hình dịch bệnh SIR (Slide 67–69)"
+      ],
+      "remind": "Nếu bạn gặp khó khăn khi vẽ sơ đồ cây hoặc tính xác suất xét nghiệm dương tính giả (Base Rate Fallacy), hãy đọc kỹ Slide Week 05 từ trang 55 đến 69."
+},
     desc: "Khái niệm then chốt của xác suất: Cập nhật xác suất khi có thêm thông tin. Công thức Bayes nền tảng và quy tắc nhân cho các phép thử liên tiếp không hoàn lại.",
     steps: [
       {
@@ -415,6 +457,20 @@ const CUM_B = [
     cluster: "B",
     title: "Tính Độc lập vs Tính Xung khắc: Phân biệt cốt tử",
     sources: "Slide Week 05 (tr. 69–80); Stat20 Mục 3.3.5, 3.3.8",
+    ref: {
+      "slide_file": "week05.pdf",
+      "slide_name": "Tuần 05 — Độc lập vs Xung khắc",
+      "pages": "Slide 69 – 80",
+      "page_start": 69,
+      "section": "Phần 4: Phân biệt Độc lập vs Xung khắc (Slide 69–80; Câu hỏi kiểm tra W05-Q03)",
+      "stat20": "Stat20 Mục 3.3.5 & 3.3.8 (Independence vs Mutually Exclusive)",
+      "key_points": [
+            "Hai biến cố độc lập khi P(AB) = P(A)P(B) hoặc P(A|B) = P(A)",
+            "Hai biến cố xung khắc khi A ∩ B = ∅, tức P(AB) = 0",
+            "Bẫy chí tử: Nếu P(A) > 0 và P(B) > 0, xung khắc thì KHÔNG THỂ độc lập!"
+      ],
+      "remind": "Đây là câu hỏi lừa kinh điển trong đề thi UET. Hãy xem kỹ Slide Week 05 trang 70–72 với lời cảnh báo: 'Xung khắc không phải độc lập'."
+},
     desc: "Xóa tan nhầm lẫn phổ biến nhất trong xác suất giữa Độc lập (Independent) và Xung khắc (Disjoint). Bài học xương máu từ vụ án Sally Clark.",
     steps: [
       {
@@ -548,6 +604,20 @@ const CUM_B = [
     cluster: "B",
     title: "Giải tích kết hợp & Kỹ thuật đếm (Quy tắc nhân, Hoán vị, Tổ hợp)",
     sources: "Slide Week 05 (tr. 81–93); Stat20 Mục 3.4.2",
+    ref: {
+      "slide_file": "week05.pdf",
+      "slide_name": "Tuần 05 — Giải tích kết hợp & Nghịch lý De Méré",
+      "pages": "Slide 81 – 93",
+      "page_start": 81,
+      "section": "Phần 5: Giải nghịch lý De Méré (Slide 73–80) & Phần 6: Bài tập tổng hợp và Kỹ thuật đếm (Slide 81–93)",
+      "stat20": "Stat20 Mục 3.4.2 (Combinatorics & Counting Principles)",
+      "key_points": [
+            "Quy tắc cộng (chia trường hợp rời nhau) và Quy tắc nhân (thực hiện liên tiếp các công đoạn)",
+            "Hoán vị P_n = n!, Chỉnh hợp A_n^k = n!/(n-k)!, Tổ hợp C_n^k = n! / [k!(n-k)!]",
+            "Nghịch lý De Méré: So sánh xác suất xuất hiện mặt 6 trong 4 lần tung vs cặp 6 trong 24 lần tung"
+      ],
+      "remind": "Nếu bạn hay nhầm lẫn giữa Chỉnh hợp (có thứ tự) và Tổ hợp (không thứ tự), hãy ôn lại Slide Week 05 trang 73–85 và bài toán tình huống W05-CASE01."
+},
     desc: "Trang bị các quy tắc đếm căn bản: Quy tắc nhân, Hoán vị, Chỉnh hợp và Tổ hợp C(n, k). Cột trụ để xây dựng các phân phối Nhị thức và Siêu bội.",
     steps: [
       {

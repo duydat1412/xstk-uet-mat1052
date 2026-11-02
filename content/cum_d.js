@@ -11,6 +11,20 @@ const CUM_D = [
     cluster: "D",
     title: "Biến ngẫu nhiên i.i.d. & Mô hình chiếc hộp (Box Model)",
     sources: "Slide Week 07 (tr. 21–24); Stat20 Mục 4.13",
+    ref: {
+      "slide_file": "week07.pdf",
+      "slide_name": "Tuần 07 — Biến ngẫu nhiên i.i.d. & Mô hình chiếc hộp",
+      "pages": "Slide 21 – 24",
+      "page_start": 21,
+      "section": "Phần 2: Các biến ngẫu nhiên độc lập cùng phân phối (i.i.d.) & Mô hình chiếc hộp (Slide 21–24)",
+      "stat20": "Stat20 Mục 4.13 (Independent and Identically Distributed & Box Models)",
+      "key_points": [
+            "Biến ngẫu nhiên i.i.d. (independent and identically distributed): Độc lập và cùng tuân theo một quy luật xác suất",
+            "Mô hình chiếc hộp (Box model): Rút thăm n lần CÓ hoàn lại từ một hộp vé ghi các con số",
+            "Chuyển dịch tư duy: Xem mọi bài toán lấy mẫu ngẫu nhiên như việc rút thẻ từ một chiếc hộp trừu tượng"
+      ],
+      "remind": "Nếu bạn chưa hình dung được mô hình chiếc hộp liên hệ thế nào với các biến ngẫu nhiên trong bài thi, hãy mở lại Slide Week 07 trang 21–24."
+},
     desc: "Mô hình hóa phép thử phức hợp bằng Mô hình chiếc hộp. Khái niệm i.i.d. (độc lập và cùng phân phối) làm nền tảng cho toàn bộ thống kê suy luận.",
     steps: [
       {
@@ -150,6 +164,20 @@ const CUM_D = [
     cluster: "D",
     title: "Tổng và Trung bình của các biến i.i.d.: Quy tắc căn bậc hai",
     sources: "Slide Week 07 (tr. 25–32); Stat20 Mục 4.14",
+    ref: {
+      "slide_file": "week07.pdf",
+      "slide_name": "Tuần 07 — Tổng & Trung bình mẫu: Quy tắc căn bậc hai",
+      "pages": "Slide 25 – 32",
+      "page_start": 25,
+      "section": "Phần 2: Tổng và trung bình của các biến i.i.d. — Square Root Law (Slide 25–32)",
+      "stat20": "Stat20 Mục 4.14 (Sum and Average of i.i.d. Variables)",
+      "key_points": [
+            "Tổng Sn = X1 + ... + Xn: E(Sn) = n*μ, SD(Sn) = σ*√n (quy tắc nhân căn n)",
+            "Trung bình mẫu X_bar = Sn / n: E(X_bar) = μ, SD(X_bar) = σ / √n (sai số giảm theo 1/√n)",
+            "Quy tắc căn bậc hai (Square Root Law): Muốn giảm sai số đo lường đi k lần, phải tăng cỡ mẫu gấp k^2 lần"
+      ],
+      "remind": "Đây là dạng bài trắc nghiệm tính nhanh rất phổ biến. Hãy mở Slide Week 07 trang 26–30 để ghi nhớ sự khác biệt giữa σ*√n và σ/√n."
+},
     desc: "Nắm vững hai công thức quan trọng nhất của học phần: Kỳ vọng và Độ lệch chuẩn của Tổng Sn (σ√n) và Trung bình mẫu X̄n (σ/√n). Quy tắc căn bậc hai.",
     steps: [
       {
@@ -282,6 +310,20 @@ const CUM_D = [
     cluster: "D",
     title: "Bất đẳng thức Chebyshev: Cận trên của xác suất sai lệch",
     sources: "Slide Week 07 (tr. 33–37) [CHỈ CÓ TRONG SLIDE UET]",
+    ref: {
+      "slide_file": "week07.pdf",
+      "slide_name": "Tuần 07 — Bất đẳng thức Chebyshev",
+      "pages": "Slide 33 – 37",
+      "page_start": 33,
+      "section": "Phần 3: Bất đẳng thức Chebyshev và cận trên sai lệch [CHUYÊN ĐỀ ĐỘC QUYỀN SLIDE UET] (Slide 33–37)",
+      "stat20": "Nội dung nâng cao riêng biệt của Slide UET (không có trong Stat20)",
+      "key_points": [
+            "Bất đẳng thức Chebyshev: P(|X - μ| ≥ k*σ) ≤ 1 / k^2 (với mọi k > 0)",
+            "Dạng sai số tuyệt đối ε: P(|X - μ| ≥ ε) ≤ Var(X) / ε^2",
+            "Ưu điểm tối cao: Đúng cho MỌI phân phối xác suất bất kỳ (kể cả phân phối lệch, rời rạc hay liên tục)"
+      ],
+      "remind": "Nếu gặp bài toán yêu cầu 'đánh giá xác suất mà không biết dạng phân phối', hãy mở ngay Slide Week 07 trang 34–37 về Bất đẳng thức Chebyshev."
+},
     desc: "Định lý kỳ diệu áp dụng cho MỌI phân phối có phương sai hữu hạn. Đánh giá cận trên của rủi ro sai lệch xa khỏi tâm mà không cần biết hình dạng phân phối.",
     steps: [
       {
@@ -408,6 +450,20 @@ const CUM_D = [
     cluster: "D",
     title: "Luật số lớn yếu (WLLN): Bản chất & Ứng dụng",
     sources: "Slide Week 07 (tr. 38–40) [CHỈ CÓ TRONG SLIDE UET]",
+    ref: {
+      "slide_file": "week07.pdf",
+      "slide_name": "Tuần 07 — Luật số lớn yếu (WLLN)",
+      "pages": "Slide 38 – 40",
+      "page_start": 38,
+      "section": "Phần 3: Luật số lớn yếu — Weak Law of Large Numbers [ĐỘC QUYỀN SLIDE UET] (Slide 38–40)",
+      "stat20": "Nội dung giải tích xác suất nâng cao của Slide UET",
+      "key_points": [
+            "Phát biểu WLLN: lim (n→∞) P(|X_bar_n - μ| ≥ ε) = 0 với mọi sai số ε > 0 tùy ý",
+            "Ý nghĩa toán học: Trung bình mẫu hội tụ theo xác suất về kỳ vọng thực của tổng thể",
+            "Ứng dụng thực tế: Cơ sở toán học nền tảng cho ngành bảo hiểm, casino và thống kê suy diễn"
+      ],
+      "remind": "Nếu bạn muốn hiểu bản chất chứng minh WLLN từ BĐT Chebyshev (Var(X_bar) = σ^2/n → 0), hãy xem Slide Week 07 trang 38–40."
+},
     desc: "Cầu nối giữa Xác suất lý thuyết và Thực tiễn thực nghiệm. Chứng minh định lý bằng Chebyshev và giải mã nguyên lý vì sao sòng bạc và bảo hiểm luôn có lãi.",
     steps: [
       {
