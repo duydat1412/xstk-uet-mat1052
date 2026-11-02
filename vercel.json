@@ -4,6 +4,7 @@
     { "source": "/hoc", "destination": "/site/hoc.html", "permanent": false },
     { "source": "/tuluan", "destination": "/site/tuluan.html", "permanent": false },
     { "source": "/tracnghiem", "destination": "/site/tracnghiem.html", "permanent": false },
-    { "source": "/congthuc", "destination": "/site/congthuc.html", "permanent": false }
+    { "source": "/congthuc", "destination": "/site/congthuc.html", "permanent": false },
+    { "source": "/dethi", "destination": "/site/dethi.html", "permanent": false }
   ]
 }

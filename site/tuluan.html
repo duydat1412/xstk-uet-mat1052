@@ -650,6 +650,129 @@ main {
   .stats-card { flex-direction: column; align-items: stretch; }
   .stats-pills { justify-content: space-between; }
 }
+
+/* ========================================================
+   RESPONSIVE CSS TỐI ƯU TOÀN DIỆN CHO MOBILE & TABLET
+   ======================================================== */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 6px 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 900px) {
+  .quiz-layout, .exam-layout, .layout-wrap {
+    grid-template-columns: 1fr !important;
+  }
+  .sidebar, .sidebar-palette, .exam-sidebar {
+    position: static !important;
+    order: -1 !important;
+    margin-bottom: 14px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-wrap, .header-top {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 8px 12px !important;
+    gap: 8px !important;
+  }
+
+  .header-actions {
+    margin-left: auto;
+  }
+
+  .nav-links {
+    display: flex !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    white-space: nowrap !important;
+    padding: 4px 0 !important;
+    gap: 6px !important;
+    scrollbar-width: none !important;
+  }
+  .nav-links::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .nav-link, .nav-btn {
+    font-size: 0.82rem !important;
+    padding: 6px 10px !important;
+    min-height: 36px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .container, main, .main-container {
+    padding: 12px 10px 40px !important;
+  }
+
+  /* Co giãn font chữ tiêu đề trên mobile */
+  h1, .hero-title, .site-title, .lesson-title {
+    font-size: clamp(1.2rem, 4.5vw, 1.6rem) !important;
+  }
+  h2, .section-title, .exercise-title {
+    font-size: clamp(1.05rem, 3.8vw, 1.3rem) !important;
+  }
+
+  /* Bộ nút bấm cuộn ngang */
+  .clusters-nav, .lessons-strip, .topics-nav, .filter-tabs, .mode-tabs, .exam-tabs {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    white-space: nowrap !important;
+    padding-bottom: 6px !important;
+    scrollbar-width: none !important;
+    gap: 6px !important;
+  }
+  .clusters-nav::-webkit-scrollbar,
+  .lessons-strip::-webkit-scrollbar,
+  .topics-nav::-webkit-scrollbar,
+  .filter-tabs::-webkit-scrollbar,
+  .mode-tabs::-webkit-scrollbar,
+  .exam-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .cluster-btn, .lesson-pill, .topic-btn, .filter-btn, .mode-tab, .exam-tab {
+    flex-shrink: 0 !important;
+    padding: 7px 12px !important;
+    font-size: 0.82rem !important;
+  }
+
+  /* Thẻ nội dung & Khối bước giải */
+  .lesson-card, .exercise-card, .q-card, .formula-card, .essay-card {
+    padding: 16px 14px !important;
+    border-radius: 12px !important;
+  }
+
+  .formulas-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* Tối ưu diện tích bấm cho phương án trắc nghiệm */
+  .opt-btn, .opt-label, .quiz-opt {
+    padding: 12px 14px !important;
+    min-height: 48px !important;
+    font-size: 0.92rem !important;
+  }
+
+  /* Bảng biểu cuộn ngang không làm vỡ khung hình */
+  table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .modal-dialog, .modal-card {
+    width: 95% !important;
+    padding: 18px 14px !important;
+    max-height: 88vh !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -664,7 +787,7 @@ main {
       <a href="hoc.html" class="nav-link">📚 Lý thuyết</a>
       <a href="tuluan.html" class="nav-link active">✍️ Tự luận</a>
       <a href="tracnghiem.html" class="nav-link">📝 Trắc nghiệm (161 câu)</a>
-      <a href="dethi.html" class="nav-link">🎯 Đề thi mẫu</a>
+      <a href="dethi.html" class="nav-link">📝 Đề thi thử</a>
       <a href="congthuc.html" class="nav-link">📖 Công thức</a>
     </nav>
     <div class="header-actions">

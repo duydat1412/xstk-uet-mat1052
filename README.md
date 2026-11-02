@@ -2,7 +2,7 @@
 
 > Bộ tài nguyên và ứng dụng tự học tương tác, chuẩn bị toàn diện cho kỳ thi Giữa kỳ Xác suất Thống kê Đại học Công nghệ (VNU - UET). 100% tiếng Việt, có đáp án giải thích chi tiết, barem điểm từng bước, mẹo Casio và kiểm toán toán học chính xác.
 
-[![QA Tests](https://img.shields.io/badge/QA%20Tests-1365%2F1365%20Passed-brightgreen)](docs/qa-report.md)
+[![QA Tests](https://img.shields.io/badge/QA%20Tests-1832%2F1832%20Passed-brightgreen)](docs/qa-report.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://vercel.com)
 
@@ -22,7 +22,10 @@
 4. **Sổ Tay Công Thức & Bảng Tra $\Phi(z)$ (`site/congthuc.html`)**:
    - 35 thẻ công thức tra cứu 1 chạm, sao chép mã KaTeX, giải thích ký hiệu và điều kiện áp dụng.
    - Bảng tra tương tác cho phân phối chuẩn tắc $\Phi(z)$ từ $0{,}00$ đến $3{,}09$.
-5. **Cổng Thông Tin & Lộ Trình Ôn Thi (`site/index.html`)**:
+5. **4 Bộ Đề Thi Thử Giữa Kỳ Chuẩn UET (`site/dethi.html`)**:
+   - 90 phút mô phỏng đề thi thật: 50% trắc nghiệm (20 câu) + 50% tự luận (2-3 bài lớn).
+   - Tự động đếm ngược thời gian, chấm điểm trắc nghiệm tức thì và barem tự chấm chi tiết từng 0,25đ.
+6. **Cổng Thông Tin & Lộ Trình Ôn Thi (`site/index.html`)**:
    - Lộ trình cấp tốc 72h (3 ngày), lộ trình chuẩn 7 ngày, và lộ trình nâng cao 14 ngày.
    - Bảng kiểm 10 bẫy điểm số chết người.
 

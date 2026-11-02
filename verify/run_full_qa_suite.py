@@ -1,6 +1,6 @@
 """
 run_full_qa_suite.py - Comprehensive Quality Assurance & Mathematical Sanity Test Suite
-Target: UET.MAT1052 Probability and Statistics Interactive Self-Study Learning Kit
+Target: UET.MAT1052 Probability and Statistics Interactive Self-Study Learning Kit (All 7 Phases)
 """
 
 import sys
@@ -41,27 +41,29 @@ def test_warn(condition, test_name, warn_msg=""):
         print(f"  [PASS] {test_name}")
 
 print("=" * 80)
-print("  UET.MAT1052 QA AUDIT & VERIFICATION SUITE - PHASE 7")
+print("  UET.MAT1052 QA AUDIT & VERIFICATION SUITE - FULL 7 PHASES")
 print("=" * 80)
 
 # ----------------------------------------------------------------------
-# SUITE 1: HTML Files Structure, Navigation & KaTeX Integrity
+# SUITE 1: HTML Files Structure, Navigation & KaTeX Integrity (6 files)
 # ----------------------------------------------------------------------
-print("\n[SUITE 1] HTML Files Structure, Navigation & KaTeX Integrity")
+print("\n[SUITE 1] HTML Files Structure, Navigation & KaTeX Integrity (6 Files)")
 html_files = [
     "index.html",
     "hoc.html",
     "tuluan.html",
     "tracnghiem.html",
-    "congthuc.html"
+    "congthuc.html",
+    "dethi.html"
 ]
 
 expected_nav_hrefs = {
-    "index.html": ["hoc.html", "tuluan.html", "tracnghiem.html", "congthuc.html"],
-    "hoc.html": ["index.html", "tuluan.html", "tracnghiem.html", "congthuc.html"],
-    "tuluan.html": ["index.html", "hoc.html", "tracnghiem.html", "congthuc.html"],
-    "tracnghiem.html": ["index.html", "hoc.html", "tuluan.html", "congthuc.html"],
-    "congthuc.html": ["index.html", "hoc.html", "tuluan.html", "tracnghiem.html"]
+    "index.html": ["hoc.html", "tuluan.html", "tracnghiem.html", "congthuc.html", "dethi.html"],
+    "hoc.html": ["index.html", "tuluan.html", "tracnghiem.html", "congthuc.html", "dethi.html"],
+    "tuluan.html": ["index.html", "hoc.html", "tracnghiem.html", "congthuc.html", "dethi.html"],
+    "tracnghiem.html": ["index.html", "hoc.html", "tuluan.html", "congthuc.html", "dethi.html"],
+    "congthuc.html": ["index.html", "hoc.html", "tuluan.html", "tracnghiem.html", "dethi.html"],
+    "dethi.html": ["index.html", "hoc.html", "tuluan.html", "tracnghiem.html", "congthuc.html"]
 }
 
 for fname in html_files:
@@ -88,6 +90,12 @@ for fname in html_files:
     test_assert("katex.min.css" in content, f"KaTeX CSS included: site/{fname}")
     test_assert("katex.min.js" in content, f"KaTeX JS included: site/{fname}")
     test_assert("auto-render.min.js" in content, f"KaTeX auto-render JS included: site/{fname}")
+
+    # Check Mobile Viewport meta
+    test_assert("name=\"viewport\"" in content, f"Responsive viewport meta defined: site/{fname}")
+
+    # Check KaTeX overflow CSS for mobile
+    test_assert(".katex-display" in content and "overflow-x" in content, f"KaTeX overflow-x handling: site/{fname}")
     
     # Check Nav Links
     for expected_href in expected_nav_hrefs[fname]:
@@ -120,7 +128,7 @@ for fname in html_files:
 # ----------------------------------------------------------------------
 print("\n[SUITE 3] Content Databases Integrity & Schema Validation")
 
-# Check tracnghiem_data.json
+# 1. Check tracnghiem_data.json
 tn_path = os.path.join(CONTENT_DIR, "tracnghiem_data.json")
 test_assert(os.path.isfile(tn_path), "File exists: content/tracnghiem_data.json")
 with open(tn_path, "r", encoding="utf-8") as f:
@@ -129,21 +137,15 @@ with open(tn_path, "r", encoding="utf-8") as f:
 test_assert(isinstance(tn_data, list), "tracnghiem_data.json is a JSON list")
 test_assert(len(tn_data) == 161, f"Total MCQs count is 161 (Found: {len(tn_data)})")
 
-# Check schema and uniqueness of MCQs
 tn_ids = set()
-topic_mcq_counts = {}
 ans_dist = {0: 0, 1: 0, 2: 0, 3: 0}
 diff_dist = {}
-
 valid_levels = {"Cơ bản", "Trung bình", "Nâng cao", "Nhận biết", "Thông hiểu", "Vận dụng", "Vận dụng cao"}
 
 for q in tn_data:
     q_id = q.get("id")
     test_assert(q_id is not None and q_id not in tn_ids, f"MCQ ID unique and valid: {q_id}")
     tn_ids.add(q_id)
-    
-    topic_id = q.get("topicId")
-    topic_mcq_counts[topic_id] = topic_mcq_counts.get(topic_id, 0) + 1
     
     options = q.get("options", [])
     test_assert(len(options) == 4, f"MCQ {q_id} has exactly 4 options")
@@ -159,7 +161,7 @@ for q in tn_data:
     
     test_assert(len(q.get("explanation", "")) > 10, f"MCQ {q_id} has substantial explanation")
 
-# Check tuluan_data.json
+# 2. Check tuluan_data.json
 tl_path = os.path.join(CONTENT_DIR, "tuluan_data.json")
 test_assert(os.path.isfile(tl_path), "File exists: content/tuluan_data.json")
 with open(tl_path, "r", encoding="utf-8") as f:
@@ -186,12 +188,11 @@ for p in tl_exercises:
         test_assert(isinstance(step, str) and len(step) > 20, f"Step #{s_idx+1} valid content in {p_id}")
         test_assert("Bước" in step or "bước" in step.lower() or "[+" in step, f"Step #{s_idx+1} barem marker in {p_id}")
 
-# Check 7 topics distribution in free-response: each topic has 8 questions
 for t in range(1, 8):
     cnt = topic_tl_counts.get(t, 0)
     test_assert(cnt == 8, f"Topic {t} has exactly 8 free response exercises (Found: {cnt})")
 
-# Check lessons in content/lessons_all.js
+# 3. Check lessons in content/lessons_all.js
 lessons_path = os.path.join(CONTENT_DIR, "lessons_all.js")
 test_assert(os.path.isfile(lessons_path), "File exists: content/lessons_all.js")
 with open(lessons_path, "r", encoding="utf-8") as f:
@@ -202,13 +203,63 @@ lesson_ids = [lid for lid in lesson_ids_raw if re.match(r'^[A-E]\d+$', lid)]
 test_assert(len(lesson_ids) == 26, f"Total lessons is 26 across 5 clusters (Found: {len(lesson_ids)})")
 test_assert(len(set(lesson_ids)) == 26, "All 26 lesson IDs are unique")
 
-# Check formulas in site/congthuc.html
+# 4. Check formulas in site/congthuc.html
 with open(os.path.join(SITE_DIR, "congthuc.html"), "r", encoding="utf-8") as f:
     ct_content = f.read()
 
 ct_ids = re.findall(r'"id":\s*"(CT\d+_\d+)"', ct_content)
 test_assert(len(ct_ids) == 35, f"Total formula cards is 35 (Found: {len(ct_ids)})")
 test_assert(len(set(ct_ids)) == 35, "All 35 formula IDs are unique")
+
+# 5. Check dethi_data.json (Phase 5 Practice Exams)
+dethi_path = os.path.join(CONTENT_DIR, "dethi_data.json")
+test_assert(os.path.isfile(dethi_path), "File exists: content/dethi_data.json")
+with open(dethi_path, "r", encoding="utf-8") as f:
+    dethi_data = json.load(f)
+
+test_assert(isinstance(dethi_data, list), "dethi_data.json is a JSON list")
+test_assert(len(dethi_data) == 4, f"Total practice exams count is 4 (Found: {len(dethi_data)})")
+
+exam_mcq_ids = set()
+exam_essay_ids = set()
+total_exam_mcqs = 0
+total_exam_essays = 0
+
+for exam_idx, exam in enumerate(dethi_data):
+    e_code = exam.get("code")
+    test_assert(e_code in ["101", "102", "103", "104"], f"Exam #{exam_idx+1} has valid code: {e_code}")
+    test_assert(exam.get("duration") == 90, f"Exam {e_code} has 90 minutes duration")
+    test_assert(exam.get("total_score") == 10.0, f"Exam {e_code} has 10.0 total score")
+    
+    mcqs = exam.get("mcqs", [])
+    test_assert(len(mcqs) == 20, f"Exam {e_code} has exactly 20 MCQs (Found: {len(mcqs)})")
+    total_exam_mcqs += len(mcqs)
+    
+    for q in mcqs:
+        qid = q.get("id")
+        test_assert(qid is not None and qid not in exam_mcq_ids, f"Exam MCQ ID unique: {qid}")
+        exam_mcq_ids.add(qid)
+        test_assert(len(q.get("options", [])) == 4, f"Exam MCQ {qid} has 4 options")
+        test_assert(q.get("correctIndex") in [0, 1, 2, 3], f"Exam MCQ {qid} has valid correctIndex")
+        test_assert(len(q.get("explanation", "")) > 10, f"Exam MCQ {qid} has explanation")
+        
+    essays = exam.get("essays", [])
+    test_assert(len(essays) in [2, 3], f"Exam {e_code} has 2-3 free response problems (Found: {len(essays)})")
+    total_exam_essays += len(essays)
+    
+    for essay in essays:
+        es_id = essay.get("id")
+        test_assert(es_id is not None and es_id not in exam_essay_ids, f"Exam Essay ID unique: {es_id}")
+        exam_essay_ids.add(es_id)
+        
+        parts = essay.get("parts", [])
+        test_assert(len(parts) >= 2, f"Exam Essay {es_id} has multi-step parts (Found: {len(parts)})")
+        for p in parts:
+            test_assert(p.get("score") > 0, f"Part in {es_id} has positive score")
+            test_assert(len(p.get("barem", "")) > 0, f"Part in {es_id} has barem")
+            test_assert(len(p.get("solution", "")) > 10, f"Part in {es_id} has solution")
+
+print(f"  Total Exam items verified: {total_exam_mcqs} MCQs and {total_exam_essays} multi-step Essays across 4 exams.")
 
 # ----------------------------------------------------------------------
 # SUITE 4: MCQ Balance & Quality Verification
@@ -232,9 +283,6 @@ test_assert(len(diff_dist) >= 3, "Multi-level question distribution present")
 print("\n[SUITE 5] Rigorous Mathematical Sanity & Formula Exactness Checks")
 
 # 1. CLT Spare Bulbs Quadratic Sanity Check
-# Week 07 Slide 90 & Exercise TL7_7:
-# Mu = 100, Sigma = 20 (Var = 400), T = 2000, Conf = 99%
-# Solving 100u^2 - 20*z*u - 2000 >= 0
 def solve_clt_spare_bulbs(z_val):
     a = 100.0
     b = -20.0 * z_val
@@ -249,7 +297,6 @@ u_slide, n_slide = solve_clt_spare_bulbs(2.4675)
 test_assert(n_std == 23 and n_slide == 23, f"CLT Spare bulb root yields n = 23 (u_std={u_std:.3f}, u_slide={u_slide:.3f})")
 
 # 2. OLS Regression Sanity Check
-# Sample points: (1, 2), (2, 3), (3, 5), (4, 4), (5, 6)
 xs = [1.0, 2.0, 3.0, 4.0, 5.0]
 ys = [2.0, 3.0, 5.0, 4.0, 6.0]
 n_pts = len(xs)
@@ -271,8 +318,6 @@ test_assert(0.0 <= r2 <= 1.0, f"OLS R^2 in valid [0, 1] interval: {r2:.4f}")
 test_assert(-1.0 <= r <= 1.0, f"Correlation coefficient r in [-1, 1]: {r:.4f}")
 
 # 3. Bayes' Theorem Sanity Check
-# P(D) = 0.01, P(Pos|D) = 0.95, P(Pos|not D) = 0.02
-# P(D|Pos) = (0.01 * 0.95) / (0.01 * 0.95 + 0.99 * 0.02)
 p_d = 0.01
 p_pos_d = 0.95
 p_pos_not_d = 0.02
@@ -281,11 +326,9 @@ p_d_pos = (p_d * p_pos_d) / p_pos
 test_assert(0.323 <= p_d_pos <= 0.325, f"Bayes theorem exact calculation: {p_d_pos:.5f} (~32.42%)")
 
 # 4. Binomial & Poisson Distribution Boundary Check
-# Binomial n=10, p=0.3 -> sum of probabilities for k=0..10 equals 1
 binom_sum = sum(math.comb(10, k) * (0.3**k) * (0.7**(10-k)) for k in range(11))
 test_assert(abs(binom_sum - 1.0) < 1e-9, f"Binomial PMF total mass equals 1.0 (Sum: {binom_sum:.9f})")
 
-# Poisson lambda = 4.5 -> sum of k=0..30 equals ~1.0
 poiss_sum = sum((4.5**k * math.exp(-4.5)) / math.factorial(k) for k in range(35))
 test_assert(abs(poiss_sum - 1.0) < 1e-7, f"Poisson PMF total mass equals 1.0 (Sum: {poiss_sum:.9f})")
 

@@ -1,0 +1,1225 @@
+[
+  {
+    "id": "de_01",
+    "code": "101",
+    "title": "Đề Thi Thử Số 01: Chuẩn Format UET (Cơ bản - Thông hiểu)",
+    "description": "Đề thi bám sát chuẩn ma trận đề thi giữa kỳ UET, quét sạch kiến thức nền tảng Tuần 01 - 07. Phù hợp mục tiêu chắc chắn $\\ge 7{,}0$ điểm.",
+    "duration": 90,
+    "mcq_score": 5.0,
+    "essay_score": 5.0,
+    "total_score": 10.0,
+    "mcqs": [
+      {
+        "id": "D1_TN01",
+        "question": "Cho mẫu số liệu thời gian chạy thuật toán (ms): $12, 15, 18, 22, 25, 28, 95$. Đại lượng đo xu thế trung tâm nào sau đây phản ánh độ tiêu biểu tốt nhất cho mẫu?",
+        "options": [
+          "Số trung bình (Mean)",
+          "Trung vị (Median)",
+          "Khoảng biến thiên (Range)",
+          "Độ lệch chuẩn (Standard Deviation)"
+        ],
+        "correctIndex": 1,
+        "explanation": "Mẫu có giá trị ngoại lai dị biệt cực lớn là $95$ (outlier). Khi có ngoại lai, số trung bình bị kéo lệch mạnh về bên phải, trong khi Trung vị (Median $= 22$) có tính bền vững (robustness) chống lại ngoại lai nên phản ánh trung tâm tốt nhất."
+      },
+      {
+        "id": "D1_TN02",
+        "question": "Trong mô hình hồi quy tuyến tính OLS $\\hat{y} = b_0 + b_1 x$, nếu hệ số xác định $R^2 = 0{,}81$ và hệ số góc $b_1 = -2{,}4$, hệ số tương quan tuyến tính $r$ giữa $x$ và $y$ là:",
+        "options": [
+          "$0{,}90$",
+          "$-0{,}90$",
+          "$0{,}81$",
+          "$-0{,}81$"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ta có $R^2 = r^2 \\implies |r| = \\sqrt{0{,}81} = 0{,}9$. Vì hệ số góc $b_1 < 0$, tương quan giữa $x$ và $y$ là tương quan nghịch (nghịch biến), do đó $r$ phải cùng dấu với $b_1 \\implies r = -0{,}90$."
+      },
+      {
+        "id": "D1_TN03",
+        "question": "Cho bảng phương sai ANOVA mẫu với $SS_{tot} = 200$ và $SS_{res} = 40$. Hệ số xác định $R^2$ của mô hình hồi quy bằng:",
+        "options": [
+          "$0{,}20$",
+          "$0{,}80$",
+          "$0{,}16$",
+          "$0{,}40$"
+        ],
+        "correctIndex": 1,
+        "explanation": "Công thức giải tích: $R^2 = 1 - \\frac{SS_{res}}{SS_{tot}} = 1 - \\frac{40}{200} = 1 - 0{,}20 = 0{,}80$ (hay $80\\%$ biến thiên của $y$ được giải thích bởi $x$)."
+      },
+      {
+        "id": "D1_TN04",
+        "question": "Cho hai biến cố $A$ và $B$ bất kỳ thỏa mãn $P(A) = 0{,}6$; $P(B) = 0{,}5$ và $P(A \\cup B) = 0{,}8$. Khi đó xác suất có điều kiện $P(A \\mid B)$ bằng:",
+        "options": [
+          "$0{,}60$",
+          "$0{,}50$",
+          "$0{,}40$",
+          "$0{,}30$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Áp dụng công thức cộng: $P(A \\cap B) = P(A) + P(B) - P(A \\cup B) = 0{,}6 + 0{,}5 - 0{,}8 = 0{,}3$. Do đó $P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{0{,}3}{0{,}5} = 0{,}60$."
+      },
+      {
+        "id": "D1_TN05",
+        "question": "Nếu hai biến cố $A$ và $B$ độc lập thống kê với $P(A) = 0{,}4$ và $P(B) = 0{,}5$, thì khẳng định nào sau đây là **SAI**?",
+        "options": [
+          "$P(A \\cap B) = 0{,}20$",
+          "$P(A \\mid B) = 0{,}40$",
+          "$P(A \\cup B) = 0{,}70$",
+          "$A$ và $B$ là hai biến cố xung khắc"
+        ],
+        "correctIndex": 3,
+        "explanation": "Hai biến cố độc lập có $P(A \\cap B) = 0{,}4 \\times 0{,}5 = 0{,}20 > 0$. Trong khi hai biến cố xung khắc đòi hỏi $A \\cap B = \\emptyset \\implies P(A \\cap B) = 0$. Vì thế chúng không thể xung khắc. Đây là bẫy kinh điển số 4!"
+      },
+      {
+        "id": "D1_TN06",
+        "question": "Một dây chuyền kiểm thử tự động phát hiện lỗi với xác suất $98\\%$. Sản phẩm lỗi chiếm $2\\%$ trong kho. Tỷ lệ báo lỗi giả (báo lỗi trên sản phẩm lành) là $5\\%$. Một sản phẩm bị hệ thống báo lỗi, xác suất sản phẩm đó thực sự bị lỗi (áp dụng Bayes) xấp xỉ bằng:",
+        "options": [
+          "$28{,}57\\%$",
+          "$35{,}14\\%$",
+          "$49{,}20\\%$",
+          "$98{,}00\\%$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$P(D) = 0{,}02$, $P(B \\mid D) = 0{,}98$, $P(B \\mid \\bar{D}) = 0{,}05$. Ta có $P(B) = 0{,}02 \\times 0{,}98 + 0{,}98 \\times 0{,}05 = 0{,}0196 + 0{,}0490 = 0{,}0686$. Áp dụng Bayes: $P(D \\mid B) = \\frac{0{,}0196}{0{,}0686} \\approx 0{,}2857 = 28{,}57\\%$."
+      },
+      {
+        "id": "D1_TN07",
+        "question": "Biến ngẫu nhiên rời rạc $X$ có bảng phân phối xác suất: $P(X = 1) = 0{,}2$; $P(X = 2) = 0{,}5$; $P(X = 3) = 0{,}3$. Phương sai $\\text{Var}(X)$ bằng:",
+        "options": [
+          "$0{,}49$",
+          "$2{,}10$",
+          "$4{,}90$",
+          "$0{,}70$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$E[X] = 1(0{,}2) + 2(0{,}5) + 3(0{,}3) = 0{,}2 + 1{,}0 + 0{,}9 = 2{,}1$. $E[X^2] = 1^2(0{,}2) + 2^2(0{,}5) + 3^2(0{,}3) = 0{,}2 + 2{,}0 + 2{,}7 = 4{,}9$. Suy ra $\\text{Var}(X) = E[X^2] - (E[X])^2 = 4{,}9 - (2{,}1)^2 = 4{,}9 - 4{,}41 = 0{,}49$."
+      },
+      {
+        "id": "D1_TN08",
+        "question": "Cho $X$ là biến ngẫu nhiên có $E[X] = 5$ và $\\text{Var}(X) = 4$. Đặt $Y = 3X - 7$. Khi đó cặp giá trị $(E[Y], \\text{Var}(Y))$ là:",
+        "options": [
+          "$(8, 36)$",
+          "$(8, 12)$",
+          "$(15, 36)$",
+          "$(8, 29)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$E[Y] = 3E[X] - 7 = 3(5) - 7 = 8$. $\\text{Var}(Y) = 3^2 \\cdot \\text{Var}(X) = 9 \\times 4 = 36$ (hằng số $-7$ biến mất khi tính phương sai)."
+      },
+      {
+        "id": "D1_TN09",
+        "question": "Hàm phân phối tích lũy $F(x) = P(X \\le x)$ của biến ngẫu nhiên $X$ bất kỳ luôn có tính chất nào sau đây?",
+        "options": [
+          "$F(x)$ là hàm không giảm và $\\lim_{x \\to +\\infty} F(x) = 1$",
+          "$F(x)$ luôn là hàm liên tục tại mọi điểm",
+          "$\\lim_{x \\to -\\infty} F(x) = -1$",
+          "$F(x) > 1$ với mọi $x > 10$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Theo tiên đề giải tích, hàm phân phối tích lũy $F(x)$ luôn là hàm không giảm, liên tục phải, thỏa mãn $\\lim_{x \\to -\\infty} F(x) = 0$ và $\\lim_{x \\to +\\infty} F(x) = 1$."
+      },
+      {
+        "id": "D1_TN10",
+        "question": "Một bài thi trắc nghiệm gồm $10$ câu hỏi, mỗi câu có 4 phương án lựa chọn và chỉ có 1 phương án đúng. Một thí sinh chọn ngẫu nhiên cả 10 câu. Xác suất thí sinh đó trả lời đúng đúng 3 câu là:",
+        "options": [
+          "$\\binom{10}{3} (0{,}25)^3 (0{,}75)^7 \\approx 0{,}2503$",
+          "$\\binom{10}{3} (0{,}25)^7 (0{,}75)^3 \\approx 0{,}0031$",
+          "$(0{,}25)^3 (0{,}75)^7 \\approx 0{,}0021$",
+          "$\\frac{3}{10} = 0{,}3000$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Biến ngẫu nhiên số câu đúng $X \\sim \\text{Binomial}(n=10, p=0{,}25)$. Xác suất đúng 3 câu: $P(X = 3) = \\binom{10}{3} (0{,}25)^3 (0{,}75)^7 = 120 \\times 0{,}015625 \\times 0{,}133484 \\approx 0{,}2503$."
+      },
+      {
+        "id": "D1_TN11",
+        "question": "Số lượng gói tin lỗi truyền qua một kênh mạng trong mỗi phút tuân theo phân phối Poisson với trung bình $\\lambda = 2$ gói tin/phút. Xác suất trong một phút có ít nhất 1 gói tin lỗi là:",
+        "options": [
+          "$1 - e^{-2} \\approx 0{,}8647$",
+          "$e^{-2} \\approx 0{,}1353$",
+          "$2 e^{-2} \\approx 0{,}2707$",
+          "$1 - 2e^{-2} \\approx 0{,}7293$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Biến cố đối lập của 'có ít nhất 1 gói tin lỗi' $(X \\ge 1)$ là 'không có gói tin lỗi nào' $(X = 0)$. Ta có $P(X = 0) = \\frac{2^0 e^{-2}}{0!} = e^{-2} \\approx 0{,}1353$. Do đó $P(X \\ge 1) = 1 - P(X = 0) = 1 - e^{-2} \\approx 0{,}8647$."
+      },
+      {
+        "id": "D1_TN12",
+        "question": "Một người bắn súng liên tục cho đến khi trúng bia lần đầu tiên thì dừng lại. Biết xác suất bắn trúng ở mỗi phát độc lập là $p = 0{,}2$. Số phát súng kỳ vọng người đó phải bắn là:",
+        "options": [
+          "$5$",
+          "$4$",
+          "$0{,}2$",
+          "$10$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Biến ngẫu nhiên $X$ là số lần thử cho đến khi thành công lần đầu tuân theo phân phối Hình học $X \\sim \\text{Geometric}(p=0{,}2)$. Kỳ vọng của phân phối hình học là $E[X] = \\frac{1}{p} = \\frac{1}{0{,}2} = 5$ phát súng."
+      },
+      {
+        "id": "D1_TN13",
+        "question": "Cho biến ngẫu nhiên liên tục $X$ có hàm mật độ xác suất: $f(x) = \\begin{cases} c x & \\text{khi } 0 \\le x \\le 2 \\\\ 0 & \\text{nơi khác} \\end{cases}$. Giá trị của hằng số $c$ bằng:",
+        "options": [
+          "$0{,}5$",
+          "$1{,}0$",
+          "$0{,}25$",
+          "$2{,}0$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Điều kiện chuẩn hóa hàm mật độ: $\\int_{-\\infty}^{+\\infty} f(x) dx = 1 \\iff \\int_0^2 c x dx = c \\left[\\frac{x^2}{2}\\right]_0^2 = c \\cdot 2 = 1 \\implies c = 0{,}5$."
+      },
+      {
+        "id": "D1_TN14",
+        "question": "Thời gian hoàn thành một tác vụ tính toán (phút) tuân theo phân phối Mũ với $\\lambda = 0{,}5$ (trung bình 2 phút). Xác suất tác vụ hoàn thành trong khoảng thời gian từ 1 đến 3 phút là:",
+        "options": [
+          "$e^{-0{,}5} - e^{-1{,}5} \\approx 0{,}3834$",
+          "$e^{-1{,}5} - e^{-0{,}5} \\approx -0{,}3834$",
+          "$1 - e^{-1{,}5} \\approx 0{,}7769$",
+          "$e^{-0{,}5} \\approx 0{,}6065$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Hàm phân phối tích lũy của phân phối Mũ: $F(x) = 1 - e^{-\\lambda x}$. Ta có $P(1 \\le X \\le 3) = F(3) - F(1) = (1 - e^{-0{,}5 \\times 3}) - (1 - e^{-0{,}5 \\times 1}) = e^{-0{,}5} - e^{-1{,}5} \\approx 0{,}60653 - 0{,}22313 = 0{,}3834$."
+      },
+      {
+        "id": "D1_TN15",
+        "question": "Cho $Z \\sim \\mathcal{N}(0, 1)$ là biến ngẫu nhiên chuẩn hóa. Biết $\\Phi(1{,}96) = 0{,}9750$. Khi đó xác suất $P(|Z| \\le 1{,}96)$ bằng:",
+        "options": [
+          "$0{,}9500$",
+          "$0{,}9750$",
+          "$0{,}0500$",
+          "$0{,}0250$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Công thức đối xứng khoảng chuẩn hóa: $P(|Z| \\le z) = 2\\Phi(z) - 1$. Với $z = 1{,}96$: $P(|Z| \\le 1{,}96) = 2(0{,}9750) - 1 = 1{,}9500 - 1 = 0{,}9500$ ($95\\%$ độ tin cậy)."
+      },
+      {
+        "id": "D1_TN16",
+        "question": "Điểm thi của sinh viên tuân theo phân phối Chuẩn $\\mathcal{N}(\\mu = 68, \\sigma^2 = 64)$. Một sinh viên đạt 80 điểm. Điểm chuẩn hóa $Z$ của sinh viên này là:",
+        "options": [
+          "$1{,}50$",
+          "$1{,}875$",
+          "$0{,}1875$",
+          "$12$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Độ lệch chuẩn $\\sigma = \\sqrt{\\sigma^2} = \\sqrt{64} = 8$ (cần chú ý đề cho $\\sigma^2=64$). Điểm chuẩn hóa: $z = \\frac{x - \\mu}{\\sigma} = \\frac{80 - 68}{8} = \\frac{12}{8} = 1{,}50$."
+      },
+      {
+        "id": "D1_TN17",
+        "question": "Cho $X$ và $Y$ là hai biến ngẫu nhiên độc lập có $\\text{Var}(X) = 9$ và $\\text{Var}(Y) = 16$. Phương sai của hiệu $\\text{Var}(X - Y)$ bằng:",
+        "options": [
+          "$25$",
+          "$-7$",
+          "$7$",
+          "$5$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Vì $X$ và $Y$ độc lập: $\\text{Var}(X - Y) = \\text{Var}(X) + (-1)^2 \\text{Var}(Y) = \\text{Var}(X) + \\text{Var}(Y) = 9 + 16 = 25$. Phương sai luôn cộng dồn và không bao giờ âm!"
+      },
+      {
+        "id": "D1_TN18",
+        "question": "Nếu hệ số hiệp phương sai giữa hai biến ngẫu nhiên $X$ và $Y$ bằng $0$ ($\\text{Cov}(X, Y) = 0$), ta có thể kết luận chắc chắn rằng:",
+        "options": [
+          "$X$ và $Y$ không có tương quan tuyến tính",
+          "$X$ và $Y$ hoàn toàn độc lập với nhau",
+          "$X$ và $Y$ có quan hệ hàm số bậc hai",
+          "$\\text{Var}(X) = \\text{Var}(Y)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\text{Cov}(X, Y) = 0 \\iff r_{X,Y} = 0$, nghĩa là không có quan hệ tương quan tuyến tính. Lưu ý: Độc lập $\\implies$ không tương quan, nhưng không tương quan CHƯA CHẮC độc lập (chúng vẫn có thể có quan hệ phi tuyến như $Y = X^2$)."
+      },
+      {
+        "id": "D1_TN19",
+        "question": "Theo Định lý Giới hạn Trung tâm (CLT), nếu một mẫu ngẫu nhiên gồm $n = 100$ quan sát độc lập được rút từ một tổng thể bất kỳ có $\\mu = 50, \\sigma = 10$, thì phân phối xấp xỉ của trung bình mẫu $\\bar{X}$ là:",
+        "options": [
+          "$\\bar{X} \\sim \\mathcal{N}(50, 1)$",
+          "$\\bar{X} \\sim \\mathcal{N}(50, 10)$",
+          "$\\bar{X} \\sim \\mathcal{N}(50, 100)$",
+          "$\\bar{X} \\sim \\mathcal{N}(5, 1)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Theo CLT: $E[\\bar{X}] = \\mu = 50$, $\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n} = \\frac{100}{100} = 1$. Độ lệch chuẩn mẫu $SE = \\frac{\\sigma}{\\sqrt{n}} = \\frac{10}{\\sqrt{100}} = 1$. Do đó $\\bar{X} \\sim \\mathcal{N}(50, 1)$."
+      },
+      {
+        "id": "D1_TN20",
+        "question": "Một thang máy chở tối đa 20 người với trọng tải an toàn 1440 kg. Giả sử cân nặng của mỗi người là biến ngẫu nhiên độc lập có $\\mu = 70$ kg, $\\sigma = 8$ kg. Xác suất thang máy bị quá tải xấp xỉ bằng (biết $\\Phi(1{,}12) = 0{,}8686$):",
+        "options": [
+          "$0{,}1314$",
+          "$0{,}8686$",
+          "$0{,}0500$",
+          "$0{,}2628$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Tổng trọng lượng $S_{20} = \\sum_{i=1}^{20} X_i \\sim \\mathcal{N}(\\mu_S = 20 \\times 70 = 1400, \\sigma_S^2 = 20 \\times 64 = 1280) \\implies \\sigma_S = \\sqrt{1280} \\approx 35{,}777$ kg. Điểm $Z = \\frac{1440 - 1400}{35{,}777} \\approx 1{,}12$. Xác suất quá tải: $P(S_{20} > 1440) = 1 - \\Phi(1{,}12) = 1 - 0{,}8686 = 0{,}1314$ ($13{,}14\\%$)."
+      }
+    ],
+    "essays": [
+      {
+        "id": "D1_TL01",
+        "title": "Bài 1 (2,0 điểm) — Phân tích Hồi quy Tuyến tính OLS",
+        "problem": "Khảo sát thời gian ôn tập $x$ (giờ) và điểm thi giữa kỳ $y$ (thang điểm 10) của một nhóm $n = 5$ sinh viên thu được số liệu sau:\n\n$$\\begin{array}{|c|c|c|c|c|c|}\n\\hline\nx \\text{ (giờ)} & 4 & 6 & 8 & 10 & 12 \\\\\n\\hline\ny \\text{ (điểm)} & 5 & 6 & 7 & 9 & 8 \\\\\n\\hline\n\\end{array}$$\n\na) Hãy tính số trung bình $\\bar{x}, \\bar{y}$, các tổng bình phương và tích số cần thiết.\nb) Xác định phương trình đường hồi quy tuyến tính mẫu OLS $\\hat{y} = b_0 + b_1 x$.\nc) Tính hệ số tương quan mẫu $r$, hệ số xác định $R^2$ và dự báo điểm thi của một sinh viên ôn tập 14 giờ.",
+        "parts": [
+          {
+            "part": "a) Tính các đại lượng thống kê mô tả cơ bản",
+            "score": 0.5,
+            "barem": "[+0,25đ] Tính đúng trung bình x_bar, y_bar; [+0,25đ] Tính đúng các tổng bình phương và tích số.",
+            "solution": "Tổng quan sát: $n = 5$.\n- $\\sum x_i = 4 + 6 + 8 + 10 + 12 = 40 \\implies \\bar{x} = \\frac{40}{5} = 8{,}0$.\n- $\\sum y_i = 5 + 6 + 7 + 9 + 8 = 35 \\implies \\bar{y} = \\frac{35}{5} = 7{,}0$.\n- $\\sum x_i^2 = 16 + 36 + 64 + 100 + 144 = 360$.\n- $\\sum y_i^2 = 25 + 36 + 49 + 81 + 64 = 255$.\n- $\\sum x_i y_i = 4(5) + 6(6) + 8(7) + 10(9) + 12(8) = 20 + 36 + 56 + 90 + 96 = 298$."
+          },
+          {
+            "part": "b) Xác định phương trình hồi quy OLS",
+            "score": 0.75,
+            "barem": "[+0,25đ] Viết công thức chữ b1, b0; [+0,25đ] Thế số tính đúng b1 = 0,45; [+0,25đ] Tính đúng b0 = 3,4 và kết luận phương trình.",
+            "solution": "Công thức giải tích OLS:\n$$b_1 = \\frac{n\\sum xy - \\sum x \\sum y}{n\\sum x^2 - (\\sum x)^2} = \\frac{5(298) - 40(35)}{5(360) - 40^2} = \\frac{1490 - 1400}{1800 - 1600} = \\frac{90}{200} = 0{,}45$$\n$$b_0 = \\bar{y} - b_1 \\bar{x} = 7{,}0 - 0{,}45(8{,}0) = 7{,}0 - 3{,}6 = 3{,}40$$\nPhương trình hồi quy tuyến tính mẫu là:\n$$\\hat{y} = 3{,}40 + 0{,}45x$$"
+          },
+          {
+            "part": "c) Hệ số tương quan, R^2 và dự báo",
+            "score": 0.75,
+            "barem": "[+0,25đ] Tính đúng hệ số tương quan r; [+0,25đ] Tính đúng R^2; [+0,25đ] Dự báo đúng điểm khi x = 14.",
+            "solution": "Hệ số tương quan mẫu:\n$$r = \\frac{n\\sum xy - \\sum x \\sum y}{\\sqrt{[n\\sum x^2 - (\\sum x)^2][n\\sum y^2 - (\\sum y)^2]}} = \\frac{90}{\\sqrt{200 \\times [5(255) - 35^2]}} = \\frac{90}{\\sqrt{200 \\times (1275 - 1225)}} = \\frac{90}{\\sqrt{200 \\times 50}} = \\frac{90}{\\sqrt{10000}} = \\frac{90}{100} = 0{,}90$$\n- Hệ số xác định: $R^2 = r^2 = (0{,}90)^2 = 0{,}81$ (hay $81\\%$ sự biến thiên của điểm thi được giải thích bởi thời gian ôn tập).\n- Dự báo với $x = 14$ giờ:\n$$\\hat{y}(14) = 3{,}40 + 0{,}45(14) = 3{,}40 + 6{,}30 = 9{,}70\\text{ điểm.}$$"
+          }
+        ]
+      },
+      {
+        "id": "D1_TL02",
+        "title": "Bài 2 (3,0 điểm) — Xác suất Toàn phần, Bayes & Phân phối Rời rạc",
+        "problem": "Một kho linh kiện điện tử nhập hàng từ ba nhà máy $M_1, M_2, M_3$ với tỷ lệ lần lượt là $40\\%, 35\\%$ và $25\\%$. Tỷ lệ linh kiện bị lỗi của ba nhà máy lần lượt là $2\\%, 3\\%$ và $4\\%$.\n\na) Lấy ngẫu nhiên một linh kiện trong kho, tính xác suất linh kiện này bị lỗi.\nb) Biết linh kiện lấy ra bị lỗi, tính xác suất linh kiện này do nhà máy $M_1$ sản xuất.\nc) Một kỹ sư lấy ngẫu nhiên 8 linh kiện từ kho (với số lượng linh kiện trong kho rất lớn). Tính xác suất có đúng 1 linh kiện bị lỗi.",
+        "parts": [
+          {
+            "part": "a) Tính xác suất linh kiện bị lỗi bằng công thức xác suất toàn phần",
+            "score": 1.0,
+            "barem": "[+0,25đ] Khai báo hệ biến cố đầy đủ; [+0,25đ] Viết công thức xác suất toàn phần; [+0,5đ] Thế số tính ra kết quả 0,0285.",
+            "solution": "Gọi $A_i$ là biến cố 'Linh kiện do nhà máy $M_i$ sản xuất' ($i = 1, 2, 3$).\nTa có $\\{A_1, A_2, A_3\\}$ tạo thành một hệ biến cố đầy đủ với:\n$$P(A_1) = 0{,}40;\\quad P(A_2) = 0{,}35;\\quad P(A_3) = 0{,}25$$\nGọi $B$ là biến cố 'Linh kiện lấy ra bị lỗi'.\nXác suất có điều kiện:\n$$P(B \\mid A_1) = 0{,}02;\\quad P(B \\mid A_2) = 0{,}03;\\quad P(B \\mid A_3) = 0{,}04$$\nTheo công thức xác suất toàn phần:\n$$P(B) = \\sum_{i=1}^3 P(A_i) P(B \\mid A_i) = 0{,}40(0{,}02) + 0{,}35(0{,}03) + 0{,}25(0{,}04)$$\n$$P(B) = 0{,}008 + 0{,}0105 + 0{,}0100 = 0{,}0285\\text{ (hay } 2{,}85\\%\\text{)}$$"
+          },
+          {
+            "part": "b) Áp dụng định lý Bayes tính xác suất hậu nghiệm",
+            "score": 1.0,
+            "barem": "[+0,25đ] Viết công thức định lý Bayes P(A1|B); [+0,5đ] Thế số chính xác; [+0,25đ] Kết luận làm tròn 4 chữ số thập phân 0,2807.",
+            "solution": "Biết linh kiện bị lỗi (biến cố $B$ đã xảy ra), xác suất nó do nhà máy $M_1$ sản xuất được tính theo định lý Bayes:\n$$P(A_1 \\mid B) = \\frac{P(A_1) P(B \\mid A_1)}{P(B)} = \\frac{0{,}40 \\times 0{,}02}{0{,}0285} = \\frac{0{,}0080}{0{,}0285} = \\frac{16}{57} \\approx 0{,}2807\\text{ (hay } 28{,}07\\%\\text{)}$$"
+          },
+          {
+            "part": "c) Tính xác suất phân phối nhị thức cho mẫu 8 linh kiện",
+            "score": 1.0,
+            "barem": "[+0,25đ] Nhận diện phân phối Nhị thức X ~ Bin(8; 0,0285); [+0,25đ] Viết công thức pmf; [+0,5đ] Tính đúng đáp số ~0,1812.",
+            "solution": "Gọi $X$ là số linh kiện bị lỗi trong mẫu $n = 8$ linh kiện.\nVì kho hàng rất lớn, việc chọn các linh kiện là các phép thử Bernoulli độc lập với xác suất lỗi $p = P(B) = 0{,}0285$.\nDo đó $X \\sim \\text{Binomial}(n = 8, p = 0{,}0285)$.\nXác suất có đúng 1 linh kiện lỗi là:\n$$P(X = 1) = \\binom{8}{1} p^1 (1 - p)^{8 - 1} = 8 \\times (0{,}0285)^1 \\times (1 - 0{,}0285)^7$$\n$$P(X = 1) = 8 \\times 0{,}0285 \\times (0{,}9715)^7 = 0{,}2280 \\times 0{,}7948 \\approx 0{,}1812\\text{ (hay } 18{,}12\\%\\text{)}$$"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "de_02",
+    "code": "102",
+    "title": "Đề Thi Thử Số 02: Thực Chiến Tránh Bẫy Điểm (Thông hiểu - Vận dụng)",
+    "description": "Tập trung các câu hỏi có bẫy logic điển hình, kiểm tra kỹ năng phân biệt các phân phối rời rạc và chuẩn hóa đối xứng.",
+    "duration": 90,
+    "mcq_score": 5.0,
+    "essay_score": 5.0,
+    "total_score": 10.0,
+    "mcqs": [
+      {
+        "id": "D2_TN01",
+        "question": "Hệ số tương quan mẫu $r$ giữa hai biến $x$ và $y$ đo lường đại lượng nào?",
+        "options": [
+          "Độ mạnh và chiều hướng của mối quan hệ tuyến tính giữa hai biến",
+          "Mức độ quan hệ nhân quả (causality) giữa biến độc lập và phụ thuộc",
+          "Độ phân tán của dữ liệu xung quanh số trung bình",
+          "Mối quan hệ phi tuyến dạng hàm bậc hai hoặc hàm mũ"
+        ],
+        "correctIndex": 0,
+        "explanation": "Hệ số tương quan Pearson $r$ chỉ đo lường mối quan hệ tuyến tính, không thể hiện quan hệ phi tuyến và tuyệt đối không chứng minh quan hệ nhân quả ('Correlation does not imply causation')."
+      },
+      {
+        "id": "D2_TN02",
+        "question": "Khi nhân tất cả các giá trị của biến ngẫu nhiên $X$ với hằng số $c = -3$, phương sai của biến mới $\\text{Var}(-3X)$ thay đổi như thế nào?",
+        "options": [
+          "Tăng gấp $9$ lần phương sai cũ",
+          "Giảm đi $-3$ lần phương sai cũ",
+          "Tăng gấp $3$ lần phương sai cũ",
+          "Không thay đổi"
+        ],
+        "correctIndex": 0,
+        "explanation": "Theo tính chất phương sai: $\\text{Var}(c X) = c^2 \\text{Var}(X) = (-3)^2 \\text{Var}(X) = 9 \\text{Var}(X)$."
+      },
+      {
+        "id": "D2_TN03",
+        "question": "Cho $P(A) = 0{,}7$ và $P(B) = 0{,}8$. Giá trị nhỏ nhất có thể có của $P(A \\cap B)$ là:",
+        "options": [
+          "$0{,}50$",
+          "$0{,}56$",
+          "$0{,}00$",
+          "$0{,}70$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Áp dụng bất đẳng thức Fréchet / Bonferroni: $P(A \\cup B) \\le 1 \\implies P(A \\cap B) = P(A) + P(B) - P(A \\cup B) \\ge 0{,}7 + 0{,}8 - 1 = 0{,}50$."
+      },
+      {
+        "id": "D2_TN04",
+        "question": "Một biến ngẫu nhiên $X \\sim \\text{Poisson}(\\lambda = 4)$. Độ lệch chuẩn $\\sigma_X$ bằng:",
+        "options": [
+          "$2$",
+          "$4$",
+          "$16$",
+          "$0{,}5$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Với phân phối Poisson, phương sai $\\text{Var}(X) = \\lambda = 4$. Do đó độ lệch chuẩn $\\sigma_X = \\sqrt{\\text{Var}(X)} = \\sqrt{4} = 2$."
+      },
+      {
+        "id": "D2_TN05",
+        "question": "Hộp có 10 viên bi trong đó có 6 bi đỏ và 4 bi xanh. Rút ngẫu nhiên 3 viên bi không hoàn lại. Xác suất rút được đúng 2 bi đỏ là:",
+        "options": [
+          "$\\frac{\\binom{6}{2}\\binom{4}{1}}{\\binom{10}{3}} = \\frac{1}{2} = 0{,}50$",
+          "$\\binom{3}{2}(0{,}6)^2(0{,}4)^1 = 0{,}432$",
+          "$\\frac{6}{10} \\times \\frac{5}{9} \\times \\frac{4}{8} = 0{,}167$",
+          "$\\frac{2}{3} = 0{,}667$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Rút không hoàn lại tuân theo phân phối Siêu bội (Hypergeometric): $P(X = 2) = \\frac{\\binom{6}{2}\\binom{4}{1}}{\\binom{10}{3}} = \\frac{15 \\times 4}{120} = \\frac{60}{120} = 0{,}50$."
+      },
+      {
+        "id": "D2_TN06",
+        "question": "Tính chất 'không nhớ' (Memoryless Property): $P(X > s + t \\mid X > s) = P(X > t)$ là đặc trưng duy nhất của phân phối liên tục nào sau đây?",
+        "options": [
+          "Phân phối Mũ (Exponential Distribution)",
+          "Phân phối Chuẩn (Normal Distribution)",
+          "Phân phối Đều (Uniform Distribution)",
+          "Phân phối Chi bình phương (Chi-square Distribution)"
+        ],
+        "correctIndex": 0,
+        "explanation": "Phân phối Mũ là phân phối liên tục duy nhất sở hữu tính chất không nhớ: thời gian đã chờ không ảnh hưởng đến xác suất của thời gian cần chờ tiếp theo."
+      },
+      {
+        "id": "D2_TN07",
+        "question": "Cho biến ngẫu nhiên $X \\sim \\mathcal{N}(100, 25)$. Giá trị phân vị thứ 97,5 (tức $P(X \\le x_{0{,}975}) = 0{,}975$) là:",
+        "options": [
+          "$109{,}8$",
+          "$149{,}0$",
+          "$101{,}96$",
+          "$125{,}0$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\mu = 100, \\sigma = \\sqrt{25} = 5$. Với $\\Phi(z) = 0{,}975 \\implies z = 1{,}96$. Ta có $x = \\mu + z\\sigma = 100 + 1{,}96(5) = 100 + 9{,}8 = 109{,}8$."
+      },
+      {
+        "id": "D2_TN08",
+        "question": "Nếu $X \\sim \\mathcal{N}(\\mu, \\sigma^2)$, thì khoảng giá trị $[\\mu - 2\\sigma, \\mu + 2\\sigma]$ chứa xấp xỉ bao nhiêu phần trăm dữ liệu?",
+        "options": [
+          "$95{,}45\\%$",
+          "$68{,}27\\%$",
+          "$99{,}73\\%$",
+          "$90{,}00\\%$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Theo quy tắc thực nghiệm 68-95-99.7: khoảng $\\pm 1\\sigma$ chứa $68{,}27\\%$, khoảng $\\pm 2\\sigma$ chứa $95{,}45\\%$, khoảng $\\pm 3\\sigma$ chứa $99{,}73\\%$."
+      },
+      {
+        "id": "D2_TN09",
+        "question": "Cho $X$ và $Y$ là hai biến ngẫu nhiên có $\\text{Var}(X) = 4, \\text{Var}(Y) = 9$ và hệ số tương quan $r_{X,Y} = 0{,}5$. Hiệp phương sai $\\text{Cov}(X, Y)$ bằng:",
+        "options": [
+          "$3$",
+          "$6$",
+          "$1{,}5$",
+          "$18$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\sigma_X = \\sqrt{4} = 2, \\sigma_Y = \\sqrt{9} = 3$. Công thức: $\\text{Cov}(X, Y) = r_{X,Y} \\cdot \\sigma_X \\cdot \\sigma_Y = 0{,}5 \\times 2 \\times 3 = 3$."
+      },
+      {
+        "id": "D2_TN10",
+        "question": "Cho $X$ và $Y$ có bảng phân phối xác suất đồng thời. Điều kiện cần và đủ để $X$ và $Y$ độc lập là:",
+        "options": [
+          "$P(X = x_i, Y = y_j) = P(X = x_i) P(Y = y_j)$ với mọi cặp $(x_i, y_j)$",
+          "$\\text{Cov}(X, Y) = 0$",
+          "$E[X + Y] = E[X] + E[Y]$",
+          "$P(X = x_i \\mid Y = y_j) = 0$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Độc lập đòi hỏi xác suất đồng thời phải phân rã thành tích hai xác suất biên tại MỌI điểm trong miền giá trị. Hiệp phương sai bằng 0 chỉ là điều kiện cần đối với quan hệ tuyến tính."
+      },
+      {
+        "id": "D2_TN11",
+        "question": "Một dây chuyền sản xuất có tỷ lệ phế phẩm $p = 0{,}05$. Áp dụng xấp xỉ Poisson cho mẫu $n = 200$ sản phẩm, tham số $\\lambda$ bằng:",
+        "options": [
+          "$10$",
+          "$5$",
+          "$20$",
+          "$2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Quy tắc xấp xỉ Poisson cho Nhị thức ($n$ lớn, $p$ nhỏ): $\\lambda = n p = 200 \\times 0{,}05 = 10$."
+      },
+      {
+        "id": "D2_TN12",
+        "question": "Cho $X$ có hàm mật độ xác suất $f(x) = \\begin{cases} \\frac{3}{8} x^2 & \\text{khi } 0 \\le x \\le 2 \\\\ 0 & \\text{nơi khác} \\end{cases}$. Kỳ vọng $E[X]$ bằng:",
+        "options": [
+          "$1{,}5$",
+          "$1{,}0$",
+          "$1{,}2$",
+          "$0{,}75$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$E[X] = \\int_0^2 x \\left(\\frac{3}{8} x^2\\right) dx = \\frac{3}{8} \\int_0^2 x^3 dx = \\frac{3}{8} \\left[\\frac{x^4}{4}\\right]_0^2 = \\frac{3}{8} \\times \\frac{16}{4} = \\frac{3}{8} \\times 4 = 1{,}5$."
+      },
+      {
+        "id": "D2_TN13",
+        "question": "Nếu biến ngẫu nhiên $X$ tuân theo phân phối đều $X \\sim \\text{Uniform}(a=2, b=8)$, thì phương sai $\\text{Var}(X)$ bằng:",
+        "options": [
+          "$3$",
+          "$5$",
+          "$6$",
+          "$12$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Công thức phương sai phân phối đều: $\\text{Var}(X) = \\frac{(b - a)^2}{12} = \\frac{(8 - 2)^2}{12} = \\frac{36}{12} = 3$."
+      },
+      {
+        "id": "D2_TN14",
+        "question": "Tính diện tích dưới đường cong mật độ chuẩn tắc nằm bên phải giá trị $z = -1{,}5$ (biết $\\Phi(1{,}5) = 0{,}9332$):",
+        "options": [
+          "$0{,}9332$",
+          "$0{,}0668$",
+          "$0{,}8664$",
+          "$0{,}4332$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Ta có $P(Z > -1{,}5) = 1 - \\Phi(-1{,}5) = 1 - (1 - \\Phi(1{,}5)) = \\Phi(1{,}5) = 0{,}9332$ (do tính đối xứng của phân phối chuẩn)."
+      },
+      {
+        "id": "D2_TN15",
+        "question": "Một bài toán kiểm tra xấp xỉ Chuẩn cho phân phối Nhị thức $X \\sim \\text{Binomial}(n=100, p=0{,}4)$. Hiệu chỉnh liên tục (Continuity Correction) khi tính $P(X \\ge 45)$ là tính diện tích của biến chuẩn $Y$ trên miền:",
+        "options": [
+          "$P(Y \\ge 44{,}5)$",
+          "$P(Y \\ge 45{,}5)$",
+          "$P(Y > 45)$",
+          "$P(Y \\le 44{,}5)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Quy tắc hiệu chỉnh liên tục: Với biến cố $X \\ge k$, cột nguyên $k$ bắt đầu từ $k - 0{,}5$. Do đó $P(X \\ge 45) \\approx P(Y \\ge 44{,}5)$."
+      },
+      {
+        "id": "D2_TN16",
+        "question": "Bất đẳng thức Chebyshev cho biết xác suất để biến ngẫu nhiên $X$ sai lệch so với kỳ vọng một khoảng không quá $2\\sigma$ ($P(|X - \\mu| < 2\\sigma)$) luôn:",
+        "options": [
+          "$\\ge 1 - \\frac{1}{2^2} = 0{,}75$",
+          "$\\le 0{,}25$",
+          "$= 0{,}9545$",
+          "$\\ge 0{,}90$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Bất đẳng thức Chebyshev: $P(|X - \\mu| < k\\sigma) \\ge 1 - \\frac{1}{k^2}$. Với $k = 2$, xác suất luôn $\\ge 1 - \\frac{1}{4} = 0{,}75$ đối với MỌI phân phối bất kỳ."
+      },
+      {
+        "id": "D2_TN17",
+        "question": "Điểm kiểm tra giữa kỳ có bảng số liệu với $\\sum (x_i - \\bar{x})^2 = 360$ trên mẫu $n = 10$. Phương sai mẫu hiệu chỉnh $s^2$ bằng:",
+        "options": [
+          "$40$",
+          "$36$",
+          "$6$",
+          "$6{,}32$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Phương sai mẫu hiệu chỉnh (bậc tự do $n - 1$): $s^2 = \\frac{1}{n - 1} \\sum (x_i - \\bar{x})^2 = \\frac{360}{9} = 40$."
+      },
+      {
+        "id": "D2_TN18",
+        "question": "Đường thẳng hồi quy OLS luôn luôn đi qua điểm tọa độ nào sau đây trên mặt phẳng phân tán?",
+        "options": [
+          "Điểm trung bình trọng tâm $(\\bar{x}, \\bar{y})$",
+          "Gốc tọa độ $(0, 0)$",
+          "Điểm trung vị $(M_x, M_y)$",
+          "Điểm cực đại $(x_{max}, y_{max})$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Từ công thức OLS: $b_0 = \\bar{y} - b_1 \\bar{x} \\iff \\bar{y} = b_0 + b_1 \\bar{x}$. Do đó điểm trọng tâm $(\\bar{x}, \\bar{y})$ luôn luôn nằm trên đường hồi quy."
+      },
+      {
+        "id": "D2_TN19",
+        "question": "Cho $X \\sim \\text{Binomial}(n=20, p=0{,}5)$. Xác suất để $X$ nhận giá trị lẻ và giá trị chẵn thỏa mãn:",
+        "options": [
+          "$P(X \\text{ chẵn}) = P(X \\text{ lẻ}) = 0{,}5$",
+          "$P(X \\text{ chẵn}) > P(X \\text{ lẻ})$",
+          "$P(X \\text{ chẵn}) < P(X \\text{ lẻ})$",
+          "$P(X \\text{ chẵn}) = 1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Do tính đối xứng hoàn hảo của phân phối Nhị thức khi $p = 0{,}5$, tổng xác suất các giá trị chẵn bằng tổng xác suất các giá trị lẻ và đều bằng $0{,}5$."
+      },
+      {
+        "id": "D2_TN20",
+        "question": "Một người bán hàng liên hệ với 50 khách hàng độc lập, mỗi người có xác suất mua hàng là $0{,}1$. Số khách mua hàng kỳ vọng và độ lệch chuẩn lần lượt là:",
+        "options": [
+          "$E = 5;\\quad \\sigma = 2{,}12$",
+          "$E = 5;\\quad \\sigma = 4{,}50$",
+          "$E = 10;\\quad \\sigma = 2{,}12$",
+          "$E = 5;\\quad \\sigma = 0{,}45$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$X \\sim \\text{Binomial}(50, 0{,}1)$. $E[X] = np = 50(0{,}1) = 5$. $\\text{Var}(X) = np(1 - p) = 50(0{,}1)(0{,}9) = 4{,}5 \\implies \\sigma = \\sqrt{4{,}5} \\approx 2{,}121$."
+      }
+    ],
+    "essays": [
+      {
+        "id": "D2_TL01",
+        "title": "Bài 1 (2,0 điểm) — Phân phối Poisson & Hàng đợi Máy chủ",
+        "problem": "Số lượng yêu cầu truy vấn (request) gửi tới một máy chủ trong mỗi giây tuân theo phân phối Poisson với trung bình $\\lambda = 3$ request/giây.\n\na) Tính xác suất trong một giây cụ thể máy chủ nhận được đúng 2 request.\nb) Tính xác suất trong một giây máy chủ nhận được không quá 2 request.\nc) Biết rằng nếu trong 1 giây máy chủ nhận được từ 5 request trở lên thì sẽ xảy ra tình trạng nghẽn mạng (overload). Tính xác suất máy chủ bị nghẽn mạng trong một giây bất kỳ.",
+        "parts": [
+          {
+            "part": "a) Xác suất nhận đúng 2 request",
+            "score": 0.5,
+            "barem": "[+0,25đ] Viết công thức Poisson P(X=2); [+0,25đ] Tính đúng đáp số 0,2240.",
+            "solution": "Gọi $X$ là số request máy chủ nhận được trong 1 giây $\\implies X \\sim \\text{Poisson}(\\lambda = 3)$.\nCông thức xác suất:\n$$P(X = k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}$$\nVới $k = 2$:\n$$P(X = 2) = \\frac{3^2 e^{-3}}{2!} = \\frac{9 e^{-3}}{2} \\approx 4{,}5 \\times 0{,}049787 = 0{,}2240\\text{ (hay } 22{,}40\\%\\text{)}$$"
+          },
+          {
+            "part": "b) Xác suất nhận không quá 2 request",
+            "score": 0.75,
+            "barem": "[+0,25đ] Xác định tổng P(X=0) + P(X=1) + P(X=2); [+0,5đ] Tính đúng kết quả 0,4232.",
+            "solution": "Xác suất nhận không quá 2 request là $P(X \\le 2) = P(X = 0) + P(X = 1) + P(X = 2)$.\n- $P(X = 0) = \\frac{3^0 e^{-3}}{0!} = e^{-3} \\approx 0{,}0498$\n- $P(X = 1) = \\frac{3^1 e^{-3}}{1!} = 3 e^{-3} \\approx 0{,}1494$\n- $P(X = 2) = \\frac{9 e^{-3}}{2} = 4{,}5 e^{-3} \\approx 0{,}2240$\nCộng lại:\n$$P(X \\le 2) = e^{-3}(1 + 3 + 4{,}5) = 8{,}5 e^{-3} \\approx 8{,}5 \\times 0{,}049787 = 0{,}4232\\text{ (hay } 42{,}32\\%\\text{)}$$"
+          },
+          {
+            "part": "c) Xác suất máy chủ bị nghẽn mạng (X >= 5)",
+            "score": 0.75,
+            "barem": "[+0,25đ] Sử dụng biến cố đối lập 1 - P(X <= 4); [+0,25đ] Tính P(X=3), P(X=4); [+0,25đ] Tính đúng đáp số 0,1847.",
+            "solution": "Biến cố nghẽn mạng là $X \\ge 5$. Áp dụng biến cố đối lập:\n$$P(X \\ge 5) = 1 - P(X \\le 4) = 1 - [P(X \\le 2) + P(X = 3) + P(X = 4)]$$\n- $P(X = 3) = \\frac{3^3 e^{-3}}{3!} = \\frac{27}{6} e^{-3} = 4{,}5 e^{-3} \\approx 0{,}2240$\n- $P(X = 4) = \\frac{3^4 e^{-3}}{4!} = \\frac{81}{24} e^{-3} = 3{,}375 e^{-3} \\approx 0{,}1680$\nDo đó:\n$$P(X \\le 4) = 0{,}4232 + 0{,}2240 + 0{,}1680 = 0{,}8152$$\nSuy ra xác suất nghẽn mạng:\n$$P(X \\ge 5) = 1 - 0{,}8152 = 0{,}1848\\text{ (hay } 18{,}48\\%\\text{)}$$"
+          }
+        ]
+      },
+      {
+        "id": "D2_TL02",
+        "title": "Bài 2 (3,0 điểm) — Phân phối Chuẩn & Bài toán Tỷ lệ Quy cách",
+        "problem": "Đường kính của các trục máy do một xưởng cơ khí tự động sản xuất là biến ngẫu nhiên tuân theo phân phối Chuẩn với trung bình $\\mu = 50\\text{ mm}$ và độ lệch chuẩn $\\sigma = 0{,}4\\text{ mm}$.\n\na) Một trục máy được coi là đạt tiêu chuẩn nếu đường kính nằm trong khoảng từ $49{,}2\\text{ mm}$ đến $50{,}6\\text{ mm}$. Tính tỷ lệ trục máy đạt tiêu chuẩn của xưởng.\nb) Các trục có đường kính lớn hơn $50{,}6\\text{ mm}$ có thể gọt bớt để tái sử dụng, còn các trục có đường kính nhỏ hơn $49{,}2\\text{ mm}$ phải phế bỏ hoàn toàn. Tính tỷ lệ sản phẩm phải phế bỏ.\nc) Xưởng muốn nâng tiêu chuẩn kỹ thuật: tìm khoảng đối xứng qua trung bình $[50 - c, 50 + c]$ sao cho chứa đúng $95\\%$ số trục máy sản xuất ra.\n\n*(Cho biết $\\Phi(1{,}5) = 0{,}9332; \\Phi(2{,}0) = 0{,}9772; \\Phi(1{,}96) = 0{,}9750$)*.",
+        "parts": [
+          {
+            "part": "a) Tính tỷ lệ trục máy đạt tiêu chuẩn",
+            "score": 1.25,
+            "barem": "[+0,25đ] Chuẩn hóa Z1 = -2,0 và Z2 = 1,5; [+0,5đ] Viết biểu thức Phi(1,5) - Phi(-2,0); [+0,5đ] Tính đúng đáp số 0,9104.",
+            "solution": "Gọi $X$ là đường kính trục máy $\\implies X \\sim \\mathcal{N}(\\mu = 50, \\sigma^2 = 0{,}4^2)$.\nChuẩn hóa hai đầu mút:\n$$z_1 = \\frac{49{,}2 - 50}{0{,}4} = \\frac{-0{,}8}{0{,}4} = -2{,}0$$\n$$z_2 = \\frac{50{,}6 - 50}{0{,}4} = \\frac{0{,}6}{0{,}4} = 1{,}5$$\nXác suất trục máy đạt tiêu chuẩn:\n$$P(49{,}2 \\le X \\le 50{,}6) = \\Phi(1{,}5) - \\Phi(-2{,}0) = \\Phi(1{,}5) - [1 - \\Phi(2{,}0)]$$\n$$= 0{,}9332 - (1 - 0{,}9772) = 0{,}9332 - 0{,}0228 = 0{,}9104\\text{ (hay } 91{,}04\\%\\text{)}$$"
+          },
+          {
+            "part": "b) Tính tỷ lệ phế phẩm phải bỏ",
+            "score": 0.75,
+            "barem": "[+0,25đ] Nhận diện biến cố X < 49,2; [+0,25đ] Tính Phi(-2,0) = 1 - Phi(2,0); [+0,25đ] Kết luận 0,0228.",
+            "solution": "Trục máy bị phế bỏ khi đường kính $X < 49{,}2\\text{ mm}$.\n$$P(X < 49{,}2) = P(Z < -2{,}0) = 1 - \\Phi(2{,}0) = 1 - 0{,}9772 = 0{,}0228\\text{ (hay } 2{,}28\\%\\text{)}$$"
+          },
+          {
+            "part": "c) Tìm khoảng đối xứng chứa 95% sản phẩm",
+            "score": 1.0,
+            "barem": "[+0,25đ] Lập phương trình 2*Phi(z) - 1 = 0,95; [+0,25đ] Tìm ra z = 1,96; [+0,25đ] Tính c = z*sigma = 0,784; [+0,25đ] Kết luận khoảng [49,216; 50,784].",
+            "solution": "Yêu cầu $P(50 - c \\le X \\le 50 + c) = 0{,}95$.\nChuẩn hóa khoảng đối xứng:\n$$P\\left(-\\frac{c}{\\sigma} \\le Z \\le \\frac{c}{\\sigma}\\right) = 0{,}95 \\iff 2\\Phi\\left(\\frac{c}{0{,}4}\\right) - 1 = 0{,}95$$\n$$\\implies \\Phi\\left(\\frac{c}{0{,}4}\\right) = \\frac{1 + 0{,}95}{2} = 0{,}9750$$\nTheo bảng tra phân phối chuẩn: $\\Phi(1{,}96) = 0{,}9750 \\implies \\frac{c}{0{,}4} = 1{,}96$.\nSuy ra:\n$$c = 1{,}96 \\times 0{,}4 = 0{,}784\\text{ mm}$$\nKhoảng quy cách cần tìm là $[50 - 0{,}784; 50 + 0{,}784] = [49{,}216\\text{ mm}; 50{,}784\\text{ mm}]$."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "de_03",
+    "code": "103",
+    "title": "Đề Thi Thử Số 03: Phân Loại Điểm 9-10 (Vận dụng cao)",
+    "description": "Tập trung các câu hỏi nâng cao: Kỳ vọng điều kiện, Định lý Giới hạn Trung tâm giải phương trình bậc hai $n$, và phân phối liên tục tổng hợp.",
+    "duration": 90,
+    "mcq_score": 5.0,
+    "essay_score": 5.0,
+    "total_score": 10.0,
+    "mcqs": [
+      {
+        "id": "D3_TN01",
+        "question": "Cho $X$ và $Y$ là hai biến ngẫu nhiên liên tục có hàm mật độ đồng thời $f(x, y) = c(x + y)$ trên hình vuông $0 \\le x \\le 1, 0 \\le y \\le 1$. Hằng số chuẩn hóa $c$ bằng:",
+        "options": [
+          "$1$",
+          "$2$",
+          "$0{,}5$",
+          "$4$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\int_0^1 \\int_0^1 c(x + y) dx dy = c \\int_0^1 \\left[\\frac{x^2}{2} + xy\\right]_0^1 dy = c \\int_0^1 \\left(\\frac{1}{2} + y\\right) dy = c \\left[\\frac{1}{2} + \\frac{1}{2}\\right] = c = 1$."
+      },
+      {
+        "id": "D3_TN02",
+        "question": "Cho $X \\sim \\text{Uniform}(0, 10)$. Kỳ vọng có điều kiện $E[X \\mid X > 4]$ bằng:",
+        "options": [
+          "$7$",
+          "$5$",
+          "$6$",
+          "$8$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Khi biết $X > 4$, phân phối có điều kiện của $X$ là phân phối đều trên đoạn $[4, 10]$. Do đó $E[X \\mid X > 4] = \\frac{4 + 10}{2} = 7$."
+      },
+      {
+        "id": "D3_TN03",
+        "question": "Trong bài toán xác định số bóng đèn dự phòng $n$ theo Định lý CLT với $\\mu = 100, \\sigma = 20, T = 2000$, phương trình bậc hai $100u^2 - 49{,}35u - 2000 \\ge 0$ (với $u = \\sqrt{n}$) cho nghiệm số nguyên $n$ tối thiểu là:",
+        "options": [
+          "$23$",
+          "$20$",
+          "$25$",
+          "$22$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Giải phương trình bậc hai: $u \\ge \\frac{49{,}35 + \\sqrt{49{,}35^2 - 4(100)(-2000)}}{200} \\approx 4{,}726 \\implies n = u^2 \\ge 22{,}33$. Do $n$ nguyên nên $n = 23$. Khớp Slide Tuần 07 Trang 90!"
+      },
+      {
+        "id": "D3_TN04",
+        "question": "Cho $X \\sim \\mathcal{N}(0, 1)$. Giá trị của mô-men cấp 4 $E[X^4]$ bằng:",
+        "options": [
+          "$3$",
+          "$1$",
+          "$0$",
+          "$15$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Với phân phối chuẩn tắc $\\mathcal{N}(0, 1)$: $E[X^2] = 1$, $E[X^4] = 3\\sigma^4 = 3$. Hệ số nhọn (Kurtosis) của phân phối chuẩn bằng 3."
+      },
+      {
+        "id": "D3_TN05",
+        "question": "Cho $X_1, X_2, \\dots, X_n$ là các biến ngẫu nhiên i.i.d có kỳ vọng $\\mu$ và phương sai $\\sigma^2$. Đặt $S_n^2 = \\frac{1}{n-1} \\sum_{i=1}^n (X_i - \\bar{X})^2$. Kỳ vọng $E[S_n^2]$ bằng:",
+        "options": [
+          "$\\sigma^2$",
+          "$\\frac{n-1}{n} \\sigma^2$",
+          "$\\frac{\\sigma^2}{n}$",
+          "$\\frac{n}{n-1} \\sigma^2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Hệ số $\\frac{1}{n-1}$ (hiệu chỉnh Bessel) được thiết kế chính xác để biến $S_n^2$ thành một ước lượng không chệch (unbiased estimator) của phương sai tổng thể, tức $E[S_n^2] = \\sigma^2$."
+      },
+      {
+        "id": "D3_TN06",
+        "question": "Một trạm thu phí phục vụ hai loại xe: xe con (chiếm $70\\%$) có thời gian qua trạm $\\mathcal{N}(20, 4)$ giây, xe tải (chiếm $30\\%$) có thời gian qua trạm $\\mathcal{N}(40, 16)$ giây. Thời gian qua trạm trung bình của một xe bất kỳ là:",
+        "options": [
+          "$26\\text{ giây}$",
+          "$30\\text{ giây}$",
+          "$28\\text{ giây}$",
+          "$24\\text{ giây}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Theo định lý kỳ vọng toàn phần: $E[T] = E[E[T \\mid \\text{Loại xe}]] = 0{,}7(20) + 0{,}3(40) = 14 + 12 = 26\\text{ giây}$."
+      },
+      {
+        "id": "D3_TN07",
+        "question": "Hàm sinh mô-men (MGF) của biến ngẫu nhiên $X \\sim \\text{Poisson}(\\lambda)$ là $M_X(t) = e^{\\lambda(e^t - 1)}$. Đạo hàm cấp 1 tại $t = 0$ cho kết quả:",
+        "options": [
+          "$\\lambda$",
+          "$\\lambda^2$",
+          "$1$",
+          "$e^\\lambda$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$M'_X(t) = \\lambda e^t e^{\\lambda(e^t - 1)}$. Tại $t = 0$: $M'_X(0) = \\lambda e^0 e^{\\lambda(1 - 1)} = \\lambda = E[X]$."
+      },
+      {
+        "id": "D3_TN08",
+        "question": "Một người tung một đồng xu cân đối cho đến khi xuất hiện mặt Ngửa (H). Xác suất số lần tung là một số lẻ bằng:",
+        "options": [
+          "$\\frac{2}{3}$",
+          "$\\frac{1}{2}$",
+          "$\\frac{1}{3}$",
+          "$\\frac{3}{4}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$P(X \\text{ lẻ}) = P(X=1) + P(X=3) + P(X=5) + \\dots = \\frac{1}{2} + \\left(\\frac{1}{2}\\right)^3 + \\left(\\frac{1}{2}\\right)^5 + \\dots = \\frac{1/2}{1 - 1/4} = \\frac{1/2}{3/4} = \\frac{2}{3}$."
+      },
+      {
+        "id": "D3_TN09",
+        "question": "Cho $X \\sim \\mathcal{N}(0, 1)$ và $Y = X^2$. Hệ số tương quan $r_{X,Y}$ giữa $X$ và $Y$ bằng:",
+        "options": [
+          "$0$",
+          "$1$",
+          "$-1$",
+          "$0{,}5$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\text{Cov}(X, Y) = E[X \\cdot X^2] - E[X]E[Y] = E[X^3] - 0 = 0$ (do $X^3$ là hàm lẻ và phân phối chuẩn đối xứng qua 0). Vì vậy $r_{X,Y} = 0$, mặc dù $Y$ phụ thuộc hàm số hoàn toàn vào $X$!"
+      },
+      {
+        "id": "D3_TN10",
+        "question": "Cho hai biến ngẫu nhiên độc lập $X \\sim \\text{Poisson}(\\lambda_1 = 3)$ và $Y \\sim \\text{Poisson}(\\lambda_2 = 5)$. Khi đó biến ngẫu nhiên tổng $S = X + Y$ tuân theo phân phối:",
+        "options": [
+          "$\\text{Poisson}(\\lambda = 8)$",
+          "$\\text{Binomial}(8, 0{,}5)$",
+          "$\\mathcal{N}(8, 8)$",
+          "$\\text{Poisson}(\\lambda = 15)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Tính chất cộng của phân phối Poisson: Tổng của hai biến Poisson độc lập là một biến Poisson với tham số bằng tổng các tham số: $\\lambda = \\lambda_1 + \\lambda_2 = 3 + 5 = 8$."
+      },
+      {
+        "id": "D3_TN11",
+        "question": "Cho $X \\sim \\mathcal{N}(2, 9)$ và $Y \\sim \\mathcal{N}(5, 16)$ độc lập. Xác suất $P(X < Y)$ bằng:",
+        "options": [
+          "$\\Phi(0{,}60) \\approx 0{,}7257$",
+          "$\\Phi(0{,}43) \\approx 0{,}6664$",
+          "$0{,}5000$",
+          "$\\Phi(1{,}00) \\approx 0{,}8413$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Xét $W = X - Y \\implies W \\sim \\mathcal{N}(\\mu_W = 2 - 5 = -3, \\sigma_W^2 = 9 + 16 = 25 \\implies \\sigma_W = 5)$. $P(X < Y) = P(W < 0) = \\Phi\\left(\\frac{0 - (-3)}{5}\\right) = \\Phi(0{,}60) \\approx 0{,}7257$."
+      },
+      {
+        "id": "D3_TN12",
+        "question": "Hàm mật độ xác suất của biến ngẫu nhiên $X$ là $f(x) = \\begin{cases} 2e^{-2x} & x > 0 \\\\ 0 & x \\le 0 \\end{cases}$. Trung vị (Median) $m$ của $X$ thỏa mãn:",
+        "options": [
+          "$m = \\frac{\\ln 2}{2} \\approx 0{,}3466$",
+          "$m = 0{,}5$",
+          "$m = \\ln 2 \\approx 0{,}6931$",
+          "$m = 2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Trung vị thỏa mãn $F(m) = 0{,}5 \\iff 1 - e^{-2m} = 0{,}5 \\iff e^{-2m} = 0{,}5 \\iff -2m = -\\ln 2 \\iff m = \\frac{\\ln 2}{2} \\approx 0{,}3466$."
+      },
+      {
+        "id": "D3_TN13",
+        "question": "Một người đầu tư vào 2 danh mục độc lập với tỷ suất sinh lời $R_1 \\sim \\mathcal{N}(10\\%, 16)$ và $R_2 \\sim \\mathcal{N}(12\\%, 25)$. Nếu đầu tư theo tỷ lệ $50\\% - 50\\%$, phương sai của danh mục tổng hợp bằng:",
+        "options": [
+          "$10{,}25$",
+          "$20{,}50$",
+          "$41{,}00$",
+          "$5{,}125$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$R_p = 0{,}5 R_1 + 0{,}5 R_2$. $\\text{Var}(R_p) = 0{,}5^2 \\text{Var}(R_1) + 0{,}5^2 \\text{Var}(R_2) = 0{,}25(16) + 0{,}25(25) = 4 + 6{,}25 = 10{,}25$."
+      },
+      {
+        "id": "D3_TN14",
+        "question": "Cho $X \\sim \\text{Geometric}(p = 0{,}1)$. Xác suất có điều kiện $P(X > 15 \\mid X > 10)$ bằng:",
+        "options": [
+          "$(0{,}9)^5 \\approx 0{,}5905$",
+          "$(0{,}9)^{15} \\approx 0{,}2059$",
+          "$(0{,}1)^5 = 0{,}00001$",
+          "$0{,}5$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Theo tính chất không nhớ của phân phối Hình học: $P(X > s + t \\mid X > s) = P(X > t) = (1 - p)^t$. Với $s = 10, t = 5$: $P(X > 15 \\mid X > 10) = (0{,}9)^5 \\approx 0{,}5905$."
+      },
+      {
+        "id": "D3_TN15",
+        "question": "Một mẫu gồm $n$ biến ngẫu nhiên Bernoulli với tham số $p$. Bất đẳng thức Chebyshev cho biết để trung bình mẫu $\\bar{X}$ sai lệch so với $p$ không quá $0{,}05$ với xác suất ít nhất $95\\%$, cỡ mẫu $n$ tối thiểu cần chọn là:",
+        "options": [
+          "$2000$",
+          "$400$",
+          "$1000$",
+          "$100$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\text{Var}(\\bar{X}) = \\frac{p(1-p)}{n} \\le \\frac{0{,}25}{n}$. Theo Chebyshev: $P(|\\bar{X} - p| \\ge \\epsilon) \\le \\frac{\\text{Var}(\\bar{X})}{\\epsilon^2} \\le \\frac{0{,}25}{n \\epsilon^2} \\le 0{,}05 \\implies n \\ge \\frac{0{,}25}{0{,}05 \\times (0{,}05)^2} = \\frac{0{,}25}{0{,}000125} = 2000$."
+      },
+      {
+        "id": "D3_TN16",
+        "question": "Cho hàm mật độ $f(x) = \\begin{cases} c(1 - x^2) & -1 \\le x \\le 1 \\\\ 0 & \\text{nơi khác} \\end{cases}$. Giá trị của $c$ là:",
+        "options": [
+          "$\\frac{3}{4}$",
+          "$\\frac{1}{2}$",
+          "$1$",
+          "$\\frac{3}{2}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\int_{-1}^1 c(1 - x^2) dx = 2c \\int_0^1 (1 - x^2) dx = 2c \\left[1 - \\frac{1}{3}\\right] = 2c \\left(\\frac{2}{3}\\right) = \\frac{4}{3} c = 1 \\implies c = \\frac{3}{4}$."
+      },
+      {
+        "id": "D3_TN17",
+        "question": "Cho $X \\sim \\mathcal{N}(0, 1)$ và $Y \\sim \\mathcal{N}(0, 1)$ độc lập. Phân phối của biến ngẫu nhiên $Z = X^2 + Y^2$ là:",
+        "options": [
+          "Phân phối Mũ $\\text{Exponential}(\\lambda = 0{,}5)$ (hay $\\chi^2(2)$)",
+          "Phân phối Chuẩn $\\mathcal{N}(0, 2)$",
+          "Phân phối Đều $\\text{Uniform}(0, 2)$",
+          "Phân phối Poisson $\\text{Poisson}(2)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Tổng bình phương của 2 biến chuẩn tắc độc lập tuân theo phân phối Chi-bình phương 2 bậc tự do $\\chi^2(2)$, chính là phân phối Mũ với tham số $\\lambda = \\frac{1}{2}$."
+      },
+      {
+        "id": "D3_TN18",
+        "question": "Cho biến ngẫu nhiên $X$ có $E[X] = 10, \\text{Var}(X) = 25$. Cận dưới của xác suất $P(0 < X < 20)$ theo bất đẳng thức Chebyshev là:",
+        "options": [
+          "$0{,}75$",
+          "$0{,}50$",
+          "$0{,}90$",
+          "$0{,}95$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\sigma = 5$. Biến cố $0 < X < 20 \\iff |X - 10| < 10 = 2\\sigma$. Theo Chebyshev: $P(|X - \\mu| < 2\\sigma) \\ge 1 - \\frac{1}{2^2} = 0{,}75$."
+      },
+      {
+        "id": "D3_TN19",
+        "question": "Nếu phương trình hồi quy OLS là $\\hat{y} = 10 - 2x$, phần dư $e_i = y_i - \\hat{y}_i$ tại điểm quan sát $(x_i = 3, y_i = 5)$ bằng:",
+        "options": [
+          "$1$",
+          "$-1$",
+          "$0$",
+          "$4$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\hat{y}_i = 10 - 2(3) = 4$. Phần dư: $e_i = y_i - \\hat{y}_i = 5 - 4 = 1$."
+      },
+      {
+        "id": "D3_TN20",
+        "question": "Tính chất nào sau đây của phân phối chuẩn tắc $\\Phi(z)$ là cơ sở cho các bảng tra một phía:",
+        "options": [
+          "$\\Phi(-z) = 1 - \\Phi(z)$",
+          "$\\Phi(z) + \\Phi(-z) = 0$",
+          "$\\Phi(2z) = 2\\Phi(z)$",
+          "$\\Phi(z) = \\Phi(-z)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Do tính đối xứng của chuông Gauss qua trục $z = 0$, diện tích phần đuôi trái $P(Z \\le -z)$ bằng diện tích phần đuôi phải $P(Z \\ge z) = 1 - \\Phi(z)$, tức $\\Phi(-z) = 1 - \\Phi(z)$."
+      }
+    ],
+    "essays": [
+      {
+        "id": "D3_TL01",
+        "title": "Bài 1 (2,5 điểm) — Biến Ngẫu Nhiên Liên Tục & Hàm Phân Phối Tích Lũy",
+        "problem": "Cho biến ngẫu nhiên liên tục $X$ có hàm mật độ xác suất:\n$$f(x) = \\begin{cases} k x (2 - x) & \\text{khi } 0 \\le x \\le 2 \\\\ 0 & \\text{nơi khác} \\end{cases}$$\n\na) Tìm hằng số chuẩn hóa $k$.\nb) Tìm hàm phân phối tích lũy $F(x) = P(X \\le x)$ với mọi $x \\in \\mathbb{R}$.\nc) Tính kỳ vọng $E[X]$, phương sai $\\text{Var}(X)$ và xác suất $P(0{,}5 \\le X \\le 1{,}5)$.",
+        "parts": [
+          {
+            "part": "a) Xác định hằng số chuẩn hóa k",
+            "score": 0.75,
+            "barem": "[+0,25đ] Lập tích phân từ 0 đến 2 f(x)dx = 1; [+0,25đ] Tính nguyên hàm k[x^2 - x^3/3]; [+0,25đ] Tìm ra k = 0,75.",
+            "solution": "Điều kiện chuẩn hóa hàm mật độ xác suất:\n$$\\int_{-\\infty}^{+\\infty} f(x) dx = 1 \\iff \\int_0^2 k(2x - x^2) dx = 1$$\n$$k \\left[ x^2 - \\frac{x^3}{3} \\right]_0^2 = 1 \\iff k \\left( 4 - \\frac{8}{3} \\right) = 1 \\iff k \\left(\\frac{4}{3}\\right) = 1 \\implies k = \\frac{3}{4} = 0{,}75$$"
+          },
+          {
+            "part": "b) Xác định hàm phân phối tích lũy F(x)",
+            "score": 0.75,
+            "barem": "[+0,25đ] Xác định F(x) = 0 khi x < 0 và F(x) = 1 khi x > 2; [+0,5đ] Tính tích phân F(x) = 3/4(x^2 - x^3/3) trên đoạn [0, 2].",
+            "solution": "Theo định nghĩa $F(x) = \\int_{-\\infty}^x f(t) dt$:\n- Với $x < 0$: $F(x) = 0$.\n- Với $0 \\le x \\le 2$:\n$$F(x) = \\int_0^x \\frac{3}{4}(2t - t^2) dt = \\frac{3}{4} \\left[ t^2 - \\frac{t^3}{3} \\right]_0^x = \\frac{3}{4}x^2 - \\frac{1}{4}x^3$$\n- Với $x > 2$: $F(x) = 1$.\nKết luận:\n$$F(x) = \\begin{cases} 0 & x < 0 \\\\ \\frac{3}{4}x^2 - \\frac{1}{4}x^3 & 0 \\le x \\le 2 \\\\ 1 & x > 2 \\end{cases}$$"
+          },
+          {
+            "part": "c) Tính E[X], Var(X) và xác suất trên khoảng",
+            "score": 1.0,
+            "barem": "[+0,25đ] Tính E[X] = 1,0 do tính đối xứng; [+0,25đ] Tính E[X^2] = 1,2 suy ra Var(X) = 0,2; [+0,5đ] Tính P(0,5 <= X <= 1,5) = 0,6875.",
+            "solution": "- Do hàm mật độ $f(x) = \\frac{3}{4}(2x - x^2)$ đối xứng qua tâm $x = 1$ trên đoạn $[0, 2]$, ta có ngay:\n$$E[X] = 1{,}0$$\n(hoặc tích phân $E[X] = \\int_0^2 \\frac{3}{4}(2x^2 - x^3) dx = \\frac{3}{4}\\left[\\frac{2(8)}{3} - \\frac{16}{4}\\right] = \\frac{3}{4}\\left(\\frac{16}{3} - 4\\right) = 1{,}0$).\n- Tính $E[X^2]$:\n$$E[X^2] = \\int_0^2 x^2 \\cdot \\frac{3}{4}(2x - x^2) dx = \\frac{3}{4} \\int_0^2 (2x^3 - x^4) dx = \\frac{3}{4} \\left[ \\frac{2x^4}{4} - \\frac{x^5}{5} \\right]_0^2 = \\frac{3}{4} \\left( 8 - \\frac{32}{5} \\right) = \\frac{3}{4} \\times \\frac{8}{5} = \\frac{6}{5} = 1{,}2$$\n- Phương sai:\n$$\\text{Var}(X) = E[X^2] - (E[X])^2 = 1{,}2 - 1{,}0^2 = 0{,}20$$\n- Xác suất trên khoảng $[0{,}5; 1{,}5]$:\n$$P(0{,}5 \\le X \\le 1{,}5) = F(1{,}5) - F(0{,}5)$$\n$$F(1{,}5) = \\frac{3}{4}(1{,}5)^2 - \\frac{1}{4}(1{,}5)^3 = \\frac{3}{4}(2{,}25) - \\frac{1}{4}(3{,}375) = 1{,}6875 - 0{,}84375 = 0{,}84375$$\n$$F(0{,}5) = \\frac{3}{4}(0{,}5)^2 - \\frac{1}{4}(0{,}5)^3 = \\frac{3}{4}(0{,}25) - \\frac{1}{4}(0{,}125) = 0{,}1875 - 0{,}03125 = 0{,}15625$$\n$$P(0{,}5 \\le X \\le 1{,}5) = 0{,}84375 - 0{,}15625 = 0{,}6875\\text{ (hay } 68{,}75\\%\\text{)}$$"
+          }
+        ]
+      },
+      {
+        "id": "D3_TL02",
+        "title": "Bài 2 (2,5 điểm) — Định Lý Giới Hạn Trung Tâm (CLT) & Bài Toán Bóng Đèn Dự Phòng",
+        "problem": "Một hệ thống chiếu sáng ngầm của phòng máy chủ hoạt động liên tục. Tuổi thọ của mỗi bóng đèn là biến ngẫu nhiên độc lập có giá trị trung bình $\\mu = 100$ giờ và độ lệch chuẩn $\\sigma = 20$ giờ (phương sai $\\sigma^2 = 400$). Khi một bóng đèn bị cháy, bóng đèn dự phòng tiếp theo sẽ được tự động thay thế ngay lập tức.\n\na) Nếu chuẩn bị $n = 16$ bóng đèn, tính xác suất để hệ thống duy trì chiếu sáng được ít nhất 1500 giờ.\nb) Phòng kỹ thuật yêu cầu hệ thống phải duy trì chiếu sáng tối thiểu $T = 2000$ giờ với độ tin cậy ít nhất $99\\%$. Hỏi cần phải chuẩn bị tối thiểu bao nhiêu bóng đèn dự phòng?\n\n*(Biết $\\Phi(1{,}25) = 0{,}8944; \\Phi(2{,}326) = 0{,}9900; \\Phi(2{,}467) = 0{,}9932$)*.",
+        "parts": [
+          {
+            "part": "a) Tính xác suất chiếu sáng ít nhất 1500 giờ với n = 16 bóng",
+            "score": 1.0,
+            "barem": "[+0,25đ] Áp dụng CLT tính mu_S = 1600, sigma_S = 80; [+0,25đ] Chuẩn hóa Z = -1,25; [+0,5đ] Tính đúng P(S16 >= 1500) = 0,8944.",
+            "solution": "Gọi $X_i$ là tuổi thọ của bóng đèn thứ $i$ ($i = 1, 2, \\dots, 16$).\nTổng thời gian chiếu sáng $S_{16} = \\sum_{i=1}^{16} X_i$.\nTheo Định lý Giới hạn Trung tâm (CLT):\n$$E[S_{16}] = n \\mu = 16 \\times 100 = 1600\\text{ giờ}$$\n$$\\text{Var}(S_{16}) = n \\sigma^2 = 16 \\times 400 = 6400 \\implies \\sigma_{S_{16}} = \\sqrt{6400} = 80\\text{ giờ}$$\nChuẩn hóa biến số $Z$:\n$$P(S_{16} \\ge 1500) = P\\left(Z \\ge \\frac{1500 - 1600}{80}\\right) = P(Z \\ge -1{,}25) = \\Phi(1{,}25) = 0{,}8944\\text{ (hay } 89{,}44\\%\\text{)}$$"
+          },
+          {
+            "part": "b) Xác định số lượng bóng đèn tối thiểu n cho 2000 giờ với độ tin cậy 99%",
+            "score": 1.5,
+            "barem": "[+0,25đ] Lập bất đẳng thức CLT P(Sn >= 2000) >= 0,99; [+0,5đ] Biến đổi về phương trình bậc hai ẩn u = sqrt(n); [+0,5đ] Giải nghiệm u >= 4,73 suy ra n >= 22,38; [+0,25đ] Kết luận n = 23 bóng đèn.",
+            "solution": "Gọi $n$ là số bóng đèn cần chuẩn bị. Tổng thời gian hoạt động $S_n = \\sum_{i=1}^n X_i$.\nTheo CLT, $S_n$ xấp xỉ phân phối chuẩn $\\mathcal{N}(100n, 400n)$ với $\\sigma_{S_n} = 20\\sqrt{n}$.\nYêu cầu bài toán:\n$$P(S_n \\ge 2000) \\ge 0{,}99 \\iff P\\left(Z \\ge \\frac{2000 - 100n}{20\\sqrt{n}}\\right) \\ge 0{,}99$$\n$$\\iff 1 - \\Phi\\left(\\frac{2000 - 100n}{20\\sqrt{n}}\\right) \\ge 0{,}99 \\iff \\Phi\\left(\\frac{2000 - 100n}{20\\sqrt{n}}\\right) \\le 0{,}01$$\nSử dụng tính đối xứng $\\Phi(-z) = 1 - \\Phi(z)$ và $\\Phi(2{,}3263) = 0{,}9900 \\implies -z_{0{,}01} = -2{,}3263$:\n$$\\frac{2000 - 100n}{20\\sqrt{n}} \\le -2{,}3263 \\iff 2000 - 100n \\le -46{,}526 \\sqrt{n}$$\n$$\\iff 100n - 46{,}526\\sqrt{n} - 2000 \\ge 0$$\nĐặt ẩn phụ $u = \\sqrt{n} > 0$, ta có phương trình bậc hai:\n$$100u^2 - 46{,}526u - 2000 \\ge 0$$\n(Nếu dùng giá trị tra bảng slide UET $z = 2{,}4675 \\implies 100u^2 - 49{,}35u - 2000 \\ge 0$).\nGiải phương trình bậc hai:\n$$\\Delta = (-46{,}526)^2 - 4(100)(-2000) = 2164{,}67 + 800000 = 802164{,}67 \\implies \\sqrt{\\Delta} \\approx 895{,}636$$\nNghiệm dương duy nhất:\n$$u \\ge \\frac{46{,}526 + 895{,}636}{200} = \\frac{942{,}162}{200} \\approx 4{,}711$$\n$$\\implies n = u^2 \\ge (4{,}711)^2 \\approx 22{,}19$$\n(Với $z = 2{,}4675 \\implies u \\ge 4{,}726 \\implies n \\ge 22{,}33$).\nVì $n$ là số nguyên đại diện cho số bóng đèn thực tế, ta làm tròn lên số nguyên kế tiếp:\n$$n = 23\\text{ bóng đèn.}$$"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "de_04",
+    "code": "104",
+    "title": "Đề Thi Thử Số 04: Tổng Hợp Quét Tốc Độ (Toàn Diện 7 Tuần)",
+    "description": "Rèn luyện tốc độ làm bài 90 phút dưới áp lực thời gian, kết hợp câu hỏi lý thuyết biến ngẫu nhiên hai chiều và xấp xỉ liên tục.",
+    "duration": 90,
+    "mcq_score": 5.0,
+    "essay_score": 5.0,
+    "total_score": 10.0,
+    "mcqs": [
+      {
+        "id": "D4_TN01",
+        "question": "Khoảng tứ phân vị (Interquartile Range - $IQR$) được định nghĩa là:",
+        "options": [
+          "$IQR = Q_3 - Q_1$",
+          "$IQR = Q_3 - Q_2$",
+          "$IQR = Q_2 - Q_1$",
+          "$IQR = x_{max} - x_{min}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$IQR = Q_3 - Q_1$ đo khoảng biến thiên của $50\\%$ dữ liệu trung tâm và không bị ảnh hưởng bởi các giá trị ngoại lai."
+      },
+      {
+        "id": "D4_TN02",
+        "question": "Cho $P(A) = 0{,}5, P(B) = 0{,}4$. Nếu $A$ và $B$ là hai biến cố xung khắc ($A \\cap B = \\emptyset$), thì $P(A \\cup B)$ bằng:",
+        "options": [
+          "$0{,}90$",
+          "$0{,}70$",
+          "$0{,}20$",
+          "$0{,}00$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Khi $A$ và $B$ xung khắc, $P(A \\cap B) = 0$. Công thức cộng: $P(A \\cup B) = P(A) + P(B) = 0{,}5 + 0{,}4 = 0{,}90$."
+      },
+      {
+        "id": "D4_TN03",
+        "question": "Cho $X \\sim \\text{Binomial}(n = 10, p = 0{,}2)$. Giá trị của $E[X^2]$ bằng:",
+        "options": [
+          "$5{,}6$",
+          "$4{,}0$",
+          "$1{,}6$",
+          "$2{,}0$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$E[X] = np = 10(0{,}2) = 2$. $\\text{Var}(X) = np(1-p) = 2(0{,}8) = 1{,}6$. Do $\\text{Var}(X) = E[X^2] - (E[X])^2 \\implies E[X^2] = \\text{Var}(X) + (E[X])^2 = 1{,}6 + 4 = 5{,}6$."
+      },
+      {
+        "id": "D4_TN04",
+        "question": "Một người tham gia trò chơi tung xúc xắc. Nếu ra mặt 6 thì được 10 điểm, các mặt khác bị trừ 2 điểm. Điểm số kỳ vọng của người đó sau 1 lần tung là:",
+        "options": [
+          "$0$",
+          "$1{,}33$",
+          "$-0{,}5$",
+          "$2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$E = 10 \\times \\frac{1}{6} + (-2) \\times \\frac{5}{6} = \\frac{10 - 10}{6} = 0$ (trò chơi công bằng)."
+      },
+      {
+        "id": "D4_TN05",
+        "question": "Cho biến ngẫu nhiên $X \\sim \\text{Uniform}(0, 4)$. Xác suất $P(1 \\le X \\le 3)$ bằng:",
+        "options": [
+          "$0{,}50$",
+          "$0{,}25$",
+          "$0{,}75$",
+          "$1{,}00$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Với phân phối đều trên $[0, 4]$, hàm mật độ $f(x) = \\frac{1}{4}$. $P(1 \\le X \\le 3) = \\frac{3 - 1}{4 - 0} = \\frac{2}{4} = 0{,}50$."
+      },
+      {
+        "id": "D4_TN06",
+        "question": "Hàm phân phối chuẩn tắc $\\Phi(z)$ đạt giá trị $\\Phi(0)$ bằng:",
+        "options": [
+          "$0{,}50$",
+          "$0{,}00$",
+          "$1{,}00$",
+          "$-0{,}50$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Do chuông Gauss đối xứng hoàn hảo qua gốc tọa độ 0, một nửa diện tích nằm bên trái trục tung $\\implies \\Phi(0) = 0{,}50$."
+      },
+      {
+        "id": "D4_TN07",
+        "question": "Cho $X \\sim \\mathcal{N}(50, 100)$. Xác suất $P(X > 70)$ tương đương với:",
+        "options": [
+          "$1 - \\Phi(2{,}0)$",
+          "$\\Phi(2{,}0)$",
+          "$1 - \\Phi(0{,}2)$",
+          "$\\Phi(-0{,}2)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\mu = 50, \\sigma = \\sqrt{100} = 10$. $z = \\frac{70 - 50}{10} = 2{,}0$. $P(X > 70) = P(Z > 2{,}0) = 1 - \\Phi(2{,}0)$."
+      },
+      {
+        "id": "D4_TN08",
+        "question": "Cho vector ngẫu nhiên $(X, Y)$ có $\\text{Cov}(X, Y) = 6$. Khi đó $\\text{Cov}(2X, 3Y)$ bằng:",
+        "options": [
+          "$36$",
+          "$6$",
+          "$12$",
+          "$18$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Tính chất song tuyến tính của hiệp phương sai: $\\text{Cov}(aX, bY) = a b \\cdot \\text{Cov}(X, Y) = 2 \\times 3 \\times 6 = 36$."
+      },
+      {
+        "id": "D4_TN09",
+        "question": "Điều kiện để áp dụng quy tắc xấp xỉ Chuẩn cho phân phối Nhị thức $\\text{Binomial}(n, p)$ là:",
+        "options": [
+          "$n p \\ge 5$ và $n(1 - p) \\ge 5$",
+          "$n \\le 30$",
+          "$p \\le 0{,}05$",
+          "$n p \\le 1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Quy tắc kinh nghiệm chuẩn: Khi $np \\ge 5$ và $n(1-p) \\ge 5$ (hoặc $\\ge 10$ tùy giáo trình), số thành công và thất bại kỳ vọng đủ lớn để hình chuông không bị lệch."
+      },
+      {
+        "id": "D4_TN10",
+        "question": "Độ lệch chuẩn của trung bình mẫu $SE = \\frac{\\sigma}{\\sqrt{n}}$ giảm đi một nửa khi cỡ mẫu $n$:",
+        "options": [
+          "Tăng gấp 4 lần",
+          "Tăng gấp 2 lần",
+          "Giảm đi 2 lần",
+          "Tăng gấp 16 lần"
+        ],
+        "correctIndex": 0,
+        "explanation": "$SE \\propto \\frac{1}{\\sqrt{n}}$. Để mẫu số $\\sqrt{n}$ tăng gấp đôi (khiến $SE$ giảm một nửa), ta cần $n$ tăng gấp $2^2 = 4$ lần."
+      },
+      {
+        "id": "D4_TN11",
+        "question": "Biến ngẫu nhiên $X$ có phân phối Siêu bội $X \\sim \\text{Hypergeometric}(N=100, K=20, n=10)$. Kỳ vọng $E[X]$ bằng:",
+        "options": [
+          "$2$",
+          "$0{,}2$",
+          "$10$",
+          "$20$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Kỳ vọng của phân phối Siêu bội: $E[X] = n \\cdot \\frac{K}{N} = 10 \\times \\frac{20}{100} = 2$."
+      },
+      {
+        "id": "D4_TN12",
+        "question": "Cho mẫu số liệu: $2, 4, 4, 4, 5, 5, 7, 9$. Yếu vị (Mode) của mẫu số liệu là:",
+        "options": [
+          "$4$",
+          "$5$",
+          "$4{,}5$",
+          "$9$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Giá trị $4$ xuất hiện nhiều nhất (3 lần), do đó Mode $= 4$."
+      },
+      {
+        "id": "D4_TN13",
+        "question": "Nếu phương sai mẫu là $s^2 = 16$, hệ số biến thiên $CV = \\frac{s}{\\bar{x}} \\times 100\\%$ của mẫu có $\\bar{x} = 20$ là:",
+        "options": [
+          "$20\\%$",
+          "$80\\%$",
+          "$4\\%$",
+          "$16\\%$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Độ lệch chuẩn $s = \\sqrt{16} = 4$. $CV = \\frac{4}{20} \\times 100\\% = 20\\%$."
+      },
+      {
+        "id": "D4_TN14",
+        "question": "Trong phép thử tung 2 con xúc xắc cân đối, xác suất tổng số chấm xuất hiện bằng 7 là:",
+        "options": [
+          "$\\frac{6}{36} = \\frac{1}{6}$",
+          "$\\frac{1}{12}$",
+          "$\\frac{7}{36}$",
+          "$\\frac{5}{36}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Các cặp có tổng bằng 7: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ (6 cặp). Tổng số kết quả đồng khả năng: 36. Xác suất $= 6/36 = 1/6$."
+      },
+      {
+        "id": "D4_TN15",
+        "question": "Cho $X \\sim \\text{Poisson}(\\lambda = 1)$. Xác suất $P(X \\ge 2)$ bằng:",
+        "options": [
+          "$1 - 2e^{-1} \\approx 0{,}2642$",
+          "$e^{-1} \\approx 0{,}3679$",
+          "$2e^{-1} \\approx 0{,}7358$",
+          "$1 - e^{-1} \\approx 0{,}6321$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$P(X \\ge 2) = 1 - [P(X=0) + P(X=1)] = 1 - [e^{-1} + 1e^{-1}] = 1 - 2e^{-1} \\approx 1 - 2(0{,}36788) = 0{,}2642$."
+      },
+      {
+        "id": "D4_TN16",
+        "question": "Đường cong mật độ chuẩn tắc $f(z) = \\frac{1}{\\sqrt{2\\pi}} e^{-z^2/2}$ có điểm uốn tại tọa độ hoành độ:",
+        "options": [
+          "$z = \\pm 1$",
+          "$z = 0$",
+          "$z = \\pm 2$",
+          "$z = \\pm 1{,}96$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Đạo hàm cấp hai của hàm mật độ chuẩn tắc bằng 0 tại $z = \\pm 1$ (tương ứng $x = \\mu \\pm \\sigma$ ở phân phối chuẩn tổng quát)."
+      },
+      {
+        "id": "D4_TN17",
+        "question": "Cho vector ngẫu nhiên $(X, Y)$ có phân phối xác suất đồng thời. Tổng tất cả các xác suất trong bảng đồng thời $\\sum_i \\sum_j p_{ij}$ luôn bằng:",
+        "options": [
+          "$1$",
+          "$0$",
+          "Kỳ vọng $E[XY]$",
+          "$2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Theo tiên đề xác suất, tổng xác suất trên toàn bộ không gian mẫu hai chiều luôn bằng 1."
+      },
+      {
+        "id": "D4_TN18",
+        "question": "Hệ số xác định $R^2 = 0$ trong mô hình hồi quy tuyến tính OLS có nghĩa là:",
+        "options": [
+          "Đường thẳng hồi quy nằm ngang $b_1 = 0$, $x$ hoàn toàn không giải thích được sự biến thiên của $y$",
+          "Dữ liệu hoàn toàn khớp tuyệt đối",
+          "Đường thẳng dốc đứng",
+          "Tất cả các điểm nằm trên đường thẳng"
+        ],
+        "correctIndex": 0,
+        "explanation": "$R^2 = 0 \\iff r = 0 \\iff b_1 = 0$. Mô hình không giải thích được bất kỳ phần biến thiên nào của biến phụ thuộc."
+      },
+      {
+        "id": "D4_TN19",
+        "question": "Một biến ngẫu nhiên $X$ có phân phối Mũ với trung bình $E[X] = 4$. Hàm mật độ của $X$ là:",
+        "options": [
+          "$f(x) = 0{,}25 e^{-0{,}25 x} \\ (x > 0)$",
+          "$f(x) = 4 e^{-4x} \\ (x > 0)$",
+          "$f(x) = e^{-x/4} \\ (x > 0)$",
+          "$f(x) = 0{,}25 x \\ (x > 0)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "Với phân phối Mũ, $E[X] = \\frac{1}{\\lambda} = 4 \\implies \\lambda = 0{,}25$. Do đó $f(x) = 0{,}25 e^{-0{,}25 x}$ với $x > 0$."
+      },
+      {
+        "id": "D4_TN20",
+        "question": "Một cuộc thăm dò ý kiến trên $n = 400$ cử tri ngẫu nhiên. Tỷ lệ ủng hộ trong mẫu là $\\hat{p} = 0{,}6$. Sai số chuẩn của tỷ lệ mẫu $SE(\\hat{p}) = \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$ bằng:",
+        "options": [
+          "$0{,}0245$",
+          "$0{,}0006$",
+          "$0{,}0500$",
+          "$0{,}2400$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$SE = \\sqrt{\\frac{0{,}6 \\times 0{,}4}{400}} = \\sqrt{\\frac{0{,}24}{400}} = \\sqrt{0{,}0006} \\approx 0{,}0245$ (hay $2{,}45\\%$)."
+      }
+    ],
+    "essays": [
+      {
+        "id": "D4_TL01",
+        "title": "Bài 1 (1,5 điểm) — Bảng Phân Phối Xác Suất Đồng Thời & Hiệp Phương Sai",
+        "problem": "Cho bảng phân phối xác suất đồng thời của hai biến ngẫu nhiên rời rạc $(X, Y)$ như sau:\n\n$$\\begin{array}{|c|c|c|c|}\n\\hline\nX \\backslash Y & 0 & 1 & 2 \\\\\n\\hline\n1 & 0{,}1 & 0{,}2 & 0{,}1 \\\\\n\\hline\n2 & 0{,}2 & 0{,}3 & 0{,}1 \\\\\n\\hline\n\\end{array}$$\n\na) Tìm các bảng phân phối xác suất biên của $X$ và $Y$.\nb) $X$ và $Y$ có độc lập với nhau không? Vì sao?\nc) Tính hiệp phương sai $\\text{Cov}(X, Y)$.",
+        "parts": [
+          {
+            "part": "a) Phân phối xác suất biên của X và Y",
+            "score": 0.5,
+            "barem": "[+0,25đ] Tính đúng P(X=1)=0,4; P(X=2)=0,6; [+0,25đ] Tính đúng P(Y=0)=0,3; P(Y=1)=0,5; P(Y=2)=0,2.",
+            "solution": "- Phân phối biên của $X$:\n  - $P(X = 1) = 0{,}1 + 0{,}2 + 0{,}1 = 0{,}4$\n  - $P(X = 2) = 0{,}2 + 0{,}3 + 0{,}1 = 0{,}6$\n- Phân phối biên của $Y$:\n  - $P(Y = 0) = 0{,}1 + 0{,}2 = 0{,}3$\n  - $P(Y = 1) = 0{,}2 + 0{,}3 = 0{,}5$\n  - $P(Y = 2) = 0{,}1 + 0{,}1 = 0{,}2$"
+          },
+          {
+            "part": "b) Kiểm tra tính độc lập",
+            "score": 0.5,
+            "barem": "[+0,25đ] Xét tích P(X=1)*P(Y=0) = 0,12 khác P(X=1, Y=0) = 0,10; [+0,25đ] Kết luận X và Y không độc lập.",
+            "solution": "Xét cặp $(X = 1, Y = 0)$:\n- $P(X = 1, Y = 0) = 0{,}10$\n- $P(X = 1) \\times P(Y = 0) = 0{,}4 \\times 0{,}3 = 0{,}12$\nVì $P(X = 1, Y = 0) \\ne P(X = 1) \\times P(Y = 0)$ ($0{,}10 \\ne 0{,}12$), nên hai biến ngẫu nhiên $X$ và $Y$ **không độc lập**."
+          },
+          {
+            "part": "c) Tính hiệp phương sai Cov(X, Y)",
+            "score": 0.5,
+            "barem": "[+0,25đ] Tính đúng E[X]=1,6; E[Y]=0,9; E[XY]=1,4; [+0,25đ] Tính Cov(X, Y) = 1,4 - 1,44 = -0,04.",
+            "solution": "- $E[X] = 1(0{,}4) + 2(0{,}6) = 0{,}4 + 1{,}2 = 1{,}6$.\n- $E[Y] = 0(0{,}3) + 1(0{,}5) + 2(0{,}2) = 0{,}5 + 0{,}4 = 0{,}9$.\n- $E[XY] = \\sum x_i y_j p_{ij}$:\n  - Điểm có $y=0$ cho tích bằng 0.\n  - $(1)(1)(0{,}2) = 0{,}2$\n  - $(1)(2)(0{,}1) = 0{,}2$\n  - $(2)(1)(0{,}3) = 0{,}6$\n  - $(2)(2)(0{,}1) = 0{,}4$\n  - $E[XY] = 0{,}2 + 0{,}2 + 0{,}6 + 0{,}4 = 1{,}4$.\n- Hiệp phương sai:\n$$\\text{Cov}(X, Y) = E[XY] - E[X]E[Y] = 1{,}4 - (1{,}6)(0{,}9) = 1{,}4 - 1{,}44 = -0{,}04$$"
+          }
+        ]
+      },
+      {
+        "id": "D4_TL02",
+        "title": "Bài 2 (1,5 điểm) — Công Thức Xác Suất Đầy Đủ & Hệ Thống Bảo Mật",
+        "problem": "Một hệ thống phòng thủ mạng có 2 lớp tường lửa. Xác suất một cuộc tấn công vượt qua tường lửa thứ nhất là $0{,}15$. Nếu đã vượt qua tường lửa thứ nhất, xác suất nó tiếp tục vượt qua tường lửa thứ hai là $0{,}20$. Ngoài ra, kẻ tấn công có thể khai thác một lỗ hổng trực tiếp bỏ qua cả 2 tường lửa với xác suất $0{,}02$.\n\na) Giả sử các con đường tấn công là độc lập nhau, tính xác suất hệ thống mạng bị xâm nhập thành công.\nb) Nếu một cuộc tấn công đã xâm nhập thành công vào hệ thống, tính xác suất cuộc tấn công đó đã đi qua cả hai lớp tường lửa.",
+        "parts": [
+          {
+            "part": "a) Tính xác suất mạng bị xâm nhập thành công",
+            "score": 0.75,
+            "barem": "[+0,25đ] Tính xác suất qua cả 2 tường lửa P(A) = 0,15*0,20 = 0,03; [+0,5đ] Áp dụng công thức cộng P(A U B) = 0,03 + 0,02 - 0,0006 = 0,0494.",
+            "solution": "Gọi $A$ là biến cố 'Cuộc tấn công vượt qua cả hai lớp tường lửa':\n$$P(A) = P(T_1) \\times P(T_2 \\mid T_1) = 0{,}15 \\times 0{,}20 = 0{,}0300$$\nGọi $B$ là biến cố 'Cuộc tấn công đi qua lỗ hổng trực tiếp': $P(B) = 0{,}0200$.\nVì hai con đường là độc lập, xác suất xâm nhập thành công (xảy ra $A$ hoặc $B$) là:\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = P(A) + P(B) - P(A)P(B)$$\n$$P(A \\cup B) = 0{,}03 + 0{,}02 - (0{,}03)(0{,}02) = 0{,}05 - 0{,}0006 = 0{,}0494\\text{ (hay } 4{,}94\\%\\text{)}$$"
+          },
+          {
+            "part": "b) Tính xác suất có điều kiện P(A | Xâm nhập)",
+            "score": 0.75,
+            "barem": "[+0,25đ] Lập công thức xác suất có điều kiện P(A | A U B); [+0,5đ] Tính đúng đáp số 0,6073.",
+            "solution": "Biết mạng đã bị xâm nhập thành công (biến cố $A \\cup B$ đã xảy ra), xác suất nó vượt qua cả 2 tường lửa (biến cố $A$) là:\n$$P(A \\mid A \\cup B) = \\frac{P(A \\cap (A \\cup B))}{P(A \\cup B)} = \\frac{P(A)}{P(A \\cup B)} = \\frac{0{,}0300}{0{,}0494} = \\frac{300}{494} \\approx 0{,}6073\\text{ (hay } 60{,}73\\%\\text{)}$$"
+          }
+        ]
+      },
+      {
+        "id": "D4_TL03",
+        "title": "Bài 3 (2,0 điểm) — Xấp Xỉ Chuẩn Cho Phân Phối Nhị Thức Có Hiệu Chỉnh Liên Tục",
+        "problem": "Một công ty công nghệ tổ chức thi tuyển lập trình viên online với 400 thí sinh tham gia độc lập. Xác suất để một thí sinh đạt điểm tuyệt đối ở bài kiểm tra coding là $p = 0{,}20$.\n\na) Kiểm tra điều kiện và xác định tham số của phân phối chuẩn xấp xỉ cho số thí sinh đạt điểm tuyệt đối.\nb) Sử dụng hiệu chỉnh liên tục, tính xác suất có từ 70 đến 90 thí sinh (kể cả 70 và 90) đạt điểm tuyệt đối.\n\n*(Cho biết $\\Phi(1{,}31) = 0{,}9049; \\Phi(1{,}25) = 0{,}8944$)*.",
+        "parts": [
+          {
+            "part": "a) Kiểm tra điều kiện xấp xỉ Chuẩn và xác định tham số",
+            "score": 0.75,
+            "barem": "[+0,25đ] Kiểm tra np = 80 >= 5 và n(1-p) = 320 >= 5; [+0,5đ] Tính mu = 80 và sigma = 8.",
+            "solution": "Gọi $X$ là số thí sinh đạt điểm tuyệt đối $\\implies X \\sim \\text{Binomial}(n = 400, p = 0{,}20)$.\nKiểm tra điều kiện xấp xỉ chuẩn:\n- $n p = 400 \\times 0{,}20 = 80 \\ge 5$\n- $n (1 - p) = 400 \\times 0{,}80 = 320 \\ge 5$\nĐiều kiện được thỏa mãn mỹ mãn. Khi đó $X$ xấp xỉ phân phối Chuẩn $Y \\sim \\mathcal{N}(\\mu, \\sigma^2)$ với:\n$$\\mu = n p = 80$$\n$$\\sigma^2 = n p (1 - p) = 80 \\times 0{,}80 = 64 \\implies \\sigma = \\sqrt{64} = 8$$"
+          },
+          {
+            "part": "b) Áp dụng hiệu chỉnh liên tục tính xác suất",
+            "score": 1.25,
+            "barem": "[+0,25đ] Áp dụng hiệu chỉnh liên tục P(69,5 <= Y <= 90,5); [+0,5đ] Chuẩn hóa Z1 = -1,31 và Z2 = 1,31; [+0,5đ] Tính đúng kết quả 0,8098.",
+            "solution": "Yêu cầu tính xác suất $P(70 \\le X \\le 90)$.\nÁp dụng quy tắc hiệu chỉnh liên tục (mở rộng hai đầu mút một khoảng $0{,}5$):\n$$P(70 \\le X \\le 90) \\approx P(69{,}5 \\le Y \\le 90{,}5)$$\nChuẩn hóa hai đầu mút:\n$$z_1 = \\frac{69{,}5 - 80}{8} = \\frac{-10{,}5}{8} = -1{,}3125 \\approx -1{,}31$$\n$$z_2 = \\frac{90{,}5 - 80}{8} = \\frac{10{,}5}{8} = 1{,}3125 \\approx 1{,}31$$\nTính xác suất:\n$$P(-1{,}31 \\le Z \\le 1{,}31) = 2\\Phi(1{,}31) - 1 = 2(0{,}9049) - 1 = 1{,}8098 - 1 = 0{,}8098\\text{ (hay } 80{,}98\\%\\text{)}$$\n\n*(Nếu không áp dụng hiệu chỉnh liên tục, $z = \\pm 1{,}25 \\implies 2(0{,}8944) - 1 = 0{,}7888$, sai lệch tới hơn $2\\%$. Hiệu chỉnh liên tục là bắt buộc trong chuẩn barem UET!)*"
+          }
+        ]
+      }
+    ]
+  }
+]
