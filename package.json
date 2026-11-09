@@ -10,7 +10,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test:qa": "python verify/run_full_qa_suite.py && python verify/run_csdl_qa_suite.py",
+    "test:e2e": "python verify/verify_katex_math.py"
   },
   "repository": {
     "type": "git",
