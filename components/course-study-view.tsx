@@ -9,12 +9,22 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import { MathBlock } from "@/components/math-block";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
+import { Progress } from "@/components/ui/progress";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   Folder,
   FolderOpen,
   ChevronRight,
+  ChevronDown,
   CheckCircle2,
+  XCircle,
   Lock,
   ArrowLeft,
   ArrowRight,
@@ -26,7 +36,17 @@ import {
   Sun,
   Moon,
   ExternalLink,
-  GraduationCap
+  GraduationCap,
+  Sparkles,
+  BookmarkCheck,
+  Info,
+  Layers,
+  Sigma,
+  Database,
+  Check,
+  CheckCheck,
+  ShieldCheck,
+  SlidersHorizontal,
 } from "lucide-react";
 
 interface CourseStudyViewProps {
@@ -48,7 +68,8 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
   // Initialize theme & state from localStorage
   useEffect(() => {
     try {
-      const savedTheme = (localStorage.getItem("uet_study_theme") as "light" | "dark") ||
+      const savedTheme =
+        (localStorage.getItem("uet_study_theme") as "light" | "dark") ||
         (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
       setTheme(savedTheme);
       document.documentElement.setAttribute("data-theme", savedTheme);
@@ -125,17 +146,17 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
   const isCurrentQuizPassed = !!completedLessons[curLesson?.id];
 
   const subTabs = [
-    { id: "theory", label: "1. Lý thuyết", icon: BookOpen },
-    { id: "examples", label: "2. Ba Ví dụ", icon: GraduationCap },
-    { id: "pitfalls", label: "3. Cạm bẫy", icon: AlertTriangle },
-    { id: "quiz", label: "4. Kiểm tra", icon: HelpCircle },
+    { id: "theory", label: "Lý thuyết", stepNum: 1, icon: BookOpen },
+    { id: "examples", label: "3 Ví dụ mẫu", stepNum: 2, icon: GraduationCap },
+    { id: "pitfalls", label: "Cạm bẫy thi", stepNum: 3, icon: AlertTriangle },
+    { id: "quiz", label: "Bài kiểm tra", stepNum: 4, icon: ShieldCheck },
   ];
 
   const handleNextSection = () => {
     const tabIdx = subTabs.findIndex((t) => t.id === curSubTab);
     if (tabIdx < subTabs.length - 1) {
       setCurSubTab(subTabs[tabIdx + 1].id);
-      window.scrollTo({ top: 180, behavior: "smooth" });
+      window.scrollTo({ top: 160, behavior: "smooth" });
     } else {
       if (isCurrentQuizPassed && curLessonIdx < course.lessons.length - 1) {
         handleLessonSelect(curLessonIdx + 1);
@@ -147,7 +168,7 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
     const tabIdx = subTabs.findIndex((t) => t.id === curSubTab);
     if (tabIdx > 0) {
       setCurSubTab(subTabs[tabIdx - 1].id);
-      window.scrollTo({ top: 180, behavior: "smooth" });
+      window.scrollTo({ top: 160, behavior: "smooth" });
     } else if (curLessonIdx > 0) {
       handleLessonSelect(curLessonIdx - 1);
     }
@@ -160,176 +181,253 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
     return acc;
   }, {} as Record<string, (Lesson & { globalIdx: number })[]>);
 
+  const completedCount = Object.keys(completedLessons).filter((id) =>
+    course.lessons.some((l) => l.id === id)
+  ).length;
+  const progressPercent = Math.round((completedCount / course.total_lessons) * 100);
+
+  // Subject vector icon
+  const SubjectIcon = course.id === "xstk" ? Sigma : Database;
+
   // Render Sidebar Tree Content (Used for both Desktop & Mobile Sheet)
   const renderSidebarTree = () => (
-    <div className="flex flex-col h-full space-y-4">
-      {/* Search Bar */}
+    <div className="flex flex-col h-full space-y-3">
+      {/* Search Input with Esc Hint */}
       <div className="relative">
-        <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
+        <Search className="absolute left-3 top-2.5 h-3.5 w-3.5 text-muted-foreground" />
         <Input
-          placeholder="Tìm kiếm bài học..."
+          placeholder="Tìm bài học..."
           value={searchQuery}
           onChange={(e) => {
             setSearchQuery(e.target.value);
             if (e.target.value) {
-              // Expand all folders on search
               const allOpen: Record<string, boolean> = {};
               Object.keys(course.clusters).forEach((k) => (allOpen[k] = true));
               setOpenFolders(allOpen);
             }
           }}
-          className="pl-9 h-9 text-xs"
+          className="pl-8.5 pr-8 h-8.5 text-xs bg-slate-50 dark:bg-slate-900 border-border"
         />
+        {searchQuery && (
+          <button
+            onClick={() => setSearchQuery("")}
+            className="absolute right-2.5 top-2.5 text-xs text-muted-foreground hover:text-foreground"
+          >
+            ✕
+          </button>
+        )}
       </div>
 
-      {/* Folders List */}
-      <div className="flex-1 overflow-y-auto pr-1 space-y-2">
-        {Object.entries(course.clusters).map(([clusterKey, clusterTitle]) => {
-          const list = groupedLessons[clusterKey] || [];
-          const filtered = list.filter(
-            (l) =>
-              !searchQuery ||
-              l.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-              l.id.toLowerCase().includes(searchQuery.toLowerCase())
-          );
-          if (filtered.length === 0 && searchQuery) return null;
+      {/* Progress Mini Bar */}
+      <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-900/60 border border-border/60 space-y-1.5">
+        <div className="flex items-center justify-between text-[11px] font-medium text-muted-foreground">
+          <span>Tiến độ hoàn thành</span>
+          <span className="font-mono text-foreground font-semibold">
+            {completedCount}/{course.total_lessons} bài ({progressPercent}%)
+          </span>
+        </div>
+        <Progress value={progressPercent} className="h-1.5 bg-slate-200 dark:bg-slate-800" />
+      </div>
 
-          const isOpen = !!openFolders[clusterKey];
+      {/* Folders List with Radix ScrollArea */}
+      <ScrollArea className="flex-1 pr-1">
+        <div className="space-y-1.5 pb-4">
+          {Object.entries(course.clusters).map(([clusterKey, clusterTitle]) => {
+            const list = groupedLessons[clusterKey] || [];
+            const filtered = list.filter(
+              (l) =>
+                !searchQuery ||
+                l.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                l.id.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+            if (filtered.length === 0 && searchQuery) return null;
 
-          return (
-            <div key={clusterKey} className="rounded-lg border border-slate-200/60 dark:border-slate-800/60 overflow-hidden bg-slate-50/50 dark:bg-slate-900/50">
-              <button
-                onClick={() => toggleFolder(clusterKey)}
-                className="w-full flex items-center justify-between p-2.5 text-left font-bold text-xs hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            const isOpen = !!openFolders[clusterKey];
+            const clusterCompleted = list.filter((l) => !!completedLessons[l.id]).length;
+
+            return (
+              <div
+                key={clusterKey}
+                className="rounded-lg border border-border/60 overflow-hidden bg-card transition-colors"
               >
-                <div className="flex items-center gap-2 overflow-hidden">
-                  <ChevronRight
-                    className={`h-3.5 w-3.5 shrink-0 text-slate-400 transition-transform duration-200 ${
-                      isOpen ? "rotate-90" : ""
-                    }`}
-                  />
-                  {isOpen ? (
-                    <FolderOpen className="h-4 w-4 shrink-0 text-blue-500" />
-                  ) : (
-                    <Folder className="h-4 w-4 shrink-0 text-slate-400" />
-                  )}
-                  <span className="truncate text-slate-900 dark:text-slate-100">{clusterTitle}</span>
-                </div>
-                <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-4">
-                  {list.length} bài
-                </Badge>
-              </button>
+                <button
+                  onClick={() => toggleFolder(clusterKey)}
+                  className="w-full flex items-center justify-between px-3 py-2 text-left text-xs font-semibold hover:bg-muted/50 transition-colors"
+                >
+                  <div className="flex items-center gap-2 overflow-hidden">
+                    <ChevronRight
+                      className={`h-3.5 w-3.5 shrink-0 text-muted-foreground transition-transform duration-200 ${
+                        isOpen ? "rotate-90" : ""
+                      }`}
+                    />
+                    {isOpen ? (
+                      <FolderOpen className="h-4 w-4 shrink-0 text-blue-600 dark:text-blue-400" />
+                    ) : (
+                      <Folder className="h-4 w-4 shrink-0 text-muted-foreground" />
+                    )}
+                    <span className="truncate text-foreground font-medium">{clusterTitle}</span>
+                  </div>
+                  <span className="text-[10px] font-mono font-medium text-muted-foreground bg-muted px-1.5 py-0.5 rounded shrink-0 ml-1.5">
+                    {clusterCompleted}/{list.length}
+                  </span>
+                </button>
 
-              {isOpen && (
-                <div className="p-1 space-y-0.5 border-t border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-slate-950">
-                  {filtered.map((l) => {
-                    const isActive = l.globalIdx === curLessonIdx;
-                    const isDone = !!completedLessons[l.id];
+                {isOpen && (
+                  <div className="p-1 space-y-0.5 border-t border-border/40 bg-background/50">
+                    {filtered.map((l) => {
+                      const isActive = l.globalIdx === curLessonIdx;
+                      const isDone = !!completedLessons[l.id];
 
-                    return (
-                      <button
-                        key={l.id}
-                        onClick={() => handleLessonSelect(l.globalIdx)}
-                        className={`w-full flex items-center justify-between px-2.5 py-2 rounded-md text-xs font-medium text-left transition-all ${
-                          isActive
-                            ? "bg-blue-50 text-blue-700 font-bold dark:bg-blue-950/70 dark:text-blue-300 border-l-2 border-blue-600"
-                            : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-slate-100"
-                        }`}
-                      >
-                        <span className="truncate pr-2">
-                          <span className="font-semibold text-slate-500 mr-1">{l.id}:</span>
-                          {l.title.split(":")[1]?.trim() || l.title}
-                        </span>
-                        {isDone && (
-                          <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
+                      return (
+                        <button
+                          key={l.id}
+                          onClick={() => handleLessonSelect(l.globalIdx)}
+                          className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md text-xs text-left transition-all relative ${
+                            isActive
+                              ? "bg-blue-50 text-blue-700 font-semibold dark:bg-blue-950/70 dark:text-blue-300 ring-1 ring-blue-500/20"
+                              : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                          }`}
+                        >
+                          <div className="flex items-center gap-1.5 truncate pr-2">
+                            <span className="font-mono text-[10px] opacity-75 shrink-0">
+                              {l.id}
+                            </span>
+                            <span className="truncate text-[11.5px]">
+                              {l.title.split(":")[1]?.trim() || l.title}
+                            </span>
+                          </div>
+                          {isDone ? (
+                            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
+                          ) : (
+                            <span className="h-1.5 w-1.5 rounded-full bg-slate-300 dark:bg-slate-700 shrink-0" />
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </ScrollArea>
     </div>
   );
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 flex flex-col font-sans antialiased">
+    <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 flex flex-col font-sans antialiased selection:bg-blue-500/20">
       {/* Header Bar */}
-      <header className="sticky top-0 z-40 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/90 shadow-xs">
+      <header className="sticky top-0 z-40 w-full border-b border-border/80 bg-background/80 backdrop-blur-md shadow-xs">
         <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between gap-4">
-          {/* Logo & Course */}
+          {/* Logo & Brand Identity */}
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="flex items-center gap-2 text-slate-900 dark:text-slate-100 font-extrabold text-base tracking-tight hover:opacity-80 transition-opacity"
+              className="flex items-center gap-2.5 text-foreground hover:opacity-85 transition-opacity"
             >
-              <span className="text-xl">{course.icon}</span>
+              <div className="h-8 w-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold shadow-xs">
+                <GraduationCap className="h-4.5 w-4.5" />
+              </div>
               <div className="flex flex-col leading-tight">
-                <span className="font-black text-sm">{course.title}</span>
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold">
-                  {course.code} • UET Study Hub
+                <div className="flex items-center gap-1.5">
+                  <span className="font-extrabold text-sm tracking-tight">UET STUDY HUB</span>
+                  <Badge variant="outline" className="text-[9px] px-1 py-0 h-3.5 font-mono uppercase">
+                    Interactive
+                  </Badge>
+                </div>
+                <span className="text-[10.5px] text-muted-foreground font-medium truncate max-w-[200px] sm:max-w-none">
+                  {course.title} ({course.code})
                 </span>
               </div>
             </Link>
           </div>
 
-          {/* Course Switcher */}
-          <div className="inline-flex items-center bg-slate-100 dark:bg-slate-800 p-1 rounded-lg border border-slate-200 dark:border-slate-700">
+          {/* Center: Course Switcher Segmented Control */}
+          <div className="hidden sm:inline-flex items-center bg-muted/80 p-0.5 rounded-lg border border-border">
             <Link
               href="/xstk/hoc"
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold transition-all ${
                 course.id === "xstk"
-                  ? "bg-white text-blue-600 shadow-xs dark:bg-slate-900 dark:text-blue-400"
-                  : "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
+                  ? "bg-card text-blue-600 shadow-xs dark:text-blue-400"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              <span>🎲</span> XSTK
+              <Sigma className="h-3.5 w-3.5 text-blue-500" />
+              <span>Xác suất (MAT1052)</span>
             </Link>
             <Link
               href="/csdl/hoc"
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold transition-all ${
                 course.id === "csdl"
-                  ? "bg-white text-blue-600 shadow-xs dark:bg-slate-900 dark:text-blue-400"
-                  : "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
+                  ? "bg-card text-blue-600 shadow-xs dark:text-blue-400"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              <span>🗄️</span> CSDL
+              <Database className="h-3.5 w-3.5 text-indigo-500" />
+              <span>Cơ sở dữ liệu (INT2207)</span>
             </Link>
           </div>
 
-          {/* Right Actions: Theme & Hub link */}
+          {/* Right Actions: Mobile Switcher, Theme & Hub link */}
           <div className="flex items-center gap-2">
+            {/* Mobile Course Dropdown */}
+            <div className="sm:hidden">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" size="sm" className="h-8 gap-1 text-xs px-2">
+                    <SubjectIcon className="h-3.5 w-3.5 text-blue-500" />
+                    <span className="font-mono">{course.code}</span>
+                    <ChevronDown className="h-3 w-3 opacity-60" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48 text-xs">
+                  <DropdownMenuItem asChild>
+                    <Link href="/xstk/hoc" className="flex items-center gap-2">
+                      <Sigma className="h-3.5 w-3.5 text-blue-500" />
+                      <span>Xác suất Thống kê (MAT1052)</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/csdl/hoc" className="flex items-center gap-2">
+                      <Database className="h-3.5 w-3.5 text-indigo-500" />
+                      <span>Cơ sở Dữ liệu (INT2207)</span>
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+
             <Link
               href="/"
-              className="hidden sm:inline-flex items-center text-xs font-semibold px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors"
+              className="hidden md:inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1.5 rounded-lg border border-border hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
             >
-              🏛️ Trang chủ Hub
+              <Layers className="h-3.5 w-3.5 text-muted-foreground" />
+              <span>Portal Hub</span>
             </Link>
+
             <Button
               variant="outline"
               size="icon"
               onClick={toggleTheme}
               aria-label="Toggle Theme"
-              className="h-8 w-8"
+              className="h-8 w-8 rounded-lg"
             >
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              {theme === "dark" ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
             </Button>
           </div>
         </div>
       </header>
 
-      {/* Main Study Container */}
-      <div className="max-w-7xl mx-auto px-4 py-6 w-full flex-1 flex gap-6">
-        {/* Desktop Sidebar: Sticky 320px */}
-        <aside className="hidden lg:flex w-80 shrink-0 sticky top-20 h-[calc(100vh-6rem)] flex-col rounded-xl border border-slate-200 bg-white p-4 shadow-xs dark:border-slate-800 dark:bg-slate-900">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
-            <span className="font-extrabold text-sm flex items-center gap-2 text-slate-900 dark:text-slate-100">
-              📁 Mục Lục Bài Học
+      {/* Main Study Workspace */}
+      <div className="max-w-7xl mx-auto px-4 py-5 w-full flex-1 flex gap-6">
+        {/* Desktop Sidebar: Sticky 310px */}
+        <aside className="hidden lg:flex w-76 shrink-0 sticky top-18 h-[calc(100vh-5.5rem)] flex-col rounded-xl border border-border bg-card p-3.5 shadow-xs">
+          <div className="flex items-center justify-between pb-3 border-b border-border/80">
+            <span className="font-bold text-xs flex items-center gap-2 text-foreground tracking-tight">
+              <FolderOpen className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+              <span>Mục lục bài học</span>
             </span>
-            <Badge variant="blueSoft" className="tabular-nums">
+            <Badge variant="blueSoft" className="font-mono text-[10px] px-2 py-0">
               {course.total_lessons} bài
             </Badge>
           </div>
@@ -337,79 +435,93 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
         </aside>
 
         {/* Mobile Header Bar & Drawer Trigger */}
-        <div className="lg:hidden w-full flex flex-col gap-4">
-          <div className="flex items-center justify-between p-3 rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 shadow-xs">
+        <div className="lg:hidden w-full flex flex-col gap-3">
+          <div className="flex items-center justify-between p-3 rounded-xl border border-border bg-card shadow-xs">
             <div className="flex flex-col truncate pr-2">
-              <span className="text-[11px] font-bold text-blue-600 dark:text-blue-400">
+              <span className="text-[10px] font-mono font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
                 Bài {curLessonIdx + 1} / {course.total_lessons}
               </span>
-              <span className="text-xs font-extrabold truncate text-slate-900 dark:text-slate-100">
+              <span className="text-xs font-bold truncate text-foreground">
                 {curLesson?.id}: {curLesson?.title}
               </span>
             </div>
             <Sheet open={isMobileOpen} onOpenChange={setIsMobileOpen}>
               <SheetTrigger asChild>
-                <Button variant="outline" size="sm" className="gap-1.5 shrink-0 text-xs">
+                <Button variant="outline" size="sm" className="gap-1.5 shrink-0 text-xs h-8">
                   <Menu className="h-3.5 w-3.5" />
                   Mục lục
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="w-[300px] sm:w-[360px] p-4 flex flex-col">
-                <SheetHeader className="text-left pb-3 border-b border-slate-200 dark:border-slate-800">
-                  <SheetTitle className="text-sm font-bold flex items-center gap-2">
-                    <span>{course.icon}</span> Mục Lục {course.title}
+              <SheetContent side="left" className="w-[300px] sm:w-[350px] p-4 flex flex-col">
+                <SheetHeader className="text-left pb-3 border-b border-border">
+                  <SheetTitle className="text-xs font-bold flex items-center gap-2">
+                    <SubjectIcon className="h-4 w-4 text-blue-600" />
+                    <span>Mục lục {course.title}</span>
                   </SheetTitle>
                 </SheetHeader>
-                <div className="mt-4 flex-1 overflow-hidden">{renderSidebarTree()}</div>
+                <div className="mt-3 flex-1 overflow-hidden">{renderSidebarTree()}</div>
               </SheetContent>
             </Sheet>
           </div>
         </div>
 
         {/* Lesson Main Content Area */}
-        <main className="flex-1 min-w-0 max-w-4xl space-y-6">
+        <main className="flex-1 min-w-0 max-w-4xl space-y-5">
           {/* Lesson Header Card */}
-          <Card className="border border-slate-200 shadow-xs bg-white dark:border-slate-800 dark:bg-slate-900">
-            <CardHeader className="p-6 pb-4 space-y-2">
-              <div className="flex flex-wrap items-center gap-2">
-                <Badge variant="blueSoft" className="font-bold text-xs">
-                  {course.clusters[curLesson?.cluster] || `Cụm ${curLesson?.cluster}`}
-                </Badge>
-                {curLesson?.chapter_badge && (
-                  <Badge variant="secondary" className="text-xs">
-                    {curLesson.chapter_badge}
+          <Card className="border border-border/80 shadow-xs bg-card overflow-hidden">
+            <CardHeader className="p-5 pb-4 space-y-2.5">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <Badge variant="blueSoft" className="font-semibold text-[11px]">
+                    {course.clusters[curLesson?.cluster] || `Cụm ${curLesson?.cluster}`}
                   </Badge>
-                )}
-                {isCurrentQuizPassed && (
-                  <Badge variant="success" className="gap-1 text-xs font-bold">
-                    <CheckCircle2 className="h-3 w-3" /> Đã hoàn thành
+                  {curLesson?.chapter_badge && (
+                    <Badge variant="outline" className="text-[11px] font-mono text-muted-foreground">
+                      {curLesson.chapter_badge}
+                    </Badge>
+                  )}
+                </div>
+
+                {isCurrentQuizPassed ? (
+                  <Badge variant="success" className="gap-1 text-[11px] font-medium">
+                    <CheckCircle2 className="h-3 w-3" /> Đã hoàn thành bài
+                  </Badge>
+                ) : (
+                  <Badge variant="secondary" className="gap-1 text-[11px] font-medium text-muted-foreground">
+                    <Lock className="h-3 w-3 opacity-60" /> Chưa hoàn thành
                   </Badge>
                 )}
               </div>
-              <CardTitle className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 dark:text-slate-50">
-                {curLesson?.title}
-              </CardTitle>
-              {curLesson?.desc && (
-                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl">
-                  {curLesson.desc}
-                </p>
-              )}
+
+              <div>
+                <CardTitle className="text-lg sm:text-xl font-bold tracking-tight text-foreground">
+                  {curLesson?.title}
+                </CardTitle>
+                {curLesson?.desc && (
+                  <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    {curLesson.desc}
+                  </p>
+                )}
+              </div>
             </CardHeader>
           </Card>
 
           {/* Sequential Section Stepper Tabs */}
           <Tabs value={curSubTab} onValueChange={setCurSubTab} className="w-full">
-            <TabsList className="w-full grid grid-cols-2 sm:grid-cols-4 h-auto p-1 bg-slate-100 dark:bg-slate-800/80 rounded-xl">
+            <TabsList className="w-full grid grid-cols-2 sm:grid-cols-4 h-auto p-1 bg-muted/80 rounded-xl border border-border">
               {subTabs.map((tab) => {
                 const Icon = tab.icon;
                 return (
                   <TabsTrigger
                     key={tab.id}
                     value={tab.id}
-                    className="flex items-center justify-center gap-1.5 py-2 text-xs sm:text-sm font-bold"
+                    className="flex items-center justify-center gap-1.5 py-2 text-xs font-semibold data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-xs transition-all"
                   >
-                    <Icon className="h-4 w-4" />
-                    <span>{tab.label}</span>
+                    <span className="w-4.5 h-4.5 rounded-full bg-slate-200/80 dark:bg-slate-700/80 flex items-center justify-center text-[10px] font-mono font-bold shrink-0">
+                      {tab.stepNum}
+                    </span>
+                    <Icon className="h-3.5 w-3.5 shrink-0 opacity-80" />
+                    <span className="truncate">{tab.label}</span>
                   </TabsTrigger>
                 );
               })}
@@ -420,20 +532,20 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
               {curLesson?.theory_steps.map((step, idx) => (
                 <Card
                   key={idx}
-                  className="border border-slate-200/80 bg-white dark:border-slate-800/80 dark:bg-slate-900 shadow-xs overflow-hidden"
+                  className="border border-border/80 bg-card shadow-xs overflow-hidden"
                 >
-                  <CardHeader className="bg-slate-50/70 dark:bg-slate-800/50 p-4 border-b border-slate-200/60 dark:border-slate-800/60 flex flex-row items-center justify-between">
-                    <span className="font-bold text-sm text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                      <Badge variant="outline" className="font-black text-blue-600 dark:text-blue-400">
+                  <CardHeader className="bg-muted/40 p-3.5 px-4 border-b border-border/60 flex flex-row items-center justify-between">
+                    <span className="font-semibold text-xs sm:text-sm text-foreground flex items-center gap-2">
+                      <Badge variant="blueSoft" className="font-mono font-bold text-[10.5px]">
                         Bước {step.step_num || idx + 1}
                       </Badge>
-                      {step.title}
+                      <span>{step.title}</span>
                     </span>
                   </CardHeader>
-                  <CardContent className="p-5 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  <CardContent className="p-4 sm:p-5 text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
                     <div
                       dangerouslySetInnerHTML={{ __html: step.content }}
-                      className="prose dark:prose-invert max-w-none space-y-2 [&_p]:mb-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-2 [&_li]:mb-1 [&_b]:text-slate-900 dark:[&_b]:text-slate-100 [&_.tip-box]:bg-blue-50/80 dark:[&_.tip-box]:bg-blue-950/40 [&_.tip-box]:border-l-4 [&_.tip-box]:border-blue-500 [&_.tip-box]:p-3 [&_.tip-box]:rounded-r-lg [&_.tip-box]:my-3"
+                      className="prose dark:prose-invert max-w-none space-y-2 [&_p]:mb-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-2 [&_li]:mb-1 [&_b]:text-foreground [&_code]:font-mono [&_code]:text-xs [&_code]:bg-muted [&_code]:px-1 [&_code]:py-0.5 [&_code]:rounded [&_.tip-box]:bg-blue-50/70 dark:[&_.tip-box]:bg-blue-950/30 [&_.tip-box]:border [&_.tip-box]:border-blue-200/80 dark:[&_.tip-box]:border-blue-900/60 [&_.tip-box]:p-3.5 [&_.tip-box]:rounded-xl [&_.tip-box]:my-3"
                     />
                   </CardContent>
                 </Card>
@@ -442,39 +554,47 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
 
             {/* Sub-tab 2: 3 Examples */}
             <TabsContent value="examples" className="space-y-4 pt-2">
-              <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">
-                📌 100% Ví dụ mẫu trích xuất trực tiếp từ Slide bài giảng UET:
+              <div className="flex items-center gap-2 px-1 text-xs font-semibold text-muted-foreground">
+                <GraduationCap className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                <span>3 Ví dụ mẫu phân cấp (100% bám sát Slide bài giảng UET):</span>
               </div>
+
               {curLesson?.examples.map((ex, idx) => {
                 const badgeVariant =
                   idx === 0 ? "emeraldSoft" : idx === 1 ? "amberSoft" : "roseSoft";
                 return (
                   <Card
                     key={idx}
-                    className="border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 shadow-xs"
+                    className="border border-border/80 bg-card shadow-xs overflow-hidden"
                   >
-                    <CardHeader className="p-4 border-b border-slate-200 dark:border-slate-800 flex flex-row items-center justify-between">
-                      <span className="font-bold text-sm text-slate-900 dark:text-slate-100">
+                    <CardHeader className="p-3.5 px-4 border-b border-border/60 bg-muted/40 flex flex-row items-center justify-between">
+                      <span className="font-bold text-xs sm:text-sm text-foreground flex items-center gap-2">
+                        <span className="h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400" />
                         Ví dụ {idx + 1}
                       </span>
-                      <Badge variant={badgeVariant} className="font-bold">
+                      <Badge variant={badgeVariant} className="font-semibold text-[10.5px]">
                         {ex.level}
                       </Badge>
                     </CardHeader>
-                    <CardContent className="p-5 space-y-4 text-sm">
-                      <div className="bg-slate-50 dark:bg-slate-800/60 p-3.5 rounded-lg border-l-4 border-blue-500 text-slate-800 dark:text-slate-200 leading-relaxed">
-                        <div className="font-bold text-xs text-blue-600 dark:text-blue-400 mb-1">
-                          ĐỀ BÀI:
+                    <CardContent className="p-4 sm:p-5 space-y-4 text-xs sm:text-sm">
+                      {/* Problem */}
+                      <div className="bg-slate-50 dark:bg-slate-900/70 p-3.5 sm:p-4 rounded-xl border border-border/70 text-slate-800 dark:text-slate-200 leading-relaxed">
+                        <div className="font-bold text-[11px] text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                          <HelpCircle className="h-3.5 w-3.5" />
+                          Đề bài (Trích Slide UET):
                         </div>
                         <div dangerouslySetInnerHTML={{ __html: ex.problem }} />
                       </div>
+
+                      {/* Solution */}
                       <div className="space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
-                        <div className="font-bold text-xs text-slate-500 dark:text-slate-400">
-                          HƯỚNG DẪN GIẢI CHI TIẾT:
+                        <div className="font-bold text-[11px] text-muted-foreground uppercase tracking-wider flex items-center gap-1.5">
+                          <Sparkles className="h-3.5 w-3.5 text-amber-500" />
+                          Hướng dẫn giải chi tiết:
                         </div>
                         <div
                           dangerouslySetInnerHTML={{ __html: ex.solution }}
-                          className="space-y-1.5 [&_b]:text-slate-900 dark:[&_b]:text-slate-100"
+                          className="space-y-1.5 [&_b]:text-foreground [&_code]:font-mono [&_code]:text-xs [&_code]:bg-muted [&_code]:px-1 [&_code]:py-0.5 [&_code]:rounded"
                         />
                       </div>
                     </CardContent>
@@ -485,33 +605,39 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
 
             {/* Sub-tab 3: Pitfalls (Cạm bẫy) */}
             <TabsContent value="pitfalls" className="space-y-4 pt-2">
-              <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">
-                ⚠️ Đối chiếu song song các lỗi sai kinh điển trong đề thi UET:
+              <div className="flex items-center gap-2 px-1 text-xs font-semibold text-muted-foreground">
+                <AlertTriangle className="h-4 w-4 text-amber-500" />
+                <span>Đối chiếu song song các cạm bẫy kinh điển trong đề thi UET:</span>
               </div>
+
               {curLesson?.pitfalls.map((p, idx) => (
                 <div
                   key={idx}
-                  className="grid grid-cols-1 md:grid-cols-2 gap-4 rounded-xl border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900"
+                  className="grid grid-cols-1 md:grid-cols-2 gap-4 rounded-xl border border-border p-4 bg-card shadow-xs"
                 >
-                  {/* Sai */}
-                  <div className="p-4 rounded-lg bg-red-50/70 border border-red-200/80 dark:bg-red-950/40 dark:border-red-900/60 space-y-2">
-                    <div className="flex items-center gap-2 font-bold text-xs text-red-600 dark:text-red-400 uppercase tracking-wider">
-                      <span>❌</span> Cách nghĩ sai phổ biến
+                  {/* Wrong Approach */}
+                  <div className="p-4 rounded-xl bg-rose-50/50 border border-rose-200/80 dark:bg-rose-950/20 dark:border-rose-900/50 space-y-2">
+                    <div className="flex items-center gap-1.5 font-bold text-xs text-rose-600 dark:text-rose-400 uppercase tracking-wider">
+                      <XCircle className="h-4 w-4 shrink-0 text-rose-500" />
+                      <span>Cách nghĩ sai phổ biến</span>
                     </div>
+                    <Separator className="bg-rose-200/60 dark:bg-rose-900/40" />
                     <div
                       dangerouslySetInnerHTML={{ __html: p.bad }}
-                      className="text-xs leading-relaxed text-slate-800 dark:text-slate-200"
+                      className="text-xs leading-relaxed text-slate-800 dark:text-slate-200 space-y-1 [&_b]:text-rose-950 dark:[&_b]:text-rose-200"
                     />
                   </div>
 
-                  {/* Đúng */}
-                  <div className="p-4 rounded-lg bg-emerald-50/70 border border-emerald-200/80 dark:bg-emerald-950/40 dark:border-emerald-900/60 space-y-2">
-                    <div className="flex items-center gap-2 font-bold text-xs text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
-                      <span>✅</span> Quy tắc chuẩn thi UET
+                  {/* Correct Rule */}
+                  <div className="p-4 rounded-xl bg-emerald-50/50 border border-emerald-200/80 dark:bg-emerald-950/20 dark:border-emerald-900/50 space-y-2">
+                    <div className="flex items-center gap-1.5 font-bold text-xs text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-500" />
+                      <span>Quy tắc chuẩn thi UET</span>
                     </div>
+                    <Separator className="bg-emerald-200/60 dark:bg-emerald-900/40" />
                     <div
                       dangerouslySetInnerHTML={{ __html: p.good }}
-                      className="text-xs leading-relaxed text-slate-800 dark:text-slate-200"
+                      className="text-xs leading-relaxed text-slate-800 dark:text-slate-200 space-y-1 [&_b]:text-emerald-950 dark:[&_b]:text-emerald-200"
                     />
                   </div>
                 </div>
@@ -519,59 +645,94 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
             </TabsContent>
 
             {/* Sub-tab 4: 3-Level Gatekeeper Quiz */}
-            <TabsContent value="quiz" className="space-y-6 pt-2">
-              <div className="bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/60 p-4 rounded-xl flex items-center justify-between">
+            <TabsContent value="quiz" className="space-y-5 pt-2">
+              {/* Gatekeeper Banner */}
+              <div className="bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200/80 dark:border-blue-900/50 p-4 rounded-xl flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-blue-600 text-white">
-                    <HelpCircle className="h-5 w-5" />
+                  <div className="p-2.5 rounded-lg bg-blue-600 text-white shrink-0 shadow-xs">
+                    <ShieldCheck className="h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="font-extrabold text-sm text-slate-900 dark:text-slate-50">
+                    <h4 className="font-bold text-xs sm:text-sm text-foreground">
                       Bài kiểm tra 3 cấp độ (Gatekeeper Quiz)
                     </h4>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                    <p className="text-[11px] sm:text-xs text-muted-foreground mt-0.5">
                       Làm đúng cả 3 câu hỏi để hoàn thành bài học và mở khóa bài tiếp theo.
                     </p>
                   </div>
                 </div>
                 {isCurrentQuizPassed && (
-                  <Badge variant="success" className="font-bold text-xs">
-                    🎉 Đã hoàn thành bài
+                  <Badge variant="success" className="gap-1 font-semibold text-xs shrink-0">
+                    <CheckCheck className="h-3.5 w-3.5" /> Đã vượt qua
                   </Badge>
                 )}
               </div>
 
+              {/* 3 Questions */}
               {curLesson?.quizzes.map((quiz, qIdx) => {
                 const userChoice = quizAnswers[curLesson.id]?.[qIdx];
                 const isAnswered = typeof userChoice === "number";
                 const isCorrect = userChoice === quiz.ans;
-                const levelNames = [
-                  "🟢 Cấp độ 1 — Nhận biết",
-                  "🟡 Cấp độ 2 — Thông hiểu",
-                  "🔴 Cấp độ 3 — Vận dụng & Cạm bẫy",
-                ];
+
+                const isL1 =
+                  quiz.level === 1 ||
+                  quiz.level === "1" ||
+                  String(quiz.level).toLowerCase().includes("nhận biết");
+                const isL2 =
+                  quiz.level === 2 ||
+                  quiz.level === "2" ||
+                  String(quiz.level).toLowerCase().includes("thông hiểu");
+
+                const levelBadge = isL1 ? (
+                  <Badge variant="outline" className="border-blue-200 dark:border-blue-900 bg-blue-50/50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 gap-1.5 text-[11px] font-medium">
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+                    Cấp độ 1: Nhận biết
+                  </Badge>
+                ) : isL2 ? (
+                  <Badge variant="outline" className="border-amber-200 dark:border-amber-900 bg-amber-50/50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 gap-1.5 text-[11px] font-medium">
+                    <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+                    Cấp độ 2: Thông hiểu
+                  </Badge>
+                ) : (
+                  <Badge variant="outline" className="border-rose-200 dark:border-rose-900 bg-rose-50/50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 gap-1.5 text-[11px] font-medium">
+                    <span className="h-1.5 w-1.5 rounded-full bg-rose-500" />
+                    Cấp độ 3: Vận dụng & Cạm bẫy
+                  </Badge>
+                );
 
                 return (
                   <Card
                     key={qIdx}
-                    className="border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 shadow-xs"
+                    className="border border-border/80 bg-card shadow-xs overflow-hidden"
                   >
-                    <CardHeader className="p-4 border-b border-slate-200 dark:border-slate-800 flex flex-row items-center justify-between">
-                      <span className="font-extrabold text-xs text-slate-700 dark:text-slate-300">
-                        {levelNames[quiz.level - 1] || `Câu hỏi ${qIdx + 1}`}
-                      </span>
+                    <CardHeader className="p-3.5 px-4 border-b border-border/60 bg-muted/40 flex flex-row items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono text-xs font-semibold text-muted-foreground">
+                          Câu {qIdx + 1}
+                        </span>
+                        {levelBadge}
+                      </div>
+
                       {isAnswered && (
                         <Badge
                           variant={isCorrect ? "success" : "destructive"}
-                          className="font-bold text-[10px]"
+                          className="font-semibold text-[10.5px] gap-1"
                         >
-                          {isCorrect ? "Chính xác ✓" : "Chưa đúng ✕"}
+                          {isCorrect ? (
+                            <>
+                              <Check className="h-3 w-3" /> Đúng
+                            </>
+                          ) : (
+                            <>
+                              <XCircle className="h-3 w-3" /> Chưa đúng
+                            </>
+                          )}
                         </Badge>
                       )}
                     </CardHeader>
 
-                    <CardContent className="p-5 space-y-4">
-                      <div className="font-bold text-sm text-slate-900 dark:text-slate-100 leading-snug">
+                    <CardContent className="p-4 sm:p-5 space-y-4">
+                      <div className="font-bold text-xs sm:text-sm text-foreground leading-snug">
                         {quiz.q}
                       </div>
 
@@ -580,15 +741,15 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
                         {quiz.opts.map((opt, optIdx) => {
                           const isSelected = userChoice === optIdx;
                           let optStyle =
-                            "border-slate-200 dark:border-slate-800 hover:border-blue-400 bg-white dark:bg-slate-950";
+                            "border-border bg-card hover:border-blue-400 dark:hover:border-blue-600 text-foreground";
 
                           if (isAnswered) {
                             if (optIdx === quiz.ans) {
                               optStyle =
-                                "border-emerald-500 bg-emerald-50/80 dark:bg-emerald-950/60 text-emerald-900 dark:text-emerald-100 font-bold";
+                                "border-emerald-500 bg-emerald-50/60 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-100 font-medium ring-1 ring-emerald-500/30";
                             } else if (isSelected && !isCorrect) {
                               optStyle =
-                                "border-red-500 bg-red-50/80 dark:bg-red-950/60 text-red-900 dark:text-red-100";
+                                "border-rose-500 bg-rose-50/60 dark:bg-rose-950/40 text-rose-950 dark:text-rose-100 ring-1 ring-rose-500/30";
                             }
                           }
 
@@ -596,12 +757,18 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
                             <button
                               key={optIdx}
                               onClick={() => handleAnswerQuiz(curLesson.id, qIdx, optIdx)}
-                              className={`w-full flex items-start gap-3 p-3.5 rounded-lg border text-left text-xs sm:text-sm transition-all ${optStyle}`}
+                              className={`w-full flex items-start gap-3 p-3 sm:p-3.5 rounded-xl border text-left text-xs sm:text-sm transition-all ${optStyle}`}
                             >
-                              <span className="w-5 h-5 rounded-full border border-slate-300 dark:border-slate-700 flex items-center justify-center font-bold text-xs shrink-0 bg-slate-100 dark:bg-slate-800">
+                              <span className="w-5 h-5 rounded-md border border-border flex items-center justify-center font-mono font-bold text-xs shrink-0 bg-muted text-muted-foreground">
                                 {String.fromCharCode(65 + optIdx)}
                               </span>
-                              <span className="flex-1 leading-normal">{opt}</span>
+                              <span className="flex-1 leading-normal pt-0.5">{opt}</span>
+                              {isAnswered && optIdx === quiz.ans && (
+                                <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                              )}
+                              {isAnswered && isSelected && !isCorrect && (
+                                <XCircle className="h-4 w-4 text-rose-600 shrink-0 mt-0.5" />
+                              )}
                             </button>
                           );
                         })}
@@ -610,14 +777,24 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
                       {/* Feedback Box */}
                       {isAnswered && (
                         <div
-                          className={`p-3.5 rounded-lg text-xs leading-relaxed border ${
+                          className={`p-3.5 rounded-xl text-xs leading-relaxed border ${
                             isCorrect
-                              ? "bg-emerald-50 border-emerald-200 text-emerald-900 dark:bg-emerald-950/60 dark:border-emerald-900 dark:text-emerald-200"
-                              : "bg-red-50 border-red-200 text-red-900 dark:bg-red-950/60 dark:border-red-900 dark:text-red-200"
+                              ? "bg-emerald-50/60 border-emerald-200/80 text-emerald-950 dark:bg-emerald-950/40 dark:border-emerald-900/60 dark:text-emerald-200"
+                              : "bg-rose-50/60 border-rose-200/80 text-rose-950 dark:bg-rose-950/40 dark:border-rose-900/60 dark:text-rose-200"
                           }`}
                         >
-                          <div className="font-bold mb-1">
-                            {isCorrect ? "✅ GIẢI THÍCH CHÍNH XÁC:" : "💡 HƯỚNG DẪN GIẢI LẠI:"}
+                          <div className="font-bold mb-1 flex items-center gap-1.5">
+                            {isCorrect ? (
+                              <>
+                                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
+                                <span>Giải thích chính xác:</span>
+                              </>
+                            ) : (
+                              <>
+                                <Info className="h-3.5 w-3.5 text-rose-600" />
+                                <span>Hướng dẫn giải lại:</span>
+                              </>
+                            )}
                           </div>
                           <div>{quiz.fb}</div>
                         </div>
@@ -631,19 +808,20 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
 
           {/* Lecture Reference Metadata Box (Dấu Ref) */}
           {curLesson?.ref && (
-            <Card className="border border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/60 rounded-xl overflow-hidden shadow-xs">
-              <CardHeader className="p-4 border-b border-slate-200/80 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-2">
-                <span className="font-extrabold text-xs text-blue-600 dark:text-blue-400 flex items-center gap-1.5 uppercase tracking-wide">
-                  📌 Dấu Ref Tra cứu Slide Bài Giảng ({course.code})
+            <Card className="border border-border/80 bg-slate-50/70 dark:bg-slate-900/50 rounded-xl overflow-hidden shadow-xs">
+              <CardHeader className="p-3.5 px-4 border-b border-border/60 flex flex-wrap items-center justify-between gap-2">
+                <span className="font-bold text-xs text-blue-600 dark:text-blue-400 flex items-center gap-1.5 uppercase tracking-wide">
+                  <BookmarkCheck className="h-4 w-4" />
+                  Dấu Ref Tra cứu Slide Bài Giảng ({course.code})
                 </span>
                 {curLesson.ref.slide_file && (
                   <a
                     href={`/${curLesson.ref.slide_file}#page=${curLesson.ref.page_start}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded-lg shadow-xs transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded-lg shadow-xs transition-colors"
                   >
-                    📄 Mở Slide trang {curLesson.ref.page_start}
+                    <span>Mở Slide trang {curLesson.ref.page_start}</span>
                     <ExternalLink className="h-3 w-3" />
                   </a>
                 )}
@@ -651,17 +829,26 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
               <CardContent className="p-4 space-y-2 text-xs">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-700 dark:text-slate-300">
                   <div>
-                    <span className="font-bold text-slate-500">File Slide: </span>
-                    <span className="font-semibold">{curLesson.ref.slide_name}</span> (<code>{curLesson.ref.slide_file}</code>)
+                    <span className="font-medium text-muted-foreground">Tập slide: </span>
+                    <span className="font-semibold text-foreground">{curLesson.ref.slide_name}</span> (
+                    <code className="font-mono text-[11px] bg-muted px-1 py-0.5 rounded">
+                      {curLesson.ref.slide_file}
+                    </code>
+                    )
                   </div>
                   <div>
-                    <span className="font-bold text-slate-500">Vị trí: </span>
-                    <span className="font-semibold">{curLesson.ref.pages}</span> — {curLesson.ref.section}
+                    <span className="font-medium text-muted-foreground">Vị trí: </span>
+                    <span className="font-semibold text-foreground">{curLesson.ref.pages}</span> —{" "}
+                    {curLesson.ref.section}
                   </div>
                 </div>
                 {curLesson.ref.remind && (
-                  <div className="mt-2 p-2.5 rounded-md bg-blue-100/60 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-900 text-slate-800 dark:text-slate-200 leading-relaxed">
-                    <b>💡 Lời nhắc khi đọc không hiểu:</b> {curLesson.ref.remind}
+                  <div className="mt-2 p-3 rounded-lg bg-blue-100/40 dark:bg-blue-950/40 border border-blue-200/60 dark:border-blue-900/40 text-slate-800 dark:text-slate-200 leading-relaxed flex items-start gap-2">
+                    <Info className="h-4 w-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-semibold">Lời nhắc khi gặp khó khăn: </span>
+                      {curLesson.ref.remind}
+                    </div>
                   </div>
                 )}
               </CardContent>
@@ -669,39 +856,46 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
           )}
 
           {/* Bottom Navigation Buttons (Sequential Stepper) */}
-          <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between gap-4">
+          <div className="pt-3 border-t border-border flex items-center justify-between gap-4">
             <Button
               variant="outline"
               onClick={handlePrevSection}
               disabled={curLessonIdx === 0 && curSubTab === "theory"}
-              className="font-bold text-xs sm:text-sm"
+              className="font-semibold text-xs sm:text-sm h-9"
             >
-              <ArrowLeft className="h-4 w-4 mr-1" />
+              <ArrowLeft className="h-4 w-4 mr-1.5" />
               {curSubTab === "theory" ? "Bài trước" : "Phần trước"}
             </Button>
 
             <Button
               onClick={handleNextSection}
               disabled={curSubTab === "quiz" && !isCurrentQuizPassed}
-              className="font-bold text-xs sm:text-sm shadow-md"
+              className={`font-semibold text-xs sm:text-sm h-9 shadow-xs ${
+                curSubTab === "quiz" && isCurrentQuizPassed
+                  ? "bg-emerald-600 hover:bg-emerald-700 text-white"
+                  : ""
+              }`}
             >
               {curSubTab !== "quiz" ? (
                 <>
                   Sang phần tiếp theo
-                  <ArrowRight className="h-4 w-4 ml-1" />
+                  <ArrowRight className="h-4 w-4 ml-1.5" />
                 </>
               ) : isCurrentQuizPassed ? (
                 curLessonIdx < course.lessons.length - 1 ? (
                   <>
                     Mở bài tiếp: {course.lessons[curLessonIdx + 1]?.id}
-                    <ArrowRight className="h-4 w-4 ml-1" />
+                    <ArrowRight className="h-4 w-4 ml-1.5" />
                   </>
                 ) : (
-                  "🏆 Bạn đã hoàn thành toàn bộ khóa học!"
+                  <>
+                    <CheckCheck className="h-4 w-4 mr-1.5" />
+                    Đã hoàn thành toàn bộ khóa học
+                  </>
                 )
               ) : (
                 <>
-                  <Lock className="h-4 w-4 mr-1" />
+                  <Lock className="h-4 w-4 mr-1.5" />
                   Làm đúng trắc nghiệm để mở bài tiếp
                 </>
               )}

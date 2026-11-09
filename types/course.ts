@@ -16,7 +16,7 @@ export interface Pitfall {
 }
 
 export interface GatekeeperQuiz {
-  level: 1 | 2 | 3 | number;
+  level: 1 | 2 | 3 | string | number;
   q: string;
   opts: string[];
   ans: number;
