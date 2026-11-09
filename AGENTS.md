@@ -44,3 +44,16 @@ Mọi bài học trong hệ sinh thái đều phải tuân thủ nghiêm ngặt 
   - Mỗi môn có một phân hệ chuyên biệt (`/xstk/...`, `/csdl/...`) gồm đầy đủ 5 công cụ: Học tương tác (`hoc`), Trắc nghiệm (`tracnghiem`), Tự luận chuẩn barem (`tuluan`), Sổ tay tra cứu (`congthuc`/`cheatsheet`), Thi thử bấm giờ (`dethi`).
   - Thanh Navbar toàn hệ thống luôn có **Course Switcher** để chuyển môn nhanh trong 1 cú click.
   - Luôn đảm bảo tính tương thích ngược cho các URL cũ.
+
+---
+
+## 2. Quy chuẩn Workflow Thiết kế & Phát triển Giao diện (Frontend Design & Implementation Workflow Standard)
+
+Mọi tác vụ can thiệp hoặc phát triển giao diện (UI/UX, HTML/CSS/JS, Component, Layout) trong toàn bộ dự án bắt buộc phải tuân thủ quy trình hợp nhất 5 giai đoạn được định nghĩa chi tiết trong skill `.agents/skills/frontend-design-workflow`:
+
+1. **Spec trước, Code sau**: Sử dụng `ui-ux-pro-max` để thiết lập định hướng thiết kế, bảng màu, typography và UX pattern trước khi viết code.
+2. **Mài giũa chuẩn cao cấp**: Dùng `impeccable` phê bình phân cấp thị giác, khoảng trắng, độ tương phản và triệt tiêu các mẫu thiết kế "AI-template". Tuyệt đối không tùy ý phá vỡ bản sắc nhận diện sẵn có của dự án.
+3. **Thành phần chuẩn mực**: Ưu tiên tái sử dụng hệ thống component chuẩn `shadcn/ui`, bao quát trọn vẹn các trạng thái tương tác (`hover`, `focus`, `loading`, `error`, `empty`).
+4. **Token hóa với Tailwind CSS**: Tạo kiểu nhất quán thông qua các design tokens và utility classes, đảm bảo layout responsive mượt mà trên Mobile, Tablet, Desktop.
+5. **Nghiệm thu trực quan bắt buộc**: Mọi thay đổi UI đáng kể đều phải được kiểm tra thực tế trên trình duyệt (browser-based verification), đảm bảo không lỗi hiển thị, không tràn ngang và đạt chuẩn tiếp cận WCAG.
+
