@@ -1,5 +1,20 @@
 import type { Metadata } from "next";
+import { Be_Vietnam_Pro, Fira_Code } from "next/font/google";
 import "./globals.css";
+
+const beVietnamPro = Be_Vietnam_Pro({
+  weight: ["400", "500", "600", "700", "800"],
+  subsets: ["vietnamese", "latin"],
+  display: "swap",
+  variable: "--font-sans",
+});
+
+const firaCode = Fira_Code({
+  weight: ["400", "600"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-mono",
+});
 
 export const metadata: Metadata = {
   title: "UET Study Hub — Nền tảng Tự học & Luyện thi Tương tác UET",
@@ -49,7 +64,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className="antialiased min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 selection:bg-blue-100 selection:text-blue-900 dark:selection:bg-blue-900 dark:selection:text-blue-100 font-sans">
+      <body className={`${beVietnamPro.variable} ${firaCode.variable} font-sans antialiased min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 selection:bg-blue-100 selection:text-blue-900 dark:selection:bg-blue-900 dark:selection:text-blue-100`}>
         {children}
       </body>
     </html>

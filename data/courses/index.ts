@@ -2,43 +2,48 @@ import { Course, Lesson } from "@/types/course";
 import csdlRaw from "./csdl.json";
 import xstkRaw from "./xstk.json";
 
+function nfc(str: any): string {
+  if (typeof str !== "string") return str ? String(str) : "";
+  return str.normalize("NFC");
+}
+
 function normalizeLesson(raw: any): Lesson {
   // Normalize theory steps
   const theory_steps = (raw.steps || raw.theory_steps || []).map((s: any, idx: number) => ({
     step_num: s.step_num || idx + 1,
-    title: s.t || s.title || `Bước ${idx + 1}`,
-    content: s.c || s.content || "",
+    title: nfc(s.t || s.title || `Bước ${idx + 1}`),
+    content: nfc(s.c || s.content || ""),
   }));
 
   // Normalize examples
   const examples = (raw.examples || []).map((ex: any) => ({
     level: ex.level || "Cơ bản",
-    problem: ex.problem || ex.q || "",
-    solution: ex.solution || ex.sol || "",
+    problem: nfc(ex.problem || ex.q || ""),
+    solution: nfc(ex.solution || ex.sol || ""),
   }));
 
   // Normalize pitfalls
   const pitfalls = (raw.pitfalls || []).map((p: any) => ({
-    bad: p.bad || "",
-    good: p.good || "",
+    bad: nfc(p.bad || ""),
+    good: nfc(p.good || ""),
   }));
 
   // Normalize quizzes
   const quizzes = (raw.quizzes || (raw.final_quiz ? [raw.final_quiz] : [])).map((q: any, idx: number) => ({
     level: q.level || idx + 1,
-    q: q.q || "",
-    opts: q.opts || [],
+    q: nfc(q.q || ""),
+    opts: (q.opts || []).map((o: any) => nfc(o)),
     ans: typeof q.ans === "number" ? q.ans : 0,
-    fb: q.fb || "",
+    fb: nfc(q.fb || ""),
   }));
 
   return {
     id: raw.id,
     cluster: String(raw.cluster),
-    title: raw.title,
-    desc: raw.desc || "",
-    chapter_badge: raw.chapter_badge || raw.sources || "",
-    slide_badge: raw.slide_badge || "",
+    title: nfc(raw.title),
+    desc: nfc(raw.desc || ""),
+    chapter_badge: nfc(raw.chapter_badge || raw.sources || ""),
+    slide_badge: nfc(raw.slide_badge || ""),
     theory_steps,
     examples,
     pitfalls,

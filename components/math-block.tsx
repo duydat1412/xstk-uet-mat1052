@@ -11,6 +11,9 @@ import katex from "katex";
  */
 export function renderMathInText(text: string): string {
   if (!text) return "";
+  // Ensure Unicode NFC normalization so Vietnamese accented characters
+  // are precomposed into single code points (prevents NFD mark splitting)
+  text = text.normalize("NFC");
 
   // 1. Block math: $$ ... $$
   let result = text.replace(/\$\$([\s\S]+?)\$\$/g, (_, math) => {
