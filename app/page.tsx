@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import { GithubIcon } from "@/components/icons";
 import {
   ArrowRight,
   BookOpen,
@@ -59,6 +60,16 @@ export default function HomePage() {
                 <span className="font-mono text-[10px] opacity-75">INT2207</span>
               </Button>
             </Link>
+            <a
+              href="https://github.com/duydat1412/xstk-uet-mat1052"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center h-8 w-8 rounded-lg border border-border hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
+              title="GitHub: duydat1412/xstk-uet-mat1052"
+              aria-label="GitHub Repository"
+            >
+              <GithubIcon className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </header>
@@ -219,8 +230,39 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-6 px-4 text-center text-xs text-muted-foreground bg-card">
-        <p>UET Study Hub • Hệ thống Tự học & Luyện thi Tương tác Đại học Công nghệ (VNU - UET)</p>
+      <footer className="border-t border-border py-6 px-4 bg-card">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
+          <p>UET Study Hub • Hệ thống Tự học & Luyện thi Tương tác Đại học Công nghệ (VNU - UET)</p>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://github.com/duydat1412"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 hover:text-foreground font-mono transition-colors"
+            >
+              <GithubIcon className="h-3.5 w-3.5" />
+              <span>@duydat1412</span>
+            </a>
+            <span className="opacity-40">•</span>
+            <a
+              href="https://github.com/duydat1412/xstk-uet-mat1052"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground hover:underline transition-colors"
+            >
+              Source Code
+            </a>
+            <span className="opacity-40">•</span>
+            <a
+              href="https://github.com/duydat1412/xstk-uet-mat1052/issues"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground hover:underline transition-colors"
+            >
+              Báo lỗi / Góp ý
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
   );

@@ -13,6 +13,14 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Progress } from "@/components/ui/progress";
 import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { GithubIcon } from "@/components/icons";
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -47,6 +55,8 @@ import {
   CheckCheck,
   ShieldCheck,
   SlidersHorizontal,
+  Keyboard,
+  Command,
 } from "lucide-react";
 
 interface CourseStudyViewProps {
@@ -62,6 +72,8 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
   const [quizAnswers, setQuizAnswers] = useState<Record<string, Record<number, number>>>({});
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isShortcutsOpen, setIsShortcutsOpen] = useState(false);
+  const searchInputRef = React.useRef<HTMLInputElement>(null);
 
   const curLesson: Lesson = course.lessons[curLessonIdx] || course.lessons[0];
 
@@ -174,6 +186,75 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
     }
   };
 
+  // Global Keyboard Shortcuts (Like Linear, Raycast, Vercel)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const isInput =
+        document.activeElement?.tagName === "INPUT" ||
+        document.activeElement?.tagName === "TEXTAREA" ||
+        (document.activeElement as HTMLElement)?.isContentEditable;
+
+      // Cmd+K or Ctrl+K -> Focus Search
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        searchInputRef.current?.focus();
+        return;
+      }
+
+      // Escape -> Clear Search or Close Shortcuts Dialog
+      if (e.key === "Escape") {
+        if (searchQuery) setSearchQuery("");
+        searchInputRef.current?.blur();
+        setIsShortcutsOpen(false);
+        return;
+      }
+
+      // Below shortcuts only when not typing inside an input
+      if (isInput) return;
+
+      // '?' -> Toggle Shortcuts Dialog
+      if (e.key === "?" || (e.shiftKey && e.key === "/")) {
+        e.preventDefault();
+        setIsShortcutsOpen((prev) => !prev);
+        return;
+      }
+
+      // 't' or 'T' -> Toggle Theme
+      if (e.key.toLowerCase() === "t" && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        e.preventDefault();
+        toggleTheme();
+        return;
+      }
+
+      // '1' - '4' -> Switch Sub Tabs
+      if (["1", "2", "3", "4"].includes(e.key)) {
+        e.preventDefault();
+        const tabMap = ["theory", "examples", "pitfalls", "quiz"];
+        const target = tabMap[parseInt(e.key) - 1];
+        if (target) {
+          setCurSubTab(target);
+          window.scrollTo({ top: 160, behavior: "smooth" });
+        }
+        return;
+      }
+
+      // Alt + ArrowRight / Alt + ArrowLeft -> Next / Prev Section
+      if (e.altKey && e.key === "ArrowRight") {
+        e.preventDefault();
+        handleNextSection();
+        return;
+      }
+      if (e.altKey && e.key === "ArrowLeft") {
+        e.preventDefault();
+        handlePrevSection();
+        return;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [searchQuery, curSubTab, curLessonIdx, isCurrentQuizPassed, course.lessons.length]);
+
   // Group lessons by cluster
   const groupedLessons = course.lessons.reduce((acc, l, idx) => {
     if (!acc[l.cluster]) acc[l.cluster] = [];
@@ -196,6 +277,7 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
       <div className="relative">
         <Search className="absolute left-3 top-2.5 h-3.5 w-3.5 text-muted-foreground" />
         <Input
+          ref={searchInputRef}
           placeholder="Tìm bài học..."
           value={searchQuery}
           onChange={(e) => {
@@ -206,15 +288,20 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
               setOpenFolders(allOpen);
             }
           }}
-          className="pl-8.5 pr-8 h-8.5 text-xs bg-slate-50 dark:bg-slate-900 border-border"
+          className="pl-8.5 pr-14 h-8.5 text-xs bg-slate-50 dark:bg-slate-900 border-border"
         />
-        {searchQuery && (
+        {searchQuery ? (
           <button
             onClick={() => setSearchQuery("")}
-            className="absolute right-2.5 top-2.5 text-xs text-muted-foreground hover:text-foreground"
+            className="absolute right-2.5 top-2.5 text-xs text-muted-foreground hover:text-foreground cursor-pointer"
           >
             ✕
           </button>
+        ) : (
+          <kbd className="absolute right-2.5 top-2 flex items-center gap-0.5 text-[9px] font-mono text-muted-foreground bg-muted/80 px-1.5 py-0.5 rounded border border-border pointer-events-none">
+            <span>⌘</span>
+            <span>K</span>
+          </kbd>
         )}
       </div>
 
@@ -311,6 +398,66 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
           })}
         </div>
       </ScrollArea>
+
+      {/* Pinned Bottom Shortcuts & GitHub Bar */}
+      <div className="pt-2.5 mt-auto border-t border-border/80 flex flex-col gap-2 shrink-0 bg-card">
+        {/* Quick Actions Row */}
+        <div className="grid grid-cols-2 gap-1.5">
+          {/* Keyboard Shortcuts Trigger Button */}
+          <button
+            onClick={() => setIsShortcutsOpen(true)}
+            className="flex items-center justify-between px-2.5 py-1.5 rounded-lg border border-border/80 bg-muted/40 hover:bg-muted text-foreground text-xs font-medium transition-colors group cursor-pointer"
+            title="Bảng phím tắt (Nhấn ?)"
+          >
+            <div className="flex items-center gap-1.5">
+              <Keyboard className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" />
+              <span className="text-[11px] font-semibold">Phím tắt</span>
+            </div>
+            <kbd className="font-mono text-[9px] text-muted-foreground bg-card px-1 py-0.5 rounded border border-border">
+              ?
+            </kbd>
+          </button>
+
+          {/* GitHub Repository Link */}
+          <a
+            href="https://github.com/duydat1412/xstk-uet-mat1052"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between px-2.5 py-1.5 rounded-lg border border-border/80 bg-muted/40 hover:bg-muted text-foreground text-xs font-medium transition-colors group"
+            title="Xem mã nguồn trên GitHub"
+          >
+            <div className="flex items-center gap-1.5">
+              <GithubIcon className="h-3.5 w-3.5 text-foreground group-hover:scale-110 transition-transform" />
+              <span className="text-[11px] font-semibold">GitHub</span>
+            </div>
+            <ExternalLink className="h-3 w-3 opacity-60 group-hover:opacity-100 transition-opacity" />
+          </a>
+        </div>
+
+        {/* Developer Profile & Issues Line */}
+        <div className="flex items-center justify-between px-1 text-[11px] text-muted-foreground">
+          <a
+            href="https://github.com/duydat1412"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 hover:text-foreground font-mono text-[10.5px] transition-colors"
+            title="GitHub cá nhân của tôi"
+          >
+            <GithubIcon className="h-3 w-3" />
+            <span className="hover:underline">@duydat1412</span>
+          </a>
+
+          <a
+            href="https://github.com/duydat1412/xstk-uet-mat1052/issues"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[10px] hover:text-foreground hover:underline transition-colors flex items-center gap-1"
+          >
+            <span>Báo lỗi / Góp ý</span>
+            <ExternalLink className="h-2.5 w-2.5 opacity-60" />
+          </a>
+        </div>
+      </div>
     </div>
   );
 
@@ -404,6 +551,30 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
               <Layers className="h-3.5 w-3.5 text-muted-foreground" />
               <span>Portal Hub</span>
             </Link>
+
+            {/* GitHub Repo Link */}
+            <a
+              href="https://github.com/duydat1412/xstk-uet-mat1052"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center h-8 w-8 rounded-lg border border-border hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
+              title="GitHub: duydat1412/xstk-uet-mat1052"
+              aria-label="GitHub Repository"
+            >
+              <GithubIcon className="h-4 w-4" />
+            </a>
+
+            {/* Keyboard Shortcuts Trigger Button */}
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => setIsShortcutsOpen(true)}
+              aria-label="Bảng phím tắt"
+              title="Bảng phím tắt (Nhấn ?)"
+              className="h-8 w-8 rounded-lg"
+            >
+              <Keyboard className="h-3.5 w-3.5" />
+            </Button>
 
             <Button
               variant="outline"
@@ -903,6 +1074,105 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
           </div>
         </main>
       </div>
+
+      {/* Keyboard Shortcuts Dialog Modal (Like Raycast / Linear) */}
+      <Dialog open={isShortcutsOpen} onOpenChange={setIsShortcutsOpen}>
+        <DialogContent className="max-w-md">
+          <DialogHeader className="pb-3 border-b border-border text-left">
+            <DialogTitle className="flex items-center gap-2 text-base font-bold text-foreground">
+              <Keyboard className="h-4.5 w-4.5 text-blue-600 dark:text-blue-400" />
+              <span>Phím tắt bàn phím</span>
+            </DialogTitle>
+            <DialogDescription className="text-xs text-muted-foreground mt-1">
+              Các phím tắt hỗ trợ thao tác nhanh trong không gian học tập tương tác.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-4 py-2 text-xs">
+            {/* Group 1: Điều hướng bài học */}
+            <div className="space-y-2">
+              <div className="font-semibold text-muted-foreground text-[10.5px] uppercase tracking-wider">
+                Điều hướng bài học
+              </div>
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between p-2.5 rounded-lg bg-muted/40 border border-border/60">
+                  <span className="text-foreground font-medium">Nhảy nhanh 4 phần bài học</span>
+                  <div className="flex items-center gap-1 font-mono">
+                    <kbd className="px-1.5 py-0.5 rounded bg-card border border-border text-[10px] font-bold">1</kbd>
+                    <kbd className="px-1.5 py-0.5 rounded bg-card border border-border text-[10px] font-bold">2</kbd>
+                    <kbd className="px-1.5 py-0.5 rounded bg-card border border-border text-[10px] font-bold">3</kbd>
+                    <kbd className="px-1.5 py-0.5 rounded bg-card border border-border text-[10px] font-bold">4</kbd>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between p-2.5 rounded-lg bg-muted/40 border border-border/60">
+                  <span className="text-foreground font-medium">Phần trước / Phần tiếp</span>
+                  <div className="flex items-center gap-1 font-mono">
+                    <kbd className="px-1.5 py-0.5 rounded bg-card border border-border text-[10px]">Alt</kbd>
+                    <span className="text-muted-foreground">+</span>
+                    <kbd className="px-1.5 py-0.5 rounded bg-card border border-border text-[10px]">←</kbd>
+                    <span className="text-muted-foreground">/</span>
+                    <kbd className="px-1.5 py-0.5 rounded bg-card border border-border text-[10px]">→</kbd>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Group 2: Tìm kiếm & Tiện ích */}
+            <div className="space-y-2">
+              <div className="font-semibold text-muted-foreground text-[10.5px] uppercase tracking-wider">
+                Tìm kiếm & Hệ thống
+              </div>
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between p-2.5 rounded-lg bg-muted/40 border border-border/60">
+                  <span className="text-foreground font-medium">Tìm kiếm bài học</span>
+                  <div className="flex items-center gap-1 font-mono">
+                    <kbd className="px-1.5 py-0.5 rounded bg-card border border-border text-[10px]">Ctrl / ⌘</kbd>
+                    <span className="text-muted-foreground">+</span>
+                    <kbd className="px-1.5 py-0.5 rounded bg-card border border-border text-[10px]">K</kbd>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between p-2.5 rounded-lg bg-muted/40 border border-border/60">
+                  <span className="text-foreground font-medium">Đổi giao diện Sáng / Tối</span>
+                  <div className="flex items-center gap-1 font-mono">
+                    <kbd className="px-1.5 py-0.5 rounded bg-card border border-border text-[10px] font-bold">T</kbd>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between p-2.5 rounded-lg bg-muted/40 border border-border/60">
+                  <span className="text-foreground font-medium">Mở bảng phím tắt này</span>
+                  <div className="flex items-center gap-1 font-mono">
+                    <kbd className="px-1.5 py-0.5 rounded bg-card border border-border text-[10px] font-bold">?</kbd>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Dialog Footer */}
+          <div className="pt-3 border-t border-border flex items-center justify-between text-xs">
+            <a
+              href="https://github.com/duydat1412/xstk-uet-mat1052"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground font-mono text-[11px] transition-colors"
+            >
+              <GithubIcon className="h-3.5 w-3.5" />
+              <span>duydat1412/xstk-uet-mat1052</span>
+            </a>
+
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setIsShortcutsOpen(false)}
+              className="h-7 text-xs px-2.5"
+            >
+              Đóng (Esc)
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
