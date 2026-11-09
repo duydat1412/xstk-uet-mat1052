@@ -476,24 +476,24 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
     <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 flex flex-col font-sans antialiased selection:bg-blue-500/20">
       {/* Header Bar */}
       <header className="sticky top-0 z-40 w-full border-b border-border/80 bg-background/80 backdrop-blur-md shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 h-14 flex items-center justify-between gap-2 sm:gap-4">
           {/* Logo & Brand Identity */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 min-w-0">
             <Link
               href="/"
-              className="flex items-center gap-2.5 text-foreground hover:opacity-85 transition-opacity"
+              className="flex items-center gap-2 text-foreground hover:opacity-85 transition-opacity min-w-0"
             >
-              <div className="h-8 w-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold shadow-xs">
+              <div className="h-8 w-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold shadow-xs shrink-0">
                 <GraduationCap className="h-4.5 w-4.5" />
               </div>
-              <div className="flex flex-col leading-tight">
-                <div className="flex items-center gap-1.5">
-                  <span className="font-extrabold text-sm tracking-tight">UET STUDY HUB</span>
-                  <Badge variant="outline" className="text-[9px] px-1 py-0 h-3.5 font-mono uppercase">
+              <div className="flex flex-col leading-tight min-w-0">
+                <div className="flex items-center gap-1.5 min-w-0">
+                  <span className="font-extrabold text-xs sm:text-sm tracking-tight whitespace-nowrap">UET STUDY HUB</span>
+                  <Badge variant="outline" className="hidden xs:inline-flex text-[9px] px-1 py-0 h-3.5 font-mono uppercase shrink-0">
                     Interactive
                   </Badge>
                 </div>
-                <span className="text-[10.5px] text-muted-foreground font-medium truncate max-w-[200px] sm:max-w-none">
+                <span className="text-[10px] sm:text-[10.5px] text-muted-foreground font-medium truncate max-w-[130px] sm:max-w-none">
                   {course.title} ({course.code})
                 </span>
               </div>
@@ -527,7 +527,7 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
           </div>
 
           {/* Right Actions: Mobile Switcher, Theme & Hub link */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             {/* Mobile Course Dropdown */}
             <div className="sm:hidden">
               <DropdownMenu>
@@ -575,14 +575,14 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
               <GithubIcon className="h-4 w-4" />
             </a>
 
-            {/* Keyboard Shortcuts Trigger Button */}
+            {/* Keyboard Shortcuts Trigger Button (Hidden on Mobile) */}
             <Button
               variant="outline"
               size="icon"
               onClick={() => setIsShortcutsOpen(true)}
               aria-label="Bảng phím tắt"
               title="Bảng phím tắt (Nhấn ?)"
-              className="h-8 w-8 rounded-lg"
+              className="hidden sm:inline-flex h-8 w-8 rounded-lg"
             >
               <Keyboard className="h-3.5 w-3.5" />
             </Button>
@@ -606,7 +606,7 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
       </header>
 
       {/* Main Study Workspace */}
-      <div className="max-w-7xl mx-auto px-4 py-5 w-full flex-1 flex gap-6">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-5 w-full flex-1 flex flex-col lg:flex-row gap-5 lg:gap-6 min-w-0">
         {/* Desktop Sidebar: Sticky 320px */}
         <aside className="hidden lg:flex w-80 shrink-0 sticky top-18 h-[calc(100vh-5.5rem)] flex-col rounded-xl border border-border bg-card p-3.5 shadow-xs min-w-0 overflow-hidden">
           <div className="flex items-center justify-between pb-3 border-b border-border/80">
