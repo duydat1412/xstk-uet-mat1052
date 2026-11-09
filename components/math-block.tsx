@@ -1,42 +1,87 @@
-"use client";
-
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import katex from "katex";
-import { cn } from "@/lib/utils";
 
-interface MathBlockProps {
-  math: string;
-  display?: boolean;
-  className?: string;
+/**
+ * Parses mixed HTML/text and replaces LaTeX formulas delimited by:
+ * - $$ ... $$ (display block)
+ * - \[ ... \] (display block)
+ * - $ ... $ (inline)
+ * - \( ... \) (inline)
+ * with KaTeX-rendered HTML strings.
+ */
+export function renderMathInText(text: string): string {
+  if (!text) return "";
+
+  // 1. Block math: $$ ... $$
+  let result = text.replace(/\$\$([\s\S]+?)\$\$/g, (_, math) => {
+    try {
+      return katex.renderToString(math.trim(), {
+        displayMode: true,
+        throwOnError: false,
+        strict: "ignore",
+      });
+    } catch (e) {
+      return `$$${math}$$`;
+    }
+  });
+
+  // 2. Block math: \[ ... \]
+  result = result.replace(/\\\[([\s\S]+?)\\\]/g, (_, math) => {
+    try {
+      return katex.renderToString(math.trim(), {
+        displayMode: true,
+        throwOnError: false,
+        strict: "ignore",
+      });
+    } catch (e) {
+      return `\\[${math}\\]`;
+    }
+  });
+
+  // 3. Inline math: \( ... \)
+  result = result.replace(/\\\(([\s\S]+?)\\\)/g, (_, math) => {
+    try {
+      return katex.renderToString(math.trim(), {
+        displayMode: false,
+        throwOnError: false,
+        strict: "ignore",
+      });
+    } catch (e) {
+      return `\\(${math}\\)`;
+    }
+  });
+
+  // 4. Inline math: $ ... $
+  // Matches non-empty text between single dollar signs that does not span newlines
+  result = result.replace(/\$([^\$\n]+?)\$/g, (_, math) => {
+    try {
+      return katex.renderToString(math.trim(), {
+        displayMode: false,
+        throwOnError: false,
+        strict: "ignore",
+      });
+    } catch (e) {
+      return `$${math}$`;
+    }
+  });
+
+  return result;
 }
 
-export function MathBlock({ math, display = false, className }: MathBlockProps) {
-  const containerRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    if (containerRef.current) {
-      try {
-        katex.render(math, containerRef.current, {
-          displayMode: display,
-          throwOnError: false,
-        });
-      } catch (e) {
-        containerRef.current.textContent = math;
-      }
-    }
-  }, [math, display]);
-
+export function MathText({
+  content,
+  className,
+  as: Component = "span",
+}: {
+  content: string;
+  className?: string;
+  as?: React.ElementType;
+}) {
+  const html = renderMathInText(content);
   return (
-    <span
-      ref={containerRef}
-      className={cn(
-        display
-          ? "block my-2 overflow-x-auto text-center py-2"
-          : "inline-block px-0.5",
-        className
-      )}
-    >
-      {math}
-    </span>
+    <Component
+      className={className}
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
   );
 }

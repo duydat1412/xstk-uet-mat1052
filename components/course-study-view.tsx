@@ -58,6 +58,7 @@ import {
   Keyboard,
   Command,
 } from "lucide-react";
+import { renderMathInText } from "@/components/math-block";
 
 interface CourseStudyViewProps {
   course: Course;
@@ -627,9 +628,12 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
               <span className="text-[10px] font-mono font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
                 Bài {curLessonIdx + 1} / {course.total_lessons}
               </span>
-              <span className="text-xs font-bold truncate text-foreground">
-                {curLesson?.id}: {curLesson?.title}
-              </span>
+              <span
+                className="text-xs font-bold truncate text-foreground"
+                dangerouslySetInnerHTML={{
+                  __html: `${curLesson?.id}: ${renderMathInText(curLesson?.title || "")}`,
+                }}
+              />
             </div>
             <Sheet open={isMobileOpen} onOpenChange={setIsMobileOpen}>
               <SheetTrigger asChild>
@@ -680,13 +684,19 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
               </div>
 
               <div>
-                <CardTitle className="text-lg sm:text-xl font-bold tracking-tight text-foreground">
-                  {curLesson?.title}
-                </CardTitle>
+                <CardTitle
+                  className="text-lg sm:text-xl font-bold tracking-tight text-foreground"
+                  dangerouslySetInnerHTML={{
+                    __html: renderMathInText(curLesson?.title || ""),
+                  }}
+                />
                 {curLesson?.desc && (
-                  <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                    {curLesson.desc}
-                  </p>
+                  <p
+                    className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed"
+                    dangerouslySetInnerHTML={{
+                      __html: renderMathInText(curLesson.desc),
+                    }}
+                  />
                 )}
               </div>
             </CardHeader>
@@ -725,12 +735,12 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
                       <Badge variant="blueSoft" className="font-mono font-bold text-[10.5px]">
                         Bước {step.step_num || idx + 1}
                       </Badge>
-                      <span>{step.title}</span>
+                      <span dangerouslySetInnerHTML={{ __html: renderMathInText(step.title) }} />
                     </span>
                   </CardHeader>
                   <CardContent className="p-4 sm:p-5 text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
                     <div
-                      dangerouslySetInnerHTML={{ __html: step.content }}
+                      dangerouslySetInnerHTML={{ __html: renderMathInText(step.content) }}
                       className="prose dark:prose-invert max-w-none space-y-2 [&_p]:mb-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-2 [&_li]:mb-1 [&_b]:text-foreground [&_code]:font-mono [&_code]:text-xs [&_code]:bg-muted [&_code]:px-1 [&_code]:py-0.5 [&_code]:rounded [&_.tip-box]:bg-blue-50/70 dark:[&_.tip-box]:bg-blue-950/30 [&_.tip-box]:border [&_.tip-box]:border-blue-200/80 dark:[&_.tip-box]:border-blue-900/60 [&_.tip-box]:p-3.5 [&_.tip-box]:rounded-xl [&_.tip-box]:my-3"
                     />
                   </CardContent>
@@ -769,7 +779,7 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
                           <HelpCircle className="h-3.5 w-3.5" />
                           Đề bài (Trích Slide UET):
                         </div>
-                        <div dangerouslySetInnerHTML={{ __html: ex.problem }} />
+                        <div dangerouslySetInnerHTML={{ __html: renderMathInText(ex.problem) }} />
                       </div>
 
                       {/* Solution */}
@@ -779,7 +789,7 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
                           Hướng dẫn giải chi tiết:
                         </div>
                         <div
-                          dangerouslySetInnerHTML={{ __html: ex.solution }}
+                          dangerouslySetInnerHTML={{ __html: renderMathInText(ex.solution) }}
                           className="space-y-1.5 [&_b]:text-foreground [&_code]:font-mono [&_code]:text-xs [&_code]:bg-muted [&_code]:px-1 [&_code]:py-0.5 [&_code]:rounded"
                         />
                       </div>
@@ -809,7 +819,7 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
                     </div>
                     <Separator className="bg-rose-200/60 dark:bg-rose-900/40" />
                     <div
-                      dangerouslySetInnerHTML={{ __html: p.bad }}
+                      dangerouslySetInnerHTML={{ __html: renderMathInText(p.bad) }}
                       className="text-xs leading-relaxed text-slate-800 dark:text-slate-200 space-y-1 [&_b]:text-rose-950 dark:[&_b]:text-rose-200"
                     />
                   </div>
@@ -822,7 +832,7 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
                     </div>
                     <Separator className="bg-emerald-200/60 dark:bg-emerald-900/40" />
                     <div
-                      dangerouslySetInnerHTML={{ __html: p.good }}
+                      dangerouslySetInnerHTML={{ __html: renderMathInText(p.good) }}
                       className="text-xs leading-relaxed text-slate-800 dark:text-slate-200 space-y-1 [&_b]:text-emerald-950 dark:[&_b]:text-emerald-200"
                     />
                   </div>
@@ -918,9 +928,10 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
                     </CardHeader>
 
                     <CardContent className="p-4 sm:p-5 space-y-4">
-                      <div className="font-bold text-xs sm:text-sm text-foreground leading-snug">
-                        {quiz.q}
-                      </div>
+                      <div
+                        className="font-bold text-xs sm:text-sm text-foreground leading-snug"
+                        dangerouslySetInnerHTML={{ __html: renderMathInText(quiz.q) }}
+                      />
 
                       {/* Options */}
                       <div className="space-y-2">
@@ -948,7 +959,10 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
                               <span className="w-5 h-5 rounded-md border border-border flex items-center justify-center font-mono font-bold text-xs shrink-0 bg-muted text-muted-foreground">
                                 {String.fromCharCode(65 + optIdx)}
                               </span>
-                              <span className="flex-1 leading-normal pt-0.5">{opt}</span>
+                              <span
+                                className="flex-1 leading-normal pt-0.5"
+                                dangerouslySetInnerHTML={{ __html: renderMathInText(opt) }}
+                              />
                               {isAnswered && optIdx === quiz.ans && (
                                 <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                               )}
@@ -982,7 +996,7 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
                               </>
                             )}
                           </div>
-                          <div>{quiz.fb}</div>
+                          <div dangerouslySetInnerHTML={{ __html: renderMathInText(quiz.fb) }} />
                         </div>
                       )}
                     </CardContent>
@@ -1033,7 +1047,7 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
                     <Info className="h-4 w-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
                     <div>
                       <span className="font-semibold">Lời nhắc khi gặp khó khăn: </span>
-                      {curLesson.ref.remind}
+                      <span dangerouslySetInnerHTML={{ __html: renderMathInText(curLesson.ref.remind) }} />
                     </div>
                   </div>
                 )}
