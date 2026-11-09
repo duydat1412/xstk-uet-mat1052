@@ -1,0 +1,54 @@
+{
+  "name": "xstk",
+  "version": "1.0.0",
+  "description": "> Bộ tài nguyên và ứng dụng tự học tương tác, chuẩn bị toàn diện cho kỳ thi Giữa kỳ Xác suất Thống kê Đại học Công nghệ (VNU - UET). 100% tiếng Việt, có đáp án giải thích chi tiết, barem điểm từng bước, mẹo Casio và kiểm toán toán học chính xác.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duydat1412/xstk-uet-mat1052.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/duydat1412/xstk-uet-mat1052/issues"
+  },
+  "homepage": "https://github.com/duydat1412/xstk-uet-mat1052#readme",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/katex": "^0.16.8",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.6.2",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@radix-ui/react-accordion": "^1.3.1",
+    "@radix-ui/react-dialog": "^1.3.1",
+    "@radix-ui/react-progress": "^1.2.1",
+    "@radix-ui/react-slot": "^1.5.0",
+    "@radix-ui/react-tabs": "^1.2.1",
+    "@radix-ui/react-tooltip": "^1.4.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "katex": "^0.19.1",
+    "lucide-react": "^1.70.0",
+    "next": "^16.4.5",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwind-merge": "^3.7.0"
+  }
+}

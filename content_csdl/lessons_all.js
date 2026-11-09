@@ -2229,3 +2229,5 @@ const ALL_CSDL_LESSONS = [
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { ALL_CSDL_LESSONS };
 }
+
+export { ALL_CSDL_LESSONS };

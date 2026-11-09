@@ -54,7 +54,7 @@ test_assert(os.path.isfile(lessons_js_path), "File exists: content_csdl/lessons_
 
 # Extract ALL_CSDL_LESSONS using node with utf-8 encoding
 import subprocess
-node_cmd = ["node", "-e", "const { ALL_CSDL_LESSONS } = require('./content_csdl/lessons_all.js'); console.log(JSON.stringify(ALL_CSDL_LESSONS));"]
+node_cmd = ["node", "-e", "import('./content_csdl/lessons_all.js').then(m => console.log(JSON.stringify(m.ALL_CSDL_LESSONS)));"]
 res = subprocess.run(node_cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=ROOT_DIR)
 test_assert(res.returncode == 0, "Node.js successfully loads content_csdl/lessons_all.js")
 
