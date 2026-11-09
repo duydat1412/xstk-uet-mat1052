@@ -32,6 +32,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install Python QA Dependencies
+        run: pip install pymupdf
+
       - name: Run MAT1052 Full QA Suite (2,241 tests)
         run: python verify/run_full_qa_suite.py
 
