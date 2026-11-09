@@ -60,7 +60,44 @@
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box;
+
+/* Impeccable Craft Floor: Browser Surfaces & Design Tokens */
+::selection {
+  background: var(--acc-soft);
+  color: var(--acc);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mute);
+}
+:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+ margin: 0; padding: 0; }
 body {
   font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
   background: var(--bg);

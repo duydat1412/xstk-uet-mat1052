@@ -49,6 +49,48 @@
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+/* ==========================================================================
+   IMPECCABLE CRAFT FLOOR: DESIGN TOKENS & BROWSER SURFACES
+   ========================================================================== */
+::selection {
+  background: var(--acc-soft);
+  color: var(--acc);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mute);
+}
+:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 2px;
+}
+.tree-badge-total, .tree-folder-badge, .stat-num, .step-pill, .badge-course {
+  font-variant-numeric: tabular-nums;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
@@ -265,27 +307,43 @@ h1.lesson-title {
 
 /* SUB TABS INSIDE LESSON */
 .sub-tabs {
-  display: flex;
-  gap: 8px;
-  border-bottom: 2px solid var(--line);
-  margin-bottom: 20px;
+  display: inline-flex;
+  gap: 4px;
+  background: var(--card-sub);
+  border: 1px solid var(--line);
+  padding: 4px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
+.sub-tabs::-webkit-scrollbar { display: none; }
 .sub-tab-btn {
-  padding: 10px 14px;
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
   color: var(--mute);
-  font-weight: 700;
-  font-size: .92rem;
+  font-weight: 600;
+  font-size: 0.88rem;
   cursor: pointer;
-  transition: .15s;
+  white-space: nowrap;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.sub-tab-btn:hover { color: var(--ink); }
+.sub-tab-btn:hover {
+  color: var(--ink);
+  background: rgba(0, 0, 0, 0.03);
+}
+:root[data-theme="dark"] .sub-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
 .sub-tab-btn.active {
   color: var(--acc);
-  border-bottom-color: var(--acc);
+  background: var(--card);
+  border-color: var(--line);
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 /* CONTENT STYLES */
@@ -401,13 +459,19 @@ h1.lesson-title {
 }
 .pitfall-bad {
   background: var(--bad-soft);
-  border: 1px solid var(--bad);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 12px;
+  padding: 16px 18px;
   color: var(--ink);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 .pitfall-good {
   background: var(--ok-soft);
-  border: 1px solid var(--ok);
+  border: 1px solid rgba(22, 163, 74, 0.25);
+  border-radius: 12px;
+  padding: 16px 18px;
   color: var(--ink);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 /* QUIZ INTERACTION */
@@ -420,33 +484,38 @@ h1.lesson-title {
   margin-bottom: 16px;
 }
 .quiz-opt {
-  display: block;
+  display: flex;
+  align-items: flex-start;
   width: 100%;
   text-align: left;
-  padding: 14px 16px;
+  padding: 12px 16px;
   margin-bottom: 10px;
-  border-radius: 12px;
-  border: 2px solid var(--line);
+  border-radius: 10px;
+  border: 1px solid var(--line);
   background: var(--card);
   color: var(--ink);
   font: inherit;
-  font-size: .95rem;
+  font-size: 0.94rem;
   font-weight: 500;
   cursor: pointer;
-  transition: .15s;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
 }
 .quiz-opt:hover:not(:disabled) {
   border-color: var(--acc);
-  background: var(--acc-soft);
+  background: var(--card-sub);
+  transform: translateY(-1px);
 }
 .quiz-opt.ok {
   border-color: var(--ok);
   background: var(--ok-soft);
   font-weight: 700;
+  transform: none;
 }
 .quiz-opt.no {
   border-color: var(--bad);
   background: var(--bad-soft);
+  transform: none;
 }
 .quiz-opt:disabled { cursor: default; }
 
@@ -539,22 +608,46 @@ h1.lesson-title {
   margin-top: 24px;
 }
 .btn {
-  padding: 12px 20px;
-  border-radius: 12px;
-  font-size: .95rem;
+  padding: 11px 20px;
+  border-radius: 10px;
+  font-size: 0.92rem;
   font-weight: 700;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  transition: .15s;
+  gap: 7px;
+  transition: all 0.16s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: -0.01em;
 }
-.btn-primary { background: var(--acc); color: #fff; }
-.btn-primary:hover { background: var(--acc-hover); }
-.btn-secondary { background: var(--card-sub); border: 1px solid var(--line); color: var(--ink); }
-.btn-secondary:hover { border-color: var(--mute); }
-.btn:disabled { opacity: .4; cursor: not-allowed; }
+.btn-primary {
+  background: var(--acc);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--acc-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);
+}
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+.btn-secondary {
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--mute);
+  background: var(--card-sub);
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -728,14 +821,14 @@ h1.lesson-title {
 
 /* Reference Box at Bottom of Lessons */
 .lesson-ref-box {
-  margin-top: 26px;
+  margin-top: 32px;
   background: var(--card);
   border: 1px solid var(--line);
   border-left: 4px solid var(--acc);
   border-radius: 12px;
-  padding: 18px 20px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-  transition: all .2s ease;
+  padding: 20px 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
 }
 .ref-header {
   display: flex;
@@ -1153,15 +1246,19 @@ h1.lesson-title {
 
 <header>
   <div class="header-wrap">
-    <a href="hoc.html" class="brand" style="text-decoration:none; color:inherit;">
-      <span>⚡</span> XSTK UET
+    <a href="/csdl/hoc" class="brand" style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:8px;">
+      <span style="font-size:1.3rem;">🗄️</span>
+      <div style="display:flex; flex-direction:column; line-height:1.2;">
+        <span style="font-weight:800; font-size:1.05rem;">CSDL UET</span>
+        <span style="font-size:0.75rem; color:var(--mute); font-weight:600;">INT2207 • Cơ sở dữ liệu</span>
+      </div>
     </a>
     
-      <div class="course-switcher" style="display:inline-flex;align-items:center;background:var(--card-subtle);border:1px solid var(--line);border-radius:var(--radius-sm);padding:2px;margin-right:12px;">
-        <a href="/csdl/hoc" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;font-size:0.8rem;font-weight:600;color:var(--mute);text-decoration:none;border-radius:6px;transition:all 0.15s ease;">
+      <div class="course-switcher" style="display:inline-flex;align-items:center;background:var(--card-sub);border:1px solid var(--line);border-radius:8px;padding:3px;margin-right:12px;">
+        <a href="/hoc" style="display:inline-flex;align-items:center;gap:5px;padding:5px 12px;font-size:0.82rem;font-weight:600;color:var(--mute);text-decoration:none;border-radius:6px;transition:all 0.15s ease;">
           🎲 XSTK
         </a>
-        <a href="/csdl/hoc" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;font-size:0.8rem;font-weight:700;color:#b45309;background:var(--card);text-decoration:none;border-radius:6px;box-shadow:var(--shadow-sm);">
+        <a href="/csdl/hoc" style="display:inline-flex;align-items:center;gap:5px;padding:5px 12px;font-size:0.82rem;font-weight:700;color:var(--acc);background:var(--card);text-decoration:none;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,0.06);">
           🗄️ CSDL
         </a>
       </div>
@@ -3504,6 +3601,13 @@ const SUB_TAB_NAMES = {
   quiz: '4. Kiểm tra'
 };
 
+const CLUSTER_NAMES = {
+  '1': 'Chương 1: Tổng quan về Hệ CSDL',
+  '2': 'Chương 2: Mô hình ER & Quan hệ',
+  '3': 'Chương 3: Đại số quan hệ & SQL',
+  '4': 'Chương 4: Lý thuyết thiết kế CSDL & Phụ thuộc hàm'
+};
+
 // STATE
 let curLessonIdx = 0;
 let curSubTab = 'theory';
@@ -3716,7 +3820,7 @@ function renderRefBox(l) {
       <div class="ref-header">
         <div class="ref-title">
           <span class="ref-icon">📌</span>
-          <span>DẤU REF TRA CỨU SLIDE BÀI GIẢNG & HỌC LIỆU (MAT1052)</span>
+          <span>DẤU REF TRA CỨU SLIDE BÀI GIẢNG & HỌC LIỆU (UET.IS2099 - CSDL)</span>
         </div>
         <a href="/${ref.slide_file}#page=${ref.page_start}" target="_blank" class="ref-pdf-btn" title="Mở trực tiếp file PDF slide tại trang ${ref.page_start}">
           📄 Mở Slide: ${ref.slide_file} (trang ${ref.page_start}) ↗
