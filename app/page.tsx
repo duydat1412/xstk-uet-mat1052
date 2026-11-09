@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { GithubIcon } from "@/components/icons";
+import { ThemeToggle } from "@/components/theme-toggle";
 import {
   ArrowRight,
   BookOpen,
@@ -70,6 +71,7 @@ export default function HomePage() {
             >
               <GithubIcon className="h-4 w-4" />
             </a>
+            <ThemeToggle />
           </div>
         </div>
       </header>

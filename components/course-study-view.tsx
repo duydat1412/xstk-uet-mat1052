@@ -77,14 +77,33 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
 
   const curLesson: Lesson = course.lessons[curLessonIdx] || course.lessons[0];
 
+  const applyTheme = (targetTheme: "light" | "dark") => {
+    setTheme(targetTheme);
+    if (targetTheme === "dark") {
+      document.documentElement.classList.add("dark");
+      document.documentElement.setAttribute("data-theme", "dark");
+      document.documentElement.style.colorScheme = "dark";
+    } else {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.setAttribute("data-theme", "light");
+      document.documentElement.style.colorScheme = "light";
+    }
+    try {
+      localStorage.setItem("uet_study_theme", targetTheme);
+    } catch (e) {}
+  };
+
+  const toggleTheme = () => {
+    applyTheme(theme === "dark" ? "light" : "dark");
+  };
+
   // Initialize theme & state from localStorage
   useEffect(() => {
     try {
       const savedTheme =
         (localStorage.getItem("uet_study_theme") as "light" | "dark") ||
         (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-      setTheme(savedTheme);
-      document.documentElement.setAttribute("data-theme", savedTheme);
+      applyTheme(savedTheme);
 
       const storageKey = `${course.id}_progress`;
       const saved = JSON.parse(localStorage.getItem(storageKey) || "{}");
@@ -101,15 +120,6 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
       setOpenFolders((prev) => ({ ...prev, [curLesson.cluster]: true }));
     }
   }, [curLesson]);
-
-  const toggleTheme = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    document.documentElement.setAttribute("data-theme", next);
-    try {
-      localStorage.setItem("uet_study_theme", next);
-    } catch (e) {}
-  };
 
   const toggleFolder = (clusterKey: string) => {
     setOpenFolders((prev) => ({ ...prev, [clusterKey]: !prev[clusterKey] }));
@@ -581,9 +591,14 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
               size="icon"
               onClick={toggleTheme}
               aria-label="Toggle Theme"
-              className="h-8 w-8 rounded-lg"
+              title={theme === "dark" ? "Chuyển sang Giao diện Sáng (T)" : "Chuyển sang Giao diện Tối (T)"}
+              className="h-8 w-8 rounded-lg cursor-pointer"
             >
-              {theme === "dark" ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+              {theme === "dark" ? (
+                <Sun className="h-3.5 w-3.5 text-amber-400" />
+              ) : (
+                <Moon className="h-3.5 w-3.5 text-slate-700" />
+              )}
             </Button>
           </div>
         </div>
