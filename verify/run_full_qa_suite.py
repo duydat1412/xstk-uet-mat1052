@@ -388,6 +388,8 @@ import fitz
 for lid, r in refs_db.items():
     sfile = r.get("slide_file")
     sfile_path = os.path.join(ROOT_DIR, sfile)
+    if not os.path.isfile(sfile_path):
+        sfile_path = os.path.join(ROOT_DIR, "tailieu_xstk", sfile)
     test_assert(os.path.isfile(sfile_path), f"Slide file exists for {lid}: {sfile}")
     doc = fitz.open(sfile_path)
     p_start = r.get("page_start", 0)

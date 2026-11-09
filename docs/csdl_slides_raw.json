@@ -1,0 +1,1938 @@
+{
+  "C1 .pptx": {
+    "type": "pptx",
+    "total": 52,
+    "slides": [
+      {
+        "slide_num": 1,
+        "title": "NHẬP MÔN HỆ CƠ SỞ DỮ LIỆU(UET.IS2099)",
+        "text": "NHẬP MÔN HỆ CƠ SỞ DỮ LIỆU(UET.IS2099)\n--------------------------------------\nNội dung lý thuyết 45 giờ (lt + bt + tự học): \u000b\t1. Mở đầu: Một số khái niệm\u000b\t2. KN Mô hình, lược đồ\u000b\t3. Mô hình thực thể - liên kết\u000b\t4. Mô hình quan hệ\u000b\t5. Phụ thuộc hàm\u000b\t6. Đại số quan hệ\u000b\t7. Các dạng chuẩn và chuẩn hóa\n1\nKhoa CNTT\n21:18:04\nNội dung Bài tập/ thực hành \nBài tập/Thực hành trên máy,  sử dụng MySQL\nBắt đầu từ tuần  4"
+      },
+      {
+        "slide_num": 2,
+        "title": "2",
+        "text": "2\nKhoa CNTT\n21:18:07\nCơ sở dữ liệu\nMục tiêu môn học: Trang bị cho sinh viên kiến thức cơ bản về cơ sở dữ liệu (CSDL), thiết kế csdl, trọng tâm với mô hình QH:\nMô hình thực thể - liên kết (ER); Mô hình quan hệ. \nĐại số quan hệ, \nChuyển lược đồ thực thể - liên kết sang lược đồ quan hệ\nPhụ thuộc hàm, suy diễn, bao đóng, phủ tối thiểu\nDạng chuẩn và chuẩn hóa CSDL quan hệ, \nThực hành, sinh viên được học ngôn ngữ SQL và thực hành trên một hệ quản trị CSDL cụ thể."
+      },
+      {
+        "slide_num": 3,
+        "title": "3",
+        "text": "3\nKhoa CNTT\n21:18:07\nCơ sở dữ liệu"
+      },
+      {
+        "slide_num": 4,
+        "title": "Tài liệu tham khảo:",
+        "text": "Tài liệu tham khảo:\nNguyễn Tuệ , \n \tGiáo trình Nhập môn Hệ cơ sở dữ liệu, NXBGD 2008.\nHồ Thuần, Hồ Cẩm Hà, \n\tCác hệ cơ sở dữ liệu,  NXBGD 2009.\nRamez Elmasri, Shamkant B. Navathe, Fundamentals of database system, Addision-Wasley \nJeffrey  D. Ullman, \n     Principles of Database Systems,  Computer science Press, 1980\n4\nKhoa CNTT\n21:18:07\nCơ sở dữ liệu"
+      },
+      {
+        "slide_num": 5,
+        "title": "Yêu cầu chung của môn học:",
+        "text": "Yêu cầu chung của môn học:\nSinh viên cần tham dự đầy đủ buổi học Lý thuyết, Bài tập(số buổi vắng mặt quá 20% sẽ không được dự thi) \n2.\tHoàn thành các bài tập, nội dung tham khảo được giao,\n3.\tThi và kiểm tra:\nKiểm tra giữa kỳ(0.4/0.3): \nĐiểm từ bài  kiểm tra lý thuyết / SQL (tự luận/trắc nghiệm)\nĐiểm từ bài tập thực hành\nChuyên cần (10 %) : tham dự trên lớp, làm bài tập, thực hành,… \nThi cuối kỳ (0.6): Thi viết/trên máy/trắc nghiệm\n5\nKhoa CNTT\n21:18:07\nCơ sở dữ liệu"
+      },
+      {
+        "slide_num": 6,
+        "title": "Chương 1. Tổng quan về Hệ CSDL",
+        "text": "Chương 1. Tổng quan về Hệ CSDL\n\nMở đầu: Một số khái niệm\nQuá trình phát triển\nMột số đặc tính của CSDL\nNgười sử dụng CSDL\nKiến trúc của HQT CSDL \nCác tính năng của HQT CSDL\nKhái niệm: Mô hình, Lược đồ, Thể hiện\nNgôn ngữ CSDL\n6\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 7,
+        "title": "1.1 Mở đầu",
+        "text": "1.1 Mở đầu\nThông tin và dữ liệu\nThông tin (information):\nKinh doanh\nThời tiết\nGiáo dục\nSinh viên \n…..\n\nDữ liệu (Data):\nKhách hàng: Tên, địa chỉ, số điện thoại\nSinh viên: Họ tên, masv, địa chỉ\nDữ liệu là những thông tin có thể ghi lại được, có ý nghĩa, có mục đích sử dụng.\n7\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 8,
+        "title": "1.1 Mở đầu",
+        "text": "1.1 Mở đầu\nCơ sở dữ liệu(Database): Là một tập hợp dữ liệu :\nCó liên quan với nhau, \nĐược lưu trữ trong máy tính,\nCó mục đích xác định,\nĐáp ứng nhu cầu khai thác của nhóm người sử dụng.\n Các tính chất:\nCSDL biểu diễn một phần của thế giới thực (miniworld), được cập nhật phản ảnh sự thay đổi của thế giới mà nó biểu diễn.\nMột cơ sở dữ liệu là một tập hợp dữ liệu liên kết với nhau một cách logic và mang một nghĩa nào đó.\nMột cơ sở dữ liệu được thiết kế và được phổ biến cho một mục đích riêng, có nhóm người sử dụng.\n8\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 9,
+        "title": "1.1 Mở đầu",
+        "text": "1.1 Mở đầu\nTại sao cần CSDL ? \nDư thừa dữ liệu và không nhất quán,\nNhu cầu truy cập dữ liệu ngày càng cao hơn,\nSự toàn vẹn dữ liệu,\nĐảo bảo Tính nguyên tố của giao tác,\nĐáp ứng Nhiều người dùng, tương tranh,\nSự an toàn...\n9\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 10,
+        "title": "1.1 Mở đầu",
+        "text": "1.1 Mở đầu\nHệ quản trị CSDL (Database Management System)\nTập hợp các chương trình cho phép: tạo, bảo trì và khai thác CSDL; \n   tức là phần mềm cho phép định nghĩa, xây \n   dựng và thao tác với cơ sở dữ liệu.\nĐịnh nghĩa CSDL: đặc tả các kiểu dữ liệu, cấu trúc mô tả chi tiết về dữ liệu, các ràng buộc của dữ liệu trong CSDL.\nXây dựng CSDL:  lưu trữ dữ liệu trên thiết bị bộ nhớ \nThao tác:  truy vấn, cập nhật và  sinh báo cáo.\n10\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 11,
+        "title": "1.1 Mở đầu",
+        "text": "1.1 Mở đầu\nHệ CSDL (Database System)\n11\nNgười sử dụng/Lập trình viên\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 12,
+        "title": "Một ví dụ về CSDL: Quản lý Đào tạo",
+        "text": "Một ví dụ về CSDL: Quản lý Đào tạo\n12\nCác đối tượng: Sinh viên, Môn học, Học phần, Ngành..\n Mối quan hệ:\n Mỗi sinh viên có thể học một số học phần trong mỗi kỳ\n Mỗi môn học được dạy trong một hoặc nhiều học phần xác  định\n Mỗi môn học có thể có các môn điều kiện\n Mỗi học phần do một giáo viên giảng\n Mỗi môn học do một khoa quản lý\n Mỗi sinh viên thuộc một ngành nào đó\n Mỗi ngành do một khoa quản lý.\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 13,
+        "title": "Một ví dụ về CSDL: Quản lý Đào tạo",
+        "text": "Một ví dụ về CSDL: Quản lý Đào tạo\n13\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 14,
+        "title": "Một ví dụ về CSDL: Quản lý Đào tạo",
+        "text": "Một ví dụ về CSDL: Quản lý Đào tạo\n14\nĐịnh nghĩa CSDL: Xác định cấu trúc các bảng, Các kiểu dữ liệu của các trường, các mối liên kết..\nXây dựng CSDL: Dữ liệu được ghi trong các tệp như thế nào, các quan hệ giữa các bản ghi,\nThao tác CSDL: Cập nhật và khai thác dữ liệu.\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 15,
+        "title": "Một ví dụ về CSDL: Quản lý Dự án",
+        "text": "Một ví dụ về CSDL: Quản lý Dự án\n15\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 16,
+        "title": "Định nghĩa CSDL: Cấu trúc bảng, bao gồm các thành phần dữ liệu và kiểu dữ liệu tương ứng",
+        "text": "Định nghĩa CSDL: Cấu trúc bảng, bao gồm các thành phần dữ liệu và kiểu dữ liệu tương ứng\nXây dựng CSDL: Đưa dữ liệu vào các bảng\nXử lý CSDL:\nThực hiện các truy vấn: “Cho biết những nhân viên thuộc phòng nào đó”\nThực hiện các phép cập nhật: thêm nhân viên, chuyển phòng của một nhân viên. \nXóa một nhân viên,..\n16\nMột ví dụ về CSDL\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 17,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nMở đầu\nQuá trình phát triển\nMột số đặc tính của CSDL\nNgười sử dụng CSDL\nKiến trúc của HQT CSDL \nCác tính năng của HQT CSDL\nMột số khái niệm: Mô hình, Lược đồ, Thể hiện\nNgôn ngữ CSDL\n17\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 18,
+        "title": "1.2 Quá trình phát triển",
+        "text": "1.2 Quá trình phát triển\nTập tin (trước 1960)\n18\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 19,
+        "title": "1.2 Quá trình phát triển",
+        "text": "1.2 Quá trình phát triển\nHạn chế:\nDữ liệu bị trùng lặp và dư thừa\nThiếu tính nhất quán giữa các dữ liệu\nKhó khăn trong việc truy xuất\nViệc chia sẻ dữ liệu bị hạn chế\nKhó khôi phục khi có sự cố\n19\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 20,
+        "title": "1.2 Quá trình phát triển",
+        "text": "1.2 Quá trình phát triển\nCơ sở dữ liệu (Database)\n20\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 21,
+        "title": "1.2 Quá trình phát triển",
+        "text": "1.2 Quá trình phát triển\n1960: Hệ QTCSDL đầu tiên ra đời, dựa trên mô hình phân cấp : IMS (Information Management System) của IBM; IDS (Integated Data Store -  Charles Bachman, General Electric) dựa trên mô hình mạng,  giải Turing 1973; \n1976: HQTCSDL theo mô hình quan hệ đầu tiên xuất hiện (System – R) của IBM, do Codd đề xuất; giải Turing 1981; \nTừ 1980 nhiều HQTCSDL mới ra đời: Oracle, DB2, Access, Foxpro, Paradox, MySQL,..\nTừ 1990 xuất hiện HQTCSDL hướng đối tượng\nHệ quản trị CSDL theo mô hình NoSQL\n21\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 22,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nMở đầu\nQuá trình phát triển\nMột số đặc tính của CSDL\nTính tự mô tả\nTính độc lập giữa chương trình và dữ liệu\nTính trừu tượng dữ liệu\nTính nhất quán\nHỗ trợ nhiều khung nhìn\nChia sẻ dữ liệu và nhiều người dùng\nNgười sử dụng CSDL\nKiến trúc của HQT CSDL\nCác tính năng của HQT CSDL\nNgôn ngữ CSDL\n22\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 23,
+        "title": "1.3- Một số đặc tính của CSDL",
+        "text": "1.3- Một số đặc tính của CSDL\nHệ CSDL không chỉ chứa bản thân CSDL mà còn chứa định nghĩa (mô tả) của CSDL\nCác định nghĩa được lưu trữ trong catalog : chứa các thông tin về cấu trúc tập tin, kiểu và dạng thức lưu trữ của mỗi thành phần dữ liệu và những ràng buộc dữ liệu\nDữ liệu trong catalog gọi là meta-data (siêu dữ liệu)\nChương trình ứng dụng có thể truy xuất đến nhiều CSDL nhờ thông tin cấu trúc được lưu trữ trong catalog\n23\nKhoa CNTT\n21:18:07\nTính tự mô tả"
+      },
+      {
+        "slide_num": 24,
+        "title": "Tính độc lập",
+        "text": "Tính độc lập\nDữ liệu và chương trình có tính độc lập tương đối (vì định nghĩa về cấu trúc CSDL được lưu trữ trong catalog nên khi có thay đổi nhỏ về cấu trúc ta ít phải sửa lại chương trình)\n24\nKhoa CNTT\n21:18:07\n1.3 - Một số đặc tính của CSDL"
+      },
+      {
+        "slide_num": 25,
+        "title": "Tính trừu tượng: ",
+        "text": "Tính trừu tượng: \nCho phép trình bày dữ liệu ở một mức trừu tượng nhất định, nhằm che bớt những chi tiết lưu trữ vật lý của dữ liệu.\nTính nhất quán:\nLưu trữ dữ liệu thống nhất: tránh được tình trạng trùng lặp thông tin\nCó cơ chế điều khiển truy xuất dữ liệu hợp lý\nTránh được việc tranh chấp dữ liệu\nBảo đảm dữ liệu luôn đúng tại mọi thời điểm\nChia sẻ dữ liệu và nhiều người dùng\nNhiều người sử dụng, quản lý tương tranh\nĐảm bảo tính đúng đắn đối với các thao tác\n25\nKhoa CNTT\n21:18:07\n1.3 - Một số đặc tính của CSDL"
+      },
+      {
+        "slide_num": 26,
+        "title": "Hỗ trợ nhiều khung nhìn (view): ",
+        "text": "Hỗ trợ nhiều khung nhìn (view): \nHệ CSDL cho phép nhiều người dùng thao tác lên cùng một CSDL\nMỗi người đòi hỏi một cách nhìn (view) khác nhau về CSDL\nKhung nhìn :\nMột phần của CSDL hoặc \nDữ liệu tổng hợp từ CSDL\n26\nKhoa CNTT\n21:18:07\n1.3 - Một số đặc tính của CSDL"
+      },
+      {
+        "slide_num": 27,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nMở đầu\nQuá trình phát triển\nMột số đặc tính của CSDL\nNgười sử dụng CSDL\nQuản trị viên (Database Administrator - DBA)\nThiết kế viên (Database Designer)\nNgười dùng cuối (End User)\nCác khái niệm: Mô hình, Lược đồ, Thể hiện\nKiến trúc của HQT CSDL\nCác tính năng của HQT CSDL\nNgôn ngữ CSDL\n27\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 28,
+        "title": "Quản trị viên (DBA)- quản lý hệ CSDL",
+        "text": "Quản trị viên (DBA)- quản lý hệ CSDL\nCấp quyền truy cập CSDL\nĐiều phối và giám sát việc sử dụng CSDL\n28\nKhoa CNTT\n21:18:07\n1.4  Người sử dụng CSDL\nLiên hệ với người dùng để nắm bắt được những yêu cầu và đưa ra một thiết kế CSDL thỏa yêu cầu này,\nLựa chọn cấu trúc phù hợp để lưu trữ dữ liệu\nQuyết định những dữ liệu nào cần được lưu trữ,\nThiết kế viên: Chịu trách nhiệm :"
+      },
+      {
+        "slide_num": 29,
+        "title": "Người dùng cuối",
+        "text": "Người dùng cuối\nNgười ít sử dụng (người quản lý)\nÍt khi truy cập CSDL, nhưng cần những thông tin khác nhau trong mỗi lần truy cập và dùng những câu truy vấn phức tạp\nNgười sử dụng thường xuyên (nhân viên)\nThường xuyên truy vấn và cập nhật CSDL nhờ vào một số các chức năng đã được xây dựng sẵn\nNgười sử dụng đặc biệt\nThông thạo về HQT CSDL, tự xây dựng những truy vấn phức tạp cho công việc\nKỹ sư, nhà khoa học, người phân tích,…\n29\nKhoa CNTT\n21:18:07\n1.4  Người sử dụng CSDL"
+      },
+      {
+        "slide_num": 30,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nMở đầu\nQuá trình phát triển\nMột số đặc tính của CSDL\nNgười sử dụng CSDL\nCác khái niệm: Mô hình, Lược đồ, Thể hiện\nKiến trúc của Hệ CSDL\nCác tính năng của HQT CSDL\nNgôn ngữ CSDL\n30\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 31,
+        "title": "a. Mô hình dữ liệu",
+        "text": "a. Mô hình dữ liệu\nMô hình dữ liệu (Data Model) bao gồm:\nTập các khái niệm để biểu diễn cấu trúc CSDL:\nKiểu dữ liệu,\nCác liên kết, \nCác ràng buộc\nCác phép toán xử lý dữ liệu\n31\nKhoa CNTT\n21:18:07\n1.5 - Các khái niệm\nVí dụ:\nMô hình quan hệ: {kn: quan hệ, bảng, cột, bộ, khóa, tham chiếu,..;\n        phép toán:  ĐS QH...}\nMô hình ER : {kn: thực thể, thuộc tính, liên kết,...}"
+      },
+      {
+        "slide_num": 32,
+        "title": "Mô hình mức cao (mức quan niệm)",
+        "text": "Mô hình mức cao (mức quan niệm)\nCung cấp các khái niệm gần gũi với người dùng\nMô hình phải tự nhiên và giàu ngữ nghĩa\nVD: mô hình thực thể - liên kết (ER), mô hình thực thể…\nMô hình mức thể hiện (mức lôgic)\nDùng các khái niệm người dùng có thể hiểu được nhưng không quá xa với cách dữ liệu được tổ chức thật sự trên máy tính: \n    Thực thể (entity), thuộc tính, mối liên kết (quan hệ) giữa các thực thể\nVD: mô hình quan hệ, mô hình mạng, mô hình phân cấp\nMô hình mức thấp (mức vật lý)\nDùng các khái niệm mô tả chi tiết về cách thức dữ liệu được lưu trữ trong máy tính: khuôn dạng bản ghi, cách sắp xếp, đường truy cập\n32\nKhoa CNTT\n21:18:07\n1.5 - Các khái niệm\na. Mô hình dữ liệu"
+      },
+      {
+        "slide_num": 33,
+        "title": "Ví dụ mô hình ER",
+        "text": "Ví dụ mô hình ER\n33\nKhoa CNTT\n21:18:07"
+      },
+      {
+        "slide_num": 34,
+        "title": "Ví dụ mô hình đối tượng",
+        "text": "Ví dụ mô hình đối tượng\n34\nKhoa CNTT\n21:18:08"
+      },
+      {
+        "slide_num": 35,
+        "title": "Ví dụ mô hình quan hệ",
+        "text": "Ví dụ mô hình quan hệ\n35\nKhoa CNTT\n21:18:08"
+      },
+      {
+        "slide_num": 36,
+        "title": "Ví dụ mô hình mạng",
+        "text": "Ví dụ mô hình mạng\n36\nKhoa CNTT\n21:18:08"
+      },
+      {
+        "slide_num": 37,
+        "title": "Ví dụ mô hình phân cấp",
+        "text": "Ví dụ mô hình phân cấp\n37\nMức 2:\nMức 1:\nMức 3:\nKhoa CNTT\n21:18:08"
+      },
+      {
+        "slide_num": 38,
+        "title": "b. Lược đồ",
+        "text": "b. Lược đồ\nLược đồ CSDL (Database Schema): Là các kí hiệu, mô tả biểu diễn về  CSDL (cấu trúc và ràng buộc) đã được xây dựng theo mô hình nào đó\n38\nKhoa CNTT\n21:18:08\n1.5 - Các khái niệm"
+      },
+      {
+        "slide_num": 39,
+        "title": "c. Thể hiện CSDL (Database Instance)",
+        "text": "c. Thể hiện CSDL (Database Instance)\nLà dữ liệu hiện thời được lưu trữ trong CSDL ở một thời điểm nào đó\nTrạng thái của CSDL\n39\nKhoa CNTT\n21:18:08\n1.5 - Các khái niệm"
+      },
+      {
+        "slide_num": 40,
+        "title": "1.6- Kiến trúc 3 mức (lược đồ) của Hệ CSDL",
+        "text": "1.6- Kiến trúc 3 mức (lược đồ) của Hệ CSDL\nKiến trúc 3 lược đồ (3 mức - theo ANSI/SPARC)\n40\nKhoa CNTT\n21:18:08"
+      },
+      {
+        "slide_num": 41,
+        "title": "Mức trong (lược đồ trong)",
+        "text": "Mức trong (lược đồ trong)\nMô tả cấu trúc lưu trữ vật lý CSDL\nMức quan niệm (lược đồ quan niệm)\nMô tả cấu trúc của tổng thể CSDL cho 1 cộng đồng người sử dụng, gồm thực thể, kiểu dữ liệu, mối liên hệ và ràng buộc\nChe bớt các chi tiết của cấu trúc lưu trữ vật lý\nMức ngoài (lược đồ ngoài)\nCòn gọi là mức khung nhìn (view)\nMô tả một phần của CSDL mà 1 nhóm người dùng quan tâm đến và che giấu phần còn lại của CSDL đối với nhóm người dùng đó\n41\nKhoa CNTT\n21:18:08\n1.6- Kiến trúc 3 mức của Hệ CSDL"
+      },
+      {
+        "slide_num": 42,
+        "title": "Kiến trúc 3 mức nhằm đảm bảo Độc lập dữ liệu ",
+        "text": "Kiến trúc 3 mức nhằm đảm bảo Độc lập dữ liệu \nĐộc lập logic\nKhả năng thay đổi lược đồ quan niệm mà không thay đổi lược đồ ngoài hoặc các chương trình ứng dụng\nĐộc lập vật lý\nKhả năng thay đổi lược đồ trong mà không làm thay đổi lược đồ quan niệm cũng như lược đồ ngoài\n42\nKhoa CNTT\n21:18:08\n1.6- Kiến trúc 3 mức của Hệ CSDL"
+      },
+      {
+        "slide_num": 43,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nGiới thiệu\nQuá trình phát triển\nMột số đặc tính của CSDL\nNgười sử dụng CSDL\nCác khái niệm\nKiến trúc của Hệ CSDL\nCác tính năng của HQT CSDL\nNgôn ngữ CSDL\n43\nKhoa CNTT\n21:18:08"
+      },
+      {
+        "slide_num": 44,
+        "title": "1.7 - Các tính năng của HQT CSDL",
+        "text": "1.7 - Các tính năng của HQT CSDL\n1. Kiểm soát được tính dư thừa của dữ liệu\nTích hợp các nhu cầu dữ liệu của người dùng để xây dựng một CSDL thống nhất\n2. Chia sẻ dữ liệu\nTrong môi trường đa người dùng, các HQT phải cho phép truy xuất dữ liệu đồng thời\n3. Hạn chế những truy cập không hợp lệ\nTừng người dùng và nhóm người dùng có một quyền (tài khoản và mật mã) nhất định để truy xuất dữ liệu\n4. Cung cấp nhiều giao diện\nHQT cung cấp ngôn ngữ giữa CSDL và người dùng\n44\nKhoa CNTT\n21:18:08"
+      },
+      {
+        "slide_num": 45,
+        "title": "5. Đảm bảo các ràng buộc toàn vẹn",
+        "text": "5. Đảm bảo các ràng buộc toàn vẹn\nRBTV (Integrity Constraints) là những qui định cần được thỏa mãn để đảm bảo dữ liệu luôn phản ánh đúng ngữ nghĩa của thế giới thực\nMột số ràng buộc có thể được khai báo với HQT và HQT sẽ tự động kiểm tra. \nMột số ràng buộc khác được kiểm tra nhờ chương trình ứng dụng\n6. Khả năng sao lưu, phục hồi khi gặp sự cố\nCó khả năng khôi phục dữ liệu khi có sự hư hỏng về phần cứng hoặc phần mềm\n45\nKhoa CNTT\n21:18:08\n1.7 - Các tính năng của HQT CSDL"
+      },
+      {
+        "slide_num": 46,
+        "title": "Các tính năng khác",
+        "text": "Các tính năng khác\nChuẩn hóa (quy chuẩn)\nCho phép DBA định nghĩa và bắt buộc áp dụng một chuẩn thống nhất cho mọi người dùng\nUyển chuyển\nKhi nhu cầu công việc thay đổi, cấu trúc CSDL rất có thể thay đổi, HQT cho phép thêm hoặc mở rộng cấu trúc mà không làm ảnh hưởng đến chương trình ứng dụng\nGiảm thời gian phát triển ứng dụng\nTính khả dụng\nKhi có một sự thay đổi lên CSDL, tất cả người dùng đều thấy được\n46\nKhoa CNTT\n21:18:08\n1.7 - Các tính năng của HQT CSDL"
+      },
+      {
+        "slide_num": 47,
+        "title": "Phân loại HQTCSDL",
+        "text": "Phân loại HQTCSDL\nTheo mô hình : \nmô hình mạng, \nmô hình phân cấp, \nmô hình quan hệ, \nmô hình đối tượng,…\nTheo số người dùng: \nđơn người dùng, \nđa người dùng\nTheo sự phân tán của dữ liệu: \ntập trung, \nphân tán (thuần nhất hoặc không thuần nhất)\n47\nKhoa CNTT\n21:18:08\n1.7 - Các tính năng của HQT CSDL"
+      },
+      {
+        "slide_num": 48,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nGiới thiệu\nQuá trình phát triển\nMột số đặc tính của CSDL\nNgười sử dụng CSDL\nCác khái niệm\nKiến trúc của Hệ CSDL\nCác tính năng của HQT CSDL\nNgôn ngữ CSDL\n48\nKhoa CNTT\n21:18:08"
+      },
+      {
+        "slide_num": 49,
+        "title": "1.8- Ngôn ngữ CSDL",
+        "text": "1.8- Ngôn ngữ CSDL\n1. Ngôn ngữ định nghĩa dữ liệu (DDL – Data Definition Language)\nXác định ra lược đồ csdl  \nĐược dùng bởi DBA và người thiết kế để xây dựng lược đồ.\nDBMS dịch các câu lệnh trong DDL thành mô tả xây dựng lược đồ\nVí dụ: \nCREATE TABLE employees ( \n\t\t\t\t\tid INTEGER PRIMARY KEY, \n\t\t\t\t\tfirst_name CHAR(50) null, \n\t\t\t\t\tlast_name CHAR(75) not null, \n\t\t\t\t\tdate_of_birth DATE null );\n49\nKhoa CNTT\n21:18:08"
+      },
+      {
+        "slide_num": 50,
+        "title": "2. Ngôn ngữ thao tác dữ liệu (DML – Data Manipulation Language)",
+        "text": "2. Ngôn ngữ thao tác dữ liệu (DML – Data Manipulation Language)\nCho phép truy xuất, thêm, xóa, sửa dữ liệu\nMức cao (phi thủ tục): SQL\nMức thấp (thủ tục): được nhúng trong một ngôn ngữ lập trình “vạn năng”.\n\nVí dụ \nCác câu lệnh trong SQL: SELECT, INSERT, UPDATE, và DELETE,..\nSELECT id, last_name FROM employees\n50\nKhoa CNTT\n21:18:08\n1.8- Ngôn ngữ CSDL"
+      },
+      {
+        "slide_num": 51,
+        "title": "3. Ngôn ngữ điều khiển giao dịch (Transaction Control Language - TCL)",
+        "text": "3. Ngôn ngữ điều khiển giao dịch (Transaction Control Language - TCL)\nĐảm bảo tính toàn vẹn dữ liệu khi thực hiện các tác vụ có sự thay đổi dữ liệu\nCác câu lệnh SQL tương ứng: \nCOMMIT, ROLLBACK, và SAVEPOINT.  \n\n4. Ngôn ngữ điều khiển dữ liệu (Data Control Language - DCL) \nCung cấp các tính năng bảo vệ cho các đối tượng của CSDL\nCác câu lệnh SQL tương ứng: \nGRANT và REVOKE.\n51\nKhoa CNTT\n21:18:08\n1.8- Ngôn ngữ CSDL"
+      },
+      {
+        "slide_num": 52,
+        "title": "Câu hỏi",
+        "text": "Câu hỏi\nPhân biệt các khái niệm: dữ liệu, cơ sở dữ liệu, hệ quản trị cơ sở dữ liệu, hệ cơ sở dữ liệu.\nThế nào là độc lập dữ liệu, độc lập logic và độc lập vật lý.\nKhái niệm mô hình, lược đồ, thể hiện của cơ sở dữ liệu.\nCác tính năng chính của HQTCSDL\n52\nKhoa CNTT\n21:18:08"
+      }
+    ]
+  },
+  "C2_1.pptx": {
+    "type": "pptx",
+    "total": 52,
+    "slides": [
+      {
+        "slide_num": 1,
+        "title": "Chương 2",
+        "text": "Chương 2\nMô hình thực thể - liên kết\n(Entity-Relationship)\nDo P.P Chen giới thiệu năm 1976\nMô hình dữ liệu quan niệm bậc cao hỗ trợ thiết kế CSDL, \nSử dụng các khái niệm : thực thể, thuộc tính, các liên kết,..."
+      },
+      {
+        "slide_num": 2,
+        "title": "Nội dung",
+        "text": "Nội dung\nQuá trình thiết kế CSDL\nNguyên tắc thiết kế\nMô hình thực thể - liên kết (ER)\nMô hình thực thể liên - kết mở rộng (EER)\n2\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 3,
+        "title": "2.1- Quá trình thiết kế CSDL",
+        "text": "2.1- Quá trình thiết kế CSDL\n3\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 4,
+        "title": "2.1-  Quá trình thiết kế CSDL",
+        "text": "2.1-  Quá trình thiết kế CSDL\n4\nCài đặt giao tác\nThiết kế \u000bchương trình ứng dụng\nPhân tích chức năng\nCác yêu cầu về chức năng\nCác đặc tả chức năng\nChương trình ứng dụng\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 5,
+        "title": "2.2- Nguyên tắc thiết kế",
+        "text": "2.2- Nguyên tắc thiết kế\nChính xác\nDễ hiểu\nTránh trùng lặp\nChọn đúng thuộc tính và kiểu thuộc tính\nChọn đúng mối quan hệ\n5\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 6,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nQuá trình thiết kế CSDL\nMô hình thực thể - liên kết\nThực thể\nThuộc tính\nRàng buộc trên kiểu liên kết\nLược đồ thực thể - liên kết\nThực  thể  yếu\nThiết kế\nVí dụ\n6\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 7,
+        "title": "2.3 - Mô hình thực thể - liên kết (ER)",
+        "text": "2.3 - Mô hình thực thể - liên kết (ER)\nĐược dùng để thiết kế CSDL ở mức quan niệm\nBiểu diễn trừu tượng cấu trúc của CSDL \nLược đồ thực thể- liên kết: biểu diễn CSDL theo mô hình thực thể - liên kết (ER: Entity-Relationship Diagram)\nCác khái niệm cơ bản:\nThực thể/tập thực thể (Entity Sets)\nThuộc tính (Attributes)\nMối quan hệ/liên kết (Relationship)\n7\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 8,
+        "title": "a. Thực thể /tập thực thể",
+        "text": "a. Thực thể /tập thực thể\nThực thể (Entity) : \nLà một đối tượng của thế giới thực (đối tượng vật lý cụ thể hoặc trừu tượng) được mô hình hóa trong hệ thống\nThực thể được mô tả bởi một tập các đặc trưng của nó - thuộc tính; \nTập thực thể: tập hợp các thực thể giống nhau\nKiểu thực thể: tập tất cả các thực thể giống nhau \nChú ý:\nThực thể (Entity)   -- Đối tượng (Object)\nKiểu thực thể   -- Lớp đối tượng (Class)\n8\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 9,
+        "title": "Ví dụ “Quản lý đề án công ty”",
+        "text": "Ví dụ “Quản lý đề án công ty”\nMột nhân viên là một thực thể\nTập hợp các nhân viên là tập thực thể\n\nMột đề án là một thực thể\nTập hợp các đề án là tập thực thể\n\nMột phòng ban là một thực thể\nTập hợp các phòng ban là tập thực thể\n9\n22:30\nKhoa CNTT\na. Thực thể /tập thực thể"
+      },
+      {
+        "slide_num": 10,
+        "title": "Ví dụ: Hãy xác định thực thể của  CSDL “THƯ VIỆN”, dựa trên mô tả  sau:",
+        "text": "Ví dụ: Hãy xác định thực thể của  CSDL “THƯ VIỆN”, dựa trên mô tả  sau:\nThư viện được chia ra thành các nhánh. Thông tin về mỗi nhánh gồm có Mã nhánh, Tên nhánh và Địa chỉ.\nMỗi cuốn sách trong thư viện có các thông tin về Mã sách, Tên sách Nhà xuất bản và Tác giả…\nMột tác giả có thể viết nhiều cuốn sách. Một cuốn sách có thể có nhiều tác giả viết.\nMột nhà xuất bản xuất bản nhiều cuốn sách. Một cuốn sách do một nhà xuất bản xuất bản. Thông tin về Nhà xuất bản gồm có Tên, Địachỉ và Sốđiệnthoại.\nMột cuốn sách có thể có nhiều bản sao được lưu trữ tại các nhánh. Thông tin về bản sao sách gồm Mã sách, số các bản sao.\nThư viện có những người mượn sách. Thông tin về những người mượn sách gồm có Số thẻ, Họ tên, Địa chỉ  và Số điện thoại.\nSách được cho các người mượn mượn tại các nhánh. Thông tin về một lần mượn gồm có Ngày mượn và ngày trả.\n10\n22:30\nKhoa CNTT\na. Thực thể /tập thực thể"
+      },
+      {
+        "slide_num": 11,
+        "title": "Ví dụ : Xác định các thực thể trong CSDL“QL Tuyển sinh“",
+        "text": "Ví dụ : Xác định các thực thể trong CSDL“QL Tuyển sinh“\nThí sinh\nTrường\nKhoa\nNgành\nKhối thi\nMôn thi\nKhu vực\nĐối tượng ưu tiên\n..\n11\n22:30\nKhoa CNTT\na. Thực thể /tập thực thể"
+      },
+      {
+        "slide_num": 12,
+        "title": "Là các đặc trưng để mô tả thực thể; thực thể có thể có nhiều thuộc tính.",
+        "text": "Là các đặc trưng để mô tả thực thể; thực thể có thể có nhiều thuộc tính.\nMỗi thực thể  cụ thể sẽ có các giá trị riêng cho mỗi thuộc tính của nó.\nMiền giá trị của thuộc tính (domain): tập tất cả các giá trị hợp lệ mà thuộc tính đó có thể nhận.\nVí dụ:\nHoten: Kiểu chuỗi 30 byte (string)\nMaso: Kiểu số nguyên 4 byte(integer)\nLuong: Kiểu số thực 4 byte …\nĐiểm môn học: số thực  0..10\nVí dụ tập thực thể NHANVIEN có các thuộc tính\nHọ tên (hoten: string[30]); Ngày sinh (ns: date);Nơi sinh(string [40]); …\n12\n22:30\nKhoa CNTT\nb. Thuộc tính"
+      },
+      {
+        "slide_num": 13,
+        "title": "Ví dụ: CSDL Tuyển sinh",
+        "text": "Ví dụ: CSDL Tuyển sinh\nThí sinh: SBD (string [9]), họ tên, ngày sinh, nơi sinh, khu vực, đối tượng ưu tiên, trường THPT\nTrường:  Mã, tên , địa chỉ, điện thoại\nKhoa:  Mã, tên khoa, địa chỉ, điện thoại\nNgành:Mã, tên, chỉ tiêu ts, điểm chuẩn\nKhối thi: Mã, tên\nMôn thi: Mã, tên, hình thức thi, thời gian thi.\n13\n22:30\nKhoa CNTT\nb. Thuộc tính"
+      },
+      {
+        "slide_num": 14,
+        "title": "Loại thuộc tính:",
+        "text": "Loại thuộc tính:\nThuộc tính đơn : không thể tách thành các thành phần nhỏ, độc lập\nThuộc tính phức hợp : có thể tách ra thành các thành phần độc lập nhỏ hơn \nThuộc tính đơn trị: thuộc tính có giá trị duy nhất cho một thực thể (VD: số CMND, …)\nThuộc tính đa trị:  thuộc tính có nhiều giá trị cho cùng một thực thể (VD: bằng cấp, …)\nThuộc tính suy diễn (được) (năm sinh tuổi)\nThuộc tính phức tạp: kết hợp đa trị  và phức hợp\n14\n22:30\nKhoa CNTT\nb. Thuộc tính"
+      },
+      {
+        "slide_num": 15,
+        "title": "Ví dụ thực thể NHANVIEN",
+        "text": "Ví dụ thực thể NHANVIEN\nMã NV \t\t(MaNV: integer)\nHọ tên \t\t(Hoten: string[50])\nNgày sinh \t(ns: date)\nĐịa chỉ\t\t(diachi: string[100])\nQuê quán\t(quequan: string[30])\nHệ số lương\t(hsluong: float)\nHệ số phụ cấp\t(hsphucap: float)\nTổng lương\t(tongluong: float)\nHọ tên con\nLoại thuộc tính? Kiểu giá trị? Miền giá trị?\n15\n22:30\nKhoa CNTT\nb. Thuộc tính"
+      },
+      {
+        "slide_num": 16,
+        "title": "c. Kiểu thực thể và khóa",
+        "text": "c. Kiểu thực thể và khóa\nKiểu thực thể và tập thực thể\nKiểu thực thể : tập hợp tất cả các thực thể có thuộc tính như nhau.\nTập thực thể: nhóm các thực thể  thuộc một kiểu trong CSDL tại một thời điểm.\nKiểu, tập thực thể được biểu thị bằng tên thực thể.\nKhóa của kiểu thực thể: là thuộc tính mà giá trị của nó khác nhau trên 2 thực thể bất kỳ thuộc kiểu thực thể đó.        \n\tKhóa để phân biệt các thực thể trong kiểu thực thể.\nKhóa có thể là 1 hay nhiều thuộc tính\nMột thực thể có thể có nhiều khóa\nThực thể yếu: thực thể không có khóa  \nVí dụ \nNhân viên (Manv,  SCMND, Họ tên, ngày sinh, nơi sinh, HSL)\nNhân thân(Manv,  Họ tên, quan hệ, ngày sinh)\n16\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 17,
+        "title": "d. Liên kết",
+        "text": "d. Liên kết\nLiên kết: Là mối quan hệ giữa 2 hay nhiều thực thể\nVí dụ giữa tập thực thể NHANVIEN và PHONGBAN có các liên kết:\nMột nhân viên thuộc một phòng ban nào đó\nMột phòng ban có  nhân viên làm quản lý\nTập liên kết: là tập hợp các liên kết (mối quan hệ ) giống nhau giữa các thực thể.\nKiểu liên kết giữa các kiểu thực thể: tập tất cả các liên kết giống nhau trên các thực thể  của kiểu thực thể.\n17\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 18,
+        "title": "d. Liên kết",
+        "text": "d. Liên kết\n18\n22:33\nKhoa CNTT\nSINHVIEN\nLOP\nĐăng_kí\nKiểu Liên kết (R)\nTập (thể hiện) các Liên kết\nSv1\nSv2\nSv3\nSv4\nSv5\nLớp1\nLớp2\nLớp3\nr1\nr2\nr3\nr4"
+      },
+      {
+        "slide_num": 19,
+        "title": "Cấp liên kết: Là số kiểu thực thể tham gia vào liên kết đó.",
+        "text": "Cấp liên kết: Là số kiểu thực thể tham gia vào liên kết đó.\nVí dụ: \nKiểu liên kết <Làm_việc> : giữa NHANVIEN và PHONGBAN   \nKiểu liên kết <Điều_kiện> : giữa  MONHOC với MONHOC\nKiểu liên kết <Bán_hàng>: (khách, hàng, nhân viên)\nLiên kết đệ quy: là  liên kết mà một kiểu thực thể tham gia liên kết với các vai trò khác nhau\nTrong liên kết đệ quy cần  nêu rõ tên vai trò tham gia của thực thể\n19\n22:30\nKhoa CNTT\nd. Liên kết\nNHANVIEN\nGiamsat\nGiám sát\nBị  giám sát"
+      },
+      {
+        "slide_num": 20,
+        "title": "20",
+        "text": "20\n22:30\nKhoa CNTT\nCác loại liên kết\nd. Liên kết"
+      },
+      {
+        "slide_num": 21,
+        "title": "e. Lược đồ ER",
+        "text": "e. Lược đồ ER\nLà đồ thị biểu diễn các tập thực thể, thuộc tính và các liên kiết  của cấu trúc CSDL theo mô hình ER:\nĐỉnh\n\n\n\n\n\n\n\nCung là đường nối giữa: \nThực thể và thuộc tính\nThuộc tính phức với thành phần\nMối liên kết và Thực thể\nMối liên kết với thuộc tính của nó\n21\n22:30\nKhoa CNTT\nChú ý\nKhông lưu trữ lược đồ ER trong CSDL\nLược đồ ER chỉ giúp thiết kế CSDL"
+      },
+      {
+        "slide_num": 22,
+        "title": "Ví dụ : Quản lý dự án",
+        "text": "Ví dụ : Quản lý dự án\n22\n22:30\nKhoa CNTT\ne. Lược đồ ER"
+      },
+      {
+        "slide_num": 23,
+        "title": "f. Ràng buộc trên kiểu liên kết",
+        "text": "f. Ràng buộc trên kiểu liên kết\nGiả sử có n kiểu thực thể E1, E2, …, En \nQuan hệ R trên  n tập thực thể E1, E2, …, En \nThể hiện của R là tập hữu hạn các danh sách rj=(e1, e2, …, en) với  ei là thực thể  Ei \nR  E1  E2  E3  …  En \nVí dụ: Xét quan hệ\n23\n(Tung, Nghien cuu)\n(Hang, Dieu hanh)\n(Vinh, Quan ly)\n22:30\nKhoa CNTT\nRàng buộc là những quy định để giới hạn số các tổ hợp có thể  của các thực thể tham gia, phản ánh đúng điều kiện của các thực thể  trong thế giới thực"
+      },
+      {
+        "slide_num": 24,
+        "title": "Ràng  buộc tỉ số: Xét mối quan hệ nhị phân R (cấp 2) giữa 2 tập thực thể A và B",
+        "text": "Ràng  buộc tỉ số: Xét mối quan hệ nhị phân R (cấp 2) giữa 2 tập thực thể A và B\n\nMột-Nhiều (1:n)\n\nMột-Một (1:1)\n\nNhiều-Một (n:1)\n\nNhiều-Nhiều\n      (n:m)\n24\n22:30\nKhoa CNTT\nf. Ràng buộc trên kiểu liên kết"
+      },
+      {
+        "slide_num": 25,
+        "title": "Ràng  buộc tỉ số: ví dụ",
+        "text": "Ràng  buộc tỉ số: ví dụ\n25\n22:30\nKhoa CNTT\n1\n1\nn\n1\nn\nm\nRàng buộc tỉ số lực lượng phản ánh tỉ lệ giữa số các thực thể của  kiểu thực thể tham gia liên kết với nhau\nf. Ràng buộc trên kiểu liên kết"
+      },
+      {
+        "slide_num": 26,
+        "title": "Ràng  buộc tỉ số: Bài tập",
+        "text": "Ràng  buộc tỉ số: Bài tập\n\n\tXác định mối quan hệ và xây dựng lược đồ ER đối với CSDL thư viện gồm các kiểu thực thể như sau:\n\n\tBANDOC (mã, họ tên, ngày sinh), \n\tTACGIA (mã, họ tên, địa chỉ), \n\tSACH(mã, tên sách), \n\tNXB(mã, tên nhà xb, địa chỉ), \n\tDONVI(mã, tên đơn vị)\nCác liên kết & ràng buộc:\nBạn đọc thuộc một đơn vị nào đó, có thể mượn tối đa 5 quyển sách, một quyển sách chỉ  cho 1 người mượn tại 1 thời điểm,\nMột tác giả có thể viết nhiều quyển sách, có thể đồng tác giả,\nNhà XB có thể xuất bản nhiều sách, mỗi sách chỉ do 1 nxb phát hành\n26\n22:30\nKhoa CNTT\nf. Ràng buộc trên kiểu liên kết"
+      },
+      {
+        "slide_num": 27,
+        "title": "Ràng buộc(min, max) chỉ định số lần mỗi thực thể  tham gia ít nhất và nhiều nhất vào thể hiện của R",
+        "text": "Ràng buộc(min, max) chỉ định số lần mỗi thực thể  tham gia ít nhất và nhiều nhất vào thể hiện của R\n\n\n\n\n(0,1) – không hoặc 1\n(1,1) – duy nhất 1\n(0,n) – không hoặc nhiều  \n(1,n) – một hoặc nhiều\n27\n22:30\nKhoa CNTT\nf. Ràng buộc trên kiểu liên kết"
+      },
+      {
+        "slide_num": 28,
+        "title": "Ví dụ",
+        "text": "Ví dụ\nMột phòng ban có nhiều nhân viên\n\n\nMột nhân viên chỉ thuộc 1 phòng ban \n\n\nMột nhân viên có thể  tham gia nhiều đề án hoặc không được phân công vào đề án nào, một dự án có nhiều nv\n\n\nMột nhân viên có thể là trưởng phòng của 1 phòng ban nào đó\n28\n22:30\nKhoa CNTT\n(1,n)\n(1,1)\n(0,n)\n(1,n)\n(0,1)\n(1,1)\nf. Ràng buộc trên kiểu liên kết"
+      },
+      {
+        "slide_num": 29,
+        "title": "Một loại thực thể có thể tham gia nhiều lần vào một  quan hệ với nhiều vai trò khác nhau",
+        "text": "Một loại thực thể có thể tham gia nhiều lần vào một  quan hệ với nhiều vai trò khác nhau\n29\n22:30\nKhoa CNTT\nf. Ràng buộc trên kiểu liên kết"
+      },
+      {
+        "slide_num": 30,
+        "title": "2. Ràng buộc tham gia và sự phụ thuộc tồn tại",
+        "text": "2. Ràng buộc tham gia và sự phụ thuộc tồn tại\nTrong ví dụ trên\nCó phải phòng nào cũng có người quản lý ?\nĐúng đó là ràng buộc tham gia toàn bộ của thực thể PHONGBAN trong liên kết (sự phụ thuộc tồn tại); Tham gia toàn bộ vào liên kết\nCó phải nhân viên nào cũng là trưởng phòng?\nSai  NHANVIEN tham gia bộ phân vào liên kết\n\nBiểu diễn\nRàng buộc tham gia toàn bộ   hoặc \nRàng buộc tham gia bộ phận\n30\n22:30\nKhoa CNTT\nRàng buộc tham gia chỉ ra  sự tồn tại của một kiểu thực thể phụ thuộc vào một kiểu thực thể khác  thông qua liên kết ?\nf. Ràng buộc trên kiểu liên kết"
+      },
+      {
+        "slide_num": 31,
+        "title": "- Có 2 loại ràng buộc:  Ràng buộc tỉ số lực lượng, được biểu diễn   bằng cặp  (k1:k2); Ràng buộc tham gia. Được gọi chun",
+        "text": "- Có 2 loại ràng buộc:  Ràng buộc tỉ số lực lượng, được biểu diễn   bằng cặp  (k1:k2); Ràng buộc tham gia. Được gọi chung là ràng buộc cấu trúc;\u000b- Có thể  dùng cặp (min, max) để phản ảnh ràng buộc cấu trúc\u000bmin = 0   ràng buộc tham gia bộ phận\u000bmin > 0   ràng buộc tham gia toàn bộ\n31\n22:30\nKhoa CNTT\nf. Ràng buộc trên kiểu liên kết"
+      },
+      {
+        "slide_num": 32,
+        "title": "g. Thuộc tính trên liên kết",
+        "text": "g. Thuộc tính trên liên kết\nThuộc tính trên  liên kết mô tả tính chất cho mối liên kết đó,\nThuộc tính này không thể gắn  với những thực thể tham gia vào mối quan hệ.\n32\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 33,
+        "title": "h. Thực thể yếu",
+        "text": "h. Thực thể yếu\nLà thực thể không có khóa,\nThực thể yếu phải tham gia vào mối liên kết mà trong đó có một tập thực thể chính (thực thể chủ)\nThực thể yếu được xác định bằng cách liên kết với các thực thể chủ (liên kết xác định)\nMô tả kiểu thực thể yếu và liên kết xác định bằng hình chữ nhật và hình thoi nét đôi\n33\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 34,
+        "title": "h. Thực thể yếu",
+        "text": "h. Thực thể yếu\nVí dụ 1\n34\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 35,
+        "title": "h. Thực thể yếu",
+        "text": "h. Thực thể yếu\nVí dụ 2\n35\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 36,
+        "title": "Các ký hiệu (trên Lược đồ ER)",
+        "text": "Các ký hiệu (trên Lược đồ ER)\n36\n22:30\nKhoa CNTT\nKiểu thực thể\nKiểu thực thể yếu\nKiểu liên kết\nKiểu liên kết xác định\nThuộc tính\nThuộc tính khóa\nThuộc tính đa trị\nThuộc tính phức hợp\nThuộc tính suy diễn được\nE1: tham gia bộ phận, E2 tham gia toàn bộ\nTỉ số lực lượng E1: E2 là M:N\nRàng buộc cấu trúc min, max của kiểu thực thể E tham gia trong R\nM"
+      },
+      {
+        "slide_num": 37,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nQuá trình thiết kế CSDL\nMô hình thực thể - liên kết\nThiết kế\nCác bước thiết kế\nNguyên lý thiết kế\nVí dụ\n37\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 38,
+        "title": "2.3 - Các bước thiết kế ER",
+        "text": "2.3 - Các bước thiết kế ER\nB1: Xác định các thực thể\nB2: Xác định các liên kết (quan hệ)\nB3: Xác định thuộc tính của thực thể và mối quan hệ\nB4: Xác định miền giá trị của thuộc tính\nB5: Xác  định thuộc tính khóa\nB6:  Xác định ràng buộc (tỉ số; min-max; ràng buộc tham gia) cho mối quan hệ và thể hiện chúng trên lược đồ thực thể - liên kết\n38\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 39,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nQuá trình thiết kế CSDL\nMô hình thực thể - quan hệ\nThiết kế\nVí dụ\nQuản lý đề án công ty\n39\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 40,
+        "title": "Ví dụ ‘Quản lý dự án công ty’",
+        "text": "Ví dụ ‘Quản lý dự án công ty’\nCSDL  quản lý dự án công ty:  theo dõi các thông tin liên quan đến nhân viên, phòng ban và dự án\nCty có nhiều đơn vị, mỗi đơn vị có tên duy nhất, mã đơn vị duy nhất, một trưởng phòng và ngày nhận chức. Mỗi đơn vị có thể ở nhiều địa điểm khác nhau.\nDự án có tên duy nhất, mã duy nhất, do 1 một phòng ban chủ trì và được triển khai ở 1 địa điểm.\nNhân viên có mã số, tên, địa chỉ, ngày sinh, giới tính và lương. Mỗi nhân viên làm việc ở 1 phòng ban, tham gia vào các đề án với số giờ làm việc khác nhau. Mỗi nhân viên đều có một người quản lý (giám sát) trực tiếp.\nMột nhân viên có thể có những người con được hưởng bảo hiểm theo nhân viên. Mỗi người con của nhân viên có tên, giới tính, ngày sinh.\n40\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 41,
+        "title": "Ví dụ ‘Quản lý dự án công ty’",
+        "text": "Ví dụ ‘Quản lý dự án công ty’\nCSDL  quản lý dự án công ty:  theo dõi các thông tin liên quan đến nhân viên, phòng ban và dự án\n41\n22:30\nKhoa CNTT\nBước 1: Xác định các thực thể, các thuộc tính, khóa\n- Nhân viên: Mã nhân viên, Họ tên, ngày sinh, giới tính, lương, địa chỉ\n- Đơn vị: Mã đơn vị, Tên đơn vị,  địa điểm\n- Con:  Tên,  ngày sinh, giới tính\n- Dự án: Mã dự án, tên dự án,  địa điểm"
+      },
+      {
+        "slide_num": 42,
+        "title": "Ví dụ",
+        "text": "Ví dụ\n42\nNHÂNVIÊN\nĐƠNVỊ\nCON\nDỰÁN\nMãsố\nTên\nĐịađiểm\nHọtên\nMã số\nHọđệm\nTên\nNgàysinh\nLương\nGiớitính\nĐịachỉ\nTên\nNgàysinh\nGiớitính\nTên\nMãsố\nĐịađiểm\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 43,
+        "title": "Ví dụ ‘Quản lý dự án công ty’",
+        "text": "Ví dụ ‘Quản lý dự án công ty’\nCSDL  quản lý dự án công ty:  theo dõi các thông tin liên quan đến nhân viên, phòng ban và dự án\n43\n22:30\nKhoa CNTT\nBước 2: Xác định các liên kết, rang buộc\n- Liên kết làm việc : Nhân viên và đơn vị; ràng buộc: mỗi nhân viên chỉ làm việc ở 1 đơn vị, một đơn vị có nhiều nhân viên,\n-…."
+      },
+      {
+        "slide_num": 44,
+        "title": "Ví dụ",
+        "text": "Ví dụ\n44\nNHÂNVIÊN\nĐƠNVỊ\nCON\nDỰÁN\nQuảnlý\nLàmviệccho\nKiểm soát\nLàm việc    trên\nGiám sát\nCó\nMãsố\nTên\nĐịađiểm\nHọtên\nMã số\nHọđệm\nTên\nNgàysinh\nLương\nGiớitính\nĐịachỉ\nNgày bắt đầu\nSốgiờ\nTên\nNgàysinh\nGiớitính\nTên\nMãsố\nĐịađiểm\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 45,
+        "title": "Ví dụ",
+        "text": "Ví dụ\n45\nNHÂNVIÊN\nĐƠNVỊ\nCON\nDỰÁN\nQuảnlý\nLàmviệccho\nKiểm soát\nLàm việc trên\nGiám sát\nCó\nMãsố\nTên\nĐịađiểm\nHọtên\nMã số\nHọđệm\nTên\nNgàysinh\nLương\nGiớitính\nĐịachỉ\nNgày bắt đầu\nSốgiờ\nTên\nNgàysinh\nGiớitính\nTên\nMãsố\nĐịađiểm\n(1,N)\n(1,1)\n(1,1)\n(0,1)\n(0,N)\n(0,N)\n(1,N)\n(0,N)\n(1,1)\n(0,N)\n(0,1)\n(1,1)\n22:30\nKhoa CNTT\n(Người giám sát)\n(Bị giám sát)\nBước 6"
+      },
+      {
+        "slide_num": 46,
+        "title": "Bài tập 1: Quản lý thi tuyển sinh",
+        "text": "Bài tập 1: Quản lý thi tuyển sinh\nHãy xác định các thực thể (thuộc tính, khóa) và các quan hệ, các ràng buộc; xây dựng lược đồ ER dựa trên mô tả sau về quản lý thi tuyển sinh:\n\nMỗi thí sinh có thể đăng kí 2 nguyện vọng (2 ngành)\nMỗi trường có thể có một hoặc hơn 1 ngành\nMỗi ngành thuộc 1 khối thi\nMỗi khối có 3 môn thi\nMỗi phòng thi có 2 cán bộ là giám thị\nMột giám sát (cũng là cán bộ) giám sát tối đa 6 giám thị\nMỗi phòng thi không quá 30 thí sinh, có địa điểm xác định\n46\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 47,
+        "title": "Bài tập 1: Quản lý thi tuyển sinh",
+        "text": "Bài tập 1: Quản lý thi tuyển sinh\n47\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 48,
+        "title": "Bài tập 1: Quản lý thi tuyển sinh",
+        "text": "Bài tập 1: Quản lý thi tuyển sinh\n48\n22:30\nKhoa CNTT\nTHUOC\nĐANGKI\nTHUOC\nTHUOC\nCO\nCOI\nTHI\nGSAT\n(1,1)\n(1,30)\n(1,2)\n(0,n)\n(1,1)\n(1,n)\n(1,1)\n(1,n)\n(3,3)\n(1,1)\n(0,6)\n(0,n)\n(2,2)\n(0,1)\n(0,1)\n(0,6)\nĐiểm\nKHUVUC\nTHUOC\n(1,1)\n(0,n)"
+      },
+      {
+        "slide_num": 49,
+        "title": "Bài tập",
+        "text": "Bài tập\nBài 2. Xây dựng lược đồ theo mô hình ER cho CSDL TRƯỜNG\nBài 3. Xây dựng lược đồ theo mô hình ER cho CSDL THƯ VIỆN\nBài 4. Xây dựng lược đồ theo mô hình ER cho CSDL BÁN HÀNG\n49\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 50,
+        "title": "Bài tập – Kiểm tra - đề 2",
+        "text": "Bài tập – Kiểm tra - đề 2\nBài tập 2: Hãy xây dựng lược đồ ER cho CSDL “TRƯỜNG”, dựa trên các ghi chép sau:\nTrường được chia thành các trường con: Trường KHTN, Trường KHXH, Trường Công nghệ,…. Mỗi trường có một hiệu trưởng quản lý. Mỗi hiệu trưởng quản lý một trường. \nMỗi trường có nhiều khoa. Chẳng hạn, trường KHTN có các khoa Toán, Lý, Hoá,… Mỗi một khoa chỉ thuộc về một trường. Thông tin về Khoa gồm Mã khoa, tên khoa, địa chỉ, số điện thoại, tên trường.  \nMỗi Khoa cung cấp nhiều môn học. Mỗi môn học gồm có Tên môn học, mã số, số số tín chỉ,  Khoa quản lý.\nMỗi môn học có thể có nhiều học phần.Mỗi học phần được lưu giữ bằng các thông tin: Mã học phần, Tên môn học, Tên giáo viên dạy, học kỳ.\nMỗi khoa có nhiều giáo viên làm việc, nhưng mỗi giáo viên chỉ làm việc cho một khoa. Mỗi một khoa có một chủ nhiệm khoa, đó là một giáo viên. \nMỗi giáo viên có thể dạy nhiều nhất là 4 học phần và cũng có thể không dạy học phần nào. \nMỗi sinh viên phải học nhiều học phần.\nMỗi một khoa có nhiều sinh viên, mỗi sinh viên chỉ thuộc về một khoa. Thông tin về mỗi sinh viên gồm: Mã sinh viên, Họ tên, địa chỉ, ngày sinh, giới tính, Lớp (khóa học), Tên Khoa. \nMỗi sinh viên có một người giám sát (giáo viên chủ nhiệm), người đó là một giáo viên. \nSau mỗi học kỳ sẽ có một danh sách điểm để phân loại. Nó gồm các thông tin: Mã sinh viên, mã học phần,  điểm của học phần.\n50\n22:30\nKhoa CNTT"
+      },
+      {
+        "slide_num": 51,
+        "title": "Bài tập 3: Hãy xây dựng lược đồ ER cho CSDL “THƯ VIỆN”, dựa trên mô tả  sau:",
+        "text": "Bài tập 3: Hãy xây dựng lược đồ ER cho CSDL “THƯ VIỆN”, dựa trên mô tả  sau:\nThư viện được chia ra thành các nhánh. Thông tin về mỗi nhánh gồm có Mã nhánh, Tên nhánh và Địa chỉ.\nMỗi cuốn sách trong thư viện có các thông tin về Mã sách, Tên sách Nhà xuất bản và Tác giả…\nMột tác giả có thể viết nhiều cuốn sách. Một cuốn sách có thể có nhiều tác giả viết.\nMột nhà xuất bản xuất bản nhiều cuốn sách. Một cuốn sách do một nhà xuất bản xuất bản. Thông tin về Nhà xuất bản gồm có Tên, Địachỉ và Sốđiệnthoại.\nMột cuốn sách có thể có nhiều bản sao được lưu trữ tại các nhánh. Thông tin về bản sao sách gồm Mã sách, số các bản sao.\nThư viện có những người mượn sách. Thông tin về những người mượn sách gồm có Số thẻ, Họ tên, Địa chỉ  và Số điện thoại.\nSách được cho các người mượn mượn tại các nhánh. Thông tin về một lần mượn gồm có Ngày mượn và ngày trả.\n51\n22:30\nKhoa CNTT\nBài tập – Kiểm tra, Đề số 3"
+      },
+      {
+        "slide_num": 52,
+        "title": "Bài 4: Hãy xây dựng lược đồ Thực thể - liên kết  cho cơ sở dữ liệu BÁN_HÀNG của một công ty, dựa trên mô tả  sau :",
+        "text": "Bài 4: Hãy xây dựng lược đồ Thực thể - liên kết  cho cơ sở dữ liệu BÁN_HÀNG của một công ty, dựa trên mô tả  sau :\nThông tin về HÀNG_HÓA bao gồm Mã hàng, Tên mặt hàng, Nhà cung cấp, Đơn giá.\nThông tin về NHÀ_CUNG_CẤP gồm Mã nhà cung cấp, Tên nhà cung cấp, Địa chỉ, Số điện thoại (có  nhiều số), Họ và tên người đại diện.\nMột mặt hàng được cung cấp bởi một nhà cung cấp, nhưng một nhà cung cấp có thể cung cấp nhiều mặt hàng (lưu ý các mặt hàng của các nhà cung cấp có thể trùng tên)\nCông ty có nhiều NHÂN_VIÊN bán hàng, mỗi Nhân viên có các thông tin : Mã nhân viên, Họ và tên, ngày sinh, Số điện thoại di động (1 số).\nCứ 5 nhân viên bán hàng thì có một người nhóm trưởng (cũng là nhân viên bán hàng).\nKhi bán hàng, nhân viên phải ghi các thông tin: Mã nhân viên, Mã hàng, Số lượng, Ngày bán\n52\n22:30\nKhoa CNTT\nBài tập-Kiểm tra đề số 4"
+      }
+    ]
+  },
+  "C2_2.pptx": {
+    "type": "pptx",
+    "total": 26,
+    "slides": [
+      {
+        "slide_num": 1,
+        "title": "Tại sao cần EER? ",
+        "text": "Tại sao cần EER? \n Ví dụ:  NHANVIEN gồm các loại: nhân viên cơ hữu (hưởng lương tháng), nhân viên hưởng  theo thời gian, kỹ sư, thư kí,..\n2.3- Mô hình thực thể - Liên kết mở rộng\n(EER:Enhanced Entity-Relationship)\nNHANVIEN\n09:10\n1\nNhập môn CSDL"
+      },
+      {
+        "slide_num": 2,
+        "title": "Tại sao cần EER? ",
+        "text": "Tại sao cần EER? \nCác khái niệm cơ bản của ER không đủ để biểu diễn một số các ứng dụng phức tạp,\nCần thêm một số khái niệm để tăng khả năng mô tả đối tượng và mối quan hệ rõ ràng và chính xác hơn,\nEER là sự mở rộng của ER bằng cách thêm vào một số các khái niệm trừu tượng (abstraction) và thể hiện các ràng buộc rõ ràng hơn.\n2.3 - Mô hình thực thể - Liên kết mở rộng\n(EER:Enhanced Entity-Relationship)\nNhập môn Cơ sở Dữ liệu\n09:10\n2\nNhập môn CSDL"
+      },
+      {
+        "slide_num": 3,
+        "title": "2.3 - Mô hình thực thể - liên kết mở rộng",
+        "text": "2.3 - Mô hình thực thể - liên kết mở rộng\nMột số khái niệm cơ bản của EER\nLớp cha/con\nChuyên biệt hóa  và Tổng quát hóa\nCác ràng buộc trên chuyên biệt hóa\nPhân cấp chuyên biệt và lưới\nKiểu hợp (Union type)\n09:10\n3\nNhập môn CSDL\nNhập môn Cơ sở Dữ liệu"
+      },
+      {
+        "slide_num": 4,
+        "title": "Lớp cha/lớp con",
+        "text": "Lớp cha/lớp con\n09:10\n4\nNhập môn CSDL\nNhập môn Cơ sở Dữ liệu\n2.3 - Mô  hình thực thể - liên kết mở rộng\nlop\ndtb\ndonvi\nhesoluong\nCác  “thực thể” SINHVIEN và “thực thể” GIAOVIEN đều có các thuộc tính của  thực thể NGUOI.\nTất cả các  “thực thể” SINHVIEN và “thực thể” GIAOVIEN là tập con của thực thể NGUOI.\nSINHVIEN, GIAOVIEN là một loại con của NGUOI"
+      },
+      {
+        "slide_num": 5,
+        "title": "Lớp cha/lớp con",
+        "text": "Lớp cha/lớp con\n09:10\n5\nLớp cha: là kiểu thực thể bao gồm các thực thể mang đặc tính chung (tổng quát) cho các nhóm thực thể. \nLớp con: là các thực thể thành viên của lớp cha nhưng có vai trò riêng biệt (chuyên biệt).\nMột thực thể không thể tồn tại chỉ trong vai trò của lớp con.\nNhập môn CSDL\nLớp con: Quản lý, kế toán, thư ký….\nLớp cha: Nhân viên"
+      },
+      {
+        "slide_num": 6,
+        "title": "Tính kế thừa",
+        "text": "Tính kế thừa\nLớp con thừa kế thuộc tính và quan hệ của lớp cha  và có thể có một số thuộc tính và quan hệ của riêng nó\nLợi ích\nTránh mô tả các định nghĩa trùng lặp nhau\nThêm thông tin về ngữ nghĩa vào trong thiết kế\n\nMối quan hệ giữa lớp cha và lớp con gọi là kiểu liên kết ISA, là liên kết 1:1\nKí hiệu\n09:10\n6\nNhập môn CSDL\nLOPCHA\nLOPCON\n"
+      },
+      {
+        "slide_num": 7,
+        "title": "Ví dụ: Lớp Nhân viên và lớp Người quản lý",
+        "text": "Ví dụ: Lớp Nhân viên và lớp Người quản lý\n09:10\n7\nNhập môn CSDL"
+      },
+      {
+        "slide_num": 8,
+        "title": "Ví dụ",
+        "text": "Ví dụ\n09:10\n8\nEMPLOYEE\nSECRETARY\nTECHNICIAN\n\n\nd\nENGINEER\n\nSECRETARY\nFname, Lname, SSN, Addr ,TypingSpeed\nTECHNICIAN\nFname, Lname, SSN, Addr, TGrade\nENGINEER\nFname, Lname, SSN, Addr, EngType\nEMPLOYEE\nFname, Lname, SSN, Addr\nNhập môn CSDL"
+      },
+      {
+        "slide_num": 9,
+        "title": "Chuyên biệt hóa (cụ thể hóa)",
+        "text": "Chuyên biệt hóa (cụ thể hóa)\nLà quá trình xác định tập các kiểu thực thể lớp con của một kiểu thực thể (lớp cha)\nTập các lớp con được tạo ra dựa trên một số các đặc tính riêng biệt nào đó của các thực thể trong lớp cha\n\nVí dụ:\n09:10\n9\nNhập môn CSDL\nNV_KYTHUAT\nNHANVIEN\nKYSU\nKETOAN\nd\nNghề nghiệp\n\n\n"
+      },
+      {
+        "slide_num": 10,
+        "title": "Tổng quát hóa",
+        "text": "Tổng quát hóa\nQuá trình xác định lớp cha từ các lớp con có chung một số thuộc tính.\nMột số  thực thể của các lớp chia sẻ cùng một số thuộc tính chung được nhóm lại vào một lớp cha.\nVí dụ\nSinh viên và Giáo viên chia sẻ nhau chung một số thuộc tính như tên, tuổi, địa chỉ, giới tính, ….\nNhóm lại thành 1 lớp cha: Người\n\nChuyên biệt hóa và Tổng quát hóa là 2 cách tiếp ngược nhau \nTổng quát hóa = Bottom up\nChuyên biệt hóa = Top down\n09:10\n10\nNhập môn CSDL"
+      },
+      {
+        "slide_num": 11,
+        "title": "Ví dụ",
+        "text": "Ví dụ\n09:10\n11\nNhập môn CSDL\nCụ thể hóa\nTổng quát hóa"
+      },
+      {
+        "slide_num": 12,
+        "title": "Ràng buộc rời rạc",
+        "text": "Ràng buộc rời rạc\nRàng buộc rời rạc(disjointness constraint) mô tả quan hệ giữa lớp cha và các lớp con; các lớp con phải độc lập hoàn toàn với nhau(một thực thể là thành viên của lớp cha chỉ thuộc một lớp con được chuyên biệt hóa)\n\nTrong lược đồ EER, ràng buộc rời rạc được ký hiệu bởi chữ d (disjoint) nằm trong vòng tròn\n09:10\n12\nNhập môn CSDL\nd"
+      },
+      {
+        "slide_num": 13,
+        "title": "Ví dụ",
+        "text": "Ví dụ\n09:10\n13\n\nd\nSALARIED_EMP\nHOURLY_EMP\n\nDisjoint subclasses\nDisjoint subclasses\nNhập môn CSDL"
+      },
+      {
+        "slide_num": 14,
+        "title": "Ràng buộc chồng chéo",
+        "text": "Ràng buộc chồng chéo\nRàng buộc chồng chéo (Overlaping constraint) cho biết quan hệ giữa lớp cha và các thực thể ở lớp con; các thực thể lớp con là không tách biệt (một thực thể có thể là thành viên của nhiều lớp con theo sự chuyên biệt hóa)\n\nTrong lược đồ EER, ràng buộc này được mô tả bởi chữ o (overlap) bên trong vòng tròn\n09:10\n14\nNhập môn CSDL\no"
+      },
+      {
+        "slide_num": 15,
+        "title": "Ràng buộc chồng chéo",
+        "text": "Ràng buộc chồng chéo\n09:10\n15\nNhập môn CSDL\nNhập môn Cơ sở Dữ liệu\n2.3 - Mô hình thực thể - liên kết mở rộng\nNHANVIEN\ndonvi\nhesoluong\nO\n\n"
+      },
+      {
+        "slide_num": 16,
+        "title": "Ràng buộc đầy đủ",
+        "text": "Ràng buộc đầy đủ\nRàng buộc đầy đủ (completeness constraint) bao gồm\nRàng buộc toàn bộ (total) cho biết tất cả các thực thể trong lớp cha phải là thành viên của ít nhất một lớp con nào đó trong chuyên biệt \nThể hiện bằng một đường nét đôi nối giữa lớp cha và vòng tròn chuyên biệt\nRàng buộc từng phần (partial) cho phép một thực thể ở lớp cha có thể không thuộc bất kỳ một lớp con nào trong chuyên biệt\nThể hiện bằng đường nét đơn\n09:10\n16\nNhập môn CSDL"
+      },
+      {
+        "slide_num": 17,
+        "title": "Ví dụ ràng buộc đầy đủ",
+        "text": "Ví dụ ràng buộc đầy đủ\n09:10\n17\nNhập môn CSDL"
+      },
+      {
+        "slide_num": 18,
+        "title": "Có  4 khả năng ràng buộc",
+        "text": "Có  4 khả năng ràng buộc\nDisjoint, total\nDisjoint, partial\nOverlapping, total\nOverlapping, partial\nCác ràng buộc độc lập với nhau\n09:10\n18\nNhập môn CSDL"
+      },
+      {
+        "slide_num": 19,
+        "title": "Chuyên biệt phân cấp và lưới",
+        "text": "Chuyên biệt phân cấp và lưới\nTrong chuỗi quan hệ chuyên biệt, một lớp con có thể  lại là lớp cha của lớp khác :\nPhân cấp (hierarchy) là ràng buộc trong đó tất cả các lớp con chỉ tham gia vào 1 liên kết lớp cha/con (thừa kế đơn ánh)\nLưới (Lattice) là ràng buộc trong đó lớp con có thể tham gia vào nhiều hơn 1 liên kết cha/con (thừa kế bội)\nLớp con không chỉ kế thừa thuộc tính của lớp cha trực tiếp mà còn kế thừa thuộc tính của lớp bên trên (cha của lớp cha nó)\n09:10\n19\nNhập môn CSDL"
+      },
+      {
+        "slide_num": 20,
+        "title": "Ví dụ chuyên biệt phân cấp",
+        "text": "Ví dụ chuyên biệt phân cấp\n09:10\n20\nNhập môn CSDL"
+      },
+      {
+        "slide_num": 21,
+        "title": "Ví dụ Chuyên biệt lưới",
+        "text": "Ví dụ Chuyên biệt lưới\n09:10\n21\nNhập môn CSDL"
+      },
+      {
+        "slide_num": 22,
+        "title": "Kiểu hợp (union)",
+        "text": "Kiểu hợp (union)\nTrong chuyên biệt lưới lớp con thừa kế từ nhiều lớp cha, thừa hưởng tất cả các thuộc tính của lớp cha\nLàm thế nào để mô tả quan hệ lớp con/cha của 1 con với một tập các lớp cha?\nVí dụ:\nCSDL đăng ký xe có người sở hữu là cá nhân, công ty hoặc ngân hàng\n09:10\n22\nNhập môn CSDL"
+      },
+      {
+        "slide_num": 23,
+        "title": "Ví dụ",
+        "text": "Ví dụ\n09:10\n23"
+      },
+      {
+        "slide_num": 24,
+        "title": "Tóm tắt",
+        "text": "Tóm tắt\nTại sao ER phải mở rộng thành EER\nChuyên biệt hóa và tổng quát hóa\nCách thể hiện hệ thống phân cấp trên lược đồ EER\nCách thể hiện các ràng buộc\n09:10\n24\nNhập môn CSDL"
+      },
+      {
+        "slide_num": 25,
+        "title": "Bài tập: Xây dựng lược đồ EER cho cơ sở dữ liệu ĐAOTAO (xác định các thực thể, ",
+        "text": "Bài tập: Xây dựng lược đồ EER cho cơ sở dữ liệu ĐAOTAO (xác định các thực thể, \n                      quan hệ, ràng buộc) được mô tả như sau:\nTrường có nhiều khoa:  Thông tin về Khoa gồm mã khoa, tên khoa, địa chỉ, số điện thoại. \nMỗi Khoa quản lý nhiều môn học. Mỗi môn học gồm có  tên môn học, mã số, số  tín chỉ. \nCán bộ của khoa có thể là Hành chính hoặc Giảng viên; Giảng viên có thể là Cơ hữu hoặc trợ giảng (trợ giảng là học viên cao học). Mỗi khoa có nhiều cán bộ làm việc, nhưng mỗi cán bộ chỉ làm việc cho một khoa. Mỗi một khoa có một chủ nhiệm khoa, đó là một Giảng viên. \nMỗi giáo viên có thể dạy nhiều nhất là 4 môn học và cũng có thể không dạy  môn học  nào. \nHọc viên có thể là sinh viên ĐH hoặc cao học, mỗi học viên phải học nhiều môn học . \nMỗi một khoa có nhiều học viên, mỗi học viên chỉ thuộc về một khoa. \nMỗi sinh viên đại học có một giáo viên hướng dẫn, một giáo viên có thể hướng dẫn nhiều sinh viên.\n09:10\n25\nNhập môn CSDL"
+      },
+      {
+        "slide_num": 26,
+        "title": "Tài liệu  tham khảo",
+        "text": "Tài liệu  tham khảo\nGiáo trình CSDL\nChương 2, \n\nFundamentals of Database system\nChapter 4\n09:10\n26\nNhập môn CSDL"
+      }
+    ]
+  },
+  "C3_1.pptx": {
+    "type": "pptx",
+    "total": 43,
+    "slides": [
+      {
+        "slide_num": 1,
+        "title": "Chương 3",
+        "text": "Chương 3\nMô hình dữ liệu quan hệ\nDo tiến sĩ E. F. Codd đề xuất\n“A Relation Model for Large Shared Data Banks”, Communications of ACM, 6/1970\n09:39\n1\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 2,
+        "title": "Giới thiệu",
+        "text": "Giới thiệu\nCung cấp một cấu trúc dữ liệu đơn giản và đồng bộ,\nCó nền tảng lý thuyết vững chắc: Lý thuyết tập hợp,\nLà cơ sở của nhiều  HQT CSDL thương mại:  Oracle, DB2,  SQL Server…\nMô hình quan hệ  biểu diễn các  sự kiện về thực thể / hoặc các  sự kiện về liên kết dưới dạng các quan hệ.\n09:39\n2\nKhoa Công nghệ thông tin\nMỗi  (trạng thái) quan hệ được biểu thị như bảng  các  dữ liệu gồm các dòng, các cột cùng các ràng buộc.\nMỗi  dòng  là tập các giá trị là dữ liệu về một thực thể hay các sự kiện có liên quan (liên kết) về thực thể.\nMỗi cột là  một thuộc tính."
+      },
+      {
+        "slide_num": 3,
+        "title": "Mô hình dữ liệu quan hệ",
+        "text": "Mô hình dữ liệu quan hệ\nNội dung chính\nCác khái niệm của mô hình dữ liệu quan hệ\nCác đặc trưng của quan hệ\nChuyển lược đồ ER sang lược đồ quan hệ\nCác phép toán trên quan hệ (Đại số quan hệ)\n09:39\n3\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 4,
+        "title": "Nội dung",
+        "text": "Nội dung\n1. Các khái niệm cơ bản của mô hình quan hệ\nQuan hệ (Relation)\nThuộc tính (Attribute)\nLược đồ (Schema)\nBộ (Tuple)\nMiền giá trị (Domain)\n09:39\n4\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 5,
+        "title": "1.1 -  Quan hệ",
+        "text": "1.1 -  Quan hệ\nCác thông tin lưu trữ trong CSDL được tổ chức thành bảng (table) 2 chiều gọi là quan hệ\n09:39\n5\nTên quan hệ là NHANVIEN\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 6,
+        "title": "Quan hệ gồm",
+        "text": "Quan hệ gồm\nTên\nTập hợp các cột\nĐược đặt tên\nCó kiểu dữ liệu\nCố định\nTập hợp các dòng\nThay đổi theo thời gian\n\nMột dòng ~ Một thực thể, hay một sự kiện liên quan \nMột cột (trường) ~ Một thuộc tính\nQuan hệ ~ Tập thực thể, tập sự kiện\n09:39\n6\nKhoa Công nghệ thông tin\n1.1 -  Quan hệ\nNHANVIEN(HONV, TENNV, NS, DIACHI, GT, LUONG, PHG)\nCấp của quan hệ là số thuộc tính trong quan hệ."
+      },
+      {
+        "slide_num": 7,
+        "title": "1.2- Thuộc tính",
+        "text": "1.2- Thuộc tính\nTên các cột của quan hệ\nMô tả ý nghĩa cho các giá trị tại cột đó\n\n\n\n\n\n\nTất cả các dữ liệu trong một cột đều có cùng kiểu dữ liệu, các giá trị là nguyên tố\n09:39\n7\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 8,
+        "title": "1.3 - Miền giá trị (domain)",
+        "text": "1.3 - Miền giá trị (domain)\nLà tập các giá trị nguyên tố  (không thể phân chia trong phạm vi mô hình quan hệ) gắn với một thuộc tính.\nKí hiệu Dom(A) là miền giá trị của A; tức là các giá trị A có thể nhận.\nKiểu dữ liệu cơ sở \nChuỗi ký tự (string) \nSố (integer),..\n      Các kiểu dữ liệu phức tạp: Tập hợp (set), Danh sách (list), Mảng (array), \nVí dụ\nTENNV: string\nLUONG: integer; Điểm: 0...10;\n09:39\n8\nKhông được chấp nhận\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 9,
+        "title": "1.4- Bộ (tuple)",
+        "text": "1.4- Bộ (tuple)\nThể hiện dữ liệu cụ thể các thuộc tính của 1 một thực thể hay sự kiện liên quan trong quan hệ,\nLà các dòng(dữ liệu) của quan hệ (trừ dòng tiêu đề - tên của các thuộc tính)\n09:39\n9\n<Tung, Nguyen, 12/08/1955, 638 NVC, Q5, Nam, 40000, 5>\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 10,
+        "title": "1.4- Bộ (tuple)",
+        "text": "1.4- Bộ (tuple)\n09:39\n10\nKhoa CNTT\nSINHVIEN\nSV_DIEM\nMONHOC"
+      },
+      {
+        "slide_num": 11,
+        "title": "1.5 - Lược đồ quan hệ",
+        "text": "1.5 - Lược đồ quan hệ\nLược đồ quan hệ: Kí hiệu biểu diễn một quan hệ\nTên của quan hệ\nTên của tập thuộc tính\n…\n09:39\n11\nNHANVIEN(MANV, TENNV, HONV, NS, DIACHI, GT, LUONG, PHG)\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 12,
+        "title": "1.5 - Lược đồ quan hệ",
+        "text": "1.5 - Lược đồ quan hệ\n09:39\n12\nKhoa Công nghệ thông tin\nMột  lược đồ quan hệ R trên tập các thuộc tính A1, A2,.., An  Kí hiệu là R(A1, A2,.., An)\nMột quan hệ (hay trạng thái quan hệ) r, kí hiệu là r(R) của lược đồ R là tập con của D1D2 .. Dn;  Với Di = Dom (Ai); \nHay nói các khác, Quan hệ là tập hợp các n-bộ (n-tuples) \nTức là r(R)  = { t1, t2,..,tk | ti = <d1,d2,..,dn>; với  di   Di}\nHoặc R(, F) với  : tập các thuộc tính; F: tập các ràng  buộc"
+      },
+      {
+        "slide_num": 13,
+        "title": "1.5 - Lược đồ quan hệ",
+        "text": "1.5 - Lược đồ quan hệ\n09:39\n13\nKhoa Công nghệ thông tin\nVí dụ, giả sử có:  SBD ={QHI01,QHI02,QHI03}; \n                         HT={Nguyễn Đình Minh, Vũ Vân Long, Ngô Đức Dũng}, \n                         NS={01/01/2001, 13/5/2002, 19/08/1998, 25/12/1995}\nt1=<QHI02, Nguyễn Đình Minh, 25/12/1995>; \nt2=<QHI01, Vũ Vân Long, 01/01/2001>; \nt3=<QHI03, Ngô Đức Dũng, 19/08/1998>\nr={t1,t2,t3} tức là\nTHISINH(SBD,HT,NS)\nLược đồ\nQuan hệ\nCác bộ"
+      },
+      {
+        "slide_num": 14,
+        "title": "1.6 - Lược đồ CSDL",
+        "text": "1.6 - Lược đồ CSDL\nLược đồ cơ sở dữ liệu quan hệ là tập các lược đồ quan hệ và các ràng buộc\n09:39\n14\nKhoa Công nghệ thông tin\nNHANVIEN(MANV, TENNV, HONV, NS, DIACHI, GT, LUONG, PHG)\nPHONGBAN(MAPHG, TENPHG, TRPHG, NG_NHANCHUC)\nDIADIEM_PHG(MAPHG, DIADIEM)\nTHANNHAN(MA_NVIEN, TENTN, GT, NS, QUANHE)\nDEAN(TENDA, MADA, DDIEM_DA, PHONG)\nLược đồ cơ sở dữ liệu: Cty"
+      },
+      {
+        "slide_num": 15,
+        "title": "09:39",
+        "text": "09:39\n15\nMô hình quan hệ\nSự kiện về thực thể\nSự kiện về liên kết\nCác quan hệ\nKhoa Công nghệ thông tin\nThế giới thực\nMô hình hóa"
+      },
+      {
+        "slide_num": 16,
+        "title": "Tóm tắt một số ký hiệu thường sử dụng",
+        "text": "Tóm tắt một số ký hiệu thường sử dụng\nTên quan hệ: R, S, P, Q,..\nThuộc tính : A1, A2, …, An \nMiền giá trị của thuộc tính A: DOM(A) \nLược đồ quan hệ R cấp n: R(A1, A2, …, An)\n    Chú ý: khi biểu thị một lược đồ quan hệ, nếu ngoài mô tả cấu trúc còn quan tâm tới các ràng buộc ta dùng kí hiệu R(, F), (: các thuộc tính, F: các ràng buộc) \nBộ:  t, u, v,..\nTrạng thái của lược đồ quan hệ R: r(R)\nGiá trị tại thuộc tính A của bộ  t : t.A hay t[A]\n09:39\n16\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 17,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nCác khái niệm của mô hình quan hệ\nCác đặc trưng của quan hệ\n3.    Ràng buộc toàn vẹn\nSiêu khóa (Super key)\nKhóa\nKhóa chính (Primary key)\nTham chiếu\nKhóa ngoại (Foreign key)\n4. Chuyển lược đồ ER sang lược đồ quan hệ\n09:39\n17\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 18,
+        "title": "2. Các đặc trưng của quan hệ",
+        "text": "2. Các đặc trưng của quan hệ\nThứ tự các bộ trong quan hệ là không quan trọng\n\n\n\n\n\nThứ tự giữa các giá trị trong một bộ là quan trọng\n09:39\n18\nBộ  <Nguyen, Tung, 12/08/1955, 638 NVC Q5, Nam, 40000, 5>\nkhác\nBộ  <Nguyen, Tung, 12/08/1955, 638 NVC Q5, 40000, Nam, 5>\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 19,
+        "title": "Mỗi giá trị trong một bộ:",
+        "text": "Mỗi giá trị trong một bộ:\nHoặc là một giá trị nguyên tố\nHoặc là một giá trị rỗng (null)\n\nKhông có hai bộ nào trùng nhau\n09:39\n19\nKhoa Công nghệ thông tin\n2. Các đặc trưng của quan hệ"
+      },
+      {
+        "slide_num": 20,
+        "title": "Ràng buộc (Constraint):  Là những qui tắc, điều kiện cần được thỏa mãn trong mọi thể hiện của CSDL quan hệ",
+        "text": "Ràng buộc (Constraint):  Là những qui tắc, điều kiện cần được thỏa mãn trong mọi thể hiện của CSDL quan hệ\nRàng buộc được mô tả khi định nghĩa lược đồ quan hệ\nRàng buộc cần  được kiểm tra khi các quan hệ có thay đổi\nCác loại: Ràng buộc miền, ràng buộc khóa, ràng buộc toàn vẹn thực thể, ràng buộc toàn vẹn tham chiếu.\n09:39\n20\nKhoa Công nghệ thông tin\n3. Ràng buộc"
+      },
+      {
+        "slide_num": 21,
+        "title": "a. Ràng buộc miền: giá trị của bộ t tại thuộc tính A (t[A]) phải thuộc Dom(A).",
+        "text": "a. Ràng buộc miền: giá trị của bộ t tại thuộc tính A (t[A]) phải thuộc Dom(A).\nb. Ràng buộc khóa : giả sử có R(A1,..An)\nSiêu khóa:   t1 t2  r (R), tồn tại tập thuộc tính SK sao cho t1[SK]  t2[SK], SK gọi là siêu khóa \ntức là:  tập thuộc tính có thể phân biệt các bộ\nKhóa: K R, K ; K là khóa nếu thỏa đồng thời 2 điều kiện\n  K là một siêu khóa của R\n   \n Hay khóa  là siêu khóa tối thiểu\n09:39\n21\nKhoa Công nghệ thông tin\n3. Ràng buộc"
+      },
+      {
+        "slide_num": 22,
+        "title": "Nhận xét",
+        "text": "Nhận xét\nGiá trị của khóa dùng để xác định một bộ trong quan hệ\nKhóa là một đặc trưng của lược đồ quan hệ, không phụ thuộc vào thể hiện quan hệ\nKhóa được xây dựng dựa vào ý nghĩa của một số thuộc tính trong quan hệ\nLược đồ quan hệ có thể có nhiều khóa, gọi là khóa dự tuyển\n\nb. Ràng buộc khóa:\n09:39\n22\nKhoa Công nghệ thông tin\nGiá trị Khóa phải duy nhất trên các bộ"
+      },
+      {
+        "slide_num": 23,
+        "title": "Khóa chính",
+        "text": "Khóa chính\nXét quan hệ: \n\nCó 2 khóa\nMANV\nHONV, TENNV, NS\nKhi cài đặt quan hệ\nChọn một trong các khóa dự tuyển làm cơ sở để nhận biết các bộ (khóa được chọn có ít thuộc tính nhất)\nKhóa được  chọn gọi là khóa chính (PK - primary key)\n09:39\n23\nNHANVIEN(MANV, TENNV, HONV, NS, DCHI, GT, LUONG, PHG)\nNHANVIEN(MANV, TENNV, HONV, NS, DCHI, GT, LUONG, PHG)\nKhoa Công nghệ thông tin\nc. Ràng buộc toàn vẹn thực thể: Khóa  chính luôn phải có giá trị xác  định"
+      },
+      {
+        "slide_num": 24,
+        "title": "d. Ràng buộc tham chiếu",
+        "text": "d. Ràng buộc tham chiếu\nNếu 1 bộ trong quan hệ R, tại thuộc tính A nhận một giá trị từ một thuộc tính B của quan hệ S, ta gọi R tham chiếu đến S\n09:39\n24\nKhoa Công nghệ thông tin\nBộ được tham chiếu phải tồn tại trước"
+      },
+      {
+        "slide_num": 25,
+        "title": "Khóa ngoài",
+        "text": "Khóa ngoài\nXét 2 lược đồ R1 và R2 \nGọi FK là tập thuộc tính (khác rỗng) của R1 ; PK là khóa chính của R2\nFK là khóa ngoài (Foreign Key) của R1 khi:\nCác thuộc tính trong R1.FK  có cùng miền giá trị với R2.PK \nGiá trị tại FK của một bộ t1R1 (t1[FK])\nHoặc bằng  giá trị tại khóa chính của một bộ t2R2 (t2[PK])\nHoặc  t1[FK] = \nVí dụ\n09:39\n25\nNHANVIEN(MANV, TENNV, HONV, NS, DCHI, GT, LUONG, PHG)\nPHONGBAN(TENPHG, MAPHG)\nKhóa chính\nKhóa ngoài\nQuan hệ tham chiếu\nQuan hệ bị tham chiếu\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 26,
+        "title": "Nhận xét",
+        "text": "Nhận xét\nTrong một lược đồ quan hệ, một thuộc tính vừa có thể tham gia vào khóa chính, vừa tham gia vào khóa ngoài\nKhóa ngoài có thể tham chiếu đến khóa chính trên cùng 1 lược đồ quan hệ \nCó thể có nhiều khóa ngoài tham chiếu đến cùng một khóa chính. \nRàng buộc tham chiếu = Ràng buộc khóa ngoài\n09:39\n26\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 27,
+        "title": "Biểu diễn ràng buộc tham chiếu",
+        "text": "Biểu diễn ràng buộc tham chiếu\n09:39\n27\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 28,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nCác khái niệm của mô hình quan hệ\nCác đặc trưng của quan hệ\nRàng buộc toàn vẹn \nChuyển lược đồ ER sang lược đồ Quan hệ\nCác qui tắc chuyển đổi\n09:39\n28\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 29,
+        "title": "Các qui tắc chuyển đổi",
+        "text": "Các qui tắc chuyển đổi\nLược đồ ER\nThực thể\nThực thể\nThực thể yếu\nThuộc tính\nĐơn trị\nĐa trị\nKhóa\nLiên kết\nLiên kết 1:1\nLiên kết 1:n\nLiên kết n:m\n09:39\n29\nKhoa Công nghệ thông tin\nLược đồ QH\nQuan hệ\nThuộc tính\nKhóa\nTham chiếu"
+      },
+      {
+        "slide_num": 30,
+        "title": "Các qui tắc chuyển đổi",
+        "text": "Các qui tắc chuyển đổi\n(1) Thực thể\nMỗi kiểu thực thể (trừ thực thể yếu) chuyển thành 1 quan hệ có cùng tên và tập thuộc tính (trừ tt đa trị)\n09:39\n30\nNHANVIEN(MANV, TENNV, HONV, NS, DCHI, GT, LUONG)\nPHONGBAN(TENPHG, MAPHG)\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 31,
+        "title": "Các qui tắc chuyển đổi (tt)",
+        "text": "Các qui tắc chuyển đổi (tt)\n(2) Thực thể yếu\nChuyển thành  quan hệ \nCó cùng tên với thực thể yếu\nThêm vào thuộc tính khóa của quan hệ liên quan\nKhóa: (khóa của thực thể xác định + khóa cục bộ)\n09:39\n31\nTHANNHAN(MANV, TENTN, GT, NS, QUANHE)\nTHANNHAN\nTENTN\nGT\nNS\nQUANHE\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 32,
+        "title": "Các qui tắc chuyển đổi",
+        "text": "Các qui tắc chuyển đổi\n(3) Mối liên kết\n(3a) Một-Một\nHoặc thêm vào quan hệ thứ nhất  thuộc tính khóa của quan hệ thứ 2 làm khóa ngoài, các  thuộc tính của liên kết.\nHoặc trộn 2 quan hệ trong trường hợp cả 2 đều tham gia toàn bộ\n09:39\n32\nPHONGBAN(MAPHG, TENPHG, MANV, NG_NHANCHUC)\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 33,
+        "title": "Các qui tắc chuyển đổi",
+        "text": "Các qui tắc chuyển đổi\n(3) Mối liên kết\n(3b) Một-Nhiều: \nLấy khóa của quan hệ (phía)một Thêm vào quan hệ (phía) nhiều (khóa ngoài)\n09:39\n33\nNHANVIEN(MANV, TENNV, HONV, NS, DCHI, GT, LUONG, MAPHG)\nKhoa Công nghệ thông tin\nn\n1"
+      },
+      {
+        "slide_num": 34,
+        "title": "Các qui tắc chuyển đổi",
+        "text": "Các qui tắc chuyển đổi\n(3) Mối liên kết\n(3c) Nhiều-nhiều     Tạo một quan hệ mới: \nTên quan hệ  thể hiện tên của mối liên kết\nThuộc tính là những thuộc tính khóa của các kiểu thực thể liên quan, thuộc tính liên kết\n09:39\n34\nPHANCONG(MANV, MADA, THOIGIAN)\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 35,
+        "title": "Các qui tắc chuyển đổi",
+        "text": "Các qui tắc chuyển đổi\n(4) Thuộc tính đa trị: Chuyển thành một quan hệ \nCó cùng tên với thuộc tính đa trị\nThuộc tính: gồm Thuộc tính đa trị,  Thuộc tính khóa của liên kết  (trở thành khóa ngoài)\nKhóa : gồm tt là khóa ngoài  và thuộc tính đa trị\n09:39\n35\nBANGCAP(MANV, BANGCAP)\nNHANVIEN(MANV, TENNV, HONV, NS, DCHI, GT, LUONG, DCHI)\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 36,
+        "title": "Các qui tắc chuyển đổi",
+        "text": "Các qui tắc chuyển đổi\n(5) Liên kết đa ngôi (n>2): Chuyển thành một quan hệ \nCó cùng tên với tên mối liên kết đa ngôi\nThuộc tính: Gồm thuộc tính liên kết, các khóa liên kết\nKhóa chính là tổng hợp các khóa của tập các thực thể tham gia liên kết\n09:39\n36\nNHACUNGCAP(MANCC,…)\nDEAN(MADA,…)\nTHIETBI(MATB,…)\nCUNGCAP(MANCC, MATB, MADA, SOLUONG)\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 37,
+        "title": "Tổng kết",
+        "text": "Tổng kết\nMô hình ER\nLoại thực thể\nQuan hệ 1:1, 1:N\nQuan hệ N:M\nQuan hệ đa ngôi\nThuộc tính\nThuộc tính phức hợp\nThuộc tính đa trị\nTập các giá trị\nThuộc tính khóa\nMô hình quan hệ\nQuan hệ thực thể\nKhóa ngoài\nQuan hệ với 2 khóa ngoài\nQuan hệ với n khóa ngoài\nThuộc tính\nTập các thuộc tính đơn\nQuan hệ với khóa ngoài\nMiền giá trị\nKhóa chính (khóa dự tuyển)\n09:39\n37\nKhoa Công nghệ thông tin"
+      },
+      {
+        "slide_num": 38,
+        "title": "Ví dụ 1: Quản lý thi tuyển sinh",
+        "text": "Ví dụ 1: Quản lý thi tuyển sinh\n38\n09:39\nKhoa CNTT\nTHUOC\nĐANGKI\nTHUOC\nTHUOC\nCO\nCOI\nGSAT\n(1,1)\n(1,30)\n(1,2)\n(0,n)\n(1,1)\n(1,n)\n(1,1)\n(1,n)\n(3,3)\n(1,1)\n(0,6)\n(0,n)\n(2,2)\n(0,1)\n(0,1)\n(0,6)"
+      },
+      {
+        "slide_num": 39,
+        "title": "09:39",
+        "text": "09:39\n39\nKhoa Công nghệ thông tin\nTHISINH(SBD, Ho, Dem,Ten,Ngaysinh)\nNGANH(Manganh, Ten,Mota)\nTRUONG(Ma, Ten, Diachi)\nKHOI(Ma, Mota)\nMONTHI(Ma, Ten, Hinhthuc, Thoigian)\nPHONG(Ma, D_D, Soluong)\nCB_COITHI(Ma, Ho, Dem,Ten)\nChuyển các thực thể  thành quan hệ"
+      },
+      {
+        "slide_num": 40,
+        "title": "09:39",
+        "text": "09:39\n40\nKhoa Công nghệ thông tin\nTHISINH(SBD, Ho, Dem,Ten,Ngaysinh, Phong)\nNGANH(Manganh, Ten,Mota,Khoi, Truong)\nTRUONG(Ma, Ten, Diachi)\nKHOI(Ma, Mota)\nMONTHI(Ma, Ten, Hinhthuc, Thoigian, Khoi)\nPHONG(Ma, D_D, Soluong)\nCB_COITHI(Ma, Ho, Dem,Ten, Phong, Giamsat)\nChuyển liên kết 1: n\nChuyển liên kết 1: 1"
+      },
+      {
+        "slide_num": 41,
+        "title": "09:39",
+        "text": "09:39\n41\nKhoa Công nghệ thông tin\nChuyển các liên kết n:m\nTHISINH(SBD, Ho, Dem,Ten,Ngaysinh, Phong)\nNGANH(Manganh, Ten,Mota,Khoi, Truong)\nTRUONG(Ma, Ten, Diachi)\nKHOI(Ma, Mota)\nMONTHI(Ma, Ten, Hinhthuc, Thoigian, Khoi)\nPHONG(Ma, D_D, Soluong)\nCB_COITHI(Ma, Ho, Dem,Ten, Phong, Giamsat)\nTS_NGANH(SBD, Manganh)\nTS_DIEM(SBD, Mamon, Diem)"
+      },
+      {
+        "slide_num": 42,
+        "title": "Ví dụ 2: Chuyển sang lược đồ quan hệ",
+        "text": "Ví dụ 2: Chuyển sang lược đồ quan hệ\n09:39\n42\nNHÂNVIÊN\nĐƠNVỊ\nCON\nDỰÁN\nQuảnlý\nLàmviệccho\nKiểm soát\nLàm việc trên\nGiám sát\nCó\nMãsố\nTên\nĐịađiểm\nHọtên\nMã số\nHọđệm\nTên\nNgàysinh\nLương\nGiớitính\nĐịachỉ\nNgày bắt đầu\nSốgiờ\nTên\nNgàysinh\nGiớitính\nTên\nMãsố\nĐịađiểm\n(1,n)\n(1,1)\n(1,1)\n(0,1)\n(0,N)\n(0,N)\n(1,N)\n(0,N)\n(1,1)\n(0,N)\n(0,1)\n(1,1)\nKhoa Công nghệ thông tin\nBằng cấp"
+      },
+      {
+        "slide_num": 43,
+        "title": "Bài tập",
+        "text": "Bài tập\nBài tập 1: Chuyển lược đồ ER Quản lý thi tuyển sinh sang lược đồ quan hệ(bài tập C2_1)\nBài tập 2: Chuyển lược đồ thực thể liên kết sang lược đồ quan hệ cho bài tập chương 2 (TRƯỜNG và THƯ VIỆN)\nBài tập 3: Tìm hiểu cách chuyển đổi lược đồ thực thể liên kết mở rộng (EER)  Lược đồ quan hệ (chương 9 – Fundamentals of Database Systems)\n09:39\n43\nKhoa Công nghệ thông tin"
+      }
+    ]
+  },
+  "C3_2.pdf": {
+    "type": "pdf",
+    "total": 111,
+    "slides": [
+      {
+        "page_num": 1,
+        "title": "3.2. Đại số quan hệ",
+        "text": "3.2. Đại số quan hệ\nNhập môn Cơ sở Dữ liệu"
+      },
+      {
+        "page_num": 2,
+        "title": "Giới thiệu",
+        "text": "Giới thiệu\nXét một số yêu cầu trên quan hệ NHANVIEN\nThêm mới một nhân viên\nChuyển nhân viên có tên là “Tùng” sang phòng số 1\nCho biết họ tên và ngày sinh các nhân viên có lương \nthấp hơn 50000\n21:27\n2\n5\n4\nTENNV\nHONV\nNS\nDCHI\nGT\nLUONG\nPHONG\nTung\nNguyen\n12/08/1955\n638 NVC Q5\nNam\n40000\nHang\nBui\n07/19/1968\n332 NTH Q1\nNu\n25000\nNhu\nLe\n06/20/1951\n291 HVH QPN\nNu\n43000\n4\nHung\nNguyen\n09/15/1962\nBa Ria VT\nNam\n38000\n5\nQuang\nPham\n11/10/1937\n450 TV HN\nNam\n55000\n1\n1\nTung\nNguyen\n12/08/1955\nHang\nBui\n07/19/1968\nNhu\nLe\n06/20/1951\nHung\nNguyen\n09/15/1962\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 3,
+        "title": "Giới thiệu",
+        "text": "Giới thiệu\nXét một số thao tác xử lý trên quan hệ SINHVIEN, SV_DIEM, MONHOC\n21:27\n3\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nMasv\nHo\nDem\nTen\nT1\nTrần\nVăn\nAn\nC2\nLê\nĐình\nBắc\nT3\nTrần\nThị\nHảo\nT4\nVũ\nĐức\nLâm\nC3\nPhạm\nHải\nNgọc\nSINHVIEN\nMasv\nMamon\nDiem\nT1\nInt1001\n8\nT1\nInt1002\n9\nC2\nInt1003\n7\nC2\nInt1002\n3\nT3\nInt1003\n10\nT4\nInt1002\n8\nC2\nInt1001\n8\nT4\nInt1001\n7\nC3\nInt1003\n6\nSV_DIEM\nMamon\nTenmon\nSotinchi\nInt1001\nCSDL\n3\nInt1002\nNGLT C\n4\nInt1003\nTRR\n3\nMONHOC"
+      },
+      {
+        "page_num": 4,
+        "title": "Giới thiệu",
+        "text": "Giới thiệu\nXét một số xử lý trên quan hệ SINHVIEN, SV_DIEM\n21:27\n4\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nBANGDIEM\nMasv\nHo\nDem\nTen\nMamon\nDiem\nT1\nTrần\nVăn\nAn\nInt1001\n8\nT1\nTrần\nVăn\nAn\nInt1002\n9\nC2\nLê\nĐình\nBắc\nInt1003\n7\nC2\nLê\nĐình\nBắc\nInt1002\n3\nT3\nTrần\nThị\nHảo\nInt1003\n10\nT4\nVũ\nĐức\nLâm\nInt1002\n8\nC2\nLê\nĐình\nBắc\nInt1001\n8\nT4\nVũ\nĐức\nLâm\nInt1001\n7\nC3\nPhạm\nHải\nNgọc\nInt1003\n6"
+      },
+      {
+        "page_num": 5,
+        "title": "Giới thiệu",
+        "text": "Giới thiệu\nCác thao tác:\n1.\nCập nhật: Thay đổi dữ liệu (trạng thái CSDL):  \no\nThêm các bộ mới \no\nXóa các bộ \no\nSửa  giá trị của bộ\n2. Các phép toán đại số quan hệ\no      Các phép toán tập hợp: hợp, giao, trừ, tích Đề-các\no      Các phép toán trên cơ sở dữ liệu quan hệ: chọn, chiếu, đổi tên,  \n         nối, chia\n3. Một số phép toán bổ sung: nhóm, nối ngoài\n21:27\n5\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ đại số quan hệ"
+      },
+      {
+        "page_num": 6,
+        "title": "1. Các thao tác cập nhật",
+        "text": "1. Các thao tác cập nhật\nNội dung (trạng thái) của CSDL có thể được cập nhật \nbằng các thao tác\n➢Thêm (insert)\n➢Xóa (delete)\n➢Sửa (modify)\n❑Chú ý: \n• Chỉ đề cập thao tác và ý nghĩa, không nêu câu lệnh trong \nHQTCSDL cụ thể \n• Xét trên một thể hiện của lược đồ quan hệ\n21:27\n6\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ đại số quan hệ"
+      },
+      {
+        "page_num": 7,
+        "title": "1.1. Thêm bộ mới vào quan hệ",
+        "text": "1.1. Thêm bộ mới vào quan hệ\n▪Được diễn đạt \no R : tên Lược đồ quan hệ\no t : bộ mới cần thêm vào\nVí dụ\no INSERT(SINHVIEN; “T5”,”Nguyen”, “Hong”, “Anh”)\no INSERT(SV_DIEM; “T5”, “Int1002”, 9)\no INSERT(SV_DIEM; “T5”, “Int1004”, 7)\no INSERT(SV_DIEM; “T5”,” Int1001”, 12)\nCó thể vi phạm ràng buộc\no Ràng buộc miền\no Ràng buộc khóa, toàn vẹn TT\no Ràng buộc tham chiếu\n21:27\n7\nINSERT(R; t)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ đại số quan hệ\nXử lý\nLoại bỏ"
+      },
+      {
+        "page_num": 8,
+        "title": "21:27",
+        "text": "21:27\n8\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nMasv\nHo\nDem\nTen\nT1\nTrần\nVăn\nAn\nC2\nLê\nĐình\nBắc\nT3\nTrần\nThị\nHảo\nT4\nVũ\nĐức\nLâm\nC3\nPhạm\nHải\nNgọc\nSINHVIEN\nMasv\nMamon\nDiem\nT1\nInt1001\n8\nT1\nInt1002\n9\nC2\nInt1003\n7\nC2\nInt1002\n3\nT3\nInt1003\n10\nT4\nInt1002\n8\nC2\nInt1001\n8\nT4\nInt1001\n7\nC3\nInt1003\n6\nSV_DIEM\nMamon\nTenmon\nSotinchi\nInt1001\nCSDL\n3\nInt1002\nNGLT C\n4\nInt1003\nTRR\n3\nMONHOC\n1.1. Thêm bộ mới vào quan hệ\nINSERT(SINHVIEN; “C4”, “Vũ”,null,”Luận”)\nINSERT(SINHVIEN; null, “Trần”,”Bá”,”Luận”)\nINSERT(SV_DIEM; “T1”, “Int1001”,9.5)\nINSERT(SV_DIEM; “T4”, “Int1007”, 6.0)\nto modify"
+      },
+      {
+        "page_num": 9,
+        "title": "1.2. Thao tác xóa: Xóa một hoặc nhiều bộ theo điều kiện nào đó",
+        "text": "1.2. Thao tác xóa: Xóa một hoặc nhiều bộ theo điều kiện nào đó\nĐược diễn đạt \no R : quan hệ\no f : biểu thức điều kiện (biểu thức đại số)\nVí dụ\no DELETE(SINHVIEN; Masv = “T1”)\no DELETE(SV_DIEM; Masv = “T2” )\nRàng buộc có thể  vi phạm\no Ràng buộc tham chiếu: xóa bộ được tham chiếu\no  Loại bỏ phép toán xóa, \no Xóa lan truyền, \no Sửa đổi giá trị khóa ngoài tham chiếu (null)\n21:27\n9\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ đại số quan hệ\nDELETE(R; f )\nXử lí"
+      },
+      {
+        "page_num": 10,
+        "title": "21:27",
+        "text": "21:27\n10\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nMasv\nHo\nDem\nTen\nT1\nTrần\nVăn\nAn\nC2\nLê\nĐình\nBắc\nT3\nTrần\nThị\nHảo\nT4\nVũ\nĐức\nLâm\nC3\nPhạm\nHải\nNgọc\nSINHVIEN\nMasv\nMamon\nDiem\nT1\nInt1001\n8\nT1\nInt1002\n9\nC2\nInt1003\n7\nC2\nInt1002\n3\nT3\nInt1003\n10\nT4\nInt1002\n8\nC2\nInt1001\n8\nT4\nInt1001\n7\nC3\nInt1003\n6\nSV_DIEM\nMamon\nTenmon\nSotinchi\nInt1001\nCSDL\n3\nInt1002\nNGLT C\n4\nInt1003\nTRR\n3\nInt2005\nKTCT\n2\nMONHOC\n1.2. Xóa các bộ\nDELETE(MONHOC; Mamon =“Int2005”)\nDELETE(SV_DIEM; Masv =“T1”)\nDELETE(MONHOC; Mamon =“Int1001”)\nDELETE(SV_DIEM; Masv = “T4”  and Mamon =“Int1001”)\nDELETE(SINHVIEN; Masv =“C2”)"
+      },
+      {
+        "page_num": 11,
+        "title": "Thay đổi giá trị của  các thuộc tính trong một hoặc ",
+        "text": "Thay đổi giá trị của  các thuộc tính trong một hoặc \nnhiều bộ.\nVí dụ\no Tăng hệ số lương thêm 10 % cho tất cả nhân viên trong \nquan hệ NHANVIEN\no “Chuyển “ nhân viên “Tùng” từ phòng Nghiên cứu sang \nphòng Kỹ thuật.\no Sửa số tín chỉ thành 2 của môn học có mã là Int1001  \ntrong quan hệ MONHOC.\n21:27\n11\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\n1.3. Cập nhật các bộ"
+      },
+      {
+        "page_num": 12,
+        "title": "Được diễn đạt ",
+        "text": "Được diễn đạt \no R là quan hệ\no f là biểu thức đại số xác định các  bộ\no ai thuộc tính  cần sửa, vi giá trị mới của thuộc tính.\nVí dụ\nMODIFY (NHANVIEN; Ten =“Tùng”; Phong = 4)\nMODIFY (NHANVIEN; all; Luong=Luong*1.1)\nMODIFY(MONHOC; Mamon=“Int1001”; sotinchi=2)\n21:27\n12\nMODIFY(R; f;<ai = vi,…>)  \nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\n1.3. Cập nhật các bộ"
+      },
+      {
+        "page_num": 13,
+        "title": "Các ràng buộc có thể vi phạm",
+        "text": "Các ràng buộc có thể vi phạm\no Ràng buộc miền\no Cập nhật khóa chính = {xóa, chèn} => miền, toàn vẹn \nthực thể, khóa\no Khóa ngoài=> tham chiếu\nVí dụ\n21:27\n13\nMODIFY(R; f;<ai = vi,…>)  \nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\n1.3. Cập nhật các bộ\nMODIFY(SINHVIEN ; Masv =“T1”; dem=“Đức”)  \nMODIFY(SINHVIEN ; Masv =“T1”; Masv =“T5”)  \nMODIFY(SV_DIEM; Masv =“T1”and  Mamon=“Int1001”; Diem=5.5)  \nMODIFY(SV_DIEM; Masv =“T1”; Mamon =“Int1002”)\nsample"
+      },
+      {
+        "page_num": 14,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nGiới thiệu\nCác thao tác cập nhật trên quan hệ\nĐại số quan hệ\n▪Phép toán tập hợp: TT. Hợp, TT. Giao, TT. Trừ\n▪Phép toán trên CSDL: \no Phép chọn\no Phép chiếu\no Phép tích Cartesian\no Phép nối\no Phép chia\nCác phép toán khác\n21:27\n14\nKhoa CNTT"
+      },
+      {
+        "page_num": 15,
+        "title": "2. Các phép toán đại số quan hệ",
+        "text": "2. Các phép toán đại số quan hệ\nToán hạng (biến) là các quan hệ, tập hợp (set)\nToán tử là các phép toán  đại số quan hệ\nKết quả trả về là một quan hệ (thể hiện của lược đồ qh)\n➢Biểu thức được gọi là câu truy vấn, là chuỗi các phép toán \nđại số quan hệ \n21:27\n15\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 16,
+        "title": "2. Các phép toán đại số quan hệ",
+        "text": "2. Các phép toán đại số quan hệ\nToán tử (operations)\n▪Trên tập hợp\no Hợp    (union)\no Giao   (intersec)\no Trừ   −  (difference)\n▪Rút trích 1 phần của quan hệ\no Chọn    (selection)\no Chiếu    (projection)\n▪Kết hợp các quan hệ\no Tích Đề-các    (Cartesian product)\no Nối        (join)\n▪Đổi tên \n21:27\n16\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 17,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nGiới thiệu\nCác thao tác cập nhật trên quan hệ\nĐại số quan hệ\n▪Phép toán tập hợp: TT. Hợp, TT. Giao, TT. Trừ\n▪Phép toán trên CSDL: \no Phép chọn\no Phép chiếu\no Phép tích Cartesian\no Phép nối\no Phép chia\nCác phép toán khác\n21:27\n17\nKhoa CNTT"
+      },
+      {
+        "page_num": 18,
+        "title": "2.1. Phép toán tập hợp",
+        "text": "2.1. Phép toán tập hợp\n▪Thực hiện trên hai quan hệ (tập hợp các bộ)\nPhép toán hợp  R  S\nPhép toán giao  R  S\nPhép trừ  R − S\nTính khả hợp (tương thích đồng nhất - Union Compatibility): \n     Hai lược đồ quan hệ R(A1, A2, …, An) và S(B1, B2, …, Bn) là khả hợp \nnếu:\nCùng bậc n\nDOM(Ai)=DOM(Bi) , 1 i  n\nKết quả là một quan hệ có các thuộc tính trùng tên với thuộc tính  \ncủa quan hệ thứ nhất(R)\n21:27\n18\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 19,
+        "title": "2.1 Phép toán tập hợp",
+        "text": "2.1 Phép toán tập hợp\nVí dụ: tính khả hợp\n21:27\n19\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nGIAOVIEN\nHo\nDem\nTen\nNgaysinh\nHSL\nLê\nVăn\nTám\n12/01/1980\n3.33\nTrần\nĐình\nTrí\n10/12/1970\n3.66\nNguyễn\nHữu\nMinh\n05/06/1980\n3.00\nNHANVIEN\nHo\nDem\nTen\nNgaysinh\nHSL\nTrần\nVăn\nĐức\n10/01/1980\n3.33\nVũ \nVân\nLong\n18/04/1971\n3.66\nPhạm\nĐức \nThành\n01/01/1969\n3.66\nBậc của 2 quan hệ  n=5\nMiền giá trị các thuộc tính như nhau"
+      },
+      {
+        "page_num": 20,
+        "title": "2.1 Phép toán tập hợp",
+        "text": "2.1 Phép toán tập hợp\nVí dụ: tính khả hợp\n21:27\n20\nTENNV\nNS\nGT\nTung\n12/08/1955\nNam\nHang\n07/19/1968\nNu\nNhu\n06/20/1951\nNu\nHung\n09/15/1962\nNam\nNHANVIEN\nTENTN\nNS_TN\nGT_TN\nTrinh\n04/05/1986\nNu\nKhang\n10/25/1983\nNam\nPhuong\n05/03/1958\nNu\nMinh\n02/28/1942\nNam\nTHANNHAN\nChau\n12/30/1988\nNu\nBậc n=3\nDOM(TENNV) = DOM(TENTN)\nDOM(NS) = DOM(NS_TN)\nDOM(GT) = DOM(GT_TN)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 21,
+        "title": "2.1.a  Phép toán hợp",
+        "text": "2.1.a  Phép toán hợp\nQuan hệ R và S khả hợp\nPhép hợp của R và S\n▪Ký hiệu R  S\n▪Là một quan hệ gồm các bộ thuộc R hoặc thuộc S, hoặc \ncả hai (các bộ trùng lặp sẽ bị bỏ)\nVí dụ 1\n21:27\n21\nR  S = { t / tR  tS }\nA\nB\n\nR\n\n\n1\n2\n1\nA\nB\n\nS\n\n2\n3\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nR  S\nR  S\nA\nB\n\n1\n\n2\n\n1\n\n3"
+      },
+      {
+        "page_num": 22,
+        "title": "Ví dụ ",
+        "text": "Ví dụ \n21:27\n22\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nGIAOVIEN\nHo\nDem\nTen\nNgaysinh\nHSL\nLê\nVăn\nTám\n12/01/1980\n3.33\nTrần\nĐình\nTrí\n10/12/1970\n3.66\nNguyễn\nHữu\nMinh\n05/06/1980\n3.00\nNHANVIEN\nHo\nDem\nTen\nNgaysinh\nHSL\nTrần\nVăn\nĐức\n10/01/1980\n3.33\nVũ \nVân\nLong\n18/04/1971\n3.66\nPhạm\nĐức \nThành\n01/01/1969\n3.66\n2.1.a  Phép toán hợp\nGIAOVIEN \nNHANVIEN\nHo\nDem\nTen\nNgaysinh\nHSL\nLê\nVăn\nTám\n12/01/1980\n3.33\nTrần\nĐình\nTrí\n10/12/1970\n3.66\nNguyễn\nHữu\nMinh\n05/06/1980\n3.00\nTrần\nVăn\nĐức\n10/01/1980\n3.33\nVũ \nVân\nLong\n18/04/1971\n3.66\nPhạm\nĐức \nThành\n01/01/1969\n3.66"
+      },
+      {
+        "page_num": 23,
+        "title": "2.1.b. Phép toán giao",
+        "text": "2.1.b. Phép toán giao\n2 quan hệ R và S khả hợp\nPhép giao của R và S\n▪Ký hiệu R  S\n▪Kết quả  gồm các bộ thuộc R đồng thời thuộc S\nVí dụ\n21:27\n23\nR  S = { t / tR  tS }\nA\nB\n\nR\n\n\n1\n2\n3\nA\nB\n\nS\n\n2\n3\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nA\nB\n\nR  S\n\n2\n3"
+      },
+      {
+        "page_num": 24,
+        "title": "2.1.c. Phép toán trừ",
+        "text": "2.1.c. Phép toán trừ\n 2 quan hệ R và S khả hợp\nPhép trừ của R và S\n▪Ký hiệu R − S\n▪Quan hệ kết quả gồm các bộ thuộc R và không thuộc S\nVí dụ\n21:27\n24\nR − S = { t / tR  tS }\nA\nB\n\nR\n\n\n1\n2\n1\nA\nB\n\nS\n\n2\n3\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nA\nB\n\nR-S\n\n1\n1"
+      },
+      {
+        "page_num": 25,
+        "title": "Các tính chất",
+        "text": "Các tính chất\nTính giao hoán\nTính kết hợp\n21:27\n25\nR  S = S  R\nR  S = S  R\nR  (S  T) = (R  S)  T\nR  (S  T) = (R  S)  T\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 26,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nGiới thiệu\nCác thao tác cập nhật trên quan hệ\nĐại số quan hệ\n▪Phép toán tập hợp: TT. Hợp, TT. Giao, TT. Trừ\n▪Phép toán trên CSDL: \no Phép toán chọn\no Phép toán chiếu\no Phép toán tích Cartesian\no Phép toán nối\no Phép toán chia\nCác phép toán khác\n21:27\n26\nKhoa CNTT"
+      },
+      {
+        "page_num": 27,
+        "title": "2.2.a. Phép toán chọn",
+        "text": "2.2.a. Phép toán chọn\nĐể chọn ra các bộ của  quan hệ R\nCác bộ được chọn phải thỏa mãn điều kiện chọn P\nKý hiệu\nP là điều kiện chọn gồm các mệnh đề có dạng\no <tên thuộc tính> <phép so sánh> <hằng số>\no <tên thuộc tính> <phép so sánh> <tên thuộc tính>\n➢<phép so sánh> gồm  ,  ,  ,  ,  , =\n➢Các mệnh đề được nối lại nhờ các phép toán  ,  , \n21:27\n27\n P (R)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\n2.2.  Các phép toán Cơ sở dữ liệu"
+      },
+      {
+        "page_num": 28,
+        "title": "Kết quả trả về là một quan hệ ",
+        "text": "Kết quả trả về là một quan hệ \n▪Cùng danh sách thuộc tính với R\n▪Bao gồm các bộ của R thỏa mãn đều kiện P\n▪Có số bộ luôn ít hơn hoặc bằng số bộ của R\nVí dụ 1\n21:27\n28\nS = (A=B)(D>5) (R) \nA\nB\n\nR\n\n\nC\n1\n5\n12\n\n23\nD\n7\n7\n3\n10\n\n\n\n\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\n2.2.a. Phép toán chọn\nA\nB\n\nC\n1\n\n23\nD\n7\n10\n\n\nS"
+      },
+      {
+        "page_num": 29,
+        "title": "21:27",
+        "text": "21:27\n29\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\n2.2.a. Phép toán chọn\nMasv\nHo\nDem\nTen\nMamon\nDiem\nT1\nTrần\nVăn\nAn\nInt1001\n8\nT1\nTrần\nVăn\nAn\nInt1002\n9\nC2\nLê\nĐình\nBắc\nInt1003\n7\nC2\nLê\nĐình\nBắc\nInt1002\n3\nT3\nTrần\nThị\nHảo\nInt1003\n10\nT4\nVũ\nĐức\nLâm\nInt1002\n8\nC2\nLê\nĐình\nBắc\nInt1001\n8\nT4\nVũ\nĐức\nLâm\nInt1001\n7\nC3\nPhạm\nHải\nNgọc\nInt1003\n6\nBANGDIEM\nD_1oo1\nMasv\nHo\nDem\nTen\nMamon\nDiem\nT1\nTrần\nVăn\nAn\nInt1001\n8\nC2\nLê\nĐình\nBắc\nInt1001\n8\nT4\nVũ\nĐức\nLâm\nInt1001\n7\nD_1001 =  (Mamon=“Int1001”) (BANGDIEM)"
+      },
+      {
+        "page_num": 30,
+        "title": "Tính giao hoán",
+        "text": "Tính giao hoán\n   Ví dụ \nTính kết hợp \n21:27\n30\n p1 ( p2 (R)) = \n p1 ( p2 (R))  = \nKhoa CNTT\n p2 ( p1 (R))  \nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\n2.2.a. Phép toán chọn\n (Mamon=“Int1001”) ( (Masv = “T1”)(BANGDIEM)) \n=  (Masv=“T1”) ( (Mamon = “Int1001”)(BANGDIEM)) \n (p1 ^ p2) (R)  \n (Mamon=“Int1001”) ( (Masv = “T1”)(BANGDIEM)) \n=  ((Mamon=“Int1001”)^(Masv = “T1”))(BANGDIEM)"
+      },
+      {
+        "page_num": 31,
+        "title": "Ví dụ 1",
+        "text": "Ví dụ 1\nViết lệnh đưa ra các nhân viên ở phòng số 4\nQuan hệ: NHANVIEN \nĐiều kiện: PHG=4\n21:27\n31\n PHG=4 (NHANVIEN)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 32,
+        "title": "Ví dụ 2",
+        "text": "Ví dụ 2\nTìm các nhân viên có lương trên 2.5 tr ở phòng 4 hoặc \ncác nhân viên có lương trên 3 tr ở phòng 5\nQuan hệ: NHANVIEN\nĐiều kiện: \no LUONG>2500000 và PHG=4 hoặc\no LUONG>3000000 và PHG=5\n21:27\n32\n (PHG=4 ^ LUONG>2500000)  (PHG=5 ^  LUONG>3000000) (NHANVIEN)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 33,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nGiới thiệu\nCác thao tác cập nhật trên quan hệ\nĐại số quan hệ\n▪Phép toán tập hợp: TT. Hợp, TT. Giao, TT. Trừ\n▪Phép toán trên CSDL: \no Phép toán chọn\no Phép toán chiếu\no Phép toán tích Cartesian\no Phép toán nối\no Phép toán chia\nCác phép toán khác\n21:27\n33\nKhoa CNTT"
+      },
+      {
+        "page_num": 34,
+        "title": "2.2.b. Phép toán chiếu",
+        "text": "2.2.b. Phép toán chiếu\nLấy ra một quan hệ gồm một số cột của quan hệ R đã có\nKý hiệu\nKết quả trả về là một quan hệ \no Có k thuộc tính: A1,…Ak\no Các bộ:  lấy từ tất cả các bộ của R (loại các bộ trùng)\nVí dụ 1:\n21:27\n34\nA1, A2, …, Ak(R)\nA\nB\n\nR\n\n\n10\n20\n30\nC\n1\n1\n1\n\n40\n2\nS=A,C (R)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\n✓R: lược đồ quan hệ\n✓A1, A2,,,Ak   tập thuộc tính của R"
+      },
+      {
+        "page_num": 35,
+        "title": "Ví dụ 2:",
+        "text": "Ví dụ 2:\n21:27\n35\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\n2.2.b Phép toán chiếu\nMasv\nHo\nDem\nTen\nMamon\nDiem\nT1\nTrần\nVăn\nAn\nInt1001\n9\nT1\nTrần\nVăn\nAn\nInt1002\n9\nC2\nLê\nĐình\nBắc\nInt1003\n7\nC2\nLê\nĐình\nBắc\nInt1002\n3\nT3\nTrần\nThị\nHảo\nInt1003\n10\nT4\nVũ\nĐức\nLâm\nInt1002\n8\nC2\nLê\nĐình\nBắc\nInt1001\n8\nT4\nVũ\nĐức\nLâm\nInt1001\n8\nC3\nPhạm\nHải\nNgọc\nInt1003\n6\nBANGDIEM\nDS1 = Masv,Ho,Dem,Ten,Diem (BANGDIEM) \nMasv\nHo\nDem\nTen\nDiem\nT1\nTrần\nVăn\nAn\n9\nC2\nLê\nĐình\nBắc\n7\nC2\nLê\nĐình\nBắc\n3\nT3\nTrần\nThị\nHảo\n10\nT4\nVũ\nĐức\nLâm\n8\nC2\nLê\nĐình\nBắc\n8\nC3\nPhạm\nHải\nNgọc\n6\nDS1"
+      },
+      {
+        "page_num": 36,
+        "title": "Tính chất:",
+        "text": "Tính chất:\nVí dụ 2:\n21:27\n36\nX (Y (R)) = \nKhoa CNTT\nX (R) \nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\n2.2.b Phép toán chiếu\nMasv,Ho,Dem,Ten (Masv,Ho,Dem,Ten,Mamon (R)) = \nMasv,Ho,Dem,Ten (R) \nA1,A2,..,Ak (B1,B2,..Bn(R))  \nB1,B2,..,Bn(A1,A2,..Ak(R))  \n?\n\nvới X  Y"
+      },
+      {
+        "page_num": 37,
+        "title": "Ví dụ 3",
+        "text": "Ví dụ 3\nCho biết họ tên và lương của các nhân viên trong \nNHANVIEN\nQuan hệ: NHANVIEN\nThuộc tính: HONV, TENNV, LUONG\n21:27\n37\nHONV, TENNV, LUONG(NHANVIEN) \nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 38,
+        "title": "Ví dụ 4: ",
+        "text": "Ví dụ 4: \nCho biết mã nhân viên có tham gia vào dự án nào đó \nhoặc có thân nhân\nNV_DEAN(Manv,Madean,Sogio)\nTHANNHAN(Manv,Hoten, Gt)\n  \n21:27\n38\nManv(NV_DEAN) \nManv(THANNHAN) \nManv(NV_DEAN)  Manv(THANNHAN)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 39,
+        "title": "Ví dụ 5:Cho biết mã nhân viên có thân nhân và có tham gia đề án",
+        "text": "Ví dụ 5:Cho biết mã nhân viên có thân nhân và có tham gia đề án\n21:27\n39\nKhoa CNTT\nManv(NV_DEAN)  Manv(THANNHAN)\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 40,
+        "title": "Ví dụ 6 : Cho biết mã nhân viên tham gia đề án, nhưng không có ",
+        "text": "Ví dụ 6 : Cho biết mã nhân viên tham gia đề án, nhưng không có \nthân nhân nào\n21:27\n40\nKhoa CNTT\nManv(NV_DEAN) - Manv(THANNHAN)\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nTham gia đề án:   \nManv(NV_DEAN) \nCó thân nhân   \nManv(THANNHAN)\nTham  gia đề án nhưng không có thân nhân"
+      },
+      {
+        "page_num": 41,
+        "title": "Ví dụ7 : Danh sách sinh viên (Mã, Họ, đệm, tên, mã môn) nợ môn ",
+        "text": "Ví dụ7 : Danh sách sinh viên (Mã, Họ, đệm, tên, mã môn) nợ môn \n21:27\n41\nKhoa CNTT\nNợ môn: \nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nBANGDIEM(Masv, Ho,Dem,Ten, Mamon, Diem)\nMasv,Ho,Dem,Ten,Mamon((Diem<5)(BANGDIEM))\n(Diem<5)(BANGDIEM)\nThực hiện phép chiếu"
+      },
+      {
+        "page_num": 42,
+        "title": "Ví dụ : Lấy ra danh sách Masv, Ho, Dem,Ten, Mamon của ",
+        "text": "Ví dụ : Lấy ra danh sách Masv, Ho, Dem,Ten, Mamon của \nnhững sinh viên có điểm <5\n21:27\n42\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nChuỗi phép toán và phép toán đổi tên \nMasv,Ho,Dem,Ten,Mamon((Diem<5)(BANGDIEM))\nVí dụ : Lấy ra danh sách Manv, Ho,Dem,Ten, của nhân \nviên phòng 4 có lương trên 3000000\nMasv,Ho,Dem,Ten,Mamon ((Luong >3000000)((PHG=4)(NHANVIEN)))\n   Masv,Ho,Dem,Ten,Mamon ((Luong >3000000 ^  PHG=4)(NHANVIEN))"
+      },
+      {
+        "page_num": 43,
+        "title": "Trong thao tác có kết hợp các phép toán đại số quan hệ",
+        "text": "Trong thao tác có kết hợp các phép toán đại số quan hệ\nLồng các phép toán\nThực hiện từng phép toán một\nB1\nB2\n21:27\n43\nA1, A2, …, Ak (P (R))\nP (A1, A2, …, Ak (R))\nP (R) \nA1, A2, …, Ak (quan hệ kết quả B1)\nChuỗi các phép toán: Kết quả của phép toán trước là đầu vào của phép toán  sau\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nChuỗi phép toán và phép toán đổi tên"
+      },
+      {
+        "page_num": 44,
+        "title": "Phép toán gán",
+        "text": "Phép toán gán\nĐược sử dụng để nhận  kết quả trả về của một phép \ntoán\nThường là kết quả trung gian trong chuỗi các phép \ntoán \nKý hiệu  , =\nVí dụ\no B1\no B2\n21:27\n44\nS  P (R) \nKQ  A1, A2, …, Ak (S)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 45,
+        "title": "Phép toán đổi tên ( - rho)",
+        "text": "Phép toán đổi tên ( - rho)\nĐược dùng để đổi tên, thuộc tính của lược đồ quan hệ \nCác dạng:\n21:27\n45\nS(R)   \n→  Đổi tên quan hệ R thành S\nXét lược đồ quan hệ R(B, C, D)\n(X, C, D) (R) \n→  Đổi tên thuộc tính B thành X\nS(X,C,D)(R) \n → Đổi tên  R thành S và B thành X\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nTrong một số trường hợp ta có thể viết :  R(X,Y,Z) = Q(A,B,C)"
+      },
+      {
+        "page_num": 46,
+        "title": "Ví dụ 8",
+        "text": "Ví dụ 8\nCho biết họ và tên nhân viên làm việc ở phòng số 4(tạo ra \nquan hệ KQ(HO,TEN)\nQuan hệ: NHANVIEN\nThuộc tính: HONV, TENNV\nĐiều kiện: PHG=4\nC1:\nC2:\n21:27\n46\n KQ(HO,TEN)(HONV, TENNV (PHG=4 (NHANVIEN)))\nNV_P4  PHG=4 (NHANVIEN)\nKQ  HONV, TENNV (NV_P4)\n(HO, TEN) (KQ)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 47,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nGiới thiệu\nCác thao tác cập nhật trên quan hệ\nĐại số quan hệ\n▪Phép toán tập hợp: TT. Hợp, TT. Giao, TT. Trừ\n▪Phép toán trên CSDL: \no Phép toán chọn\no Phép toán chiếu\no Phép toán tích Cartesian\no Phép toán nối\no Phép toán chia\nCác phép toán khác\n21:27\n47\nKhoa CNTT"
+      },
+      {
+        "page_num": 48,
+        "title": "Phép  toán tích Đề các",
+        "text": "Phép  toán tích Đề các\nĐể kết hợp các bộ của 2 quan hệ  với nhau\nCho  lược đồ R(A1,,An), S(B1,..Bm)\nKý hiệu:\nKết quả : quan hệ  Q\n✓Q(A1,,An, B1,..Bm)\n✓Mỗi bộ của Q là tổng hợp giữa 1 bộ trong R và 1 bộ trong S\n  Q ={ <t,u> | t  R, u S} \n✓Nếu R có i bộ và S có k bộ thì Q sẽ có i  k bộ\n21:27\n48\nR  S\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 49,
+        "title": "Phép  toán tích Đề các",
+        "text": "Phép  toán tích Đề các\nVí dụ\n21:27\n49\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nMSV\nHT\nNS\nA1\nLê Văn An\n1/1/1992\nA2\nTrần Đức Hải\n12/9/1996\nA3\nNguyễn Văn Đức\n10/3/1994\nSV\nMaMH\nTENMH\nX1\nCơ sở Dữ liệu\nX2\nTin học cơ sở\nMH\nMSV\nHT\nNS\nMaMH\nTENMH\nA1\nLê Văn An\n1/1/1992\nX1\nCơ sở Dữ liệu\nA2\nTrần Đức Hải\n12/9/1996\nX2\nTin học cơ sở\nA3\nNguyễn Văn Đức\n10/3/1994\nX1\nCơ sở Dữ liệu\nA1\nLê Văn An\n1/1/1992\nX2\nTin học cơ sở\nA2\nTrần Đức Hải\n12/9/1996\nX1\nCơ sở Dữ liệu\nA3\nNguyễn Văn Đức\n10/3/1994\nX2\nTin học cơ sở\nSV   MH"
+      },
+      {
+        "page_num": 50,
+        "title": "Phép  toán tích Đề các",
+        "text": "Phép  toán tích Đề các\nVí dụ\n21:27\n50\nA\nB\n\nR\n\n1\n2\nB\nC\n\nS\n\n10\n10\nD\n+\n+\n\n20\n-\n\n10\n-\nKhoa CNTT\nR  S =??\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 51,
+        "title": "Phép toán tích Đề các",
+        "text": "Phép toán tích Đề các\nVí dụ\n21:27\n51\nA\nB\n\nR\n\n1\n2\nB\nC\n\nS\n\n10\n10\nD\n+\n+\n\n20\n-\n\n10\n-\nunambiguous\nA\nR.B\n\n\n1\n2\n\n2\n\n1\n\n1\n\n1\n\n2\n\n2\nS.B\nC\n\n\n10\n10\n\n10\n\n10\n\n20\n\n10\n\n20\n\n10\nD\n+\n+\n+\n+\n-\n-\n-\n-\nR  S\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 52,
+        "title": "Phép  toán tích Đề các",
+        "text": "Phép  toán tích Đề các\nThông thường theo sau phép tích Đề-các là phép chọn\n21:27\n52\nR  S\nA\nR.B\n\n\n1\n2\n\n2\n\n1\n\n1\n\n1\n\n2\n\n2\nS.B\nC\n\n\n10\n10\n\n10\n\n10\n\n20\n\n10\n\n20\n\n10\nD\n+\n+\n+\n+\n-\n-\n-\n-\nA\nR.B\n\n1\n\n2\n\n2\nS.B\nC\n\n10\n\n10\n\n20\nD\n+\n+\n-\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nVí dụ:  A=S.B (R  S)\nA=S.B (R  S)"
+      },
+      {
+        "page_num": 53,
+        "title": "21:27",
+        "text": "21:27\n53\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nMasv\nHo\nDem\nTen\nT1\nTrần\nVăn\nAn\nC2\nLê\nĐình\nBắc\nT3\nTrần\nThị\nHảo\nT4\nVũ\nĐức\nLâm\nC3\nPhạm\nHải\nNgọc\nSINHVIEN\nMasv\nMamon\nDiem\nT1\nInt1001\n8\nT1\nInt1002\n9\nC2\nInt1003\n7\nC2\nInt1002\n3\nT3\nInt1003\n10\nT4\nInt1002\n8\nC2\nInt1001\n8\nT4\nInt1001\n7\nC3\nInt1003\n6\nSV_DIEM\nVí dụ 9: đưa ra danh sách bảng điểm(Masv,ho,dem,ten,mamon,diem) \nnhững sv có điểm>=8\nR = Diem>=8 (SV_DIEM) \nS = SINHVIEN R \nKQ = Masv,Ho,Dem,Ten,Mamon,Diem(Masv=Ma (S)) \n (Ma,Mamon,Diem)(R)"
+      },
+      {
+        "page_num": 54,
+        "title": "Ví dụ 10",
+        "text": "Ví dụ 10\nVới mỗi phòng ban, cho biết thông tin của người trưởng \nphòng\nQuan hệ: PHONGBAN, NHANVIEN \nThuộc tính: TRPHG, MAPHG, TENNV, HONV, …\n21:27\n54\nTENPHG\nMAPHG\nTRPHG\nNG_NHANCHUC\nNghien cuu\n5\n333445555\n05/22/1988\nDieu hanh\n4\n987987987\n01/01/1995\nQuan ly\n1\n888665555\n06/19/1981\nTENPHG\nMAPHG\nTRPHG\nNG_NHANCHUC\nNghien cuu\n5\n333445555\n05/22/1988\nDieu hanh\n4\n987987987\n01/01/1995\nQuan ly\n1\n888665555\n06/19/1981\nTENNV\nHONV\nTung\nNguyen\nHung\nNguyen\n333445555\n987987987\n888665555\nMANV\nVinh\nPham\n…\n…\n…\n…\nTRPHG=MANV (PHONGBAN  NHANVIEN)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nTENNV\nHONV\nNS\nDCHI\nGT\nLUONG\nPHG\nTung\nNguyen\n12/08/1955\n638 NVC Q5\nNam\n40000\n5\nHang\nBui\n07/19/1968\n332 NTH Q1\nNu\n25000\n4\nNhu\nLe\n06/20/1951\n291 HVH QPN\nNu\n43000\n4\nHung\nNguyen\n09/15/1962\nBa Ria VT\nNam\n38000\n5\n333445555\n987987987\n987654321\n999887777\nMANV\nVinh\nPham\n06/19/1981\nNam Dinh\nNam\n54000\n1\n888665555"
+      },
+      {
+        "page_num": 55,
+        "title": "Ví dụ 10",
+        "text": "Ví dụ 10\nB1: Tích Đề-các PHONGBAN và NHANVIEN\nB2: Chọn ra những bộ thỏa TRPHG=MANV\n21:27\n55\nPB_NV  (NHANVIEN  PHONGBAN)\nKQ  TRPHG=MANV(PB_NV)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 56,
+        "title": "Ví dụ 11",
+        "text": "Ví dụ 11\nĐưa ra mã các phòng ban(≠5) có cùng địa điểm với phòng 5 ?\no Quan hệ: DIADIEM_PHG\no Thuộc tính: DIADIEM, MAPHG\n21:27\n56\nPhòng 5 có  những địa điểm \nnào?\nPhòng nào có địa điểm nằm \ntrong tập hợp đó?\nDIADIEM\nMAPHG\n1\n4\n5\n5\nTP HCM\nVUNGTAU\nNHATRANG\nHA NOI\n5\nTP HCM\nDIADIEM\nMAPHG\n1\n4\n5\n5\nTP HCM\nVUNGTAU\nNHATRANG\nHA NOI\n5\nTP HCM\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 57,
+        "title": "Ví dụ 11",
+        "text": "Ví dụ 11\nB1: Tìm các địa điểm của phòng 5\nB2: Lấy ra các phòng có cùng địa điểm với DD_P5\n21:27\n57\nDD_P5  DIADIEM (MAPHG=5 (DIADIEM_PHG))\n(DD)(DD_P5)\nR2  DIADIEM=DD (R1  DD_P5)\nKQ  MAPHG (R2)\nR1  MAPHG5 (DIADIEM_PHG)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 58,
+        "title": "Ví dụ 12 Cho quan hệ: ",
+        "text": "Ví dụ 12 Cho quan hệ: \n               \n \n  SV(Masv, Hoten, ngaysinh); GV(Magv,Hoten); \n                \n \n  SV_LOP(Masv,Malop); GV_Lop(Magv,Malop)\nHãy đưa ra danh sách (Masv, Hoten, Malop) của những sv học lớp do GV có mã GV1001 dạy \n21:27\n58\n▪  Tìm mã các lớp do GV1001 dạy\n              LOPGV1001  Malop (Magv=‘GV1001’ (GV_Lop))\n             (ML)(LOPGV1001)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\n▪  Tìm Masv, Malop  do GV1001 dạy\n              SV_LOP_GV  Masv, Malop (Malop=ML (SV_Lop  LOPGV1001))  \n▪  Danh sách (Masv, Hoten, Malop) do GV1001 dạy\n              KQ SV.Masv, Hoten, Malop (SV.Masv=SV_LOP_GV.Masv (SV  SV_LOP_GV))"
+      },
+      {
+        "page_num": 59,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nGiới thiệu\nCác thao tác cập nhật trên quan hệ\nĐại số quan hệ\n▪Phép toán tập hợp: TT. Hợp, TT. Giao, TT. Trừ\n▪Phép toán trên CSDL: \no Phép toán chọn\no Phép toán chiếu\no Phép toán tích Cartesian\no Phép toán nối\no Phép toán chia\nCác phép toán khác\n21:27\n59\nKhoa CNTT"
+      },
+      {
+        "page_num": 60,
+        "title": "Phép toán nối (join)",
+        "text": "Phép toán nối (join)\nNối 2 bộ có liên quan (thỏa mãn điều kiện nối) từ 2 quan \nhệ thành 1 bộ; tạo quan hệ mới\nKý hiệu R     S\no R(A1, A2, …, An) và S(B1, B2, …, Bm) các  lược đồ quan hệ\no f: điều kiện nối\nKết quả là một quan hệ Q(A1, .., An, B1, …, Bm\n)\nQ= { <t,v> | f(t,v) đúng,  tR, v  S}\no f cơ bản có dạng Ai  Bj\n✓Ai là thuộc tính của R, Bj là thuộc tính của S \n✓Ai và Bj có cùng miền giá trị (gọi là thuộc tính nối)\n✓ là phép so sánh , =, , , , , kết hợp các toán tử logic\n✓f có thể  là biểu thức đc kết hợp từ các biểu thức con, trên các tt\n21:27\n60\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nf"
+      },
+      {
+        "page_num": 61,
+        "title": "Phép toán nối (join)",
+        "text": "Phép toán nối (join)\nVí dụ 1:\n21:27\n61\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nSINHVIEN\nMasv\nHo\nDem\nTen\nNs\nGt\nLop\n10001\nTrần\nVăn\nMinh\n1/1/1995\nNam\nInt1001\n10002\nLê\nĐức\nVinh\n2/10/1994\nNam\nInt1002\n10005\nVũ \nVăn \nToàn\n5/2/1989\nNam\nnull\n11007\nNguyễn\nThị\nHương\n2/4/1991\nNữ\nInt2001\nLOP\nMalop\nTenlop\nGiaovien\nInt1001\nTin học cơ sở 1\nHồ Sỹ Đàm\nInt1002\nNguyên lý Hệ ĐH\nHà Quang Thụy\nInt1003\nCơ sở dữ liệu\nNguyễn Tuệ\nInt2001\nChương trình dịch\nLê Anh Cường\nInt1005\nTin học cơ sở 4\nTrần Thị Minh Châu\nSV_LOP = SINHVIEN \nLop = Malop\nLOP"
+      },
+      {
+        "page_num": 62,
+        "title": "Phép toán nối (join)",
+        "text": "Phép toán nối (join)\nVí dụ 1 (kết quả):\n21:27\n62\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nSV_LOP\nMasv\nHo\nDem\nTen\nNs\nGt\nLop\nMalop\nTenlop\nGiaovien\n10001\nTrần\nVăn\nMinh\n1/1/1995\nNam\nInt1001\nInt1001\nTin học cơ sở 1\nHồ Sỹ Đàm\n10002\nLê\nĐức\nVinh\n2/10/1994\nNam\nInt1002\nInt1002\nNguyên lý Hệ ĐH\nHà Quang Thụy\n11007\nNguyễn\nThị\nHương\n2/4/1991\nNữ\nInt2001\nInt2001\nChương trình dịch\nLê Anh Cường\n- Kết hợp các bộ có điều kiện\n- Thuộc tính nối có giá trị null không xuất hiện trong kết quả\nKhác với tích Đề các:"
+      },
+      {
+        "page_num": 63,
+        "title": "Phép toán nối",
+        "text": "Phép toán nối\nPhân loại\n1. Nối theta (dạng tổng quát)\no Ký hiệu R      S\no f : điều kiện nối trên thuộc tính \n2. Nối bằng (equi join) khi f là điều kiện so sánh bằng \ntrên  2 thuộc tính\n21:27\n63\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nf\nBANGDIEM= SINHVIEN \nSINHVIEN.Masv = SV_DIEM.Masv\nSV_DIEM\nSV_DIEM(Masv, Mamon, Diem)\nSINHVIEN(Masv, Ho,Dem,Ten, Ns, Gt)\nBANGDIEM(SINHVIEN.Masv, Ho,Dem,Ten, Ns,Gt, SV_DIEM.Masv, Mamon, Diem)\nví dụ:"
+      },
+      {
+        "page_num": 64,
+        "title": "Phép toán nối",
+        "text": "Phép toán nối\n3. Nối tự nhiên (natural join)\no Nối bằng\no Hai thuộc tính nối cùng tên\no Loại bỏ một thuộc tính (dư thừa) trong kết quả\nKý hiệu  R      S   hay   R  S\n21:27\n64\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nSV_DIEM(Masv, Mamon, Diem)\nSINHVIEN(Masv, Ho,Dem,Ten, Ns,Gt)\nVí dụ\nBANGDIEM= SINHVIEN * SV_DIEM\n        BANGDIEM(Masv, Ho,Dem,Ten, Ns,Gt, Mamon, Diem)"
+      },
+      {
+        "page_num": 65,
+        "title": "Ví dụ phép nối theta",
+        "text": "Ví dụ phép nối theta\n21:27\n65\nD\nE\n3\nS\n6\n1\n2\nA\nB\n1\nR\n4\n2\n5\nC\n3\n6\n7\n8\n9\nR     B<D S\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 66,
+        "title": "Ví dụ phép nối bằng",
+        "text": "Ví dụ phép nối bằng\n21:27\n66\nD\nE\n3\nS\n6\n1\n2\nA\nB\n1\nR\n4\n2\n5\nC\n3\n6\n7\n8\n9\nR     C=D S\nC\nD\n3\nS\n6\n1\n2\nA\nB\n1\nR\n4\n2\n5\nC\n3\n6\n7\n8\n9\nR     C=S.C S\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 67,
+        "title": "Ví dụ phép nối tự nhiên",
+        "text": "Ví dụ phép nối tự nhiên\n21:27\n67\nR     S\nC\nD\n3\nS\n6\n1\n2\nA\nB\n1\nR\n4\n2\n5\nC\n3\n6\n7\n8\n9\nA\nB\n1\n2\nC\n3\n4\n5\n6\nS.C\n3\nD\n1\n6\n2\nA\nB\n1\n2\nC\n3\n4\n5\n6\nD\n1\n2\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 68,
+        "title": "Ví dụ 14 (bài tập)",
+        "text": "Ví dụ 14 (bài tập)\nHãy cho biết (Manv,Honv,Tennv,Phg, Luong) nhân \nviên có lương cao hơn lương của nv tên là ‘Tùng’\nQuan hệ: NHANVIEN(Manv,Honv,Tennv,Phg, Luong)\nThuộc tính: LUONG\n21:27\n68\nR (L_TUNG)  Luong(Tennv=‘Tung’ (NHANVIEN))\nKQ  Manv,Honv,Tennv,Phg,luong(NHANVIEN      Luong>L_TUNG R)\nB1: Chọn ra lương của ‘Tùng’\nB2: Lấy ra những bộ có lương >lương của ‘Tùng”\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 69,
+        "title": "Ví dụ 15 (bài tập)",
+        "text": "Ví dụ 15 (bài tập)\nLiệt kê danh sách nhân viên, với mỗi nhân viên, hãy \ncho biết thông tin của phòng ban mà họ đang làm việc\no NHANVIEN(Manv, Honv, Tennv, Phg, Luong) \no PHONGBAN(MaPhg, TenPhg, TrPhg, Ng_Nhanchuc)\n21:27\n69\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\n(Manv,Honv,Tennv,MaPhg,Luong)(NHANVIEN)\nKQ = NHANVIEN * PHONGBAN"
+      },
+      {
+        "page_num": 70,
+        "title": "Ví dụ 16(Bài tập)",
+        "text": "Ví dụ 16(Bài tập)\nVới mỗi phòng ban hãy cho biết các địa điểm của \nphòng ban đó (MaPhg, TenPhg, Diadiem, Dthoai)\nPHONGBAN(MaPhg, TenPhg, TrPhg, Ng_Nhanchuc)\nDDIEM_PHG(MaPhg, Ddiem, Dthoai) \n21:27\n70\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\n\nR =PHONGBAN* DDIEM_PHG\nKQ=  MaPhg, TenPhg,Ddiem,Dthoai(R)"
+      },
+      {
+        "page_num": 71,
+        "title": "Ví dụ 17 (bài tập)",
+        "text": "Ví dụ 17 (bài tập)\nVới mỗi phòng ban hãy cho biết thông tin của người \ntrưởng phòng(Mã phòng, tên phòng, Mã trưởng \nphòng, Họ, tên trưởng phòng, ngày nhận chức)\nPHONGBAN(MaPhg, TenPhg, TrPhg, Ng_Nhanchuc)\nNHANVIEN(Manv, Honv, Tennv, Phg, Luong)\n21:27\n71\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nR(MaPhg, TenPhg, Manv, Ng_Nhanchuc) =PHONGBAN\nQ=R*NHANVIEN\nKQ=  MaPhg, TenPhg,Mavn,Honv,Tennv,Ng_nhanchuc(Q)"
+      },
+      {
+        "page_num": 72,
+        "title": "Ví dụ 18",
+        "text": "Ví dụ 18\nHãy đưa ra các phòng ban  (Mã, tên) có cùng địa điểm \nvới phòng 5 (bao gồm cả phòng 5)\nPHONGBAN(MaPhg, TenPhg, TrPhg, Ng_Nhanchuc)\nDDIEM_PHG(MaPhg, Ddiem, Dthoai) \n21:27\n72\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nDDP5 = DDIEM (MaPhg=5 (DIADIEM_PHG))\nR =PHONGBAN * DDIEM_PHG\nKQ= MaPhg,TenPhg (R * DDP5)"
+      },
+      {
+        "page_num": 73,
+        "title": "Tập đầy đủ các phép toán ĐSQH",
+        "text": "Tập đầy đủ các phép toán ĐSQH\nTập các phép toán {, , , −, } là tập đầy đủ với  các \nphép toán ĐSQH;   Các phép toán còn lại có thể được \nbiểu diễn qua chúng.\nVí dụ\nRS = RS − ((R−S)  (S−R))\nR      f  S = f(RS)\n21:27\n73\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 74,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nGiới thiệu\nCác thao tác cập nhật trên quan hệ\nĐại số quan hệ\n▪Phép toán tập hợp: TT. Hợp, TT. Giao, TT. Trừ\n▪Phép toán trên CSDL: \no Phép toán chọn\no Phép toán chiếu\no Phép toán tích Cartesian\no Phép toán nối\no Phép toán chia\nCác phép toán khác\n21:27\n74\nKhoa CNTT"
+      },
+      {
+        "page_num": 75,
+        "title": "Phép toán chia",
+        "text": "Phép toán chia\nÝ nghĩa:\n- Quan hệ NV_KYNANG(MaNV, Kynang)\n- Quan hệ KYNANG(Kynang)\n- Đưa ra các NV có tất các kỹ năng có trong KYNANG\n21:27\n75\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nKynang\nNgôn ngữ C\nLập trình PHP\nLập trình Android\nMaNV\nKynang\nA1\nNgôn ngữ C\nA2\nLập trình PHP\nA1\nLập trình Android\nA3\nLập trình Android\nA1\nLập trình PHP\nA4\nNgôn ngữ C\nA4\nLập trình PHP"
+      },
+      {
+        "page_num": 76,
+        "title": "Phép chia",
+        "text": "Phép chia\nLấy ra tất cả các bộ từ quan hệ R sao cho thỏa với tất cả \ncác bộ trong quan hệ S\nKý hiệu R  S\nGiả thiết Z, X là các tập thuộc tính của R, S với X  Z\nKết quả của phép chia là một quan hệ T(Y), Với Y=Z-X\ntT là một bộ của T nếu với mọi bộ tSS, tồn tại bộ tRR \nthỏa 2 điều kiện\ntR[Y] = tT\ntR[X] = tS\n21:27\n76\nX\nY\nT(Y)\nS(X)\nR(Z)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nTức là: với mỗi bộ t  T, với mọi u  S thì <u,t>  R"
+      },
+      {
+        "page_num": 77,
+        "title": "Phép toán chia",
+        "text": "Phép toán chia\nVí dụ\n21:27\n77\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nR \nA\nB\nA1\nB1\nA2\nB1\nA3\nB1\nA4\nB1\nA1\nB2\nA2\nB3\nA3\nB3\nA4\nB3\nA1\nB4\nA2\nB4\nA3\nB4\nS\nA\nA1\nA2\nA3\nT= R  S\nT\nB\nB1\nB4"
+      },
+      {
+        "page_num": 78,
+        "title": "21:27",
+        "text": "21:27\n78\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nMasv\nMamon\nDiem\nT1\nInt1001\n8\nT1\nInt1002\n9\nC2\nInt1003\n7\nC2\nInt1002\n3\nT3\nInt1003\n10\nT4\nInt1002\n8\nC2\nInt1001\n8\nT4\nInt1001\n7\nC3\nInt1003\n6\nT1\nInt1003\n5\nSV_DIEM\nMamon\nTenmon\nSotinchi\nInt1001\nCSDL\n3\nInt1002\nNGLT C\n4\nInt1003\nTRR\n3\nMONHOC\nPhép toán chia\nVí dụ: Hãy đưa ra danh sách (mã sv) sv  có điểm tất cả các môn?"
+      },
+      {
+        "page_num": 79,
+        "title": "Phép chia",
+        "text": "Phép chia\nCách tính T(Y)= R(Z)  S(X)\n1. Y = Z-X\n2. T1 =  Y(R)\n3. T2 =  Y((S  T1)-R)\n4. T= T1-T2\n21:27\n79\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 80,
+        "title": "Phép toán chia",
+        "text": "Phép toán chia\nVí dụ\n21:27\n80\nA\nB\n\n\na\na\n\na\n\na\n\na\n\na\n\na\n\na\nC\nD\n\n\na\nb\n\na\n\na\n\nb\n\na\n\nb\n\nb\nE\n1\n3\n1\n1\n1\n1\n1\n1\nR\nD\nE\na\nS\nb\n1\n1\nR  S\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nR  S\nA\nB\nC\n\na\n\n\na\n"
+      },
+      {
+        "page_num": 81,
+        "title": "Phép chia",
+        "text": "Phép chia\nVí dụ\n21:27\n81\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nS\nA\nB\na1\nb1\na2\nb2\nR\nA\nB\nC\nD\na1\nb1\nx1\ny1\na2\nb2\nx1\ny1\na1\nb2\nx1\ny1\na2\nb2\nx1\ny2\na1\nb1\nx1\ny2\na1\nb1\nx2\ny1\na2\nb2\nx2\ny1\na1\nb1\nx2\ny2\na2\nb3\nx1\ny2\na3\nb1\nx1\ny1\nT = R  S   ?"
+      },
+      {
+        "page_num": 82,
+        "title": "Phép chia",
+        "text": "Phép chia\nVí dụ\n21:27\n82\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nS\nA\nB\na1\nb1\na2\nb2\nR\nA\nB\nC\nD\na1\nb1\nx1\ny1\na2\nb2\nx1\ny1\na1\nb2\nx1\ny1\na2\nb2\nx1\ny2\na1\nb1\nx1\ny2\na1\nb1\nx2\ny1\na2\nb2\nx2\ny1\na1\nb1\nx2\ny2\na2\nb3\nx3\ny2\na3\nb1\nx1\ny3\n1. Y  = {C,D } \n2. T1  =  Y (R) \nT1\nC\nD\nx1\ny1\nx1\ny2\nx2\ny1\nx2\ny2\nx3\ny2\nx1\ny3"
+      },
+      {
+        "page_num": 83,
+        "title": "Phép toán chia",
+        "text": "Phép toán chia\nVí dụ\n21:27\n83\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nS\nA\nB\na1\nb1\na2\nb2\nR\nA\nB\nC\nD\na1\nb1\nx1\ny1\na2\nb2\nx1\ny1\na1\nb2\nx1\ny1\na2\nb2\nx1\ny2\na1\nb1\nx1\ny2\na1\nb1\nx2\ny1\na2\nb2\nx2\ny1\na1\nb1\nx2\ny2\na2\nb3\nx3\ny2\na3\nb1\nx1\ny3\n1. Y  = {C,D } \n2. T1  =  Y (R) \nT1\nC\nD\nx1\ny1\nx1\ny2\nx2\ny1\nx2\ny2\nx3\ny2\nx1\ny3\n3. T2  =  Y (S  T1) - R) \nA\nB\nC\nD\na1\nb1\nx1\ny1\na1\nb1\nx1\ny2\na1\nb1\nx2\ny1\na1\nb1\nx2\ny2\na1\nb1\nx3\ny2\na1\nb1\nx1\ny3\na2\nb2\nx1\ny1\na2\nb2\nx1\ny2\na2\nb2\nx2\ny1\na2\nb2\nx2\ny2\na2\nb2\nx3\ny2\na2\nb2\nx1\ny3"
+      },
+      {
+        "page_num": 84,
+        "title": "Phép toán chia",
+        "text": "Phép toán chia\nVí dụ\n21:27\n84\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nS\nA\nB\na1\nb1\na2\nb2\nR\nA\nB\nC\nD\na1\nb1\nx1\ny1\na2\nb2\nx1\ny1\na1\nb2\nx1\ny1\na2\nb2\nx1\ny2\na1\nb1\nx1\ny2\na1\nb1\nx2\ny1\na2\nb2\nx2\ny1\na1\nb1\nx2\ny2\na2\nb3\nx3\ny2\na3\nb1\nx1\ny3\n1. Y  = {C,D } \n2. T1  =  Y (R) \nT1\nC\nD\nx1\ny1\nx1\ny2\nx2\ny1\nx2\ny2\nx3\ny2\nx1\ny3\n3. T2  =  Y ((S  T1) - R) \nA\nB\nC\nD\na1\nb1\nx3\ny2\na1\nb1\nx1\ny3\na2\nb2\nx2\ny2\na2\nb2\nx3\ny2\na2\nb2\nx1\ny3\nT2\nC\nD\nx3\ny2\nx1\ny3\nx2\ny2\nT\nC\nD\nx1\ny1\nx1\ny2\nx2\ny1\n4. T  = T1-T2"
+      },
+      {
+        "page_num": 85,
+        "title": "Ví dụ 1 (bài tập)",
+        "text": "Ví dụ 1 (bài tập)\nHãy đưa ra mã nhân viên tham gia tất cả các đề án\nQuan hệ: DEAN (MaDa, TenDa,Ddiem, Phong);  \nNV_DEAN(Manv,MaDa, Sogio)\n21:27\n85\nDA  MaDa(DEAN)\nKQ  NV_DEAN÷DA\nB1:\nB3:\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nNV_DEAN  MANV, MaDa(NV_DEAN)\nB2:"
+      },
+      {
+        "page_num": 86,
+        "title": "Ví dụ 2 (bài tập)",
+        "text": "Ví dụ 2 (bài tập)\nHãy đưa ra mã nhân viên tham gia tất cả các đề án do \nphòng số 4 phụ trách\nQuan hệ: NHANVIEN, NV_DEAN, DEAN\nThuộc tính: MANV\nĐiều kiện: PHONG=4\n21:27\n86\nP4_DA  MaDa(PHG=4 (DEAN))\nMA_NV  NV_DA÷P4_DA\nB1:\nB3:\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nNV_DA  Manv, MaDa(NV_DEAN)\nB2:"
+      },
+      {
+        "page_num": 87,
+        "title": "21:27",
+        "text": "21:27\n87\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nMasv\nHo\nDem\nTen\nT1\nTrần\nVăn\nAn\nC2\nLê\nĐình\nBắc\nT3\nTrần\nThị\nHảo\nT4\nVũ\nĐức\nLâm\nC3\nPhạm\nHải\nNgọc\nSINHVIEN\nMasv\nMalop\nDiem\nT1\nInt1001\nT1\nInt1002\nC2\nInt1003\nC2\nInt1002\nT3\nInt1003\nT4\nInt1002\nC2\nInt1001\nT4\nInt1001\nC3\nInt1003\nT1\nInt1003\nC2\nInt2003\nSV_LOP\nLOP\nMalop\nTenlop\nGiaovien\nInt1001\nTHCS\nLê Văn Tân\nInt1002\nCSDL\nTrần Văn Thịnh\nInt1003\nCTD\nLê Đức Hòa\nInt2003\nNLHDH\nLê Đức Hòa\nVí dụ 3: Hãy đưa ra danh sách sinh viên (Mã, Họ, Đệm, Tên) \nđăng kí tất cả các lớp môn học"
+      },
+      {
+        "page_num": 88,
+        "title": "Ví dụ 3(bài tập)",
+        "text": "Ví dụ 3(bài tập)\nSINHVIEN(Masv, Ho,Dem,Ten)\nLOP(Malop,Tenlop,Giaovien)\nSV_LOP(Masv, Malop, Diem)\n21:27\n88\nLOPMA Malop(LOP)\nKQ  SV*SINHVIEN\nSVLOP = Masv,Malop(SV_LOP)\nSV SVLOP÷LOPMA\nB1: Lấy mã lớp trong LOP\nB2:Lấy mã sinh viên tham gia tất cả các lớp\nB3: Danh sách đầy đủ các thuộc tính\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 89,
+        "title": "Ví dụ 4 (bài tập): Hãy đưa ra danh sách sinh viên đăng kí các lớp do giáo viên Lê ",
+        "text": "Ví dụ 4 (bài tập): Hãy đưa ra danh sách sinh viên đăng kí các lớp do giáo viên Lê \nĐức Hòa dạy \nSINHVIEN(Masv, Ho,Dem,Ten)\nLOP(Malop, Tenlop, Giaovien)\nSV_LOP(Masv, Malop)\n21:27\n89\nLOPGV Malop(Giaovien=“Lê Đức Hòa”(LOP))\nKQ  SV*SINHVIEN\nSV Masv(SV_LOP÷LOPGV)\nB1: Lấy mã lớp do Lê Đức Hòa dạy\nB2:Lấy mã sinh viên tham gia tất cả các lớp trong  LOPGV\nB3: Danh sách đầy đủ các thuộc tính\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 90,
+        "title": "Nội dung chi tiết",
+        "text": "Nội dung chi tiết\nGiới thiệu\nCác thao tác cập nhật trên quan hệ\nĐại số quan hệ\n▪Phép toán tập hợp: TT. Hợp, TT. Giao, TT. Trừ\n▪Phép toán trên CSDL: \no Phép chọn; Phép chiếu; Phép tích Cartesian\no Phép nối; Phép chia\nCác phép toán khác\n▪Hàm kết hợp (Aggregation function)\n▪Phép toán gom nhóm (Grouping)\n▪Phép toán nối ngoài (Outer join)\n21:27\n90\nKhoa CNTT"
+      },
+      {
+        "page_num": 91,
+        "title": "Hàm kết hợp",
+        "text": "Hàm kết hợp\nĐối số có thể là thuộc tính (tập hợp các giá trị) và trả \nvề một giá trị đơn(vô hướng)\nAVG\nMIN\nMAX\nSUM\nCOUNT\n21:27\n91\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 92,
+        "title": "Hàm kết hợp ",
+        "text": "Hàm kết hợp \nVí dụ\n21:27\n92\nSUM(A) = 6\nAVG(A) = 1.5\nMIN(A) = 1\nMAX(B) = 4\nCOUNT(B) = 3\nCOUNT(*) = 4\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 93,
+        "title": "Phép toán gom nhóm",
+        "text": "Phép toán gom nhóm\nĐược dùng để phân chia quan hệ thành nhiều nhóm dựa trên \nthuộc  tính phân nhóm nào đó \nKý hiệu\no R là Quan hệ\no Gi là thuộc tính gom nhóm; ngầm định : cả qh là 1 nhóm\no F1, F2, …, Fn là các hàm kết hợp\no A1, A2, …, An là các thuộc tính tính toán trong hàm Fi\no Trả về quan hệ\n21:27\n93\nG1,G2,..,Gk  F F1(A1), F2(A2), …, Fn(An)(R)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 94,
+        "title": "Phép gom nhóm",
+        "text": "Phép gom nhóm\nVí dụ\n21:27\n94\nS1=  (Sum_c) (FSUM(C)(R))\nA\nB\n\nR\n\n2\n4\n\n\n2\n2\nC\n7\n7\n3\n10\nS2 =  (A, Sum_C) (AFSUM(C)(R) )\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nS1\nSum_c\n27\nS2\nA\nSum_c\n\n14\n\n3\n\n10"
+      },
+      {
+        "page_num": 95,
+        "title": "Ví dụ 18",
+        "text": "Ví dụ 18\nTính số lượng nhân viên và lương trung bình của cả \ncông ty\n21:27\n95\nF COUNT(*), AVG(LUONG)(NHANVIEN)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 96,
+        "title": "Ví dụ 19",
+        "text": "Ví dụ 19\nTính số lượng nhân viên và lương trung bình của từng \nphòng ban\n21:27\n96\nMAPHGF COUNT(*), AVG(LUONG)(NHANVIEN)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nĐếm số học sinh theo môn và điểm TB, LN,NN trong\n  SV_DIEM(Masv, Mamon, Diem)\nMamonF COUNT(*), AVG(Diem),Max(Diem),Min(Diem)(SV_DIEM)"
+      },
+      {
+        "page_num": 97,
+        "title": "Ví dụ 20",
+        "text": "Ví dụ 20\nĐưa ra danh sách nhân viên có lương cao nhất công ty\n21:27\n97\nR1 = (Luong) (F Max(LUONG)(NHANVIEN))\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nKQ=R1*NHANVIEN"
+      },
+      {
+        "page_num": 98,
+        "title": "Ví dụ (bài tập): Hãy dưa ra danh sách sinh viên (masv, ",
+        "text": "Ví dụ (bài tập): Hãy dưa ra danh sách sinh viên (masv, \nhoten, Tenmh,diem) có điểm môn học cao nhất trong SVD\nSV(Masv, Hoten, ngaysinh)\nMH(Mamh, Tenmh, Sotc)\nSVD(Masv,Mamh,Diem)\n21:27\n98\nR1 = (Diem) F Max(Diem)(SVD)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nR2 = R1*SVD\nKQ = Masv,Hoten,Tenmh,Diem (SV*R3)\nR3 = R2*MH"
+      },
+      {
+        "page_num": 99,
+        "title": "Ví dụ 21",
+        "text": "Ví dụ 21\nĐưa ra danh sách nhân viên (Manv, Honv,Tennv, Maphg, \nLuong) có lương thấp hơn lương trung bình của công ty\n21:27\n99\nManv,Honv,Tennv, Maphg,Luong(NHANVIEN     Luong<Luong_TB R)\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nR = (Luong_TB) (F AVG(LUONG)(NHANVIEN))"
+      },
+      {
+        "page_num": 100,
+        "title": "Phép toán nối ngoài",
+        "text": "Phép toán nối ngoài\n21:27\n100\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nMasv\nHo\nDem\nTen\nT1\nTrần\nVăn\nAn\nC1\nTrần\nVăn \nĐức\nC2\nLê\nĐình\nBắc\nT3\nTrần\nThị\nHảo\nT4\nVũ\nĐức\nLâm\nC3\nPhạm\nHải\nNgọc\nT2\nLê\nThị\nHà\nMasv\nMalop\nDiem\nT1\nInt1001\n8\nC2\nInt1003\n7\nT3\nInt1003\n10\nT4\nInt1002\n8\nXét  ví dụ (SINHVIEN,SV_LOPMH)\nR = SINHVIEN * SV_LOPMH\nMasv\nHo\nDem\nTen\nMalop\nDiem\nT1\nTrần\nVăn\nAn\nInt1001\n8\nC2\nLê\nĐình\nBắc\nInt1003\n7\nT3\nTrần\nThị\nHảo\nInt1003\n10\nT4\nVũ\nĐức\nLâm\nInt1002\n8"
+      },
+      {
+        "page_num": 101,
+        "title": "Phép toán nối ngoài",
+        "text": "Phép toán nối ngoài\n21:27\n101\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nMasv\nHo\nDem\nTen\nT1\nTrần\nVăn\nAn\nC1\nTrần\nVăn \nĐức\nC2\nLê\nĐình\nBắc\nT3\nTrần\nThị\nHảo\nT4\nVũ\nĐức\nLâm\nC3\nPhạm\nHải\nNgọc\nT2\nLê\nThị\nHà\nMasv\nMalop\nDiem\nT1\nInt1001\n8\nC2\nInt1003\n7\nT3\nInt1003\n10\nT4\nInt1002\n8\nXét  ví dụ (SINHVIEN,SV_LOPMH)\nR = SINHVIEN  ??  SV_LOPMH\nMasv\nHo\nDem\nTen\nMalop\nDiem\nT1\nTrần\nVăn\nAn\nInt1001\n8\nC2\nLê\nĐình\nBắc\nInt1003\n7\nT3\nTrần\nThị\nHảo\nInt1003\n10\nT4\nVũ\nĐức\nLâm\nInt1002\n8\nC1\nTrần\nVăn \nĐức\nnull\nnull\nC3\nPhạm\nHải\nNgọc\nnull\nnull\nT2\nLê\nThị\nHà\nnull\nnull"
+      },
+      {
+        "page_num": 102,
+        "title": "Phép toán nối ngoài",
+        "text": "Phép toán nối ngoài\nMở rộng phép nối để tránh mất mát thông tin\no Thực hiện phép nối thông thường\no Lấy thêm các bộ không thỏa điều kiện nối\nCó 3 dạng\n1.\nNối ngoài trái \n2.\nNối ngoài phải \n3.\nNối ngoài đầy đủ\n21:27\n102\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 103,
+        "title": "Phép toán nối ngoài",
+        "text": "Phép toán nối ngoài\nQ = R        f    S\n       = { <t,u> nếu f (t,u) đúng; \n            <t, null,..,null> nếu u  S, f(t,u) sai    }\n21:27\n103\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nQ = R        f    S\n       = { <t,u> nếu f (t,u) đúng\n            <null,..,null, u> nếu t  R, f(t,u) sai    }\nQ = R        f    S  = {  <t,u> nếu f (t,u) đúng\n                                        <null,..,null, u> nếu t  R, f(t,u) sai \n                                        <t, null,..,null> nếu u  S, f(t,u) sai  }"
+      },
+      {
+        "page_num": 104,
+        "title": "Phép toán nối ngoài",
+        "text": "Phép toán nối ngoài\n21:27\n104\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nMasv\nHo\nDem\nTen\nT1\nTrần\nVăn\nAn\nC1\nTrần\nVăn \nĐức\nC2\nLê\nĐình\nBắc\nT3\nTrần\nThị\nHảo\nT4\nVũ\nĐức\nLâm\nC3\nPhạm\nHải\nNgọc\nT2\nLê\nThị\nHà\nMasv\nMalop\nDiem\nT1\nInt1001\n8\nC2\nInt1003\n7\nT3\nInt1003\n10\nT4\nInt1002\n8\nXét  ví dụ (SINHVIEN,SV_LOP)\nR = SINHVIEN.Masv,Ho,Dem,Ten,Malop,Diem (SINHVIEN         f SV_LOP)\nSINHVIEN.Masv\nHo\nDem\nTen\nMalop\nDiem\nT1\nTrần\nVăn\nAn\nInt1001\n8\nC2\nLê\nĐình\nBắc\nInt1003\n7\nT3\nTrần\nThị\nHảo\nInt1003\n10\nT4\nVũ\nĐức\nLâm\nInt1002\n8\nC1\nTrần\nVăn \nĐức\nnull\nnull\nC3\nPhạm\nHải\nNgọc\nnull\nnull\nT2\nLê\nThị\nHà\nnull\nnull\nvới f là SINHVIEN.Masv=SV_LOP.Masv"
+      },
+      {
+        "page_num": 105,
+        "title": "Ví dụ 20",
+        "text": "Ví dụ 20\nCho biết họ tên nhân viên và tên phòng ban mà họ \nphụ trách nếu có\nQuan hệ: NHANVIEN, PHONGBAN\nThuộc tính: TENNV, TENPH\n21:27\n105\nR1  NHANVIEN         MANV=MATRPHG PHONGBAN\nKQ  TENNV, HONV, TENPHG (R1)\nTENNV\nHONV\nTENPHG\nTung\nNguyen\nNghien cuu\nHang\nBui\nnull\nNhu\nLe\nnull\nVinh\nPham\nQuan ly\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 106,
+        "title": "Bài tập 1: Xác định kết quả các phép toán với qh T1 và T2",
+        "text": "Bài tập 1: Xác định kết quả các phép toán với qh T1 và T2\n21:27\n106\nT1 \nT1.X = T2.AT2 \nT1 \n(T1.X = T2.A AND T1.Z = T2.C)T2 \nT1 \n(T1.Y = T2.B)T2 \nT1 \nT1.X = T2.AT2 \nT1 \n(T1.Y = T2.B)T2 \nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 107,
+        "title": "Bài tập : Cho lược đồ sau",
+        "text": "Bài tập : Cho lược đồ sau\n21:27\n107\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\n• Đưa ra (MaDp, TenDp, Tongsotien) của các Địa phương mà tại đó bán được nhiều tiền \nnhất\n• Đưa ra (MaNhom, TenNhom, TongsoluongHangHoa)  của nhóm  mà các nhân viên của \nnhóm bán được tổng số lượng hàng hóa nhiều nhất\n• Đưa ra thông tin (MaNcc, TenNcc)  của những nhà cung cấp mà các mặt hàng do họ \ncung cấp bán được ít tiền nhất."
+      },
+      {
+        "page_num": 108,
+        "title": "Bài tập 2: Cho cơ sở dữ liệu CÔNGTY gồm các lược đồ sau",
+        "text": "Bài tập 2: Cho cơ sở dữ liệu CÔNGTY gồm các lược đồ sau\n\nNHANVIEN(MANV, HONV, TENNV, NS, GT, DCHI, \nLUONG, MANGS, MADV)\n\nDONVI(MADV, TENDV, MANQL, NGAY_BD) \n\nDEAN(MADA, TENDA, DD_DA, MADV)\n\nTHANNHAN(MANV, TEN_TN, NS, GT, QUANHE)\n\nNV_DEAN(MANV, MADA, SOGIO)\n\nDONVI_DD(MADV, DD) \n21:27\n108\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 109,
+        "title": "Bài tập 2(tt)",
+        "text": "Bài tập 2(tt)\n\nĐưa ra tên và địa chỉ, tên đơn vị của tất cả các nhân viên làm \nviệc cho đơn vị.\n\nVới mỗi dự án có địa điểm tại Hà nội, hãy liệt kê mã số dự án, \nmã số của đơn vị kiểm soát, Tên, địa chỉ và ngày sinh của \nngười quản lý đơn vị\n\nTìm tên của các nhân viên làm việc trên tất cả các dự án do \nđơn vị có mã số 5 kiểm soát.\n\nTạo ra một danh sách các mã số dự án đối với các dự án có một \nnhân viên hoặc một người quản lý đơn vị kiểm soát dự án có \ntên là ‘Nam’.\n\nĐưa ra tên của tất cả các nhân viên có nhiều hơn hoặc bằng 2 \nngười phụ thuộc.\n\nĐưa ra các nhân viên (Mã, họ và tên) không có người phụ \nthuộc.\n\nĐưa ra tên của những người quản lý có ít nhất là một người \nphụ thuộc. \n21:27\n109\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 110,
+        "title": "Kiểm tra giữa kỳ",
+        "text": "Kiểm tra giữa kỳ\nNắm được các khái niệm cơ bản về CSDL, mô hình \nCSDL\nXây dựng lược đồ liên kết thực thể, hiểu lược đồ liên \nkết mở rộng → chuyển đổi được sang lược đồ quan hệ\nThực hiện được các thao tác CSDL (sử dụng các phép \ntoán trên đại số quan hệ)\n21:27\n110\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ"
+      },
+      {
+        "page_num": 111,
+        "title": "21:27",
+        "text": "21:27\n111\nKhoa CNTT\nNhập môn Cơ sở Dữ liệu\nNgôn ngữ Đại số quan hệ\nMakhuvuc,NV.MaNV,Hoten,Soluong((Soluong>=100)^(NV.MaNV = BANHANG.MaNV)(NV × BANHANG))\nSV.Masv,Hoten,DiemTB((DiemTB>=9)^(SV.Masv = SV_DIEM.Masv)(SV × SV_DIEM))"
+      }
+    ]
+  },
+  "C4_1.pptx": {
+    "type": "pptx",
+    "total": 96,
+    "slides": [
+      {
+        "slide_num": 1,
+        "title": "Chương 4",
+        "text": "Chương 4\n13:49\nKhoa CNTT\n1\nPhụ thuộc hàm và \nChuẩn hóa CSDL quan hệ"
+      },
+      {
+        "slide_num": 2,
+        "title": "Mục tiêu:",
+        "text": "Mục tiêu:\n\nMột số vấn đề lý thuyết thiết kế để có lược đồ tốt (đạt chuẩn).\nMột lược đồ tốt được thể hiện qua 2 mức:\nMức khái niệm (hay logic):ngữ nghĩa rõ ràng, dễ hiểu, đầy đủ, chính xác...\nMức cài đặt: các bộ được lưu trữ như thế nào..\nLý thuyết chuẩn hóa (dựa trên phụ thuộc hàm, …) là nền tảng cơ sở để thực hiện việc phân tích và chuẩn hóa lược đồ.\n13:49\nKhoa CNTT\n2\nPhụ thuộc hàm và chuẩn hóa CSDL quan hệ"
+      },
+      {
+        "slide_num": 3,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\nSự dư thừa và dị thường dữ liệu\nMột số nguyên tắc thiết kế\nPhụ thuộc hàm\nHệ suy diễn Armstrong\nBao đóng\nPhủ tối thiểu\nCác dạng chuẩn\nNội dung chính\n13:49\nKhoa CNTT\n3"
+      },
+      {
+        "slide_num": 4,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n4.1 - Sự dư thừa và dị thường dữ liệu\n13:49\nKhoa CNTT\n4\nVí dụ 1: NHANVIEN_PHONG\nDư thừa về Đơn vị / Người quản lý"
+      },
+      {
+        "slide_num": 5,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n4.1 - Sự dư thừa và dị thường dữ liệu\n13:49\nKhoa CNTT\n5\nVí dụ 2\nDư thừa"
+      },
+      {
+        "slide_num": 6,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n4.1 - Sự dư thừa và dị thường dữ liệu\n13:49\nKhoa CNTT\n6\nVí dụ 3\nDư thừa"
+      },
+      {
+        "slide_num": 7,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n4.1 - Sự dư thừa và dị thường dữ liệu\n13:49\nKhoa CNTT\n7\nSự phụ thuộc lẫn nhau giữa các thuộc tính\nVí dụ: \nĐiểm các môn học  Điểm trung bình  xếp loại\nMã phòng  Tên phòng,  người quản lý\nThuộc tính đa trị trong lược đồ ER  nhiều bộ\nVí dụ: \n    NHANVIEN(TENNV, HONV, NS,DCHI,GT,LUONG, BANGCAP)\nTại sao có sự dư thừa ??"
+      },
+      {
+        "slide_num": 8,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n8\n4.1 - Sự dư thừa và dị thường dữ liệu\nLãng phí không gian nhớ\nDị thường cập nhật:\nThao tác sửa đổi: phải cập nhật tất cả các giá trị, bộ  liên quan\nThao tác xóa: người cuối cùng của đơn vị  mất thông tin về đơn vị\nThao tác chèn"
+      },
+      {
+        "slide_num": 9,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n9\n4.2- Một số nguyên tắc thiết kế lược đồ\nNguyên tắc 1:  Rõ ràng về ý nghĩa (quan hệ, thuộc tính), tránh các phụ thuộc (về ý nghĩa) giữa các thuộc tính với nhau\nMỗi lược đồ quan hệ tương ứng với một kiểu thực thể hoặc một liên kết\nNguyên tắc 2:  Tránh các khả năng phát sinh dị thường cập nhật trong các quan hệ\nTránh dư thừa, trùng lặp thông tin. Nếu có  xuất hiện dị thường phải đảm \nbảo thao tác cập nhật thực hiện đúng đắn\nNguyên tắc 3:  Tránh đặt các thuộc tính có nhiều giá trị Null\nNguyên tắc 4: Các lược đồ quan hệ kết nối với điều kiện bằng trên các thuộc tính nên là khoá chính hoặc khoá ngoài để đảm bảo không sinh ra các bộ “giả”"
+      },
+      {
+        "slide_num": 10,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n10\n4.3 – Phụ thuộc hàm (Functional Dependency)\nĐịnh nghĩa:  \nCho lược đồ quan hệ R;  X, Y là các tập thuộc tính trên R.\nTa nói Y phụ thuộc hàm vào X hay X xác định hàm Y ; X gọi là vế trái, \nY là vế phải của phụ thuộc hàm\nMột phụ thuộc hàm giữa X và Y được kí hiệu X  Y là một ràng buộc:\nVới mỗi thể hiện r của lược đồ quan hệ R, với 2 bộ bất kỳ t1 và t2 trong r\n     nếu có t1[X]= t2[X] thì t1[Y]=t2[Y]\n(tức là 2 bộ bất kỳ bằng nhau trên X thì cũng bằng nhau trên Y)\nPhụ thuộc hàm là tính chất ngữ nghĩa trên các thuộc tính của lược đồ, được xác định khi thiết kế chứ không suy đoán trên một thể hiện của lược đồ."
+      },
+      {
+        "slide_num": 11,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n11\n4.3 – Phụ thuộc hàm\nVí dụ:\nSINHVIEN(Masv, Ho, Dem,Ten, Ngaysinh, Noisinh, Lop)\nPhụ thuộc hàm: Masv  Ho, Dem,Ten, Ngaysinh, Noisinh, Lop\nSINHVIEN_DIEM(Masv,Mamon, Ngaythi, Diem)\nPhụ thuộc hàm Masv,Mamon  Diem\nMUONSACH (Sothe, Masach, Tennguoimuon, Tensach, \n                     Ngaymuon, Ngaytra)\nVới các phụ thuộc hàm:\n   Sothe  Tennguoimuon\n   Masach  Tensach\n   Sothe, Masach, Ngaymuon  Ngaytra"
+      },
+      {
+        "slide_num": 12,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n12\n4.3 – Phụ thuộc hàm\nBiểu diễn  phụ thuộc hàm trên lược đồ\nSINHVIEN_DIEM\nMUONSACH\nSothe  Tennguoimuon"
+      },
+      {
+        "slide_num": 13,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n13\n4.4 – Quy tắc suy diễn Phụ thuộc hàm\nCho lược đồ R (A), F là tập các phụ thuộc hàm; \nX  Y  gọi là suy diễn được từ F  nếu với mọi thể hiện r của R thỏa mãn các phụ thuộc hàm F thì X  Y  cũng đúng trong r\nKí hiệu F |= X  Y\nVí dụ: MUON(Sothe, Masach, Tennguoimuon, Tensach, Ngaymuon, Ngaytra)\n    F = {  Sothe  Tennguoimuon;   Masach  Tensach;\n               Sothe,Masach  Ngaymuon , Ngaytra }\n     F |= Sothe,masach Tensach, Ngaytra"
+      },
+      {
+        "slide_num": 14,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\nKhoa CNTT\n14\n4.4 – Quy tắc suy diễn Phụ thuộc hàm\nQuy tắc 1 (quy tắc phản xạ) : Nếu X  Y thì   X  Y\nQuy tắc 2 (quy tắc tăng) :       { X Y } |=  XZ YZ\nQuy tắc 3 (quy tắc bắc cầu):    { X Y, Y Z }  |=  X Z\na. Quy tắc suy diễn Armstrong (hệ tiên đề Armstrong)"
+      },
+      {
+        "slide_num": 15,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n15\n4.4 – Quy tắc suy diễn Phụ thuộc hàm\nQuy tắc 1 (quy tắc phản xạ) : Nếu X  Y thì   X  Y\nChứng minh\nGiả sử :   t1 và t2 là 2 bộ bất kỳ trên r,\n với r là thể hiện của R, và X  Y\nTa có:\n          Nếu  t1[X]=  t2[X],  vì  X  Y nên  t1[Y]=t2[Y]\ntheo định nghĩa ta có X  Y\nb. Bổ đề 1: Quy tắc suy diễn Armstrong  là đúng"
+      },
+      {
+        "slide_num": 16,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n16\n4.4 – Quy tắc suy diễn Phụ thuộc hàm\nQuy tắc 2 (quy tắc tăng) :       { X Y } |=  XZ YZ\nPhản chứng:  Giả sử  có  X  Y nhưng  XZ  YZ không đúng.\nChứng minh\ntức là :  t, s và nếu t[X] = s[X]     t[Y] = s[Y]; t[XZ] = s[XZ] \n            nhưng  t[YZ]  #  s[YZ]\ntừ   t[X] = s[X] và t[XZ] = s[XZ]  t[Z] = s[Z]\ndo   t[Y] = s[Y] và t[Z] = s[Z]  t[YZ] = s[YZ]\nmẫu thuẫn  với giả thiết phản chứng\nvậy Quy tắc 2 đúng."
+      },
+      {
+        "slide_num": 17,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n17\n4.4 – Quy tắc suy diễn Phụ thuộc hàm\nQuy tắc 3 (bắc cầu):    { X Y, Y Z }  |=  X Z\nvới t, s bất kỳ, nếu t[X] = s[X], cần chứng minh t[Z] = s[Z]\nChứng minh\nDo  X Y nên nếu  t[X] = s[X] ta có t[Y] = s[Y]\nDo Y Z,  t[Y] = s[Y] nên t[Z] = s[Z]\nVậy nếu  t[X] = s[X] thì ta có t[Z] = s[Z]\ntức là X Z"
+      },
+      {
+        "slide_num": 18,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\nKhoa CNTT\n18\n4.4 – Quy tắc suy diễn Phụ thuộc hàm\nQuy tắc 4 (quy tắc chiếu)\t:     { XYZ } |=  {X Y, X Z}\nQuy tắc 5 (quy tắc hợp)\t:      { X Y , X Z }  |=  X YZ\nQuy tắc 6 (quy tắc tựa bắc cầu): {XY, WYZ }|= WX Z\nC. Bổ đề 2 - Quy tắc suy diễn"
+      },
+      {
+        "slide_num": 19,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n19\n4.4 – Quy tắc suy diễn Phụ thuộc hàm\nQuy tắc 4 (quy tắc chiếu):     { XYZ } |=  {X Y, X Z}\nChứng minh\nTheo  quy tắc 1:  ta có   YZ Y,\n                                   YZ Z\nTheo  giả thiết ta có      X YZ\nX   Y\nX   Z\nVậy ta có { XYZ } |=  {X Y, X Z}\nC. Bổ đề 2 - Quy tắc suy diễn"
+      },
+      {
+        "slide_num": 20,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n20\n4.4 – Quy tắc suy diễn Phụ thuộc hàm\nChứng minh  Quy tắc 5 (quy tắc hợp):  { X Y , X Z }  |=  X YZ\ntheo QT 2   ta có X YX và YX YZ\ntheo QT 3   ta có X YZ\nChứng minh  Quy tắc 6 (tựa bắc cầu): {XY, WYZ }|=WX Z\nTheo QT 2   ta có    WX WY\n                 kết hợp với WYZ  ta có   WX Z\nĐịnh lý 1: Quy tắc (tiên đề) Armstrong là đúng và đầy đủ.\nTính đúng: Đã Chứng minh\nTính đầy đủ: Tức là nếu F suy diễn ra f, thì f có thể suy diễn được từ F bằng cách sử dụng các quy tắc Armstrong"
+      },
+      {
+        "slide_num": 21,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\nKhoa CNTT\n21\n4.4 – Quy tắc suy diễn Phụ thuộc hàm\nQuy tắc 1 (quy tắc phản xạ) : Nếu X  Y thì   X  Y\nQuy tắc 2 (quy tắc tăng) :       { X Y } |=  XZ YZ\nQuy tắc 3 (quy tắc bắc cầu):    { X Y, Y Z }  |=  X Z\nQuy tắc 4 (quy tắc chiếu)\t:     { XYZ } |=  {X Y, X Z}\nQuy tắc 5 (quy tắc hợp)\t:      { X Y , X Z }  |=  X YZ\nQuy tắc 6 (quy tắc tựa bắc cầu): {XY,WYZ } |= WX Z\n6 quy tắc suy diễn\nBài tập"
+      },
+      {
+        "slide_num": 22,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n22\n4.5 – Bao đóng của tập Phụ thuộc hàm\nĐinh nghĩa:  Cho lược đồ R (A), F là một tập các phụ thuộc hàm trên R; \nTập tất cả các phụ  thuộc hàm suy diễn ra được từ F gọi là bao đóng của F, kí hiệu là F+\nTức là F+  = F  { f /  F |= f}\nVí dụ :\n        F   = {X Y , Y Z }\nThì  F+  = {X Y , Y Z , X Z , X YZ}"
+      },
+      {
+        "slide_num": 23,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n23\n4.5 – Bao đóng của tập Phụ thuộc hàm\nví dụ:  BANGDIEM(Masv,  Dtoan,  Dtin, Dtb,  Xeploai)\nF= {Dtoan, Dtin  Dtb; Dtb  Xeploai}\nF+= {Dtoan, Dtin  Dtb; Dtb  Xeploai; Dtoan, Dtin  Xeploai}\nXác định bao đóng ?"
+      },
+      {
+        "slide_num": 24,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n24\n4.5 – Bao đóng của tập Phụ thuộc hàm\nví dụ:\nF= {AB  C; A  D, D  E}\nF+= F {A  E, AB  BD, AB  BCD , AB  BCDE, BCD  BCDE,\n                  AB  CDE }\nXác định F+"
+      },
+      {
+        "slide_num": 25,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n25\nVí dụ: DA(Manv, Hoten, Mada, Tenda, DD, Sogio)\n            F ={Manv  Hoten; Mada  Tenda, DD; Manv, Mada  Sogio}\n4.6– Bao đóng của tập thuộc tính\nX+F   = { A  U sao cho X  A    F+}\n{Manv}+ =\nĐịnh nghĩa : Cho lược đồ quan hệ R (U), tập phụ thuộc hàm F; X là một  tập thuộc tính của R; gọi X+F  là bao đóng của X theo F\n{Manv, Hoten}\n{Mada}+ =\n{Mada, Tenda, DD}\n{Manv, Mada}+ =\n{Manv, Hoten, Mada, Tenda, DD, Sogio}"
+      },
+      {
+        "slide_num": 26,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n26\n4.6 – Bao đóng của tập thuộc tính\nBổ đề 3:  X  Y được suy diễn từ tập phụ thuộc hàm F theo quy tắc\n               Armstrong khi và chỉ khi  Y  X+F\nVí dụ 1: Cho F = {AB  C, A  D, D  E, AC  B}\nXác định các bao đóng sau:\nA+     =\nAB+  =\nB+     =\nD+     =\nF |= AB  E ?\nF |= D  C ?\nF |= AD  CDE ?\nF |=AB  CDE\n{A, D, E }\n{A, B, C, D, E }\n{B}\n{D, E}\nAD+   =\n{A, D, E}"
+      },
+      {
+        "slide_num": 27,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n27\n4.6 – Bao đóng của tập thuộc tính\nVí dụ 2:  Cho F = {A  B, C  DE,  AC  F}\nXác định các bao đóng sau:\nA+       =\nC+       =\nF |= A  E ?\nF |= AC  BDF ?\n{A, B }\n{C, D, E }\nAC+       =\n{A, B, C, D, E, F}"
+      },
+      {
+        "slide_num": 28,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n28\n4.6 – Bao đóng của tập thuộc tính\nThuật toán (4.6) tìm bao đóng X+F\nX+  = X;\nRepeat\n\tOld X+ = X+ ;\n\tVới mỗi phụ thuộc hàm Y  Z trong F \n        thực hiện : nếu X+  Y thì  X+ = X+  Z;\nUntil ( X+ = Old X+ );\nĐịnh lý 2 -  Thuật toán tìm bao đóng (4.6) là đúng"
+      },
+      {
+        "slide_num": 29,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n29\n4.6 – Bao đóng của tập thuộc tính\nTìm {ABC}+\nVí dụ 1:  Cho F ={AD, EH, ABDE,  CEG}\nĐặt X+ = {ABC}\n           (Lặp: ) Old X+ = X+\n                 với A  D ta có X+ = {ABCD}\n                 với E  H ta có X+ = {ABCD}\n                 với AB  DE ta có X+ = {ABCDE}\n                 với CE  G ta có X+ = {ABCDEG}\n                 …….\n                 với E  H ta có X+ = {ABCDEGH}\n\t  ..\nVậy {ABC}+ = {ABCDEGH}"
+      },
+      {
+        "slide_num": 30,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n30\n4.6 – Bao đóng của tập thuộc tính\nVí dụ 2:  Cho R(ABCDEG), với  tập phụ thuộc hàm :\nKhởi tạo: X+ = {AB}\nDùng (a): X+ = {ABC}\nDùng (b): X+ = {ABCD}\nDùng (c): X+ = {ABCDE}\nDùng (d): X+ = {ABCDE}\ntìm {AB}+"
+      },
+      {
+        "slide_num": 31,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n31\n4.6 – Bao đóng của tập thuộc tính\nVí dụ  3:  Cho F ={ AG  I, BE  I,E  G, AB  E,  GI  H}\nCMR  F |= AB  GH bằng cách sử dụng bổ đề bao đóng\nĐặt X+ = {AB}\n           (Lặp: ) Old X+ = X+\n                 với AB  E ta có X+ = {ABE}\n                 với BE  I ta có X+ = {ABEI}\n                 với E  G ta có X+  = {ABEGI}\n                 với GI  H ta có X+ = {ABEGHI}\n                 với AG  I ta có X+ = {ABEGHI}\nVậy GH {AB}+ do đó F |= AB  GH"
+      },
+      {
+        "slide_num": 32,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n32\n4.6 – Bao đóng của tập thuộc tính\nVí dụ 4:  Cho F ={ A  D, B  C,BC  EF, D  G}\nChứng minh  F |= AB  EFG bằng cách sử dụng bao đóng\nĐặt X+ = {AB}\n                 với A  D ta có X+ = {ABD}\n                 với B  C ta có X+ = {ABCD}\n                 với BC  EF ta có X+ = {ABCEF}\n                 với D  G ta có X+ = {ABCDEFG}\ndo đó   F |= AB  EFG\nBài tập"
+      },
+      {
+        "slide_num": 33,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n33\nBài tâp\nBài tâp 1:  Hãy chứng minh các suy diễn sau \n                bằng các sử dụng các quy tắc suy diễn\n1.  {W  Y, X  Z } |=  WX  YZ\nVậy     {W  Y, X  Z }  |=   {WX  YZ}"
+      },
+      {
+        "slide_num": 34,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n34\nBài tâp\nBài tâp 1:  Hãy chứng minh các suy diễn sau\n2.  {X  Z } và Y  Z |=  X  Y\nVậy {X  Z } và Y  Z |=  X  Y"
+      },
+      {
+        "slide_num": 35,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n35\nBài tâp\nBài tâp 1:  Hãy chứng minh các suy diễn sau\n3.  {X  Y,X  W,WY  Z} |=  {X  Z}\nVậy {X  Y,X  W,WY  Z} |=  {X  Z}"
+      },
+      {
+        "slide_num": 36,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n36\nBài tâp\nBài tâp 1:  Hãy chứng minh các suy diễn sau\n4.  {X  Y,Y  Z} |=  X  YZ\nVậy {X  Y,Y  Z} |=  X  YZ\nQuay lại"
+      },
+      {
+        "slide_num": 37,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n37\nBài tâp\nBài tâp 2:  Cho R với tập phụ thuộc hàm \n            F ={AB  C, B  D, CD  E, CE  GH, G  A}\nChứng minh các phụ thuộc hàm sau bằng cách dùng bao đóng:\n\t\t\t AB  E \n\t\t\t AB  GH"
+      },
+      {
+        "slide_num": 38,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n38\n4.7 – Tập Phụ thuộc hàm tương đương\nĐịnh nghĩa: \n Phủ: Tập phụ thuộc hàm E được phủ bởi  tập  phụ thuộc  hàm F nếu mỗi phụ thuộc hàm trong E đều thuộc F+\n  hay mỗi phụ thuộc hàm trong E có thể suy diễn ra được từ F.\nTương đương: Hai tập phụ thuộc hàm E và F là tương đương  nếu  E+ = F+\n\nHai tập phụ thuộc hàm Tương đương :  mỗi phụ thuộc hàm trong  tập này có thể suy diễn từ tập kia."
+      },
+      {
+        "slide_num": 39,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n39\n4.7 – Tập phụ thuộc hàm tương đương\nCho  2 tập phụ thuộc hàm \nF = {A C, AC  D, EAD, E H }\nE = { A CD,  E  AH }\nChứng minh E tương đương F ?\nCách 1: Dùng quy tắc suy diễn để chứng minh\nCách 2: Dùng bổ đề về bao đóng\nCần chứng minh các phụ thuộc hàm của E suy diễn được từ F và ngược lại"
+      },
+      {
+        "slide_num": 40,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n40\n4.7 – Phụ thuộc hàm tương đương\nF = {A C, AC  D, EAD, E H }\nE = { A CD,  E  AH }\nKiểm tra  E tương đương F ?\nCách 1: Dùng các quy tắc suy diễn\n{A C} |=  {A  AC}\n                 {AC  D}\n|=  {A D}\nkết hợp với {A C}\n|=  {A CD}\nVậy F |=  {A CD}\n{E AD} |= {E  A}\n                  {E  H}\n|=  {E AH}\nVậy F |=  {E AH}\nTức là  F  phủ E"
+      },
+      {
+        "slide_num": 41,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n41\n4.7 – Tập phụ thuộc hàm tương đương\nF = {A C, AC  D, EAD, E H }\nE = { A CD,  E  AH }\nKiểm tra E tương đương F ?\nCách 1: Dùng các quy tắc suy diễn\nTức là  F  tương đương  E\nTương tự: chứng minh được\nE  phủ F"
+      },
+      {
+        "slide_num": 42,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n42\n4.7 – Tập phụ thuộc hàm tương đương\nF = { A C, AC  D, EAD, E H }\nE = { A CD,  E  AH }\nKiểm tra  E tương đương F ?\nCách 2: Dùng bổ đề về bao đóng để chứng minh\n{A}+F = {ACD}, chứa CD nên F|= A CD\n{E}+F = {ACDEH} chứa AH nên F|= E AH\n F phủ  E\n{A}+E = {ACD}\n{AC}+E = {ACD}\n{E}+E = {ACDEH}\n E phủ  F\ntức là E,F tương đương"
+      },
+      {
+        "slide_num": 43,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n43\n4.8 – Tập phụ thuộc hàm tối thiểu\nTập phụ thuộc hàm tối thiểu:  Tập phụ thuộc hàm F gọi là tối thiểu  nếu F thỏa mãn các điều kiện sau:\nVế phải của mọi phụ thuộc hàm trong F chỉ có 1 thuộc tính\nKhông thể thay thế  X  A  trong F bằng Y  A với Y   X mà vẫn còn là tập PTH tương đương với F.\nKhông thể bớt được bất kỳ phụ thuộc hàm nào  khỏi F mà vẫn là tập PHT tương đương F"
+      },
+      {
+        "slide_num": 44,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n44\n4.8 – Tập phụ thuộc hàm tối thiểu\nPhủ tối thiểu\nTập phụ thuộc hàm Fmin là phủ tối thiểu  của F nếu\nFmin là tập phụ thuộc hàm tối thiểu, \nFmin  tương đương F.\nVí dụ:  F = {A C, AC  D, EAD, E H }\nG= { E C, A  D,  AD  H }\nGmin= { E C, A  D,  A  H }\nFmin = {A C, A  D, EA,  E H }"
+      },
+      {
+        "slide_num": 45,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n45\n4.8 – Tập phụ thuộc hàm tối thiểu\nĐịnh lý (4.8)  - Mọi tập phụ thuộc hàm đều có phủ tối thiểu\nThuật toán (4.8) tìm 01 phủ tối thiểu của F\nInput :  Tập phụ thuộc hàm F\nOutput :  01 tập  Fmin"
+      },
+      {
+        "slide_num": 46,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n46\n4.8 – Tập phụ thuộc hàm tối thiểu\nThuật toán (4.8) tìm  một phủ tối thiểu của F\n1. Đặt G = F\n2. Thay mỗi pth X  A1A2..Ak  trong G bằng  X  A1, X  A2.. X  Ak\n3. Với mỗi  pth XY  B trong G,  nếu G-{XY  B}  {X  B}  tương đương\n    với  G thì thay {XY  B} bởi {X  B}\n4. Với mỗi  pth X  Y trong G,  nếu G-{X  Y}  tương đương  với  G thì \n    loại {X  Y}\nG là phủ tối thiểu của F"
+      },
+      {
+        "slide_num": 47,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n47\nVí dụ: Tìm phủ tối thiểu  của F = {A BC, B  AC, CAB, AC D }\n1. G = {A BC, B  AC, CAB , AC D}\n2.  G= {A B, AC, B  A, B  C, CA, CB , AC D}\n3a.  G1 = {A B, AC, B  A, B  C, CA, CB , A D}\n3b.  G2 = {A B, AC, B  A, B  C, CA, CB , C D}"
+      },
+      {
+        "slide_num": 48,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n48\n2.  G= {A B, AC, B  A,B  C, CA, CB , AC D}\n3a.  G1= {A B, AC, B  A, B  C, CA, CB , A D}\n4a1. Loại {AB}, {BA}\n    G1a= { A  C, B  C, CA , CB, A D}\nvậy Fmin1= { A  C, B  C, CA , CB, A D}\nVới\nVí dụ: Tìm phủ tối thiểu  của F = {A BC, B  AC, CAB, AC D }\n1. G = {A BC, B  AC, CAB , AC D}"
+      },
+      {
+        "slide_num": 49,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n49\nVí dụ: Tìm phủ tối thiểu  của F = {A BC, B  AC, CAB, AC D }\n1. G = {A BC, B  AC, CAB , AC D}\n2.  G= {A B, AC, B  A,B  C, CA, CB , AC D}\n3a.  G1 = {A B, AC, B  A, B  C, CA, CB , A D}\n4a2. Loại {AC}, {CA} do dư thừa\n    G1b= {A B, B  A, B  C, CB , A D}\nvậy Fmin2= {A B, B  A, B  C, CB , A D}\nVới"
+      },
+      {
+        "slide_num": 50,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n50\n1. G = {A BC, B  AC, CAB , AC D}\n2.  G= {A B, AC, B  A,B  C, CA, CB , AC  D}\n3a.  G1= {A  B, A  C, B  A, B  C, C A, C  B , A  D}\n4a3. Loại {CB}, {BC}\n    G1c= {A B, A  C, B  A, CA , A D}\nvậy Fmin3= {A B, A  C, B  A, CA , A D}\nVới\nVí dụ: Tìm phủ tối thiểu  của F = {A BC, B  AC, CAB, AC D }"
+      },
+      {
+        "slide_num": 51,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n51\n2.  G= {A B, AC, B  A,B  C, CA, CB , AC D}\n3a.  G1= {A B, AC, B  A, B  C, CA, CB , A D}\n4a4. Loại {AB}, {BC}, {CA}\n    G1d= {AC, B  A, CB , A D}\nvậy Fmin4= {AC, B  A,  CB , A D}\n\n.......\n!  \nMột tập phụ thuộc hàm có thể có nhiều phủ tối thiểu\nVới\nVí dụ: Tìm phủ tối thiểu  của F = {A BC, B  AC, CAB, AC D }\n1. G = {A BC, B  AC, CAB , AC D}"
+      },
+      {
+        "slide_num": 52,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n52\nBài tập: Cho quan hệ\n    R(A,B,C,D,E,F,G,H,I,J) với \n    F ={ AB  C, A  DE, B  F, F  GH, F  CD, D  IJ}\n          \n   Tìm F min"
+      },
+      {
+        "slide_num": 53,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n53\nBài tập:    F ={ AB  C, A  DE, B  F, F  GH, F  CD, D  IJ}\n1. G ={ AB  C, A  DE, B  F, F  GH, F  CD, D  IJ}\n2.  G ={ AB  C, A  D, A E, B  F, F  G, F  H, \n               F  C, F  D, D  I, D  J}\nG ={ B  C, A  D, A E, B  F, F  G, F  H, \n               F  C, F  D, D  I, D  J}\n3.  Xét AB  C: Vì B  F, F  C nên B  C; loại A trong vế trái\nG = {  A  D, A E, B  F, F  G, F  H, \n               F  C, F  D, D  I, D  J}\n4. Xét B  C: Vì B  F, F C nên B C; loại  B  C\n F min"
+      },
+      {
+        "slide_num": 54,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n54\n4.9– Bao đóng và khóa\nSiêu khóa, khóa, khóa chính và khóa dự tuyển\nThuộc tính khóa\nThuật toán tìm khóa K của R(U) dựa trên tập phụ thuộc hàm F\n\t    Đặt K = U\nLặp với mỗi thuộc tính A trong K\ntính {K-A}+F\nnếu {K-A}+F  = U thì  K = K-{A};"
+      },
+      {
+        "slide_num": 55,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n55\nVí dụ: Tìm  khóa  của R(ABCD)  với  tập phụ thuộc hàm sau\nF = {A BC, B  C, BCA, A D }\nNhận xét:  Nếu có khóa, thì thuộc tính khóa sẽ  thuộc vế trái của các phụ thuộc hàm\n{ABCD}+ = {ABCD}\n{ABC}+ = {ABCD}\n{AB}+ = {ABCD}\n{A}+ = {ABCD}\nVậy, A là 1 khóa"
+      },
+      {
+        "slide_num": 56,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n56\n4.10– Các dạng chuẩn dựa trên khóa chính\nChuẩn là gì? Mỗi một dạng chuẩn là một tập các điều kiện trên lược đồ nhằm đảm bảo các tính chất nào đó của nó.\nChuẩn hóa : quá trình phân tích lược đồ quan hệ dựa trên các FD và các khóa chính để đạt được:\nGiảm tối đa sự dư thừa\nGiảm tối đa các phép cập nhật dị thường\nChuẩn và chuẩn hóa do Codd đề xuất đầu tiên năm 1972 (1NF-3NF, sau đó Boyce-Codd NF, 4NF, 5NF)"
+      },
+      {
+        "slide_num": 57,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n57\n4.10– Các dạng chuẩn dựa trên khóa chính\nThủ tục chuẩn hoá   \nMột tập các bước hình thức để phân tích các lược đồ quan hệ dựa trên khoá và các phụ thuộc hàm.\nMột loạt các kiểm tra dạng chuẩn có thể thực hiện trên các lược đồ quan hệ riêng rẽ sao cho cơ sở dữ liệu quan hệ có thể được chuẩn hoá đến một mức cần thiết. \nChuẩn hóa cần đảm bảo tính chất:\nNối không mất mát (hoặc nối không phụ thêm - không tạo thêm bộ giả)\nBảo toàn sự phụ thuộc: Đảm bảo rằng từng phụ thuộc hàm sẽ được thể hiện trong các quan hệ riêng rẽ nhận được sau khi tách."
+      },
+      {
+        "slide_num": 58,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n58\na. Dạng chuẩn 1 (1NF)\nMột quan hệ gọi là 1NF nếu :\nMiền giá trị của mỗi thuộc tính chỉ chứa giá trị nguyên tử (đơn, không phân chia được) \nGiá trị của mỗi thuộc tính trong các bộ là một giá trị đơn (đơn trị)\nVí dụ:\n\tSV_DIEM(Masv, Mamon, Diem)\nSV(Masv, Hoten, Gioitinh,Ngaysinh, Noisinh)\nKhông thỏa mãn 1NF"
+      },
+      {
+        "slide_num": 59,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n59\na. Dạng chuẩn 1\nVí dụ:\nKhông thỏa mãn 1NF\nNV_DA(Mada,Tenda,Mavn,Sogio)"
+      },
+      {
+        "slide_num": 60,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n60\nChuyển quan hệ không đạt chuẩn về dạng chuẩn 1\n     1. Thuộc tính phức hợp  các thuộc tính đơn\na. Dạng chuẩn 1\n2. Thuộc tính đa trị hoặc lặp  tách quan hệ\nSV(Masv, Hoten, Gioitinh,Ngaysinh, Noisinh)\nSV(Masv, Ho, Dem, Ten, Gioitinh,Ngaysinh, Noisinh)\nDONVI(Madv,Tendv, MaNQL, Diadiem)\nDV (Madv,Tendv, MaNQL)\nDV_DD(Madv, Diadiem)"
+      },
+      {
+        "slide_num": 61,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n61\na. Dạng chuẩn 1\nNV_DA(Mada,Tenda, Mavn, Sogio)\nDA(Mada,Tenda)\nNV_DA(Mada,Mavn,Sogio)\nLặp"
+      },
+      {
+        "slide_num": 62,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n62\na. Dạng chuẩn 1\nBanHang(MaNV, MaKH, TenKH, MaHH, TenHH, SL, Dongia, TT)\n1NF ?"
+      },
+      {
+        "slide_num": 63,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n63\nb. Dạng chuẩn 2\nPhụ thuộc hàm đầy đủ: Một phụ thuộc hàm X  Y  gọi là phụ thuộc hàm đầy đủ nếu khi loại bỏ bất kỳ thuộc tính A nào ra khỏi X thì phụ thuộc hàm không còn đúng nữa. \n\t∀ A  X, (X – {A})  Y : là không đúng.\nPhụ thuộc hàm bộ phận: Một phụ thuộc hàm  X  Y là phụ thuộc hàm bộ phận nếu có thể bỏ một thuộc tính A X, ra khỏi X mà phụ thuộc hàm vẫn đúng\n\t∃A X,  (X – {A})  Y"
+      },
+      {
+        "slide_num": 64,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n64\nMUONTRA\nb. Dạng chuẩn 2\nSothe,Masach  Ngaymuon\nSothe,Masach  Tensach\nSothe,Masach  Tennguoimuon\nVí dụ: Phụ thuộc hàm đầy đủ và bộ phận"
+      },
+      {
+        "slide_num": 65,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n65\nb. Dạng chuẩn 2 (2NF)\nĐịnh nghĩa: Một  lược đồ quan hệ R ở dạng chuẩn 2 nếu: \n R thỏa mãn chuẩn 1\n Mọi thuộc tính không khóa của R đều phụ thuộc hàm đầy đủ vào khóa chính\nVới các quan hệ có khóa gồm 1 thuộc tính thì luôn thỏa mãn\ntức là: Mỗi thuộc tính không khóa không phụ thuộc bộ phận vào khóa của R\nKiểm tra lược đồ thỏa mãn dạng chuẩn 2 ?"
+      },
+      {
+        "slide_num": 66,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n66\nMUONTRA\nb. Dạng chuẩn 2\nChuẩn hóa về dạng chuẩn 2"
+      },
+      {
+        "slide_num": 67,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n67\nMUONTRA\nb. Dạng chuẩn 2\nChuẩn hóa về dạng chuẩn 2\nTách các thuộc tính không khóa phụ thuộc bộ phận vào khóa chính thành quan hệ riêng; khóa của quan hệ mới là bộ phận của khóa tương ứng ban đầu\nLoại thuộc tính không khóa đó và pth tương ứng ra khỏi quan hệ gốc\nMasach  Tensach\nSothe  Tennguoimuon\nSothe,Masach  Ngaymuon;\nSothe,Masach  Ngaytra"
+      },
+      {
+        "slide_num": 68,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n68\nb. Dạng chuẩn 2\nVí dụ 1: Chuẩn hóa quan hệ R đạt dạng chuẩn 2\n              R(A,B,C,D,E)\n              F ={ ABC, AB D, AB E, B  C, A  E}\nR1(A,E)     F1 = { A  E}\nR2(B,C)     F2 = { B  C}\nR(A,B,D)    F = { AB  D}\nKhóa chính ?:\nCác Thuộc tính không khóa phụ thuộc bộ phận vào khóa?:\nB  C\nA  E\nAB"
+      },
+      {
+        "slide_num": 69,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n69\nb. Dạng chuẩn 2\nVí dụ 2: Chuẩn hóa quan hệ R thành dạng chuẩn 2\nR(A,B,C,D,E,F,G,H)\n   F ={ABC, ABD, ABE, ABF, ABG, AB  H\n         B  C, A  E, B  G}\nR1 (A,E)       F1= {A  E }\nR2(B,C,G)     F2= {B  C, B  G }\nR(A,B,D,F,H)  F ={ AB  D,  AB  F, AB  H }\nKhóa chính ?:\nCác thuộc tính phụ thuộc bộ phận vào khóa?:\nA  E\nB  C\nB  G"
+      },
+      {
+        "slide_num": 70,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n70\nb. Dạng chuẩn 2\nBài tập 1: Đưa R về dạng chuẩn 2 :\n\tR(A,B,C,D,E,F,G,H,I,J) và tập phụ thuộc hàm\n            F ={AB  C, A  DE, B  F, F  GH, D  IJ}\nKhóa của quan hệ R ?\nChuyển về dạng chuẩn 2?\nAB\nR1(ADEIJ)\nR2(BFGH)\nR(A,B,C)\nF1 = {A  D, A  E, D  I, D  J}\nF2 = {B  F, F  G,F  H }\nF = {AB  C}"
+      },
+      {
+        "slide_num": 71,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n71\nb. Dạng chuẩn 2\nBài tập 2: Cho quan hệ\n\tR(A,B,C,D,E,F,G,H,I,J) với tập phụ thuộc hàm\n            F ={ ABCDEF, ABC  EF, D  G, AB  F, \n                     A DG,  ABC  HIJ  }\nKhóa của quan hệ R ?\nChuyển về dạng chuẩn 2?\nR1(ADG)\nR2(ABF)\nR(ABCEHIJ)\nF1 = {A  DG, D  G}\nF2 = {AB  F}\nF = {ABC E, ABC  HIJ}\nABC"
+      },
+      {
+        "slide_num": 72,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n72\nb. Dạng chuẩn 2\nBài tập 3: Cho quan hệ (1NF)\n\tSV(MSV, HT, NS, QQ, MMH, TMH, STC, DIEM) \n\tKhóa: MSV,MMH\nvới tập phụ thuộc hàm\n            F ={ MSV  HT, NS, QQ;\n                    MMH  TMH, STC; \n                    MSV,MMH HT,NS,QQ,TMH,STC,DIEM  }\nChuyển về dạng chuẩn 2?"
+      },
+      {
+        "slide_num": 73,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n73\nb. Dạng chuẩn 2\nBài tập 4: Cho quan hệ\n\tR(ABCDEFGH) \n\tF ={ AB  CDEFGH, B  GH,   H  C  }\nChuyển về dạng chuẩn 2?"
+      },
+      {
+        "slide_num": 74,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n74\nb. Dạng chuẩn 2\nBài tập 5: Cho quan hệ\n\tR(ABCDEFGH) \n\tF ={ ABC  DEFGH, BC  GH,   B  H  }\nChuyển về dạng chuẩn 2?"
+      },
+      {
+        "slide_num": 75,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n75\nb. Dạng chuẩn 2\nBài tập 6: Cho quan hệ\n\tR(ABCDEFGHIJ) \n\tF ={ ABC  CDEFGHIJ, BC  GH,   H  E,  I  A,\n                     J  BC\n                  }\nChuyển về dạng chuẩn 2?"
+      },
+      {
+        "slide_num": 76,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n76\nb. Dạng chuẩn 2\nBài tập 6:\nCho  R(ABCDEFGHI) khóa AB và đã thỏa 1NF, tập các phụ thuộc hàm:\nF = { B E, ABCDEGFHI,  E FG, I C, H A, A FH},\nChuyển về dạng chuẩn 2?"
+      },
+      {
+        "slide_num": 77,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n77\nc. Dạng chuẩn 3 (3NF)\nPhụ thuộc bắc cầu:\nPhụ thuộc hàm XZ được gọi bắc cầu nếu  trong R có X  Y và Y  Z; với Y là tập thuộc tính không thuộc khóa (không khóa).\n\nTa nói Z phụ thuộc bắc cầu vào X\nVí dụ:    R(ABCDEF)\n               F = {AB  CDEF,  D  F, E  F, D  E}\nPhụ thuộc hàm bắc cầu:\nAB  F\nAB  E\nD F"
+      },
+      {
+        "slide_num": 78,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n78\nc. Dạng chuẩn 3\nLược đồ R là dạng chuẩn 3 nếu:\nThỏa mãn chuẩn 2\nKhông có thuộc tính không khoá  phụ thuộc bắc cầu vào khoá chính.\nTức là: mỗi phụ thuộc hàm X  Y thì\nHoặc X siêu khóa\nHoặc Y là thuộc tính khóa.\nVí dụ: R(A,B,C,D,E,F)\n             với F1 = {AB  C, AB  D, AB  E, AB  F, E  B}\nS(A,B,C,D,E,F)\n            với F2 = {AB  C, AB  D, AB  E, AB F, E  D}\n3NF\nkhông thỏa 3NF"
+      },
+      {
+        "slide_num": 79,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n79\nc. Dạng chuẩn 3\nChuẩn hóa lược đồ R :\nTách quan hệ mới gồm các thuộc tính phụ thuộc  bắc cầu và thuộc tính không khóa mà nó phụ thuộc vào.\nLoại các thuộc tính phụ thuộc bắc cầu vào thuộc tính khóa trong quan hệ ban đầu;\nR(A,B, C, D, E, F, G)\nAB: Khóa; các thuộc tính phụ thuộc bắc cầu  vào AB: F, G\nR1(D,F,G)\nR2(A,B,C,D,E)\nF={AB CDEFG, D  F, D  G}\nF1={D  F, D  G}\nF2={AB CDE}"
+      },
+      {
+        "slide_num": 80,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n80\nc. Dạng chuẩn 3\nVí dụ:  NV_DV(Manv, Hoten, Ngaysinh, Madv, Tendv, MaQl)\nVới các phụ thuộc hàm \n { Manv  Hoten, Manv  Ngaysinh, Manv  Madv, \n    Manv  MaQl, Manv  Tendv,\n    MaDv  Tendv, MaDv  MaQl }\nCác thuộc tính :  Tendv, MaQl  phụ thuộc bắc cầu vào khóa chính\nNV(Manv, Hoten, Ngaysinh, Madv)\nDV(Madv, Tendv, MaQl)"
+      },
+      {
+        "slide_num": 81,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n81\nc. Dạng chuẩn 3\nS(A,B,C,D,E,F)\n          với F = {AB  C, AB  D, AB  E, E  D, AB  F }\nVí dụ:\nD phụ thuộc bắc cầu vào khóa chính\nĐưa về dạng chuẩn 3\nS1(D,E)\n          với F1 = {E  D}\nS2(ABCEF)\n          với F2 = {AB  C, AB  E, AB  F}"
+      },
+      {
+        "slide_num": 82,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n82\nChuẩn hóa(1-3)"
+      },
+      {
+        "slide_num": 83,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n83\nChuẩn hóa(1-3)\nBài tập 1 : Cho lược đồ: R(ABCDEFGHIJK) đã thỏa mãn chuẩn 1\n           Với   F ={ABC, A  DE, B  F,  F GH,  D  IJK}\n              Xác định khóa của R, chuyển về dạng chuẩn 2, 3\nKhóa:\nAB\nChuẩn 2:?\nphụ thuộc bộ phận vào khóa chính DE (A), F(B) : không thỏa 2NF\nR1(ADEIJK)   với  F1 ={A  D, A  E, D  IJK}\nR2(BFGH)      với F2 ={BF, F GH}\nR(ABC)         với  F  = {ABC}\nChuẩn 3:?\nCó phụ thuộc bắc cầu?"
+      },
+      {
+        "slide_num": 84,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n84\nChuẩn hóa(1-3)\nBài tập 1 (cont):\nKhóa:\nAB\nChuẩn 2:\nR1(ADEIJK)  với F1 ={ A  D, A  E, D  IJK  }\nR2(BFGH)    với F2 ={ BF, F GH }\nR(ABC)        với F  ={ ABC}\nChuẩn 3:?\nCó phụ thuộc bắc cầu?\nR11(DIJK)  với F11 ={ D  IJK  }\nR12(ADE)  với F12 ={ A  D, A  E }\nR21(FGH)    với F21 ={  F GH }\nR22(BF)    với F22={  B F }\nR(ABC)        với F  ={ ABC}"
+      },
+      {
+        "slide_num": 85,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n85\nChuẩn hóa(1-3)\nBài tập 2 : Cho lược đồ: R(ABCDEFGHIJK)\n           Với   F ={ABC, BD  EF, AD  GH,  A I,  H  JK  }\n              Xác định khóa của R, chuyển về dạng chuẩn 2, 3\nKhóa:\nChuẩn 2:?\nChuẩn 3:?"
+      },
+      {
+        "slide_num": 86,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n86\nd. Dạng chuẩn Boyce-Codd (BCNF)\nLược đồ quan hệ R được gọi là ở dạng chuẩn Boyce-Codd (BCNF) nếu:\nThỏa mãn dạng chuẩn 3 \nKhông có thuộc tính khóa phụ thuộc hàm vào thuộc tính không khóa.\nVí dụ\nR (A,B,C,D,E)\n    F={AB  C, AB  D, AB  E, C  A}\nBCNF\nBCNF\nkhông BCNF"
+      },
+      {
+        "slide_num": 87,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n87\nd. Dạng chuẩn Boyce-Codd (BCNF)\nVí dụ 1: \nCho R (A,B,C,D,E)\n    Với các phụ thuộc hàm: \nF={AB  C, AB  D, AB  E, D  B}\nChuẩn hóa lược đồ về dạng BCNF\nkhông thỏa mãn BCNF\nF2={AD  C, AD  E}\nF1={D  B}"
+      },
+      {
+        "slide_num": 88,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n88\nd. Dạng chuẩn Boyce-Codd (BCNF)\nVí dụ  2: \nCho R (ABCDEGH)\n      F={ABC D, ABC  E, ABC  G, ABC  H, DE  AB}\nChuẩn hóa lược đồ về dạng BCNF\nF2={CDE  G, CDE  H}\nF1={DE  A, DE  B}"
+      },
+      {
+        "slide_num": 89,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n89\nd. Dạng chuẩn Boyce-Codd (BCNF)\nb3: Bổ sung thuộc tính không khóa xác định hàm thuộc tính khóa đã loại bỏ (bước 2) vào khóa của quan hệ gốc\nCác bước Chuẩn hóa lược đồ về BCNF\nb1: Tách các thuộc tính không khóa và thuộc tính khóa phụ thuộc  hàm  vào nó thành quan hệ mới, thuộc tính không khóa  đó trở thành khóa trong quan hệ mới.\nb2: Loại các thuộc tính khóa ở bước 1 khỏi lược đồ gốc"
+      },
+      {
+        "slide_num": 90,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n90\nd. Dạng chuẩn Boyce-Codd (BCNF)\nVí dụ  3: \nCho R (ABCDEGH)\n      F={ABC D, ABC  E, ABC  G,  ABC  H,\n            D  A, E C}\nChuẩn hóa lược đồ về dạng BCNF\nR1(AD)\nR2(EC)\nF2={E  C}\nF1={D  A}\nR(BDEGH)\nF={BDE  G, BDE  H}"
+      },
+      {
+        "slide_num": 91,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n91\nBài tập về Các dạng chuẩn\nCho quan hệ R(ABCDEFG) ; khóa AB \n   F={AB  C, AB  D, AB  E, AB  F, AB  G, A  E,\n          AF, AG, FG}\nBài tập ví dụ:\n? R đạt chuẩn nào.\n? Hãy chuẩn  hóa từng bước để đạt chuẩn cao nhất."
+      },
+      {
+        "slide_num": 92,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n92\nBài tập về các dạng chuẩn\n1. cho R(ABCDEFG); F={AB  C, AB  D, AB  E, AB  F,\n                                 AB  G, A E, AF, AG, FG, D B}\n1NF ?\n2NF ?\ncó thuộc tính phụ thuộc  bộ phận vào khóa ?\nR1(AEFG); F1={A E, AF, AG, FG}\nR2(ABCD); F2={AB  C, AB  D, D B}\n3NF ?\ncó thuộc tính không khoá phụ thuộc  bắc cầu?\nR1\nR11(FG); F11={ FG}\nR12(AEF); F12={A E, AF}\nBCNF\nBCNF ?\ncó thuộc tính khóa  phụ thuộc vào  thuộc tính không khóa ?"
+      },
+      {
+        "slide_num": 93,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n93\n2. Cho R(ABCDEFGHIJ)\n        F ={ABC, BDEF, AD  GH, A I, H J}\nXác định khóa của R; Chuẩn hóa R về dạng chuẩn BC\nKhóa của R: ABD\n2NF\nR1(AI) ,F1 ={ A I}\nR2(ABC),F2 ={ ABC}\nR3(BDEF),F3 ={ BDEF}\nR4(ADGHJ),F4 ={ AD  GH,  H J}\nR41(HJ),F41={ H J}\nR42(ADGH),F42 ={ AD  GH}\n3NF\ncó phụ thuộc bắc cầu?\ncó phụ thuộc bộ phận?\nBài tập về các dạng chuẩn\nR(ABD)"
+      },
+      {
+        "slide_num": 94,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n94\nMô hình ER\nMô hình CSDL Quan hệ\nChuyển từ lược đồ ER \n      sang lược đồ quan hệ\nCác phép toán trên mô hình quan hệ\nPhụ thuộc hàm\nĐịnh nghĩa\nCác quy tắc suy diễn\nChứng minh các suy diễn\nBao đóng và khóa\nPhủ tối thiểu\nNội dung ôn tập\n6. Chuẩn hóa (1NF-BCNF)\nĐịnh nghĩa các dạng chuẩn trên khóa chính\nChuẩn hóa lược đồ"
+      },
+      {
+        "slide_num": 95,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n13:49\nKhoa CNTT\n95\nYêu cầu thi\nKhông sử dụng tài liệu\nThời gian làm bài 60/90 phút\nNội dung:\nCâu 1: Xây dựng lược đồ ER\nCâu 2: Chuyển lược đồ ER sang lược đồ quan hệ\nCâu 3: Các lệnh đại số quan hệ\nCâu 4: Phụ thuộc hàm, suy diễn, bao đóng, phủ\nCâu 5: Các dạng chuẩn và chuẩn hóa (1NF - BCNF)"
+      },
+      {
+        "slide_num": 96,
+        "title": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ",
+        "text": "Phụ thuộc hàm và chuẩn hóa CSDL quan hệ\n15:34\nKhoa CNTT\n96\nYêu cầu thi\nKhông sử dụng tài liệu\nThời gian làm bài\nTrắc nghiệm (giữa kỳ / thành phần): 15p\nTự luận (cuối kỳ): 30-45 p\nNội dung (theo đề cương/nội dung đã học):"
+      }
+    ]
+  }
+}
