@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>56 Bài tập Tự luận Chuẩn Barem – XSTK UET.MAT1052</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap">
+<!-- KaTeX for formula rendering -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+<style>
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --card-sub: #f1f5f9;
+  --ink: #0f172a;
+  --mute: #64748b;
+  --line: #e2e8f0;
+  --acc: #2563eb;
+  --acc-hover: #1d4ed8;
+  --acc-soft: #eff6ff;
+  --ok: #16a34a;
+  --ok-soft: #dcfce7;
+  --bad: #dc2626;
+  --bad-soft: #fee2e2;
+  --warn: #d97706;
+  --warn-soft: #fef3c7;
+  --radius: 14px;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b0f17;
+  --card: #151c28;
+  --card-sub: #1e2738;
+  --ink: #f1f5f9;
+  --mute: #94a3b8;
+  --line: #263348;
+  --acc: #3b82f6;
+  --acc-hover: #60a5fa;
+  --acc-soft: #1a2744;
+  --ok: #22c55e;
+  --ok-soft: #143522;
+  --bad: #ef4444;
+  --bad-soft: #381a1d;
+  --warn: #f59e0b;
+  --warn-soft: #3a2a11;
+}
+
+* { box-sizing: border-box;
+
+/* Impeccable Craft Floor: Browser Surfaces & Design Tokens */
+::selection {
+  background: var(--acc-soft);
+  color: var(--acc);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mute);
+}
+:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+ -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.6 "Be Vietnam Pro", system-ui, -apple-system, sans-serif;
+  transition: background .25s ease, color .25s ease;
+  padding-bottom: 80px;
+}
+
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+  padding: 10px 16px;
+}
+.header-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.brand {
+  font-size: 1.05rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.brand span { color: var(--acc); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-link {
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: .86rem;
+  font-weight: 600;
+  color: var(--mute);
+  transition: .15s;
+}
+.nav-link:hover { color: var(--ink); background: var(--card-sub); }
+.nav-link.active {
+  color: var(--acc);
+  background: var(--acc-soft);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-icon {
+  background: var(--card-sub);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: .15s;
+}
+.btn-icon:hover { border-color: var(--acc); color: var(--acc); }
+
+/* PROGRESS BAR */
+.progress-bar-wrap {
+  width: 100%;
+  height: 4px;
+  background: var(--line);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--ok);
+  transition: width .3s ease;
+}
+
+/* MAIN CONTAINER */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* HERO STATS BAR */
+.stats-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.stats-left h1 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0 0 4px 0;
+}
+.stats-left p {
+  margin: 0;
+  color: var(--mute);
+  font-size: .88rem;
+}
+.stats-pills {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.stat-pill {
+  background: var(--card-sub);
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  border-radius: 10px;
+  text-align: center;
+}
+.stat-pill .num {
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.stat-pill .lbl {
+  font-size: .75rem;
+  color: var(--mute);
+  font-weight: 600;
+}
+
+/* SEARCH & CONTROLS */
+.controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.search-box {
+  flex: 1 1 240px;
+  position: relative;
+}
+.search-input {
+  width: 100%;
+  padding: 10px 14px 10px 38px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  font-size: .92rem;
+  font-family: inherit;
+  outline: none;
+  transition: .15s;
+}
+.search-input:focus { border-color: var(--acc); box-shadow: 0 0 0 3px var(--acc-soft); }
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--mute);
+  font-size: .95rem;
+  pointer-events: none;
+}
+
+/* TOPIC PILLS (HORIZONTAL SCROLL) */
+.topic-nav {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 0 12px;
+  scrollbar-width: none;
+}
+.topic-nav::-webkit-scrollbar { display: none; }
+.topic-btn {
+  white-space: nowrap;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--mute);
+  font-weight: 600;
+  font-size: .86rem;
+  cursor: pointer;
+  transition: .15s;
+}
+.topic-btn:hover { color: var(--ink); border-color: var(--mute); }
+.topic-btn.active {
+  background: var(--acc);
+  border-color: var(--acc);
+  color: #fff;
+}
+
+/* SECONDARY FILTERS ROW */
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.sub-filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.sub-filter-btn {
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--mute);
+  font-size: .8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .15s;
+}
+.sub-filter-btn:hover { color: var(--ink); }
+.sub-filter-btn.active {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+
+/* EXERCISE CARD */
+.ex-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: border-color .2s, box-shadow .2s;
+  position: relative;
+}
+.ex-card.is-done {
+  border-color: #86efac;
+}
+:root[data-theme="dark"] .ex-card.is-done {
+  border-color: #14532d;
+}
+.ex-card.is-flagged {
+  border-color: #fde047;
+}
+:root[data-theme="dark"] .ex-card.is-flagged {
+  border-color: #713f12;
+}
+
+.ex-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.ex-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tag-id {
+  font-family: "Fira Code", monospace;
+  font-weight: 700;
+  font-size: .8rem;
+  background: var(--card-sub);
+  border: 1px solid var(--line);
+  padding: 2px 8px;
+  border-radius: 6px;
+  color: var(--mute);
+}
+.tag-level {
+  font-size: .78rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.tag-level.cb { background: var(--ok-soft); color: var(--ok); }
+.tag-level.tb { background: var(--warn-soft); color: var(--warn); }
+.tag-level.nc { background: var(--bad-soft); color: var(--bad); }
+
+.tag-topic {
+  font-size: .78rem;
+  background: var(--acc-soft);
+  color: var(--acc);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.ex-actions {
+  display: flex;
+  gap: 6px;
+}
+.btn-action {
+  border: 1px solid var(--line);
+  background: var(--card-sub);
+  color: var(--mute);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .15s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.btn-action:hover { border-color: var(--mute); color: var(--ink); }
+.btn-action.active-done { background: var(--ok-soft); color: var(--ok); border-color: var(--ok); }
+.btn-action.active-flag { background: var(--warn-soft); color: var(--warn); border-color: var(--warn); }
+
+.ex-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  color: var(--ink);
+}
+
+.ex-problem {
+  font-size: .98rem;
+  line-height: 1.7;
+  padding: 14px 16px;
+  background: var(--card-sub);
+  border-left: 4px solid var(--acc);
+  border-radius: 8px;
+  margin-bottom: 14px;
+}
+
+/* COLLAPSIBLE ANALYSIS */
+.accordion {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.acc-header {
+  padding: 10px 14px;
+  background: var(--card);
+  font-size: .88rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+.acc-header:hover { background: var(--card-sub); }
+.acc-body {
+  padding: 12px 14px;
+  background: var(--bg);
+  font-size: .9rem;
+  line-height: 1.6;
+  border-top: 1px solid var(--line);
+  display: none;
+}
+.acc-body.open { display: block; }
+
+/* HINTS DISCLOSURE */
+.hints-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.btn-hint {
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px dashed var(--acc);
+  background: var(--acc-soft);
+  color: var(--acc);
+  font-size: .84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .15s;
+}
+.btn-hint:hover { background: var(--acc); color: #fff; }
+.hint-content {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--acc-soft);
+  color: var(--ink);
+  font-size: .88rem;
+  border-left: 3px solid var(--acc);
+  display: none;
+  margin-top: 6px;
+}
+
+/* SOLUTION TOGGLE BUTTON */
+.btn-sol-toggle {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--card-sub);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: .92rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: .15s;
+}
+.btn-sol-toggle:hover { background: var(--acc-soft); border-color: var(--acc); color: var(--acc); }
+
+/* SOLUTION BODY */
+.sol-body {
+  margin-top: 14px;
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  display: none;
+}
+.sol-body.open { display: block; }
+
+.sol-step {
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: .95rem;
+  line-height: 1.7;
+}
+.sol-step:last-child { border-bottom: none; }
+
+/* PRO TIPS & PITFALLS */
+.box-pro-tips {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--ok-soft);
+  border-left: 4px solid var(--ok);
+  font-size: .88rem;
+  color: var(--ink);
+}
+.box-pro-tips strong { color: var(--ok); }
+
+.box-pitfalls {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--bad-soft);
+  border-left: 4px solid var(--bad);
+  font-size: .88rem;
+  color: var(--ink);
+}
+.box-pitfalls strong { color: var(--bad); }
+
+/* DATA TABLES */
+.data-table {
+  width: 100%;
+  max-width: 500px;
+  margin: 10px 0;
+  border-collapse: collapse;
+  font-size: .88rem;
+}
+.data-table th, .data-table td {
+  border: 1px solid var(--line);
+  padding: 6px 10px;
+  text-align: center;
+}
+.data-table th { background: var(--card-sub); font-weight: 700; }
+
+/* PERSONAL NOTES */
+.notes-sec {
+  margin-top: 12px;
+}
+.notes-btn {
+  font-size: .8rem;
+  color: var(--mute);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.notes-btn:hover { color: var(--acc); }
+.notes-drawer {
+  display: none;
+  margin-top: 6px;
+}
+.notes-area {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--card-sub);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: .85rem;
+  outline: none;
+  resize: vertical;
+  min-height: 60px;
+}
+.notes-area:focus { border-color: var(--acc); background: var(--card); }
+
+/* FLOATING QUICK JUMP BUTTON */
+.fab-jump {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--acc);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, .4);
+  cursor: pointer;
+  z-index: 40;
+  border: none;
+  transition: transform .15s;
+}
+.fab-jump:hover { transform: scale(1.08); }
+
+/* QUICK JUMP MODAL */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.modal-overlay.open { display: flex; }
+.modal-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 600px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+}
+.modal-head {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.modal-head h3 { margin: 0; font-size: 1.1rem; }
+.modal-body {
+  padding: 16px 20px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  gap: 8px;
+}
+.jump-pill {
+  padding: 8px;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--card-sub);
+  color: var(--ink);
+  font-family: "Fira Code", monospace;
+  font-size: .8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .15s;
+}
+.jump-pill:hover { border-color: var(--acc); color: var(--acc); }
+.jump-pill.is-done { background: var(--ok-soft); border-color: var(--ok); color: var(--ok); }
+.jump-pill.is-flagged { background: var(--warn-soft); border-color: var(--warn); color: var(--warn); }
+
+@media (max-width: 640px) {
+  .header-wrap { flex-wrap: wrap; }
+  .stats-card { flex-direction: column; align-items: stretch; }
+  .stats-pills { justify-content: space-between; }
+}
+
+/* ========================================================
+   RESPONSIVE CSS TỐI ƯU TOÀN DIỆN CHO MOBILE & TABLET
+   ======================================================== */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 6px 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 900px) {
+  .quiz-layout, .exam-layout, .layout-wrap {
+    grid-template-columns: 1fr !important;
+  }
+  .sidebar, .sidebar-palette, .exam-sidebar {
+    position: static !important;
+    order: -1 !important;
+    margin-bottom: 14px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-wrap, .header-top {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 8px 12px !important;
+    gap: 8px !important;
+  }
+
+  .header-actions {
+    margin-left: auto;
+  }
+
+  .nav-links {
+    display: flex !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    white-space: nowrap !important;
+    padding: 4px 0 !important;
+    gap: 6px !important;
+    scrollbar-width: none !important;
+  }
+  .nav-links::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .nav-link, .nav-btn {
+    font-size: 0.82rem !important;
+    padding: 6px 10px !important;
+    min-height: 36px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .container, main, .main-container {
+    padding: 12px 10px 40px !important;
+  }
+
+  /* Co giãn font chữ tiêu đề trên mobile */
+  h1, .hero-title, .site-title, .lesson-title {
+    font-size: clamp(1.2rem, 4.5vw, 1.6rem) !important;
+  }
+  h2, .section-title, .exercise-title {
+    font-size: clamp(1.05rem, 3.8vw, 1.3rem) !important;
+  }
+
+  /* Bộ nút bấm cuộn ngang */
+  .clusters-nav, .lessons-strip, .topics-nav, .filter-tabs, .mode-tabs, .exam-tabs {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    white-space: nowrap !important;
+    padding-bottom: 6px !important;
+    scrollbar-width: none !important;
+    gap: 6px !important;
+  }
+  .clusters-nav::-webkit-scrollbar,
+  .lessons-strip::-webkit-scrollbar,
+  .topics-nav::-webkit-scrollbar,
+  .filter-tabs::-webkit-scrollbar,
+  .mode-tabs::-webkit-scrollbar,
+  .exam-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .cluster-btn, .lesson-pill, .topic-btn, .filter-btn, .mode-tab, .exam-tab {
+    flex-shrink: 0 !important;
+    padding: 7px 12px !important;
+    font-size: 0.82rem !important;
+  }
+
+  /* Thẻ nội dung & Khối bước giải */
+  .lesson-card, .exercise-card, .q-card, .formula-card, .essay-card {
+    padding: 16px 14px !important;
+    border-radius: 12px !important;
+  }
+
+  .formulas-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* Tối ưu diện tích bấm cho phương án trắc nghiệm */
+  .opt-btn, .opt-label, .quiz-opt {
+    padding: 12px 14px !important;
+    min-height: 48px !important;
+    font-size: 0.92rem !important;
+  }
+
+  /* Bảng biểu cuộn ngang không làm vỡ khung hình */
+  table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .modal-dialog, .modal-card {
+    width: 95% !important;
+    padding: 18px 14px !important;
+    max-height: 88vh !important;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-wrap">
+    <a href="#" class="brand">
+      <span>📐</span> XSTK • Tự luận
+    </a>
+    
+      <div class="course-switcher" style="display:inline-flex;align-items:center;background:var(--card-subtle);border:1px solid var(--line);border-radius:var(--radius-sm);padding:2px;margin-right:12px;">
+        <a href="/hoc" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;font-size:0.8rem;font-weight:700;color:var(--acc);background:var(--card);text-decoration:none;border-radius:6px;box-shadow:var(--shadow-sm);">
+          🎲 XSTK
+        </a>
+        <a href="/csdl/hoc" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;font-size:0.8rem;font-weight:600;color:var(--mute);text-decoration:none;border-radius:6px;transition:all 0.15s ease;">
+          🗄️ CSDL
+        </a>
+      </div>
+
+      <nav class="nav-links">
+      <a href="index.html" class="nav-link">🏠 Tổng quan</a>
+      <a href="hoc.html" class="nav-link">📚 Lý thuyết</a>
+      <a href="tuluan.html" class="nav-link active">✍️ Tự luận</a>
+      <a href="tracnghiem.html" class="nav-link">📝 Trắc nghiệm (161 câu)</a>
+      <a href="dethi.html" class="nav-link">📝 Đề thi thử</a>
+      <a href="congthuc.html" class="nav-link">📖 Công thức</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn-icon" id="theme-btn" title="Đổi giao diện sáng/tối">🌓</button>
+    </div>
+  </div>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" id="global-progress"></div>
+  </div>
+</header>
+
+<main>
+  <!-- STATS BAR -->
+  <div class="stats-card">
+    <div class="stats-left">
+      <h1>Bộ 56 Bài tập Tự luận Chuẩn Barem</h1>
+      <p>Bao quát trọn vẹn 7 dạng bài giữa kỳ • Lời giải từng bước chi tiết kèm barem điểm</p>
+    </div>
+    <div class="stats-pills">
+      <div class="stat-pill">
+        <div class="num" id="stat-done" style="color:var(--ok);">0 / 56</div>
+        <div class="lbl">ĐÃ HOÀN THÀNH</div>
+      </div>
+      <div class="stat-pill">
+        <div class="num" id="stat-flag" style="color:var(--warn);">0</div>
+        <div class="lbl">CẦN ÔN LẠI</div>
+      </div>
+      <div class="stat-pill">
+        <div class="num" id="stat-pct" style="color:var(--acc);">0%</div>
+        <div class="lbl">TIẾN ĐỘ</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEARCH & CONTROLS -->
+  <div class="controls-bar">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" class="search-input" placeholder="Tìm theo tên bài, số hiệu (TL7_7), từ khóa (CLT, Chebyshev, Poisson, Bayes)...">
+    </div>
+  </div>
+
+  <!-- TOPIC PILLS -->
+  <div class="topic-nav" id="topic-tabs">
+    <button class="topic-btn active" data-tid="0">Tất cả (56 bài)</button>
+    <!-- Topics rendered by JS -->
+  </div>
+
+  <!-- SECONDARY FILTERS -->
+  <div class="filter-row">
+    <div class="sub-filters" id="level-filters">
+      <button class="sub-filter-btn active" data-lvl="all">Mọi mức độ</button>
+      <button class="sub-filter-btn" data-lvl="Cơ bản">🟢 Cơ bản</button>
+      <button class="sub-filter-btn" data-lvl="Trung bình">🟡 Trung bình</button>
+      <button class="sub-filter-btn" data-lvl="Nâng cao">🔴 Nâng cao</button>
+    </div>
+    <div class="sub-filters" id="status-filters">
+      <button class="sub-filter-btn active" data-status="all">Tất cả trạng thái</button>
+      <button class="sub-filter-btn" data-status="done">✓ Đã làm</button>
+      <button class="sub-filter-btn" data-status="todo">⏳ Chưa làm</button>
+      <button class="sub-filter-btn" data-status="flag">🚩 Cần ôn lại</button>
+    </div>
+  </div>
+
+  <!-- EXERCISES CONTAINER -->
+  <div id="exercises-container">
+    <!-- Rendered via JS -->
+  </div>
+</main>
+
+<!-- FLOATING QUICK JUMP BUTTON -->
+<button class="fab-jump" id="fab-jump" title="Mục lục 56 bài tập">📑</button>
+
+<!-- QUICK JUMP MODAL -->
+<div class="modal-overlay" id="jump-modal">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3>Mục lục 56 Bài tập Tự luận</h3>
+      <button class="btn-icon" id="close-modal-btn">✕</button>
+    </div>
+    <div class="modal-body" id="modal-jump-list">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</div>
+
+<script>
+// RAW TULUAN DATA EMBEDDED
+const TULUAN_DATA = {"topics": [{"id": 1, "name": "Thống kê mô tả, Bảng liên hợp & Hồi quy tuyến tính", "short": "Mô tả & Hồi quy"}, {"id": 2, "name": "Lý thuyết xác suất, Xác suất có điều kiện & Bayes", "short": "Xác suất & Bayes"}, {"id": 3, "name": "Biến ngẫu nhiên rời rạc, Bảng pmf, Hàm cdf & Kỳ vọng, Phương sai", "short": "pmf, cdf & E/Var"}, {"id": 4, "name": "Các phân phối rời rạc: Nhị thức, Siêu bội & Poisson", "short": "Nhị thức, Siêu bội, Poisson"}, {"id": 5, "name": "Tổng, Trung bình mẫu i.i.d. & Bất đẳng thức Chebyshev", "short": "Tổng, TB & Chebyshev"}, {"id": 6, "name": "Biến liên tục, Phân phối Đều, Mũ & Phân phối Chuẩn N(μ, σ²)", "short": "Liên tục, Đều & Chuẩn"}, {"id": 7, "name": "Định lý giới hạn trung tâm (CLT) & Bài toán kích thước mẫu", "short": "Định lý CLT"}], "exercises": [{"id": "TL1_1", "topicId": 1, "level": "Cơ bản", "title": "Tóm tắt dữ liệu số: Trung bình, Trung vị, Tứ phân vị và Điểm ngoại lai (Outlier)", "problem": "Khảo sát thời gian tự học mỗi tuần (đơn vị: giờ) của một nhóm gồm 10 sinh viên, thu được mẫu số liệu sau:<br>$$\\{3,\\; 5,\\; 6,\\; 7,\\; 7,\\; 8,\\; 8,\\; 9,\\; 10,\\; 16\\}$$1. Tính số trung bình (Mean) và trung vị (Median) của mẫu số liệu.<br>2. Xác định các tứ phân vị $Q_1$, $Q_2$, $Q_3$ và khoảng tứ phân vị (IQR).<br>3. Dùng tiêu chuẩn hàng rào $1{,}5 \\times \\text{IQR}$ để kiểm tra xem mẫu có điểm ngoại lai (outlier) hay không.", "analysis": "Dữ liệu đã được sắp xếp tăng dần ($n=10$). Áp dụng các định nghĩa về trung bình, trung vị, chia nửa tìm Q1, Q3, tính IQR = Q3 - Q1 và xác định hàng rào ngoài [Q1 - 1.5*IQR, Q3 + 1.5*IQR].", "hints": ["Số trung bình là tổng chia cho n. Trung vị là trung bình cộng của phần tử thứ 5 và thứ 6.", "Nửa dưới gồm 5 số đầu {3, 5, 6, 7, 7} -> Q1 là trung vị nửa dưới. Nửa trên gồm {8, 8, 9, 10, 16} -> Q3.", "IQR = Q3 - Q1. Hàng rào trên: Q3 + 1,5 * IQR. Hàng rào dưới: Q1 - 1,5 * IQR."], "steps": ["<b>Bước 1: Tính số trung bình (Mean) `[+0,25đ]`</b><br>Tổng các giá trị: $\\sum x_i = 3 + 5 + 6 + 7 + 7 + 8 + 8 + 9 + 10 + 16 = 79$.<br>Số quan sát $n = 10$.<br>$$\\bar{x} = \\frac{\\sum x_i}{n} = \\frac{79}{10} = 7{,}9\\text{ (giờ)}$$", "<b>Bước 2: Xác định trung vị và các tứ phân vị `[+0,35đ]`</b><br>- Vì $n = 10$ chẵn, trung vị $Q_2$ (Median) là trung bình cộng của 2 giá trị chính giữa (vị trí 5 và 6):<br>$$Q_2 = \\frac{x_{(5)} + x_{(6)}}{2} = \\frac{7 + 8}{2} = 7{,}5\\text{ (giờ)}$$- Nửa dưới dữ liệu gồm 5 giá trị: $\\{3, 5, 6, 7, 7\\}$. Tứ phân vị thứ nhất là giá trị ở chính giữa nửa dưới:<br>$$Q_1 = 6\\text{ (giờ)}$$- Nửa trên dữ liệu gồm 5 giá trị: $\\{8, 8, 9, 10, 16\\}$. Tứ phân vị thứ ba là giá trị ở chính giữa nửa trên:<br>$$Q_3 = 9\\text{ (giờ)}$$- Khoảng tứ phân vị (Interquartile Range):<br>$$\\text{IQR} = Q_3 - Q_1 = 9 - 6 = 3\\text{ (giờ)}$$", "<b>Bước 3: Xác định hàng rào và tìm điểm ngoại lai `[+0,40đ]`</b><br>- Hàng rào dưới (Lower Fence):<br>$$\\text{LF} = Q_1 - 1{,}5 \\times \\text{IQR} = 6 - 1{,}5 \\times 3 = 6 - 4{,}5 = 1{,}5$$- Hàng rào trên (Upper Fence):<br>$$\\text{UF} = Q_3 + 1{,}5 \\times \\text{IQR} = 9 + 1{,}5 \\times 3 = 9 + 4{,}5 = 13{,}5$$So sánh các giá trị trong mẫu với khoảng $[1{,}5;\\; 13{,}5]$:<br>Giá trị $x = 16 > 13{,}5$ nằm ngoài hàng rào trên.<br><b>Kết luận:</b> Mẫu có duy nhất một điểm ngoại lai là $16$ giờ. Nhận xét: Do có điểm ngoại lai lớn kéo trung bình lên nên $\\bar{x} = 7{,}9 > Q_2 = 7{,}5$ (phân phối lệch phải)."], "pro_tips": "Khi dữ liệu có điểm ngoại lai, luôn nhận xét thêm rằng Trung vị và IQR có tính 'bền vững' (robust), ít bị ảnh hưởng hơn Số trung bình.", "pitfalls": "Quên sắp xếp dãy số trước khi tìm trung vị hoặc tính sai vị trí nửa trên/nửa dưới."}, {"id": "TL1_2", "topicId": 1, "level": "Cơ bản", "title": "Bảng liên hợp (Contingency Table): Tần số, Tần suất biên và Xác suất có điều kiện", "problem": "Khảo sát 60 sinh viên về kỹ năng Tiếng Anh và năm học, thu được bảng liên hợp sau:<br><table class='data-table'><tr><th>Năm học \\ Tiếng Anh</th><th>Đạt loại Giỏi</th><th>Chưa Giỏi</th><th>Tổng</th></tr><tr><td>Năm thứ nhất</td><td>12</td><td>28</td><td>40</td></tr><tr><td>Năm thứ hai</td><td>15</td><td>5</td><td>20</td></tr><tr><td>Tổng</td><td>27</td><td>33</td><td>60</td></tr></table>1. Chọn ngẫu nhiên 1 sinh viên, tính xác suất sinh viên đó là 'Sinh viên năm 2 VÀ Đạt Giỏi'.<br>2. Biết sinh viên được chọn là sinh viên năm 2, tính xác suất sinh viên đó Đạt loại Giỏi.<br>3. Biết sinh viên được chọn Đạt loại Giỏi, tính xác suất sinh viên đó là sinh viên năm 2.", "analysis": "Đọc bảng liên hợp: ô giao là xác suất đồng thời, tổng hàng/cột là phân phối biên. Xác suất có điều kiện là tỉ lệ của ô giao trên tổng hàng hoặc tổng cột tương ứng.", "hints": ["Câu 1: Ô giao giữa dòng 'Năm 2' và cột 'Giỏi' chia cho tổng thể N=60.", "Câu 2: Không gian mẫu thu hẹp vào dòng 'Năm 2' (tổng 20 sinh viên).", "Câu 3: Không gian mẫu thu hẹp vào cột 'Giỏi' (tổng 27 sinh viên)."], "steps": ["<b>Bước 1: Tính xác suất đồng thời (Câu 1) `[+0,30đ]`</b><br>Số sinh viên năm 2 và đạt loại Giỏi là 15 sinh viên trên tổng số 60 sinh viên:<br>$$P(\\text{Năm 2} \\cap \\text{Giỏi}) = \\frac{15}{60} = 0{,}25\\text{ (25\\%)}$$", "<b>Bước 2: Tính xác suất có điều kiện theo hàng (Câu 2) `[+0,35đ]`</b><br>Điều kiện đã biết: Sinh viên học năm thứ hai. Số sinh viên năm hai là 20:<br>$$P(\\text{Giỏi} \\mid \\text{Năm 2}) = \\frac{P(\\text{Năm 2} \\cap \\text{Giỏi})}{P(\\text{Năm 2})} = \\frac{15/60}{20/60} = \\frac{15}{20} = 0{,}75\\text{ (75\\%)}$$", "<b>Bước 3: Tính xác suất có điều kiện theo cột (Câu 3) `[+0,35đ]`</b><br>Điều kiện đã biết: Sinh viên đạt loại Giỏi. Tổng số sinh viên đạt Giỏi là 27:<br>$$P(\\text{Năm 2} \\mid \\text{Giỏi}) = \\frac{P(\\text{Năm 2} \\cap \\text{Giỏi})}{P(\\text{Giỏi})} = \\frac{15/60}{27/60} = \\frac{15}{27} = \\frac{5}{9} \\approx 0{,}5556\\text{ (55{,}56\\%)}$$"], "pro_tips": "Phân biệt rõ P(A|B) và P(B|A). Cái nằm sau dấu gạch đứng '|' chính là điều kiện đã xảy ra và là mẫu số của phân số.", "pitfalls": "Nhầm lẫn mẫu số: dùng tổng 60 thay vì tổng hàng hoặc tổng cột khi tính xác suất có điều kiện."}, {"id": "TL1_3", "topicId": 1, "level": "Cơ bản", "title": "Hồi quy tuyến tính đơn: Dự đoán giá trị và Tính phần dư (Residual)", "problem": "Một mô hình hồi quy tuyến tính đơn mô tả mối quan hệ giữa số giờ ôn tập ($x$) và điểm thi ($y$) của sinh viên có phương trình:<br>$$\\hat{y} = 15 + 2{,}5x$$1. Nêu ý nghĩa thực tế của hệ số góc (slope) $b_1 = 2{,}5$ và hệ số chặn (intercept) $b_0 = 15$.<br>2. Một sinh viên ôn tập $x = 8$ giờ, hãy tính điểm thi dự đoán $\\hat{y}$ của sinh viên này.<br>3. Điểm thi thực tế của sinh viên này ghi nhận được là $y = 38$ điểm. Hãy tính phần dư (residual) $e$ và giải thích ý nghĩa.", "analysis": "Hệ số b1 biểu thị mức thay đổi trung bình của y khi x tăng 1 đơn vị. Điểm dự đoán thu được bằng cách thay x=8 vào phương trình. Phần dư e = y - y_hat.", "hints": ["b1 = 2.5: khi ôn thêm 1 giờ thì điểm thi tăng trung bình bao nhiêu?", "Thay x = 8 vào: y_hat = 15 + 2.5 * 8.", "Phần dư e = Quan sát thực tế - Dự đoán mô hình (y - y_hat)."], "steps": ["<b>Bước 1: Giải thích ý nghĩa hệ số hồi quy `[+0,30đ]`</b><br>- <b>Hệ số chặn $b_0 = 15$:</b> Khi một sinh viên không ôn tập giờ nào ($x = 0$), điểm thi dự đoán trung bình là 15 điểm.<br>- <b>Hệ số góc $b_1 = 2{,}5$:</b> Cứ mỗi khi sinh viên dành thêm 1 giờ ôn tập, điểm thi dự đoán trung bình sẽ tăng thêm $2{,}5$ điểm.", "<b>Bước 2: Tính điểm thi dự đoán khi x = 8 `[+0,30đ]`</b><br>Thay $x = 8$ vào phương trình đường hồi quy:<br>$$\\hat{y} = 15 + 2{,}5 \\times 8 = 15 + 20 = 35\\text{ (điểm)}$$", "<b>Bước 3: Tính phần dư và nêu ý nghĩa `[+0,40đ]`</b><br>Công thức tính phần dư (Residual):<br>$$e = y - \\hat{y} = 38 - 35 = +3\\text{ (điểm)}$$<br><b>Ý nghĩa:</b> Phần dư mang dấu dương ($e = +3$) cho thấy sinh viên này đạt kết quả thực tế cao hơn $3$ điểm so với mức mà mô hình hồi quy dự đoán dựa trên số giờ ôn tập của bạn ấy (mô hình đã đánh giá thấp hơn thực tế 3 điểm)."], "pro_tips": "Luôn nhớ quy tắc phần dư: $e = y - \\hat{y}$ (Thực tế trừ Mô hình), không bao giờ lấy Mô hình trừ Thực tế.", "pitfalls": "Tính ngược dấu $e = \\hat{y} - y = 35 - 38 = -3$ dẫn đến giải thích sai lệch."}, {"id": "TL1_4", "topicId": 1, "level": "Trung bình", "title": "Ước lượng OLS: Hệ số tương quan Pearson r, Phương trình hồi quy và Tính chất phần dư", "problem": "Cho 5 cặp quan sát $(x_i, y_i)$ như sau: $(1, 3);\\; (2, 5);\\; (3, 6);\\; (4, 8);\\; (5, 10)$.<br>1. Tính hệ số tương quan tuyến tính mẫu Pearson $r$ và nhận xét mối quan hệ giữa $X$ và $Y$.<br>2. Tìm phương trình hồi quy mẫu bình phương nhỏ nhất (OLS) $\\hat{y} = b_0 + b_1 x$.<br>3. Lập bảng tính phần dư $e_i$ tại cả 5 điểm và kiểm chứng tính chất $\\sum_{i=1}^5 e_i = 0$.", "analysis": "Tính sum x, sum y, sum x^2, sum y^2, sum xy. Dùng công thức OLS: b1 = [n*sum(xy) - sum(x)*sum(y)] / [n*sum(x^2) - (sum x)^2], b0 = y_bar - b1*x_bar. r = Cov(x,y)/(sx * sy).", "hints": ["Lập bảng tính 5 cột: x, y, x^2, y^2, xy.", "x_bar = 15/5 = 3, y_bar = 32/5 = 6.4.", "b1 = sum[(x - x_bar)(y - y_bar)] / sum[(x - x_bar)^2] = 17 / 10 = 1.7."], "steps": ["<b>Bước 1: Lập bảng tính toán các tổng thống kê `[+0,30đ]`</b><br><table class='data-table'><tr><th>i</th><th>$x_i$</th><th>$y_i$</th><th>$x_i^2$</th><th>$y_i^2$</th><th>$x_i y_i$</th></tr><tr><td>1</td><td>1</td><td>3</td><td>1</td><td>9</td><td>3</td></tr><tr><td>2</td><td>2</td><td>5</td><td>4</td><td>25</td><td>10</td></tr><tr><td>3</td><td>3</td><td>6</td><td>9</td><td>36</td><td>18</td></tr><tr><td>4</td><td>4</td><td>8</td><td>16</td><td>64</td><td>32</td></tr><tr><td>5</td><td>5</td><td>10</td><td>25</td><td>100</td><td>50</td></tr><tr><th>Tổng</th><th>15</th><th>32</th><th>55</th><th>234</th><th>113</th></tr></table><br>- $\\bar{x} = \\frac{15}{5} = 3{,}0$; $\\bar{y} = \\frac{32}{5} = 6{,}4$.", "<b>Bước 2: Tính hệ số tương quan r `[+0,25đ]`</b><br>$$r = \\frac{n\\sum x_i y_i - (\\sum x_i)(\\sum y_i)}{\\sqrt{[n\\sum x_i^2 - (\\sum x_i)^2][n\\sum y_i^2 - (\\sum y_i)^2]}} = \\frac{5(113) - 15(32)}{\\sqrt{[5(55) - 15^2][5(234) - 32^2]}}$$$$r = \\frac{565 - 480}{\\sqrt{(275 - 225)(1170 - 1024)}} = \\frac{85}{\\sqrt{50 \\times 146}} = \\frac{85}{\\sqrt{7300}} = \\frac{85}{85{,}44} \\approx 0{,}9948$$<b>Nhận xét:</b> $r \\approx 0{,}9948 > 0$ rất sát 1, chứng tỏ có mối quan hệ tương quan tuyến tính thuận chiều cực kỳ mạnh.", "<b>Bước 3: Tìm phương trình hồi quy OLS `[+0,25đ]`</b><br>- Hệ số góc: $b_1 = \\frac{n\\sum x_i y_i - (\\sum x_i)(\\sum y_i)}{n\\sum x_i^2 - (\\sum x_i)^2} = \\frac{85}{50} = 1{,}70$.<br>- Hệ số chặn: $b_0 = \\bar{y} - b_1 \\bar{x} = 6{,}4 - 1{,}70 \\times 3{,}0 = 6{,}4 - 5{,}1 = 1{,}30$.<br>Phương trình hồi quy là: $$\\hat{y} = 1{,}30 + 1{,}70x$$", "<b>Bước 4: Kiểm chứng tính chất tổng phần dư bằng 0 `[+0,20đ]`</b><br>- $x=1 \\implies \\hat{y}_1 = 3{,}00 \\implies e_1 = 3 - 3{,}00 = 0{,}00$.<br>- $x=2 \\implies \\hat{y}_2 = 4{,}70 \\implies e_2 = 5 - 4{,}70 = +0{,}30$.<br>- $x=3 \\implies \\hat{y}_3 = 6{,}40 \\implies e_3 = 6 - 6{,}40 = -0{,}40$.<br>- $x=4 \\implies \\hat{y}_4 = 8{,}10 \\implies e_4 = 8 - 8{,}10 = -0{,}10$.<br>- $x=5 \\implies \\hat{y}_5 = 9{,}80 \\implies e_5 = 10 - 9{,}80 = +0{,}20$.<br>Tổng các phần dư: $$\\sum_{i=1}^5 e_i = 0{,}00 + 0{,}30 - 0{,}40 - 0{,}10 + 0{,}20 = 0{,}00\\text{ (đúng với lý thuyết OLS)}$$"], "pro_tips": "Đường thẳng hồi quy OLS luôn luôn đi qua điểm trọng tâm $(\\bar{x}, \\bar{y})$. Trong bài này, thay $x=3$ vào ra $\\hat{y} = 6{,}4 = \\bar{y}$!", "pitfalls": "Lẫn lộn giữa $(\\sum x)^2$ và $\\sum (x^2)$. Trong bài: $(\\sum x)^2 = 15^2 = 225$, còn $\\sum x^2 = 55$."}, {"id": "TL1_5", "topicId": 1, "level": "Trung bình", "title": "Phân loại biến số, Lập bảng phân phối tần số - tần suất và Nhận diện thang đo", "problem": "Một nghiên cứu ghi nhận thông tin của 40 khách hàng gồm: Giới tính, Đánh giá mức độ hài lòng (1 sao đến 5 sao), Số lượng sản phẩm đã mua (món), và Tổng số tiền chi tiêu (nghìn đồng).<br>1. Hãy phân loại 4 biến số trên theo phân loại dữ liệu (Định tính danh nghĩa, Định tính thứ bậc, Định lượng rời rạc, Định lượng liên tục).<br>2. Thống kê về mức độ hài lòng (thang 1-5 sao) thu được số khách tương ứng: 1 sao: 2 khách, 2 sao: 6 khách, 3 sao: 12 khách, 4 sao: 14 khách, 5 sao: 6 khách. Lập bảng phân phối tần số, tần suất (%) và tần suất tích lũy (%).", "analysis": "Định tính danh nghĩa (không có thứ tự), thứ bậc (có thứ tự nhưng khoảng cách không đo lường bằng số), định lượng rời rạc (đếm), liên tục (đo lường trên trục số thực). Tần suất = tần số / N * 100%.", "hints": ["Giới tính không có thứ tự hơn kém -> Danh nghĩa (Nominal).", "Mức độ sao có thứ tự 1 < 2 < 3 < 4 < 5 nhưng phép trừ không có nghĩa đo lường -> Thứ bậc (Ordinal).", "Số món đếm được là số nguyên không âm -> Định lượng rời rạc (Discrete).", "Tiền bạc đo lường liên tục trên miền giá trị thực -> Định lượng liên tục (Continuous)."], "steps": ["<b>Bước 1: Phân loại 4 biến số `[+0,40đ]`</b><br>- <b>Giới tính (Nam/Nữ):</b> Biến định tính danh nghĩa (Nominal categorical variable) vì các nhóm không có thứ bậc ưu tiên.<br>- <b>Mức độ hài lòng (1-5 sao):</b> Biến định tính thứ bậc (Ordinal categorical variable) vì các mức có trật tự tăng dần nhưng khoảng cách giữa các sao không đồng nhất.<br>- <b>Số lượng sản phẩm đã mua:</b> Biến định lượng rời rạc (Discrete numerical variable) vì nhận các giá trị đếm nguyên $0, 1, 2, \\dots$<br>- <b>Tổng số tiền chi tiêu:</b> Biến định lượng liên tục (Continuous numerical variable) vì có thể nhận bất kỳ giá trị thực nào trong một khoảng.", "<b>Bước 2: Lập bảng phân phối tần số, tần suất và tích lũy `[+0,60đ]`</b><br>Tổng số khách hàng $N = 40$.<br><table class='data-table'><tr><th>Mức sao</th><th>Tần số ($f_i$)</th><th>Tần suất ($p_i = f_i/N$)</th><th>Tần suất tích lũy ($F_i$)</th></tr><tr><td>1 sao</td><td>2</td><td>2/40 = 5%</td><td>5%</td></tr><tr><td>2 sao</td><td>6</td><td>6/40 = 15%</td><td>20%</td></tr><tr><td>3 sao</td><td>12</td><td>12/40 = 30%</td><td>50%</td></tr><tr><td>4 sao</td><td>14</td><td>14/40 = 35%</td><td>85%</td></tr><tr><td>5 sao</td><td>6</td><td>6/40 = 15%</td><td>100%</td></tr><tr><th>Tổng</th><th>40</th><th>100%</th><th>-</th></tr></table><br><b>Nhận xét:</b> Có đến 80% khách hàng hài lòng từ 3 sao trở lên ($30\\% + 35\\% + 15\\% = 80\\%$). Điểm trung vị rơi vào mức 3 sao (tích lũy đạt 50%)."], "pro_tips": "Khi làm bảng tần suất, luôn kiểm tra dòng Tổng cộng xem tổng tần số có đúng bằng $N$ và tổng tần suất có đúng bằng $100\\%$ hay không.", "pitfalls": "Nhầm lẫn giữa biến định tính thứ bậc (mức sao, trình độ học vấn) và biến định lượng rời rạc."}, {"id": "TL1_6", "topicId": 1, "level": "Trung bình", "title": "Hình dạng phân phối (Skewness): Lệch phải, Lệch trái, Đối xứng và So sánh Mean vs Median", "problem": "Quan sát biểu đồ tần số (Histogram) của ba tập dữ liệu kinh tế - xã hội sau:<br>- Tập 1: Thu nhập hàng tháng của người lao động trong một tỉnh.<br>- Tập 2: Điểm thi của một bài kiểm tra quá dễ (hầu hết làm điểm tối đa 10, chỉ ít người điểm thấp).<br>- Tập 3: Chiều cao của 1000 nam thanh niên trưởng thành cùng độ tuổi.<br>1. Hãy xác định hình dạng phân phối của từng tập dữ liệu (Lệch phải / Lệch trái / Đối xứng hình chuông).<br>2. So sánh mối quan hệ giữa Số trung bình (Mean) và Trung vị (Median) trong từng trường hợp và giải thích nguyên nhân.", "analysis": "Lệch phải (Right-skewed): đuôi dài sang phải, có các giá trị cực lớn kéo Mean > Median. Lệch trái (Left-skewed): đuôi dài sang trái, có các giá trị cực nhỏ kéo Mean < Median. Đối xứng (Symmetric): Mean approx Median.", "hints": ["Thu nhập có các tỷ phú, triệu phú tạo đuôi dài sang bên phải.", "Đề thi dễ đa số điểm 9, 10 ở bên phải, vài bạn điểm 1, 2 kéo đuôi dài sang bên trái.", "Chiều cao tuân theo phân phối chuẩn đối xứng quanh giá trị trung bình."], "steps": ["<b>Bước 1: Phân tích Tập 1 (Thu nhập người lao động) `[+0,35đ]`</b><br>- <b>Hình dạng:</b> Lệch phải (Right-skewed / Phân phối dương). Phần lớn người lao động có mức thu nhập trung bình hoặc thấp dồn ở bên trái, trong khi có một số ít người có thu nhập cực cao tạo thành một chiếc đuôi dài kéo sang bên phải.<br>- <b>Mối quan hệ:</b> $\\text{Mean} > \\text{Median}$. Do số trung bình bị các mức thu nhập khổng lồ (điểm ngoại lai lớn) kéo lệch mạnh về bên phải, trong khi trung vị phản ánh chính xác mức thu nhập của người ở chính giữa xã hội.", "<b>Bước 2: Phân tích Tập 2 (Điểm thi đề quá dễ) `[+0,35đ]`</b><br>- <b>Hình dạng:</b> Lệch trái (Left-skewed / Phân phối âm). Đỉnh dữ liệu dồn về phía điểm cao (bên phải), một số ít điểm kém tạo thành đuôi dài kéo dài về phía điểm thấp (bên trái).<br>- <b>Mối quan hệ:</b> $\\text{Mean} < \\text{Median}$. Các điểm số quá thấp kéo số trung bình tụt xuống dưới trung vị.", "<b>Bước 3: Phân tích Tập 3 (Chiều cao nam thanh niên) `[+0,30đ]`</b><br>- <b>Hình dạng:</b> Đối xứng hình chuông (Symmetric bell-shaped). Dữ liệu phân bố đều đặn hai bên giá trị trung tâm.<br>- <b>Mối quan hệ:</b> $\\text{Mean} \\approx \\text{Median} \\approx \\text{Mode}$."], "pro_tips": "Mẹo ghi nhớ trực quan: Đuôi kéo dài về phía nào thì phân phối lệch về phía đó, và Mean luôn bị đuôi kéo về phía mình nhiều hơn Median!", "pitfalls": "Nói ngược: nhầm đỉnh cao ở bên trái là 'lệch trái' (sai, đỉnh ở bên trái thì đuôi dài sang phải nên gọi là 'lệch phải')."}, {"id": "TL1_7", "topicId": 1, "level": "Nâng cao", "title": "Nghịch lý Simpson (Simpson's Paradox): Phân tích bảng dữ liệu ba chiều và Biến ẩn (Lurking Variable)", "problem": "Một trường đại học xét tuyển vào hai khoa: Khoa Tự nhiên (Khoa A) và Khoa Xã hội (Khoa B). Số liệu tuyển sinh theo giới tính được ghi nhận như sau:<br>- <b>Tại Khoa A:</b> Nam có 80/100 người trúng tuyển; Nữ có 18/20 người trúng tuyển.<br>- <b>Tại Khoa B:</b> Nam có 10/20 người trúng tuyển; Nữ có 60/100 người trúng tuyển.<br>1. Tính tỉ lệ trúng tuyển của Nam và Nữ trong từng khoa riêng biệt. Trong từng khoa, giới tính nào có tỉ lệ đỗ cao hơn?<br>2. Gộp số liệu cả hai khoa, tính tỉ lệ trúng tuyển chung của toàn trường cho Nam và cho Nữ.<br>3. Nêu hiện tượng nghịch lý xảy ra và giải thích nguyên nhân sâu xa (chỉ rõ biến ẩn / biến can thiệp - lurking variable).", "analysis": "Tính tỉ lệ riêng từng khoa: pA(Nam) = 80%, pA(Nu) = 90%; pB(Nam) = 50%, pB(Nu) = 60%. Khi gộp: Nam = 90/120 = 75%, Nu = 78/120 = 65%. Nam lại cao hơn! Biến ẩn là 'Khoa ứng tuyển' có độ khó khác nhau và số lượng đăng ký giữa hai giới rất chênh lệch.", "hints": ["Khoa A: 80/100 so với 18/20. Khoa B: 10/20 so với 60/100.", "Gộp chung: Tổng nam trúng tuyển = 80 + 10 = 90, tổng nộp = 100 + 20 = 120.", "Tổng nữ trúng tuyển = 18 + 60 = 78, tổng nộp = 20 + 100 = 120.", "Khoa nào có tỉ lệ đỗ cao hơn nói chung? Giới tính nào nộp nhiều vào khoa dễ đó?"], "steps": ["<b>Bước 1: Tính tỉ lệ trúng tuyển trong từng khoa `[+0,35đ]`</b><br>- <b>Tại Khoa A (Khoa dễ đỗ):</b><br>  + Nam: $\\frac{80}{100} = 80\\%$<br>  + Nữ: $\\frac{18}{20} = 90\\%$<br>  $\\implies$ Ở Khoa A, tỉ lệ trúng tuyển của Nữ cao hơn Nam ($90\\% > 80\\%$).<br>- <b>Tại Khoa B (Khoa khó đỗ):</b><br>  + Nam: $\\frac{10}{20} = 50\\%$<br>  + Nữ: $\\frac{60}{100} = 60\\%$<br>  $\\implies$ Ở Khoa B, tỉ lệ trúng tuyển của Nữ vẫn cao hơn Nam ($60\\% > 50\\%$).", "<b>Bước 2: Tính tỉ lệ trúng tuyển chung toàn trường khi gộp dữ liệu `[+0,35đ]`</b><br>- Tổng số thí sinh Nam: $100 + 20 = 120$ thí sinh. Số đỗ: $80 + 10 = 90$.<br>$$P(\\text{Đỗ} \\mid \\text{Nam}) = \\frac{90}{120} = 0{,}75 = 75{,}0\\%$$- Tổng số thí sinh Nữ: $20 + 100 = 120$ thí sinh. Số đỗ: $18 + 60 = 78$.<br>$$P(\\text{Đỗ} \\mid \\text{Nữ}) = \\frac{78}{120} = 0{,}65 = 65{,}0\\%$$$\\implies$ Khi gộp chung, tỉ lệ trúng tuyển của Nam lại cao hơn Nữ ($75\\% > 65\\%$).", "<b>Bước 3: Giải thích nghịch lý Simpson `[+0,30đ]`</b><br>Đây là biểu hiện điển hình của <b>Nghịch lý Simpson (Simpson's Paradox)</b>: Một xu hướng xuất hiện trong tất cả các nhóm nhỏ nhưng lại bị đảo ngược hoàn toàn khi gộp dữ liệu lại.<br><b>Nguyên nhân (Biến ẩn):</b> Do <i>khoa ứng tuyển</i> đóng vai trò là biến ẩn (confounding / lurking variable):<br>- Khoa A dễ đỗ hơn rất nhiều (tỉ lệ trúng tuyển trung bình $\\approx 81{,}7\\%$), và có tới $83{,}3\\%$ số thí sinh Nam nộp vào khoa này (100/120 bạn).<br>- Khoa B khắt khe hơn (tỉ lệ trúng tuyển trung bình $\\approx 58{,}3\\%$), nhưng có tới $83{,}3\\%$ thí sinh Nữ nộp vào khoa này (100/120 bạn).<br>Vì phần lớn Nam nộp vào nơi dễ đỗ còn phần lớn Nữ nộp vào nơi khó đỗ, tỉ lệ gộp chung của Nam bị kéo vọt lên cao hơn Nữ dù trong từng khoa Nữ đều có kết quả vượt trội!"], "pro_tips": "Để nhận diện nghịch lý Simpson: Luôn nhìn vào tỉ trọng nộp đơn của các nhóm vào các phân khúc khác nhau (weights).", "pitfalls": "Chỉ nhìn vào kết luận tổng gộp 75% > 65% rồi vội vàng kết luận trường phân biệt đối xử với nữ giới."}, {"id": "TL1_8", "topicId": 1, "level": "Nâng cao", "title": "Hồi quy bội (Multiple Regression): Ý nghĩa hệ số Ceteris Paribus và Hệ số xác định R²", "problem": "Một công ty công nghệ xây dựng mô hình hồi quy bội dự đoán mức lương hàng tháng ($y$, triệu đồng) theo số năm kinh nghiệm ($x_1$, năm) và điểm đánh giá hiệu suất công việc ($x_2$, thang 100 điểm) từ dữ liệu của 150 kỹ sư phần mềm:<br>$$\\hat{y} = 12{,}0 + 2{,}4 x_1 + 0{,}15 x_2$$Mô hình có tổng bình phương toàn phần $SST = 2500$ và tổng bình phương phần dư $SSE = 450$.<br>1. Giải thích ý nghĩa của hệ số hồi quy riêng phần $b_1 = 2{,}4$ và $b_2 = 0{,}15$ theo nguyên tắc <i>ceteris paribus</i> (các điều kiện khác không đổi).<br>2. Một kỹ sư có 5 năm kinh nghiệm và đạt 80 điểm hiệu suất thì mức lương dự đoán là bao nhiêu?<br>3. Tính hệ số xác định $R^2$ của mô hình và nêu ý nghĩa thực tế của con số này.", "analysis": "Hệ số b1 trong hồi quy bội là mức thay đổi của y khi x1 tăng 1 đơn vị VỚI ĐIỀU KIỆN x2 GIỮ NGUYÊN. R^2 = 1 - SSE/SST = SSR/SST.", "hints": ["Bắt buộc phải có cụm từ 'khi điểm hiệu suất x2 không đổi' khi giải thích b1.", "Thay x1 = 5 và x2 = 80 vào phương trình để tính y_hat.", "R^2 = 1 - SSE/SST = 1 - 450/2500 = 1 - 0.18 = 0.82 (82%)."], "steps": ["<b>Bước 1: Giải thích ý nghĩa các hệ số hồi quy riêng phần `[+0,35đ]`</b><br>- <b>Hệ số $b_1 = 2{,}4$:</b> Trong điều kiện <i>điểm đánh giá hiệu suất $x_2$ không đổi</i>, cứ mỗi năm kinh nghiệm làm việc tăng thêm, mức lương dự đoán trung bình của kỹ sư tăng thêm $2{,}4$ triệu đồng/tháng.<br>- <b>Hệ số $b_2 = 0{,}15$:</b> Trong điều kiện <i>số năm kinh nghiệm $x_1$ không đổi</i>, cứ mỗi điểm hiệu suất công việc tăng thêm, mức lương dự đoán trung bình của kỹ sư tăng thêm $0{,}15$ triệu đồng/tháng (tức 150.000 đồng/tháng).<br>- <b>Hệ số chặn $b_0 = 12{,}0$:</b> Kỹ sư mới vào nghề chưa có kinh nghiệm ($x_1 = 0$) và điểm hiệu suất bằng 0 ($x_2 = 0$) có mức lương cơ sở dự đoán là 12 triệu đồng/tháng.", "<b>Bước 2: Dự đoán mức lương kỹ sư cụ thể `[+0,30đ]`</b><br>Thay $x_1 = 5$ và $x_2 = 80$ vào phương trình mô hình:<br>$$\\hat{y} = 12{,}0 + 2{,}4 \\times 5 + 0{,}15 \\times 80 = 12{,}0 + 12{,}0 + 12{,}0 = 36{,}0\\text{ (triệu đồng/tháng)}$$", "<b>Bước 3: Tính hệ số xác định R² và nêu ý nghĩa `[+0,35đ]`</b><br>Hệ số xác định (Coefficient of Determination) $R^2$ được tính bằng:<br>$$R^2 = 1 - \\frac{SSE}{SST} = 1 - \\frac{450}{2500} = 1 - 0{,}18 = 0{,}82\\text{ (hoặc 82\\%)}$$<b>Ý nghĩa:</b> Mô hình hồi quy bội này giải thích được $82\\%$ sự biến thiên (sự dao động) của mức lương kỹ sư thông qua hai biến độc lập là số năm kinh nghiệm và điểm hiệu suất công việc; $18\\%$ sự biến thiên còn lại do các yếu tố khác chưa được đưa vào mô hình hoặc do sai số ngẫu nhiên."], "pro_tips": "Trong bài thi tự luận hồi quy bội, nếu quên viết điều kiện 'giữ nguyên các biến còn lại' (ceteris paribus) thì sẽ bị trừ 50% số điểm của câu giải thích!", "pitfalls": "Quên điều kiện giữ nguyên biến còn lại khi giải thích hệ số hồi quy riêng phần."}, {"id": "TL2_1", "topicId": 2, "level": "Cơ bản", "title": "Xác suất cổ điển: Gieo hai con xúc xắc cân đối", "problem": "Gieo đồng thời hai con xúc xắc 6 mặt cân đối và đồng chất. Hãy tính xác suất của các biến cố sau:<br>1. Biến cố $A$: 'Tổng số chấm xuất hiện trên hai con xúc xắc lớn hơn hoặc bằng 9'.<br>2. Biến cố $B$: 'Tổng số chấm xuất hiện là một số nguyên tố'.", "analysis": "Không gian mẫu gồm 36 cặp kết quả đồng khả năng (i, j) với 1 <= i, j <= 6. Liệt kê các cặp thỏa mãn điều kiện và áp dụng công thức xác suất cổ điển P = |A| / |Omega|.", "hints": ["Không gian mẫu |Omega| = 6 * 6 = 36.", "Tổng >= 9 gồm các tổng: 9, 10, 11, 12. Liệt kê các cặp (i, j).", "Các số nguyên tố có thể xuất hiện từ 2 đến 12 là: 2, 3, 5, 7, 11."], "steps": ["<b>Bước 1: Xác định không gian mẫu `[+0,25đ]`</b><br>Mỗi con xúc xắc có 6 mặt, gieo 2 con xúc xắc độc lập:<br>$$|\\Omega| = 6 \\times 6 = 36\\text{ (kết quả đồng khả năng)}$$", "<b>Bước 2: Tính xác suất biến cố A (Tổng ≥ 9) `[+0,35đ]`</b><br>Các cặp $(i, j)$ có tổng $\\ge 9$:<br>- Tổng = 9: $(3,6), (4,5), (5,4), (6,3)$ (4 cặp).<br>- Tổng = 10: $(4,6), (5,5), (6,4)$ (3 cặp).<br>- Tổng = 11: $(5,6), (6,5)$ (2 cặp).<br>- Tổng = 12: $(6,6)$ (1 cặp).<br>Số kết quả thuận lợi: $|A| = 4 + 3 + 2 + 1 = 10$.<br>$$P(A) = \\frac{|A|}{|\\Omega|} = \\frac{10}{36} = \\frac{5}{18} \\approx 0{,}2778\\text{ (27{,}78\\%)}$$", "<b>Bước 3: Tính xác suất biến cố B (Tổng là số nguyên tố) `[+0,40đ]`</b><br>Các số nguyên tố từ 2 đến 12 là $\\{2, 3, 5, 7, 11\\}$:<br>- Tổng = 2: $(1,1)$ (1 cặp).<br>- Tổng = 3: $(1,2), (2,1)$ (2 cặp).<br>- Tổng = 5: $(1,4), (2,3), (3,2), (4,1)$ (4 cặp).<br>- Tổng = 7: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ (6 cặp).<br>- Tổng = 11: $(5,6), (6,5)$ (2 cặp).<br>Số kết quả thuận lợi: $|B| = 1 + 2 + 4 + 6 + 2 = 15$.<br>$$P(B) = \\frac{|B|}{|\\Omega|} = \\frac{15}{36} = \\frac{5}{12} \\approx 0{,}4167\\text{ (41{,}67\\%)}$$"], "pro_tips": "Lập bảng lưới 6x6 trong giấy nháp để đếm số cặp cực nhanh và không bao giờ bị đếm sót.", "pitfalls": "Đếm thiếu cặp đối xứng (ví dụ tính (3,6) nhưng quên tính (6,3))."}, {"id": "TL2_2", "topicId": 2, "level": "Cơ bản", "title": "Rút thăm không hoàn lại và quy tắc cộng xác suất", "problem": "Một hộp kín chứa 12 quả cầu cùng kích thước, trong đó có 5 quả màu đỏ và 7 quả màu xanh. Rút ngẫu nhiên lần lượt 2 quả cầu không hoàn lại.<br>1. Tính xác suất để cả hai quả cầu rút ra đều có màu đỏ.<br>2. Tính xác suất để cả hai quả cầu rút ra đều có màu xanh.<br>3. Tính xác suất để hai quả cầu rút ra có cùng màu.", "analysis": "Áp dụng quy tắc nhân cho việc lấy mẫu không hoàn lại P(A cap B) = P(A) * P(B|A). Hai biến cố 'cùng đỏ' và 'cùng xanh' là xung khắc nên áp dụng quy tắc cộng.", "hints": ["Lần 1 rút đỏ xác suất 5/12. Lần 2 chỉ còn 4 đỏ trên 11 quả.", "Lần 1 rút xanh xác suất 7/12. Lần 2 chỉ còn 6 xanh trên 11 quả.", "Cùng màu = Cả 2 đỏ HOẶC Cả 2 xanh (hai trường hợp xung khắc, cộng lại)."], "steps": ["<b>Bước 1: Tính xác suất cả 2 quả màu đỏ `[+0,35đ]`</b><br>Gọi $R_1, R_2$ là lần 1, lần 2 rút được quả đỏ.<br>$$P(\\text{Cả 2 đỏ}) = P(R_1) \\cdot P(R_2 \\mid R_1) = \\frac{5}{12} \\times \\frac{4}{11} = \\frac{20}{132} = \\frac{5}{33} \\approx 0{,}1515\\text{ (15{,}15\\%)}$$", "<b>Bước 2: Tính xác suất cả 2 quả màu xanh `[+0,35đ]`</b><br>Gọi $X_1, X_2$ là lần 1, lần 2 rút được quả xanh.<br>$$P(\\text{Cả 2 xanh}) = P(X_1) \\cdot P(X_2 \\mid X_1) = \\frac{7}{12} \\times \\frac{6}{11} = \\frac{42}{132} = \\frac{7}{22} \\approx 0{,}3182\\text{ (31{,}82\\%)}$$", "<b>Bước 3: Tính xác suất rút được 2 quả cùng màu `[+0,30đ]`</b><br>Vì hai biến cố 'cả 2 đỏ' và 'cả 2 xanh' là xung khắc từng đôi một ($A \\cap B = \\emptyset$), theo Tiên đề 3 Kolmogorov:<br>$$P(\\text{Cùng màu}) = P(\\text{Cả 2 đỏ}) + P(\\text{Cả 2 xanh}) = \\frac{20}{132} + \\frac{42}{132} = \\frac{62}{132} = \\frac{31}{66} \\approx 0{,}4697\\text{ (46{,}97\\%)}$$"], "pro_tips": "Có thể giải bằng tổ hợp: P(Cùng màu) = [C(5, 2) + C(7, 2)] / C(12, 2) = (10 + 21) / 66 = 31/66, cho kết quả tương đương 100%.", "pitfalls": "Quên giảm mẫu số ở lần thứ hai (vẫn chia cho 12 thay vì 11)."}, {"id": "TL2_3", "topicId": 2, "level": "Cơ bản", "title": "Vận dụng các công thức xác suất cơ bản và biểu đồ Venn", "problem": "Cho hai biến cố $A$ và $B$ thỏa mãn: $P(A) = 0{,}6$; $P(B) = 0{,}5$ và $P(A \\cap B) = 0{,}3$. Hãy tính:<br>1. Xác suất của hợp $P(A \\cup B)$.<br>2. Các xác suất có điều kiện $P(A \\mid B)$ và $P(B \\mid A)$.<br>3. Xác suất biến cố $A$ không xảy ra nhưng biến cố $B$ xảy ra: $P(A^c \\cap B)$.", "analysis": "Áp dụng trực tiếp quy tắc cộng tổng quát, định nghĩa xác suất có điều kiện và công thức hiệu hai biến cố.", "hints": ["P(A cup B) = P(A) + P(B) - P(A cap B).", "P(A|B) = P(A cap B) / P(B); P(B|A) = P(A cap B) / P(A).", "P(A^c cap B) = P(B) - P(A cap B)."], "steps": ["<b>Bước 1: Tính xác suất của hợp P(A ∪ B) `[+0,30đ]`</b><br>Áp dụng nguyên lý bao hàm - loại trừ:<br>$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = 0{,}6 + 0{,}5 - 0{,}3 = 0{,}80\\text{ (80\\%)}$$", "<b>Bước 2: Tính các xác suất có điều kiện `[+0,40đ]`</b><br>- $P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{0{,}3}{0{,}5} = 0{,}60$.<br>- $P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)} = \\frac{0{,}3}{0{,}6} = 0{,}50$.", "<b>Bước 3: Tính P(Aᶜ ∩ B) `[+0,30đ]`</b><br>Biến cố $A^c \\cap B$ chính là phần diện tích của $B$ sau khi bỏ đi phần giao với $A$:<br>$$P(A^c \\cap B) = P(B) - P(A \\cap B) = 0{,}5 - 0{,}3 = 0{,}20\\text{ (20\\%)}$$"], "pro_tips": "Nhận xét thêm: P(A|B) = 0,6 = P(A) và P(B|A) = 0,5 = P(B), điều này chứng minh A và B là hai biến cố độc lập!", "pitfalls": "Tính P(A^c cap B) bằng P(A^c) * P(B) khi chưa chứng minh độc lập."}, {"id": "TL2_4", "topicId": 2, "level": "Trung bình", "title": "Kiểm tra tính độc lập và xung khắc của hai biến cố", "problem": "Khảo sát 100 sinh viên thu được kết quả: 40 sinh viên đăng ký học thêm Tiếng Nhật (biến cố $A$), 30 sinh viên đăng ký học thêm Kỹ năng mềm (biến cố $B$), và có 12 sinh viên đăng ký cả hai khóa học.<br>1. Tính $P(A), P(B), P(A \\cap B)$ và $P(A \\cup B)$.<br>2. Hai biến cố $A$ và $B$ có xung khắc với nhau không? Vì sao?<br>3. Hai biến cố $A$ và $B$ có độc lập với nhau không? Giải thích bằng định nghĩa toán học.", "analysis": "Xung khắc kiểm tra P(AB) = 0. Độc lập kiểm tra P(AB) = P(A) * P(B).", "hints": ["P(A) = 40/100, P(B) = 30/100, P(AB) = 12/100.", "Xung khắc nếu P(AB) = 0. Ở đây P(AB) = 0.12 > 0.", "So sánh P(AB) với tích P(A)*P(B) = 0.4 * 0.3 = 0.12."], "steps": ["<b>Bước 1: Tính các xác suất cơ bản `[+0,30đ]`</b><br>- $P(A) = \\frac{40}{100} = 0{,}40$.<br>- $P(B) = \\frac{30}{100} = 0{,}30$.<br>- $P(A \\cap B) = \\frac{12}{100} = 0{,}12$.<br>- $P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = 0{,}40 + 0{,}30 - 0{,}12 = 0{,}58$.", "<b>Bước 2: Kiểm tra tính xung khắc `[+0,35đ]`</b><br>Hai biến cố xung khắc khi và chỉ khi chúng không thể đồng thời xảy ra, tức $P(A \\cap B) = 0$.<br>Ở đây, $P(A \\cap B) = 0{,}12 &gt; 0$ (có 12 sinh viên học cả hai khóa).<br>$\\implies A$ và $B$ <b>KHÔNG xung khắc</b>.", "<b>Bước 3: Kiểm tra tính độc lập `[+0,35đ]`</b><br>Ta xét tích xác suất:<br>$$P(A) \\cdot P(B) = 0{,}40 \\times 0{,}30 = 0{,}12$$<br>So sánh với $P(A \\cap B) = 0{,}12$, ta thấy đẳng thức nghiệm đúng:<br>$$P(A \\cap B) = P(A) \\cdot P(B) = 0{,}12$$<br>$\\implies A$ và $B$ là hai biến cố <b>HOÀN TOÀN ĐỘC LẬP</b>."], "pro_tips": "Bài này cho thấy rất rõ: Hai biến cố ĐỘC LẬP thì KHÔNG THỂ XUNG KHẮC (vì nếu xung khắc thì P(AB) = 0 khác 0,12).", "pitfalls": "Nhầm lẫn giữa 2 khái niệm, cho rằng xung khắc là độc lập."}, {"id": "TL2_5", "topicId": 2, "level": "Trung bình", "title": "Công thức xác suất đầy đủ và Công thức Bayes trong chẩn đoán y tế", "problem": "Một căn bệnh hiểm nghèo có tỉ lệ mắc trong dân số là 1% ($P(D) = 0{,}01$). Một xét nghiệm y khoa có độ nhạy là 95% (người có bệnh xét nghiệm dương tính với xác suất 0,95) và độ đặc hiệu là 90% (người không có bệnh xét nghiệm âm tính với xác suất 0,90).<br>1. Tính xác suất một người dân ngẫu nhiên có kết quả xét nghiệm dương tính $P(T^+)$.<br>2. Một người đi xét nghiệm và nhận được kết quả Dương tính. Hãy tính xác suất người đó thực sự mắc bệnh: $P(D \\mid T^+)$. Nêu nhận xét về kết quả này.", "analysis": "Hệ đầy đủ gồm: Có bệnh D (0.01) và Không có bệnh D^c (0.99). Áp dụng công thức xác suất đầy đủ để tính P(T+), sau đó dùng công thức Bayes đảo ngược điều kiện.", "hints": ["P(D) = 0.01 => P(D^c) = 0.99.", "P(T+|D) = 0.95. P(T-|D^c) = 0.90 => P(T+|D^c) = 1 - 0.90 = 0.10 (dương tính giả).", "P(T+) = P(D)*P(T+|D) + P(D^c)*P(T+|D^c).", "Bayes: P(D|T+) = [P(D)*P(T+|D)] / P(T+)."], "steps": ["<b>Bước 1: Thiết lập hệ đầy đủ và các xác suất thành phần `[+0,30đ]`</b><br>- Tỉ lệ có bệnh: $P(D) = 0{,}01 \\implies P(D^c) = 1 - 0{,}01 = 0{,}99$.<br>- Xác suất dương tính khi có bệnh: $P(T^+ \\mid D) = 0{,}95$.<br>- Xác suất dương tính giả khi không có bệnh: $P(T^+ \\mid D^c) = 1 - 0{,}90 = 0{,}10$.", "<b>Bước 2: Tính xác suất dương tính toàn cục P(T⁺) `[+0,35đ]`</b><br>Theo công thức xác suất đầy đủ:<br>$$P(T^+) = P(D) \\cdot P(T^+ \\mid D) + P(D^c) \\cdot P(T^+ \\mid D^c)$$<br>$$P(T^+) = 0{,}01(0{,}95) + 0{,}99(0{,}10) = 0{,}0095 + 0{,}0990 = 0{,}1085\\text{ (10{,}85\\%)}$$", "<b>Bước 3: Áp dụng công thức Bayes tính P(D | T⁺) `[+0,35đ]`</b><br>$$P(D \\mid T^+) = \\frac{P(D) \\cdot P(T^+ \\mid D)}{P(T^+)} = \\frac{0{,}0095}{0{,}1085} = \\frac{19}{217} \\approx 0{,}0876\\text{ (hay } 8{,}76\\%\\text{)}$$<br><b>Nhận xét:</b> Dù xét nghiệm có độ nhạy rất cao (95%), nhưng vì bệnh rất hiếm (1%), phần lớn các ca dương tính là dương tính giả từ nhóm không bệnh (9,9% so với 0,95%). Do đó, một người dương tính chỉ có khoảng 8,76% cơ hội thực sự mắc bệnh và cần làm thêm xét nghiệm khẳng định lần 2!"], "pro_tips": "Đây là bài toán kinh điển của Stat20 và đề thi UET, hãy luôn viết rõ hai nhánh: dương tính thật và dương tính giả.", "pitfalls": "Quên lấy biến cố đối của độ đặc hiệu: P(T+|D^c) = 1 - 0.90 = 0.10, nhiều bạn nhầm lẫn thay thẳng 0.90 vào công thức."}, {"id": "TL2_6", "topicId": 2, "level": "Trung bình", "title": "Độ tin cậy của hệ thống linh kiện nối tiếp và song song", "problem": "Một mạch điện điều khiển gồm 3 linh kiện $L_1, L_2, L_3$ hoạt động độc lập. Mạch hoạt động bình thường nếu linh kiện $L_1$ hoạt động VÀ ít nhất một trong hai linh kiện $L_2, L_3$ hoạt động (tức $L_1$ mắc nối tiếp với cụm song song $[L_2 // L_3]$).<br>Biết xác suất hoạt động tốt của từng linh kiện là: $P(L_1) = 0{,}90$; $P(L_2) = 0{,}80$; $P(L_3) = 0{,}80$.<br>Hãy tính xác suất để toàn bộ hệ thống hoạt động bình thường.", "analysis": "Xác định biến cố hệ thống: H = L1 cap (L2 cup L3). Do các linh kiện độc lập, P(H) = P(L1) * P(L2 cup L3). Cụm song song tính qua biến cố đối.", "hints": ["Tính xác suất cụm song song [L2 // L3] hoạt động: P(L2 cup L3) = 1 - P(cả 2 cùng hỏng).", "P(L2 hỏng) = 1 - 0.8 = 0.2. P(L3 hỏng) = 0.2.", "Nhân với P(L1) vì L1 mắc nối tiếp độc lập."], "steps": ["<b>Bước 1: Tính độ tin cậy của cụm song song [L₂ // L₃] `[+0,40đ]`</b><br>Cụm song song ngừng hoạt động khi CẢ HAI linh kiện $L_2$ và $L_3$ cùng hỏng.<br>Vì $L_2, L_3$ độc lập:<br>- $P(L_2^c) = 1 - 0{,}80 = 0{,}20$.<br>- $P(L_3^c) = 1 - 0{,}80 = 0{,}20$.<br>Xác suất cả hai cùng hỏng: $P(L_2^c \\cap L_3^c) = 0{,}20 \\times 0{,}20 = 0{,}04$.<br>Xác suất cụm song song hoạt động tốt:<br>$$P(L_2 \\cup L_3) = 1 - P(L_2^c \\cap L_3^c) = 1 - 0{,}04 = 0{,}96\\text{ (96\\%)}$$", "<b>Bước 2: Tính độ tin cậy của toàn hệ thống `[+0,60đ]`</b><br>Hệ thống hoạt động khi $L_1$ hoạt động VÀ cụm song song hoạt động.<br>Vì $L_1$ độc lập với cụm $[L_2, L_3]$:<br>$$P(\\text{Hệ thống}) = P(L_1) \\cdot P(L_2 \\cup L_3) = 0{,}90 \\times 0{,}96 = 0{,}8640\\text{ (hay } 86{,}40\\%\\text{)}$$<br><b>Kết luận:</b> Xác suất hệ thống hoạt động là 86,40%."], "pro_tips": "Nguyên tắc nhớ nhanh: Mắc nối tiếp thì NHÂN xác suất hoạt động; Mắc song song thì NHÂN xác suất hỏng (rồi lấy 1 trừ đi).", "pitfalls": "Cộng xác suất của L2 và L3 (0.8 + 0.8 = 1.6 > 1) là sai hoàn toàn."}, {"id": "TL2_7", "topicId": 2, "level": "Nâng cao", "title": "Nghịch lý Monty Hall và phân tích cây xác suất", "problem": "Trong một gameshow, có 3 cánh cửa đóng kín giống hệt nhau: sau một cánh cửa là một chiếc ô tô, sau hai cánh cửa còn lại là hai con dê. Bạn chọn ngẫu nhiên cửa số 1. Người dẫn chương trình (biết rõ sau mỗi cửa có gì) mở cửa số 3 ra và cho thấy một con dê. Sau đó, MC cho bạn cơ hội: 'Bạn có muốn đổi sang cửa số 2 không?'.<br>Hãy dùng công thức xác suất có điều kiện chứng minh rằng bạn NÊN ĐỔI CỬA, và tính xác suất trúng ô tô nếu đổi cửa.", "analysis": "Gọi C_i là biến cố ô tô ở cửa i (P(C_i) = 1/3). Gọi M_3 là biến cố MC mở cửa 3. Tính P(C_2 | M_3) bằng định lý Bayes.", "hints": ["Ban đầu P(C1) = P(C2) = P(C3) = 1/3.", "Nếu ô tô ở cửa 1 (bạn đã chọn đúng), MC có thể mở cửa 2 hoặc 3: P(M3 | C1) = 1/2.", "Nếu ô tô ở cửa 2, MC BẮT BUỘC phải mở cửa 3 (vì bạn chọn cửa 1 và cửa 2 có xe): P(M3 | C2) = 1.", "Nếu ô tô ở cửa 3, MC không bao giờ mở cửa 3: P(M3 | C3) = 0."], "steps": ["<b>Bước 1: Thiết lập các biến cố và xác suất ban đầu `[+0,30đ]`</b><br>Gọi $C_i$ là biến cố ô tô nằm sau cửa $i$ ($i \\in \\{1, 2, 3\\}$). Ban đầu: $P(C_1) = P(C_2) = P(C_3) = 1/3$.<br>Bạn chọn cửa 1. Gọi $M_3$ là biến cố MC mở cửa 3 có con dê.", "<b>Bước 2: Xác định các xác suất có điều kiện của MC `[+0,30đ]`</b><br>- Nếu ô tô ở cửa 1: MC có thể chọn mở cửa 2 hoặc 3 ngẫu nhiên $\\implies P(M_3 \\mid C_1) = 1/2$.<br>- Nếu ô tô ở cửa 2: MC không thể mở cửa 1 (bạn đang chọn) và không thể mở cửa 2 (có xe) $\\implies$ MC bắt buộc mở cửa 3: $P(M_3 \\mid C_2) = 1$.<br>- Nếu ô tô ở cửa 3: MC không thể làm lộ xe $\\implies P(M_3 \\mid C_3) = 0$.", "<b>Bước 3: Tính xác suất MC mở cửa 3 theo công thức đầy đủ `[+0,20đ]`</b><br>$$P(M_3) = \\frac{1}{3}\\left(\\frac{1}{2}\\right) + \\frac{1}{3}(1) + \\frac{1}{3}(0) = \\frac{1}{6} + \\frac{1}{3} = \\frac{1}{2}$$", "<b>Bước 4: Áp dụng công thức Bayes tính xác suất trúng xe khi đổi sang cửa 2 `[+0,20đ]`</b><br>$$P(C_2 \\mid M_3) = \\frac{P(C_2) \\cdot P(M_3 \\mid C_2)}{P(M_3)} = \\frac{\\frac{1}{3} \\times 1}{\\frac{1}{2}} = \\frac{2}{3} \\approx 0{,}6667\\text{ (66{,}67\\%)}$$<br>Trong khi đó, nếu giữ nguyên cửa 1: $P(C_1 \\mid M_3) = \\frac{\\frac{1}{3} \\times \\frac{1}{2}}{\\frac{1}{2}} = \\frac{1}{3} \\approx 33{,}33\\%$.<br><b>Kết luận:</b> Đổi sang cửa 2 làm tăng gấp đôi cơ hội trúng ô tô (từ 1/3 lên 2/3), do đó người chơi chắc chắn NÊN ĐỔI."], "pro_tips": "Trực giác đơn giản: Cửa 1 ban đầu chỉ có 1/3 cơ hội đúng (2/3 cơ hội xe nằm ở 2 cửa còn lại). Khi MC loại 1 cửa dê, toàn bộ 2/3 cơ hội dồn hết sang cánh cửa còn lại!", "pitfalls": "Nghĩ rằng chỉ còn 2 cánh cửa thì mỗi cửa có xác suất 50-50 (đây là ảo tưởng phổ biến)."}, {"id": "TL2_8", "topicId": 2, "level": "Nâng cao", "title": "Tính công bằng của bốc thăm không hoàn lại", "problem": "Một hộp có 10 lá thăm, trong đó chỉ có đúng 1 lá thăm trúng thưởng. Có 3 người A, B, C lần lượt rút ngẫu nhiên mỗi người 1 lá thăm (không hoàn lại).<br>1. Tính xác suất người A (rút đầu tiên) trúng thưởng.<br>2. Tính xác suất người B (rút thứ hai) trúng thưởng.<br>3. Tính xác suất người C (rút thứ ba) trúng thưởng. Việc rút trước hay rút sau có ảnh hưởng đến cơ hội trúng không?", "analysis": "Dùng quy tắc nhân chuỗi xác suất có điều kiện: Người thứ 2 trúng khi người thứ 1 trượt VÀ người thứ 2 trúng. Người thứ 3 trúng khi người 1 trượt VÀ người 2 trượt VÀ người 3 trúng.", "hints": ["P(A) = 1/10.", "P(B) = P(A trượt) * P(B trúng | A trượt) = (9/10) * (1/9).", "P(C) = P(A trượt) * P(B trượt | A trượt) * P(C trúng | A trượt, B trượt)."], "steps": ["<b>Bước 1: Xác suất người A trúng thưởng `[+0,30đ]`</b><br>Người A rút đầu tiên từ 10 lá thăm có 1 lá trúng:<br>$$P(A) = \\frac{1}{10} = 0{,}10\\text{ (10\\%)}$$", "<b>Bước 2: Xác suất người B trúng thưởng `[+0,35đ]`</b><br>Người B trúng thưởng khi và chỉ khi người A rút trượt (xác suất 9/10), sau đó người B rút được lá trúng từ 9 lá còn lại (xác suất 1/9):<br>$$P(B) = P(A^c) \\cdot P(B \\mid A^c) = \\frac{9}{10} \\times \\frac{1}{9} = \\frac{1}{10} = 0{,}10\\text{ (10\\%)}$$", "<b>Bước 3: Xác suất người C trúng thưởng và Kết luận `[+0,35đ]`</b><br>Người C trúng khi cả A và B đều trượt, lúc này còn lại 8 lá thăm trong đó có 1 lá trúng:<br>$$P(C) = P(A^c) \\cdot P(B^c \\mid A^c) \\cdot P(C \\mid A^c \\cap B^c) = \\frac{9}{10} \\times \\frac{8}{9} \\times \\frac{1}{8} = \\frac{1}{10} = 0{,}10\\text{ (10\\%)}$$<br><b>Kết luận:</b> Cả 3 người đều có xác suất trúng thưởng bằng nhau tuyệt đối ($P = 1/10 = 10\\%$). Thứ tự bốc thăm hoàn toàn không ảnh hưởng đến cơ hội công bằng của mỗi người!"], "pro_tips": "Đây là nguyên lý toán học bảo đảm tính công bằng tuyệt đối của các trò chơi bốc thăm trúng thưởng trong đời thực.", "pitfalls": "Tưởng rằng người rút sau bị thiệt thòi vì người trước có thể đã lấy mất lá trúng."}, {"id": "TL3_1", "topicId": 3, "level": "Cơ bản", "title": "Tìm hằng số chuẩn hóa, tính kỳ vọng và phương sai từ pmf", "problem": "Biến ngẫu nhiên rời rạc $X$ nhận các giá trị trong tập $\\{1, 2, 3, 4\\}$ với hàm khối xác suất có dạng:<br>$$p_X(x) = c \\cdot (5 - x)$$1. Xác định giá trị của hằng số $c$ và lập bảng phân phối xác suất của $X$.<br>2. Tính kỳ vọng $E(X)$.<br>3. Tính phương sai $\\operatorname{Var}(X)$ và độ lệch chuẩn $\\operatorname{SD}(X)$ bằng công thức rút gọn.", "analysis": "Dùng điều kiện tổng xác suất sum p(x) = 1 để tìm c. Sau đó tính E(X) = sum x*p(x), E(X^2) = sum x^2*p(x), Var = E(X^2) - [E(X)]^2.", "hints": ["Tính tổng: c*(4 + 3 + 2 + 1) = 10c = 1 => c = 0.1.", "Xác suất tương ứng: p(1)=0.4, p(2)=0.3, p(3)=0.2, p(4)=0.1.", "E(X) = 1(0.4) + 2(0.3) + 3(0.2) + 4(0.1) = 2.0. E(X^2) = 1(0.4) + 4(0.3) + 9(0.2) + 16(0.1) = 5.0."], "steps": ["<b>Bước 1: Tìm hằng số c và lập bảng pmf `[+0,35đ]`</b><br>Theo điều kiện chuẩn hóa của pmf: $\\sum_{x=1}^4 p_X(x) = 1$:<br>$$c(5 - 1) + c(5 - 2) + c(5 - 3) + c(5 - 4) = 1 \\implies c(4 + 3 + 2 + 1) = 10c = 1 \\implies c = 0{,}10$$<br>Bảng phân phối xác suất của $X$:<br><table class='data-table'><tr><th>x</th><td>1</td><td>2</td><td>3</td><td>4</td><td>Tổng</td></tr><tr><th>p(x)</th><td>0,40</td><td>0,30</td><td>0,20</td><td>0,10</td><td>1,00</td></tr></table>", "<b>Bước 2: Tính kỳ vọng E(X) `[+0,30đ]`</b><br>$$E(X) = \\sum x \\cdot p(x) = 1(0{,}40) + 2(0{,}30) + 3(0{,}20) + 4(0{,}10) = 0{,}4 + 0{,}6 + 0{,}6 + 0{,}4 = 2{,}00$$", "<b>Bước 3: Tính phương sai và độ lệch chuẩn `[+0,35đ]`</b><br>- Tính mômen bậc hai: $E(X^2) = 1^2(0{,}40) + 2^2(0{,}30) + 3^2(0{,}20) + 4^2(0{,}10) = 0{,}4 + 1{,}2 + 1{,}8 + 1{,}6 = 5{,}00$.<br>- Phương sai: $\\operatorname{Var}(X) = E(X^2) - [E(X)]^2 = 5{,}00 - 2{,}00^2 = 5{,}00 - 4{,}00 = 1{,}00$.<br>- Độ lệch chuẩn: $\\operatorname{SD}(X) = \\sqrt{\\operatorname{Var}(X)} = \\sqrt{1{,}00} = 1{,}00$."], "pro_tips": "Luôn có dòng 'Tổng = 1,00' trong bảng pmf để lấy trọn điểm chuẩn hóa.", "pitfalls": "Quên bình phương E(X) khi lấy hiệu (tính 5.0 - 2.0 = 3.0 là sai)."}, {"id": "TL3_2", "topicId": 3, "level": "Cơ bản", "title": "Bài tập USB Slide 79–81: Tính phương sai bằng cả hai cách", "problem": "Dung lượng một chiếc USB khách hàng mua là biến ngẫu nhiên rời rạc $X$ (GB) có bảng phân phối sau:<br><table class='data-table'><tr><th>x (GB)</th><td>1</td><td>2</td><td>4</td><td>8</td><td>16</td></tr><tr><th>p(x)</th><td>0,05</td><td>0,10</td><td>0,35</td><td>0,40</td><td>0,10</td></tr></table>1. Tính $E(X)$ và $E(X^2)$.<br>2. Tính phương sai $\\operatorname{Var}(X)$ trực tiếp theo định nghĩa $\\sum (x - \\mu)^2 p(x)$.<br>3. Kiểm tra lại bằng công thức rút gọn $\\operatorname{Var}(X) = E(X^2) - [E(X)]^2$ và tính $\\operatorname{SD}(X)$ kèm đơn vị.", "analysis": "Bài tập nguyên văn trong slide bài giảng UET Week 07 (tr. 79-81). Yêu cầu đối chiếu 2 cách tính và ghi đúng đơn vị GB, GB^2.", "hints": ["E(X) = 1(0.05) + 2(0.10) + 4(0.35) + 8(0.40) + 16(0.10) = 6.45 GB.", "E(X^2) = 1(0.05) + 4(0.10) + 16(0.35) + 64(0.40) + 256(0.10) = 57.25 GB^2.", "Var = 57.25 - 6.45^2 = 15.6475 GB^2. SD = sqrt(15.6475) approx 3.9557 GB."], "steps": ["<b>Bước 1: Tính E(X) và E(X²) `[+0,30đ]`</b><br>$$E(X) = 1(0{,}05) + 2(0{,}10) + 4(0{,}35) + 8(0{,}40) + 16(0{,}10) = 0{,}05 + 0{,}20 + 1{,}40 + 3{,}20 + 1{,}60 = 6{,}45\\text{ GB}$$<br>$$E(X^2) = 1(0{,}05) + 4(0{,}10) + 16(0{,}35) + 64(0{,}40) + 256(0{,}10) = 0{,}05 + 0{,}40 + 5{,}60 + 25{,}60 + 25{,}60 = 57{,}25\\text{ GB}^2$$", "<b>Bước 2: Tính Var(X) từ định nghĩa với μ = 6,45 `[+0,35đ]`</b><br>$$\\operatorname{Var}(X) = \\sum (x - 6{,}45)^2 p(x)$$<br>- $(1 - 6{,}45)^2 \\times 0{,}05 = 29{,}7025 \\times 0{,}05 = 1{,}485125$<br>- $(2 - 6{,}45)^2 \\times 0{,}10 = 19{,}8025 \\times 0{,}10 = 1{,}980250$<br>- $(4 - 6{,}45)^2 \\times 0{,}35 = 6{,}0025 \\times 0{,}35 = 2{,}100875$<br>- $(8 - 6{,}45)^2 \\times 0{,}40 = 2{,}4025 \\times 0{,}40 = 0{,}961000$<br>- $(16 - 6{,}45)^2 \\times 0{,}10 = 91{,}2025 \\times 0{,}10 = 9{,}120250$<br>Cộng lại: $\\operatorname{Var}(X) = 15{,}6475\\text{ GB}^2$.", "<b>Bước 3: Kiểm tra bằng công thức rút gọn và tính SD `[+0,35đ]`</b><br>$$\\operatorname{Var}(X) = 57{,}25 - (6{,}45)^2 = 57{,}25 - 41{,}6025 = 15{,}6475\\text{ GB}^2$$ (trùng khớp hoàn toàn).<br>Độ lệch chuẩn: $\\operatorname{SD}(X) = \\sqrt{15{,}6475} \\approx 3{,}9557\\text{ GB}$."], "pro_tips": "Slide 81 ghi rất rõ: đơn vị của phương sai là GB^2, đơn vị độ lệch chuẩn là GB. Không được thiếu đơn vị!", "pitfalls": "Quên ghi mũ 2 ở đơn vị của phương sai (ghi GB thay vì GB^2) sẽ bị trừ 0,25đ."}, {"id": "TL3_3", "topicId": 3, "level": "Cơ bản", "title": "Thiết lập hàm cdf F(x) bậc thang và tính xác suất trên khoảng", "problem": "Cho bảng phân phối xác suất của $X$ như sau:<br><table class='data-table'><tr><th>x</th><td>0</td><td>1</td><td>3</td><td>5</td></tr><tr><th>p(x)</th><td>0,2</td><td>0,3</td><td>0,4</td><td>0,1</td></tr></table>1. Viết công thức tường minh của hàm phân phối tích lũy $F_X(x)$ trên toàn bộ trục số thực $\\mathbb{R}$.<br>2. Tính xác suất $P(1 &lt; X \\le 4)$ bằng hai cách: (a) Dùng bảng pmf; (b) Dùng hàm tích lũy $F(x)$.", "analysis": "Hàm cdf F(x) = P(X <= x) cộng dồn từng bậc nhảy. Tính xác suất khoảng P(a < X <= b) = F(b) - F(a).", "hints": ["F(x) chia làm 5 khoảng: x < 0; 0 <= x < 1; 1 <= x < 3; 3 <= x < 5; x >= 5.", "Giá trị tích lũy: 0, 0.2, 0.5, 0.9, 1.0.", "P(1 < X <= 4) = P(X = 3) = 0.4. Hoặc F(4) - F(1) = 0.9 - 0.5 = 0.4."], "steps": ["<b>Bước 1: Viết công thức hàm cdf bậc thang F(x) `[+0,50đ]`</b><br>Cộng dồn xác suất $F(x) = P(X \\le x)$:<br>$$F_X(x) = \\begin{cases}0, &amp; x &lt; 0 \\\\0{,}2, &amp; 0 \\le x &lt; 1 \\\\0{,}5, &amp; 1 \\le x &lt; 3 \\\\0{,}9, &amp; 3 \\le x &lt; 5 \\\\1{,}0, &amp; x \\ge 5\\end{cases}$$", "<b>Bước 2: Tính P(1 < X ≤ 4) bằng hai cách `[+0,50đ]`</b><br>- <i>Cách a (dùng pmf):</i> Trong khoảng $(1, 4]$, biến ngẫu nhiên chỉ nhận giá trị $x = 3$.<br>$$P(1 &lt; X \\le 4) = P(X = 3) = 0{,}40$$<br>- <i>Cách b (dùng cdf):</i> Áp dụng công thức $P(a &lt; X \\le b) = F(b) - F(a)$ với $a = 1, b = 4$:<br>$$P(1 &lt; X \\le 4) = F(4) - F(1) = 0{,}90 - 0{,}50 = 0{,}40$$<br>Hai cách cho kết quả hoàn toàn trùng khớp."], "pro_tips": "Lưu ý dấu ngoặc trong F(x): 'dưới lấy dấu bằng, trên không lấy dấu bằng' (hàm liên tục phải).", "pitfalls": "Tính nhầm F(4) = 0,5 vì không để ý 4 nằm trong khoảng [3, 5)."}, {"id": "TL3_4", "topicId": 3, "level": "Trung bình", "title": "Biến đổi tuyến tính của kỳ vọng, phương sai và độ lệch chuẩn", "problem": "Cho biến ngẫu nhiên $X$ có kỳ vọng $E(X) = 5$ và phương sai $\\operatorname{Var}(X) = 4$. Đặt $Y = 2X - 3$. Hãy tính:<br>1. Kỳ vọng $E(Y)$.<br>2. Phương sai $\\operatorname{Var}(Y)$ và độ lệch chuẩn $\\operatorname{SD}(Y)$.<br>3. Mômen bậc hai $E(X^2)$ và $E(Y^2)$.", "analysis": "Áp dụng E(aX+b) = aE(X)+b; Var(aX+b) = a^2*Var(X); SD(aX+b) = |a|*SD(X). Mômen bậc hai tính từ E(X^2) = Var(X) + [E(X)]^2.", "hints": ["E(2X - 3) = 2*5 - 3 = 7.", "Var(2X - 3) = 2^2 * Var(X) = 4 * 4 = 16. SD = sqrt(16) = 4.", "E(X^2) = Var(X) + [E(X)]^2 = 4 + 25 = 29."], "steps": ["<b>Bước 1: Tính E(Y) `[+0,30đ]`</b><br>Áp dụng tính chất tuyến tính của kỳ vọng:<br>$$E(Y) = E(2X - 3) = 2 \\cdot E(X) - 3 = 2(5) - 3 = 10 - 3 = 7{,}0$$", "<b>Bước 2: Tính Var(Y) và SD(Y) `[+0,40đ]`</b><br>Áp dụng tính chất biến đổi tuyến tính của phương sai (hằng số $-3$ bị triệt tiêu):<br>$$\\operatorname{Var}(Y) = \\operatorname{Var}(2X - 3) = 2^2 \\cdot \\operatorname{Var}(X) = 4 \\times 4 = 16{,}0$$<br>Độ lệch chuẩn:<br>$$\\operatorname{SD}(Y) = \\sqrt{\\operatorname{Var}(Y)} = \\sqrt{16} = 4{,}0$$<br>(Hoặc dùng $\\operatorname{SD}(2X - 3) = |2| \\cdot \\operatorname{SD}(X) = 2 \\times 2 = 4{,}0$).", "<b>Bước 3: Tính các mômen bậc hai `[+0,30đ]`</b><br>- $E(X^2) = \\operatorname{Var}(X) + [E(X)]^2 = 4 + 5^2 = 4 + 25 = 29{,}0$.<br>- $E(Y^2) = \\operatorname{Var}(Y) + [E(Y)]^2 = 16 + 7^2 = 16 + 49 = 65{,}0$."], "pro_tips": "Nhớ công thức chuyển vế: E(X^2) = Var(X) + [E(X)]^2 xuất phát từ Var = E(X^2) - [E(X)]^2.", "pitfalls": "Trừ 3 vào phương sai: Var = 4*4 - 3 = 13 (SAI HOÀN TOÀN)."}, {"id": "TL3_5", "topicId": 3, "level": "Trung bình", "title": "Mô hình chi phí kiểm định chất lượng (Slide Week 07 tr. 8–9, 15)", "problem": "Một cơ sở kiểm tra hai sản phẩm độc lập. Mỗi sản phẩm đạt chuẩn với xác suất $0{,}8$. Gọi $X$ là số sản phẩm đạt chuẩn ($X \\in \\{0, 1, 2\\}$). Chi phí xử lý lô hàng tính bằng nghìn đồng là $C = 50 + 20X$.<br>1. Lập bảng phân phối xác suất của $X$.<br>2. Tính chi phí kỳ vọng $E(C)$.<br>3. Tính phương sai $\\operatorname{Var}(C)$ và độ lệch chuẩn $\\operatorname{SD}(C)$ kèm đơn vị.", "analysis": "X tuân theo phân phối nhị thức B(2, 0.8). Lập pmf, tính E(X) = 1.6, Var(X) = 0.32, sau đó dùng biến đổi tuyến tính tính cho C.", "hints": ["P(X=0) = 0.2^2 = 0.04; P(X=1) = 2*0.8*0.2 = 0.32; P(X=2) = 0.8^2 = 0.64.", "E(X) = 1.6 sản phẩm. E(C) = 50 + 20*1.6 = 82 nghìn đồng.", "Var(X) = 2*0.8*0.2 = 0.32. Var(C) = 20^2 * 0.32 = 400 * 0.32 = 128 (nghìn đồng)^2."], "steps": ["<b>Bước 1: Lập bảng phân phối xác suất của X `[+0,35đ]`</b><br>Vì kiểm tra 2 sản phẩm độc lập cùng xác suất đạt chuẩn $0{,}8$:<br>- $P(X = 0) = (1 - 0{,}8)^2 = 0{,}04$.<br>- $P(X = 1) = C_2^1 (0{,}8)^1 (0{,}2)^1 = 0{,}32$.<br>- $P(X = 2) = (0{,}8)^2 = 0{,}64$.<br><table class='data-table'><tr><th>x</th><td>0</td><td>1</td><td>2</td><td>Tổng</td></tr><tr><th>p(x)</th><td>0,04</td><td>0,32</td><td>0,64</td><td>1,00</td></tr></table>", "<b>Bước 2: Tính chi phí kỳ vọng E(C) `[+0,30đ]`</b><br>$E(X) = n \\cdot p = 2 \\times 0{,}8 = 1{,}6$ (sản phẩm đạt chuẩn).<br>$$E(C) = E(50 + 20X) = 50 + 20 \\cdot E(X) = 50 + 20(1{,}6) = 50 + 32 = 82{,}0\\text{ (nghìn đồng)}$$", "<b>Bước 3: Tính Var(C) và SD(C) `[+0,35đ]`</b><br>Phương sai của $X$: $\\operatorname{Var}(X) = n p (1 - p) = 2(0{,}8)(0{,}2) = 0{,}32$ (sản phẩm$^2$).<br>Phương sai chi phí:<br>$$\\operatorname{Var}(C) = \\operatorname{Var}(50 + 20X) = 20^2 \\cdot \\operatorname{Var}(X) = 400 \\times 0{,}32 = 128{,}0\\text{ (nghìn đồng)}^2$$<br>Độ lệch chuẩn chi phí:<br>$$\\operatorname{SD}(C) = \\sqrt{128} = 8\\sqrt{2} \\approx 11{,}3137\\text{ (nghìn đồng)}$$"], "pro_tips": "Ghi đúng đơn vị: (nghìn đồng)^2 cho phương sai và nghìn đồng cho độ lệch chuẩn.", "pitfalls": "Quên nhân 2 trong số trường hợp X = 1 (chỉ tính 0.8 * 0.2 = 0.16)."}, {"id": "TL3_6", "topicId": 3, "level": "Trung bình", "title": "Kỳ vọng và Phương sai của hàm hai biến độc lập", "problem": "Cho hai biến ngẫu nhiên độc lập $X$ và $Y$ có các thông số: $E(X) = 3$, $\\operatorname{Var}(X) = 2$; $E(Y) = 4$, $\\operatorname{Var}(Y) = 5$. Hãy tính:<br>1. Kỳ vọng tích $E(X Y)$.<br>2. Kỳ vọng tổ hợp $E(2X - 3Y + 5)$.<br>3. Phương sai $\\operatorname{Var}(X - 3Y)$ và $\\operatorname{Var}(2X + 4Y)$.", "analysis": "Vì X, Y độc lập nên E(XY) = E(X)*E(Y). Tuyến tính E(aX+bY) = aE(X)+bE(Y). Độc lập nên Var(aX+bY) = a^2*Var(X) + b^2*Var(Y) (lưu ý dấu trừ cũng thành bình phương dấu cộng!).", "hints": ["E(XY) = 3 * 4 = 12.", "E(2X - 3Y + 5) = 2(3) - 3(4) + 5 = 6 - 12 + 5 = -1.", "Var(X - 3Y) = 1^2 * Var(X) + (-3)^2 * Var(Y) = 1(2) + 9(5) = 2 + 45 = 47."], "steps": ["<b>Bước 1: Tính E(XY) `[+0,30đ]`</b><br>Vì $X$ và $Y$ độc lập:<br>$$E(XY) = E(X) \\cdot E(Y) = 3 \\times 4 = 12{,}0$$", "<b>Bước 2: Tính E(2X - 3Y + 5) `[+0,30đ]`</b><br>$$E(2X - 3Y + 5) = 2 \\cdot E(X) - 3 \\cdot E(Y) + 5 = 2(3) - 3(4) + 5 = 6 - 12 + 5 = -1{,}0$$", "<b>Bước 3: Tính các phương sai `[+0,40đ]`</b><br>- $\\operatorname{Var}(X - 3Y)$: Vì $X, Y$ độc lập:<br>$$\\operatorname{Var}(X - 3Y) = 1^2 \\cdot \\operatorname{Var}(X) + (-3)^2 \\cdot \\operatorname{Var}(Y) = 1(2) + 9(5) = 2 + 45 = 47{,}0$$<br>- $\\operatorname{Var}(2X + 4Y)$:<br>$$\\operatorname{Var}(2X + 4Y) = 2^2 \\cdot \\operatorname{Var}(X) + 4^2 \\cdot \\operatorname{Var}(Y) = 4(2) + 16(5) = 8 + 80 = 88{,}0$$"], "pro_tips": "LƯU Ý CỰC KỲ QUAN TRỌNG: Phương sai của HIỆU Var(X - Y) vẫn là DẤU CỘNG: Var(X) + Var(Y), không bao giờ lấy trừ!", "pitfalls": "Lấy Var(X - 3Y) = Var(X) - 9*Var(Y) = 2 - 45 = -43 (phương sai không bao giờ được âm!)."}, {"id": "TL3_7", "topicId": 3, "level": "Nâng cao", "title": "Khôi phục bảng pmf từ hàm phân phối tích lũy cdf", "problem": "Cho hàm phân phối tích lũy của biến ngẫu nhiên $X$:<br>$$F_X(x) = \\begin{cases}0, &amp; x &lt; -1 \\\\0{,}15, &amp; -1 \\le x &lt; 0 \\\\0{,}45, &amp; 0 \\le x &lt; 2 \\\\0{,}80, &amp; 2 \\le x &lt; 3 \\\\1{,}00, &amp; x \\ge 3\\end{cases}$$1. Xác định tập các giá trị mà $X$ có thể nhận và tính xác suất tại từng giá trị.<br>2. Tính kỳ vọng $E(X)$ và phương sai $\\operatorname{Var}(X)$.<br>3. Tính xác suất $P(-0{,}5 \\le X &lt; 3)$.", "analysis": "Mỗi bước nhảy của F(x) tại điểm x_0 tương ứng với một giá trị có xác suất dương p(x_0) = F(x_0) - lim_{x->x_0^-} F(x). Sau đó tính kỳ vọng và xác suất khoảng nửa đóng nửa mở.", "hints": ["Các điểm nhảy: x = -1, 0, 2, 3.", "p(-1) = 0.15 - 0 = 0.15; p(0) = 0.45 - 0.15 = 0.30; p(2) = 0.80 - 0.45 = 0.35; p(3) = 1.0 - 0.80 = 0.20.", "Xác suất P(-0.5 <= X < 3) gồm các giá trị x = 0 và x = 2: p(0) + p(2) = 0.30 + 0.35 = 0.65."], "steps": ["<b>Bước 1: Khôi phục bảng phân phối xác suất pmf `[+0,40đ]`</b><br>Độ cao các bước nhảy của $F(x)$ tại các điểm gián đoạn:<br>- Tại $x = -1$: $P(X = -1) = 0{,}15 - 0 = 0{,}15$.<br>- Tại $x = 0$: $P(X = 0) = 0{,}45 - 0{,}15 = 0{,}30$.<br>- Tại $x = 2$: $P(X = 2) = 0{,}80 - 0{,}45 = 0{,}35$.<br>- Tại $x = 3$: $P(X = 3) = 1{,}00 - 0{,}80 = 0{,}20$.<br><table class='data-table'><tr><th>x</th><td>-1</td><td>0</td><td>2</td><td>3</td><td>Tổng</td></tr><tr><th>p(x)</th><td>0,15</td><td>0,30</td><td>0,35</td><td>0,20</td><td>1,00</td></tr></table>", "<b>Bước 2: Tính E(X) và Var(X) `[+0,35đ]`</b><br>- $E(X) = -1(0{,}15) + 0(0{,}30) + 2(0{,}35) + 3(0{,}20) = -0{,}15 + 0 + 0{,}70 + 0{,}60 = 1{,}15$.<br>- $E(X^2) = (-1)^2(0{,}15) + 0^2(0{,}30) + 2^2(0{,}35) + 3^2(0{,}20) = 0{,}15 + 0 + 1{,}40 + 1{,}80 = 3{,}35$.<br>- $\\operatorname{Var}(X) = E(X^2) - [E(X)]^2 = 3{,}35 - (1{,}15)^2 = 3{,}35 - 1{,}3225 = 2{,}0275$.", "<b>Bước 3: Tính P(-0,5 ≤ X < 3) `[+0,25đ]`</b><br>Trong khoảng $[-0{,}5; 3)$, các giá trị $X$ thỏa mãn là $x = 0$ và $x = 2$ (không lấy $x = 3$ vì dấu &lt; 3):<br>$$P(-0{,}5 \\le X &lt; 3) = P(X = 0) + P(X = 2) = 0{,}30 + 0{,}35 = 0{,}65\\text{ (65\\%)}$$"], "pro_tips": "Kiểm tra tổng các bước nhảy: 0,15 + 0,30 + 0,35 + 0,20 = 1,00.", "pitfalls": "Đếm nhầm x = 3 vào câu 3 dẫn đến kết quả 0,85 thay vì 0,65."}, {"id": "TL3_8", "topicId": 3, "level": "Nâng cao", "title": "Bài toán người bán báo: Tối ưu hóa lợi nhuận kỳ vọng", "problem": "Một người bán báo mua mỗi tờ báo giá 3 nghìn đồng và bán ra giá 8 nghìn đồng (lãi 5 nghìn đồng/tờ nếu bán được). Những tờ báo không bán được trong ngày phải bỏ đi (mất trắng 3 nghìn đồng/tờ). Số lượng báo khách hàng hỏi mua mỗi ngày là biến ngẫu nhiên $D$ có phân phối:<br><table class='data-table'><tr><th>Nhu cầu d (tờ)</th><td>10</td><td>11</td><td>12</td><td>13</td></tr><tr><th>P(D = d)</th><td>0,1</td><td>0,3</td><td>0,4</td><td>0,2</td></tr></table>Nếu người bán báo quyết định nhập về $12$ tờ mỗi ngày, hãy lập bảng phân phối xác suất của lợi nhuận $Y$ và tính lợi nhuận kỳ vọng $E(Y)$.", "analysis": "Gọi q = 12 là số báo nhập. Chi phí cố định = 12 * 3 = 36 nghìn. Doanh thu = 8 * min(d, 12). Lợi nhuận Y = 8*min(d, 12) - 36.", "hints": ["Nếu d = 10: bán được 10 tờ -> Doanh thu = 80 -> Lợi nhuận = 80 - 36 = 44 nghìn.", "Nếu d = 11: bán được 11 tờ -> Doanh thu = 88 -> Lợi nhuận = 88 - 36 = 52 nghìn.", "Nếu d = 12 hoặc d = 13: đều bán hết 12 tờ -> Doanh thu = 96 -> Lợi nhuận = 96 - 36 = 60 nghìn."], "steps": ["<b>Bước 1: Thiết lập công thức lợi nhuận Y `[+0,30đ]`</b><br>Người bán nhập $q = 12$ tờ báo. Tổng chi phí bỏ ra: $12 \\times 3 = 36$ nghìn đồng.<br>Số báo bán được thực tế là $\\min(D, 12)$. Lợi nhuận:<br>$$Y = 8 \\cdot \\min(D, 12) - 36\\text{ (nghìn đồng)}$$", "<b>Bước 2: Tính giá trị lợi nhuận theo từng mức nhu cầu `[+0,35đ]`</b><br>- Khi $D = 10$ (xác suất 0,1): $Y = 8(10) - 36 = 80 - 36 = 44$ nghìn đồng.<br>- Khi $D = 11$ (xác suất 0,3): $Y = 8(11) - 36 = 88 - 36 = 52$ nghìn đồng.<br>- Khi $D = 12$ (xác suất 0,4): $Y = 8(12) - 36 = 96 - 36 = 60$ nghìn đồng.<br>- Khi $D = 13$ (xác suất 0,2): Nhu cầu là 13 nhưng chỉ có 12 tờ để bán $\\implies Y = 8(12) - 36 = 60$ nghìn đồng.", "<b>Bước 3: Lập bảng pmf của lợi nhuận và tính kỳ vọng E(Y) `[+0,35đ]`</b><br>Gộp hai trường hợp cùng cho mức lợi nhuận 60 nghìn: $P(Y = 60) = 0{,}4 + 0{,}2 = 0{,}6$.<br><table class='data-table'><tr><th>Lợi nhuận y (nghìn)</th><td>44</td><td>52</td><td>60</td><td>Tổng</td></tr><tr><th>P(Y = y)</th><td>0,10</td><td>0,30</td><td>0,60</td><td>1,00</td></tr></table><br>Lợi nhuận kỳ vọng mỗi ngày:<br>$$E(Y) = 44(0{,}10) + 52(0{,}30) + 60(0{,}60) = 4{,}4 + 15{,}6 + 36{,}0 = 56{,}0\\text{ (nghìn đồng)}$$"], "pro_tips": "Điểm mấu chốt của bài toán này là gộp xác suất tại mức lợi nhuận tối đa khi nhu cầu vượt quá số lượng hàng nhập.", "pitfalls": "Quên tính chi phí của những tờ báo bị ế bỏ đi."}, {"id": "TL4_1", "topicId": 4, "level": "Cơ bản", "title": "Phân phối Nhị thức: Công thức Bernoulli, Kỳ vọng và Phương sai", "problem": "Một bài thi trắc nghiệm gồm 10 câu hỏi độc lập. Một sinh viên ôn tập khá tốt nên xác suất trả lời đúng mỗi câu là $p = 0{,}7$.<br>1. Gọi $X$ là số câu trả lời đúng của sinh viên này. Cho biết tên phân phối và các tham số của $X$.<br>2. Tính xác suất để sinh viên đó trả lời đúng chính xác 7 câu ($P(X = 7)$).<br>3. Tính kỳ vọng $E(X)$, phương sai $\\operatorname{Var}(X)$ và độ lệch chuẩn $\\operatorname{SD}(X)$.", "analysis": "X tuân theo phân phối Nhị thức B(n=10, p=0.7). Dùng công thức P(X = k) = C(n, k) * p^k * (1-p)^(n-k). E(X) = np, Var(X) = np(1-p), SD(X) = sqrt(Var).", "hints": ["10 câu hỏi độc lập, cùng xác suất đúng p = 0.7 -> Phân phối Nhị thức B(10, 0.7).", "P(X = 7) = C(10, 7) * 0.7^7 * 0.3^3.", "E(X) = 10 * 0.7 = 7. Var(X) = 10 * 0.7 * 0.3 = 2.1."], "steps": ["<b>Bước 1: Nhận diện phân phối và tham số `[+0,25đ]`</b><br>Các câu hỏi là các phép thử Bernoulli độc lập, mỗi câu chỉ có 2 kết quả (đúng/sai) với xác suất đúng không đổi $p = 0{,}7$.<br>Do đó, $X$ tuân theo <b>Phân phối Nhị thức</b> (Binomial distribution):<br>$$X \\sim B(n = 10,\\; p = 0{,}7)$$", "<b>Bước 2: Tính xác suất đúng đúng 7 câu P(X = 7) `[+0,40đ]`</b><br>Áp dụng công thức hàm khối xác suất nhị thức:<br>$$P(X = k) = C_n^k p^k (1 - p)^{n - k}$$Với $k = 7$:<br>$$P(X = 7) = C_{10}^7 \\times (0{,}7)^7 \\times (0{,}3)^{10 - 7} = 120 \\times (0{,}7)^7 \\times (0{,}3)^3$$$$P(X = 7) = 120 \\times 0{,}0823543 \\times 0{,}027 \\approx 0{,}2668\\text{ (26{,}68\\%)}$$", "<b>Bước 3: Tính kỳ vọng, phương sai và độ lệch chuẩn `[+0,35đ]`</b><br>- Kỳ vọng (số câu đúng trung bình):<br>$$E(X) = n \\cdot p = 10 \\times 0{,}7 = 7{,}0\\text{ (câu)}$$- Phương sai:<br>$$\\operatorname{Var}(X) = n \\cdot p \\cdot (1 - p) = 10 \\times 0{,}7 \\times 0{,}3 = 2{,}10\\text{ (câu}^2\\text{)}$$- Độ lệch chuẩn:<br>$$\\operatorname{SD}(X) = \\sqrt{\\operatorname{Var}(X)} = \\sqrt{2{,}10} \\approx 1{,}4491\\text{ (câu)}$$"], "pro_tips": "Nhớ công thức tổ hợp $C_{10}^7 = C_{10}^3 = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120$ để tính nhẩm nhanh không cần máy tính.", "pitfalls": "Quên số hạng $C_n^k$ mà chỉ tính $p^k(1-p)^{n-k}$, hoặc bấm nhầm lũy thừa $(0{,}3)^3$."}, {"id": "TL4_2", "topicId": 4, "level": "Cơ bản", "title": "Phân phối Siêu bội: Rút mẫu không hoàn lại từ tập hữu hạn", "problem": "Một lô hàng gồm $N = 30$ linh kiện điện tử, trong đó có $M = 6$ linh kiện bị lỗi. Nhân viên kiểm toán chọn ngẫu nhiên $n = 4$ linh kiện không hoàn lại để kiểm tra.<br>1. Gọi $X$ là số linh kiện lỗi được chọn ra. Xác định phân phối xác suất của $X$.<br>2. Tính xác suất để trong 4 linh kiện chọn ra có đúng 1 linh kiện lỗi ($P(X = 1)$).<br>3. Tính xác suất để chọn được ít nhất 1 linh kiện lỗi ($P(X \\ge 1)$).", "analysis": "Rút không hoàn lại n=4 từ tập N=30 có M=6 phần tử đặc biệt -> Siêu bội Hypergeometric HG(N=30, M=6, n=4). P(X=k) = C(M, k)*C(N-M, n-k) / C(N, n). P(X>=1) = 1 - P(X=0).", "hints": ["Rút không hoàn lại từ tập hữu hạn là dấu hiệu đặc trưng của phân phối Siêu bội.", "P(X = 1) = [C(6, 1) * C(24, 3)] / C(30, 4).", "Biến cố đối của 'ít nhất 1 lỗi' là 'không có lỗi nào' (X = 0)."], "steps": ["<b>Bước 1: Xác định phân phối của X `[+0,25đ]`</b><br>Vì các linh kiện được chọn <i>không hoàn lại</i> từ tập hữu hạn gồm 30 linh kiện (gồm 6 lỗi và 24 tốt), biến ngẫu nhiên $X$ tuân theo <b>Phân phối Siêu bội</b> (Hypergeometric):<br>$$X \\sim HG(N = 30,\\; M = 6,\\; n = 4)$$", "<b>Bước 2: Tính xác suất có đúng 1 linh kiện lỗi P(X = 1) `[+0,40đ]`</b><br>Áp dụng công thức phân phối siêu bội:<br>$$P(X = k) = \\frac{C_M^k C_{N - M}^{n - k}}{C_N^n}$$Với $k = 1$:<br>- Chọn 1 linh kiện lỗi từ 6 linh kiện lỗi: $C_6^1 = 6$ cách.<br>- Chọn $4 - 1 = 3$ linh kiện tốt từ $30 - 6 = 24$ linh kiện tốt: $C_{24}^3 = \\frac{24 \\times 23 \\times 22}{6} = 2024$ cách.<br>- Chọn 4 linh kiện bất kỳ từ 30 linh kiện: $C_{30}^4 = \\frac{30 \\times 29 \\times 28 \\times 27}{24} = 27405$ cách.<br>$$P(X = 1) = \\frac{6 \\times 2024}{27405} = \\frac{12144}{27405} \\approx 0{,}4431\\text{ (44{,}31\\%)}$$", "<b>Bước 3: Tính xác suất có ít nhất 1 linh kiện lỗi P(X ≥ 1) `[+0,35đ]`</b><br>Sử dụng biến cố đối: Biến cố không có linh kiện lỗi nào ($X = 0$):<br>$$P(X = 0) = \\frac{C_6^0 C_{24}^4}{C_{30}^4} = \\frac{1 \\times 10626}{27405} \\approx 0{,}3877$$Do đó:<br>$$P(X \\ge 1) = 1 - P(X = 0) = 1 - \\frac{10626}{27405} = \\frac{16779}{27405} \\approx 0{,}6123\\text{ (61{,}23\\%)}$$"], "pro_tips": "Bất cứ khi nào gặp cụm từ 'ít nhất 1' ($X \\ge 1$), hãy nghĩ ngay đến biến cố đối $1 - P(X = 0)$ để rút ngắn 80% thời gian tính toán!", "pitfalls": "Dùng nhầm công thức Nhị thức cho bài toán rút không hoàn lại khi kích thước mẫu $n=4$ so với $N=30$ khá lớn ($4/30 \\approx 13{,}3\\% > 5\\%$)."}, {"id": "TL4_3", "topicId": 4, "level": "Cơ bản", "title": "Phân phối Poisson: Biến cố hiếm trong khoảng thời gian liên tục", "problem": "Số lượng cuộc gọi cấp cứu gọi đến một trung tâm y tế trong 1 giờ là một biến ngẫu nhiên tuân theo phân phối Poisson với cường độ trung bình $\\lambda = 2$ cuộc gọi/giờ.<br>1. Viết công thức hàm khối xác suất $P(X = k)$ của số cuộc gọi trong 1 giờ.<br>2. Tính xác suất trong 1 giờ có đúng 3 cuộc gọi cấp cứu ($P(X = 3)$).<br>3. Tính xác suất trong 1 giờ có ít nhất 1 cuộc gọi cấp cứu ($P(X \\ge 1)$).", "analysis": "X ~ Pois(lambda = 2). Công thức P(X = k) = e^(-lambda) * lambda^k / k!. P(X >= 1) = 1 - P(X = 0) = 1 - e^(-lambda).", "hints": ["Công thức Poisson: P(X = k) = e^(-lambda) * lambda^k / k! với k = 0, 1, 2, ...", "P(X = 3) = e^(-2) * 2^3 / 3! = 8 * e^(-2) / 6.", "e^(-2) approx 0.135335."], "steps": ["<b>Bước 1: Viết công thức pmf của phân phối Poisson `[+0,25đ]`</b><br>Biến ngẫu nhiên $X \\sim \\text{Poisson}(\\lambda = 2)$. Hàm khối xác suất là:<br>$$P(X = k) = \\frac{e^{-\\lambda} \\lambda^k}{k!} = \\frac{e^{-2} \\cdot 2^k}{k!}\\quad (k = 0, 1, 2, \\dots)$$", "<b>Bước 2: Tính xác suất có đúng 3 cuộc gọi P(X = 3) `[+0,40đ]`</b><br>Thay $k = 3$ vào công thức:<br>$$P(X = 3) = \\frac{e^{-2} \\cdot 2^3}{3!} = \\frac{e^{-2} \\times 8}{6} = \\frac{4}{3} e^{-2}$$Với $e^{-2} \\approx 0{,}135335$:<br>$$P(X = 3) = \\frac{4}{3} \\times 0{,}135335 \\approx 0{,}1804\\text{ (18{,}04\\%)}$$", "<b>Bước 3: Tính xác suất có ít nhất 1 cuộc gọi P(X ≥ 1) `[+0,35đ]`</b><br>Sử dụng biến cố đối: Không có cuộc gọi nào trong 1 giờ ($k = 0$):<br>$$P(X = 0) = \\frac{e^{-2} \\cdot 2^0}{0!} = \\frac{e^{-2} \\times 1}{1} = e^{-2} \\approx 0{,}1353$$Do đó:<br>$$P(X \\ge 1) = 1 - P(X = 0) = 1 - e^{-2} = 1 - 0{,}1353 = 0{,}8647\\text{ (86{,}47\\%)}$$"], "pro_tips": "Đối với phân phối Poisson, luôn ghi nhớ tính chất đặc biệt: Kỳ vọng bằng đúng Phương sai: $E(X) = \\operatorname{Var}(X) = \\lambda$.", "pitfalls": "Tính $0! = 0$ dẫn đến chia cho 0 (nhớ rằng quy ước toán học $0! = 1$)."}, {"id": "TL4_4", "topicId": 4, "level": "Trung bình", "title": "So sánh mẫu có hoàn lại (Nhị thức) và không hoàn lại (Siêu bội)", "problem": "Một thùng hàng chứa 20 linh kiện, trong đó có 4 linh kiện lỗi và 16 linh kiện đạt chuẩn. Người kiểm tra lấy ngẫu nhiên 3 linh kiện.<br>1. Nếu việc lấy mẫu là <b>CÓ hoàn lại</b>: Tính xác suất chọn được đúng 1 linh kiện lỗi.<br>2. Nếu việc lấy mẫu là <b>KHÔNG hoàn lại</b>: Tính xác suất chọn được đúng 1 linh kiện lỗi.<br>3. So sánh sai số giữa hai kết quả và nêu quy tắc kinh nghiệm khi nào được phép dùng Nhị thức để xấp xỉ Siêu bội.", "analysis": "Có hoàn lại: Nhị thức B(n=3, p=4/20=0.2). Không hoàn lại: Siêu bội HG(N=20, M=4, n=3). So sánh P_B(X=1) và P_HG(X=1). Quy tắc n/N <= 0.05.", "hints": ["Có hoàn lại: p = 4/20 = 0.2 không đổi qua các lần rút. Dùng B(3, 0.2).", "Không hoàn lại: Dùng C(4, 1)*C(16, 2) / C(20, 3).", "Quy tắc kinh nghiệm: Khi cỡ mẫu n chiếm không quá 5% tổng thể (n/N <= 0.05)."], "steps": ["<b>Bước 1: Trường hợp CÓ hoàn lại (Mô hình Nhị thức) `[+0,35đ]`</b><br>Vì mỗi lần rút xong đều trả lại thùng, xác suất rút trúng linh kiện lỗi ở mỗi lần là cố định:<br>$$p = \\frac{4}{20} = 0{,}20$$Số linh kiện lỗi $X_1 \\sim B(n = 3,\\; p = 0{,}20)$:<br>$$P(X_1 = 1) = C_3^1 (0{,}20)^1 (0{,}80)^2 = 3 \\times 0{,}20 \\times 0{,}64 = 0{,}3840\\text{ (38{,}40\\%)}$$", "<b>Bước 2: Trường hợp KHÔNG hoàn lại (Mô hình Siêu bội) `[+0,35đ]`</b><br>Số linh kiện lỗi $X_2 \\sim HG(N = 20,\\; M = 4,\\; n = 3)$:<br>- $C_4^1 = 4$<br>- $C_{16}^2 = \\frac{16 \\times 15}{2} = 120$<br>- $C_{20}^3 = \\frac{20 \\times 19 \\times 18}{6} = 1140$<br>$$P(X_2 = 1) = \\frac{C_4^1 C_{16}^2}{C_{20}^3} = \\frac{4 \\times 120}{1140} = \\frac{480}{1140} = \\frac{8}{19} \\approx 0{,}4211\\text{ (42{,}11\\%)}$$", "<b>Bước 3: So sánh và Nêu quy tắc xấp xỉ `[+0,30đ]`</b><br>- Sai số giữa hai mô hình: $|0{,}4211 - 0{,}3840| = 0{,}0371$ (chênh lệch khoảng $3{,}71\\%$).<br>- <b>Nguyên nhân sai số đáng kể:</b> Tỉ lệ kích thước mẫu so với tổng thể ở đây là $\\frac{n}{N} = \\frac{3}{20} = 15\\% > 5\\%$. Việc rút không hoàn lại làm thay đổi đáng kể xác suất của các lần rút sau.<br>- <b>Quy tắc kinh nghiệm:</b> Chỉ được phép dùng phân phối Nhị thức để xấp xỉ phân phối Siêu bội khi cỡ mẫu rất nhỏ so với quy mô tổng thể, cụ thể là khi: $$\\frac{n}{N} \\le 0{,}05\\text{ (hay } n \\le 5\\% N\\text{)}$$"], "pro_tips": "Khi $N$ rất lớn (ví dụ $N = 10000$), việc rút có hoàn lại hay không hoàn lại cho kết quả hầu như giống hệt nhau.", "pitfalls": "Áp dụng tùy tiện phân phối Nhị thức khi kích thước mẫu $n$ chiếm tỉ trọng lớn trong tổng thể $N$ ($n/N > 0{,}05$)."}, {"id": "TL4_5", "topicId": 4, "level": "Trung bình", "title": "Xấp xỉ Poisson cho phân phối Nhị thức với n lớn và p nhỏ", "problem": "Một nhà máy sản xuất chip bán dẫn có tỉ lệ chip bị lỗi vi mạch rất nhỏ là $p = 0{,}002$. Một kiện hàng gồm $n = 1000$ con chip được xuất xưởng.<br>1. Nêu điều kiện để xấp xỉ phân phối Nhị thức bằng phân phối Poisson và xác định tham số $\\lambda$.<br>2. Dùng xấp xỉ Poisson, tính xác suất để kiện hàng có đúng 3 chip lỗi.<br>3. Tính xác suất để kiện hàng có nhiều hơn 2 chip lỗi ($P(X > 2)$).", "analysis": "X ~ B(n=1000, p=0.002). Điều kiện: n >= 100, p <= 0.01, np = lambda = 2 (np < 10). Xấp xỉ Pois(lambda=2). P(X=3) = e^(-2)*8/6. P(X > 2) = 1 - [P(0) + P(1) + P(2)].", "hints": ["Tham số lambda = n * p = 1000 * 0.002 = 2.", "P(X = 3) theo Poisson: e^(-2) * 2^3 / 3!.", "P(X > 2) = 1 - P(X <= 2) = 1 - [P(X=0) + P(X=1) + P(X=2)]."], "steps": ["<b>Bước 1: Kiểm tra điều kiện xấp xỉ Poisson và tính λ `[+0,30đ]`</b><br>Số chip lỗi thực tế tuân theo $X \\sim B(n = 1000,\\; p = 0{,}002)$.<br>Thỏa mãn các điều kiện của Định lý biến cố hiếm Poisson:<br>- Số phép thử rất lớn: $n = 1000 \\ge 100$.<br>- Xác suất thành công rất bé: $p = 0{,}002 \\le 0{,}01$.<br>- Tích $\\lambda = n \\cdot p = 1000 \\times 0{,}002 = 2{,}0$ là một hằng số vừa phải ($np < 10$).<br>Do đó, ta xấp xỉ $X \\approx \\text{Poisson}(\\lambda = 2)$.", "<b>Bước 2: Tính xác suất có đúng 3 chip lỗi `[+0,35đ]`</b><br>$$P(X = 3) \\approx \\frac{e^{-2} \\cdot 2^3}{3!} = \\frac{8}{6} e^{-2} = \\frac{4}{3} \\times 0{,}135335 \\approx 0{,}1804\\text{ (18{,}04\\%)}$$<i>(Đối chiếu: Công thức chính xác Nhị thức $C_{1000}^3 (0{,}002)^3 (0{,}998)^{997} \\approx 0{,}1806$, sai số chỉ $0{,}0002$!)</i>", "<b>Bước 3: Tính xác suất có nhiều hơn 2 chip lỗi P(X > 2) `[+0,35đ]`</b><br>Ta tính biến cố đối $P(X \\le 2) = P(X = 0) + P(X = 1) + P(X = 2)$:<br>- $P(X = 0) = \\frac{e^{-2} \\cdot 2^0}{0!} = e^{-2} \\approx 0{,}1353$<br>- $P(X = 1) = \\frac{e^{-2} \\cdot 2^1}{1!} = 2 e^{-2} \\approx 0{,}2707$<br>- $P(X = 2) = \\frac{e^{-2} \\cdot 2^2}{2!} = 2 e^{-2} \\approx 0{,}2707$<br>Tổng xác suất tích lũy đến 2:<br>$$P(X \\le 2) = e^{-2}(1 + 2 + 2) = 5 e^{-2} = 5 \\times 0{,}135335 \\approx 0{,}6767$$Vậy xác suất có nhiều hơn 2 chip lỗi là:<br>$$P(X > 2) = 1 - P(X \\le 2) = 1 - 0{,}6767 = 0{,}3233\\text{ (32{,}33\\%)}$$"], "pro_tips": "Khi tính tổng các số hạng Poisson: $e^{-\\lambda} \\sum \\frac{\\lambda^k}{k!}$, hãy rút thừa số chung $e^{-\\lambda}$ ra ngoài để bấm máy tính 1 lần duy nhất, tránh sai số tích lũy.", "pitfalls": "Nhầm lẫn giữa 'nhiều hơn 2' ($X > 2$, tức lấy từ 3 trở lên) và 'ít nhất 2' ($X \\ge 2$, tức lấy từ 2 trở lên)."}, {"id": "TL4_6", "topicId": 4, "level": "Trung bình", "title": "Phân phối Poisson theo khoảng thời gian tỷ lệ λt", "problem": "Số vụ tai nạn giao thông tại một ngã tư được mô hình hóa theo phân phối Poisson với tần suất trung bình 3 vụ trong 1 tháng (3 vụ/tháng). Giả sử số vụ tai nạn trong các khoảng thời gian không giao nhau là độc lập.<br>1. Tính xác suất để trong nửa tháng (0,5 tháng) xảy ra đúng 1 vụ tai nạn.<br>2. Tính xác suất để trong 2 tháng xảy ra ít nhất 4 vụ tai nạn.", "analysis": "Cường độ Poisson tỷ lệ thuận với độ dài khoảng thời gian: lambda_t = lambda * t. Trong 0.5 tháng: lambda_1 = 3 * 0.5 = 1.5. Trong 2 tháng: lambda_2 = 3 * 2 = 6. Dùng biến cố đối cho câu 2.", "hints": ["Khoảng thời gian 0.5 tháng: lambda = 3 * 0.5 = 1.5.", "Khoảng thời gian 2 tháng: lambda = 3 * 2 = 6.", "P(Y >= 4) = 1 - [P(Y=0) + P(Y=1) + P(Y=2) + P(Y=3)] với lambda = 6."], "steps": ["<b>Bước 1: Xác định tham số Poisson cho nửa tháng `[+0,35đ]`</b><br>Cường độ cơ sở: $\\lambda = 3$ vụ/tháng.<br>Trong khoảng thời gian $t_1 = 0{,}5$ tháng, số vụ tai nạn $X_1$ tuân theo:<br>$$X_1 \\sim \\text{Poisson}(\\lambda_1 = \\lambda \\cdot t_1 = 3 \\times 0{,}5 = 1{,}5)$$Xác suất xảy ra đúng 1 vụ tai nạn trong nửa tháng:<br>$$P(X_1 = 1) = \\frac{e^{-1{,}5} (1{,}5)^1}{1!} = 1{,}5 \\cdot e^{-1{,}5}$$Với $e^{-1{,}5} \\approx 0{,}22313$:<br>$$P(X_1 = 1) = 1{,}5 \\times 0{,}22313 \\approx 0{,}3347\\text{ (33{,}47\\%)}$$", "<b>Bước 2: Xác định tham số Poisson cho 2 tháng `[+0,30đ]`</b><br>Trong khoảng thời gian $t_2 = 2$ tháng, số vụ tai nạn $X_2$ tuân theo:<br>$$X_2 \\sim \\text{Poisson}(\\lambda_2 = \\lambda \\cdot t_2 = 3 \\times 2 = 6{,}0)$$", "<b>Bước 3: Tính xác suất có ít nhất 4 vụ tai nạn trong 2 tháng `[+0,35đ]`</b><br>Ta tính biến cố đối $P(X_2 \\le 3)$:<br>- $P(X_2 = 0) = \\frac{e^{-6} \\cdot 6^0}{0!} = e^{-6}$<br>- $P(X_2 = 1) = \\frac{e^{-6} \\cdot 6^1}{1!} = 6 e^{-6}$<br>- $P(X_2 = 2) = \\frac{e^{-6} \\cdot 6^2}{2!} = 18 e^{-6}$<br>- $P(X_2 = 3) = \\frac{e^{-6} \\cdot 6^3}{6} = 36 e^{-6}$<br>Tổng tích lũy đến 3:<br>$$P(X_2 \\le 3) = e^{-6} (1 + 6 + 18 + 36) = 61 e^{-6}$$Với $e^{-6} \\approx 0{,}00247875$:<br>$$P(X_2 \\le 3) = 61 \\times 0{,}00247875 \\approx 0{,}1512$$Vậy xác suất xảy ra ít nhất 4 vụ tai nạn là:<br>$$P(X_2 \\ge 4) = 1 - P(X_2 \\le 3) = 1 - 0{,}1512 = 0{,}8488\\text{ (84{,}88\\%)}$$"], "pro_tips": "Tính chất cộng của Poisson: Nếu các khoảng thời gian độc lập thì tổng các biến Poisson cũng là biến Poisson với tham số bằng tổng các tham số.", "pitfalls": "Quên điều chỉnh tham số $\\lambda$ theo thời gian mà vẫn giữ nguyên $\\lambda = 3$ cho cả 0,5 tháng và 2 tháng."}, {"id": "TL4_7", "topicId": 4, "level": "Nâng cao", "title": "Phân phối Nhị thức: Bài toán tìm số phép thử tối thiểu n", "problem": "Một hệ thống phòng thủ tên lửa có xác suất đánh chặn thành công một mục tiêu trong mỗi lần phóng là $p = 0{,}8$. Các lần phóng tên lửa là hoàn toàn độc lập.<br>1. Nếu phóng 5 quả tên lửa, tính xác suất đánh chặn thành công ít nhất 4 quả ($P(X \\ge 4)$).<br>2. Để đảm bảo xác suất có ít nhất 1 quả tên lửa đánh chặn thành công mục tiêu đạt từ $99\\%$ ($0{,}99$) trở lên, hệ thống cần phóng tối thiểu bao nhiêu quả tên lửa?", "analysis": "1. X ~ B(5, 0.8). P(X >= 4) = P(X=4) + P(X=5). 2. Y ~ B(n, 0.8). P(ít nhất 1 trúng) = 1 - P(0 trúng) = 1 - (0.2)^n >= 0.99 <=> 0.2^n <= 0.01 <=> n >= ln(0.01)/ln(0.2) = 2.8614 => n = 3.", "hints": ["Câu 1: Tính riêng P(X = 4) và P(X = 5) rồi cộng lại.", "Câu 2: Xác suất bắn trượt mỗi phát là 1 - 0.8 = 0.2.", "Xác suất trượt cả n phát là 0.2^n. Cần 1 - 0.2^n >= 0.99."], "steps": ["<b>Bước 1: Tính xác suất đánh chặn thành công ít nhất 4/5 quả tên lửa `[+0,40đ]`</b><br>Với $n = 5$ và $p = 0{,}8$, $X \\sim B(5;\\; 0{,}8)$.<br>- Xác suất trúng 4 quả:<br>$$P(X = 4) = C_5^4 (0{,}8)^4 (0{,}2)^1 = 5 \\times 0{,}4096 \\times 0{,}2 = 0{,}4096$$- Xác suất trúng cả 5 quả:<br>$$P(X = 5) = C_5^5 (0{,}8)^5 (0{,}2)^0 = 1 \\times 0{,}32768 \\times 1 = 0{,}32768$$Vậy xác suất trúng ít nhất 4 quả là:<br>$$P(X \\ge 4) = P(X = 4) + P(X = 5) = 0{,}4096 + 0{,}32768 = 0{,}73728 \\approx 0{,}7373\\text{ (73{,}73\\%)}$$", "<b>Bước 2: Thiết lập bất phương trình tìm số quả tối thiểu n `[+0,35đ]`</b><br>Gọi $n$ là số quả tên lửa cần phóng ($n \\in \\mathbb{N}^*$).<br>Xác suất mỗi quả bắn trượt là: $q = 1 - p = 1 - 0{,}8 = 0{,}2$.<br>Xác suất cả $n$ quả đều bắn trượt là: $(0{,}2)^n$.<br>Xác suất có ít nhất 1 quả đánh chặn thành công là:<br>$$P(\\text{Ít nhất 1 quả trúng}) = 1 - (0{,}2)^n$$Theo yêu cầu bài toán:<br>$$1 - (0{,}2)^n \\ge 0{,}99 \\iff (0{,}2)^n \\le 0{,}01$$", "<b>Bước 3: Giải bất phương trình mũ và kết luận `[+0,25đ]`</b><br>Lấy logarit tự nhiên (ln) hai vế (chú ý $\\ln(0{,}2) < 0$ nên đổi chiều bất đẳng thức):<br>$$n \\cdot \\ln(0{,}2) \\le \\ln(0{,}01) \\iff n \\ge \\frac{\\ln(0{,}01)}{\\ln(0{,}2)}$$Tính giá trị số:<br>- $\\ln(0{,}01) \\approx -4{,}60517$<br>- $\\ln(0{,}2) \\approx -1{,}60944$<br>$$n \\ge \\frac{-4{,}60517}{-1{,}60944} \\approx 2{,}8614$$Vì $n$ phải là số nguyên dương ($n \\in \\mathbb{Z}^+$), ta chọn giá trị nhỏ nhất thỏa mãn:<br>$$n = \\lceil 2{,}8614 \\rceil = 3$$<b>Kết luận:</b> Hệ thống cần phóng tối thiểu <b>3 quả tên lửa</b> để xác suất tiêu diệt mục tiêu đạt ít nhất 99%."], "pro_tips": "Khi giải bất phương trình $\\ln(a^n) \\le \\ln(b)$ với cơ số $a < 1$, $\\ln(a)$ là số âm nên bắt buộc phải đảo chiều bất phương trình!", "pitfalls": "Quên đổi chiều bất phương trình khi chia cho $\\ln(0{,}2)$ dẫn đến $n \\le 2{,}86$ (vô lý)."}, {"id": "TL4_8", "topicId": 4, "level": "Nâng cao", "title": "Phân phối Siêu bội: Quy trình nghiệm thu sản phẩm và Tối ưu chi phí", "problem": "Một công ty nhập một lô hàng gồm $N = 50$ thiết bị điện tử. Quy trình kiểm tra chất lượng để nghiệm thu được quy định như sau: Rút ngẫu nhiên không hoàn lại $n = 5$ thiết bị để kiểm định.<br>- Nếu <b>không phát hiện bất kỳ thiết bị lỗi nào</b> ($X = 0$), công ty chấp nhận ngay lô hàng mà không cần kiểm tra thêm.<br>- Nếu phát hiện <b>từ 1 thiết bị lỗi trở lên</b> ($X \\ge 1$), công ty sẽ từ chối nghiệm thu sơ bộ và tiến hành kiểm tra toàn bộ 50 thiết bị trong lô.<br>Giả sử trên thực tế lô hàng này có $M = 3$ thiết bị bị lỗi.<br>1. Xác định phân phối của số thiết bị lỗi $X$ tìm thấy trong mẫu 5 thiết bị.<br>2. Tính xác suất để lô hàng được chấp nhận ngay ở bước sơ bộ.<br>3. Tính số thiết bị lỗi kỳ vọng tìm thấy trong mẫu 5 thiết bị và xác suất công ty phải kiểm tra toàn bộ lô hàng.", "analysis": "X ~ HG(N=50, M=3, n=5). Chấp nhận ngay: X = 0. P(X=0) = C(3, 0)*C(47, 5) / C(50, 5). Kỳ vọng E(X) = n * (M/N) = 5 * (3/50) = 0.3 thiết bị lỗi. Phải kiểm tra toàn bộ: P(X >= 1) = 1 - P(X=0).", "hints": ["Lấy mẫu không hoàn lại 5 thiết bị từ 50 thiết bị -> Siêu bội HG(50, 3, 5).", "Chấp nhận ngay khi X = 0: C(47, 5) / C(50, 5).", "Kỳ vọng của phân phối siêu bội: E(X) = n * (M/N)."], "steps": ["<b>Bước 1: Xác định mô hình phân phối của X `[+0,25đ]`</b><br>Biến ngẫu nhiên $X$ là số thiết bị lỗi tìm thấy khi rút mẫu $n = 5$ thiết bị không hoàn lại từ tập $N = 50$ thiết bị có $M = 3$ thiết bị lỗi.<br>Do đó, $X$ tuân theo <b>Phân phối Siêu bội</b>:<br>$$X \\sim HG(N = 50,\\; M = 3,\\; n = 5)$$", "<b>Bước 2: Tính xác suất lô hàng được chấp nhận ngay `[+0,40đ]`</b><br>Lô hàng được chấp nhận ngay khi và chỉ khi trong 5 thiết bị kiểm tra không có thiết bị lỗi nào ($X = 0$):<br>$$P(X = 0) = \\frac{C_3^0 \\cdot C_{47}^5}{C_{50}^5}$$Tính các tổ hợp:<br>- $C_3^0 = 1$<br>- $C_{47}^5 = \\frac{47 \\times 46 \\times 45 \\times 44 \\times 43}{120} = 1533939$<br>- $C_{50}^5 = \\frac{50 \\times 49 \\times 48 \\times 47 \\times 46}{120} = 2118760$<br>$$P(\\text{Chấp nhận ngay}) = \\frac{1533939}{2118760} \\approx 0{,}7240\\text{ (72{,}40\\%)}$$<i>(Mẹo rút gọn: $\\frac{47 \\times 46 \\times 45 \\times 44 \\times 43}{50 \\times 49 \\times 48 \\times 47 \\times 46} = \\frac{45 \\times 44 \\times 43}{50 \\times 49 \\times 48} = \\frac{85140}{117600} \\approx 0{,}7240$)</i>", "<b>Bước 3: Tính kỳ vọng E(X) và Xác suất phải kiểm tra toàn bộ `[+0,35đ]`</b><br>- Số thiết bị lỗi kỳ vọng phát hiện được trong mẫu:<br>$$E(X) = n \\cdot \\frac{M}{N} = 5 \\times \\frac{3}{50} = \\frac{15}{50} = 0{,}30\\text{ (thiết bị lỗi)}$$- Xác suất công ty phải tiến hành kiểm tra toàn bộ lô hàng là xác suất tìm thấy ít nhất 1 thiết bị lỗi ($X \\ge 1$):<br>$$P(\\text{Kiểm tra toàn bộ}) = P(X \\ge 1) = 1 - P(X = 0) = 1 - 0{,}7240 = 0{,}2760\\text{ (27{,}60\\%)}$$"], "pro_tips": "Khi tính tỷ số $\\frac{C_{47}^5}{C_{50}^5}$, ta có thể viết thành tích xác suất có điều kiện: $\\frac{47}{50} \\times \\frac{46}{49} \\times \\frac{45}{48} \\times \\frac{44}{47} \\times \\frac{43}{46} = \\frac{45}{50} \\times \\frac{44}{49} \\times \\frac{43}{48}$, tính cực nhanh!", "pitfalls": "Dùng công thức kỳ vọng $np$ của Nhị thức mà không giải thích vì sao Siêu bội có công thức $n(M/N)$."}, {"id": "TL5_1", "topicId": 5, "level": "Cơ bản", "title": "Mô hình chiếc hộp (Box Model) và Định luật Căn bậc hai (Square Root Law)", "problem": "Một chiếc hộp chứa 5 tấm thẻ được đánh số: $\\{1,\\; 2,\\; 3,\\; 4,\\; 5\\}$. Rút ngẫu nhiên có hoàn lại $n = 100$ tấm thẻ từ hộp.<br>1. Tính giá trị trung bình $\\mu$ và độ lệch chuẩn $\\sigma$ của các số ghi trong hộp.<br>2. Gọi $S_{100}$ là tổng các số ghi trên 100 tấm thẻ rút ra. Tính kỳ vọng $E(S_{100})$ và độ lệch chuẩn $\\operatorname{SD}(S_{100})$.<br>3. Gọi $\\bar{X}_{100}$ là trung bình cộng của các số ghi trên 100 tấm thẻ rút ra. Tính kỳ vọng $E(\\bar{X}_{100})$ và độ lệch chuẩn $\\operatorname{SD}(\\bar{X}_{100})$.", "analysis": "Hộp có 5 số đều khả năng: mu = (1+2+3+4+5)/5 = 3. Var = sum((x - 3)^2)/5 = (4+1+0+1+4)/5 = 2 => sigma = sqrt(2) approx 1.4142. Dùng định luật căn bậc hai: E(S_n) = n*mu, SD(S_n) = sigma*sqrt(n). E(Xbar_n) = mu, SD(Xbar_n) = sigma/sqrt(n).", "hints": ["Trung bình hộp mu = 3. Phương sai hộp sigma^2 = [(1-3)^2 + ... + (5-3)^2] / 5 = 2.", "Tổng S_100: E(S_100) = 100 * mu; SD(S_100) = sigma * sqrt(100).", "Trung bình Xbar_100: E(Xbar_100) = mu; SD(Xbar_100) = sigma / sqrt(100)."], "steps": ["<b>Bước 1: Tính trung bình μ và độ lệch chuẩn σ của chiếc hộp `[+0,30đ]`</b><br>Các số trong hộp là $\\{1, 2, 3, 4, 5\\}$ với xác suất mỗi số bằng $p = 1/5 = 0{,}2$.<br>- Giá trị trung bình của hộp (Box Average):<br>$$\\mu = \\frac{1 + 2 + 3 + 4 + 5}{5} = \\frac{15}{5} = 3{,}0$$- Phương sai của hộp (Box Variance):<br>$$\\sigma^2 = \\frac{(1 - 3)^2 + (2 - 3)^2 + (3 - 3)^2 + (4 - 3)^2 + (5 - 3)^2}{5} = \\frac{4 + 1 + 0 + 1 + 4}{5} = \\frac{10}{5} = 2{,}0$$- Độ lệch chuẩn của hộp (Box SD):<br>$$\\sigma = \\sqrt{2{,}0} \\approx 1{,}4142$$", "<b>Bước 2: Tính kỳ vọng và độ lệch chuẩn của TỔNG S₁₀₀ `[+0,35đ]`</b><br>Theo Định luật Căn bậc hai (Square Root Law) cho tổng các biến ngẫu nhiên i.i.d.:<br>- Kỳ vọng của tổng:<br>$$E(S_{100}) = n \\cdot \\mu = 100 \\times 3{,}0 = 300{,}0$$- Độ lệch chuẩn của tổng:<br>$$\\operatorname{SD}(S_{100}) = \\sqrt{n} \\cdot \\sigma = \\sqrt{100} \\times \\sqrt{2} = 10 \\times 1{,}4142 \\approx 14{,}1421$$", "<b>Bước 3: Tính kỳ vọng và độ lệch chuẩn của TRUNG BÌNH X̄₁₀₀ `[+0,35đ]`</b><br>Theo Định luật Căn bậc hai cho trung bình mẫu i.i.d.:<br>- Kỳ vọng của trung bình mẫu:<br>$$E(\\bar{X}_{100}) = \\mu = 3{,}0$$- Sai số chuẩn của trung bình mẫu (Standard Error):<br>$$\\operatorname{SD}(\\bar{X}_{100}) = \\frac{\\sigma}{\\sqrt{n}} = \\frac{\\sqrt{2}}{\\sqrt{100}} = \\frac{1{,}4142}{10} \\approx 0{,}1414$$"], "pro_tips": "Nhớ nhanh quy tắc tỉ lệ: Khi cỡ mẫu $n$ tăng gấp 100 lần, độ bất định của Tổng tăng gấp 10 lần (nhân $\\sqrt{n}$), nhưng độ bất định của Trung bình giảm đi 10 lần (chia $\\sqrt{n}$).", "pitfalls": "Nhầm lẫn nhân $\\sqrt{n}$ cho trung bình mẫu thay vì chia cho $\\sqrt{n}$."}, {"id": "TL5_2", "topicId": 5, "level": "Cơ bản", "title": "Bất đẳng thức Chebyshev: Đánh giá xác suất khi chưa biết phân phối", "problem": "Một biến ngẫu nhiên $X$ có kỳ vọng $\\mu = E(X) = 50$ và độ lệch chuẩn $\\sigma = \\operatorname{SD}(X) = 5$. Chưa biết phân phối xác suất cụ thể của $X$.<br>1. Phát biểu bất đẳng thức Chebyshev dạng 'trong khoảng' và dạng 'ngoài khoảng'.<br>2. Đánh giá cận dưới cho xác suất $P(40 < X < 60)$.<br>3. Đánh giá cận trên cho xác suất $P(|X - 50| \\ge 15)$.", "analysis": "Chebyshev: P(|X - mu| >= k*sigma) <= 1/k^2 và P(|X - mu| < k*sigma) >= 1 - 1/k^2. Câu 2: khoảng (40, 60) tương ứng |X - 50| < 10 = 2*sigma => k=2 => P >= 1 - 1/4 = 0.75. Câu 3: |X - 50| >= 15 = 3*sigma => k=3 => P <= 1/9 approx 0.1111.", "hints": ["Khoảng (40, 60) cách tâm mu = 50 một khoảng delta = 10.", "Số lần độ lệch chuẩn k = delta / sigma = 10 / 5 = 2.", "Cận dưới trong khoảng: >= 1 - 1/k^2. Cận trên ngoài khoảng: <= 1/k^2."], "steps": ["<b>Bước 1: Phát biểu bất đẳng thức Chebyshev `[+0,30đ]`</b><br>Với mọi biến ngẫu nhiên $X$ có kỳ vọng $\\mu$ và phương sai hữu hạn $\\sigma^2$, và với mọi số thực $k > 0$:<br>- Dạng ngoài khoảng (Đuôi phân phối):<br>$$P(|X - \\mu| \\ge k\\sigma) \\le \\frac{1}{k^2}$$- Dạng trong khoảng (Vùng trung tâm):<br>$$P(|X - \\mu| < k\\sigma) \\ge 1 - \\frac{1}{k^2}$$", "<b>Bước 2: Đánh giá cận dưới cho xác suất P(40 < X < 60) `[+0,35đ]`</b><br>Biến cố $40 < X < 60$ tương đương với:<br>$$40 - 50 < X - 50 < 60 - 50 \\iff -10 < X - 50 < 10 \\iff |X - 50| < 10$$Vì $\\sigma = 5$, ta có $10 = 2 \\times 5 = 2\\sigma \\implies k = 2$.<br>Áp dụng bất đẳng thức Chebyshev dạng trong khoảng:<br>$$P(|X - 50| < 2\\sigma) \\ge 1 - \\frac{1}{2^2} = 1 - \\frac{1}{4} = 0{,}75\\text{ (hay 75\\%)}$$<b>Kết luận:</b> Xác suất để $X$ nằm giữa 40 và 60 luôn đạt ít nhất $75\\%$, bất kể $X$ mang phân phối gì.", "<b>Bước 3: Đánh giá cận trên cho xác suất P(|X - 50| ≥ 15) `[+0,35đ]`</b><br>Vì $\\sigma = 5$, khoảng cách $15 = 3 \\times 5 = 3\\sigma \\implies k = 3$.<br>Áp dụng bất đẳng thức Chebyshev dạng ngoài khoảng:<br>$$P(|X - 50| \\ge 3\\sigma) \\le \\frac{1}{3^2} = \\frac{1}{9} \\approx 0{,}1111\\text{ (hay 11{,}11\\%)}$$<b>Kết luận:</b> Xác suất để $X$ lệch khỏi giá trị trung bình từ 15 đơn vị trở lên không bao giờ vượt quá $11{,}11\\%$."], "pro_tips": "Sức mạnh độc nhất vô nhị của Chebyshev là: Áp dụng được cho MỌI phân phối xác suất (kể cả phân phối quái dị, lệch mạnh) mà không cần giả định phân phối chuẩn!", "pitfalls": "Dùng $k = 10$ thay vì $k = 10/\\sigma = 2$ (quên chia cho độ lệch chuẩn)."}, {"id": "TL5_3", "topicId": 5, "level": "Cơ bản", "title": "Định luật Số lớn Yếu (WLLN): Chứng minh và Ý nghĩa thực tiễn", "problem": "Cho dãy các biến ngẫu nhiên độc lập cùng phân phối (i.i.d.) $X_1, X_2, \\dots, X_n$ có cùng kỳ vọng $\\mu$ và phương sai $\\sigma^2 < \\infty$. Đặt $\\bar{X}_n = \\frac{1}{n}\\sum_{i=1}^n X_i$.<br>1. Phát biểu Định luật số lớn yếu (Weak Law of Large Numbers - WLLN).<br>2. Dùng bất đẳng thức Chebyshev để chứng minh định luật này.<br>3. Nêu ý nghĩa của luật số lớn trong mô hình kinh doanh của các công ty bảo hiểm và sòng bạc.", "analysis": "WLLN: Voi moi epsilon > 0, lim P(|Xbar_n - mu| >= epsilon) = 0 khi n -> infinity. Chung minh: E(Xbar_n) = mu, Var(Xbar_n) = sigma^2/n. Ap dung Chebyshev voi k*sigma_Xbar = epsilon => P <= Var(Xbar_n)/epsilon^2 = sigma^2 / (n * epsilon^2) -> 0 khi n -> infty.", "hints": ["Trung bình mẫu Xbar_n có E(Xbar_n) = mu và Var(Xbar_n) = sigma^2 / n.", "Bất đẳng thức Chebyshev cho Xbar_n: P(|Xbar_n - mu| >= epsilon) <= Var(Xbar_n) / epsilon^2.", "Khi n tiến ra vô cùng, sigma^2 / (n * epsilon^2) tiến về 0."], "steps": ["<b>Bước 1: Phát biểu Định luật số lớn yếu (WLLN) `[+0,30đ]`</b><br>Cho $X_1, X_2, \\dots, X_n$ là các biến ngẫu nhiên i.i.d. có kỳ vọng $\\mu$ và phương sai $\\sigma^2$ hữu hạn. Khi đó với mọi số dương $\\varepsilon > 0$ nhỏ tùy ý, ta có:<br>$$\\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| \\ge \\varepsilon) = 0$$Hoặc tương đương:<br>$$\\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| < \\varepsilon) = 1$$<i>(Nói cách khác: Trung bình mẫu $\\bar{X}_n$ hội tụ theo xác suất về kỳ vọng lý thuyết $\\mu$).</i>", "<b>Bước 2: Chứng minh bằng Bất đẳng thức Chebyshev `[+0,40đ]`</b><br>Xét biến ngẫu nhiên trung bình mẫu $\\bar{X}_n$:<br>- Kỳ vọng: $E(\\bar{X}_n) = \\mu$.<br>- Phương sai: $\\operatorname{Var}(\\bar{X}_n) = \\frac{\\sigma^2}{n}$.<br>Áp dụng bất đẳng thức Chebyshev cho biến $\\bar{X}_n$ với độ lệch $\\varepsilon > 0$:<br>$$P(|\\bar{X}_n - \\mu| \\ge \\varepsilon) \\le \\frac{\\operatorname{Var}(\\bar{X}_n)}{\\varepsilon^2} = \\frac{\\sigma^2}{n \\varepsilon^2}$$Lấy giới hạn hai vế khi $n \\to \\infty$, vì $\\sigma^2$ và $\\varepsilon^2 > 0$ là các hằng số cố định:<br>$$\\lim_{n \\to \\infty} \\frac{\\sigma^2}{n \\varepsilon^2} = 0$$Vì xác suất luôn không âm ($P \\ge 0$), theo nguyên lý kẹp ta suy ra:<br>$$0 \\le \\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| \\ge \\varepsilon) \\le 0 \\implies \\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| \\ge \\varepsilon) = 0\\text{ (đpcm)}.$$", "<b>Bước 3: Nêu ý nghĩa thực tiễn `[+0,30đ]`</b><br>- <b>Trong sòng bạc:</b> Dù trong 1 ván đơn lẻ kết quả hoàn toàn ngẫu nhiên và người chơi có thể thắng, nhưng khi có hàng triệu lượt chơi ($n$ cực lớn), tỉ lệ tiền thắng thực tế của nhà cái sẽ hội tụ chắc chắn về kỳ vọng toán học dương của họ. Nhà cái luôn luôn có lãi chắc chắn về dài hạn.<br>- <b>Trong bảo hiểm:</b> Một khách hàng gặp rủi ro là ngẫu nhiên, nhưng khi bán cho hàng chục ngàn hợp đồng ($n$ rất lớn), số tiền bồi thường trung bình mỗi hợp đồng sẽ bám sát kỳ vọng $\\mu$, giúp công ty định giá phí bảo hiểm chính xác và triệt tiêu rủi ro phá sản."], "pro_tips": "Đây là câu hỏi lý thuyết kinh điển trong đề thi giữa kỳ UET. Luôn trình bày đủ 3 dòng: Kỳ vọng $\\bar{X}_n$, Phương sai $\\bar{X}_n$, và Bất đẳng thức Chebyshev chia cho $\\varepsilon^2$.", "pitfalls": "Quên ghi điều kiện $\\varepsilon > 0$ hoặc quên giải thích vì sao $\\operatorname{Var}(\\bar{X}_n) = \\sigma^2/n$."}, {"id": "TL5_4", "topicId": 5, "level": "Trung bình", "title": "Ước lượng khoảng tin cậy Chebyshev cho thời gian giao hàng", "problem": "Thời gian giao hàng của một ứng dụng đồ ăn nhanh có giá trị trung bình là $\\mu = 30$ phút và độ lệch chuẩn là $\\sigma = 6$ phút. Do địa hình và thời tiết, phân phối thời gian giao hàng không đối xứng và chưa xác định.<br>1. Sử dụng bất đẳng thức Chebyshev, hãy tìm cận dưới của xác suất một đơn hàng bất kỳ được giao trong khoảng từ 18 đến 42 phút.<br>2. Ứng dụng muốn đưa ra cam kết thời gian giao hàng trong khoảng $[30 - c,\\; 30 + c]$ phút sao cho xác suất đơn hàng đến đúng hạn trong khoảng này đạt ít nhất $8/9$ ($88{,}89\\%$). Hãy tìm giá trị $c$ tối thiểu thỏa mãn điều kiện.", "analysis": "1. Khoảng [18, 42] là |X - 30| < 12 = 2*sigma => k = 2. Cận dưới = 1 - 1/4 = 75%. 2. Đạt ít nhất 8/9 <=> 1 - 1/k^2 >= 8/9 <=> 1/k^2 <= 1/9 <=> k >= 3. c = k * sigma = 3 * 6 = 18 phút.", "hints": ["Độ rộng nửa khoảng delta = 42 - 30 = 30 - 18 = 12 phút.", "Số lần độ lệch chuẩn: k = 12 / 6 = 2.", "1 - 1/k^2 >= 8/9 -> 1/k^2 <= 1/9 -> k >= 3 -> c = 3 * 6 = 18 phút."], "steps": ["<b>Bước 1: Tính cận dưới cho xác suất đơn hàng giao trong khoảng [18; 42] phút `[+0,40đ]`</b><br>Biến cố $18 < X < 42$ tương đương với:<br>$$18 - 30 < X - 30 < 42 - 30 \\iff -12 < X - 30 < 12 \\iff |X - 30| < 12$$Vì độ lệch chuẩn $\\sigma = 6$ phút, ta có:<br>$$k = \\frac{12}{\\sigma} = \\frac{12}{6} = 2$$Áp dụng bất đẳng thức Chebyshev:<br>$$P(|X - 30| < 2\\sigma) \\ge 1 - \\frac{1}{2^2} = 1 - \\frac{1}{4} = 0{,}75\\text{ (hay 75\\%)}$$Vậy xác suất đơn hàng được giao trong khoảng từ 18 đến 42 phút ít nhất là $75\\%$.", "<b>Bước 2: Tìm giá trị c để xác suất đạt ít nhất 8/9 `[+0,60đ]`</b><br>Yêu cầu bài toán: Tìm $c > 0$ sao cho:<br>$$P(|X - 30| < c) \\ge \\frac{8}{9}$$Theo bất đẳng thức Chebyshev, với $c = k\\sigma$, ta luôn có:<br>$$P(|X - 30| < k\\sigma) \\ge 1 - \\frac{1}{k^2}$$Để bảo đảm xác suất đạt ít nhất $8/9$ với mọi phân phối có thể có, ta cần:<br>$$1 - \\frac{1}{k^2} \\ge \\frac{8}{9} \\iff \\frac{1}{k^2} \\le 1 - \\frac{8}{9} = \\frac{1}{9}$$Vì $k > 0$, suy ra:<br>$$k^2 \\ge 9 \\iff k \\ge 3$$Do đó khoảng dung sai tối thiểu cần thiết là:<br>$$c = k \\cdot \\sigma = 3 \\times 6 = 18\\text{ (phút)}$$<b>Kết luận:</b> Khoảng thời gian cam kết cần đưa ra là $[30 - 18;\\; 30 + 18] = [12;\\; 48]$ phút (tức từ 12 đến 48 phút)."], "pro_tips": "Dấu bất đẳng thức: Khi $1 - 1/k^2 \\ge 1 - \\alpha$, chuyển vế được $k \\ge \\frac{1}{\\sqrt{\\alpha}}$.", "pitfalls": "Quên nhân $k$ với $\\sigma$ ở bước cuối (kết luận $c = 3$ phút thay vì $c = 18$ phút)."}, {"id": "TL5_5", "topicId": 5, "level": "Trung bình", "title": "Mô hình chiếc hộp cho trò chơi quay số và Phân tích tổng tiền thưởng", "problem": "Một vòng quay may mắn có bảng phân phối tiền thưởng cho 1 lượt quay như sau:<br><table class='data-table'><tr><th>Mức thưởng x (nghìn đồng)</th><td>0</td><td>20</td><td>50</td><td>100</td><td>Tổng</td></tr><tr><th>Xác suất P(X = x)</th><td>0,50</td><td>0,30</td><td>0,15</td><td>0,05</td><td>1,00</td></tr></table>Một người chơi thực hiện quay $n = 400$ lượt độc lập.<br>1. Tính tiền thưởng kỳ vọng $\\mu$ và độ lệch chuẩn $\\sigma$ của 1 lượt quay.<br>2. Tính kỳ vọng và độ lệch chuẩn của tổng số tiền thưởng mà người chơi nhận được sau 400 lượt.<br>3. So sánh tốc độ tăng của Kỳ vọng tổng (theo $n$) và Độ lệch chuẩn tổng (theo $\\sqrt{n}$).", "analysis": "1. mu = 0(0.5) + 20(0.3) + 50(0.15) + 100(0.05) = 0 + 6 + 7.5 + 5 = 18.5 nghìn. E(X^2) = 0 + 400(0.3) + 2500(0.15) + 10000(0.05) = 120 + 375 + 500 = 995. Var(X) = 995 - 18.5^2 = 995 - 342.25 = 652.75 => sigma = sqrt(652.75) approx 25.54898. 2. n=400: E(S_400) = 400 * 18.5 = 7400 nghìn (7.4 triệu). SD(S_400) = 20 * 25.54898 = 510.9796 nghìn.", "hints": ["mu = sum x * p = 18.5 nghìn. E(X^2) = sum x^2 * p = 995.", "Var(X) = E(X^2) - mu^2 = 995 - 342.25 = 652.75.", "Tổng 400 lượt: E(S) = 400 * mu; SD(S) = sqrt(400) * sigma = 20 * sigma."], "steps": ["<b>Bước 1: Tính kỳ vọng và độ lệch chuẩn của 1 lượt quay `[+0,40đ]`</b><br>- Kỳ vọng tiền thưởng 1 lượt:<br>$$\\mu = E(X) = 0(0{,}50) + 20(0{,}30) + 50(0{,}15) + 100(0{,}05) = 0 + 6{,}0 + 7{,}5 + 5{,}0 = 18{,}5\\text{ (nghìn đồng)}$$- Kỳ vọng của bình phương:<br>$$E(X^2) = 0^2(0{,}50) + 20^2(0{,}30) + 50^2(0{,}15) + 100^2(0{,}05)$$$$E(X^2) = 0 + 400(0{,}30) + 2500(0{,}15) + 10000(0{,}05) = 120 + 375 + 500 = 995{,}0$$- Phương sai và độ lệch chuẩn:<br>$$\\sigma^2 = \\operatorname{Var}(X) = E(X^2) - [E(X)]^2 = 995{,}0 - (18{,}5)^2 = 995{,}0 - 342{,}25 = 652{,}75$$$$\\sigma = \\sqrt{652{,}75} \\approx 25{,}5490\\text{ (nghìn đồng)}$$", "<b>Bước 2: Tính kỳ vọng và độ lệch chuẩn của tổng tiền thưởng sau 400 lượt `[+0,35đ]`</b><br>Gọi $S_{400} = \\sum_{i=1}^{400} X_i$ là tổng tiền thưởng.<br>- Kỳ vọng của tổng tiền thưởng:<br>$$E(S_{400}) = n \\cdot \\mu = 400 \\times 18{,}5 = 7400\\text{ (nghìn đồng) } = 7{,}4\\text{ triệu đồng}$$- Độ lệch chuẩn của tổng tiền thưởng:<br>$$\\operatorname{SD}(S_{400}) = \\sqrt{n} \\cdot \\sigma = \\sqrt{400} \\times 25{,}5490 = 20 \\times 25{,}5490 \\approx 510{,}98\\text{ (nghìn đồng)}$$", "<b>Bước 3: So sánh tốc độ tăng trưởng `[+0,25đ]`</b><br>- Kỳ vọng của tổng tăng tuyến tính theo số lượt $n$ (tỉ lệ với $n$).<br>- Độ lệch chuẩn của tổng chỉ tăng theo căn bậc hai $\\sqrt{n}$.<br>- Do đó tỉ số biến thiên $\\frac{\\operatorname{SD}(S_n)}{E(S_n)} = \\frac{\\sigma\\sqrt{n}}{n\\mu} = \\frac{\\sigma}{\\mu\\sqrt{n}}$ giảm dần về 0 khi $n$ tăng lớn. Dao động ngẫu nhiên trở nên rất nhỏ so với quy mô tổng thể!"], "pro_tips": "Luôn quy đổi đơn vị rõ ràng (nghìn đồng $\\rightarrow$ triệu đồng) để bài làm sáng sủa và chuẩn chỉnh.", "pitfalls": "Bình phương nhầm $E(X^2)$ bằng $[E(X)]^2$."}, {"id": "TL5_6", "topicId": 5, "level": "Trung bình", "title": "So sánh cận Chebyshev với xác suất thực tế trên phân phối rời rạc", "problem": "Gieo một con xúc xắc 6 mặt cân đối và đồng chất. Gọi $X$ là số chấm xuất hiện ($X \\in \\{1, 2, 3, 4, 5, 6\\}$).<br>1. Tính kỳ vọng $\\mu$ và độ lệch chuẩn $\\sigma$ của $X$.<br>2. Dùng bất đẳng thức Chebyshev, hãy ước lượng cận dưới cho xác suất $P(|X - 3{,}5| < 2{,}5)$.<br>3. Tính xác suất thực tế chính xác của biến cố trên và nhận xét lý do vì sao cận Chebyshev lại cách xa giá trị thực tế.", "analysis": "1. mu = 3.5. Var = (1+4+9+16+25+36)/6 - 3.5^2 = 91/6 - 12.25 = 15.1667 - 12.25 = 2.9167 = 35/12. sigma = sqrt(35/12) approx 1.7078. 2. delta = 2.5 => k = 2.5 / 1.7078 approx 1.46385. Chebyshev: P >= 1 - 1/k^2 = 1 - 1/(1.46385^2) = 1 - 2.9167/6.25 = 1 - 0.4667 = 0.5333 (53.33%). 3. Thuc te: |X - 3.5| < 2.5 <=> 1 < X < 6 <=> X in {2, 3, 4, 5} => P = 4/6 = 2/3 approx 0.6667 (66.67%).", "hints": ["mu = 3.5, Var(X) = 35/12 approx 2.9167 => sigma approx 1.7078.", "k = 2.5 / sigma = 2.5 / sqrt(35/12).", "Xác suất thực tế: X chỉ lấy các giá trị {2, 3, 4, 5} -> xác suất 4/6."], "steps": ["<b>Bước 1: Tính kỳ vọng và độ lệch chuẩn của X `[+0,30đ]`</b><br>Mỗi mặt có xác suất $P(X = x) = 1/6$ với $x \\in \\{1, 2, 3, 4, 5, 6\\}$.<br>- Kỳ vọng:<br>$$\\mu = \\frac{1 + 2 + 3 + 4 + 5 + 6}{6} = \\frac{21}{6} = 3{,}5$$- Kỳ vọng bình phương:<br>$$E(X^2) = \\frac{1^2 + 2^2 + 3^2 + 4^2 + 5^2 + 6^2}{6} = \\frac{1 + 4 + 9 + 16 + 25 + 36}{6} = \\frac{91}{6} \\approx 15{,}1667$$- Phương sai và độ lệch chuẩn:<br>$$\\sigma^2 = \\frac{91}{6} - (3{,}5)^2 = \\frac{91}{6} - \\frac{49}{4} = \\frac{182 - 147}{12} = \\frac{35}{12} \\approx 2{,}9167$$$$\\sigma = \\sqrt{\\frac{35}{12}} \\approx 1{,}7078$$", "<b>Bước 2: Ước lượng cận dưới theo Bất đẳng thức Chebyshev `[+0,35đ]`</b><br>Ta xét biến cố $|X - 3{,}5| < 2{,}5$. Độ lệch $\\varepsilon = 2{,}5$.<br>Số lần độ lệch chuẩn:<br>$$k = \\frac{\\varepsilon}{\\sigma} = \\frac{2{,}5}{1{,}7078} \\approx 1{,}4639$$Áp dụng bất đẳng thức Chebyshev:<br>$$P(|X - 3{,}5| < 2{,}5) \\ge 1 - \\frac{1}{k^2} = 1 - \\frac{\\sigma^2}{\\varepsilon^2} = 1 - \\frac{2{,}9167}{(2{,}5)^2} = 1 - \\frac{2{,}9167}{6{,}25} = 1 - 0{,}4667 = 0{,}5333\\text{ (53{,}33\\%)}$$", "<b>Bước 3: Tính xác suất thực tế và Nhận xét `[+0,35đ]`</b><br>- Biến cố $|X - 3{,}5| < 2{,}5 \\iff -2{,}5 < X - 3{,}5 < 2{,}5 \\iff 1 < X < 6$.<br>Vì $X$ là số nguyên, các giá trị thỏa mãn là $X \\in \\{2, 3, 4, 5\\}$ (gồm 4 giá trị):<br>$$P(|X - 3{,}5| < 2{,}5) = \\frac{4}{6} = \\frac{2}{3} \\approx 0{,}6667\\text{ (66{,}67\\%)}$$- <b>Nhận xét:</b> Xác suất thực tế ($66{,}67\\%$) hoàn toàn thỏa mãn cận dưới Chebyshev ($66{,}67\\% \\ge 53{,}33\\%$). Cận Chebyshev thấp hơn thực tế vì Chebyshev là một cận tổng quát đúng cho <i>mọi</i> phân phối xác suất bất kỳ (kể cả những phân phối cực đoan nhất), do đó khi áp dụng cho các phân phối cụ thể có hình dạng 'đẹp' thì cận này khá thận trọng (conservative)."], "pro_tips": "Công thức trực tiếp: $1 - \\frac{1}{k^2} = 1 - \\frac{\\sigma^2}{\\varepsilon^2}$, không cần làm tròn trung gian qua $k$.", "pitfalls": "Tính nhầm khoảng: $1 < X < 6$ mà lấy cả giá trị 1 và 6 (phải là dấu ngặt $<$ nên không lấy 2 đầu mút)."}, {"id": "TL5_7", "topicId": 5, "level": "Nâng cao", "title": "Xác định kích thước mẫu n tối thiểu theo Chebyshev", "problem": "Một viện nghiên cứu muốn ước lượng chiều cao trung bình $\\mu$ của toàn bộ sinh viên trong một đại học quốc gia. Qua các nghiên cứu trước đây, người ta biết độ lệch chuẩn chiều cao của sinh viên là $\\sigma = 10\\text{ cm}$, nhưng chưa biết giá trị kỳ vọng $\\mu$.<br>1. Sử dụng bất đẳng thức Chebyshev cho trung bình mẫu $\\bar{X}_n$, hãy thiết lập công thức xác định kích thước mẫu $n$ theo sai số cho phép $\\varepsilon$ và độ tin cậy $1 - \\alpha$.<br>2. Cần điều tra tối thiểu bao nhiêu sinh viên ($n$) để đảm bảo sai số giữa chiều cao trung bình mẫu và chiều cao trung bình thực tế không vượt quá $\\varepsilon = 1\\text{ cm}$ với độ tin cậy ít nhất $95\\%$ ($0{,}95$)?", "analysis": "1. Chebyshev cho Xbar_n: P(|Xbar_n - mu| >= eps) <= Var(Xbar_n)/eps^2 = sigma^2 / (n * eps^2). Yeu cau P(|Xbar_n - mu| < eps) >= 1 - alpha <=> P(|Xbar_n - mu| >= eps) <= alpha. Vay sigma^2 / (n * eps^2) <= alpha <=> n >= sigma^2 / (alpha * eps^2). 2. sigma = 10, eps = 1, alpha = 0.05 => n >= 10^2 / (0.05 * 1^2) = 100 / 0.05 = 2000 sinh vien.", "hints": ["Độ tin cậy 95% tương ứng với mức rủi ro alpha = 1 - 0.95 = 0.05.", "Var(Xbar_n) = sigma^2 / n.", "sigma^2 / (n * eps^2) <= 0.05 -> n >= sigma^2 / (0.05 * eps^2)."], "steps": ["<b>Bước 1: Thiết lập công thức tìm kích thước mẫu n theo Chebyshev `[+0,40đ]`</b><br>Giả sử mẫu điều tra gồm $n$ sinh viên $X_1, X_2, \\dots, X_n$ độc lập cùng phân phối có cùng $\\mu$ và $\\sigma$.<br>Trung bình mẫu $\\bar{X}_n$ có $E(\\bar{X}_n) = \\mu$ và $\\operatorname{Var}(\\bar{X}_n) = \\frac{\\sigma^2}{n}$.<br>Áp dụng bất đẳng thức Chebyshev cho $\\bar{X}_n$:<br>$$P(|\\bar{X}_n - \\mu| \\ge \\varepsilon) \\le \\frac{\\operatorname{Var}(\\bar{X}_n)}{\\varepsilon^2} = \\frac{\\sigma^2}{n \\varepsilon^2}$$Ta mong muốn sai số không vượt quá $\\varepsilon$ với độ tin cậy ít nhất $1 - \\alpha$:<br>$$P(|\\bar{X}_n - \\mu| < \\varepsilon) \\ge 1 - \\alpha \\iff P(|\\bar{X}_n - \\mu| \\ge \\varepsilon) \\le \\alpha$$Điều kiện đủ để thỏa mãn với mọi phân phối là:<br>$$\\frac{\\sigma^2}{n \\varepsilon^2} \\le \\alpha \\iff n \\ge \\frac{\\sigma^2}{\\alpha \\cdot \\varepsilon^2}$$", "<b>Bước 2: Thay số và Tính kích thước mẫu n tối thiểu `[+0,40đ]`</b><br>Các thông số đề bài cung cấp:<br>- Độ lệch chuẩn: $\\sigma = 10\\text{ cm} \\implies \\sigma^2 = 100$.<br>- Sai số cho phép: $\\varepsilon = 1\\text{ cm} \\implies \\varepsilon^2 = 1$.<br>- Độ tin cậy: $1 - \\alpha = 0{,}95 \\implies \\alpha = 1 - 0{,}95 = 0{,}05$.<br>Thay vào công thức vừa tìm được:<br>$$n \\ge \\frac{100}{0{,}05 \\times 1^2} = \\frac{100}{0{,}05} = 2000$$", "<b>Bước 3: Kết luận `[+0,20đ]`</b><br>Viện nghiên cứu cần điều tra tối thiểu <b>2000 sinh viên</b> để bảo đảm chắc chắn $95\\%$ rằng sai số của trung bình mẫu không vượt quá 1 cm.<br><i>(Ghi chú so sánh: Nếu dùng phân phối Chuẩn/CLT, số mẫu cần thiết chỉ là $n \\approx (1{,}96 \\times 10 / 1)^2 \\approx 385$. Chebyshev đòi hỏi $n=2000$ lớn hơn nhiều vì nó không giả định phân phối chuẩn mà bảo đảm an toàn cho mọi hình dạng phân phối!).</i>"], "pro_tips": "Nhớ công thức mẫu: $n \\ge \\frac{\\sigma^2}{\\alpha \\varepsilon^2}$. Đây là công thức nền tảng trong lý thuyết mẫu lớn không tham số.", "pitfalls": "Dùng nhầm $\\alpha = 0{,}95$ thay vì $\\alpha = 1 - 0{,}95 = 0{,}05$ dẫn đến kết quả kích thước mẫu nhỏ vô lý."}, {"id": "TL5_8", "topicId": 5, "level": "Nâng cao", "title": "Phân tích Bánh xe Roulette: Mô hình chiếc hộp và Quy luật nhà cái luôn thắng", "problem": "Bánh xe Roulette kiểu Pháp gồm 37 ô được đánh số từ $0$ đến $36$ (trong đó có 1 ô số 0 màu xanh lá, 18 ô số đỏ và 18 ô số đen). Một người chơi đặt cược 100.000 đồng vào cửa 'Số đỏ'.<br>- Nếu quả bóng rơi vào ô màu đỏ (xác suất $18/37$): người chơi nhận lại 100.000 đồng tiền cược và được thưởng thêm 100.000 đồng (lãi ròng $+100$ nghìn đồng).<br>- Nếu quả bóng rơi vào ô màu đen hoặc ô số 0 (xác suất $19/37$): người chơi mất toàn bộ 100.000 đồng tiền cược (lãi ròng $-100$ nghìn đồng).<br>1. Lập bảng mô hình chiếc hộp biểu diễn số tiền lãi ròng của người chơi trong 1 ván cược. Tính lãi kỳ vọng $\\mu$ và độ lệch chuẩn $\\sigma$ của người chơi.<br>2. Một sòng bạc ghi nhận $n = 100.000$ lượt cược như vậy trong 1 tuần. Gọi $S_{n}$ là tổng tiền lãi của sòng bạc (tiền sòng bạc thắng từ người chơi). Tính kỳ vọng $E(S_n)$ và độ lệch chuẩn $\\operatorname{SD}(S_n)$ của sòng bạc.<br>3. Dùng Định lý giới hạn trung tâm, hãy ước tính xác suất sòng bạc bị thua lỗ (tổng tiền lãi $S_n < 0$) sau 100.000 lượt cược.", "analysis": "1. Nguoi choi: X = +100 voi p = 18/37; X = -100 voi p = 19/37. mu = 100*(18/37) - 100*(19/37) = -100/37 approx -2.7027 nghin dong. E(X^2) = 100^2 = 10000. Var(X) = 10000 - (-2.7027)^2 = 9992.695 => sigma = 99.963 nghin dong. 2. Song bac: Tien lai Y = -X. mu_casino = +2.7027 nghin dong. sigma_casino = 99.963 nghin dong. Sau n=100000: E(S_n) = 100000 * 2.7027 = 270270 nghin (270.27 trieu dong). SD(S_n) = sqrt(100000) * 99.963 = 316.2277 * 99.963 = 31611.1 nghin (31.61 trieu dong). 3. P(S_n < 0): Z = (0 - 270.27) / 31.61 = -8.55 => P < 10^(-17) approx 0! Song bac khong bao gio lo.", "hints": ["Người chơi có kỳ vọng âm: mu = 100*(18/37) - 100*(19/37) = -100/37 nghìn đồng.", "Tiền sòng bạc thắng = Tiền người chơi thua -> Sòng bạc có kỳ vọng dương mu_casino = +100/37 nghìn đồng.", "Sau 100.000 ván: Kỳ vọng thắng của sòng bạc là hơn 270 triệu đồng, trong khi độ lệch chuẩn chỉ khoảng 31,6 triệu đồng (Z = -8.55)."], "steps": ["<b>Bước 1: Mô hình chiếc hộp cho 1 ván cược của người chơi `[+0,35đ]`</b><br>Chiếc hộp đại diện cho người chơi có 37 tấm thẻ:<br>- 18 tấm ghi $+100$ (khi bóng vào ô đỏ).<br>- 19 tấm ghi $-100$ (khi bóng vào ô đen hoặc ô 0).<br>- Lãi kỳ vọng của người chơi:<br>$$\\mu_{\\text{người}} = 100 \\times \\frac{18}{37} + (-100) \\times \\frac{19}{37} = -\\frac{100}{37} \\approx -2{,}7027\\text{ (nghìn đồng/ván)}$$- Độ lệch chuẩn của người chơi:<br>$$E(X^2) = 100^2 = 10000 \\implies \\sigma^2 = 10000 - (-2{,}7027)^2 \\approx 9992{,}695$$$$\\sigma_{\\text{người}} = \\sqrt{9992{,}695} \\approx 99{,}9635\\text{ (nghìn đồng)}$$", "<b>Bước 2: Phân tích tài chính của sòng bạc sau 100.000 ván `[+0,35đ]`</b><br>Vì tiền thắng của sòng bạc là tiền thua của người chơi, với mỗi ván cược sòng bạc thu được lãi $Y = -X$:<br>- Kỳ vọng của sòng bạc mỗi ván: $\\mu_{\\text{sòng bạc}} = +2{,}7027$ nghìn đồng.<br>- Độ lệch chuẩn mỗi ván: $\\sigma_{\\text{sòng bạc}} = 99{,}9635$ nghìn đồng.<br>Sau $n = 100.000$ ván cược:<br>- Tổng tiền lãi kỳ vọng của sòng bạc:<br>$$E(S_n) = n \\cdot \\mu_{\\text{sòng bạc}} = 100.000 \\times 2{,}7027 = 270.270\\text{ (nghìn đồng)} \\approx 270{,}27\\text{ triệu đồng}$$- Độ lệch chuẩn của tổng tiền lãi sòng bạc:<br>$$\\operatorname{SD}(S_n) = \\sqrt{n} \\cdot \\sigma = \\sqrt{100.000} \\times 99{,}9635 = 316{,}2277 \\times 99{,}9635 \\approx 31.611\\text{ (nghìn đồng)} \\approx 31{,}61\\text{ triệu đồng}$$", "<b>Bước 3: Ước tính xác suất sòng bạc bị thua lỗ `[+0,30đ]`</b><br>Theo Định lý Giới hạn Trung tâm, tổng tiền lãi của sòng bạc $S_n$ tuân theo xấp xỉ chuẩn:<br>$$S_n \\sim N(\\mu_S = 270{,}27;\\; \\sigma_S^2 = 31{,}61^2)$$<br>Sòng bạc bị thua lỗ khi tổng tiền lãi $S_n < 0$. Chuẩn hóa giá trị 0:<br>$$Z = \\frac{0 - \\mu_S}{\\sigma_S} = \\frac{0 - 270{,}27}{31{,}61} \\approx -8{,}55$$Xác suất bị thua lỗ là:<br>$$P(S_n < 0) = P(Z < -8{,}55) = \\Phi(-8{,}55) \\approx 0\\text{ (nhỏ hơn } 10^{-17}\\text{)}$$<b>Kết luận:</b> Xác suất sòng bạc thua lỗ trong tuần là một con số bằng $0$ trên thực tế. Sòng bạc được toán học bảo đảm chiến thắng $100\\%$ nhờ Luật số lớn và lợi thế nhà cái (House Edge $2{,}7\\%$)!"], "pro_tips": "Nhớ kết luận: Trong cờ bạc, người chơi đặt cược vào vận may ngắn hạn ($n=1$), còn nhà cái đặt cược vào Luật số lớn dài hạn ($n \\to \\infty$).", "pitfalls": "Quên đổi dấu khi chuyển từ bài toán 'người chơi' sang 'sòng bạc'."}, {"id": "TL6_1", "topicId": 6, "level": "Cơ bản", "title": "Hàm mật độ (pdf), Hàm phân phối (cdf) và Tính xác suất", "problem": "Cho biến ngẫu nhiên liên tục $X$ có hàm mật độ xác suất (pdf) xác định bởi:<br>$$f(x) = \\begin{cases} k x^2 & \\text{khi } 0 \\le x \\le 3 \\\\ 0 & \\text{nơi khác} \\end{cases}$$1. Tìm hằng số chuẩn hóa $k$ để $f(x)$ là một hàm mật độ xác suất hợp lệ.<br>2. Xác định hàm phân phối tích lũy $F(x) = P(X \\le x)$ trên toàn bộ trục số thực $\\mathbb{R}$.<br>3. Tính xác suất $P(1 \\le X \\le 2)$ bằng hai cách: (a) Dùng tích phân của $f(x)$; (b) Dùng hàm phân phối $F(x)$.", "analysis": "1. Integral_{-infty}^{+infty} f(x) dx = 1 => int_0^3 k*x^2 dx = k * 9 = 1 => k = 1/9. 2. F(x) = int_0^x (1/9) t^2 dt = x^3 / 27 tren [0, 3]. 3. P(1 <= X <= 2) = int_1^2 (1/9) x^2 dx = (8 - 1)/27 = 7/27 approx 0.2593. F(2) - F(1) = 8/27 - 1/27 = 7/27.", "hints": ["Điều kiện chuẩn hóa của hàm mật độ: Tích phân toàn phần bằng 1.", "Tích phân x^2 là x^3 / 3. Cận từ 0 đến 3 cho ra 27/3 = 9.", "F(x) = int_{-infty}^x f(t) dt. Với x in [0, 3]: F(x) = x^3 / 27."], "steps": ["<b>Bước 1: Tìm hằng số chuẩn hóa k `[+0,35đ]`</b><br>Để $f(x)$ là một hàm mật độ xác suất hợp lệ, nó phải thỏa mãn điều kiện chuẩn hóa:<br>$$\\int_{-\\infty}^{+\\infty} f(x)\\, dx = 1 \\iff \\int_0^3 k x^2\\, dx = 1$$Tính tích phân:<br>$$k \\left[ \\frac{x^3}{3} \\right]_0^3 = k \\left( \\frac{27}{3} - 0 \\right) = 9k = 1 \\iff k = \\frac{1}{9}$$Vậy hàm mật độ là: $f(x) = \\frac{1}{9} x^2$ với $x \\in [0, 3]$.", "<b>Bước 2: Tìm hàm phân phối tích lũy F(x) `[+0,35đ]`</b><br>Theo định nghĩa: $F(x) = \\int_{-\\infty}^x f(t)\\, dt$:<br>- Khi $x < 0$: $F(x) = 0$.<br>- Khi $0 \\le x \\le 3$:<br>$$F(x) = \\int_0^x \\frac{1}{9} t^2\\, dt = \\left[ \\frac{t^3}{27} \\right]_0^x = \\frac{x^3}{27}$$- Khi $x > 3$: $F(x) = 1$.<br>Tóm lại:<br>$$F(x) = \\begin{cases} 0 & \\text{khi } x < 0 \\\\ \\frac{x^3}{27} & \\text{khi } 0 \\le x \\le 3 \\\\ 1 & \\text{khi } x > 3 \\end{cases}$$", "<b>Bước 3: Tính xác suất P(1 ≤ X ≤ 2) bằng 2 cách `[+0,30đ]`</b><br>- <b>Cách 1 (Dùng tích phân hàm mật độ):</b><br>$$P(1 \\le X \\le 2) = \\int_1^2 \\frac{1}{9} x^2\\, dx = \\left[ \\frac{x^3}{27} \\right]_1^2 = \\frac{2^3}{27} - \\frac{1^3}{27} = \\frac{8 - 1}{27} = \\frac{7}{27} \\approx 0{,}2593\\text{ (25{,}93\\%)}$$- <b>Cách 2 (Dùng hàm phân phối tích lũy):</b><br>$$P(1 \\le X \\le 2) = F(2) - F(1) = \\frac{2^3}{27} - \\frac{1^3}{27} = \\frac{8}{27} - \\frac{1}{27} = \\frac{7}{27} \\approx 0{,}2593$$"], "pro_tips": "Đối với biến liên tục, xác suất tại 1 điểm đơn lẻ luôn bằng 0 ($P(X = c) = 0$), do đó $P(1 \\le X \\le 2) = P(1 < X < 2) = P(1 \\le X < 2) = P(1 < X \\le 2)$.", "pitfalls": "Quên định nghĩa từng khoảng của hàm $F(x)$ (chỉ viết mỗi công thức $x^3/27$ mà bỏ qua $x < 0$ và $x > 3$)."}, {"id": "TL6_2", "topicId": 6, "level": "Cơ bản", "title": "Phân phối Đều U(a, b): Hàm mật độ, Kỳ vọng, Phương sai và Xác suất điều kiện", "problem": "Cho biến ngẫu nhiên liên tục $X$ có phân phối đều trên đoạn $[2, 8]$, ký hiệu $X \\sim U(2, 8)$.<br>1. Viết hàm mật độ xác suất $f(x)$ và hàm phân phối tích lũy $F(x)$.<br>2. Tính kỳ vọng $E(X)$, phương sai $\\operatorname{Var}(X)$ và độ lệch chuẩn $\\operatorname{SD}(X)$.<br>3. Tính xác suất $P(3 \\le X \\le 6)$ và xác suất có điều kiện $P(X > 5 \\mid X > 3)$.", "analysis": "X ~ U(a=2, b=8). f(x) = 1/(8-2) = 1/6 tren [2, 8]. F(x) = (x-2)/6. E(X) = (2+8)/2 = 5. Var(X) = (8-2)^2 / 12 = 36/12 = 3. SD(X) = sqrt(3) approx 1.7321. P(3 <= X <= 6) = (6-3)/6 = 3/6 = 0.5. P(X > 5 | X > 3) = P(X > 5) / P(X > 3) = [(8-5)/6] / [(8-3)/6] = 3/5 = 0.6.", "hints": ["Độ dài khoảng b - a = 8 - 2 = 6. f(x) = 1/6.", "E(X) = (a + b) / 2 = 5. Var(X) = (b - a)^2 / 12 = 36 / 12 = 3.", "P(X > 5 | X > 3) = (8 - 5) / (8 - 3) = 3 / 5."], "steps": ["<b>Bước 1: Viết hàm mật độ f(x) và hàm phân phối F(x) `[+0,30đ]`</b><br>Với $a = 2, b = 8$, độ dài đoạn là $b - a = 8 - 2 = 6$.<br>- Hàm mật độ:<br>$$f(x) = \\begin{cases} \\frac{1}{b - a} = \\frac{1}{6} & \\text{khi } 2 \\le x \\le 8 \\\\ 0 & \\text{nơi khác} \\end{cases}$$- Hàm phân phối tích lũy:<br>$$F(x) = \\begin{cases} 0 & \\text{khi } x < 2 \\\\ \\frac{x - 2}{6} & \\text{khi } 2 \\le x \\le 8 \\\\ 1 & \\text{khi } x > 8 \\end{cases}$$", "<b>Bước 2: Tính kỳ vọng, phương sai và độ lệch chuẩn `[+0,35đ]`</b><br>- Kỳ vọng (trung điểm của khoảng):<br>$$E(X) = \\frac{a + b}{2} = \\frac{2 + 8}{2} = 5{,}0$$- Phương sai:<br>$$\\operatorname{Var}(X) = \\frac{(b - a)^2}{12} = \\frac{(8 - 2)^2}{12} = \\frac{36}{12} = 3{,}0$$- Độ lệch chuẩn:<br>$$\\operatorname{SD}(X) = \\sqrt{3{,}0} \\approx 1{,}7321$$", "<b>Bước 3: Tính xác suất thường và xác suất có điều kiện `[+0,35đ]`</b><br>- Xác suất $P(3 \\le X \\le 6)$ bằng tỉ số độ dài hình chữ nhật:<br>$$P(3 \\le X \\le 6) = \\frac{6 - 3}{8 - 2} = \\frac{3}{6} = 0{,}50\\text{ (50\\%)}$$- Xác suất có điều kiện $P(X > 5 \\mid X > 3)$:<br>Vì biến cố $X > 5$ là tập con của $X > 3$ (tức $(5, 8] \\cap (3, 8] = (5, 8]$):<br>$$P(X > 5 \\mid X > 3) = \\frac{P(X > 5 \\cap X > 3)}{P(X > 3)} = \\frac{P(X > 5)}{P(X > 3)} = \\frac{\\frac{8 - 5}{6}}{\\frac{8 - 3}{6}} = \\frac{3}{5} = 0{,}60\\text{ (60\\%)}$$"], "pro_tips": "Đối với phân phối đều, xác suất có điều kiện chỉ đơn giản là tỉ số độ dài hình học: $\\frac{8 - 5}{8 - 3} = \\frac{3}{5} = 0{,}60$!", "pitfalls": "Quên chia cho 12 ở mẫu số của phương sai $\\operatorname{Var}(X) = \\frac{(b-a)^2}{12}$."}, {"id": "TL6_3", "topicId": 6, "level": "Cơ bản", "title": "Phân phối Chuẩn N(μ, σ²): Chuẩn hóa Z-score và Tra bảng", "problem": "Điểm thi kết thúc học phần môn Xác suất thống kê của sinh viên có phân phối chuẩn với điểm trung bình $\\mu = 60$ điểm và độ lệch chuẩn $\\sigma = 10$ điểm ($X \\sim N(60,\\; 10^2)$). Cho biết: $\\Phi(1{,}5) \\approx 0{,}9332$; $\\Phi(1{,}0) \\approx 0{,}8413$; $\\Phi(2{,}0) \\approx 0{,}9772$.<br>1. Tính tỉ lệ sinh viên đạt điểm Giỏi từ 75 điểm trở lên ($P(X \\ge 75)$).<br>2. Tính tỉ lệ sinh viên đạt điểm trong khoảng từ 50 đến 70 điểm ($P(50 \\le X \\le 70)$).<br>3. Tính tỉ lệ sinh viên thi không đạt (dưới 40 điểm: $P(X < 40)$).", "analysis": "Z = (X - 60)/10. 1. X >= 75 => Z >= (75-60)/10 = 1.5 => 1 - Phi(1.5) = 1 - 0.9332 = 0.0668 (6.68%). 2. 50 <= X <= 70 => -1 <= Z <= 1 => Phi(1) - Phi(-1) = 2*Phi(1) - 1 = 2(0.8413) - 1 = 0.6826 (68.26%). 3. X < 40 => Z < -2 => Phi(-2) = 1 - Phi(2) = 1 - 0.9772 = 0.0228 (2.28%).", "hints": ["Công thức chuẩn hóa: Z = (X - mu) / sigma.", "P(X >= 75) = P(Z >= 1.5) = 1 - Phi(1.5).", "Tính chất đối xứng: Phi(-z) = 1 - Phi(z)."], "steps": ["<b>Bước 1: Tính tỉ lệ sinh viên đạt từ 75 điểm trở lên `[+0,35đ]`</b><br>Chuẩn hóa biến ngẫu nhiên $X$ về biến chuẩn tắc $Z = \\frac{X - \\mu}{\\sigma} = \\frac{X - 60}{10} \\sim N(0, 1)$:<br>Tại $X = 75$: $Z = \\frac{75 - 60}{10} = 1{,}5$.<br>$$P(X \\ge 75) = P(Z \\ge 1{,}5) = 1 - \\Phi(1{,}5)$$Tra bảng: $\\Phi(1{,}5) \\approx 0{,}9332$:<br>$$P(X \\ge 75) = 1 - 0{,}9332 = 0{,}0668\\text{ (6{,}68\\%)}$$", "<b>Bước 2: Tính tỉ lệ sinh viên đạt điểm trong khoảng [50; 70] `[+0,35đ]`</b><br>Chuẩn hóa 2 đầu mút:<br>- Tại $X = 50$: $Z_1 = \\frac{50 - 60}{10} = -1{,}0$.<br>- Tại $X = 70$: $Z_2 = \\frac{70 - 60}{10} = +1{,}0$.<br>$$P(50 \\le X \\le 70) = P(-1{,}0 \\le Z \\le 1{,}0) = \\Phi(1{,}0) - \\Phi(-1{,}0)$$Áp dụng tính chất đối xứng $\\Phi(-z) = 1 - \\Phi(z)$:<br>$$\\Phi(1{,}0) - [1 - \\Phi(1{,}0)] = 2\\Phi(1{,}0) - 1 = 2(0{,}8413) - 1 = 1{,}6826 - 1 = 0{,}6826\\text{ (68{,}26\\%)}$$<i>(Đây chính là quy tắc kinh nghiệm 68% cho khoảng 1 độ lệch chuẩn [mu - sigma, mu + sigma]!).</i>", "<b>Bước 3: Tính tỉ lệ sinh viên dưới 40 điểm `[+0,30đ]`</b><br>Tại $X = 40$: $Z = \\frac{40 - 60}{10} = -2{,}0$.<br>$$P(X < 40) = P(Z < -2{,}0) = \\Phi(-2{,}0) = 1 - \\Phi(2{,}0)$$Tra bảng: $\\Phi(2{,}0) \\approx 0{,}9772$:<br>$$P(X < 40) = 1 - 0{,}9772 = 0{,}0228\\text{ (2{,}28\\%)}$$"], "pro_tips": "Thuộc lòng 3 con số đối xứng vàng: $P(-1 \\le Z \\le 1) \\approx 68{,}26\\%$, $P(-2 \\le Z \\le 2) \\approx 95{,}44\\%$, $P(-3 \\le Z \\le 3) \\approx 99{,}73\\%$.", "pitfalls": "Quên đổi chiều đối xứng: tính $\\Phi(-2) = -\\Phi(2)$ (sai nghiêm trọng, xác suất không thể âm; đúng là $1 - \\Phi(2)$)."}, {"id": "TL6_4", "topicId": 6, "level": "Trung bình", "title": "Phân vị chuẩn và Bài toán xác định ngưỡng điểm (Quantile Cutoff)", "problem": "Điểm thi TOEIC của sinh viên một trường đại học tuân theo phân phối chuẩn với trung bình $\\mu = 500$ điểm và độ lệch chuẩn $\\sigma = 100$ điểm ($X \\sim N(500,\\; 100^2)$). Cho biết giá trị phân vị chuẩn: $\\Phi(1{,}645) \\approx 0{,}9500$; $\\Phi(1{,}50) \\approx 0{,}9332$.<br>1. Nhà trường muốn trao học bổng cho Top $5\\%$ sinh viên có điểm thi cao nhất trường. Hãy xác định mức điểm chuẩn tối thiểu để được nhận học bổng ($x^*$).<br>2. Xác định tỉ lệ sinh viên đạt điểm từ mức trung vị (500 điểm) đến dưới 650 điểm.", "analysis": "1. Top 5% cao nhat <=> P(X >= x*) = 0.05 <=> P(X <= x*) = 0.95. Chuẩn hóa Z* = (x* - 500)/100 = 1.645 => x* = 500 + 1.645 * 100 = 664.5 điểm. 2. P(500 <= X < 650): Tại 500 có Z1 = 0 (Phi(0) = 0.5). Tại 650 có Z2 = (650-500)/100 = 1.5. P = Phi(1.5) - Phi(0) = 0.9332 - 0.5000 = 0.4332 (43.32%).", "hints": ["Top 5% cao nhất nghĩa là có 95% sinh viên có điểm thấp hơn ngưỡng này: Phi(Z*) = 0.95.", "Tra ngược bảng chuẩn: Phi(1.645) = 0.95 -> Z* = 1.645.", "x* = mu + Z* * sigma."], "steps": ["<b>Bước 1: Thiết lập phương trình tìm ngưỡng điểm Top 5% `[+0,35đ]`</b><br>Gọi $x^*$ là mức điểm tối thiểu để lọt vào Top 5% sinh viên cao nhất.<br>Biến cố sinh viên thuộc Top 5% tương ứng với:<br>$$P(X \\ge x^*) = 0{,}05 \\iff P(X < x^*) = 1 - 0{,}05 = 0{,}95$$Chuẩn hóa phương trình:<br>$$P\\left( Z < \\frac{x^* - 500}{100} \\right) = \\Phi\\left( \\frac{x^* - 500}{100} \\right) = 0{,}95$$", "<b>Bước 2: Tra bảng chuẩn tắc ngược và tính ngưỡng x* `[+0,35đ]`</b><br>Tra bảng phân phối chuẩn tắc ngược với xác suất tích lũy $p = 0{,}95$, ta được giá trị phân vị $Z_{0{,}95}$:<br>$$Z^* = 1{,}645$$Do đó:<br>$$\\frac{x^* - 500}{100} = 1{,}645 \\iff x^* = 500 + 1{,}645 \\times 100 = 500 + 164{,}5 = 664{,}5\\text{ (điểm)}$$<b>Kết luận:</b> Sinh viên cần đạt tối thiểu <b>664,5 điểm</b> (hoặc từ 665 điểm nếu làm tròn số nguyên) để lọt vào Top 5% nhận học bổng.", "<b>Bước 3: Tính tỉ lệ sinh viên đạt từ 500 đến dưới 650 điểm `[+0,30đ]`</b><br>Chuẩn hóa khoảng $[500;\\; 650)$:<br>- Tại $X = 500$: $Z_1 = \\frac{500 - 500}{100} = 0{,}00$.<br>- Tại $X = 650$: $Z_2 = \\frac{650 - 500}{100} = 1{,}50$.<br>Xác suất cần tính:<br>$$P(500 \\le X < 650) = \\Phi(1{,}50) - \\Phi(0{,}00)$$Vì phân phối chuẩn đối xứng nên $\\Phi(0{,}00) = 0{,}5000$. Đề bài cho $\\Phi(1{,}50) \\approx 0{,}9332$:<br>$$P(500 \\le X < 650) = 0{,}9332 - 0{,}5000 = 0{,}4332\\text{ (43{,}32\\%)}$$"], "pro_tips": "Nhớ công thức chuyển đổi 2 chiều: Từ $X$ sang $Z$: $Z = \\frac{X - \\mu}{\\sigma}$; Từ $Z$ ngược lại $X$: $X = \\mu + Z \\cdot \\sigma$.", "pitfalls": "Tra nhầm $Z = 0{,}05$ hoặc nhầm Top 5% là diện tích $5\\%$ bên trái thay vì bên phải."}, {"id": "TL6_5", "topicId": 6, "level": "Trung bình", "title": "Phân phối Mũ Exp(λ) và Tính chất không nhớ (Memoryless)", "problem": "Thời gian phục vụ một khách hàng tại quầy giao dịch là biến ngẫu nhiên liên tục $T$ tuân theo phân phối mũ với thời gian phục vụ trung bình là 5 phút ($E(T) = 5$ phút, tức $\\lambda = 1/5 = 0{,}2$ phút$^{-1}$).<br>1. Viết hàm mật độ xác suất $f(t)$ và hàm phân phối tích lũy $F(t)$ của $T$.<br>2. Tính xác suất một khách hàng được phục vụ xong trong vòng 3 phút đầu tiên ($P(T \\le 3)$).<br>3. Biết một khách hàng đã được phục vụ suốt 4 phút mà vẫn chưa xong. Tính xác suất khách hàng này phải phục vụ thêm ít nhất 3 phút nữa ($P(T > 7 \\mid T > 4)$) và giải thích tính chất không nhớ.", "analysis": "T ~ Exp(lambda=0.2). f(t) = 0.2*e^(-0.2*t) for t >= 0. F(t) = 1 - e^(-0.2*t). P(T <= 3) = 1 - e^(-0.6) = 1 - 0.54881 = 0.4512. P(T > 7 | T > 4) = P(T > 4+3 | T > 4) = P(T > 3) = e^(-0.2*3) = e^(-0.6) = 0.5488.", "hints": ["Thời gian trung bình 1/lambda = 5 phút -> lambda = 0.2.", "P(T <= 3) = 1 - e^(-lambda * 3) = 1 - e^(-0.6).", "Tính chất không nhớ: P(T > s + t | T > s) = P(T > t) = e^(-lambda * t)."], "steps": ["<b>Bước 1: Xác định hàm mật độ f(t) và hàm phân phối F(t) `[+0,30đ]`</b><br>Tham số tỉ lệ (rate): $\\lambda = \\frac{1}{E(T)} = \\frac{1}{5} = 0{,}2\\text{ (phút}^{-1}\\text{)}$.<br>- Hàm mật độ xác suất:<br>$$f(t) = \\begin{cases} 0{,}2 e^{-0{,}2 t} & \\text{khi } t \\ge 0 \\\\ 0 & \\text{khi } t < 0 \\end{cases}$$- Hàm phân phối tích lũy:<br>$$F(t) = P(T \\le t) = 1 - e^{-0{,}2 t}\\quad (t \\ge 0)$$", "<b>Bước 2: Tính xác suất phục vụ xong trong 3 phút đầu P(T ≤ 3) `[+0,35đ]`</b><br>Thay $t = 3$ vào hàm phân phối tích lũy:<br>$$P(T \\le 3) = F(3) = 1 - e^{-0{,}2 \\times 3} = 1 - e^{-0{,}6}$$Với $e^{-0{,}6} \\approx 0{,}54881$:<br>$$P(T \\le 3) = 1 - 0{,}54881 = 0{,}45119 \\approx 0{,}4512\\text{ (45{,}12\\%)}$$", "<b>Bước 3: Tính xác suất điều kiện và Giải thích tính chất không nhớ `[+0,35đ]`</b><br>Theo định nghĩa xác suất có điều kiện:<br>$$P(T > 7 \\mid T > 4) = \\frac{P(T > 7 \\cap T > 4)}{P(T > 4)} = \\frac{P(T > 7)}{P(T > 4)}$$Với phân phối mũ: $P(T > t) = 1 - F(t) = e^{-\\lambda t}$:<br>$$P(T > 7 \\mid T > 4) = \\frac{e^{-0{,}2 \\times 7}}{e^{-0{,}2 \\times 4}} = \\frac{e^{-1{,}4}}{e^{-0{,}8}} = e^{-1{,}4 - (-0{,}8)} = e^{-0{,}6} = P(T > 3) \\approx 0{,}5488\\text{ (54{,}88\\%)}$$<br><b>Giải thích tính chất không nhớ (Memoryless Property):</b> Phân phối Mũ là phân phối liên tục DUY NHẤT có tính chất không có bộ nhớ: Quá khứ đã chờ bao lâu ($s = 4$ phút) hoàn toàn không ảnh hưởng đến xác suất phải chờ thêm trong tương lai ($t = 3$ phút nữa). Hệ thống 'quên sạch' thời gian đã trôi qua!"], "pro_tips": "Công thức ghi nhớ nhanh: $P(T > s + t \\mid T > s) = P(T > t) = e^{-\\lambda t}$.", "pitfalls": "Tính nhầm $P(T > 7 \\mid T > 4) = P(T > 7) - P(T > 4)$ (sai công thức xác suất có điều kiện)."}, {"id": "TL6_6", "topicId": 6, "level": "Trung bình", "title": "Quy tắc kinh nghiệm 68–95–99,7% và Kiểm soát chất lượng (Quality Control)", "problem": "Một dây chuyền đóng lon nước ngọt tự động rót thể tích nước vào mỗi lon tuân theo phân phối chuẩn với trung bình $\\mu = 330\\text{ ml}$ và độ lệch chuẩn $\\sigma = 2\\text{ ml}$ ($X \\sim N(330,\\; 2^2)$).<br>1. Sử dụng <b>Quy tắc kinh nghiệm 68–95–99,7%</b>, hãy xác định các khoảng dung tích tương ứng chứa $68\\%$, $95\\%$ và $99{,}7\\%$ số lon nước sản xuất ra.<br>2. Một lon nước bị coi là 'Lỗi nghiêm trọng' nếu dung tích dưới $324\\text{ ml}$ (quá thiếu) hoặc trên $336\\text{ ml}$ (quá tràn). Hãy tính tỉ lệ các lon nước bị lỗi nghiêm trọng.", "analysis": "1. [mu - sigma, mu + sigma] = [328, 332] (68%). [mu - 2*sigma, mu + 2*sigma] = [326, 334] (95%). [mu - 3*sigma, mu + 3*sigma] = [324, 336] (99.7%). 2. Loi nghiem trong la ngoai khoang 3 sigma => 1 - 0.997 = 0.003 (0.3% hay 3 lon / 1000 lon).", "hints": ["Khoảng 68%: mu +- 1*sigma. Khoảng 95%: mu +- 2*sigma. Khoảng 99.7%: mu +- 3*sigma.", "324 = 330 - 3*2 = mu - 3*sigma; 336 = 330 + 3*2 = mu + 3*sigma.", "Lỗi nghiêm trọng là phần đuôi nằm ngoài [mu - 3*sigma, mu + 3*sigma]."], "steps": ["<b>Bước 1: Xác định các khoảng dung tích theo Quy tắc 68–95–99,7% `[+0,50đ]`</b><br>Với $\\mu = 330\\text{ ml}$ và $\\sigma = 2\\text{ ml}$:<br>- <b>Khoảng chứa xấp xỉ 68% số lon</b> ($[\\mu - \\sigma;\\; \\mu + \\sigma]$):<br>$$[330 - 2;\\; 330 + 2] = [328\\text{ ml};\\; 332\\text{ ml}]$$- <b>Khoảng chứa xấp xỉ 95% số lon</b> ($[\\mu - 2\\sigma;\\; \\mu + 2\\sigma]$):<br>$$[330 - 2(2);\\; 330 + 2(2)] = [330 - 4;\\; 330 + 4] = [326\\text{ ml};\\; 334\\text{ ml}]$$- <b>Khoảng chứa xấp xỉ 99,7% số lon</b> ($[\\mu - 3\\sigma;\\; \\mu + 3\\sigma]$):<br>$$[330 - 3(2);\\; 330 + 3(2)] = [330 - 6;\\; 330 + 6] = [324\\text{ ml};\\; 336\\text{ ml}]$$", "<b>Bước 2: Tính tỉ lệ các lon nước bị lỗi nghiêm trọng `[+0,50đ]`</b><br>Khoảng dung tích đạt chuẩn an toàn là $[324\\text{ ml};\\; 336\\text{ ml}]$, tương ứng với khoảng 3 độ lệch chuẩn quanh giá trị trung bình $[\\mu - 3\\sigma;\\; \\mu + 3\\sigma]$.<br>Theo Quy tắc kinh nghiệm:<br>$$P(324 \\le X \\le 336) \\approx 0{,}997\\text{ (99{,}7\\%)}$$Biến cố lon bị lỗi nghiêm trọng (quá thiếu $X < 324$ hoặc quá tràn $X > 336$) chính là phần bù nằm ngoài khoảng 3 độ lệch chuẩn:<br>$$P(\\text{Lỗi nghiêm trọng}) = P(X < 324) + P(X > 336) = 1 - P(324 \\le X \\le 336)$$$$P(\\text{Lỗi nghiêm trọng}) \\approx 1 - 0{,}997 = 0{,}003\\text{ (0{,}3\\%)}$$<b>Kết luận:</b> Trung bình trong 1000 lon nước sản xuất ra chỉ có khoảng 3 lon bị lỗi nghiêm trọng."], "pro_tips": "Do tính đối xứng, tỉ lệ lon quá thiếu là $0{,}3\\% / 2 = 0{,}15\\%$, và tỉ lệ lon quá tràn cũng là $0{,}15\\%$.", "pitfalls": "Nhầm $\\mu \\pm 2\\sigma$ với $\\mu \\pm 3\\sigma$."}, {"id": "TL6_7", "topicId": 6, "level": "Nâng cao", "title": "Chính sách bảo hành sản phẩm: Tối ưu hóa thời hạn bảo hành", "problem": "Tuổi thọ của một dòng màn hình máy tính cao cấp tuân theo phân phối chuẩn với tuổi thọ trung bình là $\\mu = 1000$ ngày và độ lệch chuẩn $\\sigma = 100$ ngày ($T \\sim N(1000,\\; 100^2)$). Cho biết: $\\Phi(-2{,}054) \\approx 0{,}0200$; $\\Phi(-2{,}00) \\approx 0{,}0228$.<br>1. Nếu nhà sản xuất áp dụng thời hạn bảo hành là $T_0 = 800$ ngày, hãy tính tỉ lệ sản phẩm bán ra bị hỏng trong thời gian bảo hành và phải chịu trách nhiệm sửa chữa miễn phí.<br>2. Để tối ưu hóa chi phí bảo hành, ban giám đốc yêu cầu quy định thời hạn bảo hành $T^*$ sao cho có <b>tối đa $2\\%$</b> ($0{,}02$) số sản phẩm bị lỗi trong thời gian bảo hành. Hãy tìm thời hạn bảo hành tối đa $T^*$ mà hãng nên công bố.", "analysis": "1. P(T <= 800): Z = (800 - 1000)/100 = -2.0 => Phi(-2.0) = 1 - Phi(2.0) = 0.0228 (2.28%). 2. P(T <= T*) = 0.02 => Z = (T* - 1000)/100 = -2.054 => T* = 1000 - 2.054 * 100 = 794.6 ngày (khoảng 794 ngày).", "hints": ["Sản phẩm hỏng trong bảo hành khi Tuổi thọ T <= Thời hạn bảo hành T0.", "Tại T0 = 800: Z = (800 - 1000) / 100 = -2.0.", "Muốn P(T <= T*) = 0.02 -> tra ngược Z có tích lũy 0.02 -> Z = -2.054."], "steps": ["<b>Bước 1: Tính tỉ lệ sản phẩm hỏng với thời hạn bảo hành 800 ngày `[+0,40đ]`</b><br>Sản phẩm bị hỏng trong thời gian bảo hành nếu tuổi thọ $T \\le 800$ ngày.<br>Chuẩn hóa giá trị 800 ngày:<br>$$Z = \\frac{800 - \\mu}{\\sigma} = \\frac{800 - 1000}{100} = \\frac{-200}{100} = -2{,}0$$Xác suất sản phẩm phải bảo hành là:<br>$$P(T \\le 800) = \\Phi(-2{,}0) \\approx 0{,}0228\\text{ (2{,}28\\%)}$$Vậy nếu bảo hành 800 ngày, hãng sẽ phải bảo hành cho khoảng $2{,}28\\%$ tổng số màn hình bán ra.", "<b>Bước 2: Thiết lập phương trình tìm thời hạn bảo hành tối đa T* `[+0,35đ]`</b><br>Hãng yêu cầu tỉ lệ bảo hành không vượt quá $2\\%$:<br>$$P(T \\le T^*) \\le 0{,}02$$Chuẩn hóa biến số:<br>$$P\\left( Z \\le \\frac{T^* - 1000}{100} \\right) = \\Phi\\left( \\frac{T^* - 1000}{100} \\right) \\le 0{,}02$$", "<b>Bước 3: Tra bảng chuẩn tắc ngược và kết luận `[+0,25đ]`</b><br>Tra bảng chuẩn tắc với xác suất tích lũy $p = 0{,}02$:<br>$$Z_{0{,}02} \\approx -2{,}054$$Do đó:<br>$$\\frac{T^* - 1000}{100} = -2{,}054 \\iff T^* = 1000 - 2{,}054 \\times 100 = 1000 - 205{,}4 = 794{,}6\\text{ (ngày)}$$<b>Kết luận:</b> Hãng nên công bố thời hạn bảo hành tối đa là <b>794 ngày</b> (khoảng 2 năm 2 tháng) để đảm bảo tỉ lệ màn hình hỏng phải bảo hành không vượt quá $2\\%$."], "pro_tips": "Vì xác suất $0{,}02 < 0{,}5$, giá trị $Z$ chắc chắn phải mang dấu âm ($Z < 0$).", "pitfalls": "Quên dấu trừ khi tìm $Z$ dẫn đến thời hạn bảo hành $> 1000$ ngày (sai thực tế)."}, {"id": "TL6_8", "topicId": 6, "level": "Nâng cao", "title": "Định lý LOTUS và Biến đổi biến ngẫu nhiên liên tục", "problem": "Cho biến ngẫu nhiên liên tục $X$ có phân phối đều trên đoạn $[0, 2]$, tức $X \\sim U(0, 2)$.<br>1. Sử dụng <b>Định lý thống kê viên vô thức (LOTUS)</b>, hãy tính kỳ vọng $E(X^2)$ và $E(e^X)$.<br>2. Đặt biến ngẫu nhiên mới $Y = X^2$. Hãy tìm hàm phân phối tích lũy $F_Y(y)$ và hàm mật độ xác suất $f_Y(y)$ của $Y$.<br>3. Dùng hàm mật độ $f_Y(y)$ vừa tìm được để tính lại kỳ vọng $E(Y)$ và đối chiếu với câu 1.", "analysis": "1. f_X(x) = 1/2 tren [0, 2]. E(X^2) = int_0^2 x^2 (1/2) dx = (1/2) [8/3] = 4/3. E(e^X) = int_0^2 e^x (1/2) dx = (1/2)(e^2 - 1). 2. Y = X^2 in [0, 4]. F_Y(y) = P(X^2 <= y) = P(X <= sqrt(y)) = F_X(sqrt(y)) = sqrt(y)/2. f_Y(y) = F'_Y(y) = 1 / (4*sqrt(y)) tren [0, 4]. 3. E(Y) = int_0^4 y * (1/(4*sqrt(y))) dy = (1/4) int_0^4 y^(1/2) dy = (1/4) [ (2/3) y^(3/2) ]_0^4 = (1/4) * (2/3) * 8 = 4/3. Kết quả trùng khớp hoàn hảo!", "hints": ["Hàm mật độ của X là f_X(x) = 1/2 trên [0, 2].", "Định lý LOTUS: E(g(X)) = int g(x) * f_X(x) dx.", "F_Y(y) = P(Y <= y) = P(X^2 <= y) = P(X <= sqrt(y)) vì X >= 0."], "steps": ["<b>Bước 1: Tính E(X²) và E(eˣ) bằng Định lý LOTUS `[+0,35đ]`</b><br>Hàm mật độ của $X \\sim U(0, 2)$ là $f_X(x) = \\frac{1}{2}$ với $x \\in [0, 2]$.<br>Áp dụng Định lý LOTUS: $E(g(X)) = \\int_{-\\infty}^{+\\infty} g(x) f_X(x)\\, dx$:<br>- Tính $E(X^2)$:<br>$$E(X^2) = \\int_0^2 x^2 \\cdot \\frac{1}{2}\\, dx = \\frac{1}{2} \\left[ \\frac{x^3}{3} \\right]_0^2 = \\frac{1}{2} \\times \\frac{8}{3} = \\frac{4}{3} \\approx 1{,}3333$$- Tính $E(e^X)$:<br>$$E(e^X) = \\int_0^2 e^x \\cdot \\frac{1}{2}\\, dx = \\frac{1}{2} \\left[ e^x \\right]_0^2 = \\frac{e^2 - 1}{2} \\approx \\frac{7{,}389 - 1}{2} \\approx 3{,}1945$$", "<b>Bước 2: Tìm hàm phân phối tích lũy và hàm mật độ của Y = X² `[+0,35đ]`</b><br>Vì $X \\in [0, 2]$ nên $Y = X^2 \\in [0, 4]$.<br>Với mọi $y \\in [0, 4]$, hàm phân phối tích lũy của $Y$ là:<br>$$F_Y(y) = P(Y \\le y) = P(X^2 \\le y) = P(-\\sqrt{y} \\le X \\le \\sqrt{y})$$Vì $X \\ge 0$, điều này thu gọn lại thành:<br>$$F_Y(y) = P(X \\le \\sqrt{y}) = F_X(\\sqrt{y}) = \\frac{\\sqrt{y}}{2}$$Lấy đạo hàm của $F_Y(y)$ theo $y$ để tìm hàm mật độ xác suất $f_Y(y)$:<br>$$f_Y(y) = F'_Y(y) = \\frac{d}{dy}\\left( \\frac{1}{2} y^{1/2} \\right) = \\frac{1}{2} \\times \\frac{1}{2} y^{-1/2} = \\frac{1}{4\\sqrt{y}}\\quad (0 < y \\le 4)$$", "<b>Bước 3: Tính E(Y) theo hàm mật độ f_Y(y) và Đối chiếu `[+0,30đ]`</b><br>Áp dụng định nghĩa kỳ vọng cho biến $Y$:<br>$$E(Y) = \\int_0^4 y \\cdot f_Y(y)\\, dy = \\int_0^4 y \\cdot \\frac{1}{4\\sqrt{y}}\\, dy = \\frac{1}{4} \\int_0^4 y^{1/2}\\, dy$$Tính tích phân:<br>$$\\int_0^4 y^{1/2}\\, dy = \\left[ \\frac{2}{3} y^{3/2} \\right]_0^4 = \\frac{2}{3} (4)^{3/2} = \\frac{2}{3} \\times 8 = \\frac{16}{3}$$Do đó:<br>$$E(Y) = \\frac{1}{4} \\times \\frac{16}{3} = \\frac{4}{3}$$<b>Đối chiếu:</b> Hai cách tính hoàn toàn cho ra cùng một đáp số $E(Y) = E(X^2) = 4/3$, khẳng định tính đúng đắn của Định lý LOTUS!"], "pro_tips": "LOTUS cho phép ta tính trực tiếp kỳ vọng của một hàm biến ngẫu nhiên $g(X)$ mà không cần tốn công đi tìm hàm phân phối của biến mới!", "pitfalls": "Quên nhân đạo hàm chuỗi khi tìm hàm mật độ của hàm hợp."}, {"id": "TL7_1", "topicId": 7, "level": "Cơ bản", "title": "Áp dụng Định lý giới hạn trung tâm cho tổng xúc xắc", "problem": "Gieo một con xúc xắc 6 mặt cân đối và đồng chất $n = 100$ lần độc lập. Gọi $X_i$ là số chấm ở lần gieo thứ $i$ ($i = 1, 2, \\dots, 100$) và $S_{100} = \\sum_{i=1}^{100} X_i$ là tổng số chấm thu được sau 100 lần gieo.<br>Biết rằng mỗi lần gieo có: $\\mu = 3{,}5$ và $\\sigma = \\sqrt{35/12} \\approx 1{,}7078$. Cho biết $\\Phi(1{,}17) \\approx 0{,}8790$.<br>1. Phát biểu Định lý giới hạn trung tâm (CLT) áp dụng cho tổng $S_{100}$.<br>2. Xác định kỳ vọng $E(S_{100})$ và độ lệch chuẩn $\\operatorname{SD}(S_{100})$.<br>3. Dùng CLT tính xấp xỉ xác suất để tổng số chấm nằm trong khoảng từ 330 đến 370 ($P(330 \\le S_{100} \\le 370)$).", "analysis": "CLT: Khi n lon (n=100 >= 30), S_n ~ N(n*mu, n*sigma^2). E(S_100) = 100*3.5 = 350. SD(S_100) = 10 * 1.7078 = 17.078. Khoang [330, 370] cach tam 350 mot khoang +-20. Z = 20 / 17.078 approx 1.171. P = 2*Phi(1.17) - 1 = 2(0.8790) - 1 = 0.7580.", "hints": ["E(S_100) = 100 * 3.5 = 350.", "SD(S_100) = sqrt(100) * 1.7078 = 17.078.", "Chuẩn hóa Z1 = (330 - 350) / 17.078 = -1.17; Z2 = +1.17."], "steps": ["<b>Bước 1: Phát biểu Định lý giới hạn trung tâm (CLT) `[+0,25đ]`</b><br>Theo CLT: Cho $X_1, X_2, \\dots, X_n$ là các biến ngẫu nhiên độc lập cùng phân phối (i.i.d.) có kỳ vọng $\\mu$ và phương sai $\\sigma^2$ hữu hạn. Khi kích thước mẫu $n$ đủ lớn ($n \\ge 30$), tổng $S_n = \\sum_{i=1}^n X_i$ xấp xỉ tuân theo phân phối chuẩn:<br>$$S_n \\approx N(\\mu_S = n\\mu,\\; \\sigma_S^2 = n\\sigma^2)$$", "<b>Bước 2: Tính kỳ vọng và độ lệch chuẩn của S₁₀₀ `[+0,35đ]`</b><br>Với $n = 100$, $\\mu = 3{,}5$ và $\\sigma = 1{,}7078$:<br>- Kỳ vọng của tổng:<br>$$\\mu_S = E(S_{100}) = n \\cdot \\mu = 100 \\times 3{,}5 = 350{,}0$$- Độ lệch chuẩn của tổng:<br>$$\\sigma_S = \\operatorname{SD}(S_{100}) = \\sqrt{n} \\cdot \\sigma = \\sqrt{100} \\times 1{,}7078 = 10 \\times 1{,}7078 = 17{,}078$$Do đó: $S_{100} \\approx N(350;\\; 17{,}078^2)$.", "<b>Bước 3: Tính xác suất tổng số chấm từ 330 đến 370 `[+0,40đ]`</b><br>Chuẩn hóa hai đầu mút của biến cố $330 \\le S_{100} \\le 370$:<br>- Đầu mút dưới: $Z_1 = \\frac{330 - 350}{17{,}078} = \\frac{-20}{17{,}078} \\approx -1{,}17$<br>- Đầu mút trên: $Z_2 = \\frac{370 - 350}{17{,}078} = \\frac{+20}{17{,}078} \\approx +1{,}17$<br>Xác suất xấp xỉ chuẩn là:<br>$$P(330 \\le S_{100} \\le 370) \\approx P(-1{,}17 \\le Z \\le 1{,}17) = \\Phi(1{,}17) - \\Phi(-1{,}17)$$$$= 2\\Phi(1{,}17) - 1 = 2 \\times 0{,}8790 - 1 = 1{,}7580 - 1 = 0{,}7580\\text{ (75{,}80\\%)}$$"], "pro_tips": "Mặc dù mỗi lần gieo xúc xắc mang phân phối đều rời rạc hình chữ nhật, nhưng tổng của 100 lần gieo đã trở thành hình chuông phân phối chuẩn cực kỳ mượt mà!", "pitfalls": "Quên căn bậc hai của $n$ khi tính độ lệch chuẩn (lấy $n \\times \\sigma = 170{,}78$ thay vì $\\sqrt{n} \\times \\sigma = 17{,}078$)."}, {"id": "TL7_2", "topicId": 7, "level": "Cơ bản", "title": "Bài toán thang máy chở khách: Tổng các biến phân phối chuẩn", "problem": "Một thang máy của tòa nhà chung cư có tải trọng quy định tối đa là $700\\text{ kg}$. Có 10 người cùng bước vào thang máy. Cân nặng của mỗi người là các biến ngẫu nhiên độc lập cùng tuân theo phân phối chuẩn với trung bình $\\mu = 65\\text{ kg}$ và độ lệch chuẩn $\\sigma = 5\\text{ kg}$ ($X_i \\sim N(65,\\; 5^2)$). Cho biết: $\\Phi(3{,}16) \\approx 0{,}9992$.<br>1. Xác định phân phối xác suất chính xác của tổng cân nặng $S_{10}$ của 10 người.<br>2. Tính xác suất thang máy bị quá tải trọng ($P(S_{10} > 700)$).<br>3. Giải thích tại sao trong bài toán này ta không cần điều kiện $n \\ge 30$ của Định lý giới hạn trung tâm.", "analysis": "1. Tong cua cac bien doc lap phan phoi chuan la bien phan phoi chuan CHINH XAC (khong can xap xi). S_10 ~ N(10*65, 10*25) = N(650, 250). SD(S_10) = sqrt(250) = 5*sqrt(10) approx 15.8114 kg. 2. P(S_10 > 700): Z = (700 - 650) / 15.8114 = 50 / 15.8114 = 3.1623. P = 1 - Phi(3.16) = 1 - 0.9992 = 0.0008 (0.08%). 3. Vi tong the ban dau da la chuan.", "hints": ["Tổng của các biến chuẩn độc lập luôn luôn có phân phối chuẩn với mọi n.", "E(S_10) = 10 * 65 = 650 kg. Var(S_10) = 10 * 5^2 = 250 kg^2.", "Z = (700 - 650) / sqrt(250) = 50 / 15.8114 approx 3.16."], "steps": ["<b>Bước 1: Xác định phân phối xác suất chính xác của S₁₀ `[+0,35đ]`</b><br>Vì các biến ngẫu nhiên thành phần $X_i$ là độc lập và bản thân chúng <i>đã tuân theo phân phối chuẩn</i> $N(65,\\; 5^2)$, theo tính chất bảo toàn của phân phối chuẩn, tổng $S_{10} = \\sum_{i=1}^{10} X_i$ tuân theo <b>phân phối chuẩn chính xác</b> (không cần xấp xỉ):<br>- Kỳ vọng của tổng: $\\mu_S = 10 \\times 65 = 650\\text{ kg}$.<br>- Phương sai của tổng: $\\sigma_S^2 = 10 \\times 5^2 = 10 \\times 25 = 250\\text{ kg}^2$.<br>- Độ lệch chuẩn của tổng: $\\sigma_S = \\sqrt{250} = 5\\sqrt{10} \\approx 15{,}8114\\text{ kg}$.<br>Vậy: $S_{10} \\sim N(650;\\; 250)$.", "<b>Bước 2: Tính xác suất thang máy bị quá tải `[+0,35đ]`</b><br>Thang máy bị quá tải khi tổng khối lượng vượt quá $700\\text{ kg}$ ($S_{10} > 700$).<br>Chuẩn hóa giá trị 700 kg:<br>$$Z = \\frac{700 - \\mu_S}{\\sigma_S} = \\frac{700 - 650}{15{,}8114} = \\frac{50}{15{,}8114} \\approx 3{,}16$$Xác suất bị quá tải là:<br>$$P(S_{10} > 700) = P(Z > 3{,}16) = 1 - \\Phi(3{,}16)$$Tra bảng chuẩn tắc: $\\Phi(3{,}16) \\approx 0{,}9992$:<br>$$P(S_{10} > 700) = 1 - 0{,}9992 = 0{,}0008\\text{ (hay 0{,}08\\%)}$$<b>Kết luận:</b> Khả năng thang máy bị quá tải là cực kỳ hiếm gặp (chỉ khoảng 8 phần vạn).", "<b>Bước 3: Giải thích điều kiện n < 30 `[+0,30đ]`</b><br>Định lý CLT chỉ cần thiết khi phân phối gốc của các biến thành phần $X_i$ <i>chưa phải là chuẩn</i> (ví dụ phân phối đều, phân phối mũ, nhị thức...), lúc đó cần $n \\ge 30$ để trung bình/tổng dần dần tạo thành hình chuông chuẩn.<br>Còn ở bài này, bản thân mỗi cá nhân $X_i$ đã có cân nặng phân phối chuẩn, do đó tổng của chúng luôn mang phân phối chuẩn chính xác với <b>mọi kích thước $n$</b> (kể cả khi $n = 2$ hay $n = 10$)."], "pro_tips": "Nhớ kỹ: 'Tổng của các biến chuẩn độc lập là biến chuẩn' (đúng với mọi $n$), còn 'CLT' chỉ dùng khi biến gốc không chuẩn và cần $n \\ge 30$.", "pitfalls": "Tính độ lệch chuẩn của tổng là $10 \\times 5 = 50\\text{ kg}$ thay vì $\\sqrt{10} \\times 5 = 15{,}81\\text{ kg}$."}, {"id": "TL7_3", "topicId": 7, "level": "Trung bình", "title": "Áp dụng CLT cho Trung bình mẫu: Thời gian phục vụ khách hàng", "problem": "Thời gian giải quyết một thủ tục hành chính tại một cơ quan công quyền là biến ngẫu nhiên có trung bình $\\mu = 12$ phút và độ lệch chuẩn $\\sigma = 4$ phút (chưa rõ dạng phân phối). Khảo sát ngẫu nhiên một mẫu gồm $n = 64$ người dân đến làm thủ tục.<br>1. Nêu phân phối xấp xỉ của thời gian phục vụ trung bình $\\bar{X}_{64}$ theo CLT và tính các tham số của phân phối này.<br>2. Tính xác suất để thời gian phục vụ trung bình của 64 người này ít hơn 11 phút ($P(\\bar{X}_{64} < 11)$). Cho biết $\\Phi(2{,}0) \\approx 0{,}9772$.", "analysis": "1. n = 64 >= 30, CLT ap dung cho trung binh mau: Xbar_n ~ N(mu, sigma^2/n). E(Xbar) = 12 phut. SD(Xbar) = sigma / sqrt(n) = 4 / sqrt(64) = 4 / 8 = 0.5 phut. 2. P(Xbar < 11): Z = (11 - 12)/0.5 = -1 / 0.5 = -2.0. P = Phi(-2.0) = 1 - Phi(2.0) = 1 - 0.9772 = 0.0228 (2.28%).", "hints": ["Cỡ mẫu n = 64 >= 30 -> áp dụng CLT.", "Sai số chuẩn của trung bình mẫu: SE = sigma / sqrt(n) = 4 / 8 = 0.5 phút.", "Chuẩn hóa Z = (11 - 12) / 0.5 = -2.0. Tra Phi(-2.0)."], "steps": ["<b>Bước 1: Xác định phân phối xấp xỉ của trung bình mẫu X̄₆₄ `[+0,40đ]`</b><br>Vì kích thước mẫu $n = 64 \\ge 30$, theo Định lý giới hạn trung tâm (CLT), biến ngẫu nhiên trung bình mẫu $\\bar{X}_{64} = \\frac{1}{64}\\sum_{i=1}^{64} X_i$ xấp xỉ tuân theo phân phối chuẩn:<br>$$\\bar{X}_{64} \\approx N\\left( \\mu_{\\bar{X}} = \\mu,\\; \\sigma_{\\bar{X}}^2 = \\frac{\\sigma^2}{n} \\right)$$Tính các tham số cụ thể:<br>- Kỳ vọng của trung bình mẫu:<br>$$\\mu_{\\bar{X}} = \\mu = 12{,}0\\text{ (phút)}$$- Sai số chuẩn (Standard Error) của trung bình mẫu:<br>$$\\sigma_{\\bar{X}} = \\frac{\\sigma}{\\sqrt{n}} = \\frac{4}{\\sqrt{64}} = \\frac{4}{8} = 0{,}5\\text{ (phút)}$$Do đó: $\\bar{X}_{64} \\approx N(12{,}0;\\; 0{,}5^2)$.", "<b>Bước 2: Tính xác suất thời gian trung bình ít hơn 11 phút `[+0,40đ]`</b><br>Ta cần tính xác suất $P(\\bar{X}_{64} < 11)$.<br>Chuẩn hóa giá trị 11 phút:<br>$$Z = \\frac{11 - \\mu_{\\bar{X}}}{\\sigma_{\\bar{X}}} = \\frac{11 - 12}{0{,}5} = \\frac{-1}{0{,}5} = -2{,}0$$Xác suất cần tìm là:<br>$$P(\\bar{X}_{64} < 11) \\approx P(Z < -2{,}0) = \\Phi(-2{,}0)$$Theo tính chất đối xứng: $\\Phi(-2{,}0) = 1 - \\Phi(2{,}0)$. Đề bài cho $\\Phi(2{,}0) \\approx 0{,}9772$:<br>$$P(\\bar{X}_{64} < 11) = 1 - 0{,}9772 = 0{,}0228\\text{ (2{,}28\\%)}$$", "<b>Bước 3: Kết luận `[+0,20đ]`</b><br>Xác suất để thời gian xử lý hồ sơ trung bình của 64 người dân ít hơn 11 phút là $2{,}28\\%$."], "pro_tips": "Đối với bài toán Trung bình mẫu $\\bar{X}_n$, mẫu số của công thức chuẩn hóa luôn luôn là $\\frac{\\sigma}{\\sqrt{n}}$ (chia cho $\\sqrt{n}$).", "pitfalls": "Quên chia căn $n$: dùng $\\sigma = 4$ thay vì $\\sigma/\\sqrt{n} = 0{,}5$ dẫn đến $Z = (11-12)/4 = -0{,}25$ (sai hoàn toàn)."}, {"id": "TL7_4", "topicId": 7, "level": "Trung bình", "title": "Quãng đường đi học và So sánh các kích thước mẫu n khác nhau", "problem": "Quãng đường từ nhà đến trường của sinh viên có phân phối lệch phải (phân phối mũ) với kỳ vọng $\\mu = 5\\text{ km}$ và độ lệch chuẩn $\\sigma = 5\\text{ km}$. Cho biết: $\\Phi(2{,}0) \\approx 0{,}9772$; $\\Phi(1{,}2) \\approx 0{,}8849$.<br>1. Khảo sát một mẫu gồm $n = 100$ sinh viên. Dùng CLT, tính xác suất để quãng đường trung bình $\\bar{X}_{100}$ nằm giữa 4 km và 6 km ($P(4 \\le \\bar{X}_{100} \\le 6)$).<br>2. Khi kích thước mẫu giảm xuống còn $n = 36$ sinh viên, hãy tính lại xác suất trên ($P(4 \\le \\bar{X}_{36} \\le 6)$).<br>3. So sánh kết quả ở 2 trường hợp và giải thích quy luật hội tụ của trung bình mẫu.", "analysis": "1. n = 100: SE = 5 / sqrt(100) = 0.5 km. P(4 <= Xbar <= 6): Z in [-1/0.5, 1/0.5] = [-2, 2]. P = 2*Phi(2) - 1 = 2(0.9772) - 1 = 0.9544 (95.44%). 2. n = 36: SE = 5 / sqrt(36) = 5/6 approx 0.8333 km. Z in [-1/(5/6), 1/(5/6)] = [-1.2, 1.2]. P = 2*Phi(1.2) - 1 = 2(0.8849) - 1 = 0.7698 (76.98%). 3. Khi n tang, SE giam, phan phoi tap trung chat che hon quanh mu.", "hints": ["Với n = 100: SE = 5 / 10 = 0.5 km -> Z = (6 - 5) / 0.5 = 2.0.", "Với n = 36: SE = 5 / 6 = 0.8333 km -> Z = (6 - 5) / (5/6) = 1.2.", "P(-z <= Z <= z) = 2*Phi(z) - 1."], "steps": ["<b>Bước 1: Tính xác suất với kích thước mẫu n = 100 `[+0,40đ]`</b><br>Với $n = 100$ sinh viên, sai số chuẩn của trung bình mẫu là:<br>$$\\sigma_{\\bar{X}_{100}} = \\frac{\\sigma}{\\sqrt{n}} = \\frac{5}{\\sqrt{100}} = \\frac{5}{10} = 0{,}5\\text{ (km)}$$Chuẩn hóa khoảng $[4;\\; 6]$:<br>- $Z_1 = \\frac{4 - 5}{0{,}5} = -2{,}0$<br>- $Z_2 = \\frac{6 - 5}{0{,}5} = +2{,}0$<br>Xác suất quãng đường trung bình rơi vào $[4;\\; 6]$ km:<br>$$P(4 \\le \\bar{X}_{100} \\le 6) \\approx 2\\Phi(2{,}0) - 1 = 2(0{,}9772) - 1 = 1{,}9544 - 1 = 0{,}9544\\text{ (95{,}44\\%)}$$", "<b>Bước 2: Tính xác suất với kích thước mẫu n = 36 `[+0,35đ]`</b><br>Với $n = 36$ sinh viên, sai số chuẩn của trung bình mẫu là:<br>$$\\sigma_{\\bar{X}_{36}} = \\frac{\\sigma}{\\sqrt{n}} = \\frac{5}{\\sqrt{36}} = \\frac{5}{6} \\approx 0{,}8333\\text{ (km)}$$Chuẩn hóa khoảng $[4;\\; 6]$:<br>- $Z_1 = \\frac{4 - 5}{5/6} = -\\frac{6}{5} = -1{,}20$<br>- $Z_2 = \\frac{6 - 5}{5/6} = +\\frac{6}{5} = +1{,}20$<br>Xác suất tương ứng:<br>$$P(4 \\le \\bar{X}_{36} \\le 6) \\approx 2\\Phi(1{,}20) - 1 = 2(0{,}8849) - 1 = 1{,}7698 - 1 = 0{,}7698\\text{ (76{,}98\\%)}$$", "<b>Bước 3: So sánh và Rút ra quy luật `[+0,25đ]`</b><br>- Khi kích thước mẫu tăng từ $n = 36$ lên $n = 100$, xác suất trung bình mẫu bám sát quanh giá trị thực $\\mu = 5$ tăng mạnh từ $76{,}98\\%$ lên $95{,}44\\%$.<br>- <b>Quy luật:</b> Sai số chuẩn tỉ lệ nghịch với $\\sqrt{n}$ ($\\sigma/\\sqrt{n}$). Khi kích thước mẫu $n$ càng lớn, đồ thị phân phối của $\\bar{X}_n$ càng co cụm hẹp lại quanh kỳ vọng $\\mu$, làm cho trung bình mẫu ước lượng ngày càng chính xác và tin cậy."], "pro_tips": "Nhớ rằng để giảm sai số chuẩn đi 2 lần, ta phải tăng kích thước mẫu lên gấp $2^2 = 4$ lần!", "pitfalls": "Tính sai phân số chia cho phân số: $1 / (5/6) = 6/5 = 1{,}2$ (một số bạn bấm máy tính nhầm thành $1/5/6 = 0{,}033$)."}, {"id": "TL7_5", "topicId": 7, "level": "Trung bình", "title": "Xấp xỉ Chuẩn cho Nhị thức với Hiệu chỉnh liên tục (Continuity Correction)", "problem": "Tung một đồng xu cân đối và đồng chất $n = 100$ lần độc lập. Gọi $X$ là số lần xuất hiện mặt ngửa ($X \\sim B(100,\\; 0{,}5)$). Cho biết: $\\Phi(1{,}1) \\approx 0{,}8643$; $\\Phi(1{,}0) \\approx 0{,}8413$.<br>1. Tính kỳ vọng $\\mu$ và độ lệch chuẩn $\\sigma$ của $X$. Kiểm tra điều kiện áp dụng định lý De Moivre – Laplace.<br>2. Áp dụng Định lý giới hạn trung tâm <b>CÓ hiệu chỉnh liên tục</b>, hãy tính xấp xỉ xác suất số lần mặt ngửa xuất hiện từ 45 đến 55 lần ($P(45 \\le X \\le 55)$).<br>3. So sánh kết quả trên nếu tính KHÔNG có hiệu chỉnh liên tục và giải thích ý nghĩa hình học của việc hiệu chỉnh $\\pm 0{,}5$.", "analysis": "1. mu = np = 50, Var = np(1-p) = 25 => sigma = 5. np = 50 >= 10, n(1-p) = 50 >= 10 -> Thoa man De Moivre - Laplace. 2. Co hieu chinh: P(45 <= X <= 55) = P(44.5 <= Y <= 55.5). Z1 = (44.5 - 50)/5 = -1.1; Z2 = (55.5 - 50)/5 = +1.1. P = 2*Phi(1.1) - 1 = 2(0.8643) - 1 = 0.7286 (72.86%). 3. Khong hieu chinh: Z in [-1.0, 1.0] -> 2*Phi(1.0) - 1 = 0.6826 (68.26%). Sai so toi 4.6%!", "hints": ["mu = 100 * 0.5 = 50; sigma = sqrt(100 * 0.5 * 0.5) = 5.", "Quy tắc hiệu chỉnh liên tục: 45 lùi nửa đơn vị thành 44.5; 55 tiến nửa đơn vị thành 55.5.", "Z = (55.5 - 50) / 5 = 5.5 / 5 = 1.1."], "steps": ["<b>Bước 1: Tính tham số và Kiểm tra điều kiện `[+0,30đ]`</b><br>Số mặt ngửa $X \\sim B(n = 100,\\; p = 0{,}5)$:<br>- Kỳ vọng: $\\mu = n p = 100 \\times 0{,}5 = 50$.<br>- Phương sai: $\\sigma^2 = n p (1 - p) = 100 \\times 0{,}5 \\times 0{,}5 = 25$.<br>- Độ lệch chuẩn: $\\sigma = \\sqrt{25} = 5{,}0$.<br>Kiểm tra điều kiện: $n p = 50 \\ge 10$ và $n(1 - p) = 50 \\ge 10$. Điều kiện xấp xỉ chuẩn (Định lý De Moivre – Laplace) được thỏa mãn rất tốt.", "<b>Bước 2: Tính xấp xỉ CÓ hiệu chỉnh liên tục `[+0,40đ]`</b><br>Vì $X$ là biến rời rạc nhận các giá trị nguyên, mỗi giá trị nguyên $k$ thực chất tương ứng với cột hình chữ nhật trải dài từ $k - 0{,}5$ đến $k + 0{,}5$ trên trục số thực.<br>Do đó khoảng rời rạc $45 \\le X \\le 55$ được mở rộng sang biến liên tục $Y \\sim N(50,\\; 5^2)$ là:<br>$$P(45 \\le X \\le 55) \\approx P(44{,}5 \\le Y \\le 55{,}5)$$Chuẩn hóa hai đầu mút:<br>- $Z_1 = \\frac{44{,}5 - 50}{5} = \\frac{-5{,}5}{5} = -1{,}10$<br>- $Z_2 = \\frac{55{,}5 - 50}{5} = \\frac{+5{,}5}{5} = +1{,}10$<br>Xác suất tính được là:<br>$$P(45 \\le X \\le 55) \\approx 2\\Phi(1{,}10) - 1 = 2(0{,}8643) - 1 = 1{,}7286 - 1 = 0{,}7286\\text{ (72{,}86\\%)}$$", "<b>Bước 3: So sánh khi KHÔNG hiệu chỉnh và Giải thích ý nghĩa `[+0,30đ]`</b><br>- Nếu tính trực tiếp không hiệu chỉnh:<br>$$Z_1 = \\frac{45 - 50}{5} = -1{,}0;\\quad Z_2 = \\frac{55 - 50}{5} = +1{,}0$$$$P_{\\text{không hiệu chỉnh}} = 2\\Phi(1{,}0) - 1 = 2(0{,}8413) - 1 = 0{,}6826\\text{ (68{,}26\\%)}$$<br>- <b>Đánh giá sai số:</b> Nếu không hiệu chỉnh, kết quả bị thiếu hụt tới $72{,}86\\% - 68{,}26\\% = 4{,}60\\%$! Nguyên nhân là vì đã bỏ sót nửa cột bên trái của giá trị 45 (từ 44,5 đến 45) và nửa cột bên phải của giá trị 55 (từ 55 đến 55,5). Hiệu chỉnh liên tục bao trùm trọn vẹn diện tích của toàn bộ các cột histogram."], "pro_tips": "Quy tắc nằm lòng hiệu chỉnh liên tục: Đầu mút dưới có dấu $\\le$ thì lùi $0{,}5$; Đầu mút trên có dấu $\\le$ thì tiến $0{,}5$.", "pitfalls": "Hiệu chỉnh nhầm chiều (ví dụ 45 tăng lên 45,5 là sai vì làm thu hẹp khoảng cần tính)."}, {"id": "TL7_6", "topicId": 7, "level": "Nâng cao", "title": "Khảo sát thăm dò dư luận: Xác định kích thước mẫu n cho Tỷ lệ", "problem": "Một kênh truyền hình muốn tiến hành một cuộc thăm dò ý kiến cử tri để ước lượng tỉ lệ ủng hộ một dự luật mới. Yêu cầu cuộc khảo sát phải có <b>sai số biên không vượt quá $\\pm 3\\%$</b> ($E = 0{,}03$) với <b>độ tin cậy $95\\%$</b> ($Z_{0{,}025} = 1{,}96$).<br>1. Sử dụng CLT cho tỉ lệ mẫu $\\hat{p}$, hãy thiết lập công thức xác định kích thước mẫu khảo sát tối thiểu $n$.<br>2. Trong trường hợp chưa có bất kỳ thông tin gì về tỉ lệ ủng hộ thực tế (trường hợp rủi ro tối đa $p = 0{,}5$), đài truyền hình cần phỏng vấn tối thiểu bao nhiêu cử tri?<br>3. Nếu qua khảo sát thăm dò nhỏ ban đầu, người ta biết tỉ lệ ủng hộ chỉ dao động xung quanh $20\\%$ ($p = 0{,}2$), kích thước mẫu cần thiết sẽ giảm xuống còn bao nhiêu?", "analysis": "1. p_hat ~ N(p, p(1-p)/n). Sai so bien E = Z_{alpha/2} * sqrt(p(1-p)/n) <= 0.03 => n >= [Z_{alpha/2}^2 * p(1-p)] / E^2. 2. Truong hop xau nhat p = 0.5: p(1-p) = 0.25 (cuc dai). n >= [1.96^2 * 0.25] / 0.03^2 = [3.8416 * 0.25] / 0.0009 = 0.9604 / 0.0009 = 1067.11 => n = 1068 cu tri. 3. Khi p = 0.2: p(1-p) = 0.16. n >= [3.8416 * 0.16] / 0.0009 = 0.614656 / 0.0009 = 682.95 => n = 683 cu tri.", "hints": ["Công thức sai số biên của tỉ lệ: E = Z * sqrt(p(1-p) / n).", "Bình phương hai vế: n >= [Z^2 * p * (1 - p)] / E^2.", "Tích p(1-p) lớn nhất bằng 0.25 khi p = 0.5 (trường hợp thận trọng nhất)."], "steps": ["<b>Bước 1: Thiết lập công thức tìm kích thước mẫu n `[+0,35đ]`</b><br>Gọi $X$ là số cử tri ủng hộ trong mẫu ngẫu nhiên gồm $n$ cử tri. Tỉ lệ ủng hộ của mẫu là $\\hat{p} = \\frac{X}{n}$.<br>Theo CLT cho phân phối tỉ lệ, khi $n$ đủ lớn:<br>$$\\hat{p} \\approx N\\left( p,\\; \\frac{p(1 - p)}{n} \\right)$$Sai số biên của ước lượng tỉ lệ với độ tin cậy $1 - \\alpha = 0{,}95$ ($Z_{\\alpha/2} = 1{,}96$) là:<br>$$E = Z_{\\alpha/2} \\sqrt{\\frac{p(1 - p)}{n}}$$Để sai số không vượt quá mức cho phép $E$:<br>$$Z_{\\alpha/2} \\sqrt{\\frac{p(1 - p)}{n}} \\le E \\iff \\sqrt{n} \\ge \\frac{Z_{\\alpha/2} \\sqrt{p(1 - p)}}{E} \\iff n \\ge \\frac{Z_{\\alpha/2}^2 \\cdot p(1 - p)}{E^2}$$", "<b>Bước 2: Tính kích thước mẫu cho trường hợp xấu nhất p = 0,5 `[+0,35đ]`</b><br>Hàm số $f(p) = p(1 - p) = p - p^2$ đạt giá trị lớn nhất bằng $0{,}25$ tại $p = 0{,}5$.<br>Do đó, khi chưa biết thông tin gì về $p$, việc chọn $p = 0{,}5$ sẽ đảm bảo kích thước mẫu $n$ luôn đủ lớn và an toàn cho mọi tình huống thực tế:<br>$$n \\ge \\frac{(1{,}96)^2 \\times 0{,}5 \\times (1 - 0{,}5)}{(0{,}03)^2} = \\frac{3{,}8416 \\times 0{,}25}{0{,}0009} = \\frac{0{,}9604}{0{,}0009} \\approx 1067{,}11$$Vì cỡ mẫu phải là số nguyên, ta luôn làm tròn lên số nguyên tiếp theo:<br>$$n = \\lceil 1067{,}11 \\rceil = 1068\\text{ (cử tri)}$$<b>Kết luận:</b> Cần phỏng vấn tối thiểu <b>1068 cử tri</b>.", "<b>Bước 3: Tính kích thước mẫu khi biết p ≈ 0,2 `[+0,30đ]`</b><br>Khi đã có thông tin sơ bộ $p = 0{,}2$, ta có: $p(1 - p) = 0{,}2 \\times 0{,}8 = 0{,}16$:<br>$$n \\ge \\frac{(1{,}96)^2 \\times 0{,}16}{(0{,}03)^2} = \\frac{3{,}8416 \\times 0{,}16}{0{,}0009} = \\frac{0{,}614656}{0{,}0009} \\approx 682{,}95$$Làm tròn lên số nguyên tiếp theo:<br>$$n = \\lceil 682{,}95 \\rceil = 683\\text{ (cử tri)}$$<b>Nhận xét:</b> Việc có thêm thông tin ban đầu $p = 0{,}2$ giúp tiết kiệm được $1068 - 683 = 385$ cuộc phỏng vấn (giảm hơn $36\\%$ chi phí điều tra)."], "pro_tips": "Con số xấp xỉ 1068 (hoặc ~1000 người) chính là quy chuẩn cỡ mẫu quốc tế thường thấy trên các bản tin khảo sát chính trị và thị trường!", "pitfalls": "Làm tròn số học thông thường xuống 1067 (nhớ rằng trong tính cỡ mẫu, LUÔN LUÔN làm tròn lên $\\lceil \\dots \\rceil$ để bảo đảm sai số không bị đội lên quá 3%)."}, {"id": "TL7_7", "topicId": 7, "level": "Nâng cao", "title": "Bóng đèn dự phòng và Giải phương trình bậc hai tìm kích thước mẫu n", "problem": "Một hệ thống quan trắc khoa học dưới đáy biển sâu cần hoạt động chiếu sáng liên tục trong ít nhất $T_0 = 2000\\text{ giờ}$. Khi một bóng đèn bị cháy, hệ thống cơ học sẽ lập tức tự động thay thế bằng một bóng đèn mới dự phòng (thời gian thay thế xem như bằng 0).<br>Tuổi thọ của mỗi bóng đèn là các biến ngẫu nhiên độc lập có cùng kỳ vọng $\\mu = 100\\text{ giờ}$ và độ lệch chuẩn $\\sigma = 30\\text{ giờ}$.<br>Hỏi phòng thí nghiệm cần lắp đặt dự phòng <b>tối thiểu bao nhiêu bóng đèn ($n$)</b> để đảm bảo xác suất hệ thống chiếu sáng hoạt động liên tục suốt 2000 giờ đạt từ $95\\%$ ($0{,}95$) trở lên?<br><i>Cho biết: Giá trị phân vị chuẩn $\\Phi(1{,}645) \\approx 0{,}9500$.</i>", "analysis": "Goi n la so bong den. Tong thoi gian chieu sang T_n = sum_{i=1}^n X_i. Theo CLT: T_n ~ N(n*mu, n*sigma^2) = N(100n, 900n). Yeu cau: P(T_n >= 2000) >= 0.95 <=> P(Z >= (2000 - 100n)/(30*sqrt(n))) >= 0.95 <=> (2000 - 100n)/(30*sqrt(n)) <= -1.645. Nhan cheo: 2000 - 100n <= -49.35*sqrt(n) <=> 100n - 49.35*sqrt(n) - 2000 >= 0. Dat u = sqrt(n) > 0. Giai phuong trinh bac hai: 100 u^2 - 49.35 u - 2000 >= 0 => u >= 4.7257 => n >= 22.33 => n = 23 bong.", "hints": ["Tổng thời gian sáng là T_n = X1 + X2 + ... + Xn.", "Yêu cầu P(T_n >= 2000) >= 0.95 tương đương Z <= -1.645.", "Đặt u = sqrt(n), phương trình trở thành phương trình bậc hai: 100*u^2 - 49.35*u - 2000 >= 0."], "steps": ["<b>Bước 1: Mô hình hóa bài toán và Áp dụng Định lý giới hạn trung tâm `[+0,35đ]`</b><br>Gọi $n$ là số lượng bóng đèn cần sử dụng ($n \\in \\mathbb{N}^*$).<br>Tổng thời gian chiếu sáng của $n$ bóng đèn là $T_n = \\sum_{i=1}^n X_i$.<br>Vì các bóng đèn hoạt động độc lập và $n$ đủ lớn, theo CLT:<br>$$T_n \\approx N(\\mu_n = n\\mu = 100n,\\; \\sigma_n^2 = n\\sigma^2 = n \\times 30^2 = 900n)$$Độ lệch chuẩn là $\\sigma_n = \\sqrt{900n} = 30\\sqrt{n}$.", "<b>Bước 2: Thiết lập bất phương trình chuẩn hóa xác suất `[+0,35đ]`</b><br>Hệ thống hoạt động liên tục suốt 2000 giờ khi và chỉ khi $T_n \\ge 2000$.<br>Chuẩn hóa biến số $T_n$:<br>$$P(T_n \\ge 2000) = P\\left( \\frac{T_n - 100n}{30\\sqrt{n}} \\ge \\frac{2000 - 100n}{30\\sqrt{n}} \\right) = P\\left( Z \\ge \\frac{2000 - 100n}{30\\sqrt{n}} \\right)$$$$= 1 - \\Phi\\left( \\frac{2000 - 100n}{30\\sqrt{n}} \\right)$$Yêu cầu xác suất đạt từ $95\\%$ trở lên:<br>$$1 - \\Phi\\left( \\frac{2000 - 100n}{30\\sqrt{n}} \\right) \\ge 0{,}95 \\iff \\Phi\\left( \\frac{2000 - 100n}{30\\sqrt{n}} \\right) \\le 0{,}05$$Tra bảng chuẩn tắc: $\\Phi(-1{,}645) = 0{,}05$. Do hàm $\\Phi$ đồng biến, ta có:<br>$$\\frac{2000 - 100n}{30\\sqrt{n}} \\le -1{,}645$$", "<b>Bước 3: Đặt ẩn phụ u = √n và Giải phương trình bậc hai `[+0,30đ]`</b><br>Nhân cả hai vế với mẫu số dương $30\\sqrt{n} > 0$:<br>$$2000 - 100n \\le -1{,}645 \\times 30\\sqrt{n} = -49{,}35\\sqrt{n}$$Chuyển tất cả sang vế phải:<br>$$100n - 49{,}35\\sqrt{n} - 2000 \\ge 0$$Đặt ẩn phụ $u = \\sqrt{n} > 0$. Ta được bất phương trình bậc hai:<br>$$100u^2 - 49{,}35u - 2000 \\ge 0$$Tính biệt thức $\\Delta$:<br>$$\\Delta = (-49{,}35)^2 - 4(100)(-2000) = 2435{,}42 + 800000 = 802435{,}42$$$$\\sqrt{\\Delta} = \\sqrt{802435{,}42} \\approx 895{,}7876$$Nghiệm dương của phương trình là:<br>$$u \\ge \\frac{49{,}35 + 895{,}7876}{2 \\times 100} = \\frac{945{,}1376}{200} \\approx 4{,}7257$$Bình phương hai vế để tìm $n$:<br>$$n = u^2 \\ge (4{,}7257)^2 \\approx 22{,}332$$Vì số lượng bóng đèn phải là số nguyên dương, ta làm tròn lên:<br>$$n = \\lceil 22{,}332 \\rceil = 23$$<b>Kết luận:</b> Cần trang bị tối thiểu <b>23 bóng đèn</b> để đảm bảo hệ thống hoạt động liên tục suốt 2000 giờ với độ tin cậy $95\\%$."], "pro_tips": "Đây chính là Bài tập vận dụng 5 trong slide week07 (trang 90-91). Kỹ thuật đặt $u = \\sqrt{n}$ để giải bất phương trình bậc hai là dạng bài phân loại 9-10 điểm của đề thi giữa kỳ!", "pitfalls": "Quên dấu âm $-1{,}645$ khi đổi từ $1 - \\Phi \\ge 0{,}95$ sang $\\Phi \\le 0{,}05$, dẫn đến phương trình sai hoàn toàn."}, {"id": "TL7_8", "topicId": 7, "level": "Nâng cao", "title": "Quản trị rủi ro bảo hiểm: Doanh thu, Chi bồi thường và Xác suất vỡ quỹ", "problem": "Một công ty bảo hiểm phát hành $n = 10.000$ hợp đồng bảo hiểm xe máy trong năm với mức phí thu về là $100.000\\text{ đồng/hợp đồng}$. Xác suất một hợp đồng gặp sự cố bồi thường trong năm là $p = 0{,}01$. Mỗi vụ bồi thường công ty phải chi trả số tiền cố định là $5.000.000\\text{ đồng}$. Giả sử các vụ tai nạn của các chủ xe là độc lập.<br>1. Tính tổng doanh thu phí bảo hiểm thu về và số vụ bồi thường kỳ vọng trong năm.<br>2. Dùng Định lý giới hạn trung tâm, hãy ước tính xác suất công ty bị thua lỗ trong năm tài chính này (tức tổng tiền chi bồi thường vượt quá tổng doanh thu phí).<br>3. Để đảm bảo an toàn tuyệt đối sao cho xác suất chi trả vượt quá quỹ dự phòng nhỏ hơn $0{,}1\\%$ ($Z_{0{,}001} = 3{,}09$), công ty cần chuẩn bị quỹ dự phòng bồi thường tối thiểu là bao nhiêu tiền?", "analysis": "1. Doanh thu = 10000 * 100.000 = 1.000.000.000 VND (1 ty dong). So vu boi thuong K ~ B(10000, 0.01). mu_K = 100 vu, sigma_K = sqrt(10000 * 0.01 * 0.99) = sqrt(99) approx 9.94987 vu. 2. Tien boi thuong S = K * 5.000.000 VND. Cong ty lo khi S > 1 ty <=> K > 1.000.000.000 / 5.000.000 = 200 vu. Chuẩn hóa Z = (200 - 100) / 9.94987 = 100 / 9.95 = 10.05. P(K > 200) = 1 - Phi(10.05) approx 0 (nho hon 10^(-20)). 3. Quy du phong: Can P(K > k*) <= 0.001 <=> (k* - 100)/9.95 = 3.09 <=> k* = 100 + 3.09 * 9.95 = 100 + 30.7455 = 130.75 vu. So tien = 131 * 5.000.000 = 655.000.000 VND (655 trieu dong).", "hints": ["Doanh thu = 1 tỷ đồng. Mỗi vụ chi 5 triệu -> Lỗ khi có hơn 200 vụ tai nạn.", "Số vụ tai nạn K có kỳ vọng mu = 100 vụ, độ lệch chuẩn sigma = sqrt(99) = 9.95 vụ.", "200 vụ cách kỳ vọng tới 10 lần độ lệch chuẩn (Z = 10.05)!"], "steps": ["<b>Bước 1: Tính doanh thu và Kỳ vọng số vụ bồi thường `[+0,30đ]`</b><br>- Tổng doanh thu phí bảo hiểm thu về:<br>$$\\text{Doanh thu} = 10.000 \\times 100.000 = 1.000.000.000\\text{ (đồng) } = 1\\text{ tỷ đồng}$$- Gọi $K$ là số vụ tai nạn phát sinh bồi thường. Vì các hợp đồng độc lập, $K \\sim B(n = 10.000,\\; p = 0{,}01)$:<br>  + Số vụ bồi thường kỳ vọng: $E(K) = n \\cdot p = 10.000 \\times 0{,}01 = 100\\text{ (vụ)}$<br>  + Độ lệch chuẩn số vụ bồi thường:<br>$$\\sigma_K = \\sqrt{n p (1 - p)} = \\sqrt{10.000 \\times 0{,}01 \\times 0{,}99} = \\sqrt{99} \\approx 9{,}9499\\text{ (vụ)}$$", "<b>Bước 2: Tính xác suất công ty bảo hiểm bị thua lỗ `[+0,35đ]`</b><br>Mỗi vụ bồi thường chi trả 5 triệu đồng ($5.000.000$ đồng).<br>Tổng số tiền chi trả bồi thường là: $S = K \\times 5.000.000$ đồng.<br>Công ty bị lỗ khi tiền chi vượt quá doanh thu thu vào:<br>$$S > 1.000.000.000 \\iff K \\times 5.000.000 > 1.000.000.000 \\iff K > 200\\text{ (vụ)}$$Theo CLT, biến $K$ xấp xỉ chuẩn $N(100;\\; 9{,}95^2)$. Chuẩn hóa giá trị 200 vụ:<br>$$Z = \\frac{200 - 100}{9{,}9499} = \\frac{100}{9{,}9499} \\approx 10{,}05$$Xác suất bị thua lỗ là:<br>$$P(\\text{Lỗ}) = P(K > 200) = 1 - \\Phi(10{,}05) \\approx 0\\text{ (nhỏ hơn } 10^{-20}\\text{)}$$<b>Kết luận:</b> Xác suất công ty bảo hiểm bị lỗ là bằng $0$ trên thực tế.", "<b>Bước 3: Xác định quỹ dự phòng bồi thường an toàn `[+0,35đ]`</b><br>Để rủi ro vỡ quỹ nhỏ hơn $0{,}1\\%$ ($0{,}001$), số vụ tai nạn tối đa cần dự phòng $k^*$ phải thỏa mãn:<br>$$P(K > k^*) \\le 0{,}001 \\iff P(K \\le k^*) \\ge 0{,}999$$Chuẩn hóa: $\\frac{k^* - 100}{9{,}9499} = Z_{0{,}001} = 3{,}09$:<br>$$k^* = 100 + 3{,}09 \\times 9{,}9499 = 100 + 30{,}745 \\approx 130{,}75\\text{ (vụ)}$$Làm tròn lên số vụ an toàn: $k^* = 131$ vụ bồi thường.<br>Quỹ dự phòng tài chính tối thiểu cần thiết:<br>$$\\text{Quỹ dự phòng} = 131 \\times 5.000.000 = 655.000.000\\text{ (đồng) } = 655\\text{ triệu đồng}$$<i>(Nhận xét: Trong 1 tỷ đồng doanh thu, công ty chỉ cần trích ra 655 triệu làm quỹ bồi thường an toàn 99,9%, 345 triệu đồng còn lại là lợi nhuận chắc chắn và chi phí quản lý vận hành!).</i>"], "pro_tips": "Đây là bài toán kinh tế thực tế xuất sắc minh họa vì sao ngành bảo hiểm là một trong những ngành kinh doanh có biên lợi nhuận ổn định nhất trên thế giới nhờ Luật số lớn và CLT.", "pitfalls": "Quên nhân số vụ với số tiền bồi thường 5.000.000 đồng khi tính số tiền của quỹ dự phòng."}]};
+
+// STATE MANAGEMENT WITH LOCALSTORAGE
+const STORAGE_KEY = "xstk_tuluan_state_v1";
+let userState = {
+  done: {},      // { "TL1_1": true, ... }
+  flagged: {},   // { "TL1_1": true, ... }
+  notes: {},     // { "TL1_1": "text", ... }
+  theme: "light"
+};
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) userState = Object.assign(userState, JSON.parse(raw));
+  } catch(e) {}
+}
+
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+  } catch(e) {}
+}
+
+// FILTER STATE
+let currentTopicId = 0;
+let currentLevel = "all";
+let currentStatus = "all";
+let searchQuery = "";
+
+// INITIALIZATION
+window.addEventListener("DOMContentLoaded", () => {
+  loadState();
+  initTheme();
+  initTopicTabs();
+  initEventListeners();
+  renderExercises();
+  updateStats();
+  initMathRendering();
+});
+
+// THEME
+function initTheme() {
+  if (userState.theme === "dark" || (!userState.theme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  } else {
+    document.documentElement.removeAttribute("data-theme");
+  }
+  document.getElementById("theme-btn").addEventListener("click", () => {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    if (isDark) {
+      document.documentElement.removeAttribute("data-theme");
+      userState.theme = "light";
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+      userState.theme = "dark";
+    }
+    saveState();
+  });
+}
+
+// TOPIC TABS
+function initTopicTabs() {
+  const container = document.getElementById("topic-tabs");
+  TULUAN_DATA.topics.forEach(t => {
+    const btn = document.createElement("button");
+    btn.className = "topic-btn";
+    btn.dataset.tid = t.id;
+    btn.textContent = `Dạng ${t.id}: ${t.short}`;
+    container.appendChild(btn);
+  });
+}
+
+// EVENT LISTENERS
+function initEventListeners() {
+  // Topic click
+  document.getElementById("topic-tabs").addEventListener("click", (e) => {
+    if (!e.target.classList.contains("topic-btn")) return;
+    document.querySelectorAll(".topic-btn").forEach(b => b.classList.remove("active"));
+    e.target.classList.add("active");
+    currentTopicId = parseInt(e.target.dataset.tid, 10);
+    renderExercises();
+  });
+
+  // Level click
+  document.getElementById("level-filters").addEventListener("click", (e) => {
+    if (!e.target.classList.contains("sub-filter-btn")) return;
+    document.querySelectorAll("#level-filters .sub-filter-btn").forEach(b => b.classList.remove("active"));
+    e.target.classList.add("active");
+    currentLevel = e.target.dataset.lvl;
+    renderExercises();
+  });
+
+  // Status click
+  document.getElementById("status-filters").addEventListener("click", (e) => {
+    if (!e.target.classList.contains("sub-filter-btn")) return;
+    document.querySelectorAll("#status-filters .sub-filter-btn").forEach(b => b.classList.remove("active"));
+    e.target.classList.add("active");
+    currentStatus = e.target.dataset.status;
+    renderExercises();
+  });
+
+  // Search input
+  const sInput = document.getElementById("search-input");
+  sInput.addEventListener("input", () => {
+    searchQuery = sInput.value.trim().toLowerCase();
+    renderExercises();
+  });
+
+  // Quick Jump Modal
+  const modal = document.getElementById("jump-modal");
+  document.getElementById("fab-jump").addEventListener("click", () => {
+    openJumpModal();
+  });
+  document.getElementById("close-modal-btn").addEventListener("click", () => {
+    modal.classList.remove("open");
+  });
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.classList.remove("open");
+  });
+}
+
+// RENDER EXERCISES
+function renderExercises() {
+  const container = document.getElementById("exercises-container");
+  container.innerHTML = "";
+
+  const filtered = TULUAN_DATA.exercises.filter(ex => {
+    // Topic filter
+    if (currentTopicId !== 0 && ex.topicId !== currentTopicId) return false;
+    // Level filter
+    if (currentLevel !== "all" && ex.level !== currentLevel) return false;
+    // Status filter
+    const isDone = !!userState.done[ex.id];
+    const isFlag = !!userState.flagged[ex.id];
+    if (currentStatus === "done" && !isDone) return false;
+    if (currentStatus === "todo" && isDone) return false;
+    if (currentStatus === "flag" && !isFlag) return false;
+    // Search query
+    if (searchQuery) {
+      const hay = (ex.id + " " + ex.title + " " + ex.problem + " " + (ex.analysis || "")).toLowerCase();
+      if (!hay.includes(searchQuery)) return false;
+    }
+    return true;
+  });
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div style="text-align:center; padding: 40px 20px; color: var(--mute); background: var(--card); border-radius: var(--radius); border: 1px solid var(--line);">
+        <p style="font-size: 2rem; margin: 0 0 10px;">🔍</p>
+        <p style="font-weight: 700; margin: 0 0 6px;">Không tìm thấy bài tập nào phù hợp</p>
+        <p style="font-size: .88rem; margin: 0;">Hãy thử điều chỉnh bộ lọc hoặc xóa bớt từ khóa tìm kiếm</p>
+      </div>
+    `;
+    return;
+  }
+
+  filtered.forEach(ex => {
+    const card = document.createElement("div");
+    card.className = "ex-card";
+    card.id = "card-" + ex.id;
+    if (userState.done[ex.id]) card.classList.add("is-done");
+    if (userState.flagged[ex.id]) card.classList.add("is-flagged");
+
+    const lvlClass = ex.level === "Cơ bản" ? "cb" : (ex.level === "Trung bình" ? "tb" : "nc");
+    const topicObj = TULUAN_DATA.topics.find(t => t.id === ex.topicId);
+    const topicShort = topicObj ? topicObj.short : `Dạng ${ex.topicId}`;
+
+    // Render hints
+    const hintsHtml = ex.hints.map((h, i) => `
+      <div style="width:100%;">
+        <button class="btn-hint" onclick="toggleHint('${ex.id}', ${i})">💡 Gợi ý ${i+1}</button>
+        <div class="hint-content" id="hint-${ex.id}-${i}">${h}</div>
+      </div>
+    `).join("");
+
+    // Render steps
+    const stepsHtml = ex.steps.map(s => `
+      <div class="sol-step">${s}</div>
+    `).join("");
+
+    // User note
+    const currentNote = userState.notes[ex.id] || "";
+
+    card.innerHTML = `
+      <div class="ex-header">
+        <div class="ex-tags">
+          <span class="tag-id">${ex.id}</span>
+          <span class="tag-level ${lvlClass}">${ex.level}</span>
+          <span class="tag-topic">${topicShort}</span>
+        </div>
+        <div class="ex-actions">
+          <button class="btn-action ${userState.done[ex.id] ? 'active-done' : ''}" id="btn-done-${ex.id}" onclick="toggleDone('${ex.id}')">
+            ${userState.done[ex.id] ? '✓ Đã xong' : '✓ Hoàn thành'}
+          </button>
+          <button class="btn-action ${userState.flagged[ex.id] ? 'active-flag' : ''}" id="btn-flag-${ex.id}" onclick="toggleFlag('${ex.id}')">
+            ${userState.flagged[ex.id] ? '🚩 Đã lưu' : '🚩 Ôn lại'}
+          </button>
+        </div>
+      </div>
+
+      <h2 class="ex-title">${ex.title}</h2>
+      <div class="ex-problem">${ex.problem}</div>
+
+      <!-- ACCORDION ANALYSIS -->
+      <div class="accordion">
+        <div class="acc-header" onclick="toggleAcc('${ex.id}')">
+          <span>💡 Phân tích đề bài & Hướng tư duy</span>
+          <span id="acc-icon-${ex.id}">▼</span>
+        </div>
+        <div class="acc-body" id="acc-body-${ex.id}">${ex.analysis}</div>
+      </div>
+
+      <!-- HINTS ROW -->
+      <div class="hints-row">
+        ${hintsHtml}
+      </div>
+
+      <!-- SOLUTION ACCORDION -->
+      <button class="btn-sol-toggle" id="btn-sol-${ex.id}" onclick="toggleSolution('${ex.id}')">
+        <span>📝 Xem Lời giải chi tiết chuẩn Barem điểm thi</span>
+        <span id="sol-icon-${ex.id}">▼</span>
+      </button>
+
+      <div class="sol-body" id="sol-body-${ex.id}">
+        <div style="font-weight: 800; color: var(--acc); margin-bottom: 12px; font-size: 1rem; border-bottom: 2px solid var(--acc-soft); padding-bottom: 6px;">
+          LỜI GIẢI CHI TIẾT TỪNG BƯỚC (BẢO ĐẢM TỐI ĐA ĐIỂM)
+        </div>
+        ${stepsHtml}
+
+        ${ex.pro_tips ? `
+          <div class="box-pro-tips">
+            <strong>🎯 MẸO GHI ĐIỂM TUYỆT ĐỐI:</strong><br>${ex.pro_tips}
+          </div>
+        ` : ''}
+
+        ${ex.pitfalls ? `
+          <div class="box-pitfalls">
+            <strong>⚠️ BẪY & LỖI HAY BỊ TRỪ ĐIỂM:</strong><br>${ex.pitfalls}
+          </div>
+        ` : ''}
+      </div>
+
+      <!-- PERSONAL NOTES -->
+      <div class="notes-sec">
+        <button class="notes-btn" onclick="toggleNotes('${ex.id}')">
+          <span>✍️ Ghi chú cá nhân</span>
+          <span id="note-indicator-${ex.id}">${currentNote ? '(Có ghi chú)' : ''}</span>
+        </button>
+        <div class="notes-drawer" id="note-drawer-${ex.id}">
+          <textarea class="notes-area" id="note-input-${ex.id}" placeholder="Viết lại điểm cần nhớ, công thức riêng hoặc lưu ý cho bài này..." oninput="saveNote('${ex.id}', this.value)">${currentNote}</textarea>
+        </div>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+
+  // Re-run KaTeX math rendering on freshly inserted cards
+  initMathRendering();
+}
+
+// TOGGLE ACTIONS
+function toggleDone(id) {
+  userState.done[id] = !userState.done[id];
+  if (!userState.done[id]) delete userState.done[id];
+  saveState();
+  updateStats();
+
+  const card = document.getElementById("card-" + id);
+  const btn = document.getElementById("btn-done-" + id);
+  if (card) {
+    if (userState.done[id]) {
+      card.classList.add("is-done");
+      btn.classList.add("active-done");
+      btn.textContent = "✓ Đã xong";
+    } else {
+      card.classList.remove("is-done");
+      btn.classList.remove("active-done");
+      btn.textContent = "✓ Hoàn thành";
+    }
+  }
+}
+
+function toggleFlag(id) {
+  userState.flagged[id] = !userState.flagged[id];
+  if (!userState.flagged[id]) delete userState.flagged[id];
+  saveState();
+  updateStats();
+
+  const card = document.getElementById("card-" + id);
+  const btn = document.getElementById("btn-flag-" + id);
+  if (card) {
+    if (userState.flagged[id]) {
+      card.classList.add("is-flagged");
+      btn.classList.add("active-flag");
+      btn.textContent = "🚩 Đã lưu";
+    } else {
+      card.classList.remove("is-flagged");
+      btn.classList.remove("active-flag");
+      btn.textContent = "🚩 Ôn lại";
+    }
+  }
+}
+
+function toggleAcc(id) {
+  const body = document.getElementById("acc-body-" + id);
+  const icon = document.getElementById("acc-icon-" + id);
+  const isOpen = body.classList.toggle("open");
+  icon.textContent = isOpen ? "▲" : "▼";
+  if (isOpen) initMathRendering();
+}
+
+function toggleHint(id, index) {
+  const h = document.getElementById(`hint-${id}-${index}`);
+  const isShown = h.style.display === "block";
+  h.style.display = isShown ? "none" : "block";
+  if (!isShown) initMathRendering();
+}
+
+function toggleSolution(id) {
+  const body = document.getElementById("sol-body-" + id);
+  const icon = document.getElementById("sol-icon-" + id);
+  const isOpen = body.classList.toggle("open");
+  icon.textContent = isOpen ? "▲" : "▼";
+  if (isOpen) initMathRendering();
+}
+
+function toggleNotes(id) {
+  const drawer = document.getElementById("note-drawer-" + id);
+  const isOpen = drawer.style.display === "block";
+  drawer.style.display = isOpen ? "none" : "block";
+}
+
+function saveNote(id, text) {
+  if (text.trim()) {
+    userState.notes[id] = text;
+    document.getElementById("note-indicator-" + id).textContent = "(Có ghi chú)";
+  } else {
+    delete userState.notes[id];
+    document.getElementById("note-indicator-" + id).textContent = "";
+  }
+  saveState();
+}
+
+// UPDATE STATS
+function updateStats() {
+  const total = TULUAN_DATA.exercises.length;
+  const doneCount = Object.keys(userState.done).length;
+  const flagCount = Object.keys(userState.flagged).length;
+  const pct = Math.round((doneCount / total) * 100);
+
+  document.getElementById("stat-done").textContent = `${doneCount} / ${total}`;
+  document.getElementById("stat-flag").textContent = flagCount;
+  document.getElementById("stat-pct").textContent = `${pct}%`;
+  document.getElementById("global-progress").style.width = `${pct}%`;
+}
+
+// QUICK JUMP MODAL
+function openJumpModal() {
+  const modal = document.getElementById("jump-modal");
+  const list = document.getElementById("modal-jump-list");
+  list.innerHTML = "";
+
+  TULUAN_DATA.exercises.forEach(ex => {
+    const pill = document.createElement("div");
+    pill.className = "jump-pill";
+    if (userState.done[ex.id]) pill.classList.add("is-done");
+    if (userState.flagged[ex.id]) pill.classList.add("is-flagged");
+    pill.textContent = ex.id;
+    pill.onclick = () => {
+      modal.classList.remove("open");
+      // reset filters to show this exercise
+      currentTopicId = 0;
+      currentLevel = "all";
+      currentStatus = "all";
+      searchQuery = "";
+      document.querySelectorAll(".topic-btn").forEach((b, i) => b.classList.toggle("active", i === 0));
+      document.querySelectorAll(".sub-filter-btn").forEach(b => b.classList.toggle("active", b.dataset.lvl === "all" || b.dataset.status === "all"));
+      document.getElementById("search-input").value = "";
+      renderExercises();
+
+      setTimeout(() => {
+        const target = document.getElementById("card-" + ex.id);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+          target.style.boxShadow = "0 0 0 4px var(--acc)";
+          setTimeout(() => { target.style.boxShadow = ""; }, 1800);
+        }
+      }, 100);
+    };
+    list.appendChild(pill);
+  });
+
+  modal.classList.add("open");
+}
+
+// KATEX MATH RENDERING
+function initMathRendering() {
+  if (typeof renderMathInElement === "function") {
+    try {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    } catch(e) {
+      console.warn("KaTeX render error:", e);
+    }
+  }
+}
+</script>
+</body>
+</html>

@@ -1,22 +1,4 @@
 {
-  "redirects": [
-    { "source": "/", "destination": "/site/index.html", "permanent": false },
-    { "source": "/hoc", "destination": "/site/hoc.html", "permanent": false },
-    { "source": "/tuluan", "destination": "/site/tuluan.html", "permanent": false },
-    { "source": "/tracnghiem", "destination": "/site/tracnghiem.html", "permanent": false },
-    { "source": "/congthuc", "destination": "/site/congthuc.html", "permanent": false },
-    { "source": "/dethi", "destination": "/site/dethi.html", "permanent": false },
-    { "source": "/xstk", "destination": "/site/index.html?mon=xstk", "permanent": false },
-    { "source": "/xstk/hoc", "destination": "/site/hoc.html", "permanent": false },
-    { "source": "/xstk/tuluan", "destination": "/site/tuluan.html", "permanent": false },
-    { "source": "/xstk/tracnghiem", "destination": "/site/tracnghiem.html", "permanent": false },
-    { "source": "/xstk/congthuc", "destination": "/site/congthuc.html", "permanent": false },
-    { "source": "/xstk/dethi", "destination": "/site/dethi.html", "permanent": false },
-    { "source": "/csdl", "destination": "/site/csdl/hoc.html", "permanent": false },
-    { "source": "/csdl/hoc", "destination": "/site/csdl/hoc.html", "permanent": false },
-    { "source": "/csdl/tracnghiem", "destination": "/site/csdl/tracnghiem.html", "permanent": false },
-    { "source": "/csdl/tuluan", "destination": "/site/csdl/tuluan.html", "permanent": false },
-    { "source": "/csdl/cheatsheet", "destination": "/site/csdl/cheatsheet.html", "permanent": false },
-    { "source": "/csdl/dethi", "destination": "/site/csdl/dethi.html", "permanent": false }
-  ]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs"
 }

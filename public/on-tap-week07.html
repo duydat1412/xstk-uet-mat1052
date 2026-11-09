@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ôn nhanh Xác suất thống kê – Week07</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#eef2f7;--card:#fff;--ink:#17213a;--mute:#5d6882;--line:#d5dcea;--acc:#3b5bdb;--accsoft:#e3e9ff;--ok:#1f8a5b;--oksoft:#dcf5e8;--bad:#c93a52;--badsoft:#fde3e8;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10141d;--card:#1a2030;--ink:#e8ecf6;--mute:#9aa5c0;--line:#2c3550;--acc:#7c93ff;--accsoft:#232c52;--ok:#4cc88f;--oksoft:#173a2c;--bad:#ff7088;--badsoft:#43202a}}
+:root[data-theme="dark"]{--bg:#10141d;--card:#1a2030;--ink:#e8ecf6;--mute:#9aa5c0;--line:#2c3550;--acc:#7c93ff;--accsoft:#232c52;--ok:#4cc88f;--oksoft:#173a2c;--bad:#ff7088;--badsoft:#43202a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:640px;margin:0 auto;padding:16px 16px 48px}
+h1{font-size:1.35rem;font-weight:800;margin:4px 0 2px;letter-spacing:-.01em}
+.sub{color:var(--mute);font-size:.9rem;margin:0 0 14px}
+.stats{display:flex;gap:8px;margin-bottom:12px}
+.stat{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-weight:600}
+.stat small{display:block;color:var(--mute);font-weight:400;font-size:.75rem}
+.tabs{display:flex;gap:6px;margin-bottom:14px}
+.tab,.chip,.btn,.opt{font:inherit;cursor:pointer}
+.tab{flex:1;padding:9px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-weight:600}
+.tab[aria-selected="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.chip{padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:.85rem}
+.chip[aria-pressed="true"]{background:var(--accsoft);border-color:var(--acc);color:var(--acc);font-weight:600}
+.bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:14px}
+.bar i{display:block;height:100%;width:0;background:var(--acc);transition:width .3s}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.q{font-size:1.15rem;font-weight:600;margin:0 0 14px}
+.tag{display:inline-block;font-size:.78rem;color:var(--acc);background:var(--accsoft);padding:2px 10px;border-radius:99px;margin-bottom:10px}
+.opt{display:block;width:100%;text-align:left;padding:13px 14px;margin-bottom:8px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink)}
+.opt:hover:not(:disabled){border-color:var(--acc)}
+.opt.ok{border-color:var(--ok);background:var(--oksoft)}
+.opt.no{border-color:var(--bad);background:var(--badsoft)}
+.opt:disabled{cursor:default}
+.fb{margin-top:10px;padding:12px 14px;border-radius:12px;font-size:.95rem}
+.fb.ok{background:var(--oksoft)}.fb.no{background:var(--badsoft)}
+.fb b{display:block;margin-bottom:2px}
+.btn{margin-top:12px;width:100%;padding:13px;border:0;border-radius:12px;background:var(--acc);color:#fff;font-weight:700}
+.btn.ghost{background:var(--accsoft);color:var(--acc)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.end{text-align:center}.end .big{font-size:2.6rem;font-weight:800;margin:6px 0}
+.sheet h2{font-size:1rem;margin:16px 0 6px;color:var(--acc)}
+.sheet ul{margin:0;padding-left:18px}.sheet li{margin-bottom:4px}
+.sheet code{background:var(--accsoft);padding:1px 6px;border-radius:6px;font-size:.92em}
+.tip{color:var(--mute);font-size:.85rem;margin-top:14px;text-align:center}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<h1>Ôn nhanh XSTK – Week07</h1>
+<p class="sub">Mỗi lượt 8 câu, khoảng 3–4 phút. Làm xong một lượt là nghỉ được rồi.</p>
+<div class="stats">
+<div class="stat"><small>Điểm</small><span id="xp">0</span></div>
+<div class="stat"><small>Chuỗi đúng</small><span id="st">0</span></div>
+<div class="stat"><small>Đã làm đúng</small><span id="dn">0</span></div>
+</div>
+<div class="tabs" role="tablist">
+<button class="tab" role="tab" id="t1" aria-selected="true">Làm quiz</button>
+<button class="tab" role="tab" id="t2" aria-selected="false">Công thức</button>
+</div>
+
+<section id="quiz">
+<div class="chips" id="chips"></div>
+<div class="bar"><i id="pb"></i></div>
+<div class="card" id="box"></div>
+<p class="tip" id="pg"></p>
+</section>
+
+<section id="sheet" class="sheet card" hidden>
+<h2>Xác suất</h2>
+<ul>
+<li>Hợp: <code>P(A∪B) = P(A) + P(B) − P(A∩B)</code></li>
+<li>Có điều kiện: <code>P(A|B) = P(A∩B) / P(B)</code></li>
+<li>Nhân: <code>P(A∩B) = P(B)·P(A|B)</code>; độc lập thì <code>P(A∩B) = P(A)·P(B)</code></li>
+<li>Chọn k từ n: <code>C(n,k) = n! / (k!(n−k)!)</code></li>
+</ul>
+<h2>Kỳ vọng và phương sai</h2>
+<ul>
+<li><code>E(X) = Σ x·P(X=x)</code>; <code>Var(X) = E(X²) − [E(X)]²</code>; <code>SD = √Var</code></li>
+<li><code>E(aX+b) = aE(X)+b</code>; <code>Var(aX+b) = a²Var(X)</code></li>
+<li>Nhị thức (n,p): E = np, Var = np(1−p)</li>
+<li>Poisson (λ): E = Var = λ</li>
+<li>Bernoulli (p): E = p, Var = p(1−p)</li>
+<li>Chọn mô hình: có hoàn lại → nhị thức; không hoàn lại → siêu bội; đếm sự kiện trong một khoảng → Poisson</li>
+</ul>
+<h2>Tổng và trung bình (n lần độc lập, cùng phân phối)</h2>
+<ul>
+<li>Tổng: kỳ vọng <code>nμ</code>, SD <code>σ√n</code></li>
+<li>Trung bình: kỳ vọng <code>μ</code>, SD <code>σ/√n</code></li>
+<li>Chebyshev: <code>P(|X−μ| ≥ kσ) ≤ 1/k²</code></li>
+<li>Luật số lớn: n càng lớn, trung bình mẫu càng gần μ</li>
+</ul>
+<h2>Liên tục và chuẩn</h2>
+<ul>
+<li>Xác suất = diện tích dưới hàm mật độ; <code>P(X=x) = 0</code></li>
+<li>Đều (a,b): mật độ <code>1/(b−a)</code>, trung bình <code>(a+b)/2</code></li>
+<li>Mũ (λ): trung bình <code>1/λ</code></li>
+<li>Chuẩn hóa: <code>Z = (X−μ)/σ</code></li>
+<li>Quy tắc 68–95–99.7: trong 1, 2, 3 SD quanh trung bình</li>
+<li>CLT: tổng hoặc trung bình của nhiều biến độc lập cùng phân phối (phương sai hữu hạn) xấp xỉ chuẩn</li>
+</ul>
+<h2>Mô tả dữ liệu</h2>
+<ul>
+<li>Lệch phải: trung bình &gt; trung vị. Lệch trái: ngược lại</li>
+<li>Có ngoại lai: dùng trung vị và IQR cho bền vững</li>
+<li>Tương quan r nằm trong [−1, 1]; dấu cho chiều, độ lớn cho độ mạnh</li>
+<li>Phần dư = giá trị quan sát − giá trị dự đoán</li>
+</ul>
+</section>
+</main>
+
+<script>
+var T=["Xác suất","Biến ngẫu nhiên","Tổng & trung bình","Chuẩn & CLT","Liên tục & Chebyshev","Mô tả dữ liệu"];
+// [chủ đề, câu hỏi, [đúng, sai, sai, sai], giải thích]  (đáp án đúng luôn đứng đầu, được xáo khi hiển thị)
+var Q=[
+[0,"P(A)=0,5; P(B)=0,4; P(A∩B)=0,2. Tính P(A∪B).",["0,7","0,9","0,1","0,3"],"P(A∪B) = 0,5 + 0,4 − 0,2 = 0,7. Phải trừ phần giao vì nó bị đếm hai lần."],
+[0,"P(A∩B)=0,2 và P(B)=0,4. Tính P(A|B).",["0,5","0,2","0,08","2"],"P(A|B) = P(A∩B)/P(B) = 0,2/0,4 = 0,5."],
+[0,"Hộp có 5 lá, trong đó 2 lá đỏ. Rút 2 lá không hoàn lại. P(cả hai đỏ)?",["0,1","0,16","0,4","0,2"],"Công thức nhân: 2/5 × 1/4 = 2/20 = 0,1. Lần hai chỉ còn 1 đỏ trong 4 lá."],
+[0,"A, B độc lập với P(A)=0,3; P(B)=0,5. P(A∩B)?",["0,15","0,8","0,2","0,65"],"Độc lập thì nhân: 0,3 × 0,5 = 0,15."],
+[0,"Chọn 3 người từ nhóm 10 người (không xét thứ tự). Có bao nhiêu cách?",["120","720","30","1000"],"C(10,3) = 10·9·8 / (3·2·1) = 120. Nếu có xét thứ tự mới là 720."],
+[1,"X nhận 0, 1, 2 với xác suất 0,2; 0,5; 0,3. Tính E(X).",["1,1","1","0,5","1,5"],"E(X) = 0·0,2 + 1·0,5 + 2·0,3 = 1,1."],
+[1,"Cũng X ở trên (E(X)=1,1). Tính Var(X).",["0,49","1,7","0,6","1,21"],"E(X²) = 0,5 + 4·0,3 = 1,7. Var = 1,7 − 1,1² = 1,7 − 1,21 = 0,49."],
+[1,"E(X)=4. Tính E(3X+2).",["14","12","10","38"],"E(aX+b) = a·E(X)+b = 3·4+2 = 14."],
+[1,"Var(X)=4. Tính Var(3X+2).",["36","38","12","14"],"Var(aX+b) = a²·Var(X) = 9·4 = 36. Hằng số +2 không ảnh hưởng độ phân tán."],
+[1,"X ~ Nhị thức(n=10, p=0,3). Var(X)?",["2,1","3","0,21","7"],"Var = np(1−p) = 10·0,3·0,7 = 2,1. (Còn E = np = 3.)"],
+[1,"Rút 5 bi không hoàn lại từ 20 bi (8 đỏ), đếm số bi đỏ. Mô hình nào?",["Siêu bội","Nhị thức","Poisson","Bernoulli"],"Không hoàn lại từ tổng thể hữu hạn → siêu bội. Có hoàn lại mới là nhị thức."],
+[1,"Số cuộc gọi đến tổng đài trong 1 giờ thường mô hình bằng phân phối nào?",["Poisson","Nhị thức","Siêu bội","Chuẩn"],"Đếm số sự kiện xảy ra trong một khoảng thời gian → Poisson(λ)."],
+[1,"X ~ Poisson(4). Var(X)?",["4","2","16","0,25"],"Poisson có kỳ vọng và phương sai bằng nhau, cùng bằng λ = 4."],
+[2,"Hộp có SD = 2. Rút 100 lần có hoàn lại. SD của tổng?",["20","2","200","0,2"],"SD tổng = σ√n = 2·√100 = 20."],
+[2,"Cũng hộp đó (σ=2, n=100). SD của trung bình các lần rút?",["0,2","2","0,02","20"],"SD trung bình = σ/√n = 2/10 = 0,2."],
+[2,"Muốn SD của trung bình mẫu giảm còn một nửa, cần tăng cỡ mẫu lên?",["4 lần","2 lần","8 lần","√2 lần"],"σ/√n giảm một nửa thì √n phải gấp đôi, tức n gấp 4 lần."],
+[2,"Tung xúc xắc cân đối 100 lần, mỗi lần có kỳ vọng 3,5. Kỳ vọng của tổng điểm?",["350","3,5","35","100"],"E(tổng) = n·μ = 100 · 3,5 = 350."],
+[3,"X ~ N(50, 10²). Giá trị x = 70 ứng với Z bằng?",["2","20","0,2","−2"],"Z = (70 − 50)/10 = 2, tức cao hơn trung bình 2 độ lệch chuẩn."],
+[3,"X ~ N(50, 10²). Theo quy tắc 68–95–99.7, P(40 < X < 60) ≈ ?",["68%","95%","99,7%","50%"],"40 và 60 cách trung bình đúng 1 SD → khoảng 68%."],
+[3,"X ~ N(50, 10²). P(X > 70) xấp xỉ?",["2,5%","5%","0,15%","16%"],"Trong 2 SD là 95%, hai đuôi chia đều 2,5% mỗi bên. X > 70 là đuôi phải."],
+[3,"Điều kiện nào KHÔNG cần cho định lý giới hạn trung tâm?",["Phân phối gốc phải là chuẩn","Các biến độc lập","Cùng phân phối","Phương sai hữu hạn"],"CLT đúng bất kể hình dạng phân phối gốc. Chính vì thế nó mạnh: gốc không chuẩn, tổng vẫn xấp xỉ chuẩn."],
+[4,"Chebyshev với k=3: cận trên của P(|X−μ| ≥ 3σ)?",["1/9 ≈ 11,1%","1/3","3%","0,3%"],"Cận trên là 1/k² = 1/9. Đây chỉ là cận, đúng cho mọi phân phối."],
+[4,"Luật số lớn yếu nói điều gì?",["Cỡ mẫu tăng thì trung bình mẫu tiến gần μ","Mọi phân phối đều là chuẩn","Tổng luôn bằng kỳ vọng","Phương sai luôn bằng 1"],"n càng lớn, trung bình mẫu càng ổn định quanh kỳ vọng thật μ."],
+[4,"X ~ Đều(0,10). P(X < 3)?",["0,3","0,03","3","0,7"],"Mật độ là 1/10, diện tích từ 0 đến 3 = 3 · 1/10 = 0,3."],
+[4,"X ~ Mũ(λ=0,5). Trung bình của X?",["2","0,5","1","0,25"],"Phân phối mũ có trung bình 1/λ = 1/0,5 = 2."],
+[4,"Với biến liên tục X, P(X = 5) bằng?",["0","1","f(5)","0,5"],"Xác suất là diện tích; một điểm có diện tích 0. Chỉ khoảng mới có xác suất dương."],
+[5,"Phân phối lệch phải (đuôi dài về bên phải). So sánh trung bình và trung vị?",["Trung bình > trung vị","Trung bình < trung vị","Bằng nhau","Không so sánh được"],"Đuôi phải kéo trung bình lên cao hơn trung vị."],
+[5,"Dữ liệu có vài giá trị ngoại lai rất lớn. Thước đo tâm nào bền vững hơn?",["Trung vị","Trung bình","Khoảng biến thiên","Phương sai"],"Trung vị chỉ phụ thuộc vị trí giữa nên ít bị ngoại lai kéo lệch."],
+[5,"Hệ số tương quan r = −0,9 cho biết?",["Quan hệ tuyến tính âm, rất mạnh","Quan hệ tuyến tính dương yếu","Không có quan hệ","x gây ra y"],"Dấu âm là ngược chiều; |r| gần 1 là mạnh. Tương quan không chứng minh nhân quả."],
+[5,"Hệ số góc của đường hồi quy bằng 2,5. Nghĩa là?",["x tăng 1 đơn vị thì y dự đoán tăng 2,5","y tăng 1 thì x tăng 2,5","Tương quan là 2,5","y luôn bằng 2,5x"],"Hệ số góc là mức thay đổi dự đoán của y khi x tăng 1 đơn vị."],
+[5,"Phần dư (residual) được tính bằng?",["Quan sát − dự đoán","Dự đoán − quan sát","Quan sát / dự đoán","Quan sát + dự đoán"],"Phần dư = giá trị thật trừ giá trị mô hình dự đoán."]
+];
+var $=function(i){return document.getElementById(i)};
+var sel=new Set(),S={xp:0,st:0,done:{},list:[],i:0,ok:0,wrong:[]};
+try{var sv=JSON.parse(localStorage.getItem("w7")||"null");if(sv){S.xp=sv.xp||0;S.done=sv.done||{}}}catch(e){}
+function save(){try{localStorage.setItem("w7",JSON.stringify({xp:S.xp,done:S.done}))}catch(e){}}
+function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function stats(){$("xp").textContent=S.xp;$("st").textContent=S.st;$("dn").textContent=Object.keys(S.done).length+"/"+Q.length}
+function chips(){var h="";T.forEach(function(n,i){h+='<button class="chip" data-i="'+i+'" aria-pressed="'+sel.has(i)+'">'+n+'</button>'});$("chips").innerHTML=h;
+document.querySelectorAll(".chip").forEach(function(b){b.onclick=function(){var i=+b.dataset.i;sel.has(i)?sel.delete(i):sel.add(i);chips();start()}})}
+function start(retry){
+var pool=[];
+if(retry){pool=S.wrong.slice()}else{Q.forEach(function(q,i){if(!sel.size||sel.has(q[0]))pool.push(i)});
+pool=shuf(pool);var fresh=pool.filter(function(i){return !S.done[i]}),old=pool.filter(function(i){return S.done[i]});pool=fresh.concat(old)}
+S.list=pool.slice(0,8);S.i=0;S.ok=0;S.wrong=[];show()}
+function show(){
+var n=S.list.length;$("pb").style.width=(S.i/n*100)+"%";
+if(S.i>=n){end();return}
+var qi=S.list[S.i],q=Q[qi],opts=shuf(q[2].map(function(t,k){return{t:t,c:k===0}}));
+var h='<span class="tag">'+T[q[0]]+'</span><p class="q">'+q[1]+'</p>';
+opts.forEach(function(o,k){h+='<button class="opt" data-c="'+o.c+'">'+o.t+'</button>'});
+h+='<div id="fb"></div>';$("box").innerHTML=h;$("pg").textContent="Câu "+(S.i+1)+" / "+n;
+document.querySelectorAll(".opt").forEach(function(b){b.onclick=function(){answer(b,qi)}})}
+function answer(b,qi){
+var good=b.dataset.c==="true",q=Q[qi];
+document.querySelectorAll(".opt").forEach(function(o){o.disabled=true;if(o.dataset.c==="true")o.classList.add("ok")});
+if(!good)b.classList.add("no");
+if(good){S.st++;S.ok++;S.xp+=10+Math.min(S.st,5)*2;S.done[qi]=1}else{S.st=0;S.wrong.push(qi)}
+save();stats();
+var last=S.i>=S.list.length-1;
+$("fb").innerHTML='<div class="fb '+(good?"ok":"no")+'"><b>'+(good?"Đúng rồi!":"Chưa đúng.")+'</b>'+q[3]+'</div><button class="btn" id="nx">'+(last?"Xem kết quả":"Câu tiếp")+'</button>';
+$("nx").focus();$("nx").onclick=function(){S.i++;show()}}
+function end(){
+var n=S.list.length,w=S.wrong.length;
+$("pb").style.width="100%";$("pg").textContent="";
+$("box").innerHTML='<div class="end"><div>Xong một lượt</div><div class="big">'+S.ok+' / '+n+'</div><p>'+(w?'Bạn sai '+w+' câu. Làm lại đúng những câu đó là cách nhớ nhanh nhất.':'Đúng hết. Nghỉ 5 phút rồi làm lượt khác nhé.')+'</p>'+(w?'<button class="btn" id="rt">Làm lại câu sai</button>':'')+'<button class="btn ghost" id="nw">Lượt mới</button></div>';
+if(w)$("rt").onclick=function(){start(true)};$("nw").onclick=function(){start()}}
+function tab(a){$("quiz").hidden=a!==1;$("sheet").hidden=a!==2;$("t1").setAttribute("aria-selected",a===1);$("t2").setAttribute("aria-selected",a===2)}
+$("t1").onclick=function(){tab(1)};$("t2").onclick=function(){tab(2)};
+chips();stats();start();
+</script>
+</body>
+</html>

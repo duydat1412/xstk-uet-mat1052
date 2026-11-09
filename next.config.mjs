@@ -1,6 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      { source: '/hoc', destination: '/xstk/hoc', permanent: false },
+      { source: '/csdl', destination: '/csdl/hoc', permanent: false },
+      { source: '/xstk', destination: '/xstk/hoc', permanent: false },
+    ];
+  },
   async rewrites() {
     return [
       { source: '/tuluan', destination: '/site/tuluan.html' },
@@ -11,8 +18,6 @@ const nextConfig = {
       { source: '/xstk/tracnghiem', destination: '/site/tracnghiem.html' },
       { source: '/xstk/congthuc', destination: '/site/congthuc.html' },
       { source: '/xstk/dethi', destination: '/site/dethi.html' },
-      { source: '/hoc', destination: '/xstk/hoc' },
-      { source: '/csdl', destination: '/csdl/hoc' },
     ];
   },
 };
