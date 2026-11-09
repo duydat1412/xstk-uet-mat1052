@@ -429,13 +429,13 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
             </kbd>
           </button>
 
-          {/* GitHub Repository Link */}
+          {/* GitHub Personal Profile Link */}
           <a
-            href="https://github.com/duydat1412/xstk-uet-mat1052"
+            href="https://github.com/duydat1412"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-between px-2.5 py-1.5 rounded-lg border border-border/80 bg-muted/40 hover:bg-muted text-foreground text-xs font-medium transition-colors group"
-            title="Xem mã nguồn trên GitHub"
+            className="flex items-center justify-between px-2.5 py-1.5 rounded-lg border border-border/80 bg-muted/40 hover:bg-muted text-foreground text-xs font-medium transition-colors group cursor-pointer"
+            title="GitHub cá nhân: @duydat1412"
           >
             <div className="flex items-center gap-1.5">
               <GithubIcon className="h-3.5 w-3.5 text-foreground group-hover:scale-110 transition-transform" />
@@ -563,14 +563,14 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
               <span>Portal Hub</span>
             </Link>
 
-            {/* GitHub Repo Link */}
+            {/* GitHub Profile Link */}
             <a
-              href="https://github.com/duydat1412/xstk-uet-mat1052"
+              href="https://github.com/duydat1412"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center h-8 w-8 rounded-lg border border-border hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
-              title="GitHub: duydat1412/xstk-uet-mat1052"
-              aria-label="GitHub Repository"
+              title="GitHub cá nhân: @duydat1412"
+              aria-label="GitHub @duydat1412"
             >
               <GithubIcon className="h-4 w-4" />
             </a>
@@ -1182,13 +1182,13 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
           {/* Dialog Footer */}
           <div className="pt-3 border-t border-border flex items-center justify-between text-xs">
             <a
-              href="https://github.com/duydat1412/xstk-uet-mat1052"
+              href="https://github.com/duydat1412"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground font-mono text-[11px] transition-colors"
             >
               <GithubIcon className="h-3.5 w-3.5" />
-              <span>duydat1412/xstk-uet-mat1052</span>
+              <span>@duydat1412</span>
             </a>
 
             <Button

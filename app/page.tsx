@@ -62,12 +62,12 @@ export default function HomePage() {
               </Button>
             </Link>
             <a
-              href="https://github.com/duydat1412/xstk-uet-mat1052"
+              href="https://github.com/duydat1412"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center h-8 w-8 rounded-lg border border-border hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
-              title="GitHub: duydat1412/xstk-uet-mat1052"
-              aria-label="GitHub Repository"
+              title="GitHub cá nhân: @duydat1412"
+              aria-label="GitHub @duydat1412"
             >
               <GithubIcon className="h-4 w-4" />
             </a>
