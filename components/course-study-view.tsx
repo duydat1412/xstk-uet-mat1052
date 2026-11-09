@@ -327,8 +327,8 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
       </div>
 
       {/* Folders List with Radix ScrollArea */}
-      <ScrollArea className="flex-1 pr-1">
-        <div className="space-y-1.5 pb-4">
+      <ScrollArea className="flex-1 pr-1 w-full min-w-0">
+        <div className="space-y-1.5 pb-4 w-full min-w-0">
           {Object.entries(course.clusters).map(([clusterKey, clusterTitle]) => {
             const list = groupedLessons[clusterKey] || [];
             const filtered = list.filter(
@@ -345,13 +345,13 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
             return (
               <div
                 key={clusterKey}
-                className="rounded-lg border border-border/60 overflow-hidden bg-card transition-colors"
+                className="rounded-lg border border-border/60 overflow-hidden bg-card transition-colors w-full min-w-0"
               >
                 <button
                   onClick={() => toggleFolder(clusterKey)}
-                  className="w-full flex items-center justify-between px-3 py-2 text-left text-xs font-semibold hover:bg-muted/50 transition-colors"
+                  className="w-full flex items-center justify-between px-3 py-2 text-left text-xs font-semibold hover:bg-muted/50 transition-colors min-w-0"
                 >
-                  <div className="flex items-center gap-2 overflow-hidden">
+                  <div className="flex items-center gap-2 overflow-hidden min-w-0 flex-1 pr-1.5">
                     <ChevronRight
                       className={`h-3.5 w-3.5 shrink-0 text-muted-foreground transition-transform duration-200 ${
                         isOpen ? "rotate-90" : ""
@@ -362,15 +362,15 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
                     ) : (
                       <Folder className="h-4 w-4 shrink-0 text-muted-foreground" />
                     )}
-                    <span className="truncate text-foreground font-medium">{clusterTitle}</span>
+                    <span className="truncate text-foreground font-medium block min-w-0">{clusterTitle}</span>
                   </div>
-                  <span className="text-[10px] font-mono font-medium text-muted-foreground bg-muted px-1.5 py-0.5 rounded shrink-0 ml-1.5">
+                  <span className="text-[10px] font-mono font-medium text-muted-foreground bg-muted px-1.5 py-0.5 rounded shrink-0">
                     {clusterCompleted}/{list.length}
                   </span>
                 </button>
 
                 {isOpen && (
-                  <div className="p-1 space-y-0.5 border-t border-border/40 bg-background/50">
+                  <div className="p-1 space-y-0.5 border-t border-border/40 bg-background/50 w-full min-w-0">
                     {filtered.map((l) => {
                       const isActive = l.globalIdx === curLessonIdx;
                       const isDone = !!completedLessons[l.id];
@@ -379,24 +379,24 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
                         <button
                           key={l.id}
                           onClick={() => handleLessonSelect(l.globalIdx)}
-                          className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md text-xs text-left transition-all relative ${
+                          className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md text-xs text-left transition-all relative min-w-0 ${
                             isActive
                               ? "bg-blue-50 text-blue-700 font-semibold dark:bg-blue-950/70 dark:text-blue-300 ring-1 ring-blue-500/20"
                               : "text-muted-foreground hover:bg-muted hover:text-foreground"
                           }`}
                         >
-                          <div className="flex items-center gap-1.5 truncate pr-2">
+                          <div className="flex items-center gap-1.5 truncate pr-1.5 min-w-0 flex-1">
                             <span className="font-mono text-[10px] opacity-75 shrink-0">
                               {l.id}
                             </span>
-                            <span className="truncate text-[11.5px]">
+                            <span className="truncate text-[11.5px] block min-w-0">
                               {l.title.split(":")[1]?.trim() || l.title}
                             </span>
                           </div>
                           {isDone ? (
-                            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
+                            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-500 ml-1" />
                           ) : (
-                            <span className="h-1.5 w-1.5 rounded-full bg-slate-300 dark:bg-slate-700 shrink-0" />
+                            <span className="h-1.5 w-1.5 rounded-full bg-slate-300 dark:bg-slate-700 shrink-0 ml-1" />
                           )}
                         </button>
                       );
@@ -606,8 +606,8 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
 
       {/* Main Study Workspace */}
       <div className="max-w-7xl mx-auto px-4 py-5 w-full flex-1 flex gap-6">
-        {/* Desktop Sidebar: Sticky 310px */}
-        <aside className="hidden lg:flex w-76 shrink-0 sticky top-18 h-[calc(100vh-5.5rem)] flex-col rounded-xl border border-border bg-card p-3.5 shadow-xs">
+        {/* Desktop Sidebar: Sticky 320px */}
+        <aside className="hidden lg:flex w-80 shrink-0 sticky top-18 h-[calc(100vh-5.5rem)] flex-col rounded-xl border border-border bg-card p-3.5 shadow-xs min-w-0 overflow-hidden">
           <div className="flex items-center justify-between pb-3 border-b border-border/80">
             <span className="font-bold text-xs flex items-center gap-2 text-foreground tracking-tight">
               <FolderOpen className="h-4 w-4 text-blue-600 dark:text-blue-400" />
