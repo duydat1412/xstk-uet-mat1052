@@ -1,7 +1,7 @@
 // ==========================================================================
 // CỤM 2 (CSDL): MÔ HÌNH QUAN HỆ & THUẬT TOÁN ÁNH XẠ ER/EER SANG BẢNG
 // Bao gồm: Bài CSDL_05, CSDL_06
-// Nguồn: Slide UET.IS2099 C3_1.pptx
+// Nguồn: Slide UET.IS2099 C3_1.pdf
 // ==========================================================================
 
 const CUM_2_CSDL = [
@@ -11,7 +11,7 @@ const CUM_2_CSDL = [
     title: "Mô hình Dữ liệu Quan hệ: Khóa chính, Khóa ngoại & Toàn vẹn",
     sources: "Slide UET.IS2099 Chương 3 Phần 1 (Slide 1–27)",
     ref: {
-      slide_file: "C3_1.pptx",
+      slide_file: "C3_1.pdf",
       slide_name: "Chương 3 (Phần 1) — Mô hình Dữ liệu Quan hệ",
       pages: "Slide 1 – 27",
       page_start: 1,
@@ -174,7 +174,7 @@ const CUM_2_CSDL = [
     title: "Thuật toán chuyển đổi Lược đồ ER/EER sang Lược đồ Quan hệ",
     sources: "Slide UET.IS2099 Chương 3 Phần 1 (Slide 28–43)",
     ref: {
-      slide_file: "C3_1.pptx",
+      slide_file: "C3_1.pdf",
       slide_name: "Chương 3 (Phần 1) — Mô hình Dữ liệu Quan hệ",
       pages: "Slide 28 – 43",
       page_start: 28,

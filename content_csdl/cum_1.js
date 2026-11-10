@@ -1,7 +1,7 @@
 // ==========================================================================
 // CỤM 1 (CSDL): TỔNG QUAN HỆ CƠ SỞ DỮ LIỆU & MÔ HÌNH THỰC THỂ - LIÊN KẾT (ER/EER)
 // Bao gồm: Bài CSDL_01, CSDL_02, CSDL_03, CSDL_04
-// Nguồn: Slide UET.IS2099 C1 .pptx, C2_1.pptx, C2_2.pptx
+// Nguồn: Slide UET.IS2099 C1.pdf, C2_1.pdf, C2_2.pdf
 // ==========================================================================
 
 const CUM_1_CSDL = [
@@ -11,7 +11,7 @@ const CUM_1_CSDL = [
     title: "Tổng quan về Hệ Cơ sở Dữ liệu & Kiến trúc 3 mức",
     sources: "Slide UET.IS2099 Chương 1 (Slide 1–52)",
     ref: {
-      slide_file: "C1 .pptx",
+      slide_file: "C1.pdf",
       slide_name: "Chương 1 — Tổng quan về Hệ CSDL",
       pages: "Slide 1 – 52",
       page_start: 1,
@@ -163,7 +163,7 @@ const CUM_1_CSDL = [
     title: "Mô hình Thực thể - Liên kết (ER): Thực thể & Thuộc tính",
     sources: "Slide UET.IS2099 Chương 2 (Slide 1–25)",
     ref: {
-      slide_file: "C2_1.pptx",
+      slide_file: "C2_1.pdf",
       slide_name: "Chương 2 (Phần 1) — Mô hình Thực thể - Liên kết",
       pages: "Slide 1 – 25",
       page_start: 1,
@@ -306,7 +306,7 @@ const CUM_1_CSDL = [
     title: "Mối liên kết, Ràng buộc tỉ số & Thực thể yếu",
     sources: "Slide UET.IS2099 Chương 2 (Slide 26–52)",
     ref: {
-      slide_file: "C2_1.pptx",
+      slide_file: "C2_1.pdf",
       slide_name: "Chương 2 (Phần 1) — Mô hình Thực thể - Liên kết",
       pages: "Slide 26 – 52",
       page_start: 26,
@@ -467,7 +467,7 @@ const CUM_1_CSDL = [
     title: "Mô hình ER mở rộng (EER): Chuyên biệt hóa & Khái quát hóa",
     sources: "Slide UET.IS2099 Chương 2 Phần 2 (Slide 1–26)",
     ref: {
-      slide_file: "C2_2.pptx",
+      slide_file: "C2_2.pdf",
       slide_name: "Chương 2 (Phần 2) — Mô hình Thực thể - Liên kết Mở rộng (EER)",
       pages: "Slide 1 – 26",
       page_start: 1,

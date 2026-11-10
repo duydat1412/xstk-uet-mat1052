@@ -1,7 +1,7 @@
 // ==========================================================================
 // CỤM 4 (CSDL): PHỤ THUỘC HÀM & CHUẨN HÓA CƠ SỞ DỮ LIỆU
 // Bao gồm: Bài CSDL_10, CSDL_11, CSDL_12, CSDL_13, CSDL_14
-// Nguồn: Slide UET.IS2099 C4_1.pptx (96 slides)
+// Nguồn: Slide UET.IS2099 C4_1.pdf (96 slides)
 // ==========================================================================
 
 const CUM_4_CSDL = [
@@ -11,7 +11,7 @@ const CUM_4_CSDL = [
     title: "Dư thừa dữ liệu, Dị thường & Định nghĩa Phụ thuộc hàm (FD)",
     sources: "Slide UET.IS2099 Chương 4 (Slide 1–25)",
     ref: {
-      slide_file: "C4_1.pptx",
+      slide_file: "C4_1.pdf",
       slide_name: "Chương 4 — Phụ thuộc hàm và Chuẩn hóa CSDL",
       pages: "Slide 1 – 25",
       page_start: 1,
@@ -149,7 +149,7 @@ const CUM_4_CSDL = [
     title: "Hệ tiên đề Armstrong & Thuật toán tìm Bao đóng thuộc tính X+",
     sources: "Slide UET.IS2099 Chương 4 (Slide 26–45)",
     ref: {
-      slide_file: "C4_1.pptx",
+      slide_file: "C4_1.pdf",
       slide_name: "Chương 4 — Phụ thuộc hàm và Chuẩn hóa CSDL",
       pages: "Slide 26 – 45",
       page_start: 26,
@@ -305,7 +305,7 @@ const CUM_4_CSDL = [
     title: "Thuật toán xác định tất cả Khóa tối thiểu của Lược đồ",
     sources: "Slide UET.IS2099 Chương 4 (Slide 46–60)",
     ref: {
-      slide_file: "C4_1.pptx",
+      slide_file: "C4_1.pdf",
       slide_name: "Chương 4 — Phụ thuộc hàm và Chuẩn hóa CSDL",
       pages: "Slide 46 – 60",
       page_start: 46,
@@ -474,7 +474,7 @@ const CUM_4_CSDL = [
     title: "Các Dạng chuẩn dữ liệu: 1NF, 2NF, 3NF và BCNF",
     sources: "Slide UET.IS2099 Chương 4 (Slide 61–78)",
     ref: {
-      slide_file: "C4_1.pptx",
+      slide_file: "C4_1.pdf",
       slide_name: "Chương 4 — Phụ thuộc hàm và Chuẩn hóa CSDL",
       pages: "Slide 61 – 78",
       page_start: 61,
@@ -636,7 +636,7 @@ const CUM_4_CSDL = [
     title: "Lý thuyết Phân rã: Bảo toàn thông tin, Bảo toàn phụ thuộc hàm",
     sources: "Slide UET.IS2099 Chương 4 (Slide 79–96)",
     ref: {
-      slide_file: "C4_1.pptx",
+      slide_file: "C4_1.pdf",
       slide_name: "Chương 4 — Phụ thuộc hàm và Chuẩn hóa CSDL",
       pages: "Slide 79 – 96",
       page_start: 79,

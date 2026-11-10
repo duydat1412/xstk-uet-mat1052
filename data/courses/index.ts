@@ -48,15 +48,27 @@ function normalizeLesson(raw: any): Lesson {
     examples,
     pitfalls,
     quizzes,
-    ref: raw.ref || {
-      slide_file: "",
-      slide_name: "",
-      page_start: 1,
-      page_end: 1,
-      pages: "",
-      section: "",
-      remind: "",
-    },
+    ref: raw.ref
+      ? {
+          slide_file: nfc(raw.ref.slide_file || "")
+            .replace(/\s+/g, "")
+            .replace(/\.pptx$/i, ".pdf"),
+          slide_name: nfc(raw.ref.slide_name || ""),
+          page_start: raw.ref.page_start || 1,
+          page_end: raw.ref.page_end || raw.ref.page_start || 1,
+          pages: nfc(raw.ref.pages || ""),
+          section: nfc(raw.ref.section || ""),
+          remind: nfc(raw.ref.remind || ""),
+        }
+      : {
+          slide_file: "",
+          slide_name: "",
+          page_start: 1,
+          page_end: 1,
+          pages: "",
+          section: "",
+          remind: "",
+        },
   };
 }
 
