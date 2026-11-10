@@ -37,6 +37,15 @@ function normalizeLesson(raw: any): Lesson {
     fb: nfc(q.fb || ""),
   }));
 
+  // Normalize illustrations
+  const illustrations = (raw.illustrations || []).map((ill: any) => ({
+    title: nfc(ill.title || ""),
+    src: nfc(ill.src || ""),
+    caption: nfc(ill.caption || ""),
+    slide_ref: nfc(ill.slide_ref || ""),
+    drawing_guide: (ill.drawing_guide || []).map((g: any) => nfc(g)),
+  }));
+
   return {
     id: raw.id,
     cluster: String(raw.cluster),
@@ -48,6 +57,7 @@ function normalizeLesson(raw: any): Lesson {
     examples,
     pitfalls,
     quizzes,
+    illustrations,
     ref: raw.ref
       ? {
           slide_file: nfc(raw.ref.slide_file || "")

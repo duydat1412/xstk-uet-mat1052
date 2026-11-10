@@ -245,7 +245,15 @@
         "Sai! Bạn đã lấy mẫu số là tổng toàn trường 50 (10/50 = 20%).",
         "Sai! Phép tính sai số liệu."
       ]
-    }
+    },
+    "illustrations": [
+      {
+        "title": "Các dạng hình dạng phân phối (Distribution Shapes)",
+        "src": "/illustrations/xstk/xstk_a2_distribution_shapes.png",
+        "slide_ref": "Slide week02.pdf trang 7",
+        "caption": "Đối chiếu 3 dạng phân phối kinh điển: Lệch trái (Left-skewed), Đối xứng hình chuông (Symmetric), Lệch phải (Right-skewed)."
+      }
+    ]
   },
   {
     "id": "A3",
@@ -372,7 +380,23 @@
         "Sai! Trung bình bằng trung vị chỉ xảy ra ở phân phối đối xứng.",
         "Sai! Trung vị có tính bền vững, ít bị kéo lệch hơn trung bình."
       ]
-    }
+    },
+    "illustrations": [
+      {
+        "title": "Cấu tạo Biểu đồ Hộp (Boxplot) & Hàng rào 1.5 IQR của Tukey",
+        "src": "/illustrations/xstk/xstk_a3_boxplot_tukey.png",
+        "slide_ref": "Slide week02.pdf trang 64",
+        "caption": "Sơ đồ giải phẫu đầy đủ của biểu đồ hộp: Q1, Median, Q3, Khoảng tứ phân vị IQR, Râu (Whiskers) và Điểm ngoại lai (Outliers).",
+        "drawing_guide": [
+          "1. Trục số: Vẽ một trục số thẳng đứng hoặc nằm ngang có chia vạch tỉ lệ đều.",
+          "2. Thân hộp (Box): Vẽ hình chữ nhật có đáy ở Q1 và đỉnh ở Q3. Chiều rộng hộp chính là IQR = Q3 - Q1.",
+          "3. Đường trung vị (Median): Vẽ một đường kẻ ngang đậm bên trong thân hộp tại vị trí Median (Q2).",
+          "4. Tính hàng rào Tukey: Hàng rào dưới = Q1 - 1.5*IQR; Hàng rào trên = Q3 + 1.5*IQR.",
+          "5. Râu (Whiskers): Kéo đoạn thẳng từ mép hộp tới giá trị nhỏ nhất / lớn nhất KHÔNG phải là ngoại lai.",
+          "6. Điểm ngoại lai (Outliers): Vẽ các dấu chấm tròn riêng biệt cho mọi điểm số liệu nằm ngoài hàng rào Tukey."
+        ]
+      }
+    ]
   },
   {
     "id": "A4",
@@ -494,7 +518,15 @@
         "Sai! 11 là giá trị dự đoán $\\hat{y}$, không phải phần dư.",
         "Sai! Tính toán nhầm dấu."
       ]
-    }
+    },
+    "illustrations": [
+      {
+        "title": "Biểu đồ phân tán (Scatter Plot) & Đường hồi quy tuyến tính OLS",
+        "src": "/illustrations/xstk/xstk_a4_scatter_ols_line.png",
+        "slide_ref": "Slide week04.pdf trang 12",
+        "caption": "Đường xu hướng hồi quy OLS y = b0 + b1*x và phần dư sai số e_i giữa điểm quan sát và đường dự báo."
+      }
+    ]
   },
   {
     "id": "A5",
@@ -738,7 +770,15 @@
         "Sai! Không cần hai biến cố có cùng xác suất.",
         "Sai! Mọi biến cố đều là tập con của không gian mẫu, nhưng nếu giao nhau thì sẽ bị đếm trùng phần giao."
       ]
-    }
+    },
+    "illustrations": [
+      {
+        "title": "Sơ đồ Venn Biến cố Xác suất",
+        "src": "/illustrations/xstk/xstk_b1_venn_diagram.png",
+        "slide_ref": "Slide week05.pdf trang 12",
+        "caption": "Minh họa hình học các biến cố Giao (A ∩ B), Hợp (A ∪ B), Phần bù (A') và Biến cố xung khắc."
+      }
+    ]
   },
   {
     "id": "B2",
@@ -1214,7 +1254,15 @@
         "Sai! 30 là lấy 10 * 3, không có cơ sở toán học.",
         "Sai! 1000 là 10^3, dùng khi chọn 3 người có hoàn lại và có xét thứ tự."
       ]
-    }
+    },
+    "illustrations": [
+      {
+        "title": "Sơ đồ Cây xác suất (Tree Diagram) & Công thức Bayes",
+        "src": "/illustrations/xstk/xstk_b5_bayes_tree_diagram.png",
+        "slide_ref": "Slide week05.pdf trang 72",
+        "caption": "Cấu trúc phân nhánh tính xác suất toàn phần và cập nhật xác suất hậu nghiệm theo Định lý Bayes."
+      }
+    ]
   },
   {
     "id": "C1",
@@ -2064,7 +2112,15 @@
         "Sai! Hộp có thể chứa bất kỳ số thực nào.",
         "Sai! Số lần rút n hoàn toàn độc lập với quy mô hộp."
       ]
-    }
+    },
+    "illustrations": [
+      {
+        "title": "Đường cong Phân phối Chuẩn hình chuông & Quy tắc Thực nghiệm 68-95-99.7",
+        "src": "/illustrations/xstk/xstk_d1_normal_distribution_curve.png",
+        "slide_ref": "Slide week07.pdf trang 22",
+        "caption": "Đường cong Gauss đối xứng qua kỳ vọng μ với diện tích xác suất tại 1σ, 2σ và 3σ."
+      }
+    ]
   },
   {
     "id": "D2",

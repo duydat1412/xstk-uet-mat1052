@@ -35,6 +35,14 @@ export interface LectureRef {
   key_points?: string[];
 }
 
+export interface Illustration {
+  title: string;
+  src: string;
+  caption: string;
+  slide_ref?: string;
+  drawing_guide?: string[];
+}
+
 export interface Lesson {
   id: string;
   cluster: string;
@@ -47,6 +55,7 @@ export interface Lesson {
   pitfalls: Pitfall[];
   quizzes: GatekeeperQuiz[];
   ref: LectureRef;
+  illustrations?: Illustration[];
 }
 
 export interface Course {

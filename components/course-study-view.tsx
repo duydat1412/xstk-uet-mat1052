@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Course, Lesson } from "@/types/course";
+import { Course, Lesson, Illustration } from "@/types/course";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
@@ -57,6 +57,9 @@ import {
   SlidersHorizontal,
   Keyboard,
   Command,
+  Image as ImageIcon,
+  Maximize2,
+  Pencil,
 } from "lucide-react";
 import { renderMathInText } from "@/components/math-block";
 
@@ -74,6 +77,7 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isShortcutsOpen, setIsShortcutsOpen] = useState(false);
+  const [zoomedImage, setZoomedImage] = useState<Illustration | null>(null);
   const searchInputRef = React.useRef<HTMLInputElement>(null);
 
   const curLesson: Lesson = course.lessons[curLessonIdx] || course.lessons[0];
@@ -746,6 +750,81 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
                   </CardContent>
                 </Card>
               ))}
+
+              {/* Visual Diagrams & Drawing Blueprints (Sơ đồ minh họa & Hướng dẫn vẽ) */}
+              {curLesson?.illustrations && curLesson.illustrations.length > 0 && (
+                <div className="space-y-4 pt-3">
+                  <div className="flex items-center gap-2 px-1 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide">
+                    <ImageIcon className="h-4 w-4" />
+                    <span>Sơ đồ & Minh họa trực quan từ Slide Giảng viên UET:</span>
+                  </div>
+
+                  {curLesson.illustrations.map((ill, illIdx) => (
+                    <Card
+                      key={illIdx}
+                      className="border border-blue-200/80 dark:border-blue-900/60 bg-card shadow-xs overflow-hidden"
+                    >
+                      <CardHeader className="p-3.5 px-4 bg-blue-50/50 dark:bg-blue-950/20 border-b border-border/60 flex flex-wrap items-center justify-between gap-2">
+                        <div className="flex items-center gap-2">
+                          <Badge variant="blueSoft" className="font-semibold text-[10.5px]">
+                            Sơ đồ {illIdx + 1}
+                          </Badge>
+                          <span className="font-bold text-xs sm:text-sm text-foreground">
+                            {ill.title}
+                          </span>
+                        </div>
+                        {ill.slide_ref && (
+                          <Badge variant="outline" className="text-[11px] font-mono text-muted-foreground">
+                            {ill.slide_ref}
+                          </Badge>
+                        )}
+                      </CardHeader>
+
+                      <CardContent className="p-4 sm:p-5 space-y-4">
+                        {/* Image preview with click to zoom */}
+                        <div
+                          onClick={() => setZoomedImage(ill)}
+                          className="group relative cursor-zoom-in rounded-xl overflow-hidden border border-border/80 bg-slate-900/5 dark:bg-slate-950/40 p-2 sm:p-3 transition-all hover:border-blue-500/60 hover:shadow-md flex justify-center items-center"
+                          title="Nhấn để phóng to toàn màn hình"
+                        >
+                          <img
+                            src={ill.src}
+                            alt={ill.title}
+                            className="max-h-[380px] sm:max-h-[460px] w-auto object-contain rounded-lg transition-transform duration-200 group-hover:scale-[1.01]"
+                            loading="lazy"
+                          />
+                          <div className="absolute bottom-3 right-3 bg-slate-900/85 text-white text-[11px] font-medium px-2.5 py-1.5 rounded-lg opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity flex items-center gap-1.5 shadow-sm backdrop-blur-xs">
+                            <Maximize2 className="h-3 w-3" />
+                            <span>Phóng to sơ đồ</span>
+                          </div>
+                        </div>
+
+                        {/* Caption */}
+                        {ill.caption && (
+                          <p className="text-xs text-muted-foreground leading-relaxed italic px-1">
+                            {ill.caption}
+                          </p>
+                        )}
+
+                        {/* Step-by-step Drawing Guide (Quy chuẩn tự vẽ trong đề thi) */}
+                        {ill.drawing_guide && ill.drawing_guide.length > 0 && (
+                          <div className="bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/50 rounded-xl p-3.5 sm:p-4 text-xs space-y-2">
+                            <div className="font-bold text-amber-800 dark:text-amber-300 flex items-center gap-1.5 uppercase tracking-wide text-[11px]">
+                              <Pencil className="h-3.5 w-3.5" />
+                              <span>Quy chuẩn & Hướng dẫn tự vẽ trong bài thi:</span>
+                            </div>
+                            <ol className="space-y-1.5 list-decimal pl-4 text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
+                              {ill.drawing_guide.map((stepText, sIdx) => (
+                                <li key={sIdx}>{stepText}</li>
+                              ))}
+                            </ol>
+                          </div>
+                        )}
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              )}
             </TabsContent>
 
             {/* Sub-tab 2: 3 Examples */}
@@ -1199,6 +1278,30 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
             >
               Đóng (Esc)
             </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Image Zoom Lightbox Dialog */}
+      <Dialog open={!!zoomedImage} onOpenChange={(open) => !open && setZoomedImage(null)}>
+        <DialogContent className="max-w-4xl p-4 sm:p-5 max-h-[92vh] flex flex-col">
+          <DialogHeader className="pb-3 border-b border-border">
+            <DialogTitle className="text-sm sm:text-base font-bold flex items-center gap-2">
+              <ImageIcon className="h-4 w-4 text-blue-600" />
+              <span>{zoomedImage?.title}</span>
+            </DialogTitle>
+            {zoomedImage?.caption && (
+              <p className="text-xs text-muted-foreground">{zoomedImage.caption}</p>
+            )}
+          </DialogHeader>
+          <div className="flex-1 overflow-auto p-2 flex items-center justify-center bg-slate-900/5 dark:bg-slate-950/40 rounded-xl min-h-[300px]">
+            {zoomedImage && (
+              <img
+                src={zoomedImage.src}
+                alt={zoomedImage.title}
+                className="max-h-[72vh] w-auto object-contain rounded-lg shadow-sm"
+              />
+            )}
           </div>
         </DialogContent>
       </Dialog>
