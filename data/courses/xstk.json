@@ -164,7 +164,9 @@
         "level": "Cơ bản",
         "t": "[Slide Week 02 — W02-EX01 & W02-EX02] Thảm họa Titanic: Số đếm hay Tỉ lệ?",
         "q": "Bảng liên hợp thảm họa Titanic trong bài giảng (Slide 16–19) ghi nhận kết quả sống sót của 2.201 hành khách:<br>- Người lớn: 654 người sống sót, 1.438 người thiệt mạng (Tổng: 2.092 người lớn).<br>- Trẻ em: 57 người sống sót, 52 người thiệt mạng (Tổng: 109 trẻ em).<br>Một bạn sinh viên nhìn vào bảng và kết luận: <i>'Người lớn có kết quả sống sót tốt hơn trẻ em vì 654 > 57'</i>. Hãy chỉ ra sai lầm của kết luận này và tính tỉ lệ sống sót chính xác của từng nhóm.",
-        "sol": "<b>Phân tích theo Slide Week 02 (trang 18–19):</b><br>Sai lầm chí mạng: So sánh số đếm thô (654 vs 57) giữa hai nhóm có quy mô tổng thể chênh lệch quá lớn (2.092 người lớn vs 109 trẻ em). Muốn so sánh công bằng, bắt buộc phải dùng <b>Tỉ lệ có điều kiện</b>:<br>- Tỉ lệ sống sót của người lớn: $P(\\text{Sống} \\mid \\text{Người lớn}) = \\frac{654}{2092} \\approx 31{,}3\\%$.<br>- Tỉ lệ sống sót của trẻ em: $P(\\text{Sống} \\mid \\text{Trẻ em}) = \\frac{57}{109} \\approx 52{,}3\\%$.<br><b>Kết luận đúng:</b> Trẻ em có tỉ lệ sống sót cao hơn người lớn rất nhiều ($52{,}3\\% > 31{,}3\\%$) do nguyên tắc ưu tiên cứu hộ trẻ em!"
+        "sol": "<b>Phân tích theo Slide Week 02 (trang 18–19):</b><br>Sai lầm chí mạng: So sánh số đếm thô (654 vs 57) giữa hai nhóm có quy mô tổng thể chênh lệch quá lớn (2.092 người lớn vs 109 trẻ em). Muốn so sánh công bằng, bắt buộc phải dùng <b>Tỉ lệ có điều kiện</b>:<br>- Tỉ lệ sống sót của người lớn: $P(\\text{Sống} \\mid \\text{Người lớn}) = \\frac{654}{2092} \\approx 31{,}3\\%$.<br>- Tỉ lệ sống sót của trẻ em: $P(\\text{Sống} \\mid \\text{Trẻ em}) = \\frac{57}{109} \\approx 52{,}3\\%$.<br><b>Kết luận đúng:</b> Trẻ em có tỉ lệ sống sót cao hơn người lớn rất nhiều ($52{,}3\\% > 31{,}3\\%$) do nguyên tắc ưu tiên cứu hộ trẻ em!",
+        "image": "/illustrations/xstk/xstk_a2_distribution_shapes.png",
+        "caption": "Các dạng hình dạng phân phối"
       },
       {
         "level": "Trung bình",
@@ -214,7 +216,9 @@
           "$\\frac{10}{50} = 20\\%$"
         ],
         "ans": 1,
-        "fb": "Đúng! Tổng số sinh viên Nữ là $10 + 20 = 30$. Tỷ lệ có điều kiện trong nhóm Nữ thuộc lớp CNTT là $10/30 \\approx 33{,}33\\%$."
+        "fb": "Đúng! Tổng số sinh viên Nữ là $10 + 20 = 30$. Tỷ lệ có điều kiện trong nhóm Nữ thuộc lớp CNTT là $10/30 \\approx 33{,}33\\%$.",
+        "image": "/illustrations/xstk/xstk_a2_distribution_shapes.png",
+        "caption": "Các dạng hình dạng phân phối: Đối xứng, Lệch phải, Lệch trái"
       },
       {
         "level": "Vận dụng",
@@ -305,7 +309,9 @@
         "level": "Trung bình",
         "t": "[Slide Week 02 — W02-EX11] Xác định Ngoại lai theo Hàng rào Tukey",
         "q": "Cho 20 điểm thi đã sắp xếp tăng dần từ bài tập OpenIntro 4e (Slide 90–91):<br>$$57, 66, 69, 71, 72, 73, 74, 77, 78, 78, 79, 79, 81, 81, 82, 83, 83, 88, 89, 94$$<br>Biết $Q_1 = 72{,}5$ và $Q_3 = 82{,}5$. Hãy tính khoảng tứ phân vị $\\text{IQR}$, xác định hai hàng rào Tukey và kiểm tra xem có điểm ngoại lai nào không.",
-        "sol": "<b>Lời giải từng bước theo Slide Week 02 (trang 91):</b><br>1. Tính khoảng tứ phân vị: $\\text{IQR} = Q_3 - Q_1 = 82{,}5 - 72{,}5 = 10$.<br>2. Độ vươn hàng rào: $1{,}5 \\times \\text{IQR} = 1{,}5 \\times 10 = 15$.<br>3. Xác định hai ngưỡng hàng rào:<br>   - <b>Hàng rào dưới (Lower fence):</b> $Q_1 - 1{,}5\\text{IQR} = 72{,}5 - 15 = 57{,}5$.<br>   - <b>Hàng rào trên (Upper fence):</b> $Q_3 + 1{,}5\\text{IQR} = 82{,}5 + 15 = 97{,}5$.<br>4. <b>Kiểm tra ngoại lai:</b> Điểm thi $57 < 57{,}5$ (nằm ngoài hàng rào dưới) $\\rightarrow$ <b>57 là giá trị ngoại lai (outlier)</b> duy nhất của bộ dữ liệu."
+        "sol": "<b>Lời giải từng bước theo Slide Week 02 (trang 91):</b><br>1. Tính khoảng tứ phân vị: $\\text{IQR} = Q_3 - Q_1 = 82{,}5 - 72{,}5 = 10$.<br>2. Độ vươn hàng rào: $1{,}5 \\times \\text{IQR} = 1{,}5 \\times 10 = 15$.<br>3. Xác định hai ngưỡng hàng rào:<br>   - <b>Hàng rào dưới (Lower fence):</b> $Q_1 - 1{,}5\\text{IQR} = 72{,}5 - 15 = 57{,}5$.<br>   - <b>Hàng rào trên (Upper fence):</b> $Q_3 + 1{,}5\\text{IQR} = 82{,}5 + 15 = 97{,}5$.<br>4. <b>Kiểm tra ngoại lai:</b> Điểm thi $57 < 57{,}5$ (nằm ngoài hàng rào dưới) $\\rightarrow$ <b>57 là giá trị ngoại lai (outlier)</b> duy nhất của bộ dữ liệu.",
+        "image": "/illustrations/xstk/xstk_a3_boxplot_tukey.png",
+        "caption": "Cấu tạo Biểu đồ Hộp (Boxplot) và Hàng rào 1.5 IQR"
       },
       {
         "level": "Vận dụng",
@@ -362,7 +368,9 @@
           "$15$"
         ],
         "ans": 2,
-        "fb": "Chính xác! $IQR = 35 - 20 = 15$. Hàng rào trên: $Q_3 + 1{,}5 IQR = 35 + 1{,}5(15) = 35 + 22{,}5 = 57{,}5$. Giá trị $60 > 57{,}5$ nên là ngoại lai."
+        "fb": "Chính xác! $IQR = 35 - 20 = 15$. Hàng rào trên: $Q_3 + 1{,}5 IQR = 35 + 1{,}5(15) = 35 + 22{,}5 = 57{,}5$. Giá trị $60 > 57{,}5$ nên là ngoại lai.",
+        "image": "/illustrations/xstk/xstk_a3_boxplot_tukey.png",
+        "caption": "Sơ đồ giải phẫu Boxplot và hàng rào 1.5 IQR của Tukey"
       }
     ],
     "final_quiz": {
@@ -437,7 +445,9 @@
         "level": "Cơ bản",
         "t": "[Slide Week 04 — W04-EX01 & W04-CH01] Tính chất của Hệ số tương quan Pearson r",
         "q": "a) [W04-EX01] Nếu ta đổi thang đo nhiệt độ từ Celsius sang Fahrenheit ($y = 1{,}8x + 32$), hệ số tương quan $r$ giữa nhiệt độ và lượng điện tiêu thụ có thay đổi không?<br>b) [W04-CH01] Chứng minh hoặc bác bỏ mệnh đề: <i>'Hệ số tương quan $r = 0$ đồng nghĩa với việc hai biến $X$ và $Y$ không có mối liên hệ nào'</i>.",
-        "sol": "<b>Phân tích lý thuyết theo Slide Week 04 (trang 16–19):</b><br>a) Hệ số tương quan $r$ <b>bất biến với phép đổi thang đo tuyến tính dương</b>: $r(a x + b, y) = r(x, y)$ với mọi $a > 0$. Do đó $r$ không hề thay đổi!<br>b) <b>Khẳng định SAI!</b> Hệ số Pearson $r$ chỉ đo mức độ <b>liên hệ tuyến tính (đường thẳng)</b>.<br>   - Phản ví dụ kinh điển (Slide 19): Xét 5 điểm với $y = x^2$: $(-2, 4), (-1, 1), (0, 0), (1, 1), (2, 4)$.<br>   - Do tính đối xứng hoàn hảo, $r(X, Y) = 0$, nhưng giữa $X$ và $Y$ có quan hệ hàm số phi tuyến hoàn hảo ($Y = X^2$)!"
+        "sol": "<b>Phân tích lý thuyết theo Slide Week 04 (trang 16–19):</b><br>a) Hệ số tương quan $r$ <b>bất biến với phép đổi thang đo tuyến tính dương</b>: $r(a x + b, y) = r(x, y)$ với mọi $a > 0$. Do đó $r$ không hề thay đổi!<br>b) <b>Khẳng định SAI!</b> Hệ số Pearson $r$ chỉ đo mức độ <b>liên hệ tuyến tính (đường thẳng)</b>.<br>   - Phản ví dụ kinh điển (Slide 19): Xét 5 điểm với $y = x^2$: $(-2, 4), (-1, 1), (0, 0), (1, 1), (2, 4)$.<br>   - Do tính đối xứng hoàn hảo, $r(X, Y) = 0$, nhưng giữa $X$ và $Y$ có quan hệ hàm số phi tuyến hoàn hảo ($Y = X^2$)!",
+        "image": "/illustrations/xstk/xstk_a4_scatter_ols_line.png",
+        "caption": "Đường hồi quy OLS"
       },
       {
         "level": "Trung bình",
@@ -449,7 +459,9 @@
         "level": "Vận dụng",
         "t": "[Slide Week 04 — W04-Q02 & W04-WP01] Tính và Diễn giải Phần dư (Residual)",
         "q": "Sử dụng mô hình hồi quy $\\hat{y} = 64{,}68 - 0{,}62 x$ ở trên. Bang Rhode Island có tỉ lệ tốt nghiệp thực tế là $x = 81\\%$ và tỉ lệ nghèo thực tế là $y = 12{,}8\\%$ (Slide 26, 36–37).<br>a) Tính giá trị dự báo $\\hat{y}$ và phần dư $e$ cho bang Rhode Island.<br>b) Diễn giải ý nghĩa của dấu phần dư vừa tìm được.",
-        "sol": "<b>Lời giải chi tiết theo Slide Week 04 (trang 37):</b><br>a) Giá trị dự báo của mô hình (Fitted value):<br>   $$\\hat{y} = 64{,}68 - 0{,}62 \\times 81 = 64{,}68 - 50{,}22 = 14{,}46\\%$$<br>   Phần dư (Residual):<br>   $$e = y - \\hat{y} = 12{,}8\\% - 14{,}46\\% = -1{,}66\\%$$<br>b) <b>Ý nghĩa thực tế:</b> Phần dư mang dấu âm ($e = -1{,}66\\%$) chứng tỏ tỉ lệ nghèo thực tế của bang Rhode Island thấp hơn $1{,}66\\%$ so với mức nghèo mà mô hình dự đoán dựa trên tỉ lệ học vấn."
+        "sol": "<b>Lời giải chi tiết theo Slide Week 04 (trang 37):</b><br>a) Giá trị dự báo của mô hình (Fitted value):<br>   $$\\hat{y} = 64{,}68 - 0{,}62 \\times 81 = 64{,}68 - 50{,}22 = 14{,}46\\%$$<br>   Phần dư (Residual):<br>   $$e = y - \\hat{y} = 12{,}8\\% - 14{,}46\\% = -1{,}66\\%$$<br>b) <b>Ý nghĩa thực tế:</b> Phần dư mang dấu âm ($e = -1{,}66\\%$) chứng tỏ tỉ lệ nghèo thực tế của bang Rhode Island thấp hơn $1{,}66\\%$ so với mức nghèo mà mô hình dự đoán dựa trên tỉ lệ học vấn.",
+        "image": "/illustrations/xstk/xstk_a4_residuals_plot.png",
+        "caption": "Đồ thị Phần dư quan sát"
       }
     ],
     "pitfalls": [
@@ -487,7 +499,9 @@
           "Khi $x$ tăng thêm 1 đơn vị, giá trị trung bình dự báo của $y$ giảm đi 1,5 đơn vị"
         ],
         "ans": 3,
-        "fb": "Đúng! $b_1$ phản ánh mức thay đổi trung bình của giá trị dự báo $\\hat{y}$, không phải giá trị thực tế của từng cá thể."
+        "fb": "Đúng! $b_1$ phản ánh mức thay đổi trung bình của giá trị dự báo $\\hat{y}$, không phải giá trị thực tế của từng cá thể.",
+        "image": "/illustrations/xstk/xstk_a4_scatter_ols_line.png",
+        "caption": "Đường hồi quy OLS và biểu đồ phân tán"
       },
       {
         "level": "Vận dụng",
@@ -689,7 +703,9 @@
         "level": "Cơ bản",
         "t": "[Slide Week 05 — W05-BT01] Phép thử phức hợp Tung xu rồi Gieo xúc xắc",
         "q": "Một người tung một đồng xu cân đối. Nếu lần đầu được mặt Ngửa (H), người đó tung tiếp một đồng xu; nếu lần đầu được mặt Sấp (T), người đó gieo một con xúc xắc 6 mặt (Slide 15–16).<br>a) Hãy liệt kê toàn bộ các phần tử của không gian mẫu $\\Omega$.<br>b) Tính xác suất của biến cố $A$: 'Kết quả của phép thử xuất hiện số chẵn'.",
-        "sol": "<b>Lời giải chuẩn mực theo Slide Week 05 (trang 16):</b><br>a) Không gian mẫu $\\Omega$ gồm 8 kết quả sơ cấp:<br>   $$\\Omega = \\{HH, HT, T1, T2, T3, T4, T5, T6\\}$$<br>b) Xác suất của mỗi nhánh:<br>   - Nhánh ngửa: $P(HH) = P(HT) = \\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4}$.<br>   - Nhánh sấp: $P(Ti) = \\frac{1}{2} \\times \\frac{1}{6} = \\frac{1}{12}$ với mọi $i \\in \\{1, 2, 3, 4, 5, 6\\}$.<br>   Biến cố $A = \\{T2, T4, T6\\}$ gồm 3 kết quả số chẵn:<br>   $$P(A) = P(T2) + P(T4) + P(T6) = \\frac{1}{12} + \\frac{1}{12} + \\frac{1}{12} = \\frac{3}{12} = \\frac{1}{4} = 0{,}25$$"
+        "sol": "<b>Lời giải chuẩn mực theo Slide Week 05 (trang 16):</b><br>a) Không gian mẫu $\\Omega$ gồm 8 kết quả sơ cấp:<br>   $$\\Omega = \\{HH, HT, T1, T2, T3, T4, T5, T6\\}$$<br>b) Xác suất của mỗi nhánh:<br>   - Nhánh ngửa: $P(HH) = P(HT) = \\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4}$.<br>   - Nhánh sấp: $P(Ti) = \\frac{1}{2} \\times \\frac{1}{6} = \\frac{1}{12}$ với mọi $i \\in \\{1, 2, 3, 4, 5, 6\\}$.<br>   Biến cố $A = \\{T2, T4, T6\\}$ gồm 3 kết quả số chẵn:<br>   $$P(A) = P(T2) + P(T4) + P(T6) = \\frac{1}{12} + \\frac{1}{12} + \\frac{1}{12} = \\frac{3}{12} = \\frac{1}{4} = 0{,}25$$",
+        "image": "/illustrations/xstk/xstk_b1_venn_diagram.png",
+        "caption": "Sơ đồ Venn biến cố xác suất"
       },
       {
         "level": "Trung bình",
@@ -726,7 +742,9 @@
           "$P(A \\cup B) = P(A) + P(B)$ với mọi cặp biến cố bất kỳ"
         ],
         "ans": 1,
-        "fb": "Chính xác! 3 tiên đề Kolmogorov gồm: Tính không âm ($P(A) \\ge 0$), Tính chuẩn hóa ($P(S) = 1$), và Tính cộng vô hạn cho các biến cố xung khắc."
+        "fb": "Chính xác! 3 tiên đề Kolmogorov gồm: Tính không âm ($P(A) \\ge 0$), Tính chuẩn hóa ($P(S) = 1$), và Tính cộng vô hạn cho các biến cố xung khắc.",
+        "image": "/illustrations/xstk/xstk_b1_venn_diagram.png",
+        "caption": "Sơ đồ Venn các biến cố xác suất"
       },
       {
         "level": "Thông hiểu",
@@ -1179,7 +1197,9 @@
         "level": "Trung bình",
         "t": "[Slide Week 05 — W05-TH03] Rút mẫu kiểm tra Chất lượng Lô 10 Linh kiện",
         "q": "Một nhà cung cấp giao một lô gồm 10 linh kiện (Slide 87–90). Biết lô hàng có chứa đúng 2 linh kiện lỗi. Kỹ sư kiểm tra rút ngẫu nhiên đồng thời không hoàn lại 2 linh kiện. Có bao nhiêu cách chọn 2 linh kiện bất kỳ và tính xác suất để cả 2 linh kiện rút ra đều là linh kiện tốt.",
-        "sol": "<b>Lời giải dùng Kỹ thuật đếm Tổ hợp theo Slide Week 05:</b><br>1. Số cách chọn 2 linh kiện bất kỳ từ 10 linh kiện là số tổ hợp chập 2 của 10:<br>   $$n(\\Omega) = C_{10}^2 = \\frac{10 \\times 9}{2} = 45 \\text{ cách}$$<br>2. Trong lô có $10 - 2 = 8$ linh kiện tốt. Số cách chọn 2 linh kiện đều tốt là:<br>   $$n(A) = C_8^2 = \\frac{8 \\times 7}{2} = 28 \\text{ cách}$$<br>3. Xác suất cả 2 linh kiện rút ra đều tốt:<br>   $$P(A) = \\frac{C_8^2}{C_{10}^2} = \\frac{28}{45} \\approx 0{,}6222 \\approx 62{,}22\\%$$"
+        "sol": "<b>Lời giải dùng Kỹ thuật đếm Tổ hợp theo Slide Week 05:</b><br>1. Số cách chọn 2 linh kiện bất kỳ từ 10 linh kiện là số tổ hợp chập 2 của 10:<br>   $$n(\\Omega) = C_{10}^2 = \\frac{10 \\times 9}{2} = 45 \\text{ cách}$$<br>2. Trong lô có $10 - 2 = 8$ linh kiện tốt. Số cách chọn 2 linh kiện đều tốt là:<br>   $$n(A) = C_8^2 = \\frac{8 \\times 7}{2} = 28 \\text{ cách}$$<br>3. Xác suất cả 2 linh kiện rút ra đều tốt:<br>   $$P(A) = \\frac{C_8^2}{C_{10}^2} = \\frac{28}{45} \\approx 0{,}6222 \\approx 62{,}22\\%$$",
+        "image": "/illustrations/xstk/xstk_b5_bayes_tree_diagram.png",
+        "caption": "Cây xác suất Bayes"
       },
       {
         "level": "Vận dụng",
@@ -1223,7 +1243,9 @@
           "$A_{10}^4 = 5040$"
         ],
         "ans": 0,
-        "fb": "Đúng! Không phân biệt thứ tự là bài toán tổ hợp: $C_{10}^4 = \\frac{10!}{4!6!} = 210$ cách."
+        "fb": "Đúng! Không phân biệt thứ tự là bài toán tổ hợp: $C_{10}^4 = \\frac{10!}{4!6!} = 210$ cách.",
+        "image": "/illustrations/xstk/xstk_b5_bayes_tree_diagram.png",
+        "caption": "Sơ đồ cây xác suất và Công thức Bayes"
       },
       {
         "level": "Vận dụng",
@@ -2031,7 +2053,9 @@
         "level": "Cơ bản",
         "t": "[Slide Week 07 — Ví dụ 6] Gieo cặp xúc xắc qua Mô hình Chiếc hộp",
         "q": "Xét phép thử: Gieo đồng thời một cặp xúc xắc 6 mặt cân đối và tính tổng số chấm xuất hiện (Slide 24). Hãy biểu diễn phép thử này dưới dạng Mô hình chiếc hộp (Box model) và xác định các tấm vé bên trong hộp.",
-        "sol": "<b>Lời giải theo Slide Week 07 (trang 24):</b><br>1. Mỗi lần gieo một cặp xúc xắc, tổng số chấm có thể nhận các giá trị từ $2$ đến $12$.<br>2. Có 36 kết quả sơ cấp đồng khả năng. Ta mô hình hóa bằng <b>một chiếc hộp chứa 36 tấm vé</b> ghi các con số tổng tương ứng:<br>   - 1 vé ghi [2] (ứng với $(1,1)$);<br>   - 2 vé ghi [3]; 3 vé ghi [4]; 4 vé ghi [5]; 5 vé ghi [6];<br>   - 6 vé ghi [7] (tổng phổ biến nhất);<br>   - 5 vé ghi [8]; 4 vé ghi [9]; 3 vé ghi [10]; 2 vé ghi [11];<br>   - 1 vé ghi [12] (ứng với $(6,6)$).<br>3. Mỗi lần gieo cặp xúc xắc tương đương với việc <b>rút ngẫu nhiên một tấm vé</b> từ chiếc hộp 36 vé này."
+        "sol": "<b>Lời giải theo Slide Week 07 (trang 24):</b><br>1. Mỗi lần gieo một cặp xúc xắc, tổng số chấm có thể nhận các giá trị từ $2$ đến $12$.<br>2. Có 36 kết quả sơ cấp đồng khả năng. Ta mô hình hóa bằng <b>một chiếc hộp chứa 36 tấm vé</b> ghi các con số tổng tương ứng:<br>   - 1 vé ghi [2] (ứng với $(1,1)$);<br>   - 2 vé ghi [3]; 3 vé ghi [4]; 4 vé ghi [5]; 5 vé ghi [6];<br>   - 6 vé ghi [7] (tổng phổ biến nhất);<br>   - 5 vé ghi [8]; 4 vé ghi [9]; 3 vé ghi [10]; 2 vé ghi [11];<br>   - 1 vé ghi [12] (ứng với $(6,6)$).<br>3. Mỗi lần gieo cặp xúc xắc tương đương với việc <b>rút ngẫu nhiên một tấm vé</b> từ chiếc hộp 36 vé này.",
+        "image": "/illustrations/xstk/xstk_d1_normal_distribution_curve.png",
+        "caption": "Đường cong Gauss chuẩn"
       },
       {
         "level": "Trung bình",
@@ -2068,7 +2092,9 @@
           "Tất cả đều là phân phối chuẩn"
         ],
         "ans": 1,
-        "fb": "Chính xác! i.i.d. = independent and identically distributed."
+        "fb": "Chính xác! i.i.d. = independent and identically distributed.",
+        "image": "/illustrations/xstk/xstk_d1_normal_distribution_curve.png",
+        "caption": "Đường cong Phân phối chuẩn và quy tắc 68-95-99.7"
       },
       {
         "level": "Thông hiểu",

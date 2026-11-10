@@ -20,6 +20,8 @@ function normalizeLesson(raw: any): Lesson {
     level: ex.level || "Cơ bản",
     problem: nfc(ex.problem || ex.q || ""),
     solution: nfc(ex.solution || ex.sol || ""),
+    image: ex.image ? nfc(ex.image) : undefined,
+    caption: ex.caption ? nfc(ex.caption) : undefined,
   }));
 
   // Normalize pitfalls
@@ -35,6 +37,8 @@ function normalizeLesson(raw: any): Lesson {
     opts: (q.opts || []).map((o: any) => nfc(o)),
     ans: typeof q.ans === "number" ? q.ans : 0,
     fb: nfc(q.fb || ""),
+    image: q.image ? nfc(q.image) : undefined,
+    caption: q.caption ? nfc(q.caption) : undefined,
   }));
 
   // Normalize illustrations

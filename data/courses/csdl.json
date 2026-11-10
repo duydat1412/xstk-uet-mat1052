@@ -39,7 +39,9 @@
         "level": "Cơ bản",
         "t": "[Slide C1 — Slide 12–14] CSDL Quản lý Đào tạo Đại học",
         "q": "Trong bài giảng Slide C1 (trang 12–14), xét CSDL Quản lý Đào tạo gồm các đối tượng: Sinh viên, Môn học, Học phần, Điểm số. Hãy phân biệt rõ: Thao tác nào thuộc Ngôn ngữ Định nghĩa Dữ liệu (DDL) và thao tác nào thuộc Ngôn ngữ Thao tác Dữ liệu (DML)?",
-        "sol": "<b>Phân tích đối chiếu theo Slide Chương 1:</b><br>1. <b>DDL (Data Definition Language)</b>: Dùng để định nghĩa và thay đổi cấu trúc bảng, kiểu dữ liệu và ràng buộc toàn vẹn:<br>   - Tạo bảng <code>SINHVIEN</code> với các cột <code>MaSV</code> (chuỗi 8 ký tự), <code>HoTen</code>, <code>NgaySinh</code>.<br>   - Thiết lập ràng buộc <code>MaSV</code> làm khóa chính, điểm số phải nằm trong đoạn $[0, 10]$.<br>2. <b>DML (Data Manipulation Language)</b>: Dùng để truy vấn, thêm, sửa, xóa dữ liệu tác nghiệp bên trong bảng:<br>   - Thêm sinh viên mới Nguyễn Văn A vào bảng <code>SINHVIEN</code>.<br>   - Cập nhật điểm thi môn CSDL của sinh viên có mã 23020001 thành 8.5.<br>   - Truy vấn danh sách tất cả sinh viên có điểm trung bình tích lũy $\\ge 3.2$."
+        "sol": "<b>Phân tích đối chiếu theo Slide Chương 1:</b><br>1. <b>DDL (Data Definition Language)</b>: Dùng để định nghĩa và thay đổi cấu trúc bảng, kiểu dữ liệu và ràng buộc toàn vẹn:<br>   - Tạo bảng <code>SINHVIEN</code> với các cột <code>MaSV</code> (chuỗi 8 ký tự), <code>HoTen</code>, <code>NgaySinh</code>.<br>   - Thiết lập ràng buộc <code>MaSV</code> làm khóa chính, điểm số phải nằm trong đoạn $[0, 10]$.<br>2. <b>DML (Data Manipulation Language)</b>: Dùng để truy vấn, thêm, sửa, xóa dữ liệu tác nghiệp bên trong bảng:<br>   - Thêm sinh viên mới Nguyễn Văn A vào bảng <code>SINHVIEN</code>.<br>   - Cập nhật điểm thi môn CSDL của sinh viên có mã 23020001 thành 8.5.<br>   - Truy vấn danh sách tất cả sinh viên có điểm trung bình tích lũy $\\ge 3.2$.",
+        "image": "/illustrations/csdl/csdl01_ansi_sparc_architecture.png",
+        "caption": "Sơ đồ Kiến trúc 3 mức ANSI/SPARC"
       },
       {
         "level": "Trung bình",
@@ -76,7 +78,9 @@
           "Mức logic người dùng"
         ],
         "ans": 2,
-        "fb": "Chính xác! Mức trong (Internal level hay Physical level) mô tả chi tiết cách thức dữ liệu được lưu trữ vật lý trên thiết bị nhớ thứ cấp (cấu trúc tệp, chỉ mục, khối dữ liệu)."
+        "fb": "Chính xác! Mức trong (Internal level hay Physical level) mô tả chi tiết cách thức dữ liệu được lưu trữ vật lý trên thiết bị nhớ thứ cấp (cấu trúc tệp, chỉ mục, khối dữ liệu).",
+        "image": "/illustrations/csdl/csdl01_ansi_sparc_architecture.png",
+        "caption": "Sơ đồ Kiến trúc 3 mức ANSI/SPARC"
       },
       {
         "level": "Thông hiểu",
@@ -161,7 +165,9 @@
         "level": "Cơ bản",
         "t": "[Slide C2_1 — Slide 13–15] Phân loại Thuộc tính cho Thực thể Thí sinh Tuyển sinh",
         "q": "Trong bài toán Quản lý Tuyển sinh (Slide C2_1 trang 13), kiểu thực thể `THISINH` gồm các thuộc tính: `SBD`, `HoTen` (Họ, Tên đệm, Tên), `NgaySinh`, `Tuoi`, `DienThoaiLienLac`. Hãy phân loại chính xác từng thuộc tính trên theo đúng chuẩn mô hình ER.",
-        "sol": "<b>Phân tích đối chiếu theo Slide C2_1:</b><br>1. <code>SBD</code>: Giá trị phân biệt duy nhất mỗi thí sinh $\rightarrow$ <b>Thuộc tính Khóa (Key Attribute)</b> (vẽ elip nét đơn, gạch chân chữ <u>SBD</u>).<br>2. <code>HoTen</code>: Gồm 3 thành phần con (Họ, Đệm, Tên) $\rightarrow$ <b>Thuộc tính Tổng hợp (Composite Attribute)</b>.<br>3. <code>NgaySinh</code>: Giá trị nguyên tử lưu trữ trực tiếp $\rightarrow$ <b>Thuộc tính Đơn lưu trữ (Simple Stored Attribute)</b>.<br>4. <code>Tuoi</code>: Được tính toán trực tiếp từ $2026 - \text{Năm sinh}$ $\rightarrow$ <b>Thuộc tính Phái sinh (Derived Attribute)</b> (vẽ elip nét đứt).<br>5. <code>DienThoaiLienLac</code>: Một thí sinh có thể đăng ký nhiều số liên lạc $\rightarrow$ <b>Thuộc tính Đa trị (Multivalued Attribute)</b> (vẽ elip nét đôi)."
+        "sol": "<b>Phân tích đối chiếu theo Slide C2_1:</b><br>1. <code>SBD</code>: Giá trị phân biệt duy nhất mỗi thí sinh $\rightarrow$ <b>Thuộc tính Khóa (Key Attribute)</b> (vẽ elip nét đơn, gạch chân chữ <u>SBD</u>).<br>2. <code>HoTen</code>: Gồm 3 thành phần con (Họ, Đệm, Tên) $\rightarrow$ <b>Thuộc tính Tổng hợp (Composite Attribute)</b>.<br>3. <code>NgaySinh</code>: Giá trị nguyên tử lưu trữ trực tiếp $\rightarrow$ <b>Thuộc tính Đơn lưu trữ (Simple Stored Attribute)</b>.<br>4. <code>Tuoi</code>: Được tính toán trực tiếp từ $2026 - \text{Năm sinh}$ $\rightarrow$ <b>Thuộc tính Phái sinh (Derived Attribute)</b> (vẽ elip nét đứt).<br>5. <code>DienThoaiLienLac</code>: Một thí sinh có thể đăng ký nhiều số liên lạc $\rightarrow$ <b>Thuộc tính Đa trị (Multivalued Attribute)</b> (vẽ elip nét đôi).",
+        "image": "/illustrations/csdl/csdl02_entity_attributes.png",
+        "caption": "Sơ đồ tập thực thể và phân loại thuộc tính"
       },
       {
         "level": "Trung bình",
@@ -173,7 +179,9 @@
         "level": "Vận dụng",
         "t": "[Slide C2_1 — Slide 52] Thiết kế Kiểu thực thể Bán hàng & Xử lý Thuộc tính phức hợp",
         "q": "Trong CSDL Bán hàng của một công ty (Slide C2_1 trang 52): Khách hàng có `MaKH`, `TenCongTy`, `DiaChiGiaoHang` (gồm Số nhà, Tên đường, Quận, Thành phố), và có thể có nhiều `DiaChiEmail` để nhận hóa đơn điện tử. Hãy trình bày cách vẽ lược đồ ER chuẩn mực để không bị mất thông tin địa lý khi phân tích doanh số theo Quận/Thành phố.",
-        "sol": "<b>Phân tích thiết kế:</b><br>- Nếu để <code>DiaChiGiaoHang</code> là một chuỗi văn bản đơn lẻ, sau này khi viết câu lệnh SQL để thống kê doanh số bán theo từng 'Quận' hoặc 'Thành phố' sẽ cực kỳ khó khăn và chạy rất chậm (phải dùng LIKE '%Quận Cầu Giấy%').<br>- <b>Giải pháp chuẩn ER:</b> Mô hình hóa <code>DiaChiGiaoHang</code> thành <b>Thuộc tính Tổng hợp (Composite)</b>, phân nhánh ra 4 elip con: <code>SoNha</code>, <code>Duong</code>, <code>Quan</code>, <code>ThanhPho</code>.<br>- Thuộc tính <code>DiaChiEmail</code> là <b>Thuộc tính Đa trị</b>, vẽ bằng elip viền đôi.<br>- Thuộc tính <code><u>MaKH</u></code> là <b>Thuộc tính Khóa</b> gạch chân."
+        "sol": "<b>Phân tích thiết kế:</b><br>- Nếu để <code>DiaChiGiaoHang</code> là một chuỗi văn bản đơn lẻ, sau này khi viết câu lệnh SQL để thống kê doanh số bán theo từng 'Quận' hoặc 'Thành phố' sẽ cực kỳ khó khăn và chạy rất chậm (phải dùng LIKE '%Quận Cầu Giấy%').<br>- <b>Giải pháp chuẩn ER:</b> Mô hình hóa <code>DiaChiGiaoHang</code> thành <b>Thuộc tính Tổng hợp (Composite)</b>, phân nhánh ra 4 elip con: <code>SoNha</code>, <code>Duong</code>, <code>Quan</code>, <code>ThanhPho</code>.<br>- Thuộc tính <code>DiaChiEmail</code> là <b>Thuộc tính Đa trị</b>, vẽ bằng elip viền đôi.<br>- Thuộc tính <code><u>MaKH</u></code> là <b>Thuộc tính Khóa</b> gạch chân.",
+        "image": "/illustrations/csdl/csdl02_erd_symbols_table.png",
+        "caption": "Bảng tra cứu quy ước ký hiệu Lược đồ ER"
       }
     ],
     "pitfalls": [
@@ -198,7 +206,9 @@
           "Hình elip nét đứt"
         ],
         "ans": 2,
-        "fb": "Chính xác! Thuộc tính đa trị (có thể nhận nhiều giá trị cho một thực thể) được ký hiệu bằng hình elip nét đôi."
+        "fb": "Chính xác! Thuộc tính đa trị (có thể nhận nhiều giá trị cho một thực thể) được ký hiệu bằng hình elip nét đôi.",
+        "image": "/illustrations/csdl/csdl02_erd_symbols_table.png",
+        "caption": "Bảng tra cứu quy ước ký hiệu Lược đồ ER"
       },
       {
         "level": "Thông hiểu",
@@ -291,19 +301,25 @@
         "level": "Cơ bản",
         "t": "[Slide C2_1 — Slide 26] Ràng buộc Tỉ số trong CSDL Thư viện",
         "q": "Trong bài toán CSDL Thư viện (Slide C2_1 trang 26), xét mối liên kết `Muon` giữa hai kiểu thực thể `BANDOC` (Bạn đọc) và `CUONSACH` (Cuốn sách vật lý có Mã vạch duy nhất). Hãy xác định tỉ số lực lượng (1:1, 1:N hay M:N) nếu: (1) Xét giữa Bạn đọc và Đầu sách; (2) Xét giữa Bạn đọc và Cuốn sách cụ thể tại một thời điểm.",
-        "sol": "<b>Phân tích bản chất theo bài giảng UET:</b><br>1. Xét giữa <code>BANDOC</code> và <code>DAUSACH</code> (Tác phẩm): Một bạn đọc có thể mượn nhiều đầu sách khác nhau theo thời gian, và một đầu sách được nhiều bạn đọc mượn $\rightarrow$ Tỉ số là <b>M : N (Nhiều - Nhiều)</b>.<br>2. Xét giữa <code>BANDOC</code> và <code>CUONSACH</code> (Bản sao vật lý cụ thể) tại một thời điểm: Một bạn đọc có thể mượn cùng lúc nhiều cuốn sách, nhưng một cuốn sách cụ thể (có mã vạch xác định) tại một thời điểm chỉ có thể do <b>tối đa một bạn đọc</b> cầm giữ $\rightarrow$ Tỉ số là <b>1 : N (Một - Nhiều)</b> phía Bạn đọc là 1, Cuốn sách là N."
+        "sol": "<b>Phân tích bản chất theo bài giảng UET:</b><br>1. Xét giữa <code>BANDOC</code> và <code>DAUSACH</code> (Tác phẩm): Một bạn đọc có thể mượn nhiều đầu sách khác nhau theo thời gian, và một đầu sách được nhiều bạn đọc mượn $\rightarrow$ Tỉ số là <b>M : N (Nhiều - Nhiều)</b>.<br>2. Xét giữa <code>BANDOC</code> và <code>CUONSACH</code> (Bản sao vật lý cụ thể) tại một thời điểm: Một bạn đọc có thể mượn cùng lúc nhiều cuốn sách, nhưng một cuốn sách cụ thể (có mã vạch xác định) tại một thời điểm chỉ có thể do <b>tối đa một bạn đọc</b> cầm giữ $\rightarrow$ Tỉ số là <b>1 : N (Một - Nhiều)</b> phía Bạn đọc là 1, Cuốn sách là N.",
+        "image": "/illustrations/csdl/csdl03_cardinality_ratios.png",
+        "caption": "Sơ đồ xác định tỉ số lực lượng 1:1, 1:N, M:N"
       },
       {
         "level": "Trung bình",
         "t": "[Slide C2_1 — Slide 34–35] Mô hình hóa Thực thể yếu Thân nhân của Nhân viên",
         "q": "Một công ty cần quản lý thông tin thân nhân của nhân viên để chi trả bảo hiểm: Mỗi nhân viên có `MaNV` (duy nhất), `HoTen`. Thân nhân có `TenThanNhan`, `NgaySinh`, `QuanHe`. Hai nhân viên khác nhau có thể có thân nhân trùng tên (ví dụ đều có con tên 'Bình'). Hãy vẽ và mô tả chi tiết các thành phần ERD để biểu diễn mối quan hệ này.",
-        "sol": "<b>Mô hình hóa chi tiết theo chuẩn UET:</b><br>1. Kiểu thực thể chủ: <code>NHANVIEN</code> (vẽ hình chữ nhật nét đơn, khóa chính <code><u>MaNV</u></code> gạch chân nét liền).<br>2. Kiểu thực thể yếu: <code>THANNHAN</code> (vẽ <b>hình chữ nhật viền đôi</b>).<br>3. Khóa bộ phận của thân nhân: <code><u>TenThanNhan</u></code> (vẽ hình elip, chữ được <b>gạch chân bằng nét đứt</b>).<br>4. Mối liên kết xác định: <code>Co_ThanNhan</code> (vẽ <b>hình thoi viền đôi</b>).<br>5. Ràng buộc tham gia: Phía <code>THANNHAN</code> bắt buộc phải nối bằng <b>đường nét đôi (Total participation)</b> vì không thể tồn tại một thân nhân trong CSDL mà không gắn với nhân viên nào."
+        "sol": "<b>Mô hình hóa chi tiết theo chuẩn UET:</b><br>1. Kiểu thực thể chủ: <code>NHANVIEN</code> (vẽ hình chữ nhật nét đơn, khóa chính <code><u>MaNV</u></code> gạch chân nét liền).<br>2. Kiểu thực thể yếu: <code>THANNHAN</code> (vẽ <b>hình chữ nhật viền đôi</b>).<br>3. Khóa bộ phận của thân nhân: <code><u>TenThanNhan</u></code> (vẽ hình elip, chữ được <b>gạch chân bằng nét đứt</b>).<br>4. Mối liên kết xác định: <code>Co_ThanNhan</code> (vẽ <b>hình thoi viền đôi</b>).<br>5. Ràng buộc tham gia: Phía <code>THANNHAN</code> bắt buộc phải nối bằng <b>đường nét đôi (Total participation)</b> vì không thể tồn tại một thân nhân trong CSDL mà không gắn với nhân viên nào.",
+        "image": "/illustrations/csdl/csdl03_weak_entity.png",
+        "caption": "Sơ đồ thực thể yếu và liên kết xác định"
       },
       {
         "level": "Vận dụng",
         "t": "[Slide C2_1 — Slide 52] Thiết kế Lược đồ ER Hoàn chỉnh cho CSDL Bán hàng",
         "q": "Bài tập 4 (Slide C2_1 trang 52): Thiết kế lược đồ ER cho CSDL Bán hàng của một công ty gồm: Khách hàng, Đơn đặt hàng, Hàng hóa. Biết rằng:<br>- Mỗi Đơn đặt hàng do đúng một Khách hàng đặt, một Khách hàng có thể đặt nhiều đơn.<br>- Mỗi Đơn đặt hàng có thể gồm nhiều Mặt hàng với số lượng và đơn giá bán tương ứng; mỗi Mặt hàng có thể xuất hiện trong nhiều đơn hàng.<br>Hãy xác định các kiểu thực thể, mối liên kết, tỉ số lực lượng và vị trí đặt thuộc tính `SoLuong`, `DonGiaBan`.",
-        "sol": "<b>Phân tích thiết kế chuẩn xác:</b><br>1. Các kiểu thực thể: <code>KHACHHANG</code> (<u>MaKH</u>, TenKH, DiaChi), <code>DONDATHANG</code> (<u>SoDH</u>, NgayDat), <code>HANGHOA</code> (<u>MaHang</u>, TenHang, DonViTinh).<br>2. Liên kết <code>DatHang</code> giữa <code>KHACHHANG</code> và <code>DONDATHANG</code>:<br>   - Tỉ số: <b>1 : N</b> (1 Khách hàng đặt N Đơn hàng). Phía <code>DONDATHANG</code> tham gia toàn phần (đường nét đôi) vì đơn hàng bắt buộc phải có người đặt.<br>3. Liên kết <code>ChiTietDonHang</code> giữa <code>DONDATHANG</code> và <code>HANGHOA</code>:<br>   - Tỉ số: <b>M : N</b> (1 Đơn hàng có nhiều Hàng hóa, 1 Hàng hóa nằm trong nhiều Đơn hàng).<br>   - <b>Cạm bẫy vị trí thuộc tính:</b> Thuộc tính <code>SoLuong</code> và <code>DonGiaBan</code> <b>KHÔNG THỂ</b> đặt ở thực thể Hàng hóa (vì mỗi đơn hàng mua số lượng khác nhau) cũng không thể đặt ở Đơn đặt hàng (vì mỗi món trong đơn có số lượng khác nhau). Chúng bắt buộc phải là <b>Thuộc tính của mối liên kết M:N ChiTietDonHang</b>!"
+        "sol": "<b>Phân tích thiết kế chuẩn xác:</b><br>1. Các kiểu thực thể: <code>KHACHHANG</code> (<u>MaKH</u>, TenKH, DiaChi), <code>DONDATHANG</code> (<u>SoDH</u>, NgayDat), <code>HANGHOA</code> (<u>MaHang</u>, TenHang, DonViTinh).<br>2. Liên kết <code>DatHang</code> giữa <code>KHACHHANG</code> và <code>DONDATHANG</code>:<br>   - Tỉ số: <b>1 : N</b> (1 Khách hàng đặt N Đơn hàng). Phía <code>DONDATHANG</code> tham gia toàn phần (đường nét đôi) vì đơn hàng bắt buộc phải có người đặt.<br>3. Liên kết <code>ChiTietDonHang</code> giữa <code>DONDATHANG</code> và <code>HANGHOA</code>:<br>   - Tỉ số: <b>M : N</b> (1 Đơn hàng có nhiều Hàng hóa, 1 Hàng hóa nằm trong nhiều Đơn hàng).<br>   - <b>Cạm bẫy vị trí thuộc tính:</b> Thuộc tính <code>SoLuong</code> và <code>DonGiaBan</code> <b>KHÔNG THỂ</b> đặt ở thực thể Hàng hóa (vì mỗi đơn hàng mua số lượng khác nhau) cũng không thể đặt ở Đơn đặt hàng (vì mỗi món trong đơn có số lượng khác nhau). Chúng bắt buộc phải là <b>Thuộc tính của mối liên kết M:N ChiTietDonHang</b>!",
+        "image": "/illustrations/csdl/csdl03_full_company_erd.png",
+        "caption": "Toàn cảnh lược đồ ERD Quản lý Dự án Công ty UET"
       }
     ],
     "pitfalls": [
@@ -328,7 +344,9 @@
           "Thuộc tính của liên kết là đa trị"
         ],
         "ans": 1,
-        "fb": "Chính xác! Đường nối đôi biểu diễn sự tham gia toàn phần (Total / Mandatory participation), nghĩa là mọi cá thể thực thể đều bắt buộc phải tồn tại trong mối liên kết đó."
+        "fb": "Chính xác! Đường nối đôi biểu diễn sự tham gia toàn phần (Total / Mandatory participation), nghĩa là mọi cá thể thực thể đều bắt buộc phải tồn tại trong mối liên kết đó.",
+        "image": "/illustrations/csdl/csdl03_full_company_erd.png",
+        "caption": "Sơ đồ ERD có các liên kết nét đơn và nét đôi"
       },
       {
         "level": "Thông hiểu",
@@ -341,7 +359,9 @@
           "Không xác định được"
         ],
         "ans": 0,
-        "fb": "Đúng! Tại một thời điểm cố định, 1 phòng học phục vụ 1 lớp học và 1 lớp học chỉ ở trong 1 phòng học, đây là quan hệ 1 : 1."
+        "fb": "Đúng! Tại một thời điểm cố định, 1 phòng học phục vụ 1 lớp học và 1 lớp học chỉ ở trong 1 phòng học, đây là quan hệ 1 : 1.",
+        "image": "/illustrations/csdl/csdl03_cardinality_ratios.png",
+        "caption": "Sơ đồ xác định tỉ số lực lượng 1:1, 1:N, M:N"
       },
       {
         "level": "Vận dụng",
@@ -421,7 +441,9 @@
         "level": "Cơ bản",
         "t": "[Slide C2_2 — Slide 4–6] Tính Kế thừa trong Thực thể Sinh viên và Nhân viên",
         "q": "Xét lược đồ EER (Slide C2_2 trang 4–6): Lớp cha `NGUOI` có các thuộc tính `CCCD`, `HoTen`, `NgaySinh`. Hai lớp con là `SINHVIEN` (có thuộc tính riêng `GPA`) và `GIANGVIEN` (có thuộc tính riêng `HocHam`). Hãy liệt kê đầy đủ các thuộc tính của một giảng viên trong hệ thống.",
-        "sol": "<b>Phân tích tính kế thừa kiểu (Type Inheritance):</b><br>Theo quy tắc kế thừa trong EER, một thực thể thuộc lớp con <code>GIANGVIEN</code> kế thừa toàn bộ thuộc tính của lớp cha <code>NGUOI</code> cộng với thuộc tính riêng của nó:<br>$$\\text{Thuộc tính của GIANGVIEN} = \\{ \\underline{CCCD}, HoTen, NgaySinh, HocHam \\}$$"
+        "sol": "<b>Phân tích tính kế thừa kiểu (Type Inheritance):</b><br>Theo quy tắc kế thừa trong EER, một thực thể thuộc lớp con <code>GIANGVIEN</code> kế thừa toàn bộ thuộc tính của lớp cha <code>NGUOI</code> cộng với thuộc tính riêng của nó:<br>$$\\text{Thuộc tính của GIANGVIEN} = \\{ \\underline{CCCD}, HoTen, NgaySinh, HocHam \\}$$",
+        "image": "/illustrations/csdl/csdl04_eer_disjoint_constraint.png",
+        "caption": "Mô hình EER phân loại lớp cha - lớp con"
       },
       {
         "level": "Trung bình",
@@ -458,7 +480,9 @@
           "Ràng buộc phụ thuộc dữ liệu"
         ],
         "ans": 1,
-        "fb": "Chính xác! Chữ 'd' là viết tắt của Disjoint (Rời rạc), quy định một thực thể ở lớp cha chỉ được phép là thành viên của tối đa 1 lớp con."
+        "fb": "Chính xác! Chữ 'd' là viết tắt của Disjoint (Rời rạc), quy định một thực thể ở lớp cha chỉ được phép là thành viên của tối đa 1 lớp con.",
+        "image": "/illustrations/csdl/csdl04_eer_disjoint_constraint.png",
+        "caption": "Ký hiệu hình tròn 'd' (Disjoint) trong EER"
       },
       {
         "level": "Thông hiểu",
@@ -544,7 +568,9 @@
         "level": "Cơ bản",
         "t": "[Slide C3_1 — Slide 23] Xác định Khóa chính và Khóa dự tuyển",
         "q": "Xét lược đồ quan hệ `NHANVIEN(MaNV, SoCMND, HoDem, Ten, NgaySinh, DiaChi)`. Giả sử trong thực tế, `MaNV` không bao giờ trùng và `SoCMND` của mỗi công dân cũng là duy nhất. Hãy chỉ ra: (1) Các khóa ứng viên (Candidate Keys); (2) Các siêu khóa; (3) Thuộc tính khóa và thuộc tính không khóa.",
-        "sol": "<b>Phân tích bản chất:</b><br>1. Các <b>Khóa ứng viên (Candidate Keys)</b> là các siêu khóa tối thiểu:<br>   $$CK_1 = \\{MaNV\\}, \\quad CK_2 = \\{SoCMND\\}$$<br>2. Các <b>Siêu khóa (Superkeys)</b>: Bất kỳ tập thuộc tính nào chứa $CK_1$ hoặc $CK_2$ đều là siêu khóa (ví dụ: $\\{MaNV\\}$, $\\{MaNV, HoDem\\}$, $\\{SoCMND, DiaChi\\}$, $\\{MaNV, SoCMND\\}$...).<br>3. <b>Thuộc tính khóa (Prime attributes)</b>: Là thuộc tính xuất hiện trong ít nhất 1 khóa ứng viên $\\rightarrow \\{MaNV, SoCMND\\}$.<br>4. <b>Thuộc tính không khóa (Non-prime attributes)</b>: $\\{HoDem, Ten, NgaySinh, DiaChi\\}$."
+        "sol": "<b>Phân tích bản chất:</b><br>1. Các <b>Khóa ứng viên (Candidate Keys)</b> là các siêu khóa tối thiểu:<br>   $$CK_1 = \\{MaNV\\}, \\quad CK_2 = \\{SoCMND\\}$$<br>2. Các <b>Siêu khóa (Superkeys)</b>: Bất kỳ tập thuộc tính nào chứa $CK_1$ hoặc $CK_2$ đều là siêu khóa (ví dụ: $\\{MaNV\\}$, $\\{MaNV, HoDem\\}$, $\\{SoCMND, DiaChi\\}$, $\\{MaNV, SoCMND\\}$...).<br>3. <b>Thuộc tính khóa (Prime attributes)</b>: Là thuộc tính xuất hiện trong ít nhất 1 khóa ứng viên $\\rightarrow \\{MaNV, SoCMND\\}$.<br>4. <b>Thuộc tính không khóa (Non-prime attributes)</b>: $\\{HoDem, Ten, NgaySinh, DiaChi\\}$.",
+        "image": "/illustrations/csdl/csdl05_relation_table_components.png",
+        "caption": "Cấu trúc bảng quan hệ"
       },
       {
         "level": "Trung bình",
@@ -556,7 +582,9 @@
         "level": "Vận dụng",
         "t": "[Slide C3_1 — Slide 24] Bài toán Khóa chính Phức hợp và Vi phạm Toàn vẹn Thực thể",
         "q": "Xét bảng kết quả học tập `KETQUA(`<u>`MaSV`</u>`, `<u>`MaMH`</u>`, DiemSo)` có khóa chính gồm 2 thuộc tính gộp lại là `(MaSV, MaMH)`. Một nhân viên phòng đào tạo thực hiện lệnh INSERT: `INSERT INTO KETQUA VALUES ('23020001', NULL, 8.5)`. Lệnh này có thực hiện thành công không? Tại sao?",
-        "sol": "<b>Phân tích:</b><br><b>Lệnh này THẤT BẠI HOÀN TOÀN!</b><br>- Theo nguyên lý <b>Ràng buộc toàn vẹn thực thể (Entity Integrity Constraint)</b>: Mọi thành phần cấu thành nên Khóa chính (kể cả khóa chính phức hợp gồm nhiều thuộc tính) đều <b>tuyệt đối KHÔNG ĐƯỢC chứa giá trị NULL</b>.<br>- Ở đây thuộc tính `MaMH` là một phần của khóa chính bị gán giá trị NULL $\\rightarrow$ Vi phạm toàn vẹn thực thể, DBMS sẽ chặn đứng giao dịch và ném ngoại lệ lỗi."
+        "sol": "<b>Phân tích:</b><br><b>Lệnh này THẤT BẠI HOÀN TOÀN!</b><br>- Theo nguyên lý <b>Ràng buộc toàn vẹn thực thể (Entity Integrity Constraint)</b>: Mọi thành phần cấu thành nên Khóa chính (kể cả khóa chính phức hợp gồm nhiều thuộc tính) đều <b>tuyệt đối KHÔNG ĐƯỢC chứa giá trị NULL</b>.<br>- Ở đây thuộc tính `MaMH` là một phần của khóa chính bị gán giá trị NULL $\\rightarrow$ Vi phạm toàn vẹn thực thể, DBMS sẽ chặn đứng giao dịch và ném ngoại lệ lỗi.",
+        "image": "/illustrations/csdl/csdl05_foreign_key_schema.png",
+        "caption": "Lược đồ CSDL Quan hệ có mũi tên Khóa ngoại"
       }
     ],
     "pitfalls": [
@@ -607,7 +635,9 @@
           "Xóa một bộ bất kỳ khỏi bảng `DEAN`"
         ],
         "ans": 3,
-        "fb": "Rất xuất sắc! Xóa một bản ghi ở bảng con (`DEAN`) không bao giờ làm ảnh hưởng đến bảng cha (`PHONGBAN`), nên chắc chắn không thể vi phạm ràng buộc tham chiếu."
+        "fb": "Rất xuất sắc! Xóa một bản ghi ở bảng con (`DEAN`) không bao giờ làm ảnh hưởng đến bảng cha (`PHONGBAN`), nên chắc chắn không thể vi phạm ràng buộc tham chiếu.",
+        "image": "/illustrations/csdl/csdl05_foreign_key_schema.png",
+        "caption": "Mũi tên tham chiếu khóa ngoại giữa các bảng"
       }
     ],
     "illustrations": [
@@ -664,7 +694,9 @@
         "level": "Cơ bản",
         "t": "[Slide C3_1 — Slide 30–33] Ánh xạ Liên kết 1:N và Thực thể Yếu trong QL Công ty",
         "q": "Xét lược đồ ER gồm:<br>- `PHONGBAN(`<u>`MaPB`</u>`, TenPB)` và `NHANVIEN(`<u>`MaNV`</u>`, HoTen)` có mối liên kết 1:N `LamViecCho` (1 phòng ban có nhiều nhân viên, 1 nhân viên thuộc 1 phòng ban).<br>- `THANNHAN(`<u>`TenTN`</u>`, QuanHe)` là thực thể yếu liên kết với thực thể chủ `NHANVIEN`.<br>Hãy chuyển đổi sơ đồ trên thành các lược đồ quan hệ chuẩn (chỉ rõ khóa chính và khóa ngoại).",
-        "sol": "<b>Áp dụng thuật toán chuyển đổi:</b><br>1. <b>Bảng PHONGBAN</b>: <code>PHONGBAN(<u>MaPB</u>, TenPB)</code>.<br>2. <b>Bảng NHANVIEN (Áp dụng Bước 4 cho liên kết 1:N)</b>: Đưa khóa bên 1 (<code>MaPB</code>) sang làm khóa ngoại ở bên N (<code>NHANVIEN</code>):<br>   $$\\text{NHANVIEN}(\\underline{MaNV}, HoTen, MaPB)$$ (với $MaPB$ là $FK$ tham chiếu <code>PHONGBAN(MaPB)</code>).<br>3. <b>Bảng THANNHAN (Áp dụng Bước 2 cho thực thể yếu)</b>:<br>   $$\\text{THANNHAN}(\\underline{MaNV, TenTN}, QuanHe)$$<br>   - Khóa chính phức hợp: <code>(MaNV, TenTN)</code>.<br>   - Khóa ngoại: <code>MaNV</code> tham chiếu <code>NHANVIEN(MaNV)</code>."
+        "sol": "<b>Áp dụng thuật toán chuyển đổi:</b><br>1. <b>Bảng PHONGBAN</b>: <code>PHONGBAN(<u>MaPB</u>, TenPB)</code>.<br>2. <b>Bảng NHANVIEN (Áp dụng Bước 4 cho liên kết 1:N)</b>: Đưa khóa bên 1 (<code>MaPB</code>) sang làm khóa ngoại ở bên N (<code>NHANVIEN</code>):<br>   $$\\text{NHANVIEN}(\\underline{MaNV}, HoTen, MaPB)$$ (với $MaPB$ là $FK$ tham chiếu <code>PHONGBAN(MaPB)</code>).<br>3. <b>Bảng THANNHAN (Áp dụng Bước 2 cho thực thể yếu)</b>:<br>   $$\\text{THANNHAN}(\\underline{MaNV, TenTN}, QuanHe)$$<br>   - Khóa chính phức hợp: <code>(MaNV, TenTN)</code>.<br>   - Khóa ngoại: <code>MaNV</code> tham chiếu <code>NHANVIEN(MaNV)</code>.",
+        "image": "/illustrations/csdl/csdl06_mapping_summary.png",
+        "caption": "Bảng quy tắc ánh xạ 7 bước từ ER sang Quan hệ"
       },
       {
         "level": "Trung bình",
@@ -676,7 +708,9 @@
         "level": "Vận dụng",
         "t": "[Slide C3_1 — Slide 42–43] Chuyển đổi Lược đồ ER Hoàn chỉnh Công ty UET sang Quan hệ",
         "q": "Bài tập lớn Slide C3_1 trang 42: Chuyển đổi lược đồ ER quản lý công ty hoàn chỉnh gồm: `NHANVIEN`, `PHONGBAN`, `DEAN`, `THANNHAN` với các mối liên kết:<br>- `QuanLy` (1:1 giữa NHANVIEN và PHONGBAN, có thuộc tính `NgayNhanChuc`).<br>- `LamViecCho` (1:N giữa PHONGBAN và NHANVIEN).<br>- `ThamGia` (M:N giữa NHANVIEN và DEAN, có `SoGio`).<br>- `DiaDiem_Phong` là thuộc tính đa trị của PHONGBAN.<br>Viết danh sách các lược đồ quan hệ thu được kèm khóa chính và khóa ngoại.",
-        "sol": "<b>Kết quả chuyển đổi chuẩn xác 100% theo barem UET:</b><br>1. <code>NHANVIEN(<u>MaNV</u>, HoDem, Ten, NgaySinh, DiaChi, Luong, MaPB, MaNguoiGiamSat)</code><br>   - PK: <code>MaNV</code>; FK1: <code>MaPB</code> $\\to$ <code>PHONGBAN(MaPB)</code>; FK2: <code>MaNguoiGiamSat</code> $\\to$ <code>NHANVIEN(MaNV)</code> (Liên kết đệ quy).<br>2. <code>PHONGBAN(<u>MaPB</u>, TenPB, TruongPhong_MaNV, NgayNhanChuc)</code><br>   - PK: <code>MaPB</code>; FK: <code>TruongPhong_MaNV</code> $\\to$ <code>NHANVIEN(MaNV)</code> (Ánh xạ liên kết 1:1 QuanLy vào bảng tham gia toàn phần).<br>3. <code>DIADIEM_PHONG(<u>MaPB, DiaDiem</u>)</code><br>   - PK: <code>(MaPB, DiaDiem)</code>; FK: <code>MaPB</code> $\\to$ <code>PHONGBAN(MaPB)</code> (Ánh xạ thuộc tính đa trị).<br>4. <code>DEAN(<u>MaDA</u>, TenDA, DiaDiemDA, MaPB_QuanLy)</code><br>   - PK: <code>MaDA</code>; FK: <code>MaPB_QuanLy</code> $\\to$ <code>PHONGBAN(MaPB)</code>.<br>5. <code>PHANCONG(<u>MaNV, MaDA</u>, SoGio)</code><br>   - PK: <code>(MaNV, MaDA)</code>; FK1: <code>MaNV</code> $\\to$ <code>NHANVIEN(MaNV)</code>; FK2: <code>MaDA</code> $\\to$ <code>DEAN(MaDA)</code>.<br>6. <code>THANNHAN(<u>MaNV, TenTN</u>, GioiTinh, NgaySinh, QuanHe)</code><br>   - PK: <code>(MaNV, TenTN)</code>; FK: <code>MaNV</code> $\\to$ <code>NHANVIEN(MaNV)</code>."
+        "sol": "<b>Kết quả chuyển đổi chuẩn xác 100% theo barem UET:</b><br>1. <code>NHANVIEN(<u>MaNV</u>, HoDem, Ten, NgaySinh, DiaChi, Luong, MaPB, MaNguoiGiamSat)</code><br>   - PK: <code>MaNV</code>; FK1: <code>MaPB</code> $\\to$ <code>PHONGBAN(MaPB)</code>; FK2: <code>MaNguoiGiamSat</code> $\\to$ <code>NHANVIEN(MaNV)</code> (Liên kết đệ quy).<br>2. <code>PHONGBAN(<u>MaPB</u>, TenPB, TruongPhong_MaNV, NgayNhanChuc)</code><br>   - PK: <code>MaPB</code>; FK: <code>TruongPhong_MaNV</code> $\\to$ <code>NHANVIEN(MaNV)</code> (Ánh xạ liên kết 1:1 QuanLy vào bảng tham gia toàn phần).<br>3. <code>DIADIEM_PHONG(<u>MaPB, DiaDiem</u>)</code><br>   - PK: <code>(MaPB, DiaDiem)</code>; FK: <code>MaPB</code> $\\to$ <code>PHONGBAN(MaPB)</code> (Ánh xạ thuộc tính đa trị).<br>4. <code>DEAN(<u>MaDA</u>, TenDA, DiaDiemDA, MaPB_QuanLy)</code><br>   - PK: <code>MaDA</code>; FK: <code>MaPB_QuanLy</code> $\\to$ <code>PHONGBAN(MaPB)</code>.<br>5. <code>PHANCONG(<u>MaNV, MaDA</u>, SoGio)</code><br>   - PK: <code>(MaNV, MaDA)</code>; FK1: <code>MaNV</code> $\\to$ <code>NHANVIEN(MaNV)</code>; FK2: <code>MaDA</code> $\\to$ <code>DEAN(MaDA)</code>.<br>6. <code>THANNHAN(<u>MaNV, TenTN</u>, GioiTinh, NgaySinh, QuanHe)</code><br>   - PK: <code>(MaNV, TenTN)</code>; FK: <code>MaNV</code> $\\to$ <code>NHANVIEN(MaNV)</code>.",
+        "image": "/illustrations/csdl/csdl06_mapped_relational_schema.png",
+        "caption": "Lược đồ quan hệ kết quả sau khi ánh xạ"
       }
     ],
     "pitfalls": [
@@ -701,7 +735,9 @@
           "Xóa bỏ thuộc tính của liên kết để đơn giản hóa"
         ],
         "ans": 1,
-        "fb": "Chính xác! Mối liên kết M:N bắt buộc phải được chuyển đổi thành một bảng liên kết riêng, khóa chính là tổ hợp của 2 khóa ngoại tham chiếu đến 2 thực thể ban đầu."
+        "fb": "Chính xác! Mối liên kết M:N bắt buộc phải được chuyển đổi thành một bảng liên kết riêng, khóa chính là tổ hợp của 2 khóa ngoại tham chiếu đến 2 thực thể ban đầu.",
+        "image": "/illustrations/csdl/csdl06_mapping_summary.png",
+        "caption": "Quy tắc ánh xạ liên kết M:N sang bảng mới"
       },
       {
         "level": "Thông hiểu",
@@ -789,7 +825,9 @@
         "level": "Cơ bản",
         "t": "[Slide C3_2 — Slide 22–28] Phép Chọn và Chiếu trên Bảng Sinh viên UET",
         "q": "Cho lược đồ `SINHVIEN(`<u>`MaSV`</u>`, HoTen, Khoa, DiemTB)`. Hãy viết biểu thức đại số quan hệ để lấy ra danh sách Họ tên và Điểm trung bình của tất cả các sinh viên thuộc Khoa 'CNTT' có Điểm trung bình từ 8.0 trở lên.",
-        "sol": "<b>Phân tích từng bước:</b><br>1. Bước 1 (Lọc hàng thỏa mãn điều kiện): Áp dụng phép chọn $\\sigma$:<br>   $$R_1 = \\sigma_{Khoa = 'CNTT' \\land DiemTB \\ge 8.0}(SINHVIEN)$$<br>2. Bước 2 (Lọc cột cần hiển thị): Áp dụng phép chiếu $\\pi$ trên $R_1$:<br>   $$\\text{Kết quả} = \\pi_{HoTen, DiemTB}(\\sigma_{Khoa = 'CNTT' \\land DiemTB \\ge 8.0}(SINHVIEN))$$"
+        "sol": "<b>Phân tích từng bước:</b><br>1. Bước 1 (Lọc hàng thỏa mãn điều kiện): Áp dụng phép chọn $\\sigma$:<br>   $$R_1 = \\sigma_{Khoa = 'CNTT' \\land DiemTB \\ge 8.0}(SINHVIEN)$$<br>2. Bước 2 (Lọc cột cần hiển thị): Áp dụng phép chiếu $\\pi$ trên $R_1$:<br>   $$\\text{Kết quả} = \\pi_{HoTen, DiemTB}(\\sigma_{Khoa = 'CNTT' \\land DiemTB \\ge 8.0}(SINHVIEN))$$",
+        "image": "/illustrations/csdl/csdl07_relational_algebra_select_project.png",
+        "caption": "Minh họa phép Chọn (σ) và phép Chiếu (π)"
       },
       {
         "level": "Trung bình",
@@ -826,7 +864,9 @@
           "$\\gamma$ (Gamma)"
         ],
         "ans": 1,
-        "fb": "Chính xác! $\\pi$ (Pi) là phép Chiếu danh sách các cột; $\\sigma$ (Sigma) là phép Chọn các hàng theo điều kiện."
+        "fb": "Chính xác! $\\pi$ (Pi) là phép Chiếu danh sách các cột; $\\sigma$ (Sigma) là phép Chọn các hàng theo điều kiện.",
+        "image": "/illustrations/csdl/csdl07_relational_algebra_select_project.png",
+        "caption": "Quy ước ký hiệu phép Chọn (σ) và phép Chiếu (π)"
       },
       {
         "level": "Thông hiểu",
@@ -905,7 +945,9 @@
         "level": "Cơ bản",
         "t": "[Slide C3_2 — Slide 45–48] Kết nối Tự nhiên Nhân viên và Phòng ban",
         "q": "Cho `NHANVIEN(`<u>`MaNV`</u>`, HoTen, MaPB)` và `PHONGBAN(`<u>`MaPB`</u>`, TenPB)`. Viết biểu thức đại số quan hệ lấy ra Mã NV, Họ tên và Tên phòng ban của tất cả nhân viên.",
-        "sol": "<b>Phân tích:</b><br>- Hai bảng có chung thuộc tính <code>MaPB</code>.<br>- Thực hiện phép kết nối tự nhiên $\\bowtie$ để ghép thông tin, sau đó dùng phép chiếu $\\pi$:<br>  $$\\text{Kết quả} = \\pi_{MaNV, HoTen, TenPB}(NHANVIEN \\bowtie PHONGBAN)$$"
+        "sol": "<b>Phân tích:</b><br>- Hai bảng có chung thuộc tính <code>MaPB</code>.<br>- Thực hiện phép kết nối tự nhiên $\\bowtie$ để ghép thông tin, sau đó dùng phép chiếu $\\pi$:<br>  $$\\text{Kết quả} = \\pi_{MaNV, HoTen, TenPB}(NHANVIEN \\bowtie PHONGBAN)$$",
+        "image": "/illustrations/csdl/csdl08_relational_algebra_join.png",
+        "caption": "Minh họa các loại phép Kết nối (Join)"
       },
       {
         "level": "Trung bình",
@@ -942,7 +984,9 @@
           "Tích Descartes ($\\times$)"
         ],
         "ans": 2,
-        "fb": "Chính xác! Kết nối tự nhiên ($\\bowtie$) tự động phát hiện các cột trùng tên, ghép bằng và chỉ giữ lại 1 cột duy nhất trong kết quả."
+        "fb": "Chính xác! Kết nối tự nhiên ($\\bowtie$) tự động phát hiện các cột trùng tên, ghép bằng và chỉ giữ lại 1 cột duy nhất trong kết quả.",
+        "image": "/illustrations/csdl/csdl08_relational_algebra_join.png",
+        "caption": "Ký hiệu phép kết nối tự nhiên và phép nối có điều kiện"
       },
       {
         "level": "Thông hiểu",
@@ -1033,7 +1077,9 @@
         "level": "Vận dụng",
         "t": "[Slide C3_2 — Slide 104–108] Tối ưu hóa Cây truy vấn bằng cách Đẩy Phép Chọn",
         "q": "Xét câu truy vấn chưa tối ưu: $\\pi_{HoTen}(\\sigma_{TenPB = 'Nghiên cứu' \\land Luong > 20000000}(NHANVIEN \\bowtie PHONGBAN))$.<br>a) Vẽ cây truy vấn ban đầu.<br>b) Áp dụng các quy tắc biến đổi tương đương để tối ưu hóa cây truy vấn.",
-        "sol": "<b>Phân tích tối ưu hóa theo Slide C3_2:</b><br>a) <b>Cây ban đầu:</b> Kết nối toàn bộ <code>NHANVIEN</code> với <code>PHONGBAN</code> trước, sau đó mới lọc $\\sigma$ trên bảng kết quả khổng lồ $\\rightarrow$ Rất lãng phí bộ nhớ và CPU.<br>b) <b>Cây tối ưu (Đẩy phép chọn xuống trước phép kết nối):</b><br>- Tách điều kiện chọn: $\\sigma_{TenPB = 'Nghiên cứu'}$ chỉ liên quan đến bảng <code>PHONGBAN</code>; $\\sigma_{Luong > 20000000}$ chỉ liên quan đến <code>NHANVIEN</code>.<br>- Đẩy chọn xuống từng bảng nguồn trước:<br>  + $R_1 = \\sigma_{Luong > 20000000}(NHANVIEN)$<br>  + $R_2 = \\sigma_{TenPB = 'Nghiên cứu'}(PHONGBAN)$<br>- Chỉ kết nối giữa $R_1$ và $R_2$ (số lượng bản ghi đã giảm đi hàng chục lần):<br>  $$\\text{Biểu thức tối ưu} = \\pi_{HoTen}((\\sigma_{Luong > 20000000}(NHANVIEN)) \\bowtie (\\sigma_{TenPB = 'Nghiên cứu'}(PHONGBAN)))$$"
+        "sol": "<b>Phân tích tối ưu hóa theo Slide C3_2:</b><br>a) <b>Cây ban đầu:</b> Kết nối toàn bộ <code>NHANVIEN</code> với <code>PHONGBAN</code> trước, sau đó mới lọc $\\sigma$ trên bảng kết quả khổng lồ $\\rightarrow$ Rất lãng phí bộ nhớ và CPU.<br>b) <b>Cây tối ưu (Đẩy phép chọn xuống trước phép kết nối):</b><br>- Tách điều kiện chọn: $\\sigma_{TenPB = 'Nghiên cứu'}$ chỉ liên quan đến bảng <code>PHONGBAN</code>; $\\sigma_{Luong > 20000000}$ chỉ liên quan đến <code>NHANVIEN</code>.<br>- Đẩy chọn xuống từng bảng nguồn trước:<br>  + $R_1 = \\sigma_{Luong > 20000000}(NHANVIEN)$<br>  + $R_2 = \\sigma_{TenPB = 'Nghiên cứu'}(PHONGBAN)$<br>- Chỉ kết nối giữa $R_1$ và $R_2$ (số lượng bản ghi đã giảm đi hàng chục lần):<br>  $$\\text{Biểu thức tối ưu} = \\pi_{HoTen}((\\sigma_{Luong > 20000000}(NHANVIEN)) \\bowtie (\\sigma_{TenPB = 'Nghiên cứu'}(PHONGBAN)))$$",
+        "image": "/illustrations/csdl/csdl09_relational_query_tree.png",
+        "caption": "Cây cú pháp truy vấn đại số quan hệ"
       }
     ],
     "pitfalls": [
@@ -1071,7 +1117,9 @@
           "Không bao giờ sử dụng phép chiếu"
         ],
         "ans": 0,
-        "fb": "Đúng! Đẩy phép chọn và phép chiếu xuống sớm giúp giảm tối đa kích thước dữ liệu trung gian, tăng tốc độ thực thi truy vấn."
+        "fb": "Đúng! Đẩy phép chọn và phép chiếu xuống sớm giúp giảm tối đa kích thước dữ liệu trung gian, tăng tốc độ thực thi truy vấn.",
+        "image": "/illustrations/csdl/csdl09_relational_query_tree.png",
+        "caption": "Cây biểu thức Đại số Quan hệ (Query Tree)"
       },
       {
         "level": "Vận dụng",
@@ -1132,7 +1180,9 @@
         "level": "Cơ bản",
         "t": "[Slide C4_1 — Slide 10–12] Nhận diện Phụ thuộc hàm từ Ngữ cảnh Thực tế",
         "q": "Trong CSDL Sinh viên UET: 'Mỗi sinh viên có một Mã sinh viên duy nhất (`MaSV`), ứng với một `HoTen`, một `NgaySinh` và thuộc một `Khoa`. Mỗi Khoa có một `TruongKhoa` duy nhất'. Hãy viết các phụ thuộc hàm xuất hiện trong bài toán này.",
-        "sol": "<b>Phân tích ngữ nghĩa nghiệp vụ:</b><br>1. Biết <code>MaSV</code> thì xác định duy nhất Họ tên, Ngày sinh và Khoa:<br>   $$MaSV \to HoTen, quad MaSV \to NgaySinh, quad MaSV \to Khoa$$<br>   (hoặc viết gộp: $MaSV \to HoTen, NgaySinh, Khoa$).<br>2. Biết tên <code>Khoa</code> thì xác định duy nhất Trưởng khoa:<br>   $$Khoa \to TruongKhoa$$"
+        "sol": "<b>Phân tích ngữ nghĩa nghiệp vụ:</b><br>1. Biết <code>MaSV</code> thì xác định duy nhất Họ tên, Ngày sinh và Khoa:<br>   $$MaSV \to HoTen, quad MaSV \to NgaySinh, quad MaSV \to Khoa$$<br>   (hoặc viết gộp: $MaSV \to HoTen, NgaySinh, Khoa$).<br>2. Biết tên <code>Khoa</code> thì xác định duy nhất Trưởng khoa:<br>   $$Khoa \to TruongKhoa$$",
+        "image": "/illustrations/csdl/csdl10_functional_dependency.png",
+        "caption": "Đồ thị biểu diễn phụ thuộc hàm"
       },
       {
         "level": "Trung bình",
@@ -1169,7 +1219,9 @@
           "$B \to C$"
         ],
         "ans": 1,
-        "fb": "Chính xác! Phụ thuộc hàm tầm thường là phụ thuộc hàm có vế phải là tập con của vế trái ($A subseteq AB$). Nó luôn đúng với mọi quan hệ."
+        "fb": "Chính xác! Phụ thuộc hàm tầm thường là phụ thuộc hàm có vế phải là tập con của vế trái ($A subseteq AB$). Nó luôn đúng với mọi quan hệ.",
+        "image": "/illustrations/csdl/csdl10_functional_dependency.png",
+        "caption": "Quy ước mũi tên phụ thuộc hàm X -> Y"
       },
       {
         "level": "Thông hiểu",
@@ -1243,7 +1295,9 @@
         "level": "Cơ bản",
         "t": "[Slide C4_1 — Slide 29] Tìm Bao đóng của Tập {ABC}+ cơ bản",
         "q": "Ví dụ 1 Slide C4_1 trang 29: Cho tập phụ thuộc hàm $F = { A \to D, ; E \to H, ; AB \to DE, ; CE \to G }$. Hãy tính bao đóng ${ABC}^+$.",
-        "sol": "<b>Thực hiện thuật toán tìm bao đóng từng bước:</b><br>- <b>Khởi tạo:</b> $X_0 = \\{A, B, C\\}$.<br>- <b>Vòng lặp 1:</b><br>  + Xét $A \to D$: Vì $A in X_0 implies X_1 = X_0 cup \\{D\\} = \\{A, B, C, D\\}$.<br>  + Xét $E \to H$: $E \notin X_1$ (bỏ qua).<br>  + Xét $AB \to DE$: Vì $AB subseteq X_1 implies X_2 = X_1 cup \\{D, E\\} = \\{A, B, C, D, E\\}$.<br>  + Xét $CE \to G$: Vì $CE subseteq X_2 implies X_3 = X_2 cup \\{G\\} = \\{A, B, C, D, E, G\\}$.<br>- <b>Vòng lặp 2:</b><br>  + Xét lại $E \to H$: Bây giờ $E in X_3 implies X_4 = X_3 cup \\{H\\} = \\{A, B, C, D, E, G, H\\}$.<br>- <b>Vòng lặp 3:</b> Không bổ sung thêm thuộc tính nào nữa $\\rightarrow$ Dừng lại.<br>$$\\mathbf{\\{ABC\\}^+ = \\{A, B, C, D, E, G, H\\}}$$"
+        "sol": "<b>Thực hiện thuật toán tìm bao đóng từng bước:</b><br>- <b>Khởi tạo:</b> $X_0 = \\{A, B, C\\}$.<br>- <b>Vòng lặp 1:</b><br>  + Xét $A \to D$: Vì $A in X_0 implies X_1 = X_0 cup \\{D\\} = \\{A, B, C, D\\}$.<br>  + Xét $E \to H$: $E \notin X_1$ (bỏ qua).<br>  + Xét $AB \to DE$: Vì $AB subseteq X_1 implies X_2 = X_1 cup \\{D, E\\} = \\{A, B, C, D, E\\}$.<br>  + Xét $CE \to G$: Vì $CE subseteq X_2 implies X_3 = X_2 cup \\{G\\} = \\{A, B, C, D, E, G\\}$.<br>- <b>Vòng lặp 2:</b><br>  + Xét lại $E \to H$: Bây giờ $E in X_3 implies X_4 = X_3 cup \\{H\\} = \\{A, B, C, D, E, G, H\\}$.<br>- <b>Vòng lặp 3:</b> Không bổ sung thêm thuộc tính nào nữa $\\rightarrow$ Dừng lại.<br>$$\\mathbf{\\{ABC\\}^+ = \\{A, B, C, D, E, G, H\\}}$$",
+        "image": "/illustrations/csdl/csdl11_attribute_closure_algorithm.png",
+        "caption": "Lưu đồ thuật toán tìm bao đóng X+"
       },
       {
         "level": "Trung bình",
@@ -1293,7 +1347,9 @@
           "Chỉ có ${A}$"
         ],
         "ans": 2,
-        "fb": "Đúng! Áp dụng bắc cầu liên tục: A -> B -> C -> D, suy ra A+ = {A, B, C, D}."
+        "fb": "Đúng! Áp dụng bắc cầu liên tục: A -> B -> C -> D, suy ra A+ = {A, B, C, D}.",
+        "image": "/illustrations/csdl/csdl11_attribute_closure_algorithm.png",
+        "caption": "Quy trình tính bao đóng thuộc tính X+"
       },
       {
         "level": "Vận dụng",
@@ -1354,7 +1410,9 @@
         "level": "Cơ bản",
         "t": "[Slide C4_1 — Slide 54] Tìm Khóa Duy nhất khi (L ∪ N)+ = R",
         "q": "Cho lược đồ quan hệ $R(A, B, C, D, E)$ với tập phụ thuộc hàm $F = { A \to B, ; B \to C, ; C \to D, ; D \to E }$. Hãy tìm tất cả các khóa tối thiểu của $R$.",
-        "sol": "<b>Áp dụng kỹ thuật phân loại L, R, B, N:</b><br>- Vế trái: $\\{A, B, C, D\\}$; Vế phải: $\\{B, C, D, E\\}$.<br>- Phân loại:<br>  + Nhóm $L$ (chỉ ở vế trái): $\\{A\\}$.<br>  + Nhóm $R$ (chỉ ở vế phải): $\\{E\\}$.<br>  + Nhóm $B$ (ở cả hai vế): $\\{B, C, D\\}$.<br>  + Nhóm $N$ (không có mặt): $\\emptyset$.<br>- Xét $X_0 = L cup N = \\{A\\}$:<br>  + Tính $A^+$: $A^+ = \\{A, B, C, D, E\\} = R$.<br>$$\\mathbf{\\implies R \\text{ có đúng 1 khóa tối thiểu duy nhất là: } K = \\{A\\}}$$"
+        "sol": "<b>Áp dụng kỹ thuật phân loại L, R, B, N:</b><br>- Vế trái: $\\{A, B, C, D\\}$; Vế phải: $\\{B, C, D, E\\}$.<br>- Phân loại:<br>  + Nhóm $L$ (chỉ ở vế trái): $\\{A\\}$.<br>  + Nhóm $R$ (chỉ ở vế phải): $\\{E\\}$.<br>  + Nhóm $B$ (ở cả hai vế): $\\{B, C, D\\}$.<br>  + Nhóm $N$ (không có mặt): $\\emptyset$.<br>- Xét $X_0 = L cup N = \\{A\\}$:<br>  + Tính $A^+$: $A^+ = \\{A, B, C, D, E\\} = R$.<br>$$\\mathbf{\\implies R \\text{ có đúng 1 khóa tối thiểu duy nhất là: } K = \\{A\\}}$$",
+        "image": "/illustrations/csdl/csdl12_minimal_keys_algorithm.png",
+        "caption": "Phân loại tập thuộc tính L, M, R"
       },
       {
         "level": "Trung bình",
@@ -1391,7 +1449,9 @@
           "Luôn là khóa chính"
         ],
         "ans": 1,
-        "fb": "Chính xác! Thuộc tính thuộc nhóm R luôn được suy ra từ các thuộc tính khác, nên việc đưa nó vào khóa sẽ làm mất tính tối thiểu. Vì vậy nhóm R không bao giờ thuộc khóa."
+        "fb": "Chính xác! Thuộc tính thuộc nhóm R luôn được suy ra từ các thuộc tính khác, nên việc đưa nó vào khóa sẽ làm mất tính tối thiểu. Vì vậy nhóm R không bao giờ thuộc khóa.",
+        "image": "/illustrations/csdl/csdl12_minimal_keys_algorithm.png",
+        "caption": "Thuật toán xác định tập nguồn L và tập đích R"
       },
       {
         "level": "Thông hiểu",
@@ -1467,7 +1527,9 @@
         "level": "Cơ bản",
         "t": "[Slide C4_1 — Slide 70–73] Kiểm tra Dạng chuẩn 2 (2NF)",
         "q": "Cho lược đồ `PHANCONG(`<u>`MaNV, MaDA`</u>`, SoGio, TenNV, TenDA)` có khóa chính là `(MaNV, MaDA)` với tập phụ thuộc hàm: $F = { {MaNV, MaDA} \to SoGio, ; MaNV \to TenNV, ; MaDA \to TenDA }$. Lược đồ này có đạt 2NF không? Tại sao?",
-        "sol": "<b>Phân tích kiểm tra 2NF:</b><br>- Khóa chính: $\\{MaNV, MaDA\\}$.<br>- Thuộc tính không khóa: $\\{SoGio, TenNV, TenDA\\}$.<br>- Xét các phụ thuộc hàm:<br>  + $MaNV \to TenNV$: Thuộc tính không khóa <code>TenNV</code> chỉ phụ thuộc vào một phần của khóa chính (<code>MaNV</code>) $\\rightarrow$ <b>Phụ thuộc bộ phận</b>.<br>  + $MaDA \to TenDA$: Thuộc tính không khóa <code>TenDA</code> chỉ phụ thuộc vào <code>MaDA</code> $\\rightarrow$ <b>Phụ thuộc bộ phận</b>.<br>$$\\mathbf{\\implies PHANCONG \\text{ VI PHẠM 2NF (chỉ đạt 1NF)!}}$$"
+        "sol": "<b>Phân tích kiểm tra 2NF:</b><br>- Khóa chính: $\\{MaNV, MaDA\\}$.<br>- Thuộc tính không khóa: $\\{SoGio, TenNV, TenDA\\}$.<br>- Xét các phụ thuộc hàm:<br>  + $MaNV \to TenNV$: Thuộc tính không khóa <code>TenNV</code> chỉ phụ thuộc vào một phần của khóa chính (<code>MaNV</code>) $\\rightarrow$ <b>Phụ thuộc bộ phận</b>.<br>  + $MaDA \to TenDA$: Thuộc tính không khóa <code>TenDA</code> chỉ phụ thuộc vào <code>MaDA</code> $\\rightarrow$ <b>Phụ thuộc bộ phận</b>.<br>$$\\mathbf{\\implies PHANCONG \\text{ VI PHẠM 2NF (chỉ đạt 1NF)!}}$$",
+        "image": "/illustrations/csdl/csdl13_normal_forms_summary.png",
+        "caption": "Bảng tổng hợp các Dạng chuẩn 1NF, 2NF, 3NF, BCNF"
       },
       {
         "level": "Trung bình",
@@ -1504,7 +1566,9 @@
           "Phải có ít nhất hai khóa ngoại"
         ],
         "ans": 1,
-        "fb": "Chính xác! 2NF nghiêm cấm phụ thuộc bộ phận: mọi thuộc tính không khóa bắt buộc phải phụ thuộc đầy đủ vào toàn bộ khóa chính."
+        "fb": "Chính xác! 2NF nghiêm cấm phụ thuộc bộ phận: mọi thuộc tính không khóa bắt buộc phải phụ thuộc đầy đủ vào toàn bộ khóa chính.",
+        "image": "/illustrations/csdl/csdl13_normal_forms_summary.png",
+        "caption": "Điều kiện phân cấp các dạng chuẩn 1NF, 2NF, 3NF, BCNF"
       },
       {
         "level": "Thông hiểu",
@@ -1589,7 +1653,9 @@
         "level": "Trung bình",
         "t": "[Slide C4_1 — Slide 84–85] Phát hiện Phân rã Mất mát Thông tin (Lossy)",
         "q": "Cho $R(A, B, C)$ với $F = { B \to C }$. Xét phép phân rã $R$ thành $R_1(A, B)$ và $R_2(A, C)$. Phép phân rã này có bảo toàn thông tin không?",
-        "sol": "<b>Phân tích:</b><br>1. Giao của hai quan hệ: $R_1 cap R_2 = \\{A\\}$.<br>2. Kiểm tra bao đóng của giao: $A^+ = \\{A\\}$.<br>   - $A^+ \neq R_1$ (không xác định được B).<br>   - $A^+ \neq R_2$ (không xác định được C).<br>$$\\mathbf{\\implies \\text{Phép phân rã BỊ MẤT MÁT THÔNG TIN (Lossy)! Khi JOIN lại sẽ sinh ra bản ghi giả!}}$$"
+        "sol": "<b>Phân tích:</b><br>1. Giao của hai quan hệ: $R_1 cap R_2 = \\{A\\}$.<br>2. Kiểm tra bao đóng của giao: $A^+ = \\{A\\}$.<br>   - $A^+ \neq R_1$ (không xác định được B).<br>   - $A^+ \neq R_2$ (không xác định được C).<br>$$\\mathbf{\\implies \\text{Phép phân rã BỊ MẤT MÁT THÔNG TIN (Lossy)! Khi JOIN lại sẽ sinh ra bản ghi giả!}}$$",
+        "image": "/illustrations/csdl/csdl14_decomposition_tree.png",
+        "caption": "Cây phân rã chuẩn hóa bảo toàn thông tin"
       },
       {
         "level": "Vận dụng",
@@ -1646,7 +1712,9 @@
           "Không thể viết được câu lệnh SELECT"
         ],
         "ans": 1,
-        "fb": "Rất chuẩn xác! Từ 'Lossy' không có nghĩa là mất dòng, mà là mất đi tính chính xác của thông tin do sinh ra thêm các bản ghi giả (Spurious tuples) khi kết nối lại!"
+        "fb": "Rất chuẩn xác! Từ 'Lossy' không có nghĩa là mất dòng, mà là mất đi tính chính xác của thông tin do sinh ra thêm các bản ghi giả (Spurious tuples) khi kết nối lại!",
+        "image": "/illustrations/csdl/csdl14_decomposition_tree.png",
+        "caption": "Sơ đồ cây phân rã chuẩn hóa bảo toàn thông tin"
       }
     ],
     "illustrations": [

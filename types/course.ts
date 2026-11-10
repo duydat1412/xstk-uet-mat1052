@@ -8,6 +8,8 @@ export interface Example {
   level: "Cơ bản" | "Trung bình" | "Vận dụng" | string;
   problem: string;
   solution: string;
+  image?: string;
+  caption?: string;
 }
 
 export interface Pitfall {
@@ -21,6 +23,8 @@ export interface GatekeeperQuiz {
   opts: string[];
   ans: number;
   fb: string;
+  image?: string;
+  caption?: string;
 }
 
 export interface LectureRef {

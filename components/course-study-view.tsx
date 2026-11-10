@@ -853,12 +853,42 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
                     </CardHeader>
                     <CardContent className="p-4 sm:p-5 space-y-4 text-xs sm:text-sm">
                       {/* Problem */}
-                      <div className="bg-slate-50 dark:bg-slate-900/70 p-3.5 sm:p-4 rounded-xl border border-border/70 text-slate-800 dark:text-slate-200 leading-relaxed">
+                      <div className="bg-slate-50 dark:bg-slate-900/70 p-3.5 sm:p-4 rounded-xl border border-border/70 text-slate-800 dark:text-slate-200 leading-relaxed space-y-3">
                         <div className="font-bold text-[11px] text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
                           <HelpCircle className="h-3.5 w-3.5" />
                           Đề bài (Trích Slide UET):
                         </div>
                         <div dangerouslySetInnerHTML={{ __html: renderMathInText(ex.problem) }} />
+
+                        {ex.image && (
+                          <div
+                            onClick={() =>
+                              setZoomedImage({
+                                title: `Sơ đồ Ví dụ ${idx + 1} (${ex.level})`,
+                                src: ex.image!,
+                                caption: ex.caption || "Sơ đồ minh họa đề bài",
+                              })
+                            }
+                            className="group relative cursor-zoom-in rounded-xl overflow-hidden border border-border/80 bg-slate-900/5 dark:bg-slate-950/40 p-2 transition-all hover:border-blue-500/60 flex flex-col justify-center items-center mt-2"
+                            title="Nhấn để phóng to sơ đồ ví dụ"
+                          >
+                            <img
+                              src={ex.image}
+                              alt={`Minh họa Ví dụ ${idx + 1}`}
+                              className="max-h-[260px] sm:max-h-[320px] w-auto object-contain rounded-lg transition-transform duration-200 group-hover:scale-[1.01]"
+                              loading="lazy"
+                            />
+                            <div className="absolute bottom-2.5 right-2.5 bg-slate-900/85 text-white text-[10.5px] font-medium px-2 py-1 rounded-md opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity flex items-center gap-1 shadow-sm backdrop-blur-xs">
+                              <Maximize2 className="h-3 w-3" />
+                              <span>Phóng to sơ đồ</span>
+                            </div>
+                            {ex.caption && (
+                              <p className="text-[11px] text-muted-foreground mt-1.5 text-center italic">
+                                {ex.caption}
+                              </p>
+                            )}
+                          </div>
+                        )}
                       </div>
 
                       {/* Solution */}
@@ -1011,6 +1041,37 @@ export function CourseStudyView({ course }: CourseStudyViewProps) {
                         className="font-bold text-xs sm:text-sm text-foreground leading-snug"
                         dangerouslySetInnerHTML={{ __html: renderMathInText(quiz.q) }}
                       />
+
+                      {/* Question Diagram / Illustration */}
+                      {quiz.image && (
+                        <div
+                          onClick={() =>
+                            setZoomedImage({
+                              title: `Sơ đồ Câu ${qIdx + 1} (${isL1 ? "Cấp độ 1: Nhận biết" : isL2 ? "Cấp độ 2: Thông hiểu" : "Cấp độ 3: Vận dụng"})`,
+                              src: quiz.image!,
+                              caption: quiz.caption || "Sơ đồ minh họa đề bài",
+                            })
+                          }
+                          className="group relative cursor-zoom-in rounded-xl overflow-hidden border border-border/80 bg-slate-900/5 dark:bg-slate-950/40 p-2 transition-all hover:border-blue-500/60 flex flex-col justify-center items-center my-2"
+                          title="Nhấn để phóng to sơ đồ câu hỏi"
+                        >
+                          <img
+                            src={quiz.image}
+                            alt={`Sơ đồ câu ${qIdx + 1}`}
+                            className="max-h-[240px] sm:max-h-[300px] w-auto object-contain rounded-lg transition-transform duration-200 group-hover:scale-[1.01]"
+                            loading="lazy"
+                          />
+                          <div className="absolute bottom-2.5 right-2.5 bg-slate-900/85 text-white text-[10.5px] font-medium px-2 py-1 rounded-md opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity flex items-center gap-1 shadow-sm backdrop-blur-xs">
+                            <Maximize2 className="h-3 w-3" />
+                            <span>Phóng to sơ đồ</span>
+                          </div>
+                          {quiz.caption && (
+                            <p className="text-[11px] text-muted-foreground mt-1.5 text-center italic">
+                              {quiz.caption}
+                            </p>
+                          )}
+                        </div>
+                      )}
 
                       {/* Options */}
                       <div className="space-y-2">
