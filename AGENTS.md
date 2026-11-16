@@ -4,6 +4,15 @@ Tài liệu này là quy chuẩn bắt buộc áp dụng cho mọi môn học tr
 
 ---
 
+## 📌 Bộ Tài Liệu Định Hướng Cốt Lõi Cho AI Agent (Core Agent References)
+
+Mọi AI Agent khi nhận tác vụ trong repository này **bắt buộc phải tham chiếu 3 tài liệu cơ sở**:
+1. 📖 [**`PROJECT_CONTEXT.md`**](file:///d:/Projects/XSTK/PROJECT_CONTEXT.md): Tổng quan hiện trạng dự án, các môn học (`MAT1052`, `INT2207`), tech stack (Next.js 16, Tailwind v4, shadcn/ui, KaTeX) và tiến độ kỹ thuật.
+2. 🗺️ [**`DIR_TREE.md`**](file:///d:/Projects/XSTK/DIR_TREE.md): Bản đồ cây thư mục & bảng tra cứu file nhanh. **BẮT BUỘC ĐỌC ĐẦU TIÊN** để đi thẳng tới file cần sửa, tuyệt đối cấm chạy lệnh quét đệ quy mù quáng (`findstr /S *.*`, `grep -r`) làm treo hệ thống.
+3. ⚡ [**`AGENT_GUIDELINES.md`**](file:///d:/Projects/XSTK/AGENT_GUIDELINES.md): Cẩm nang chi tiết về các luật lưu ý, bộ skill frontend (`frontend-design-workflow`, `ui-ux-pro-max`, `impeccable`, `ui-styling`), các MCP server hỗ trợ (`context7`, `twg` Jira, `github-mcp-server`), và checklist nghiệm thu trước khi commit.
+
+---
+
 ## 1. Triết lý Sư phạm & Trải nghiệm Người học (Core UX Flow)
 
 Mọi bài học trong hệ sinh thái đều phải tuân thủ nghiêm ngặt luồng học tập tương tác phân đoạn (Section Stepper), tuyệt đối không để người học đọc lướt thụ động hoặc bị choáng ngợp bởi một văn bản dài:
